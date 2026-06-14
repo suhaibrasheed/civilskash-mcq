@@ -1,5 +1,139 @@
 [
   {
+    "id": "c57be9e5-8c82-4547-a278-d9e98af14015",
+    "category_id": "indian-economy",
+    "tags": [],
+    "difficulty": "medium",
+    "question": "With reference to foreign-owned e-commerce firms, operating in India, which of the following statements is/are correct?<br>1. They can sell their own goods in addition to offering their platforms as market-places.<br>2. The degree to which they can own big sellers on their platforms is limited..<br>Select the correct answer using the code given below:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">India’s FDI policy </span><span class=\"text-teal\" style=\"font-weight: 800;\">allows foreign e-commerce firms</span> only under the<span class=\"text-teal\" style=\"font-weight: 800;\"> marketplace model, </span>meaning they cannot sell their own inventory directly on the platform. However, to prevent control over sellers, rules<span class=\"text-orange\" style=\"font-weight: 800;\"> restrict ownership or control of large vendors </span>on the platform, limiting their equity participation in such sellers.",
+    "pyq": null,
+    "created_at": "2026-06-14T14:40:16.361504+00:00"
+  },
+  {
+    "id": "917a6ea2-24e0-4676-834c-d9e861b339cf",
+    "category_id": "indian-economy",
+    "tags": [
+      "Money"
+    ],
+    "difficulty": "easy",
+    "question": "Which one of the following is not the most likely measure the Government/RBI takes to stop the slide of the Indian rupee?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Curbing imports of non-essential goods and promoting exports",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Encouraging Indian borrowers to issue rupee denominated Masala Bonds",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Easing conditions relating to External Commercial Borrowing (ECB)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Following an expansionary monetary policy",
+        "label": "D"
+      }
+    ],
+    "explanation": "To stabilize a depreciating currency, authorities usually try to increase foreign exchange inflows or reduce forex demand by promoting exports, attracting capital inflows (ECB, Masala bonds), or limiting imports. Expansionary monetary policy increases liquidity and often weakens the currency, so it is generally not used to defend a falling rupee.",
+    "pyq": null,
+    "created_at": "2026-06-14T14:40:16.361504+00:00"
+  },
+  {
+    "id": "de2d4ae9-25df-4193-9027-e0f14d0268bc",
+    "category_id": "indian-economy",
+    "tags": [],
+    "difficulty": "easy",
+    "question": "Which one of the following situations best reflects \"Indirect Transfers\" often talked about in media recently with reference to India ?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "An Indian company investing in a foreign enterprise and paying taxes to the foreign country on the profits arising out of its investment.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A foreign company investing in India and paying taxes to the country of its base on the profits arising out of its investment.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "An Indian company purchases tangible assets in a foreign country and sells such assets after their value increases and transfers the proceeds to India.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A foreign company transfers shares and such shares derive their substantial value from assets located in India.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": null,
+    "created_at": "2026-06-14T14:40:16.361504+00:00"
+  },
+  {
+    "id": "09f1d175-697d-446b-b743-a502bf1157df",
+    "category_id": "indian-economy",
+    "tags": [],
+    "difficulty": "medium",
+    "question": "Which of the following activities constitute real sector in the economy?<br>1- Farmers harvesting their crops<br>2- Textile mills converting raw cotton into fabrics<br>3- A commercial bank lending money to a trading company<br>4- A corporate body issuing Rupee<br>5- Denominated Bonds overseas<br>Select the correct answer using the code given below:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2, 3 and 4 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 3 and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3 and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "The real sector deals with production of goods and services, not financial transactions. Activities like agriculture and manufacturing belong to the real sector. In contrast, bank lending and issuing bonds are financial activities that belong to the financial sector, not the real sector. <span class=\"text-blue-500 font-bold\"> </span>",
+    "pyq": null,
+    "created_at": "2026-06-14T14:40:16.361504+00:00"
+  },
+  {
     "id": "b5fc6a81-9f86-4978-85cc-8eebe1b8f2ef",
     "category_id": "indian-economy",
     "tags": [
