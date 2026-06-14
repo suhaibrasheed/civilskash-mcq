@@ -108,7 +108,7 @@ function App() {
               {showSplash && (
                 <AppLoadingSplash isFadingOut={contentReady} />
               )}
-              <BrowserRouter basename="/mcq">
+              <BrowserRouter basename={window.location.pathname.startsWith('/mcq') ? '/mcq' : '/'}>
                 <Routes>
                   <Route path="/" element={<OnboardingGuard><Home key={contentReady ? "ready" : "loading"} /></OnboardingGuard>} />
                   <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
