@@ -641,7 +641,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 transition-all duration-500 relative"
+        className="sticky top-0 z-50 transition-all duration-500"
         style={{
           background: 'rgba(var(--color-surface-rgb), 0.72)',
           borderBottom: '1px solid rgba(var(--color-primary), 0.10)',

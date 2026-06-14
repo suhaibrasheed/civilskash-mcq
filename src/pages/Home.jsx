@@ -870,7 +870,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen pb-28 overflow-x-hidden font-sans relative"
+      className="min-h-screen pb-28 overflow-x-clip font-sans relative"
     >
       <Header />
 
