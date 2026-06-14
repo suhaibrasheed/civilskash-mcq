@@ -38,41 +38,6 @@
     "created_at": "2026-05-30T15:52:28.390001+00:00"
   },
   {
-    "id": "acc4ba16-fe94-4c06-8bc3-e14aceaf8c17",
-    "category_id": "jk-affairs",
-    "tags": [
-      "Jk History"
-    ],
-    "difficulty": null,
-    "question": "Which ruler is credited with introducing Buddhism to Kashmir on a large scale?",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "Lalitaditya Muktapida",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Ashoka",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Avantivarman",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Harsha",
-        "label": "D"
-      }
-    ],
-    "explanation": "Ashoka of the<span style=\"font-weight: bold;\"> Mauryan Empire</span> is traditionally credited with introducing and promoting <span style=\"font-weight: bold;\">Buddhism in Kashmir</span> during the<span style=\"font-weight: bold;\"> 3rd century BCE</span>. He is also associated with the founding of <span style=\"font-style: italic;\">Srinagari, an ancient settlement in Kashmir.</span>&nbsp;<br>",
-    "pyq": null,
-    "created_at": "2026-05-30T15:52:28.390001+00:00"
-  },
-  {
     "id": "36bf9317-6a0d-4e18-a84f-06cf2c70e9af",
     "category_id": "jk-affairs",
     "tags": [
@@ -104,6 +69,41 @@
       }
     ],
     "explanation": "Sultan<span class=\"text-teal\" style=\"font-weight: 800;\"> Zain-ul-Abidin (Budshah)</span> ruled Kashmir in the 15th century and is remembered for promoting religious harmony, reviving arts and crafts, encouraging learning, and reducing oppressive measures. His reign is considered a <span style=\"font-style: italic;\">golden period in medieval Kashmiri history</span>. /<br>",
+    "pyq": null,
+    "created_at": "2026-05-30T15:52:28.390001+00:00"
+  },
+  {
+    "id": "acc4ba16-fe94-4c06-8bc3-e14aceaf8c17",
+    "category_id": "jk-affairs",
+    "tags": [
+      "Jk History"
+    ],
+    "difficulty": null,
+    "question": "Which ruler is credited with introducing Buddhism to Kashmir on a large scale?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lalitaditya Muktapida",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ashoka",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Avantivarman",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Harsha",
+        "label": "D"
+      }
+    ],
+    "explanation": "Ashoka of the<span style=\"font-weight: bold;\"> Mauryan Empire</span> is traditionally credited with introducing and promoting <span style=\"font-weight: bold;\">Buddhism in Kashmir</span> during the<span style=\"font-weight: bold;\"> 3rd century BCE</span>. He is also associated with the founding of <span style=\"font-style: italic;\">Srinagari, an ancient settlement in Kashmir.</span>&nbsp;<br>",
     "pyq": null,
     "created_at": "2026-05-30T15:52:28.390001+00:00"
   }
