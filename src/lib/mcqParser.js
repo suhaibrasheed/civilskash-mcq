@@ -32,7 +32,7 @@ export function extractTags(text) {
     const normalized = normalizeTag(match[1]);
     if (!tags.includes(normalized)) tags.push(normalized);
   }
-  const cleanText = text.replace(/#[\w_]+/g, '').replace(/\s{2,}/g, ' ').trim();
+  const cleanText = text;
   return { tags, cleanText };
 }
 

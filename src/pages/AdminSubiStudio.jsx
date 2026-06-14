@@ -792,7 +792,23 @@ export default function AdminSubiStudio() {
                   if (!tags.includes(normalized)) tags.push(normalized);
               }
           }
-          exp = exp.replace(tagRegex, '').trim();
+
+          const hasTagInText = (text, tag) => {
+              const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
+              const words = text.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
+              return words.includes(cleaned);
+          };
+
+          if (difficulty && !hasTagInText(exp, difficulty)) {
+              exp = exp.trim() + ` #${difficulty}`;
+          }
+
+          tags.forEach(t => {
+              const tagSlug = t.toLowerCase().replace(/\s+/g, '_');
+              if (!hasTagInText(exp, tagSlug) && !hasTagInText(exp, t)) {
+                  exp = exp.trim() + ` #${tagSlug}`;
+              }
+          });
 
           const labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
           const optionsHtml = mcq.options.map((optText, idx) => {
