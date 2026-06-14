@@ -105,6 +105,9 @@ CREATE POLICY "Admins can manage exams" ON public.exams
 -- 5. Explicitly grant permissions on questions and exams tables to API roles
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.questions TO authenticated;
 GRANT SELECT ON public.questions TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.questions TO service_role;
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.exams TO authenticated;
 GRANT SELECT ON public.exams TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.exams TO service_role;
+
