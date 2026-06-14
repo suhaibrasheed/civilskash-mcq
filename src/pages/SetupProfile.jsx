@@ -91,7 +91,7 @@ export default function SetupProfile() {
     return () => clearTimeout(timeout);
   }, [username]);
 
-  if (authLoading || (user && !economy)) {
+  if (authLoading || (user && (!economy || economy.id !== user.id))) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-theme-bg text-theme-text">
         <div className="btn-spin w-8 h-8 border-4 border-theme-primary border-t-transparent rounded-full animate-spin" />
