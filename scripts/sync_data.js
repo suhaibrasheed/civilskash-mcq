@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -89,55 +89,102 @@ async function syncData() {
       });
     });
 
-    // Write category files
-    const categoryKeys = Object.keys(groupedQuestions);
-    const databaseCategories = new Set();
-
-    categoryKeys.forEach((catId) => {
-      const filename = getCategoryFilename(catId);
-      const filePath = path.join(TARGET_DIR, `${filename}.json`);
-      
-      fs.writeFileSync(
-        filePath,
-        JSON.stringify(groupedQuestions[catId], null, 2),
-        'utf-8'
-      );
-      console.log(`Compiled category "${catId}" -> ${filename}.json (${groupedQuestions[catId].length} questions)`);
-      databaseCategories.add(filename);
-    });
-
-    // Scan TARGET_DIR to build full registry containing both DB files and fallback static JS files
-    const registryEntries = [];
-    const camelToKebab = (str) => {
-      if (str === 'JKAffairs') return 'jk-affairs';
-      if (str === 'StaticGK') return 'static-gk';
-      return str
-        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
-        .replace(/([a-z\d])([A-Z])/g, '$1-$2')
-        .toLowerCase();
+    // Define the 18 categories and their original static JS filenames
+    const CATEGORY_MAP = {
+      'accountancy': 'Accountancy.js',
+      'ancient-history': 'AncientHistory.js',
+      'computer-awareness': 'ComputerAwareness.js',
+      'current-affairs': 'CurrentAffairs.js',
+      'english': 'English.js',
+      'environment': 'Environment.js',
+      'general-science': 'GeneralScience.js',
+      'indian-economy': 'IndianEconomy.js',
+      'indian-geography': 'IndianGeography.js',
+      'indian-polity': 'IndianPolity.js',
+      'jk-affairs': 'JKAffairs.js',
+      'maths': 'Maths.js',
+      'medieval-history': 'MedievalHistory.js',
+      'modern-history': 'ModernHistory.js',
+      'physical-geography': 'PhysicalGeography.js',
+      'reasoning': 'Reasoning.js',
+      'static-gk': 'StaticGK.js',
+      'world-geography': 'WorldGeography.js'
     };
 
-    const files = fs.readdirSync(TARGET_DIR);
-    
-    // First, add all database-backed JSON files
-    files.forEach((file) => {
-      if (file.endsWith('.json') && file !== 'exams.json') {
-        const catId = file.replace('.json', '');
-        registryEntries.push(`  "${catId}": () => import('./${file}')`);
-      }
-    });
+    const registryEntries = [];
 
-    // Next, add all fallback JS files if they don't have a corresponding JSON database file
-    files.forEach((file) => {
-      if (file.endsWith('.js') && file !== 'registry.js') {
-        const originalName = file.replace('.js', '');
-        const catId = camelToKebab(originalName);
-        // Only add if not overridden by a database-backed JSON file
-        if (!databaseCategories.has(catId)) {
-          registryEntries.push(`  "${catId}": () => import('./${file}')`);
+    for (const [catId, jsFilename] of Object.entries(CATEGORY_MAP)) {
+      let mergedQuestions = [];
+      const jsPath = path.join(TARGET_DIR, jsFilename);
+
+      // 1. If static JS file exists, import questions from it
+      if (fs.existsSync(jsPath)) {
+        try {
+          const module = await import(pathToFileURL(jsPath).href);
+          const keys = Object.keys(module);
+          const arrayKey = keys.find(k => Array.isArray(module[k]));
+          if (arrayKey) {
+            const staticQuestions = module[arrayKey].map(q => ({
+              id: q.id,
+              category_id: catId,
+              tags: Array.isArray(q.tags) ? q.tags : [],
+              difficulty: q.difficulty || null,
+              question: q.question,
+              correctId: q.correctId || q.correct_id || 'a',
+              correct_id: q.correctId || q.correct_id || 'a',
+              options: Array.isArray(q.options) ? q.options : [],
+              explanation: q.explanation || '',
+              pyq: q.pyq || null,
+              created_at: q.created_at || new Date(0).toISOString()
+            }));
+            mergedQuestions.push(...staticQuestions);
+            console.log(`Loaded ${staticQuestions.length} static questions from ${jsFilename}`);
+          }
+        } catch (err) {
+          console.error(`Failed to load static file ${jsFilename}:`, err);
         }
       }
-    });
+
+      // 2. Merge database questions (preferring DB version if duplicate ID exists)
+      const dbQuestions = groupedQuestions[catId] || [];
+      dbQuestions.forEach(dbQ => {
+        const normalizedDbQ = {
+          id: dbQ.id,
+          category_id: catId,
+          tags: dbQ.tags,
+          difficulty: dbQ.difficulty,
+          question: dbQ.question,
+          correctId: dbQ.correctId || dbQ.correct_id || 'a',
+          correct_id: dbQ.correctId || dbQ.correct_id || 'a',
+          options: dbQ.options,
+          explanation: dbQ.explanation,
+          pyq: dbQ.pyq,
+          created_at: dbQ.created_at
+        };
+
+        const existingIdx = mergedQuestions.findIndex(q => q.id === dbQ.id);
+        if (existingIdx !== -1) {
+          mergedQuestions[existingIdx] = normalizedDbQ;
+        } else {
+          mergedQuestions.push(normalizedDbQ);
+        }
+      });
+
+      // 3. Write compiled questions to JSON
+      const jsonFilename = `${catId}.json`;
+      const jsonPath = path.join(TARGET_DIR, jsonFilename);
+      fs.writeFileSync(jsonPath, JSON.stringify(mergedQuestions, null, 2), 'utf-8');
+      console.log(`Successfully compiled category "${catId}" -> ${jsonFilename} (${mergedQuestions.length} total questions)`);
+
+      // 4. Register in registry
+      registryEntries.push(`  "${catId}": () => import('./${jsonFilename}')`);
+
+      // 5. Clean up the old JS file (if it exists) to avoid duplicates/mismatch
+      if (fs.existsSync(jsPath)) {
+        fs.unlinkSync(jsPath);
+        console.log(`Deleted deprecated file ${jsFilename}`);
+      }
+    }
 
     // Write registry.js
     const registryContent = `// Automatically generated by scripts/sync_data.js. Do not edit manually.
