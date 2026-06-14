@@ -1,5 +1,45 @@
 [
   {
+    "id": "9849a76b-341f-4823-a345-962fda3ced64",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Era Of Computer"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following refers to too much electricity and may cause a voltage surge?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Anomaly",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Shock",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Spike",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Virus",
+        "label": "D"
+      },
+      {
+        "id": "e",
+        "text": "Splash",
+        "label": "E"
+      }
+    ],
+    "explanation": "A <span class=\"text-red\" style=\"font-weight: 800;\">voltage spike (or surge) </span>is a brief but intense <span class=\"text-teal\" style=\"font-weight: 800;\">increase in electrical voltage</span>. These sudden, high-energy events can damage electronic equipment and are often caused by factors like lightning strikes or power grid fluctuations. <span class=\"text-magenta\" style=\"font-weight: 800;\">Surge protectors</span> are used to mitigate their impact.",
+    "pyq": null,
+    "created_at": "2026-06-14T15:41:33.499294+00:00"
+  },
+  {
     "id": "4b818e9a-e5a2-4a9a-a65e-5425ada4d517",
     "category_id": "computer-awareness",
     "tags": [
@@ -156,46 +196,6 @@
       }
     ],
     "explanation": "The <span class=\"text-blue\" style=\"font-weight: 800;\">first generation computers</span>, which used <span class=\"text-green\" style=\"font-weight: 800;\">vacuum tubes</span>, were characterized by their relatively <span class=\"text-teal\" style=\"font-weight: 800;\">slow processing speeds</span>, typically measured <span class=\"text-green\" style=\"font-weight: 800;\">in milliseconds</span>. Subsequent generations saw speeds increase to microseconds, then nanoseconds, and now picoseconds.",
-    "pyq": null,
-    "created_at": "2026-06-14T15:41:33.499294+00:00"
-  },
-  {
-    "id": "9849a76b-341f-4823-a345-962fda3ced64",
-    "category_id": "computer-awareness",
-    "tags": [
-      "Era Of Computer"
-    ],
-    "difficulty": "easy",
-    "question": "Which of the following refers to too much electricity and may cause a voltage surge?",
-    "correctId": "c",
-    "options": [
-      {
-        "id": "a",
-        "text": "Anomaly",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Shock",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Spike",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Virus",
-        "label": "D"
-      },
-      {
-        "id": "e",
-        "text": "Splash",
-        "label": "E"
-      }
-    ],
-    "explanation": "A <span class=\"text-red\" style=\"font-weight: 800;\">voltage spike (or surge) </span>is a brief but intense <span class=\"text-teal\" style=\"font-weight: 800;\">increase in electrical voltage</span>. These sudden, high-energy events can damage electronic equipment and are often caused by factors like lightning strikes or power grid fluctuations. <span class=\"text-magenta\" style=\"font-weight: 800;\">Surge protectors</span> are used to mitigate their impact.",
     "pyq": null,
     "created_at": "2026-06-14T15:41:33.499294+00:00"
   },
