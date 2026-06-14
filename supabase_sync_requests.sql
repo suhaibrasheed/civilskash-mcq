@@ -16,3 +16,8 @@ CREATE POLICY "Authenticated users can insert sync requests" ON public.sync_requ
 -- Allow authenticated users to view sync requests
 CREATE POLICY "Authenticated users can view sync requests" ON public.sync_requests
   FOR SELECT TO authenticated USING (true);
+
+-- Explicitly grant permissions on sync_requests table to API roles
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.sync_requests TO authenticated;
+GRANT SELECT ON public.sync_requests TO anon;
+
