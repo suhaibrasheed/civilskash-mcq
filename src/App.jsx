@@ -80,7 +80,9 @@ import { SoundProvider } from './context/SoundContext';
 import { ToastProvider } from './context/ToastContext';
 import { loadOfflineQuestionsIntoSyncBank } from './lib/dataHub';
 
-function App() {
+function AppContent() {
+  const { user, loading: authLoading } = useAuth();
+  const { economy } = useEconomy();
   const [contentReady, setContentReady] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
 
@@ -90,45 +92,60 @@ function App() {
       await loadOfflineQuestionsIntoSyncBank();
       if (mounted) {
         setContentReady(true);
-        setTimeout(() => {
-          if (mounted) setShowSplash(false);
-        }, 600); // sync with CSS transition duration
       }
     };
     loadQuestionSources();
     return () => { mounted = false; };
   }, []);
 
+  // Ensure questions, Auth, and Economy are fully resolved before hiding the splash screen
+  const isFullyLoaded = contentReady && !authLoading && (!user || (economy && economy.id === user.id));
+
+  useEffect(() => {
+    if (isFullyLoaded) {
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+      }, 600); // sync with CSS transition duration
+      return () => clearTimeout(timer);
+    }
+  }, [isFullyLoaded]);
+
+  return (
+    <div className="relative min-h-screen">
+      {showSplash && (
+        <AppLoadingSplash isFadingOut={isFullyLoaded} />
+      )}
+      <BrowserRouter basename={window.location.pathname.startsWith('/mcq') ? '/mcq' : '/'}>
+        <Routes>
+          <Route path="/" element={<OnboardingGuard><Home key={isFullyLoaded ? "ready" : "loading"} /></OnboardingGuard>} />
+          <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
+          <Route path="/mcq/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+          <Route path="/mcq/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+          <Route path="/pyq-archive/:examName" element={<OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard>} />
+          <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
+          <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
+          <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
+          <Route path="/profile" element={<OnboardingGuard><ProfileDashboard /></OnboardingGuard>} />
+          <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
+          <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
+          <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
+          <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
+          <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
+          <Route path="/setup-profile" element={<SetupProfile />} />
+        </Routes>
+        <NavigationWrapper />
+      </BrowserRouter>
+    </div>
+  );
+}
+
+function App() {
   return (
     <ThemeProvider>
       <SoundProvider>
         <EconomyProvider>
           <ToastProvider>
-            <div className="relative min-h-screen">
-              {showSplash && (
-                <AppLoadingSplash isFadingOut={contentReady} />
-              )}
-              <BrowserRouter basename={window.location.pathname.startsWith('/mcq') ? '/mcq' : '/'}>
-                <Routes>
-                  <Route path="/" element={<OnboardingGuard><Home key={contentReady ? "ready" : "loading"} /></OnboardingGuard>} />
-                  <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
-                  <Route path="/mcq/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-                  <Route path="/mcq/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-                  <Route path="/pyq-archive/:examName" element={<OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard>} />
-                  <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
-                  <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
-                  <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
-                  <Route path="/profile" element={<OnboardingGuard><ProfileDashboard /></OnboardingGuard>} />
-                  <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
-                  <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
-                  <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
-                  <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
-                  <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-                  <Route path="/setup-profile" element={<SetupProfile />} />
-                </Routes>
-                <NavigationWrapper />
-              </BrowserRouter>
-            </div>
+            <AppContent />
           </ToastProvider>
         </EconomyProvider>
       </SoundProvider>
