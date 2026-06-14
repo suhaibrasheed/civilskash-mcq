@@ -2014,7 +2014,58 @@ export default function AdminSubiStudio() {
     }
   };
 
+  const handleSelectSuggestedTag = (tag) => {
+    const isSpecial = ['easy', 'medium', 'hard'].includes(tag);
+    const selection = window.getSelection();
+    if (selection && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        const textNode = range.startContainer;
+        const text = textNode.textContent || '';
+        const match = text.match(/#([a-zA-Z0-9_]*)$/);
+        if (match) {
+            range.setStart(textNode, range.startOffset - match[0].length);
+            range.deleteContents();
+            const span = document.createElement('span');
+            span.className = isSpecial ? (tag==='hard'?'text-rose-500 font-bold':tag==='medium'?'text-blue-500 font-bold':'text-emerald-500 font-bold') : 'text-theme-primary font-medium';
+            span.textContent = `#${tag} `;
+            range.insertNode(span);
+            range.setStartAfter(span);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+    setTagPalette(p => ({ ...p, show: false }));
+  };
+
   const handleEditorKeyDown = (e) => {
+    if (tagPalette.show) {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            setTagPalette(p => ({ ...p, show: false }));
+            return;
+        }
+
+        if (tagPalette.results.length > 0) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setTagPalette(p => ({ ...p, selectedIndex: (p.selectedIndex + 1) % p.results.length }));
+                return;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setTagPalette(p => ({ ...p, selectedIndex: (p.selectedIndex - 1 + p.results.length) % p.results.length }));
+                return;
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                const selectedTag = tagPalette.results[tagPalette.selectedIndex];
+                if (selectedTag) {
+                    handleSelectSuggestedTag(selectedTag);
+                }
+                return;
+            }
+        }
+    }
+
     if (e.key === '/') {
         if (!cmdPalette.show) {
             e.preventDefault();
@@ -3490,28 +3541,7 @@ export default function AdminSubiStudio() {
                       return (
                           <button 
                               key={tag}
-                              onClick={() => {
-                                  const selection = window.getSelection();
-                                  if (selection && selection.rangeCount > 0) {
-                                      const range = selection.getRangeAt(0);
-                                      const textNode = range.startContainer;
-                                      const text = textNode.textContent;
-                                      const match = text.match(/#([a-zA-Z0-9_]*)$/);
-                                      if (match) {
-                                          range.setStart(textNode, range.startOffset - match[0].length);
-                                          range.deleteContents();
-                                          const span = document.createElement('span');
-                                          span.className = isSpecial ? (tag==='hard'?'text-rose-500 font-bold':tag==='medium'?'text-blue-500 font-bold':'text-emerald-500 font-bold') : 'text-theme-primary font-medium';
-                                          span.textContent = `#${tag} `;
-                                          range.insertNode(span);
-                                          range.setStartAfter(span);
-                                          range.collapse(true);
-                                          selection.removeAllRanges();
-                                          selection.addRange(range);
-                                      }
-                                  }
-                                  setTagPalette(p => ({ ...p, show: false }));
-                              }}
+                              onClick={() => handleSelectSuggestedTag(tag)}
                               className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left transition-colors ${tagPalette.selectedIndex === idx ? 'bg-theme-surface text-theme-text' : 'text-theme-muted hover:bg-theme-surface hover:text-theme-text'}`}
                           >
                               {isSpecial ? (
