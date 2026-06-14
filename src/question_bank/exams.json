@@ -1,1 +1,153 @@
-[]
+[
+  {
+    "id": "jkssb-faa",
+    "name": "JKSSB FAA",
+    "categories": [
+      {
+        "id": "accountancy",
+        "weight": 25
+      },
+      {
+        "id": "jk-affairs",
+        "weight": 12
+      },
+      {
+        "id": "english",
+        "weight": 8
+      },
+      {
+        "id": "computer-awareness",
+        "weight": 8
+      },
+      {
+        "id": "current-affairs",
+        "weight": 7
+      },
+      {
+        "id": "general-science",
+        "weight": 8
+      },
+      {
+        "id": "environment",
+        "weight": 6
+      },
+      {
+        "id": "indian-geography",
+        "weight": 5
+      },
+      {
+        "id": "modern-history",
+        "weight": 4
+      },
+      {
+        "id": "static-gk",
+        "weight": 4
+      },
+      {
+        "id": "indian-economy",
+        "weight": 10
+      },
+      {
+        "id": "physical-geography",
+        "weight": 3
+      }
+    ],
+    "difficulties": {
+      "easy": 0.35,
+      "hard": 0.25,
+      "medium": 0.4
+    },
+    "created_at": "2026-06-05T03:49:32.428023+00:00",
+    "status": "published"
+  },
+  {
+    "id": "jkpsc-prelims-2026",
+    "name": "JKPSC Prelims 2026",
+    "categories": [
+      {
+        "id": "current-affairs",
+        "weight": 12
+      },
+      {
+        "id": "jk-affairs",
+        "weight": 6
+      },
+      {
+        "id": "indian-polity",
+        "weight": 15
+      },
+      {
+        "id": "indian-economy",
+        "weight": 10
+      },
+      {
+        "id": "environment",
+        "weight": 10
+      },
+      {
+        "id": "general-science",
+        "weight": 10
+      },
+      {
+        "id": "modern-history",
+        "weight": 8
+      },
+      {
+        "id": "medieval-history",
+        "weight": 4
+      },
+      {
+        "id": "ancient-history",
+        "weight": 5
+      },
+      {
+        "id": "indian-geography",
+        "weight": 6
+      },
+      {
+        "id": "physical-geography",
+        "weight": 7
+      },
+      {
+        "id": "world-geography",
+        "weight": 3
+      },
+      {
+        "id": "static-gk",
+        "weight": 4
+      }
+    ],
+    "difficulties": {
+      "easy": 0.2,
+      "hard": 0.3,
+      "medium": 0.5
+    },
+    "created_at": "2026-06-05T03:57:33.401074+00:00",
+    "status": "published"
+  },
+  {
+    "id": "upsc-csat-prelims-",
+    "name": "UPSC CSAT (Prelims)",
+    "categories": [
+      {
+        "id": "reasoning",
+        "weight": 40
+      },
+      {
+        "id": "maths",
+        "weight": 55
+      },
+      {
+        "id": "english",
+        "weight": 5
+      }
+    ],
+    "difficulties": {
+      "easy": 0.2,
+      "hard": 0.45,
+      "medium": 0.35
+    },
+    "created_at": "2026-06-05T04:02:19.650363+00:00",
+    "status": "published"
+  }
+]

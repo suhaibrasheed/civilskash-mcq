@@ -1,0 +1,169 @@
+[
+  {
+    "id": "e84738a3-ecd7-470f-bc53-7e471125d108",
+    "category_id": "indian-polity",
+    "tags": [],
+    "difficulty": "medium",
+    "question": "Consider the following statements:<br>1. Attorney General of India and Solicitor General of India are the only officers of the Government who are allowed to participate in the meetings of the Parliament of India.<br>2. According to the Constitution of India, the Attorney General of India submits his resignation when the Government which appointed him resigns.<br>Which of the statements given above is/are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Statement 1 is incorrect</span> because only the<b> Attorney General of India</b> has the <span style=\"font-style: italic;\">constitutional right to participate in Parliamentary proceedings </span>(without voting rights), while the Solicitor General has no such constitutional privilege. <span class=\"text-red\" style=\"font-weight: 800;\">Statement 2 is incorrect </span>because the Constitution does not require the Attorney General to resign when the government changes; he<span class=\"text-green\" style=\"font-weight: 800;\"> holds office during the pleasure of the President,</span> and resignation on change of government is merely a convention.",
+    "pyq": null,
+    "created_at": "2026-06-09T12:26:54.749251+00:00"
+  },
+  {
+    "id": "69fdee19-ac62-49b7-810c-0261d0b172fc",
+    "category_id": "indian-polity",
+    "tags": [
+      "Parliament"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following is/are the exclusive power(s) of Lok Sabha?<br>1. To ratify the declaration of Emergency<br>2. To pass a motion of no-confidence against the Council of Ministers<br>3. To impeach the President of India<br>Select the correct answer using the code given below:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "3 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "The power to pass a <span class=\"text-green\" style=\"font-weight: 800;\">no-confidence motion</span> is exclusive to the Lok Sabha because the <span style=\"font-weight: bold;\">Council of Ministers is collectively responsible solely to that house</span>. In contrast, ratifying a National Emergency and impeaching the President are <span class=\"text-green\" style=\"font-weight: 800;\">not exclusive powers</span>; they require the formal consent of both the Lok Sabha and the Rajya Sabha,<span style=\"font-style: italic;\"> reflecting the bicameral requirement </span>for these critical constitutional processes. <span class=\"text-blue-500 font-bold\"> <span class=\"text-theme-primary font-medium\"> <span class=\"text-amber-500 font-bold pyq-marker\"></span></span></span>",
+    "pyq": "UPSC Prelims 2022",
+    "created_at": "2026-06-09T11:04:34.858685+00:00"
+  },
+  {
+    "id": "79ea66c9-fe21-4c3a-9b9c-eb68d4276634",
+    "category_id": "indian-polity",
+    "tags": [],
+    "difficulty": null,
+    "question": "Which of the following Fundamental Rights has been described as the \"heart and soul\" of the Constitution by Dr. B.R. Ambedkar?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Right to Equality (Article 14)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Right to Freedom (Article 19)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Right to Constitutional Remedies (Article 32)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Cultural and Educational Rights (Articles 29–30)",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Article 32 </span>empowers citizens to directly approach the <span class=\"text-teal\" style=\"font-weight: 800;\">B. R. Ambedkar</span>-envisioned Supreme Court of India for enforcement of Fundamental Rights. Ambedkar called it the <span class=\"text-blue\" style=\"font-weight: 800;\">\"heart and soul\" of the Constitution </span>because rights become meaningful only when remedies are available.",
+    "pyq": null,
+    "created_at": "2026-06-05T15:59:02.018152+00:00"
+  },
+  {
+    "id": "9037b483-53c8-445d-850d-315e6a36d14e",
+    "category_id": "indian-polity",
+    "tags": [],
+    "difficulty": null,
+    "question": "Which of the following rights is available only to citizens of India and not to foreigners?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Equality before Law (Article 14)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Protection of Life and Personal Liberty (Article 21)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Freedom of Speech and Expression (Article 19(1)(a))",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Protection against Arbitrary Arrest (Article 22)",
+        "label": "D"
+      }
+    ],
+    "explanation": "The six freedoms under <span class=\"text-green\" style=\"font-weight: 800;\">Article 19</span>, including speech and expression, assembly, association, movement, residence, and profession, are available only to Indian citizens. Articles 14 and 21 are available to all persons, including foreigners, while certain protections under Article 22 also extend to non-citizens (except enemy aliens).",
+    "pyq": null,
+    "created_at": "2026-06-05T15:59:02.018152+00:00"
+  },
+  {
+    "id": "16ea2263-4c82-4b74-b2c0-c9d475867e87",
+    "category_id": "indian-polity",
+    "tags": [],
+    "difficulty": null,
+    "question": "Which of the following rights is available only to citizens of India and not to foreigners?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Equality before Law (Article 14)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Protection of Life and Personal Liberty (Article 21)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Freedom of Speech and Expression (Article 19(1)(a))",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Protection against Arbitrary Arrest (Article 22)",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-orange\" style=\"font-weight: 800;\"> six freedoms</span> under <span class=\"text-teal\" style=\"font-weight: 800;\">Article 19</span>, including speech and expression, assembly, association, movement, residence, and profession, are available only to Indian citizens. Articles 14 and 21 are available to all persons, including foreigners, while certain protections under <span class=\"text-blue\" style=\"font-weight: 800;\">Article 22 also extend to non-citizens (except enemy aliens)</span>.",
+    "pyq": null,
+    "created_at": "2026-06-05T14:31:04.753117+00:00"
+  }
+]

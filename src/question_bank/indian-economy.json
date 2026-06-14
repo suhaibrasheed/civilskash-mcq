@@ -1,0 +1,105 @@
+[
+  {
+    "id": "b5fc6a81-9f86-4978-85cc-8eebe1b8f2ef",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "easy",
+    "question": "Who benefits most from deflation in the short term?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Salary earners with stable employment",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pensioners with fixed incomes",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Equity holders",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Borrowers with long-term fixed-rate debt",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Deflation</span> increases the real value of money, allowing salary earners with stable employment to purchase more goods and services with unchanged nominal wages. Since their<span class=\"text-teal\" style=\"font-weight: 800;\"> income remains steady</span> while<span class=\"text-orange\" style=\"font-weight: 800;\"> prices fall</span>, their <span style=\"font-style: italic;\"><span class=\"text-blue\" style=\"font-weight: 800;\">purchasing power temporarily rises</span></span>.  <div><div><img src=\"https://o.quizlet.com/bZkBdaUYiNK7pQJKtQU18g_b.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div></div>",
+    "pyq": null,
+    "created_at": "2026-06-05T16:01:28.874297+00:00"
+  },
+  {
+    "id": "0b09f32d-67c3-405e-9fc6-ebc1de8f4ee4",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "easy",
+    "question": "Where do banks keep liquid assets for Statutory Liquidity Ratio (SLR)?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "With themselves",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "With the RBI",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "With other banks",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "In the market",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under the <b><span class=\"text-teal\" id=\"snip-633351d0-6f7\">Statutory Liquidity Ratio (SLR)</span></b>, banks must maintain liquid assets such as cash, gold, or approved securities with themselves. SLR is mandated by the Reserve Bank of India under the <span class=\"text-teal\" style=\"font-weight: 800;\">Banking Regulation Act, 1949</span>. The current <span class=\"text-orange\" style=\"font-weight: 800;\">SLR requirement is 18% of Net Demand and Time Liabilities (NDTL)</span> as per RBI policy.",
+    "pyq": null,
+    "created_at": "2026-06-05T16:01:28.874297+00:00"
+  },
+  {
+    "id": "c5955893-2e52-4e34-a338-3c7475a9a6ef",
+    "category_id": "indian-economy",
+    "tags": [],
+    "difficulty": null,
+    "question": "With reference to the Indian economy, what are the advantages of \"Inflation-Indexed Bonds (IIBs)\"?<br><ol style=\"font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-stretch: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; padding-inline-start: 45px; margin-block-end: 27px;\"><li style=\"font-variant: inherit; font-stretch: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit;\"><span style=\"font-weight: normal;\">Government can reduce the coupen rates on its borrowing by way of IIBs.</span></li><li style=\"font-variant: inherit; font-stretch: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit;\"><span style=\"font-weight: normal;\">IIBs provide protection to the investors from uncertainty regarding inflation.</span></li><li style=\"font-variant: inherit; font-stretch: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit;\"><span style=\"font-weight: normal;\">The interest received as well as capital gains on IIBs are not taxable.</span></li></ol>Which of the statements given above are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange\" style=\"font-weight: 800;\">Inflation-Indexed Bonds </span>adjust<span class=\"text-green\" style=\"font-weight: 800;\"> <strong>principal/returns with inflation</strong></span><strong></strong>, so investors demand <strong><span class=\"text-teal\" style=\"font-weight: 800;\">lower coupon rates</span></strong> compared to normal bonds → helps government reduce borrowing cost. They also <strong></strong><span class=\"text-blue\" style=\"font-weight: 800;\"><strong>protect investors’ real returns from inflation risk</strong>.</span> However, <strong><span class=\"text-teal\" style=\"font-weight: 800;\">interest and capital gains remain taxable</span></strong>, so tax exemption is not a feature of IIBs.",
+    "pyq": null,
+    "created_at": "2026-06-05T16:00:01.787378+00:00"
+  }
+]
