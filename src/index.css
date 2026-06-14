@@ -1043,7 +1043,10 @@ body {
 
   /* USP Colors */
   .text-red {
-    color: #ef4444 !important;
+    color: #ff6b6b !important;
+  }
+  .theme-dark .text-red {
+    color: #ff6b6b !important;
   }
   .theme-light .text-red {
     color: #dc2626 !important;
@@ -1053,7 +1056,10 @@ body {
   }
 
   .text-green {
-    color: #22c55e !important;
+    color: #4ade80 !important;
+  }
+  .theme-dark .text-green {
+    color: #4ade80 !important;
   }
   .theme-light .text-green {
     color: #16a34a !important;
@@ -1063,7 +1069,10 @@ body {
   }
 
   .text-blue {
-    color: #3b82f6 !important;
+    color: #60a5fa !important;
+  }
+  .theme-dark .text-blue {
+    color: #60a5fa !important;
   }
   .theme-light .text-blue {
     color: #2563eb !important;
@@ -1073,17 +1082,23 @@ body {
   }
 
   .text-orange {
-    color: #f97316 !important;
+    color: #ff9f43 !important;
+  }
+  .theme-dark .text-orange {
+    color: #ff9f43 !important;
   }
   .theme-light .text-orange {
-    color: #ea580c !important;
+    color: #e67e22 !important;
   }
   .theme-sepia .text-orange {
-    color: #c2410c !important;
+    color: #d35400 !important;
   }
 
   .text-magenta {
-    color: #ec4899 !important;
+    color: #f368e0 !important;
+  }
+  .theme-dark .text-magenta {
+    color: #f368e0 !important;
   }
   .theme-light .text-magenta {
     color: #db2777 !important;
@@ -1093,7 +1108,10 @@ body {
   }
 
   .text-teal {
-    color: #06b6d4 !important;
+    color: #00d2d3 !important;
+  }
+  .theme-dark .text-teal {
+    color: #00d2d3 !important;
   }
   .theme-light .text-teal {
     color: #0d9488 !important;
@@ -1114,6 +1132,22 @@ body {
 
   .text-underline {
     text-decoration: underline !important;
+  }
+
+  /* Active Background MCQ processing animation */
+  .nk-mcq-block.nk-mcq-processing {
+    position: relative;
+    animation: nk-block-glow 1.5s infinite ease-in-out !important;
+  }
+  @keyframes nk-block-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(251, 191, 36, 0.2), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border-left-color: #ffd43b !important;
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border-left-color: #fbbf24 !important;
+    }
   }
 
   /* Formatting */

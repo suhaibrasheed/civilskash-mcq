@@ -12,12 +12,12 @@ import { parseBulkMCQText } from '../lib/mcqParser';
 
 // Exact NoteKash Colors for Text Toolbar
 const TEXT_COLORS = [
-  { id: 'red', class: 'text-red', hex: '#ef4444' },
-  { id: 'green', class: 'text-green', hex: '#22c55e' },
-  { id: 'blue', class: 'text-blue', hex: '#3b82f6' },
-  { id: 'orange', class: 'text-orange', hex: '#f97316' },
-  { id: 'magenta', class: 'text-magenta', hex: '#ec4899' },
-  { id: 'teal', class: 'text-teal', hex: '#06b6d4' },
+  { id: 'red', class: 'text-red', hex: '#ff6b6b' },
+  { id: 'green', class: 'text-green', hex: '#4ade80' },
+  { id: 'blue', class: 'text-blue', hex: '#60a5fa' },
+  { id: 'orange', class: 'text-orange', hex: '#ff9f43' },
+  { id: 'magenta', class: 'text-magenta', hex: '#f368e0' },
+  { id: 'teal', class: 'text-teal', hex: '#00d2d3' },
 ];
 
 const DEFAULT_CATEGORIES = [
@@ -169,6 +169,7 @@ export default function AdminSubiStudio() {
   const [preReviewHtml, setPreReviewHtml] = useState('');
   const [reviewBanner, setReviewBanner] = useState({ show: false, score: 0, changes: [] });
   const [reviewLoading, setReviewLoading] = useState(false);
+  const [aiReviseLoading, setAiReviseLoading] = useState(false);
 
   const ALL_COMMANDS = [
     { id: 'convert', label: 'Convert to MCQ', icon: <Wand2 size={14} />, desc: 'Parse text details into standard blocks' },
@@ -179,7 +180,8 @@ export default function AdminSubiStudio() {
     { id: 'ai-doc', label: 'AI: Document to MCQs', icon: <FileText size={14} className="text-amber-500" />, desc: 'Bulk generate MCQs from a document' },
     { id: 'ai-color', label: 'AI: Color Explanation', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Apply bold formatting and theme coloring' },
     { id: 'ai-tag', label: 'AI: Auto-Tag MCQ', icon: <Tag size={14} className="text-amber-500" />, desc: 'Auto-suggest hashtags for category and difficulty' },
-    { id: 'ai-review', label: 'AI: Review MCQs Quality', icon: <BarChart size={14} className="text-amber-500" />, desc: 'Audit spelling, grammar, and correctness' }
+    { id: 'ai-review', label: 'AI: Review MCQs Quality', icon: <BarChart size={14} className="text-amber-500" />, desc: 'Audit spelling, grammar, and correctness' },
+    { id: 'ai-revise', label: 'AI: Revise MCQ\'s', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Convert website-copied or messy MCQ text to native MCQ blocks' }
   ];
 
   const filteredCommands = ALL_COMMANDS.filter(cmd => 
@@ -1395,7 +1397,7 @@ export default function AdminSubiStudio() {
       setCmdPalette(p => ({ ...p, show: true }));
       setTimeout(() => {
         if (cmdSearchRef.current) {
-          cmdSearchRef.current.focus();
+          cmdSearchRef.current.focus({ preventScroll: true });
           cmdSearchRef.current.selectionStart = cmdSearchRef.current.selectionEnd = 4;
         }
       }, 50);
@@ -1411,6 +1413,8 @@ export default function AdminSubiStudio() {
       handleAIAutoTagMCQ();
     } else if (commandId === 'ai-review') {
       handleAIReviewQuality();
+    } else if (commandId === 'ai-revise') {
+      handleAIReviseMCQs();
     }
   };
 
@@ -1440,10 +1444,12 @@ export default function AdminSubiStudio() {
     if (!aiGenPrompt.trim()) return;
     setShowAiGenModal(false);
     setAiGenLoading(true);
+    alert("AI: Generating 3 MCQs in the background... Feel free to continue editing!");
     try {
       const sys = `You are an elite exam content architect. Generate exactly 3 highly relevant, realistic, and challenging Civil Services exam style MCQs based on the topic.
       For each MCQ:
       - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts to increase knowledge.
+      - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure explanations contain clear concepts fitting these categories so they can be highlighted beautifully.
       - Return them in NoteKash text format, separated by >>>:
       
       Question details...
@@ -1479,6 +1485,102 @@ export default function AdminSubiStudio() {
     } finally {
       setAiGenLoading(false);
       setAiGenPrompt('');
+    }
+  };
+
+  // AI Revise MCQs command
+  const handleAIReviseMCQs = async () => {
+    const selection = window.getSelection();
+    if (!selection || !editorRef.current) return;
+
+    let textToParse = '';
+    let rangeToReplace = null;
+    const selectionInsideEditor = selection.rangeCount > 0 && editorRef.current.contains(selection.anchorNode);
+
+    if (!selection.isCollapsed && selectionInsideEditor) {
+        const range = selection.getRangeAt(0);
+        const fragment = range.cloneContents();
+        const tempDiv = document.createElement('div');
+        tempDiv.appendChild(fragment);
+        textToParse = getEditorPlainText(tempDiv);
+        rangeToReplace = range;
+    } else {
+        if (selectionInsideEditor && selection.anchorNode && selection.anchorNode.textContent.endsWith('/')) {
+            const range = selection.getRangeAt(0);
+            range.setStart(range.startContainer, range.startOffset - 1);
+            range.deleteContents();
+        }
+        textToParse = getEditorPlainText().replace(/\/\s*$/, '');
+        rangeToReplace = null;
+    }
+
+    if (!textToParse.trim()) {
+        alert("No text selected or found in the editor to revise. Please write or select the text you want to revise.");
+        return;
+    }
+
+    setAiReviseLoading(true);
+    alert("AI: Started revising and formatting MCQ text in the background... Feel free to continue editing!");
+
+    try {
+      const sys = `You are an elite exam content architect and Senior MCQ Editor. Your job is to convert messy, unstructured, or website-copied multiple choice questions (MCQs) into the standardized NoteKash format.
+      For each MCQ detected in the input:
+      - Clean up the question text, options, and explanation.
+      - If options are missing, construct plausible options.
+      - If the correct answer is missing, analyze and mark the correct option.
+      - If the explanation is missing, generate a short, high-quality, and highly relevant explanation (maximum 2-3 sentences, formatted in a single paragraph).
+      - Tag the MCQ with exactly two hashtags at the end of the explanation:
+        1. A difficulty tag (#easy, #medium, or #hard) based on your assessment.
+        2. A single broad topic tag (only use broad topics e.g climatology in geography is tag, its broad tag like chapter, using lowercase and underscores for spaces).
+      
+      We use 6 specific color codes to highlight explanations. Make sure your explanations naturally mention key concepts that fit these categories:
+      - 'text-red': for critical warnings, pitfalls, or essential definitions.
+      - 'text-green': for positive outcomes, successful results, or core facts.
+      - 'text-blue': for dates, acts, treaties, or names.
+      - 'text-orange': for statistics, numbers, percentages, or secondary details.
+      - 'text-magenta': for core themes or philosophical concepts.
+      - 'text-teal': for geography, ecology, science terms, or institutions.
+
+      Return the revised MCQs in NoteKash text format, separated by >>>:
+
+      Question text here...
+      A) Option A
+      B) Option B
+      C) Option C
+      D) Option D
+      Correct Answer: [Letter, e.g., A]
+      Explanation: Short explanation text here #difficulty #topic`;
+
+      const result = await queryGenerativeAI(sys, textToParse);
+      if (result) {
+        const mcqs = parseMcqText(result);
+        if (mcqs.length > 0) {
+          // Highlight explanations in bulk
+          const explanations = mcqs.map(m => m.explanation || '');
+          const highlightsList = await queryColorHighlightsForExplanations(explanations);
+          
+          mcqs.forEach((mcq, idx) => {
+            const highlights = highlightsList[idx] || [];
+            mcq.explanation = applyHighlightsToText(mcq.explanation || '', highlights);
+          });
+
+          const html = generateMcqHtml(mcqs);
+          if (rangeToReplace) {
+            selection.removeAllRanges();
+            selection.addRange(rangeToReplace);
+            document.execCommand('insertHTML', false, html);
+          } else {
+            editorRef.current.insertAdjacentHTML('beforeend', html);
+          }
+          alert(`Successfully revised and formatted ${mcqs.length} MCQs!`);
+        } else {
+          alert("AI response format was invalid or could not extract MCQs. Try again.");
+        }
+      }
+    } catch (e) {
+      alert("AI Revise failed: " + e.message);
+    } finally {
+      setAiReviseLoading(false);
     }
   };
 
@@ -1524,10 +1626,14 @@ export default function AdminSubiStudio() {
     });
 
     setAiGenLoading(true);
+    activeBlock.classList.add('nk-mcq-processing');
+    alert("AI: Completing the active MCQ options & explanation in the background... Feel free to continue editing!");
     try {
       const sys = `You are a Civil Services exam content designer. You will be given a question and optionally existing answer options. 
       Complete this MCQ by generating 4 plausible option texts (A, B, C, D) and a detailed Explanation.
       Mark exactly ONE correct option. If the user provided a correct option, build distractors around it.
+      - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts.
+      - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure the explanation contains clear concepts fitting these categories so they can be highlighted beautifully.
       Generate in NoteKash text format:
       Question: [Original Question]
       A) [Text]
@@ -1554,6 +1660,7 @@ export default function AdminSubiStudio() {
     } catch (e) {
       alert("AI Completion failed: " + e.message);
     } finally {
+      activeBlock.classList.remove('nk-mcq-processing');
       setAiGenLoading(false);
     }
   };
@@ -1563,13 +1670,15 @@ export default function AdminSubiStudio() {
     if (!aiDocText.trim()) return;
     setShowAiDocModal(false);
     setAiDocLoading(true);
+    alert("AI: Extracting and generating MCQs from document in the background... Feel free to continue editing!");
     try {
       const requestedCount = Math.max(1, Math.min(30, Number(aiDocCount) || 10));
       const sys = `You are an elite exam content architect. Extract and generate exactly ${requestedCount} challenging Civil Services MCQs from the document text provided.
       For each MCQ:
       - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts to increase knowledge.
       - Cover different facts from the document; do not repeat the same idea.
-      - Add exactly two hashtags in the explanation: one difficulty tag (#easy, #medium, or #hard) and one concise topic tag.
+      - Add exactly two hashtags in the explanation: one difficulty tag (#easy, #medium, or #hard) and one concise topic tag (only use broad topics e.g climatology in geography is tag, its broad tag like chapter, using lowercase and underscores for spaces).
+      - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure explanations contain clear concepts fitting these categories so they can be highlighted beautifully.
       - Return them in NoteKash format, separated by >>>:
       
       Question...
@@ -1627,6 +1736,7 @@ export default function AdminSubiStudio() {
     }
 
     setAiGenLoading(true);
+    alert("AI: Color coding explanations in the background... Feel free to continue editing!");
     try {
       const rawTexts = explanationItems.map(item => item.expEl.innerText.trim());
       const highlightsList = await queryColorHighlightsForExplanations(rawTexts);
@@ -1661,6 +1771,7 @@ export default function AdminSubiStudio() {
     }
 
     setAiGenLoading(true);
+    alert("AI: Auto-tagging MCQs in the background... Feel free to continue editing!");
     try {
       const allowedTopics = categoryTags[selectedCategory] || [];
       const sys = `You are a fast MCQ tagging classifier.
@@ -1714,6 +1825,7 @@ export default function AdminSubiStudio() {
     setPreReviewHtml(editorRef.current.innerHTML);
     setReviewLoading(true);
     setReviewBanner({ show: false, score: 0, changes: [] });
+    alert("AI: Auditing and reviewing MCQ quality in the background... Feel free to continue editing!");
 
     try {
       const summaries = blocks.map((block, index) => getBlockSummary(block, index));
@@ -1792,7 +1904,7 @@ export default function AdminSubiStudio() {
       setCmdPalette({ show: false, selectedIndex: 0 });
       setCmdQuery('');
       if (editorRef.current) {
-        editorRef.current.focus();
+        editorRef.current.focus({ preventScroll: true });
         if (lastSelectionRangeRef.current) {
           const selection = window.getSelection();
           if (selection) {
@@ -1811,7 +1923,7 @@ export default function AdminSubiStudio() {
         setCmdQuery('');
         
         if (editorRef.current) {
-          editorRef.current.focus();
+          editorRef.current.focus({ preventScroll: true });
           const selection = window.getSelection();
           if (selection && lastSelectionRangeRef.current) {
             selection.removeAllRanges();
@@ -1865,7 +1977,7 @@ export default function AdminSubiStudio() {
         setCmdQuery('');
         
         if (editorRef.current) {
-          editorRef.current.focus();
+          editorRef.current.focus({ preventScroll: true });
           const selection = window.getSelection();
           if (selection && lastSelectionRangeRef.current) {
             selection.removeAllRanges();
@@ -2541,6 +2653,29 @@ export default function AdminSubiStudio() {
           const difficultyHtml = q.difficulty ? ` data-difficulty="${q.difficulty}"` : '';
           
           let expText = q.explanation || '';
+          
+          const hasTagInText = (text, tag) => {
+              const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
+              const words = text.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
+              return words.includes(cleaned);
+          };
+
+          if (q.difficulty) {
+              const diffLower = q.difficulty.toLowerCase();
+              if (!hasTagInText(expText, diffLower)) {
+                  expText = expText.trim() + ` #${diffLower}`;
+              }
+          }
+
+          if (q.tags && q.tags.length > 0) {
+              q.tags.forEach(t => {
+                  const tagSlug = t.toLowerCase().replace(/\s+/g, '_');
+                  if (!hasTagInText(expText, tagSlug) && !hasTagInText(expText, t)) {
+                      expText = expText.trim() + ` #${tagSlug}`;
+                  }
+              });
+          }
+
           if (q.pyq) {
             expText += ` [[${q.pyq}]]`;
           }
@@ -3166,16 +3301,19 @@ export default function AdminSubiStudio() {
           </div>
         )}
 
-        {/* Editor Loader (for Quality Review & AI generation) */}
-        {(reviewLoading || aiGenLoading) && (
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] rounded-2xl z-40 flex flex-col items-center justify-center text-center space-y-4">
-            <div className="relative w-14 h-14">
-              <div className="absolute inset-0 rounded-full border-4 border-amber-500/20 border-t-amber-500 animate-spin" />
-              <Sparkles size={20} className="text-amber-500 absolute inset-0 m-auto animate-pulse" />
+        {/* Floating Non-Blocking Status Badge */}
+        {(reviewLoading || aiGenLoading || aiDocLoading || aiReviseLoading) && (
+          <div className="fixed bottom-6 right-6 z-50 bg-theme-surface/90 border border-theme-primary/30 shadow-[0_10px_30px_rgba(0,0,0,0.4)] rounded-2xl p-4 flex items-center gap-3.5 max-w-xs animate-in slide-in-from-bottom-5 duration-300 pointer-events-none select-none backdrop-blur-md">
+            <div className="relative w-8 h-8 shrink-0 flex items-center justify-center rounded-xl bg-theme-primary/10">
+              <div className="absolute inset-0 rounded-xl border-2 border-theme-primary/20 border-t-theme-primary animate-spin" />
+              <Sparkles size={14} className="text-theme-primary animate-pulse" />
             </div>
-            <p className="text-xs font-bold text-white bg-theme-surface/90 border border-theme-border/50 px-4 py-2 rounded-xl shadow-lg">
-              {reviewLoading ? 'Auditing question layout & factual accuracy...' : 'Drafting MCQ structure via AI...'}
-            </p>
+            <div className="flex flex-col min-w-0 pr-1">
+              <span className="text-[10px] font-black uppercase tracking-wider text-theme-primary leading-none">AI Running</span>
+              <p className="text-[11px] font-semibold text-theme-text mt-1 truncate leading-tight">
+                {reviewLoading ? 'Auditing MCQ layout...' : aiDocLoading ? 'Extracting from document...' : aiReviseLoading ? 'Revising MCQ cards...' : 'Drafting MCQ structure...'}
+              </p>
+            </div>
           </div>
         )}
 
