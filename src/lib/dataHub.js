@@ -36,7 +36,13 @@ export const ensureCategoryLoaded = async (categoryId) => {
   if (loader) {
     try {
       const module = await loader();
-      const questions = module.default || module;
+      let questions = module.default || module;
+      if (!Array.isArray(questions)) {
+        // If it's a module object with named exports, find the first array export (e.g. staticAccountancyBank)
+        const keys = Object.keys(module);
+        const arrayKey = keys.find(k => Array.isArray(module[k]));
+        questions = arrayKey ? module[arrayKey] : [];
+      }
       questions.forEach(q => {
         if (!ALL_STATIC_BANKS_SYNC.some(existing => existing.id === q.id)) {
           ALL_STATIC_BANKS_SYNC.push(normalizeSupabaseQuestion({
@@ -56,9 +62,7 @@ export const ensureCategoryLoaded = async (categoryId) => {
  */
 export const loadStaticQuestionsInBackground = async () => {
   const categories = Object.keys(CATEGORY_LOADERS);
-  categories.forEach(async (catId) => {
-    await ensureCategoryLoaded(catId);
-  });
+  await Promise.all(categories.map(catId => ensureCategoryLoaded(catId)));
 };
 
 export const getHybridContentHub = async (requestedCategoryId, tagFilter = null) => {
@@ -124,8 +128,8 @@ export const loadOfflineQuestionsIntoSyncBank = async () => {
     // Load static exams synchronously on boot (instant config)
     await loadSupabaseExamsIntoSyncBank();
 
-    // Trigger dynamic asset imports asynchronously in background
-    loadStaticQuestionsInBackground();
+    // Await static question imports so counts are fully accurate on boot
+    await loadStaticQuestionsInBackground();
   } catch (err) {
     console.error("Failed to load offline questions into sync bank:", err);
   }
