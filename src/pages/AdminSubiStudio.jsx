@@ -2222,16 +2222,6 @@ export default function AdminSubiStudio() {
         let tags = [];
         let difficulty = null;
         
-        const tagAttr = expEl ? expEl.getAttribute('data-tags') : '';
-        if (tagAttr) {
-            tags = tagAttr.split(',').filter(Boolean);
-        }
-
-        const difficultyAttr = expEl ? expEl.getAttribute('data-difficulty') : '';
-        if (['easy', 'medium', 'hard'].includes(String(difficultyAttr).toLowerCase())) {
-            difficulty = String(difficultyAttr).toLowerCase();
-        }
-        
         const expText = expEl ? expEl.innerText : '';
         const tagRegex = /#([\w_]+)/gi;
         let match;
