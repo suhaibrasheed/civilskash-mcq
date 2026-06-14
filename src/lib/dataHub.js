@@ -36,7 +36,13 @@ export const ensureCategoryLoaded = async (categoryId) => {
   if (loader) {
     try {
       const module = await loader();
-      const questions = module.default || module;
+      let questions = module.default || module;
+      if (!Array.isArray(questions)) {
+        // If it's a module object with named exports, find the first array export (e.g. staticAccountancyBank)
+        const keys = Object.keys(module);
+        const arrayKey = keys.find(k => Array.isArray(module[k]));
+        questions = arrayKey ? module[arrayKey] : [];
+      }
       questions.forEach(q => {
         if (!ALL_STATIC_BANKS_SYNC.some(existing => existing.id === q.id)) {
           ALL_STATIC_BANKS_SYNC.push(normalizeSupabaseQuestion({

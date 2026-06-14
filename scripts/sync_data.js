@@ -89,9 +89,9 @@ async function syncData() {
       });
     });
 
-    // Write category files and compile registry map
+    // Write category files
     const categoryKeys = Object.keys(groupedQuestions);
-    const registryEntries = [];
+    const databaseCategories = new Set();
 
     categoryKeys.forEach((catId) => {
       const filename = getCategoryFilename(catId);
@@ -103,8 +103,40 @@ async function syncData() {
         'utf-8'
       );
       console.log(`Compiled category "${catId}" -> ${filename}.json (${groupedQuestions[catId].length} questions)`);
+      databaseCategories.add(filename);
+    });
 
-      registryEntries.push(`  "${catId}": () => import('./${filename}.json')`);
+    // Scan TARGET_DIR to build full registry containing both DB files and fallback static JS files
+    const registryEntries = [];
+    const camelToKebab = (str) => {
+      if (str === 'JKAffairs') return 'jk-affairs';
+      if (str === 'StaticGK') return 'static-gk';
+      return str
+        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+        .replace(/([a-z\d])([A-Z])/g, '$1-$2')
+        .toLowerCase();
+    };
+
+    const files = fs.readdirSync(TARGET_DIR);
+    
+    // First, add all database-backed JSON files
+    files.forEach((file) => {
+      if (file.endsWith('.json') && file !== 'exams.json') {
+        const catId = file.replace('.json', '');
+        registryEntries.push(`  "${catId}": () => import('./${file}')`);
+      }
+    });
+
+    // Next, add all fallback JS files if they don't have a corresponding JSON database file
+    files.forEach((file) => {
+      if (file.endsWith('.js') && file !== 'registry.js') {
+        const originalName = file.replace('.js', '');
+        const catId = camelToKebab(originalName);
+        // Only add if not overridden by a database-backed JSON file
+        if (!databaseCategories.has(catId)) {
+          registryEntries.push(`  "${catId}": () => import('./${file}')`);
+        }
+      }
     });
 
     // Write registry.js
