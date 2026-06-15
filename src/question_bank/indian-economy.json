@@ -3,11 +3,9 @@
     "id": "6e293fe8-608d-4b11-9448-758a584f59f8",
     "category_id": "indian-economy",
     "tags": [
-      "Inflationimpact",
-      "Banking",
       "Inflation"
     ],
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": "Consider the following statements regarding the impact of high inflation on the banking sector and related financial instruments:<br>1. High inflation erodes the real value of fixed-interest rate loans, benefiting borrowers at the expense of lenders.<br>2. Inflation-indexed bonds (IIBs) are designed to protect investors from inflation by linking principal and/or interest payments to an inflation index.<br>3. During periods of sustained high inflation, banks tend to experience a significant increase in the real value of their non-performing assets (NPAs).<br>Which of the statements given above is/are correct?",
     "correctId": "c",
     "options": [
@@ -32,7 +30,42 @@
         "label": "D"
       }
     ],
-    "explanation": "<span class=\"text-magenta font-bold\">High inflation</span> reduces the real value of fixed repayments, <span class=\"text-green font-bold\">benefiting borrowers</span>. <span class=\"text-teal font-bold\">Inflation-indexed bonds</span> protect investors by adjusting returns for inflation. <span class=\"text-magenta font-bold\">High inflation</span> <span class=\"text-red font-bold\">erodes the real value</span> of existing NPAs (fixed nominal debt), though it might increase the *number* of <span class=\"text-red font-bold\">new defaults</span>.",
+    "explanation": "<span class=\"text-magenta font-bold\">High inflation</span> reduces the real value of fixed repayments, <span class=\"text-green font-bold\">benefiting borrowers</span>. <span class=\"text-teal font-bold\">Inflation-indexed bonds</span> protect investors by adjusting returns for inflation. <span class=\"text-magenta font-bold\">High inflation</span> <span class=\"text-red font-bold\">erodes the real value</span> of existing NPAs (fixed nominal debt), though it might increase the *number* of <span class=\"text-red font-bold\">new defaults</span>. <span style=\"color: rgb(251, 191, 36);\"> <span class=\"text-theme-primary font-medium\"> </span></span>  <span class=\"text-theme-primary font-medium\"> </span>",
+    "pyq": null,
+    "created_at": "2026-06-14T16:49:59.1248+00:00"
+  },
+  {
+    "id": "3621210b-6da9-4a55-baff-519187df3ec4",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding different types of inflation:<br>1. Demand-pull inflation occurs when aggregate demand in an economy outpaces aggregate supply, leading to upward pressure on prices.<br>2. Cost-push inflation is typically driven by factors such as rising wages, higher raw material costs, or increased indirect taxes.<br>3. Stagflation is an economic phenomenon where high inflation coexists with high economic growth and low unemployment.<br>Which of the statements given above is/are correct?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 2 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Demand-pull inflation</span> results from excess aggregate demand, while <span class=\"text-red font-bold\">cost-push inflation</span> is caused by increased production costs. <span class=\"text-red font-bold\">Stagflation</span> is characterized by high inflation, <span class=\"text-red font-bold\">high unemployment</span>, and slow or <span class=\"text-red font-bold\">stagnant economic growth</span>, not high growth and low unemployment.",
     "pyq": null,
     "created_at": "2026-06-14T16:49:59.1248+00:00"
   },
@@ -71,41 +104,6 @@
       }
     ],
     "explanation": "To combat inflation, <span class=\"text-teal font-bold\">RBI</span> <span class=\"text-green font-bold\">tightens monetary policy</span>. Increasing the <span class=\"text-teal font-bold\">Repo Rate</span> makes bank borrowing costlier, <span class=\"text-green font-bold\">reducing liquidity</span>. Reducing SLR and purchasing government securities inject liquidity, which <span class=\"text-red font-bold\">exacerbates inflation</span>.   #<span style=\"color: rgb(6, 182, 212); font-weight: 700;\">banking</span>",
-    "pyq": null,
-    "created_at": "2026-06-14T16:49:59.1248+00:00"
-  },
-  {
-    "id": "3621210b-6da9-4a55-baff-519187df3ec4",
-    "category_id": "indian-economy",
-    "tags": [
-      "Inflation"
-    ],
-    "difficulty": "medium",
-    "question": "Consider the following statements regarding different types of inflation:<br>1. Demand-pull inflation occurs when aggregate demand in an economy outpaces aggregate supply, leading to upward pressure on prices.<br>2. Cost-push inflation is typically driven by factors such as rising wages, higher raw material costs, or increased indirect taxes.<br>3. Stagflation is an economic phenomenon where high inflation coexists with high economic growth and low unemployment.<br>Which of the statements given above is/are correct?",
-    "correctId": "c",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "2 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "1 and 2 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "1, 2 and 3",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-red font-bold\">Demand-pull inflation</span> results from excess aggregate demand, while <span class=\"text-red font-bold\">cost-push inflation</span> is caused by increased production costs. <span class=\"text-red font-bold\">Stagflation</span> is characterized by high inflation, <span class=\"text-red font-bold\">high unemployment</span>, and slow or <span class=\"text-red font-bold\">stagnant economic growth</span>, not high growth and low unemployment.",
     "pyq": null,
     "created_at": "2026-06-14T16:49:59.1248+00:00"
   },
@@ -176,6 +174,43 @@
       }
     ],
     "explanation": "When the <span class=\"text-blue font-bold\">US Federal Reserve</span> tightens <span class=\"text-magenta font-bold\">monetary policy</span>, higher returns in the US attract global capital, causing <span class=\"text-red font-bold\">capital outflows</span> from emerging economies. Such outflows often depreciate the domestic currency, which raises the effective repayment burden of foreign currency loans like ECBs. Currency depreciation therefore increases (not decreases) <span class=\"text-red font-bold\">currency risk</span> for such borrowings.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "fee05e89-6e68-42fb-bb21-4f4a0bf1f054",
+    "category_id": "indian-economy",
+    "tags": [
+      "Imf",
+      "Worldbank",
+      "Fiscal Crises"
+    ],
+    "difficulty": "medium",
+    "question": "“Rapid Financing Instrument” and “Rapid Credit Facility” are related to the provisions of lending by which one of the following?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asian Development Bank",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "International Monetary Fund",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "United Nations Environment Programme Finance Initiative",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Bank",
+        "label": "D"
+      }
+    ],
+    "explanation": "Both <span class=\"text-blue font-bold\">Rapid Financing Instrument (RFI)</span> and <span class=\"text-blue font-bold\">Rapid Credit Facility (RCF)</span> are emergency lending tools of the <span class=\"text-blue font-bold\">IMF</span>, designed to provide quick <span class=\"text-green font-bold\">financial assistance</span> to countries facing urgent <span class=\"text-red font-bold\">balance-of-payments crises</span>, especially during shocks like pandemics or natural disasters.",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
@@ -492,41 +527,6 @@
       }
     ],
     "explanation": "<span class=\"text-red font-bold\">Real GDP</span> is obtained by removing (adjusting for) <span class=\"text-magenta font-bold\">inflation</span> from <span class=\"text-red font-bold\">Nominal GDP</span>, not adding it. The gap between <span class=\"text-red font-bold\">Nominal GDP</span> and <span class=\"text-red font-bold\">Real GDP</span> reflects <span class=\"text-magenta font-bold\">price changes</span>, captured through the <span class=\"text-teal font-bold\">GDP deflator</span>, which indicates the <span class=\"text-magenta font-bold\">inflation</span> level in the economy.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "fee05e89-6e68-42fb-bb21-4f4a0bf1f054",
-    "category_id": "indian-economy",
-    "tags": [
-      "Imf"
-    ],
-    "difficulty": "medium",
-    "question": "“Rapid Financing Instrument” and “Rapid Credit Facility” are related to the provisions of lending by which one of the following?",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "Asian Development Bank",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "International Monetary Fund",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "United Nations Environment Programme Finance Initiative",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "World Bank",
-        "label": "D"
-      }
-    ],
-    "explanation": "Both <span class=\"text-blue font-bold\">Rapid Financing Instrument (RFI)</span> and <span class=\"text-blue font-bold\">Rapid Credit Facility (RCF)</span> are emergency lending tools of the <span class=\"text-blue font-bold\">IMF</span>, designed to provide quick <span class=\"text-green font-bold\">financial assistance</span> to countries facing urgent <span class=\"text-red font-bold\">balance-of-payments crises</span>, especially during shocks like pandemics or natural disasters.  &amp;_WB",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
