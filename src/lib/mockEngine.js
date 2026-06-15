@@ -401,7 +401,7 @@ export function generateMocksForExam(examId) {
   };
 
   // ── Elite Full-Length Mocks (20 × 100 questions) ──────────────
-  const ELITE_COUNT = 20;
+  const ELITE_COUNT = 30;
   const ELITE_Q = 100;
 
   const eliteEasyPtrs = {};

@@ -24,23 +24,35 @@ function SolvedBadge({ solvedInfo }) {
 // ─── Sub-components ────────────────────────────────────────────────
 
 /** Elite Mock tile (100Q / 100M) */
-function EliteTile({ mock, index, examId, solvedMap, isLocked }) {
+function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle }) {
   const navigate  = useNavigate();
   const solved    = solvedMap?.[mock.id];
   const band      = getScoreBand(solved);
 
   if (mock.isEmpty || isLocked) {
     return (
-      <div className={`group relative rounded-2xl p-5 overflow-hidden ${isLocked ? 'mock-locked-card' : 'mock-locked-tile-3d'}`}>
-        {isLocked && <div className="absolute inset-0 bg-gradient-to-br from-theme-accent/10 via-transparent to-transparent" />}
+      <div 
+        onClick={isLocked ? () => navigate('/upgrade') : undefined}
+        className={`group relative rounded-2xl p-5 overflow-hidden ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.02] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'}`}
+      >
+        {isLocked && (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-theme-primary/15 via-transparent to-transparent" />
+            <div className="absolute top-2 right-2 z-20">
+              <span className="text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-theme-primary/40 bg-theme-primary/15 text-theme-primary shadow-sm animate-pulse">Pro</span>
+            </div>
+          </>
+        )}
         <div className="relative z-10 flex flex-col items-center text-center gap-3">
-          <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
-            <Lock size={18} />
+          <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark border-theme-primary/30' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
+            <Lock size={18} className={isLocked ? 'text-theme-primary' : ''} />
           </div>
           <div>
-            <h4 className={`font-black text-sm ${isLocked ? 'mock-locked-title' : 'text-theme-muted'}`}>Elite Mock {index}</h4>
+            <h4 className={`font-black text-sm ${isLocked ? 'mock-pro-title text-theme-primary/95' : 'text-theme-muted'}`}>
+              {isLocked ? proTitle : `Full Mock ${index}`}
+            </h4>
             <p className="text-[10px] uppercase tracking-[0.15em] text-theme-muted/70 font-bold mt-1">
-              {isLocked ? 'Pro Mocks Locked' : 'No questions yet'}
+              {isLocked ? '✦ Pro Content' : 'No questions yet'}
             </p>
           </div>
         </div>
@@ -71,7 +83,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked }) {
             <h4 className={`font-black text-sm transition-colors
               ${band ? `${band.className} mock-score-text` : 'text-theme-text group-hover:text-theme-primary'}`}
             >
-              Elite Mock {index}
+              Full Mock {index}
             </h4>
             <p className={`text-[10px] uppercase tracking-[0.15em] font-bold mt-1
               ${band ? `${band.className} mock-score-text opacity-80` : 'text-theme-primary/70'}`}
@@ -93,13 +105,16 @@ function QuickMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
 
   if (mock.isEmpty || isLocked) {
     return (
-      <div className={`flex items-center justify-between gap-4 p-4 rounded-xl ${isLocked ? 'mock-locked-card' : 'mock-locked-tile-3d'}`}>
+      <div 
+        onClick={isLocked ? () => navigate('/upgrade') : undefined}
+        className={`flex items-center justify-between gap-4 p-4 rounded-xl ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.01] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'}`}
+      >
         <div className="flex items-center gap-4 min-w-0">
-          <div className={`w-9 h-9 shrink-0 rounded-xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
-            <Lock size={14} />
+          <div className={`w-9 h-9 shrink-0 rounded-xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark border-theme-primary/20 bg-theme-primary/5' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
+            <Lock size={14} className={isLocked ? 'text-theme-primary' : ''} />
           </div>
           <div className="min-w-0">
-            <h4 className={`text-sm font-bold leading-tight ${isLocked ? 'mock-pro-title' : 'text-theme-muted'}`}>
+            <h4 className={`text-sm font-bold leading-tight ${isLocked ? 'mock-pro-title text-theme-text' : 'text-theme-muted'}`}>
               {isLocked ? proTitle : mock.title}
             </h4>
             <p className="text-[10px] uppercase tracking-widest mt-0.5 mock-pro-sublabel">
@@ -107,7 +122,7 @@ function QuickMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
             </p>
           </div>
         </div>
-        {isLocked && <span className="shrink-0 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full border mock-locked-pill">Pro</span>}
+        {isLocked && <span className="shrink-0 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full border border-theme-primary/30 bg-theme-primary/10 text-theme-primary shadow-sm">Pro</span>}
       </div>
     );
   }
@@ -157,13 +172,16 @@ function SectionalMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
 
   if (mock.isEmpty || isLocked) {
     return (
-      <div className={`flex items-center justify-between gap-4 p-4 rounded-xl ${isLocked ? 'mock-locked-card' : 'mock-locked-tile-3d'}`}>
+      <div 
+        onClick={isLocked ? () => navigate('/upgrade') : undefined}
+        className={`flex items-center justify-between gap-4 p-4 rounded-xl ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.01] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'}`}
+      >
         <div className="flex items-center gap-4 min-w-0">
-          <div className={`w-9 h-9 shrink-0 rounded-xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
-            <Lock size={14} />
+          <div className={`w-9 h-9 shrink-0 rounded-xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark border-theme-primary/20 bg-theme-primary/5' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
+            <Lock size={14} className={isLocked ? 'text-theme-primary' : ''} />
           </div>
           <div className="min-w-0">
-            <h4 className={`text-sm font-bold leading-tight ${isLocked ? 'mock-pro-title' : 'text-theme-muted'}`}>
+            <h4 className={`text-sm font-bold leading-tight ${isLocked ? 'mock-pro-title text-theme-text' : 'text-theme-muted'}`}>
               {isLocked ? proTitle : mock.title}
             </h4>
             <p className="text-[10px] uppercase tracking-widest mt-0.5 mock-pro-sublabel">
@@ -171,7 +189,7 @@ function SectionalMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
             </p>
           </div>
         </div>
-        {isLocked && <span className="shrink-0 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full border mock-locked-pill">Pro</span>}
+        {isLocked && <span className="shrink-0 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full border border-theme-primary/30 bg-theme-primary/10 text-theme-primary shadow-sm">Pro</span>}
       </div>
     );
   }
@@ -443,16 +461,24 @@ export default function ExamMockDashboard({ exam, onBack }) {
             <EmptyState label="Elite Mocks" />
           ) : (
             <AnimatePresence>
-              {displayedElite.map((mock, i) => (
-                <EliteTile
-                  key={mock.id}
-                  mock={mock}
-                  index={mock.index}
-                  examId={exam.id}
-                  solvedMap={solvedMap}
-                  isLocked={isExamMockLockedForFreeUser(mock, userTier)}
-                />
-              ))}
+              {(() => {
+                let proCounter = 0;
+                return displayedElite.map((mock) => {
+                  const locked = isExamMockLockedForFreeUser(mock, userTier);
+                  if (locked) proCounter++;
+                  return (
+                    <EliteTile
+                      key={mock.id}
+                      mock={mock}
+                      index={mock.index}
+                      examId={exam.id}
+                      solvedMap={solvedMap}
+                      isLocked={locked}
+                      proTitle={`Elite Mock ${mock.index}`}
+                    />
+                  );
+                });
+              })()}
             </AnimatePresence>
           )}
         </div>

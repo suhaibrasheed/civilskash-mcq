@@ -517,7 +517,7 @@ export default function LeaderboardPage() {
 
                       {/* Message Spot (Focal Point) */}
                       <div className="relative z-10 flex-1 flex items-center mb-4">
-                        <p className="text-sm font-black text-theme-text leading-relaxed tracking-wide">
+                        <p className="text-sm italic font-medium text-theme-text/90 leading-relaxed tracking-wide">
                           "{profile.status_message || 'Studying hard to unlock the next milestone! 🚀'}"
                         </p>
                       </div>

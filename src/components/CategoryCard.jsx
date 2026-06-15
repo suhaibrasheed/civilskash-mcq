@@ -26,39 +26,39 @@ const SUBJECT_ICONS = {
 
 // Subject specific accent tints (8 group colors for 18 categories)
 const SUBJECT_COLORS = {
-  // Group 1 (History - 1 color: Amber-Yellow)
-  'ancient-history':     '#d97706',
-  'medieval-history':    '#d97706',
-  'modern-history':      '#d97706',
+  // Group 1 (History - Gold)
+  'ancient-history':     '#eab308',
+  'medieval-history':    '#eab308',
+  'modern-history':      '#eab308',
 
   // Group 2 (Geography - Emerald Green)
   'indian-geography':    '#10b981',
   'physical-geography':  '#10b981',
   'world-geography':     '#10b981',
 
-  // Group 3 (Languages & Technology - Soft Red)
-  'english':             '#ef4444',
-  'computer-awareness':  '#ef4444',
+  // Group 3 (Languages & Technology - Crimson Red)
+  'english':             '#dc2626',
+  'computer-awareness':  '#dc2626',
 
-  // Group 4 (Aptitude & Logic - Cyan/Teal)
-  'maths':               '#06b6d4',
-  'reasoning':           '#06b6d4',
+  // Group 4 (Aptitude & Logic - Bright Cyan)
+  'maths':               '#00b4d8',
+  'reasoning':           '#00b4d8',
 
-  // Group 5 (News, Polity & Affairs - Violet/Purple)
-  'current-affairs':     '#a78bfa',
-  'indian-polity':       '#a78bfa',
+  // Group 5 (News, Polity & Affairs - Purple/Violet)
+  'current-affairs':     '#7c3aed',
+  'indian-polity':       '#7c3aed',
 
-  // Group 6 (Finance & Business - Orange)
+  // Group 6 (Finance & Business - Deep Orange)
   'indian-economy':      '#f97316',
   'accountancy':         '#f97316',
 
   // Group 7 (General & Regional GK - Royal Blue)
-  'static-gk':           '#4361ee',
-  'jk-affairs':          '#4361ee',
+  'static-gk':           '#2563eb',
+  'jk-affairs':          '#2563eb',
 
-  // Group 8 (Science & Nature - Pink/Rose)
-  'general-science':     '#ec4899',
-  'environment':         '#ec4899',
+  // Group 8 (Science & Nature - Vibrant Magenta)
+  'general-science':     '#d946ef',
+  'environment':         '#d946ef',
 };
 
 export default function CategoryCard({ category, routePrefix = '/mcq' }) {

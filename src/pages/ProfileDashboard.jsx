@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Header from '../components/Header';
 import { 
-  User, Settings, Award, Clock, ChevronRight, Shield, Zap, Sparkles, 
+  User, Settings, Award, Clock, ChevronRight, ChevronDown, Shield, Zap, Sparkles, 
   CheckCircle, XCircle, TrendingUp, Lock, Wand2, Eye, EyeOff, Send, 
   RefreshCw, MessageSquare, BarChart2, X, BookmarkCheck, LayoutGrid, 
   ChevronUp, Lightbulb, LogOut, Key, Mail, LockKeyhole, AlertTriangle, Snowflake, Loader, Trophy
@@ -452,6 +452,7 @@ export default function ProfileDashboard() {
   const [streakTimeLeft, setStreakTimeLeft] = useState('');
 
   // Master Prompter States
+  const [showAiCoachDescription, setShowAiCoachDescription] = useState(false);
   const [showAiCoachModal, setShowAiCoachModal] = useState(false);
   const [masterMode, setMasterMode] = useState('mcq');
   const [outputs, setOutputs] = useState(() => {
@@ -1266,43 +1267,6 @@ export default function ProfileDashboard() {
           }
         })()}
 
-        {/* ── AI STUDY COACH BANNER (Available to all users) ── */}
-        <div className="bg-gradient-to-tr from-amber-500/10 via-theme-surface to-purple-500/5 rounded-3xl p-6 border border-amber-500/20 shadow-[0_12px_40px_-20px_rgba(245,158,11,0.3)] mb-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-500/10 to-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
-          
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <Sparkles size={20} className="text-amber-500 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest bg-amber-500/20 text-amber-600 px-2 py-0.5 rounded-full">
-                  Pro AI Feature
-                </span>
-              </div>
-              <h2 className="text-xl font-black text-theme-text tracking-tight mb-2">
-                Personal AI Study Coach
-              </h2>
-              <p className="text-sm text-theme-muted font-medium max-w-xl">
-                Unlock your Master Prompter. Create custom interactive MCQs, get personalized study diagnostic report cards, design weekly schedules, or learn new concepts with memory mnemonics.
-              </p>
-            </div>
-            
-            <button
-              onClick={handleAiCoachClick}
-              className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-2xl font-black text-sm shadow-md hover:from-amber-600 hover:to-amber-700 active:scale-95 transition-all flex items-center gap-2 shrink-0"
-            >
-              {economy?.user_tier === 'Pro' ? (
-                <>
-                  <Wand2 size={16} /> Start Coaching
-                </>
-              ) : (
-                <>
-                  <Lock size={16} /> Unlock AI Coach
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
         {/* ── #1: MINIMALISTIC GLASSMORPHIC NAVIGATION CAPSULES (Mobile Grid, Desktop Flex) ── */}
         <div className="grid grid-cols-2 md:flex bg-white/5 backdrop-blur-md border border-white/10 p-1.5 rounded-2xl mb-8 shadow-lg gap-2 justify-center">
           {[
@@ -1319,13 +1283,97 @@ export default function ProfileDashboard() {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 text-theme-muted hover:text-theme-text hover:bg-white/10 hover:shadow-sm"
+              className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-theme-muted hover:text-theme-text hover:bg-white/5 transition-all"
             >
-              <tab.icon size={14} className="text-theme-primary" />
+              <tab.icon size={14} className="text-theme-primary shrink-0" />
               <span>{tab.label}</span>
             </button>
           ))}
         </div>
+
+        {/* ── AI STUDY COACH BANNER (Available to all users) ── */}
+        <motion.div 
+          animate={{
+            boxShadow: [
+              "0 12px 40px -20px rgba(245, 158, 11, 0.2), 0 0 15px -3px rgba(245, 158, 11, 0.15)",
+              "0 12px 40px -20px rgba(245, 158, 11, 0.4), 0 0 25px -1px rgba(245, 158, 11, 0.35)",
+              "0 12px 40px -20px rgba(245, 158, 11, 0.2), 0 0 15px -3px rgba(245, 158, 11, 0.15)"
+            ],
+            borderColor: [
+              "rgba(245, 158, 11, 0.25)",
+              "rgba(245, 158, 11, 0.5)",
+              "rgba(245, 158, 11, 0.25)"
+            ]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="bg-gradient-to-tr from-amber-500/10 via-theme-surface to-purple-500/5 rounded-3xl p-5 border mb-8 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-500/10 to-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
+          
+          <div className="relative z-10 flex flex-col">
+            {/* Header Row */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+                <div 
+                  onClick={() => setShowAiCoachDescription(!showAiCoachDescription)}
+                  className="flex items-center gap-2.5 cursor-pointer select-none group"
+                >
+                  <div className="text-theme-muted group-hover:text-amber-500 transition-colors duration-200 flex items-center justify-center">
+                    {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </div>
+                  <h2 className="text-lg font-black text-theme-text tracking-tight group-hover:text-amber-500 transition-colors duration-200">
+                    Personal AI Study Coach
+                  </h2>
+                  <div className="flex items-center gap-1 bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded-full border border-amber-500/20 shrink-0">
+                    <Sparkles size={11} className="text-amber-500 animate-pulse" />
+                    <span className="text-[9px] font-black uppercase tracking-widest">
+                      Pro AI Feature
+                    </span>
+                  </div>
+                </div>
+
+                {/* Action Controls (Aloof on the right side) */}
+                <div className="shrink-0 flex items-center">
+                  <button
+                    onClick={handleAiCoachClick}
+                    className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-black text-xs shadow-md hover:from-amber-600 hover:to-amber-700 active:scale-95 transition-all flex items-center gap-1.5"
+                  >
+                    {economy?.user_tier === 'Pro' ? (
+                      <>
+                        <Wand2 size={13} /> Start Coaching
+                      </>
+                    ) : (
+                      <>
+                        <Lock size={13} /> Unlock AI Coach
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+            {/* Description (Collapsible with smooth animation) */}
+            <AnimatePresence initial={false}>
+              {showAiCoachDescription && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                  animate={{ height: "auto", opacity: 1, marginTop: 16 }}
+                  exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  {/* Subtle Separator matching theme border */}
+                  <div className="border-t border-theme-border/40 w-full mb-4" />
+                  <p className="text-xs text-theme-muted font-medium max-w-3xl leading-relaxed text-center mx-auto pb-1">
+                    Your competitors have access to the same books not the same intelligence. Powered by your complete preparation history, this innovative Personal AI Study Coach feature reveals Hidden Weaknesses, Generates Smart Mocks around your Mastery Index, giving you Personalized Guidance. This is serious unfair edge over competition which our Pro Aspirant deserve.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
 
 
         {/* ── #2: ALL SECTIONS STACKED SEQUENTIALLY ── */}

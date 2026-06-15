@@ -29,13 +29,24 @@ export const SUBJECT_ICONS = {
 };
 
 export const SUBJECT_COLORS = {
-  'maths': '#f59e0b',
-  'general-science': '#10b981',
-  'indian-polity': '#4361ee',
-  'current-affairs': '#ef4444',
-  'computer-awareness': '#06b6d4',
-  'english': '#a78bfa',
-  'indian-economy': '#f97316',
+  'accountancy':         '#f97316',
+  'ancient-history':     '#eab308',
+  'computer-awareness':  '#dc2626',
+  'current-affairs':     '#7c3aed',
+  'english':             '#dc2626',
+  'environment':         '#d946ef',
+  'general-science':     '#d946ef',
+  'indian-economy':      '#f97316',
+  'indian-geography':    '#10b981',
+  'indian-polity':       '#7c3aed',
+  'maths':               '#00b4d8',
+  'medieval-history':    '#eab308',
+  'modern-history':      '#eab308',
+  'physical-geography':  '#10b981',
+  'reasoning':           '#00b4d8',
+  'static-gk':           '#2563eb',
+  'world-geography':     '#10b981',
+  'jk-affairs':          '#2563eb',
 };
 
 export const CATEGORIES = [

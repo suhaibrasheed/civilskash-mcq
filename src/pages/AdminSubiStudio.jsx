@@ -43,6 +43,17 @@ const DEFAULT_CATEGORIES = [
 
 const RESIZE_STEPS = [15, 25, 35, 50, 65, 80, 100];
 
+const normalizeTagName = (tag) => {
+  return String(tag || '')
+    .replace(/^#/, '')
+    .replace(/[-_]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ');
+};
+
 export default function AdminSubiStudio() {
   const { showToast } = useToast();
   const { user, loading: authLoading } = useAuth();
@@ -151,7 +162,7 @@ export default function AdminSubiStudio() {
   const [syncLoading, setSyncLoading] = useState(false);
   
   // Searchable Command Palette state
-  const [cmdPalette, setCmdPalette] = useState({ show: false, selectedIndex: 0 });
+  const [cmdPalette, setCmdPalette] = useState({ show: false, selectedIndex: 0, openedViaIcon: false });
   const [cmdPosition, setCmdPosition] = useState({ top: 0, left: 0 });
   const [cmdQuery, setCmdQuery] = useState('');
 
@@ -181,7 +192,10 @@ export default function AdminSubiStudio() {
     { id: 'ai-color', label: 'AI: Color Explanation', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Apply bold formatting and theme coloring' },
     { id: 'ai-tag', label: 'AI: Auto-Tag MCQ', icon: <Tag size={14} className="text-amber-500" />, desc: 'Auto-suggest hashtags for category and difficulty' },
     { id: 'ai-review', label: 'AI: Review MCQs Quality', icon: <BarChart size={14} className="text-amber-500" />, desc: 'Audit spelling, grammar, and correctness' },
-    { id: 'ai-revise', label: 'AI: Revise MCQ\'s', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Convert website-copied or messy MCQ text to native MCQ blocks' }
+    { id: 'ai-revise', label: 'AI: Revise MCQ\'s', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Convert website-copied or messy MCQ text to native MCQ blocks' },
+    { id: 'copy', label: 'Copy All (NoteKash)', icon: <Copy size={14} />, desc: 'Copy all MCQs in NoteKash text format' },
+    { id: 'paste', label: 'Paste MCQs', icon: <Clipboard size={14} />, desc: 'Paste NoteKash text from clipboard' },
+    { id: 'clean', label: 'Clean Editor', icon: <Trash2 size={14} />, desc: 'Keep only native MCQ blocks, clearing all other text and extra spacing' }
   ];
 
   const filteredCommands = ALL_COMMANDS.filter(cmd => 
@@ -225,11 +239,7 @@ export default function AdminSubiStudio() {
     return [];
   });
 
-  const [categoryTags, setCategoryTags] = useState(() => {
-    const saved = localStorage.getItem('civilsKash_categoryTags');
-    if (saved) return JSON.parse(saved);
-    return {};
-  });
+  const [categoryTags, setCategoryTags] = useState({});
 
   useEffect(() => {
     localStorage.setItem('civilsKash_categories', JSON.stringify(categories));
@@ -276,9 +286,44 @@ export default function AdminSubiStudio() {
     fetchExams();
   }, []);
 
+  const fetchCategoryTagsFromSupabase = useCallback(async (catId) => {
+    if (!isSupabaseConfigured() || !catId) return;
+    try {
+      const { data, error } = await supabase
+        .from('questions')
+        .select('tags')
+        .eq('category_id', catId);
+      
+      if (error) throw error;
+      
+      const tagsSet = new Set();
+      if (data) {
+        data.forEach(row => {
+          if (row.tags && Array.isArray(row.tags)) {
+            row.tags.forEach(tag => {
+              if (tag) {
+                tagsSet.add(normalizeTagName(tag));
+              }
+            });
+          }
+        });
+      }
+      
+      const sortedTags = Array.from(tagsSet).sort();
+      setCategoryTags(prev => ({
+        ...prev,
+        [catId]: sortedTags
+      }));
+    } catch (err) {
+      console.error("Error fetching tags from Supabase for category:", catId, err);
+    }
+  }, []);
+
   useEffect(() => {
-    localStorage.setItem('civilsKash_categoryTags', JSON.stringify(categoryTags));
-  }, [categoryTags]);
+    if (selectedCategory) {
+      fetchCategoryTagsFromSupabase(selectedCategory);
+    }
+  }, [selectedCategory, fetchCategoryTagsFromSupabase]);
 
   useEffect(() => {
     if (cmdPalette.show) {
@@ -298,7 +343,7 @@ export default function AdminSubiStudio() {
   useEffect(() => {
     const handleDocumentClick = (e) => {
       if (cmdPalette.show && cmdPaletteRef.current && !cmdPaletteRef.current.contains(e.target)) {
-        setCmdPalette({ show: false, selectedIndex: 0 });
+        setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
         setCmdQuery('');
       }
       if (tagPalette.show && tagPaletteRef.current && !tagPaletteRef.current.contains(e.target)) {
@@ -851,16 +896,7 @@ export default function AdminSubiStudio() {
     return Array.from(editorRef.current.querySelectorAll('.nk-mcq-block'));
   };
 
-  const normalizeTagName = (tag) => {
-    return String(tag || '')
-      .replace(/^#/, '')
-      .replace(/[-_]+/g, ' ')
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean)
-      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-      .join(' ');
-  };
+  // normalizeTagName is defined at the top-level
 
   const getBlockSummary = (block, index) => {
     const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
@@ -1061,12 +1097,12 @@ export default function AdminSubiStudio() {
      // Tag Auto-Suggest Logic (#)
     const hashMatch = text.match(/#([a-zA-Z0-9_]*)$/);
     if (hashMatch) {
-        const query = hashMatch[1].toLowerCase();
+        const query = hashMatch[1].toLowerCase().replace(/_/g, ' ');
         const existingTags = categoryTags[selectedCategory] || [];
         const specialTags = ['easy', 'medium', 'hard'];
         const allTags = [...specialTags, ...existingTags];
         
-        const results = allTags.filter(t => t.toLowerCase().includes(query));
+        const results = allTags.filter(t => t.toLowerCase().replace(/_/g, ' ').includes(query));
         
         if (results.length > 0) {
             const range = selection.getRangeAt(0);
@@ -1373,22 +1409,53 @@ export default function AdminSubiStudio() {
     }
   };
 
+  const handleCleanEditor = () => {
+    if (!editorRef.current) return;
+    const blocks = Array.from(editorRef.current.querySelectorAll('.nk-mcq-block'));
+    
+    // Clear editor HTML
+    editorRef.current.innerHTML = '';
+    
+    // Re-append each block and a single following break/paragraph to clean up spacing
+    blocks.forEach((block) => {
+      const clonedBlock = block.cloneNode(true);
+      editorRef.current.appendChild(clonedBlock);
+      
+      const p = document.createElement('p');
+      p.innerHTML = '<br>';
+      editorRef.current.appendChild(p);
+    });
+
+    // If no blocks, add 1 empty line
+    if (blocks.length === 0) {
+      const p = document.createElement('p');
+      p.innerHTML = '<br>';
+      editorRef.current.appendChild(p);
+    }
+    
+    alert("Editor cleaned: Preserved native MCQs and removed irrelevant text/spacing.");
+  };
+
   // --- AI CREATOR TOOLS INTERFACES ---
   const handleExecuteCommand = (commandId) => {
-    setCmdPalette({ show: false, selectedIndex: 0 });
+    setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
     setCmdQuery('');
 
     // Clear slash if command palette was triggered
     const selection = window.getSelection();
     if (selection && selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
-        if (range.startContainer.textContent.endsWith('/')) {
+        if (range.startContainer.textContent && range.startContainer.textContent.endsWith('/')) {
             range.setStart(range.startContainer, range.startOffset - 1);
             range.deleteContents();
         }
     }
 
-    if (commandId === 'convert') {
+    if (commandId === 'copy') {
+      handleBulkCopy();
+    } else if (commandId === 'paste') {
+      handleBulkPaste();
+    } else if (commandId === 'convert') {
       executeConvertToMCQ(false);
     } else if (commandId === 'template') {
       executeInsertTemplate();
@@ -1415,6 +1482,8 @@ export default function AdminSubiStudio() {
       handleAIReviewQuality();
     } else if (commandId === 'ai-revise') {
       handleAIReviseMCQs();
+    } else if (commandId === 'clean') {
+      handleCleanEditor();
     }
   };
 
@@ -1720,6 +1789,42 @@ export default function AdminSubiStudio() {
 
   // 4. Color Explanation Keywords (Uses smart AI highlighting mapping applied inside the app)
   const handleAIColorExplanation = async () => {
+    const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
+    if (cmdPalette.openedViaIcon && selectedText) {
+      setAiGenLoading(true);
+      alert("AI: Color coding selected text... Feel free to continue editing!");
+      try {
+        const highlightsList = await queryColorHighlightsForExplanations([selectedText]);
+        const highlights = highlightsList[0] || [];
+        const highlightedHtml = applyHighlightsToText(selectedText, highlights);
+        
+        const selection = window.getSelection();
+        if (selection && lastSelectionRangeRef.current) {
+          selection.removeAllRanges();
+          selection.addRange(lastSelectionRangeRef.current);
+          
+          lastSelectionRangeRef.current.deleteContents();
+          
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = highlightedHtml;
+          
+          const fragment = document.createDocumentFragment();
+          while (tempDiv.firstChild) {
+            fragment.appendChild(tempDiv.firstChild);
+          }
+          
+          lastSelectionRangeRef.current.insertNode(fragment);
+          selection.removeAllRanges();
+        }
+        alert("AI: Color coding successfully applied to selected text!");
+      } catch (e) {
+        alert("AI Coloring failed: " + e.message);
+      } finally {
+        setAiGenLoading(false);
+      }
+      return;
+    }
+
     const blocks = getEditorBlocks();
     if (blocks.length === 0) {
       alert("No MCQs found in the editor.");
@@ -1901,7 +2006,7 @@ export default function AdminSubiStudio() {
   const handleCmdSearchKeyDown = (e) => {
     if (e.key === 'Escape') {
       e.preventDefault();
-      setCmdPalette({ show: false, selectedIndex: 0 });
+      setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
       setCmdQuery('');
       if (editorRef.current) {
         editorRef.current.focus({ preventScroll: true });
@@ -1919,7 +2024,7 @@ export default function AdminSubiStudio() {
     if (e.key === '/') {
       if (!cmdQuery) {
         e.preventDefault();
-        setCmdPalette({ show: false, selectedIndex: 0 });
+        setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
         setCmdQuery('');
         
         if (editorRef.current) {
@@ -1973,7 +2078,7 @@ export default function AdminSubiStudio() {
       }
 
       if (isImgCommand && url) {
-        setCmdPalette({ show: false, selectedIndex: 0 });
+        setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
         setCmdQuery('');
         
         if (editorRef.current) {
@@ -2027,7 +2132,8 @@ export default function AdminSubiStudio() {
             range.deleteContents();
             const span = document.createElement('span');
             span.className = isSpecial ? (tag==='hard'?'text-rose-500 font-bold':tag==='medium'?'text-blue-500 font-bold':'text-emerald-500 font-bold') : 'text-theme-primary font-medium';
-            span.textContent = `#${tag} `;
+            const tagValue = isSpecial ? tag : tag.replace(/\s+/g, '_');
+            span.textContent = `#${tagValue} `;
             range.insertNode(span);
             range.setStartAfter(span);
             range.collapse(true);
@@ -2074,28 +2180,39 @@ export default function AdminSubiStudio() {
                 const range = selection.getRangeAt(0);
                 lastSelectionRangeRef.current = range.cloneRange();
                 
-                const rect = range.getBoundingClientRect() || { top: 0, bottom: 0, left: 0, right: 0 };
-                const editorRect = editorRef.current ? editorRef.current.getBoundingClientRect() : { top: 0, left: 0, width: 800 };
+                let rect = range.getBoundingClientRect();
+                if (rect.width === 0 && rect.height === 0) {
+                    const tempSpan = document.createElement('span');
+                    tempSpan.appendChild(document.createTextNode('\u200b'));
+                    range.insertNode(tempSpan);
+                    rect = tempSpan.getBoundingClientRect();
+                    const parent = tempSpan.parentNode;
+                    if (parent) {
+                        parent.removeChild(tempSpan);
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                    }
+                }
                 
                 const palWidth = 288;
-                const palHeight = 250;
+                const palHeight = 320;
                 
-                let top = rect.bottom - editorRect.top + 10;
-                let left = rect.left - editorRect.left;
+                let top = rect.bottom + 10;
+                let left = rect.left;
                 
-                if (left + palWidth > editorRect.width - 10) {
-                    left = editorRect.width - palWidth - 10;
+                if (left + palWidth > window.innerWidth - 10) {
+                    left = window.innerWidth - palWidth - 10;
                 }
                 if (left < 10) left = 10;
                 
-                if (editorRef.current && top + palHeight > editorRef.current.clientHeight - 10) {
-                    top = rect.top - editorRect.top - palHeight - 10;
+                if (top + palHeight > window.innerHeight - 10) {
+                    top = rect.top - palHeight - 10;
                 }
                 if (top < 10) top = 10;
 
                 setCmdPosition({ top, left });
                 setCmdQuery('');
-                setCmdPalette({ show: true, selectedIndex: 0 });
+                setCmdPalette({ show: true, selectedIndex: 0, openedViaIcon: false });
                 setTagPalette(p => ({ ...p, show: false }));
                 
                 setTimeout(() => {
@@ -2109,7 +2226,7 @@ export default function AdminSubiStudio() {
     if (cmdPalette.show) {
         if (e.key === 'Escape') {
             e.preventDefault();
-            setCmdPalette({ show: false, selectedIndex: 0 });
+            setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
             setCmdQuery('');
             return;
         }
@@ -2130,6 +2247,43 @@ export default function AdminSubiStudio() {
             }
         }
     }
+  };
+
+  const handleEditorMouseUpOrKeyUp = () => {
+    const selection = window.getSelection();
+    if (selection && selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      if (editorRef.current && editorRef.current.contains(range.commonAncestorContainer)) {
+        lastSelectionRangeRef.current = range.cloneRange();
+      }
+    }
+  };
+
+  const handleOpenCmdPaletteFromIcon = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const pWidth = 288;
+    const pHeight = 320;
+
+    // Pinned to the bottom-right relative to the screen viewport above the fixed icon
+    let top = window.innerHeight - pHeight - 80;
+    let left = window.innerWidth - pWidth - 24;
+
+    // Viewport bounds checking
+    if (left + pWidth > window.innerWidth - 10) left = window.innerWidth - pWidth - 10;
+    if (left < 10) left = 10;
+    if (top + pHeight > window.innerHeight - 10) top = window.innerHeight - pHeight - 10;
+    if (top < 10) top = 10;
+
+    setCmdPosition({ top, left });
+    setCmdPalette({ show: true, selectedIndex: 0, openedViaIcon: true });
+    
+    setTimeout(() => {
+      if (cmdSearchRef.current) {
+        cmdSearchRef.current.focus({ preventScroll: true });
+      }
+    }, 50);
   };
 
   const handleEditorClick = (e) => {
@@ -2419,16 +2573,8 @@ export default function AdminSubiStudio() {
 
       if (error) throw error;
 
-      const newTagsSet = new Set(categoryTags[selectedCategory] || []);
-      parsedMCQs.forEach(mcq => {
-          mcq.tags.forEach(t => newTagsSet.add(t));
-      });
-      setCategoryTags(prev => ({
-          ...prev,
-          [selectedCategory]: Array.from(newTagsSet)
-      }));
-
       alert(`Successfully pushed ${parsedMCQs.length} MCQs to database!`);
+      fetchCategoryTagsFromSupabase(selectedCategory);
       if (editorRef.current) {
           editorRef.current.innerHTML = '<p><br></p>';
       }
@@ -2464,13 +2610,18 @@ export default function AdminSubiStudio() {
     }
   };
   
+  // Reset review tag filter on category change
+  useEffect(() => {
+    setReviewTagFilter('all');
+  }, [selectedCategory]);
+
   // MCQ Review Dashboard Helper Actions & Effects
   const uniqueTags = React.useMemo(() => {
     return Array.from(
       new Set(
         reviewQuestions
           .flatMap(q => q.tags || [])
-          .map(t => t ? t.trim() : '')
+          .map(t => t ? normalizeTagName(t) : '')
           .filter(t => t !== '' && !['easy', 'medium', 'hard'].includes(t.toLowerCase()))
       )
     ).sort();
@@ -2492,12 +2643,12 @@ export default function AdminSubiStudio() {
         || (qDifficultyClean === reviewDifficulty)
         || (q.tags && q.tags.some(t => t && t.trim().toLowerCase() === reviewDifficulty));
 
-      const topicTags = q.tags ? q.tags.filter(t => t && t.trim() !== '' && !['easy', 'medium', 'hard'].includes(t.trim().toLowerCase())) : [];
+      const topicTags = q.tags ? q.tags.map(t => normalizeTagName(t)).filter(t => t !== '' && !['easy', 'medium', 'hard'].includes(t.toLowerCase())) : [];
       const hasTopicTags = topicTags.length > 0;
 
       const matchTag = reviewTagFilter === 'all' 
         || (reviewTagFilter === 'none' && !hasTopicTags)
-        || (topicTags.some(t => t.trim().toLowerCase() === reviewTagFilter.toLowerCase()));
+        || (topicTags.some(t => t.toLowerCase() === reviewTagFilter.toLowerCase()));
 
       return matchText && matchDifficulty && matchTag;
     });
@@ -2515,7 +2666,7 @@ export default function AdminSubiStudio() {
     }
     if (q.tags && q.tags.length > 0) {
       q.tags.forEach(t => {
-        tagsList.push(`#${t.toLowerCase().replace(/\s+/g, '')}`);
+        tagsList.push(`#${normalizeTagName(t).replace(/\s+/g, '_')}`);
       });
     }
     if (q.pyq) {
@@ -2532,7 +2683,7 @@ export default function AdminSubiStudio() {
     }
     if (q.tags && q.tags.length > 0) {
       q.tags.forEach(t => {
-        tagsList.push(`#${t.toLowerCase().replace(/\s+/g, '')}`);
+        tagsList.push(`#${normalizeTagName(t).replace(/\s+/g, '_')}`);
       });
     }
     if (q.pyq) {
@@ -2566,7 +2717,7 @@ export default function AdminSubiStudio() {
     }
     if (q.tags && q.tags.length > 0) {
       q.tags.forEach(t => {
-        tagsList.push(`#${t.toLowerCase().replace(/\s+/g, '')}`);
+        tagsList.push(`#${normalizeTagName(t).replace(/\s+/g, '_')}`);
       });
     }
     if (q.pyq) {
@@ -2656,7 +2807,7 @@ export default function AdminSubiStudio() {
       }
       if (q.tags && q.tags.length > 0) {
         q.tags.forEach(t => {
-          expLine += ` #${t.toLowerCase().replace(/\s+/g, '')}`;
+          expLine += ` #${normalizeTagName(t).replace(/\s+/g, '_')}`;
         });
       }
       if (q.pyq) {
@@ -2690,7 +2841,7 @@ export default function AdminSubiStudio() {
             </div>`;
           }).join('');
 
-          const tagsHtml = q.tags && q.tags.length > 0 ? ` data-tags="${q.tags.join(',')}"` : '';
+          const tagsHtml = q.tags && q.tags.length > 0 ? ` data-tags="${q.tags.map(t => normalizeTagName(t)).join(',')}"` : '';
           const difficultyHtml = q.difficulty ? ` data-difficulty="${q.difficulty}"` : '';
           
           let expText = q.explanation || '';
@@ -2710,7 +2861,7 @@ export default function AdminSubiStudio() {
 
           if (q.tags && q.tags.length > 0) {
               q.tags.forEach(t => {
-                  const tagSlug = t.toLowerCase().replace(/\s+/g, '_');
+                  const tagSlug = normalizeTagName(t).replace(/\s+/g, '_');
                   if (!hasTagInText(expText, tagSlug) && !hasTagInText(expText, t)) {
                       expText = expText.trim() + ` #${tagSlug}`;
                   }
@@ -3273,27 +3424,6 @@ export default function AdminSubiStudio() {
               </div>
             </div>
 
-            {/* Bulk Copy & Paste controls */}
-            {activeMode === 'write' && (
-              <div className="flex items-center bg-theme-bg/60 border border-theme-border rounded-xl p-0.5 shadow-inner">
-                <button
-                  onClick={handleBulkCopy}
-                  className="p-2 text-theme-muted hover:text-theme-primary rounded-lg hover:bg-theme-surface transition-all"
-                  title="Bulk Copy Editor MCQs"
-                >
-                  <Copy size={16} />
-                </button>
-                <div className="w-px h-4 bg-theme-border" />
-                <button
-                  onClick={handleBulkPaste}
-                  className="p-2 text-theme-muted hover:text-theme-primary rounded-lg hover:bg-theme-surface transition-all"
-                  title="Bulk Paste MCQs into Editor"
-                >
-                  <Clipboard size={16} />
-                </button>
-              </div>
-            )}
-
             <button 
               onClick={() => { setShowSettingsModal(true); }} 
               className="w-10 h-10 flex items-center justify-center text-theme-muted hover:text-theme-primary hover:bg-theme-primary/10 border border-theme-border rounded-xl transition-all shadow-sm shrink-0"
@@ -3472,23 +3602,34 @@ export default function AdminSubiStudio() {
 
             <div 
                 ref={editorRef}
-                className="flex-1 overflow-y-auto p-6 md:p-8 outline-none nk-editor-area custom-scrollbar text-[1rem] md:text-[1.05rem]"
+                className="flex-1 overflow-y-auto p-6 md:p-8 pb-20 outline-none nk-editor-area custom-scrollbar text-[1rem] md:text-[1.05rem]"
                 contentEditable={true}
                 suppressContentEditableWarning={true}
                 onInput={handleEditorInput}
                 onPaste={handleEditorPaste}
                 onClick={handleEditorClick}
                 onKeyDown={handleEditorKeyDown}
+                onMouseUp={handleEditorMouseUpOrKeyUp}
+                onKeyUp={handleEditorMouseUpOrKeyUp}
                 data-placeholder="Start typing or paste from NoteKash..."
             >
                 <p><br/></p>
             </div>
 
+            {/* Floating Command Palette Trigger */}
+            <button
+              onClick={handleOpenCmdPaletteFromIcon}
+              className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-theme-primary hover:bg-theme-primary/95 text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-30 border border-theme-primary/20"
+              title="Open Command Palette"
+            >
+              <Command size={20} />
+            </button>
+
             {/* Searchable Command Palette Overlay */}
             {cmdPalette.show && (
               <div 
                 ref={cmdPaletteRef}
-                className="absolute bg-theme-surface border border-theme-border rounded-xl shadow-2xl p-2 w-72 z-20 animate-in fade-in zoom-in-95"
+                className="fixed bg-theme-surface border border-theme-border rounded-xl shadow-2xl p-2 w-72 z-50 animate-in fade-in zoom-in-95"
                 style={{ top: cmdPosition.top, left: cmdPosition.left }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -3604,86 +3745,11 @@ export default function AdminSubiStudio() {
             )}
           </div>
         ) : activeMode === 'review' ? (
-          /* MCQ Review Spreadsheet-Style Dashboard */
-          <div className="flex-1 bg-theme-surface/50 border border-theme-border rounded-2xl shadow-inner p-5 md:p-6 overflow-hidden flex flex-col">
+                 /* MCQ Review Spreadsheet-Style Dashboard */
+          <div className="flex-1 relative bg-theme-surface/50 border border-theme-border rounded-2xl shadow-inner p-5 md:p-6 overflow-hidden flex flex-col">
             
-            {/* Header controls inside review panel */}
-            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-4 pb-4 border-b border-theme-border/60 shrink-0">
-              <div className="flex flex-wrap gap-2 items-center">
-                <input 
-                  type="text" 
-                  value={reviewSearch}
-                  onChange={(e) => setReviewSearch(e.target.value)}
-                  placeholder="Search questions or explanations..."
-                  className="bg-theme-bg border border-theme-border rounded-xl px-4 py-2 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-theme-primary text-theme-text placeholder-theme-muted min-w-[240px]"
-                />
-                
-                <div className="relative">
-                  <select
-                    value={reviewDifficulty}
-                    onChange={(e) => setReviewDifficulty(e.target.value)}
-                    className="bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary appearance-none pr-8 cursor-pointer text-theme-text"
-                  >
-                    <option value="all">All Difficulties</option>
-                    <option value="none">No Difficulty</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                  </select>
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
-                    <ChevronDown size={12} />
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <select
-                    value={reviewTagFilter}
-                    onChange={(e) => setReviewTagFilter(e.target.value)}
-                    className="bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary appearance-none pr-8 cursor-pointer text-theme-text max-w-[150px] truncate"
-                  >
-                    <option value="all">All Tags</option>
-                    <option value="none">No Tags</option>
-                    {uniqueTags.map(tag => (
-                      <option key={tag} value={tag}>#{tag}</option>
-                    ))}
-                  </select>
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
-                    <ChevronDown size={12} />
-                  </div>
-                </div>
-
-                <button 
-                  onClick={fetchReviewQuestions}
-                  className="w-9 h-9 bg-theme-bg border border-theme-border hover:bg-theme-surface hover:text-theme-primary text-theme-muted rounded-xl flex items-center justify-center transition-all active:scale-95 shadow-sm"
-                  title="Reload Questions"
-                  disabled={loadingReview}
-                >
-                  <RefreshCw size={14} className={loadingReview ? 'animate-spin' : ''} />
-                </button>
-
-                {filteredReviewQuestions.length > 0 && (
-                  <button 
-                    onClick={() => {
-                      const allExpanded = filteredReviewQuestions.every(q => expandedIds.includes(q.id));
-                      if (allExpanded) {
-                        const filteredIds = filteredReviewQuestions.map(q => q.id);
-                        setExpandedIds(prev => prev.filter(id => !filteredIds.includes(id)));
-                      } else {
-                        const filteredIds = filteredReviewQuestions.map(q => q.id);
-                        setExpandedIds(prev => Array.from(new Set([...prev, ...filteredIds])));
-                      }
-                    }}
-                    className="w-9 h-9 bg-theme-bg border border-theme-border hover:bg-theme-surface hover:text-theme-primary text-theme-muted rounded-xl flex items-center justify-center transition-all active:scale-95 shadow-sm"
-                    title={filteredReviewQuestions.every(q => expandedIds.includes(q.id)) ? "Collapse All MCQs" : "Expand All MCQs"}
-                  >
-                    <ChevronsUpDown size={14} />
-                  </button>
-                )}
-              </div>
-            </div>
-
             {/* Questions Table wrapper with custom scrollbar */}
-            <div className="flex-1 overflow-auto custom-scrollbar border border-theme-border rounded-xl bg-theme-bg/30">
+            <div className="flex-1 overflow-auto custom-scrollbar border border-theme-border rounded-xl bg-theme-bg/30 pb-20">
               {loadingReview ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center space-y-3">
                   <div className="w-8 h-8 rounded-full border-2 border-theme-primary/20 border-t-theme-primary animate-spin" />
@@ -3825,11 +3891,84 @@ export default function AdminSubiStudio() {
                 })()
               )}
             </div>
+
+            {/* Floating controls inside review panel */}
+            <div className="fixed bottom-2 right-6 z-30 flex items-center gap-2.5 bg-theme-bg/95 backdrop-blur-md border border-theme-border p-2 rounded-2xl shadow-2xl">
+              <input 
+                type="text" 
+                value={reviewSearch}
+                onChange={(e) => setReviewSearch(e.target.value)}
+                placeholder="Search..."
+                className="bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-theme-primary text-theme-text placeholder-theme-muted min-w-[180px] max-w-[240px]"
+              />
+              
+              <div className="relative">
+                <select
+                  value={reviewDifficulty}
+                  onChange={(e) => setReviewDifficulty(e.target.value)}
+                  className="bg-theme-surface border border-theme-border rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary appearance-none pr-8 cursor-pointer text-theme-text"
+                >
+                  <option value="all">All Difficulties</option>
+                  <option value="none">No Difficulty</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+                <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
+                  <ChevronDown size={12} />
+                </div>
+              </div>
+
+              <div className="relative">
+                <select
+                  value={reviewTagFilter}
+                  onChange={(e) => setReviewTagFilter(e.target.value)}
+                  className="bg-theme-surface border border-theme-border rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary appearance-none pr-8 cursor-pointer text-theme-text max-w-[150px] truncate"
+                >
+                  <option value="all">All Tags</option>
+                  <option value="none">No Tags</option>
+                  {uniqueTags.map(tag => (
+                    <option key={tag} value={tag}>#{tag}</option>
+                  ))}
+                </select>
+                <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
+                  <ChevronDown size={12} />
+                </div>
+              </div>
+
+              <button 
+                onClick={fetchReviewQuestions}
+                className="w-9 h-9 bg-theme-surface border border-theme-border hover:bg-theme-bg hover:text-theme-primary text-theme-muted rounded-xl flex items-center justify-center transition-all active:scale-95 shadow-sm"
+                title="Reload Questions"
+                disabled={loadingReview}
+              >
+                <RefreshCw size={14} className={loadingReview ? 'animate-spin' : ''} />
+              </button>
+
+              {filteredReviewQuestions.length > 0 && (
+                <button 
+                  onClick={() => {
+                    const allExpanded = filteredReviewQuestions.every(q => expandedIds.includes(q.id));
+                    if (allExpanded) {
+                      const filteredIds = filteredReviewQuestions.map(q => q.id);
+                      setExpandedIds(prev => prev.filter(id => !filteredIds.includes(id)));
+                    } else {
+                      const filteredIds = filteredReviewQuestions.map(q => q.id);
+                      setExpandedIds(prev => Array.from(new Set([...prev, ...filteredIds])));
+                    }
+                  }}
+                  className="w-9 h-9 bg-theme-surface border border-theme-border hover:bg-theme-bg hover:text-theme-primary text-theme-muted rounded-xl flex items-center justify-center transition-all active:scale-95 shadow-sm"
+                  title={filteredReviewQuestions.every(q => expandedIds.includes(q.id)) ? "Collapse All MCQs" : "Expand All MCQs"}
+                >
+                  <ChevronsUpDown size={14} />
+                </button>
+              )}
+            </div>
           </div>
         ) : (
           /* Exam Mock Hub - Fully Screen Responsive grid flex */
-        <div className="flex-1 bg-theme-surface/50 border border-theme-border rounded-2xl shadow-inner p-5 md:p-8 overflow-y-auto custom-scrollbar flex flex-col md:flex-row gap-6 md:gap-8">
-            <div className="flex-1 space-y-6">
+        <div className="flex-1 bg-theme-surface/50 border border-theme-border rounded-2xl shadow-inner p-5 md:p-8 overflow-y-auto custom-scrollbar flex flex-col gap-8">
+            <div className="w-full space-y-6">
                 <div className="bg-theme-bg border border-theme-border p-5 md:p-6 rounded-2xl shadow-sm">
                     <h2 className="text-xl font-bold text-theme-text mb-5">Create New Exam</h2>
                     <div className="space-y-4">
@@ -3852,7 +3991,7 @@ export default function AdminSubiStudio() {
                                     </div>
                                 )}
                             </div>
-                            <div className="max-h-60 overflow-y-auto border border-theme-border rounded-xl p-2 bg-theme-surface custom-scrollbar space-y-1">
+                            <div className="border border-theme-border rounded-xl p-3 bg-theme-surface grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             {categories.map(cat => {
                                 const sel = selectedExamCats.find(c => c.id === cat.id);
                                 return (
@@ -3886,7 +4025,7 @@ export default function AdminSubiStudio() {
                                     </div>
                                 )}
                             </div>
-                            <div className="border border-theme-border rounded-xl p-2 bg-theme-surface space-y-1">
+                            <div className="border border-theme-border rounded-xl p-3 bg-theme-surface grid grid-cols-1 sm:grid-cols-3 gap-3">
                             {['easy', 'medium', 'hard'].map(diff => {
                                 const item = selectedExamDifficulties[diff];
                                 const isSel = item?.selected;
@@ -3913,9 +4052,9 @@ export default function AdminSubiStudio() {
                 </div>
             </div>
             
-            <div className="w-full md:w-72 space-y-4">
+            <div className="w-full space-y-4 pt-6 border-t border-theme-border/60">
                 <h3 className="font-black text-sm text-theme-muted flex items-center gap-2 uppercase tracking-wider"><Database size={16}/> Existing Exams</h3>
-                <div className="space-y-3 max-h-[60vh] md:max-h-none overflow-y-auto pr-1 custom-scrollbar">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {exams.length === 0 ? (
                     <p className="text-xs text-theme-muted text-center py-8 bg-theme-bg rounded-2xl border border-theme-border border-dashed font-semibold">No exams created yet.</p>
                     ) : exams.map(exam => (
