@@ -2,8 +2,10 @@
   {
     "id": "e1157400-5f5a-4d6c-8155-a114d184a5a3",
     "category_id": "general-science",
-    "tags": [],
-    "difficulty": null,
+    "tags": [
+      "Biology"
+    ],
+    "difficulty": "easy",
     "question": "Which part of the human brain is primarily responsible for maintaining balance and coordination of movements?",
     "correctId": "d",
     "options": [
@@ -28,7 +30,7 @@
         "label": "D"
       }
     ],
-    "explanation": "<img src=\"https://cdn-prod.medicalnewstoday.com/content/images/articles/313/313265/cerebellum.jpg\" class=\"nk-mcq-image cursor-pointer my-2 rounded-lg border border-theme-border/50 max-w-[90%] mx-auto block hover:ring-2 hover:ring-theme-primary transition-all\" data-align=\"center\" style=\"max-height: 250px; object-fit: contain;\">The<span class=\"text-green\" style=\"font-weight: 800;\"> cerebellum</span> coordinates<span class=\"text-teal\" style=\"font-weight: 800;\"> voluntary muscle movements</span> and helps <span class=\"text-blue\" style=\"font-weight: 800;\">maintain posture, balance, and equilibrium</span>.",
+    "explanation": "<img src=\"https://cdn-prod.medicalnewstoday.com/content/images/articles/313/313265/cerebellum.jpg\" class=\"nk-mcq-image cursor-pointer my-2 rounded-lg border border-theme-border/50 max-w-[90%] mx-auto block hover:ring-2 hover:ring-theme-primary transition-all\" data-align=\"center\" style=\"max-height: 250px; object-fit: contain;\">This is <span class=\"text-green\" style=\"font-weight: 800;\"> cerebellum,</span> that coordinates<span class=\"text-teal\" style=\"font-weight: 800;\"> voluntary muscle movements</span> and helps <span class=\"text-blue\" style=\"font-weight: 800;\">maintain posture, balance, and equilibrium</span>.",
     "pyq": null,
     "created_at": "2026-06-11T14:19:31.339682+00:00"
   },
