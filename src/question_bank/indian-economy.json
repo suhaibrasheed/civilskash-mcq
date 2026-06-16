@@ -1,40 +1,5 @@
 [
   {
-    "id": "6e293fe8-608d-4b11-9448-758a584f59f8",
-    "category_id": "indian-economy",
-    "tags": [
-      "Inflation"
-    ],
-    "difficulty": "medium",
-    "question": "Consider the following statements regarding the impact of high inflation on the banking sector and related financial instruments:<br>1. High inflation erodes the real value of fixed-interest rate loans, benefiting borrowers at the expense of lenders.<br>2. Inflation-indexed bonds (IIBs) are designed to protect investors from inflation by linking principal and/or interest payments to an inflation index.<br>3. During periods of sustained high inflation, banks tend to experience a significant increase in the real value of their non-performing assets (NPAs).<br>Which of the statements given above is/are correct?",
-    "correctId": "c",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "2 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "1 and 2 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "1, 2 and 3",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-magenta font-bold\">High inflation</span> reduces the real value of fixed repayments, <span class=\"text-green font-bold\">benefiting borrowers</span>. <span class=\"text-teal font-bold\">Inflation-indexed bonds</span> protect investors by adjusting returns for inflation. <span class=\"text-magenta font-bold\">High inflation</span> <span class=\"text-red font-bold\">erodes the real value</span> of existing NPAs (fixed nominal debt), though it might increase the *number* of <span class=\"text-red font-bold\">new defaults</span>. <span style=\"color: rgb(251, 191, 36);\"> <span class=\"text-theme-primary font-medium\"> </span></span>  <span class=\"text-theme-primary font-medium\"> </span>",
-    "pyq": null,
-    "created_at": "2026-06-14T16:49:59.1248+00:00"
-  },
-  {
     "id": "3621210b-6da9-4a55-baff-519187df3ec4",
     "category_id": "indian-economy",
     "tags": [
@@ -104,6 +69,41 @@
       }
     ],
     "explanation": "To combat inflation, <span class=\"text-teal font-bold\">RBI</span> <span class=\"text-green font-bold\">tightens monetary policy</span>. Increasing the <span class=\"text-teal font-bold\">Repo Rate</span> makes bank borrowing costlier, <span class=\"text-green font-bold\">reducing liquidity</span>. Reducing SLR and purchasing government securities inject liquidity, which <span class=\"text-red font-bold\">exacerbates inflation</span>.   #<span style=\"color: rgb(6, 182, 212); font-weight: 700;\">banking</span>",
+    "pyq": null,
+    "created_at": "2026-06-14T16:49:59.1248+00:00"
+  },
+  {
+    "id": "6e293fe8-608d-4b11-9448-758a584f59f8",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding the impact of high inflation on the banking sector and related financial instruments:<br>1. High inflation erodes the real value of fixed-interest rate loans, benefiting borrowers at the expense of lenders.<br>2. Inflation-indexed bonds (IIBs) are designed to protect investors from inflation by linking principal and/or interest payments to an inflation index.<br>3. During periods of sustained high inflation, banks tend to experience a significant increase in the real value of their non-performing assets (NPAs).<br>Which of the statements given above is/are correct?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 2 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">High inflation</span> reduces the real value of fixed repayments, <span class=\"text-green font-bold\">benefiting borrowers</span>. <span class=\"text-teal font-bold\">Inflation-indexed bonds</span> protect investors by adjusting returns for inflation. <span class=\"text-magenta font-bold\">High inflation</span> <span class=\"text-red font-bold\">erodes the real value</span> of existing NPAs (fixed nominal debt), though it might increase the *number* of <span class=\"text-red font-bold\">new defaults</span>. <span style=\"color: rgb(251, 191, 36);\"> <span class=\"text-theme-primary font-medium\"> </span></span>  <span class=\"text-theme-primary font-medium\"> </span>",
     "pyq": null,
     "created_at": "2026-06-14T16:49:59.1248+00:00"
   },
@@ -178,355 +178,72 @@
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
   {
-    "id": "fee05e89-6e68-42fb-bb21-4f4a0bf1f054",
+    "id": "cef2bbbf-310d-4f95-ad17-e50d453672ed",
     "category_id": "indian-economy",
     "tags": [
-      "Imf",
-      "Worldbank",
-      "Fiscal Crises"
+      "Banking"
     ],
     "difficulty": "medium",
-    "question": "“Rapid Financing Instrument” and “Rapid Credit Facility” are related to the provisions of lending by which one of the following?",
+    "question": "Consider the following statements:<br>1 In India, credit rating agencies are regulated by Reserve Bank of India.<br>2 The rating agency popularly known as ICRA is a public limited company.<br>3 Brickwork Ratings is an Indian credit rating agency.<br>Which of the statements given above are correct?",
     "correctId": "b",
     "options": [
       {
         "id": "a",
-        "text": "Asian Development Bank",
+        "text": "1 and 2 only",
         "label": "A"
       },
       {
         "id": "b",
-        "text": "International Monetary Fund",
+        "text": "2 and 3 only",
         "label": "B"
       },
       {
         "id": "c",
-        "text": "United Nations Environment Programme Finance Initiative",
+        "text": "1 and 3 only",
         "label": "C"
       },
       {
         "id": "d",
-        "text": "World Bank",
+        "text": "1, 2 and 3",
         "label": "D"
       }
     ],
-    "explanation": "Both <span class=\"text-blue font-bold\">Rapid Financing Instrument (RFI)</span> and <span class=\"text-blue font-bold\">Rapid Credit Facility (RCF)</span> are emergency lending tools of the <span class=\"text-blue font-bold\">IMF</span>, designed to provide quick <span class=\"text-green font-bold\">financial assistance</span> to countries facing urgent <span class=\"text-red font-bold\">balance-of-payments crises</span>, especially during shocks like pandemics or natural disasters.",
+    "explanation": "<span class=\"text-teal font-bold\">Credit Rating Agencies</span> in India are regulated by <span class=\"text-blue font-bold\">SEBI</span>, not <span class=\"text-blue font-bold\">RBI</span>, since ratings relate to securities markets. <span class=\"text-blue font-bold\">ICRA</span> (Investment Information and Credit Rating Agency) operates as a public limited company, and <span class=\"text-blue font-bold\">Brickwork Ratings</span> is also an Indian credit rating agency recognized by <span class=\"text-blue font-bold\">SEBI</span>.",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
   {
-    "id": "e147d4b0-d5a9-4bc1-8364-608f7d6e2d82",
+    "id": "d6f81615-9663-4e4d-8a48-2b8dd636c169",
     "category_id": "indian-economy",
     "tags": [
-      "Money"
+      "Banking"
     ],
     "difficulty": "easy",
-    "question": "Which one of the following effects of creation of black money in India has been the main cause of worry to the Government of India?",
+    "question": "In India, which one of the following is responsible for maintaining price stability by controlling inflation?",
     "correctId": "d",
     "options": [
       {
         "id": "a",
-        "text": "Diversion of resources to the purchase of real estate and investment in luxury housing",
+        "text": "Department of Consumer Affairs",
         "label": "A"
       },
       {
         "id": "b",
-        "text": "Investment in unproductive activities and purchase of precious stones, jewellery, gold, etc.",
+        "text": "Expenditure Management Commission",
         "label": "B"
       },
       {
         "id": "c",
-        "text": "Large donations to political parties and growth of regionalism",
+        "text": "Financial Stability and Development Council",
         "label": "C"
       },
       {
         "id": "d",
-        "text": "Loss of revenue to the State Exchequer due to tax evasion",
+        "text": "Reserve Bank of India",
         "label": "D"
       }
     ],
     "explanation": "",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "78b99674-7572-46c5-9552-eecd6717e217",
-    "category_id": "indian-economy",
-    "tags": [
-      "Inflation"
-    ],
-    "difficulty": "hard",
-    "question": "Consider the following statements:<br>1- The effect of devaluation of a currency is that it necessarily improves the competitiveness of the domestic exports in the foreign markets.<br>2- The effect of devaluation of a currency is that it necessarily increases the foreign value of domestic currency.<br>3- The effect of devaluation of a currency is that it necessarily improves the trade balance.<br>Which of the above statements is/are correct?",
-    "correctId": "a",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "1 and 2 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "3 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "2 and 3 only",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-red font-bold\">Devaluation</span> makes domestic currency cheaper, so exports become relatively cheaper for foreign buyers, <span class=\"text-green font-bold\">improving export competitiveness</span>. However, it <span class=\"text-red font-bold\">reduces the foreign value</span> of domestic currency, not increases it. Improvement in trade balance is not guaranteed and depends on demand elasticities (<span class=\"text-blue font-bold\">Marshall–Lerner condition</span>), so it cannot be considered a necessary outcome.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "ca5f99e5-2f2a-4296-86f8-d07639ee925b",
-    "category_id": "indian-economy",
-    "tags": [
-      "Banking"
-    ],
-    "difficulty": "hard",
-    "question": "With reference to the Indian economy, consider the following statements:<br>1- If the inflation is too high, Reserve Bank of India (RBI) is likely to buy government securities.<br>2- If the rupee is rapidly depreciating, RBI is likely to sell dollars in the market.<br>3- If interest rates in the USA or European Union were to fall, that is likely to induce RBI to buy dollars.<br>Which of the statements given above are correct?",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 and 2 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "2 and 3 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "1 and 3 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "1, 2 and 3",
-        "label": "D"
-      }
-    ],
-    "explanation": "To control <span class=\"text-red font-bold\">high inflation</span>, <span class=\"text-blue font-bold\">RBI</span> generally <span class=\"text-magenta font-bold\">sells government securities</span> (OMO) to absorb liquidity, not buys them, making statement 1 incorrect. When the rupee depreciates sharply, <span class=\"text-blue font-bold\">RBI</span> may sell dollars from its <span class=\"text-teal font-bold\">forex reserves</span> to increase dollar supply and stabilize the rupee. If interest rates in advanced economies fall, capital tends to flow into emerging markets like India, so <span class=\"text-blue font-bold\">RBI</span> may buy dollars to prevent excessive <span class=\"text-green font-bold\">rupee appreciation</span> and build reserves.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "7f8ba79e-56cd-4979-9076-c57cf4befd35",
-    "category_id": "indian-economy",
-    "tags": [
-      "Current Affairs"
-    ],
-    "difficulty": "hard",
-    "question": "Consider the following statements:<br>1- Gujarat has the largest solar park in India.<br>2- Kerala has a fully solar powered International Airport.<br>3- Goa has the largest floating solar photovoltaic project in India.<br>Which of the statements given above is/are correct?",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 and 2 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "2 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "1 and 3 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "3 only",
-        "label": "D"
-      }
-    ],
-    "explanation": "India’s largest solar park is <span class=\"text-blue font-bold\">Bhadla Solar Park</span> in <span class=\"text-teal font-bold\">Rajasthan</span>, not Gujarat. <span class=\"text-blue font-bold\">Cochin International Airport</span> in <span class=\"text-teal font-bold\">Kerala</span> is the world’s first fully solar-powered airport. The largest floating solar projects are located at <span class=\"text-blue font-bold\">Ramagundam in Telangana</span> , not Goa.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "ba0b643e-159f-4581-a4ba-1b36825bcc78",
-    "category_id": "indian-economy",
-    "tags": [
-      "Economic Sectors"
-    ],
-    "difficulty": "easy",
-    "question": "In which of the following case, law of demand fails?",
-    "correctId": "a",
-    "options": [
-      {
-        "id": "a",
-        "text": "Giffen goods",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Normal goods",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Inferior goods",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Both Giffen and Inferior goods",
-        "label": "D"
-      }
-    ],
-    "explanation": "The <span class=\"text-red font-bold\">law of demand</span> states that price and quantity demanded move inversely. However, <span class=\"text-red font-bold\">Giffen goods</span> show a positive <span class=\"text-magenta font-bold\">price–demand relationship</span> due to a strong <span class=\"text-magenta font-bold\">income effect</span> overriding the <span class=\"text-magenta font-bold\">substitution effect</span>, so demand may increase when price rises, violating the <span class=\"text-red font-bold\">law of demand</span>.  <div><img src=\"https://blog.tatanexarc.com/wp-content/uploads/2025/04/ChatGPT-Image-Apr-10-2025-07_36_20-PM-980x1470.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\"> <br></div>",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "7cacbc49-1b5b-4ba6-a755-9959f0236fe3",
-    "category_id": "indian-economy",
-    "tags": [
-      "Imf"
-    ],
-    "difficulty": "medium",
-    "question": "Consider the following statements regarding Special Drawing Right (SDR):<br>1- The Special Drawing Right (SDR) is an interest-bearing international reserve asset created by the IMF.<br>2- The value of the SDR is directly determined by supply and demand in the market.<br>3- It can be held and used by member countries, private entities or individuals.",
-    "correctId": "a",
-    "options": [
-      {
-        "id": "a",
-        "text": "Only 1",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Only 2",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "All three",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "None",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-red font-bold\">SDR</span> is an <span class=\"text-red font-bold\">international reserve asset</span> created by the <span class=\"text-blue font-bold\">IMF</span> and it earns/charges interest based on <span class=\"text-red font-bold\">SDR</span> interest rate, so statement 1 is correct. Its value is not market-determined; it is calculated from a <span class=\"text-magenta font-bold\">basket of major currencies</span> (USD, Euro, Yuan, Yen, Pound) set by <span class=\"text-blue font-bold\">IMF</span>. SDRs are held only by <span class=\"text-teal font-bold\">IMF member countries</span> and certain official institutions, not by private entities or individuals.  &amp;_wb",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "2467b255-04cb-4acd-b67b-3b291c5e6e76",
-    "category_id": "indian-economy",
-    "tags": [
-      "Banking"
-    ],
-    "difficulty": "medium",
-    "question": "Consider the following statements:<br>1- Under Market Stabilisation Scheme (MSS), scheduled commercial banks can borrow additional amount of overnight money from the Reserve Bank by dipping into their Statutory Liquidity Ratio (SLR) portfolio up to a limit at a penal rate of interest.<br>2- Open Market Operations (OMOs) include both purchase and sale of government securities, for absorption and injection of liquidity respectively.",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "Only 1",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Only 2",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Both 1 and 2",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Neither 1 nor 2",
-        "label": "D"
-      }
-    ],
-    "explanation": "The facility of borrowing overnight funds by dipping into <span class=\"text-teal font-bold\">SLR securities</span> at a penal rate refers to the <span class=\"text-red font-bold\">Marginal Standing Facility (MSF)</span>, not the <span class=\"text-red font-bold\">Market Stabilisation Scheme (MSS)</span>. MSS is used by the government/RBI to absorb <span class=\"text-magenta font-bold\">excess liquidity</span> by issuing special securities. <span class=\"text-teal font-bold\">OMOs</span>, however, involve RBI buying or selling government securities to inject or absorb liquidity in the banking system.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "5fc75f96-184a-4186-b1f1-8b6dff6384f7",
-    "category_id": "indian-economy",
-    "tags": [
-      "Inflation"
-    ],
-    "difficulty": "medium",
-    "question": "With reference to the Indian economy, consider the following statements:<br>1- An increase in Nominal Effective Exchange Rate (NEER) indicates the appreciation of rupee.<br>2- An increase in the Real Effective Exchange Rate (REER) indicates an improvement in trade competitiveness.<br>3- An increasing trend in domestic inflation relative to inflation in other countries is likely to cause an increasing divergence between NEER and REER.",
-    "correctId": "c",
-    "options": [
-      {
-        "id": "a",
-        "text": "1 and 2 only",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "2 and 3 only",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "1 and 3 only",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "1, 2 and 3",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-red font-bold\">NEER</span> is a weighted average of the rupee against a basket of currencies; an increase indicates <span class=\"text-green font-bold\">rupee appreciation</span>. <span class=\"text-red font-bold\">REER</span> adjusts <span class=\"text-red font-bold\">NEER</span> for <span class=\"text-magenta font-bold\">inflation differentials</span>, and a rise in <span class=\"text-red font-bold\">REER</span> means domestic goods become relatively expensive, <span class=\"text-red font-bold\">reducing export competitiveness</span>. When domestic inflation exceeds that of trading partners, <span class=\"text-red font-bold\">REER</span> rises relative to <span class=\"text-red font-bold\">NEER</span>, creating a divergence between the two indices.",
-    "pyq": null,
-    "created_at": "2026-06-14T16:33:22.815063+00:00"
-  },
-  {
-    "id": "757a2ee8-483c-4966-b429-626c25533f0d",
-    "category_id": "indian-economy",
-    "tags": [
-      "Gdp",
-      "National Income"
-    ],
-    "difficulty": "medium",
-    "question": "Consider the following statements:<br>1 Real GDP is the GDP derived after adding the effect of inflation.<br>2 The difference between the real and nominal GDP shows the levels of inflation in the year.",
-    "correctId": "b",
-    "options": [
-      {
-        "id": "a",
-        "text": "Only 1",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Only 2",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Both 1 and 2",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Neither 1 nor 2",
-        "label": "D"
-      }
-    ],
-    "explanation": "<span class=\"text-red font-bold\">Real GDP</span> is obtained by removing (adjusting for) <span class=\"text-magenta font-bold\">inflation</span> from <span class=\"text-red font-bold\">Nominal GDP</span>, not adding it. The gap between <span class=\"text-red font-bold\">Nominal GDP</span> and <span class=\"text-red font-bold\">Real GDP</span> reflects <span class=\"text-magenta font-bold\">price changes</span>, captured through the <span class=\"text-teal font-bold\">GDP deflator</span>, which indicates the <span class=\"text-magenta font-bold\">inflation</span> level in the economy.",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
@@ -601,48 +318,224 @@
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
   {
-    "id": "d6f81615-9663-4e4d-8a48-2b8dd636c169",
+    "id": "757a2ee8-483c-4966-b429-626c25533f0d",
     "category_id": "indian-economy",
     "tags": [
-      "Banking"
+      "Gdp",
+      "National Income"
     ],
-    "difficulty": "easy",
-    "question": "In India, which one of the following is responsible for maintaining price stability by controlling inflation?",
-    "correctId": "d",
+    "difficulty": "medium",
+    "question": "Consider the following statements:<br>1 Real GDP is the GDP derived after adding the effect of inflation.<br>2 The difference between the real and nominal GDP shows the levels of inflation in the year.",
+    "correctId": "b",
     "options": [
       {
         "id": "a",
-        "text": "Department of Consumer Affairs",
+        "text": "Only 1",
         "label": "A"
       },
       {
         "id": "b",
-        "text": "Expenditure Management Commission",
+        "text": "Only 2",
         "label": "B"
       },
       {
         "id": "c",
-        "text": "Financial Stability and Development Council",
+        "text": "Both 1 and 2",
         "label": "C"
       },
       {
         "id": "d",
-        "text": "Reserve Bank of India",
+        "text": "Neither 1 nor 2",
         "label": "D"
       }
     ],
-    "explanation": "",
+    "explanation": "<span class=\"text-red font-bold\">Real GDP</span> is obtained by removing (adjusting for) <span class=\"text-magenta font-bold\">inflation</span> from <span class=\"text-red font-bold\">Nominal GDP</span>, not adding it. The gap between <span class=\"text-red font-bold\">Nominal GDP</span> and <span class=\"text-red font-bold\">Real GDP</span> reflects <span class=\"text-magenta font-bold\">price changes</span>, captured through the <span class=\"text-teal font-bold\">GDP deflator</span>, which indicates the <span class=\"text-magenta font-bold\">inflation</span> level in the economy.",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
   },
   {
-    "id": "cef2bbbf-310d-4f95-ad17-e50d453672ed",
+    "id": "5fc75f96-184a-4186-b1f1-8b6dff6384f7",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "medium",
+    "question": "With reference to the Indian economy, consider the following statements:<br>1- An increase in Nominal Effective Exchange Rate (NEER) indicates the appreciation of rupee.<br>2- An increase in the Real Effective Exchange Rate (REER) indicates an improvement in trade competitiveness.<br>3- An increasing trend in domestic inflation relative to inflation in other countries is likely to cause an increasing divergence between NEER and REER.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">NEER</span> is a weighted average of the rupee against a basket of currencies; an increase indicates <span class=\"text-green font-bold\">rupee appreciation</span>. <span class=\"text-red font-bold\">REER</span> adjusts <span class=\"text-red font-bold\">NEER</span> for <span class=\"text-magenta font-bold\">inflation differentials</span>, and a rise in <span class=\"text-red font-bold\">REER</span> means domestic goods become relatively expensive, <span class=\"text-red font-bold\">reducing export competitiveness</span>. When domestic inflation exceeds that of trading partners, <span class=\"text-red font-bold\">REER</span> rises relative to <span class=\"text-red font-bold\">NEER</span>, creating a divergence between the two indices.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "2467b255-04cb-4acd-b67b-3b291c5e6e76",
     "category_id": "indian-economy",
     "tags": [
       "Banking"
     ],
     "difficulty": "medium",
-    "question": "Consider the following statements:<br>1 In India, credit rating agencies are regulated by Reserve Bank of India.<br>2 The rating agency popularly known as ICRA is a public limited company.<br>3 Brickwork Ratings is an Indian credit rating agency.<br>Which of the statements given above are correct?",
+    "question": "Consider the following statements:<br>1- Under Market Stabilisation Scheme (MSS), scheduled commercial banks can borrow additional amount of overnight money from the Reserve Bank by dipping into their Statutory Liquidity Ratio (SLR) portfolio up to a limit at a penal rate of interest.<br>2- Open Market Operations (OMOs) include both purchase and sale of government securities, for absorption and injection of liquidity respectively.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only 1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Only 2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The facility of borrowing overnight funds by dipping into <span class=\"text-teal font-bold\">SLR securities</span> at a penal rate refers to the <span class=\"text-red font-bold\">Marginal Standing Facility (MSF)</span>, not the <span class=\"text-red font-bold\">Market Stabilisation Scheme (MSS)</span>. MSS is used by the government/RBI to absorb <span class=\"text-magenta font-bold\">excess liquidity</span> by issuing special securities. <span class=\"text-teal font-bold\">OMOs</span>, however, involve RBI buying or selling government securities to inject or absorb liquidity in the banking system.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "7cacbc49-1b5b-4ba6-a755-9959f0236fe3",
+    "category_id": "indian-economy",
+    "tags": [
+      "Imf"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding Special Drawing Right (SDR):<br>1- The Special Drawing Right (SDR) is an interest-bearing international reserve asset created by the IMF.<br>2- The value of the SDR is directly determined by supply and demand in the market.<br>3- It can be held and used by member countries, private entities or individuals.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only 1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Only 2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "All three",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">SDR</span> is an <span class=\"text-red font-bold\">international reserve asset</span> created by the <span class=\"text-blue font-bold\">IMF</span> and it earns/charges interest based on <span class=\"text-red font-bold\">SDR</span> interest rate, so statement 1 is correct. Its value is not market-determined; it is calculated from a <span class=\"text-magenta font-bold\">basket of major currencies</span> (USD, Euro, Yuan, Yen, Pound) set by <span class=\"text-blue font-bold\">IMF</span>. SDRs are held only by <span class=\"text-teal font-bold\">IMF member countries</span> and certain official institutions, not by private entities or individuals.  &amp;_wb",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "ba0b643e-159f-4581-a4ba-1b36825bcc78",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Sectors"
+    ],
+    "difficulty": "easy",
+    "question": "In which of the following case, law of demand fails?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Giffen goods",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Normal goods",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Inferior goods",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Both Giffen and Inferior goods",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">law of demand</span> states that price and quantity demanded move inversely. However, <span class=\"text-red font-bold\">Giffen goods</span> show a positive <span class=\"text-magenta font-bold\">price–demand relationship</span> due to a strong <span class=\"text-magenta font-bold\">income effect</span> overriding the <span class=\"text-magenta font-bold\">substitution effect</span>, so demand may increase when price rises, violating the <span class=\"text-red font-bold\">law of demand</span>.  <div><img src=\"https://blog.tatanexarc.com/wp-content/uploads/2025/04/ChatGPT-Image-Apr-10-2025-07_36_20-PM-980x1470.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\"> <br></div>",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "7f8ba79e-56cd-4979-9076-c57cf4befd35",
+    "category_id": "indian-economy",
+    "tags": [
+      "Current Affairs"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements:<br>1- Gujarat has the largest solar park in India.<br>2- Kerala has a fully solar powered International Airport.<br>3- Goa has the largest floating solar photovoltaic project in India.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "3 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "India’s largest solar park is <span class=\"text-blue font-bold\">Bhadla Solar Park</span> in <span class=\"text-teal font-bold\">Rajasthan</span>, not Gujarat. <span class=\"text-blue font-bold\">Cochin International Airport</span> in <span class=\"text-teal font-bold\">Kerala</span> is the world’s first fully solar-powered airport. The largest floating solar projects are located at <span class=\"text-blue font-bold\">Ramagundam in Telangana</span> , not Goa.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "ca5f99e5-2f2a-4296-86f8-d07639ee925b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "hard",
+    "question": "With reference to the Indian economy, consider the following statements:<br>1- If the inflation is too high, Reserve Bank of India (RBI) is likely to buy government securities.<br>2- If the rupee is rapidly depreciating, RBI is likely to sell dollars in the market.<br>3- If interest rates in the USA or European Union were to fall, that is likely to induce RBI to buy dollars.<br>Which of the statements given above are correct?",
     "correctId": "b",
     "options": [
       {
@@ -666,9 +559,149 @@
         "label": "D"
       }
     ],
-    "explanation": "<span class=\"text-teal font-bold\">Credit Rating Agencies</span> in India are regulated by <span class=\"text-blue font-bold\">SEBI</span>, not <span class=\"text-blue font-bold\">RBI</span>, since ratings relate to securities markets. <span class=\"text-blue font-bold\">ICRA</span> (Investment Information and Credit Rating Agency) operates as a public limited company, and <span class=\"text-blue font-bold\">Brickwork Ratings</span> is also an Indian credit rating agency recognized by <span class=\"text-blue font-bold\">SEBI</span>.",
+    "explanation": "To control <span class=\"text-red font-bold\">high inflation</span>, <span class=\"text-blue font-bold\">RBI</span> generally <span class=\"text-magenta font-bold\">sells government securities</span> (OMO) to absorb liquidity, not buys them, making statement 1 incorrect. When the rupee depreciates sharply, <span class=\"text-blue font-bold\">RBI</span> may sell dollars from its <span class=\"text-teal font-bold\">forex reserves</span> to increase dollar supply and stabilize the rupee. If interest rates in advanced economies fall, capital tends to flow into emerging markets like India, so <span class=\"text-blue font-bold\">RBI</span> may buy dollars to prevent excessive <span class=\"text-green font-bold\">rupee appreciation</span> and build reserves.",
     "pyq": null,
     "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "78b99674-7572-46c5-9552-eecd6717e217",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements:<br>1- The effect of devaluation of a currency is that it necessarily improves the competitiveness of the domestic exports in the foreign markets.<br>2- The effect of devaluation of a currency is that it necessarily increases the foreign value of domestic currency.<br>3- The effect of devaluation of a currency is that it necessarily improves the trade balance.<br>Which of the above statements is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "2 and 3 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Devaluation</span> makes domestic currency cheaper, so exports become relatively cheaper for foreign buyers, <span class=\"text-green font-bold\">improving export competitiveness</span>. However, it <span class=\"text-red font-bold\">reduces the foreign value</span> of domestic currency, not increases it. Improvement in trade balance is not guaranteed and depends on demand elasticities (<span class=\"text-blue font-bold\">Marshall–Lerner condition</span>), so it cannot be considered a necessary outcome.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "e147d4b0-d5a9-4bc1-8364-608f7d6e2d82",
+    "category_id": "indian-economy",
+    "tags": [
+      "Money"
+    ],
+    "difficulty": "easy",
+    "question": "Which one of the following effects of creation of black money in India has been the main cause of worry to the Government of India?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Diversion of resources to the purchase of real estate and investment in luxury housing",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Investment in unproductive activities and purchase of precious stones, jewellery, gold, etc.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Large donations to political parties and growth of regionalism",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Loss of revenue to the State Exchequer due to tax evasion",
+        "label": "D"
+      }
+    ],
+    "explanation": "",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "fee05e89-6e68-42fb-bb21-4f4a0bf1f054",
+    "category_id": "indian-economy",
+    "tags": [
+      "Imf",
+      "Worldbank",
+      "Fiscal Crises"
+    ],
+    "difficulty": "medium",
+    "question": "“Rapid Financing Instrument” and “Rapid Credit Facility” are related to the provisions of lending by which one of the following?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asian Development Bank",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "International Monetary Fund",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "United Nations Environment Programme Finance Initiative",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Bank",
+        "label": "D"
+      }
+    ],
+    "explanation": "Both <span class=\"text-blue font-bold\">Rapid Financing Instrument (RFI)</span> and <span class=\"text-blue font-bold\">Rapid Credit Facility (RCF)</span> are emergency lending tools of the <span class=\"text-blue font-bold\">IMF</span>, designed to provide quick <span class=\"text-green font-bold\">financial assistance</span> to countries facing urgent <span class=\"text-red font-bold\">balance-of-payments crises</span>, especially during shocks like pandemics or natural disasters.",
+    "pyq": null,
+    "created_at": "2026-06-14T16:33:22.815063+00:00"
+  },
+  {
+    "id": "c57be9e5-8c82-4547-a278-d9e98af14015",
+    "category_id": "indian-economy",
+    "tags": [],
+    "difficulty": "medium",
+    "question": "With reference to foreign-owned e-commerce firms, operating in India, which of the following statements is/are correct?<br>1. They can sell their own goods in addition to offering their platforms as market-places.<br>2. The degree to which they can own big sellers on their platforms is limited..<br>Select the correct answer using the code given below:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">India’s FDI policy </span><span class=\"text-teal\" style=\"font-weight: 800;\">allows foreign e-commerce firms</span> only under the<span class=\"text-teal\" style=\"font-weight: 800;\"> marketplace model, </span>meaning they cannot sell their own inventory directly on the platform. However, to prevent control over sellers, rules<span class=\"text-orange\" style=\"font-weight: 800;\"> restrict ownership or control of large vendors </span>on the platform, limiting their equity participation in such sellers.",
+    "pyq": null,
+    "created_at": "2026-06-14T14:40:16.361504+00:00"
   },
   {
     "id": "09f1d175-697d-446b-b743-a502bf1157df",
@@ -700,41 +733,6 @@
       }
     ],
     "explanation": "The real sector deals with production of goods and services, not financial transactions. Activities like agriculture and manufacturing belong to the real sector. In contrast, bank lending and issuing bonds are financial activities that belong to the financial sector, not the real sector. <span class=\"text-blue-500 font-bold\"> </span>",
-    "pyq": null,
-    "created_at": "2026-06-14T14:40:16.361504+00:00"
-  },
-  {
-    "id": "917a6ea2-24e0-4676-834c-d9e861b339cf",
-    "category_id": "indian-economy",
-    "tags": [
-      "Money"
-    ],
-    "difficulty": "easy",
-    "question": "Which one of the following is not the most likely measure the Government/RBI takes to stop the slide of the Indian rupee?",
-    "correctId": "d",
-    "options": [
-      {
-        "id": "a",
-        "text": "Curbing imports of non-essential goods and promoting exports",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Encouraging Indian borrowers to issue rupee denominated Masala Bonds",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Easing conditions relating to External Commercial Borrowing (ECB)",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Following an expansionary monetary policy",
-        "label": "D"
-      }
-    ],
-    "explanation": "To stabilize a depreciating currency, authorities usually try to increase foreign exchange inflows or reduce forex demand by promoting exports, attracting capital inflows (ECB, Masala bonds), or limiting imports. Expansionary monetary policy increases liquidity and often weakens the currency, so it is generally not used to defend a falling rupee.",
     "pyq": null,
     "created_at": "2026-06-14T14:40:16.361504+00:00"
   },
@@ -772,35 +770,37 @@
     "created_at": "2026-06-14T14:40:16.361504+00:00"
   },
   {
-    "id": "c57be9e5-8c82-4547-a278-d9e98af14015",
+    "id": "917a6ea2-24e0-4676-834c-d9e861b339cf",
     "category_id": "indian-economy",
-    "tags": [],
-    "difficulty": "medium",
-    "question": "With reference to foreign-owned e-commerce firms, operating in India, which of the following statements is/are correct?<br>1. They can sell their own goods in addition to offering their platforms as market-places.<br>2. The degree to which they can own big sellers on their platforms is limited..<br>Select the correct answer using the code given below:",
-    "correctId": "b",
+    "tags": [
+      "Money"
+    ],
+    "difficulty": "easy",
+    "question": "Which one of the following is not the most likely measure the Government/RBI takes to stop the slide of the Indian rupee?",
+    "correctId": "d",
     "options": [
       {
         "id": "a",
-        "text": "1 only",
+        "text": "Curbing imports of non-essential goods and promoting exports",
         "label": "A"
       },
       {
         "id": "b",
-        "text": "2 only",
+        "text": "Encouraging Indian borrowers to issue rupee denominated Masala Bonds",
         "label": "B"
       },
       {
         "id": "c",
-        "text": "Both 1 and 2",
+        "text": "Easing conditions relating to External Commercial Borrowing (ECB)",
         "label": "C"
       },
       {
         "id": "d",
-        "text": "Neither 1 nor 2",
+        "text": "Following an expansionary monetary policy",
         "label": "D"
       }
     ],
-    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">India’s FDI policy </span><span class=\"text-teal\" style=\"font-weight: 800;\">allows foreign e-commerce firms</span> only under the<span class=\"text-teal\" style=\"font-weight: 800;\"> marketplace model, </span>meaning they cannot sell their own inventory directly on the platform. However, to prevent control over sellers, rules<span class=\"text-orange\" style=\"font-weight: 800;\"> restrict ownership or control of large vendors </span>on the platform, limiting their equity participation in such sellers.",
+    "explanation": "To stabilize a depreciating currency, authorities usually try to increase foreign exchange inflows or reduce forex demand by promoting exports, attracting capital inflows (ECB, Masala bonds), or limiting imports. Expansionary monetary policy increases liquidity and often weakens the currency, so it is generally not used to defend a falling rupee.",
     "pyq": null,
     "created_at": "2026-06-14T14:40:16.361504+00:00"
   },
