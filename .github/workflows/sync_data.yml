@@ -32,4 +32,4 @@ jobs:
           git config --global user.name "MCQ Kash Bot"
           git config --global user.email "bot@mcqkash.com"
           git add -A src/question_bank/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync database questions" && git push)
+          git diff --cached --quiet src/question_bank/ || (git commit -m "chore: sync database questions" && git push)
