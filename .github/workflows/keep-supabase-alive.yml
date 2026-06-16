@@ -2,9 +2,8 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    # Fires automatically at 00:00 UTC every 3 days.
-    # This keeps your free tier active well before the 7-day limit.
-    - cron: '0 0 */3 * *'
+    # Fires automatically at 00:00 UTC every 2 days.
+    - cron: '0 0 */2 * *'
   workflow_dispatch:
     # Adds a manual execution button in your GitHub dashboard for testing
 
