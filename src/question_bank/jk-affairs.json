@@ -35,6 +35,41 @@
     "created_at": "2026-05-30T15:52:28.390001+00:00"
   },
   {
+    "id": "36bf9317-6a0d-4e18-a84f-06cf2c70e9af",
+    "category_id": "jk-affairs",
+    "tags": [
+      "Jk History"
+    ],
+    "difficulty": null,
+    "question": "Who among the following rulers is known as the \"Akbar of Kashmir\" due to his policy of religious tolerance and administrative reforms?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sultan Sikandar",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sultan Ali Shah",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Zain-ul-Abidin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Yusuf Shah Chak",
+        "label": "D"
+      }
+    ],
+    "explanation": "Sultan<span class=\"text-teal\" style=\"font-weight: 800;\"> Zain-ul-Abidin (Budshah)</span> ruled Kashmir in the 15th century and is remembered for promoting religious harmony, reviving arts and crafts, encouraging learning, and reducing oppressive measures. His reign is considered a <span style=\"font-style: italic;\">golden period in medieval Kashmiri history</span>. /<br>",
+    "pyq": null,
+    "created_at": "2026-05-30T15:52:28.390001+00:00"
+  },
+  {
     "id": "5b8d5658-5b03-42c4-90fa-c4513f1067b6",
     "category_id": "jk-affairs",
     "tags": [
@@ -69,41 +104,6 @@
       }
     ],
     "explanation": "Following the <span class=\"text-blue font-bold\">First Anglo-Sikh War</span>, the Treaty of Lahore was signed with the Sikh Empire. Subsequently, the <span class=\"text-blue font-bold\">Treaty of Amritsar</span> (<span class=\"text-blue font-bold\">16 March 1846</span>) was concluded between the British East India Company and <span class=\"text-blue font-bold\">Gulab Singh</span>, recognizing him as the Maharaja of Jammu and Kashmir in return for payment of 75 lakh Nanakshahi rupees. This marked the beginning of <span class=\"text-green font-bold\">Dogra rule</span> in Jammu and Kashmir.  -indian-history -sikh-wars /",
-    "pyq": null,
-    "created_at": "2026-05-30T15:52:28.390001+00:00"
-  },
-  {
-    "id": "36bf9317-6a0d-4e18-a84f-06cf2c70e9af",
-    "category_id": "jk-affairs",
-    "tags": [
-      "Jk History"
-    ],
-    "difficulty": null,
-    "question": "Who among the following rulers is known as the \"Akbar of Kashmir\" due to his policy of religious tolerance and administrative reforms?",
-    "correctId": "c",
-    "options": [
-      {
-        "id": "a",
-        "text": "Sultan Sikandar",
-        "label": "A"
-      },
-      {
-        "id": "b",
-        "text": "Sultan Ali Shah",
-        "label": "B"
-      },
-      {
-        "id": "c",
-        "text": "Zain-ul-Abidin",
-        "label": "C"
-      },
-      {
-        "id": "d",
-        "text": "Yusuf Shah Chak",
-        "label": "D"
-      }
-    ],
-    "explanation": "Sultan<span class=\"text-teal\" style=\"font-weight: 800;\"> Zain-ul-Abidin (Budshah)</span> ruled Kashmir in the 15th century and is remembered for promoting religious harmony, reviving arts and crafts, encouraging learning, and reducing oppressive measures. His reign is considered a <span style=\"font-style: italic;\">golden period in medieval Kashmiri history</span>. /<br>",
     "pyq": null,
     "created_at": "2026-05-30T15:52:28.390001+00:00"
   }
