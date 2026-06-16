@@ -4,12 +4,14 @@ import {
   User, Settings, Award, Clock, ChevronRight, ChevronDown, Shield, Zap, Sparkles, 
   CheckCircle, XCircle, TrendingUp, Lock, Wand2, Eye, EyeOff, Send, 
   RefreshCw, MessageSquare, BarChart2, X, BookmarkCheck, LayoutGrid, 
-  ChevronUp, Lightbulb, LogOut, Key, Mail, LockKeyhole, AlertTriangle, Snowflake, Loader, Trophy
+  ChevronUp, Lightbulb, LogOut, Key, Mail, LockKeyhole, AlertTriangle, Snowflake, Loader, Trophy, Calendar
 } from 'lucide-react';
 import BYOKSettingsModal from '../components/BYOKSettingsModal';
 import ProfileCustomizerModal from '../components/ProfileCustomizerModal';
 import StudyGoalsModal from '../components/StudyGoalsModal';
 import Avatar, { avatarsList } from '../components/Avatars';
+import PremiumProfileCard from '../components/PremiumProfileCard';
+import { useTheme } from '../context/ThemeContext';
 
 import { getAggregatedStats, saveOutput } from '../lib/db';
 import WarRoomSection from '../components/WarRoomSection';
@@ -232,6 +234,7 @@ export default function ProfileDashboard() {
   const { economy, toggleProTier, aiSettingsOpen, setAiSettingsOpen, refreshEconomy } = useEconomy();
   const { showToast } = useToast();
   const { playVictory } = useSound();
+  const { theme } = useTheme();
 
   const getScratchHistory = () => {
     try {
@@ -387,6 +390,7 @@ export default function ProfileDashboard() {
 
   // User Rank state
   const [userRank, setUserRank] = useState(null);
+  const [totalAspirants, setTotalAspirants] = useState(null);
 
   // Auto-suggest username from email prefix
   useEffect(() => {
@@ -399,7 +403,7 @@ export default function ProfileDashboard() {
   // Handle redirect messages (e.g. guest intercepts)
   const toastFiredRef = useRef(false);
   useEffect(() => {
-    if (location.state && (location.state.message || location.state.openStudyGoals)) {
+    if (location.state && (location.state.message || location.state.openStudyGoals || location.state.openRewards)) {
       if (location.state.message && !toastFiredRef.current) {
         setAuthError(location.state.message);
         showToast(location.state.message, 'warning');
@@ -407,6 +411,9 @@ export default function ProfileDashboard() {
       }
       if (location.state.openStudyGoals) {
         setStudyGoalsOpen(true);
+      }
+      if (location.state.openRewards) {
+        setShowRewardCenterModal(true);
       }
       navigate(location.pathname, { replace: true, state: {} });
     }
@@ -431,21 +438,28 @@ export default function ProfileDashboard() {
   }, [location.search, location.pathname, navigate]);
 
   useEffect(() => {
-    const fetchUserRank = async () => {
+    const fetchUserRankAndCount = async () => {
       if (!user) {
         setUserRank(null);
+        setTotalAspirants(null);
         return;
       }
       try {
-        const { data, error } = await supabase.rpc('get_logged_in_user_coins_rank');
-        if (error) throw error;
-        setUserRank(data);
+        const { data: rankData, error: rankError } = await supabase.rpc('get_logged_in_user_coins_rank');
+        if (rankError) throw rankError;
+        setUserRank(rankData);
+
+        const { data: countData, error: countError } = await supabase.rpc('get_total_aspirants_count');
+        if (!countError && typeof countData === 'number') {
+          setTotalAspirants(countData);
+        }
       } catch (err) {
-        console.error('Failed to fetch user rank:', err);
+        console.error('Failed to fetch user rank/count:', err);
         setUserRank(null);
+        setTotalAspirants(null);
       }
     };
-    fetchUserRank();
+    fetchUserRankAndCount();
   }, [user]);
 
   // Streak countdown banner state
@@ -1072,108 +1086,12 @@ export default function ProfileDashboard() {
             </div>
           </div>
         ) : (
-          /* ── AUTHENTICATED: PROFILE CARD (Redesigned & Premium) ── */
-          <div className="bg-gradient-to-br from-theme-surface via-theme-surface to-theme-primary/5 rounded-3xl p-6 md:p-8 border border-theme-border shadow-lg mb-8 relative overflow-hidden hover:border-theme-primary/25 transition-all duration-300">
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-theme-primary/10 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-amber-500/5 rounded-full blur-[65px] pointer-events-none" />
-            
-            <div className="flex flex-col md:flex-row items-center gap-8 relative z-10 w-full">
-              {/* Selected Avatar with customizer overlay trigger */}
-              <div className="w-28 h-28 rounded-full bg-gradient-to-tr from-theme-primary to-theme-accent p-1 shadow-lg shrink-0 relative">
-                <div className="w-full h-full rounded-full bg-theme-surface flex items-center justify-center overflow-hidden border-2 border-theme-surface">
-                  <Avatar id={economy?.avatar_id || 1} className="w-full h-full" />
-                </div>
-                <button 
-                  onClick={() => setShowCustomizer(true)}
-                  className="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-theme-primary text-white border-2 border-theme-surface flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-md"
-                  title="Edit Character"
-                >
-                  <User size={14} strokeWidth={2.5} />
-                </button>
-              </div>
-              
-              <div className="flex-1 text-center md:text-left min-w-0">
-                {economy?.user_tier === 'Pro' ? (
-                  <div className="inline-block px-3 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-500 text-[10px] font-black uppercase tracking-widest rounded-full mb-3 shadow-[0_0_15px_rgba(245,158,11,0.25)] animate-pulse">
-                    ★ Pro Member
-                  </div>
-                ) : (
-                  <div className="inline-block px-3 py-1 bg-white/5 border border-white/10 text-theme-muted text-[10px] font-black uppercase tracking-widest rounded-full mb-3">
-                    FREE Member
-                  </div>
-                )}
-                <h1 className="text-3xl font-[900] text-theme-text tracking-tight mb-1 truncate">
-                  {economy?.full_name || 'Aspirant'}
-                </h1>
-                <p className="text-sm text-theme-muted font-bold mb-4 truncate">{user?.email}</p>
-                
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                  {economy?.user_tier !== 'Pro' ? (
-                    <button 
-                      onClick={() => navigate('/upgrade')}
-                      className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all flex items-center gap-1.5"
-                    >
-                      <Zap size={14} fill="currentColor" /> Go Pro
-                    </button>
-                  ) : (
-                    <button 
-                      onClick={() => setShowBillingModal(true)}
-                      className="px-5 py-2.5 bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-amber-500/20 transition-all flex items-center gap-1.5"
-                    >
-                      ★ Manage Plan
-                    </button>
-                  )}
-                  
-                  {/* Short name button of "Earn" next to Go Pro */}
-                  <button 
-                    onClick={() => setShowRewardCenterModal(true)}
-                    className="px-5 py-2.5 bg-gradient-to-r from-theme-primary to-theme-accent text-white rounded-xl font-black text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all flex items-center gap-1.5"
-                  >
-                    <Sparkles size={14} /> Earn
-                  </button>
-
-                  <button 
-                    onClick={handleSignOut}
-                    className="w-10 h-10 flex items-center justify-center bg-rose-500/10 text-rose-500 border border-rose-500/20 rounded-xl hover:bg-rose-500/20 transition-colors"
-                    title="Sign Out"
-                  >
-                    <LogOut size={16} />
-                  </button>
-                  <button 
-                    onClick={() => setStudyGoalsOpen(true)}
-                    className="w-10 h-10 flex items-center justify-center bg-theme-surface-hover rounded-xl text-theme-text border border-theme-border hover:bg-theme-border transition-colors"
-                    title="Study Goals & Focus"
-                  >
-                    <Settings size={18} />
-                  </button>
-                </div>
-              </div>
-              
-              {/* Your Rank & Auth Stats Grid */}
-              <div className="flex md:flex-col items-center justify-around md:justify-center bg-theme-bg/60 border border-theme-border/60 rounded-2xl p-5 gap-4 w-full md:w-auto md:min-w-[160px] shadow-inner">
-                <div className="text-center md:border-b md:border-theme-border/30 md:pb-2.5 w-full">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-theme-muted mb-0.5">Your Rank</div>
-                  <div className="text-xl font-black text-theme-text flex items-center justify-center gap-1">
-                    <Award size={16} className="text-amber-500" />
-                    <span>#{userRank !== null ? userRank : '---'}</span>
-                  </div>
-                </div>
-                <div className="text-center md:border-b md:border-theme-border/30 md:pb-2.5 w-full">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-theme-muted mb-0.5">KashCoins</div>
-                  <div className="text-xl font-black text-amber-500">
-                    {economy?.kash_coins_balance || 0}
-                  </div>
-                </div>
-                <div className="text-center w-full">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-theme-muted mb-0.5">Streak</div>
-                  <div className="text-xl font-black text-rose-500">
-                    {economy?.current_streak_days || 0} Days
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <PremiumProfileCard
+            economy={economy}
+            userRank={userRank}
+            totalAspirants={totalAspirants}
+            onEditCharacter={() => setShowCustomizer(true)}
+          />
         )}
 
 
@@ -1291,89 +1209,117 @@ export default function ProfileDashboard() {
           ))}
         </div>
 
-        {/* ── AI STUDY COACH BANNER (Available to all users) ── */}
-        <motion.div 
-          animate={{
-            boxShadow: [
-              "0 12px 40px -20px rgba(245, 158, 11, 0.2), 0 0 15px -3px rgba(245, 158, 11, 0.15)",
-              "0 12px 40px -20px rgba(245, 158, 11, 0.4), 0 0 25px -1px rgba(245, 158, 11, 0.35)",
-              "0 12px 40px -20px rgba(245, 158, 11, 0.2), 0 0 15px -3px rgba(245, 158, 11, 0.15)"
-            ],
-            borderColor: [
-              "rgba(245, 158, 11, 0.25)",
-              "rgba(245, 158, 11, 0.5)",
-              "rgba(245, 158, 11, 0.25)"
-            ]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="bg-gradient-to-tr from-amber-500/10 via-theme-surface to-purple-500/5 rounded-3xl p-5 border mb-8 relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-500/10 to-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
-          
-          <div className="relative z-10 flex flex-col">
-            {/* Header Row */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                <div 
-                  onClick={() => setShowAiCoachDescription(!showAiCoachDescription)}
-                  className="flex items-center gap-2.5 cursor-pointer select-none group"
-                >
-                  <div className="text-theme-muted group-hover:text-amber-500 transition-colors duration-200 flex items-center justify-center">
-                    {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                  </div>
-                  <h2 className="text-lg font-black text-theme-text tracking-tight group-hover:text-amber-500 transition-colors duration-200">
-                    Personal AI Study Coach
-                  </h2>
-                  <div className="flex items-center gap-1 bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded-full border border-amber-500/20 shrink-0">
-                    <Sparkles size={11} className="text-amber-500 animate-pulse" />
-                    <span className="text-[9px] font-black uppercase tracking-widest">
-                      Pro AI Feature
-                    </span>
-                  </div>
-                </div>
+        {/* ── AI STUDY COACH BANNER (theme-sensitive) ── */}
+        {(() => {
+          const aiGlowColor = theme === 'dark'
+            ? { shadow1: 'rgba(251,191,36,0.18)', shadow2: 'rgba(251,191,36,0.38)', border1: 'rgba(251,191,36,0.22)', border2: 'rgba(251,191,36,0.48)' }
+            : theme === 'sepia'
+            ? { shadow1: 'rgba(154,52,18,0.14)', shadow2: 'rgba(154,52,18,0.30)', border1: 'rgba(154,52,18,0.20)', border2: 'rgba(154,52,18,0.42)' }
+            : { shadow1: 'rgba(67,97,238,0.12)', shadow2: 'rgba(67,97,238,0.28)', border1: 'rgba(67,97,238,0.18)', border2: 'rgba(67,97,238,0.38)' };
 
-                {/* Action Controls (Aloof on the right side) */}
-                <div className="shrink-0 flex items-center">
-                  <button
-                    onClick={handleAiCoachClick}
-                    className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-black text-xs shadow-md hover:from-amber-600 hover:to-amber-700 active:scale-95 transition-all flex items-center gap-1.5"
+          const aiGradClass = theme === 'dark'
+            ? 'from-amber-500/10 via-theme-surface to-purple-500/5'
+            : theme === 'sepia'
+            ? 'from-[#9a3412]/8 via-theme-surface to-[#65704a]/5'
+            : 'from-indigo-500/8 via-theme-surface to-violet-500/5';
+
+          const aiBlob1 = theme === 'dark'
+            ? 'from-amber-500/10 to-purple-500/10'
+            : theme === 'sepia'
+            ? 'from-[#b45309]/8 to-[#65704a]/8'
+            : 'from-indigo-500/10 to-violet-500/8';
+
+          const aiBadgeClass = theme === 'dark'
+            ? 'bg-amber-500/10 text-amber-400 border-amber-500/25'
+            : theme === 'sepia'
+            ? 'bg-[#b45309]/10 text-[#9a3412] border-[#b45309]/25'
+            : 'bg-indigo-500/10 text-indigo-600 border-indigo-400/25';
+
+          const aiSparkleClass = theme === 'dark'
+            ? 'text-amber-400'
+            : theme === 'sepia'
+            ? 'text-[#b45309]'
+            : 'text-indigo-500';
+
+          const aiHoverClass = theme === 'dark'
+            ? 'group-hover:text-amber-400'
+            : theme === 'sepia'
+            ? 'group-hover:text-[#9a3412]'
+            : 'group-hover:text-indigo-500';
+
+          const aiBtnClass = theme === 'dark'
+            ? 'from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700'
+            : theme === 'sepia'
+            ? 'from-[#9a3412] to-[#7c2d12] hover:from-[#7c2d12] hover:to-[#6b1f0b]'
+            : 'from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600';
+
+          return (
+            <motion.div
+              animate={{
+                boxShadow: [
+                  `0 12px 40px -20px ${aiGlowColor.shadow1}, 0 0 15px -3px ${aiGlowColor.shadow1}`,
+                  `0 12px 40px -20px ${aiGlowColor.shadow2}, 0 0 25px -1px ${aiGlowColor.shadow2}`,
+                  `0 12px 40px -20px ${aiGlowColor.shadow1}, 0 0 15px -3px ${aiGlowColor.shadow1}`,
+                ],
+                borderColor: [aiGlowColor.border1, aiGlowColor.border2, aiGlowColor.border1],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className={`bg-gradient-to-tr ${aiGradClass} rounded-3xl p-5 border mb-8 relative overflow-hidden`}
+            >
+              <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${aiBlob1} rounded-full blur-[80px] pointer-events-none`} />
+
+              <div className="relative z-10 flex flex-col">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+                  <div
+                    onClick={() => setShowAiCoachDescription(!showAiCoachDescription)}
+                    className="flex items-center gap-2.5 cursor-pointer select-none group"
                   >
-                    {economy?.user_tier === 'Pro' ? (
-                      <>
-                        <Wand2 size={13} /> Start Coaching
-                      </>
-                    ) : (
-                      <>
-                        <Lock size={13} /> Unlock AI Coach
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
+                    <div className={`text-theme-muted ${aiHoverClass} transition-colors duration-200 flex items-center justify-center`}>
+                      {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                    </div>
+                    <h2 className={`text-lg font-black text-theme-text tracking-tight ${aiHoverClass} transition-colors duration-200`}>
+                      Personal AI Study Coach
+                    </h2>
+                    <div className={`flex items-center gap-1 ${aiBadgeClass} px-2 py-0.5 rounded-full border shrink-0`}>
+                      <Sparkles size={11} className={`${aiSparkleClass} animate-pulse`} />
+                      <span className="text-[9px] font-black uppercase tracking-widest">Pro AI Feature</span>
+                    </div>
+                  </div>
 
-            {/* Description (Collapsible with smooth animation) */}
-            <AnimatePresence initial={false}>
-              {showAiCoachDescription && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                  animate={{ height: "auto", opacity: 1, marginTop: 16 }}
-                  exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  {/* Subtle Separator matching theme border */}
-                  <div className="border-t border-theme-border/40 w-full mb-4" />
-                  <p className="text-xs text-theme-muted font-medium max-w-3xl leading-relaxed text-center mx-auto pb-1">
-                    Your competitors have access to the same books not the same intelligence. Powered by your complete preparation history, this innovative Personal AI Study Coach feature reveals Hidden Weaknesses, Generates Smart Mocks around your Mastery Index, giving you Personalized Guidance. This is serious unfair edge over competition which our Pro Aspirant deserve.
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </motion.div>
+                  <div className="shrink-0 flex items-center">
+                    <button
+                      onClick={handleAiCoachClick}
+                      className={`px-5 py-2.5 bg-gradient-to-r ${aiBtnClass} text-white rounded-xl font-black text-xs shadow-md active:scale-95 transition-all flex items-center gap-1.5`}
+                    >
+                      {economy?.user_tier === 'Pro' ? (
+                        <><Wand2 size={13} /> Start Coaching</>
+                      ) : (
+                        <><Lock size={13} /> Unlock AI Coach</>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                <AnimatePresence initial={false}>
+                  {showAiCoachDescription && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                      animate={{ height: 'auto', opacity: 1, marginTop: 16 }}
+                      exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-theme-border/40 w-full mb-4" />
+                      <p className="text-xs text-theme-muted font-medium max-w-3xl leading-relaxed text-center mx-auto pb-1">
+                        Your competitors have access to the same books — not the same intelligence. Powered by your complete preparation history, this innovative Personal AI Study Coach feature reveals Hidden Weaknesses, Generates Smart Mocks around your Mastery Index, giving you Personalized Guidance. This is a serious unfair edge over competition that our Pro Aspirants deserve.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          );
+        })()}
 
 
         {/* ── #2: ALL SECTIONS STACKED SEQUENTIALLY ── */}

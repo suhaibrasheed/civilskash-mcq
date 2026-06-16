@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Sparkles, Check, X } from 'lucide-react';
+import { User, Sparkles, Check, X, Mail, Calendar } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { avatarsList } from './Avatars';
 import { useEconomy } from '../context/EconomyContext';
@@ -151,6 +151,41 @@ export default function ProfileCustomizerModal({
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Account info section (Read-only for visual clarity) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-theme-bg/60 border border-theme-border rounded-2xl p-4 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-theme-muted shrink-0">
+                    <Mail size={16} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-black uppercase tracking-wider text-theme-muted block leading-none mb-1">
+                      Email Address
+                    </span>
+                    <p className="text-xs font-bold text-theme-text/80 truncate leading-tight" title={user?.email}>
+                      {user?.email || 'N/A'}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-theme-muted shrink-0">
+                    <Calendar size={16} />
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-black uppercase tracking-wider text-theme-muted block leading-none mb-1">
+                      Joined Date
+                    </span>
+                    <p className="text-xs font-bold text-theme-text/80 leading-tight">
+                      {economy?.joinee_date ? new Date(economy.joinee_date).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                      }) : 'Not Available'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Input 1: Display Name */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-theme-muted block">

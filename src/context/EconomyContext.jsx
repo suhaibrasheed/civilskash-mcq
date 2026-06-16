@@ -138,6 +138,7 @@ export function EconomyProvider({ children }) {
             scratched_cards_count: Number(profile.scratched_cards_count || 0),
             target_exam: profile.target_exam || null,
             users_accuracy: profile.users_accuracy || 0,
+            joinee_date: profile.joinee_date,
           };
         }
       } else {

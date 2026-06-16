@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   is_admin boolean DEFAULT false,
   last_streak_increment_at timestamp with time zone DEFAULT NULL,
   target_exam text DEFAULT NULL,
-  users_accuracy numeric DEFAULT 0
+  users_accuracy numeric DEFAULT 0,
+  joinee_date timestamp with time zone DEFAULT now()
 );
 
 -- 2. Create Descending Indexes for Volume Optimization
@@ -43,7 +44,8 @@ SELECT
   streak_days, 
   CASE WHEN is_admin THEN NOW() + INTERVAL '100 years' ELSE pro_expires_at END as pro_expires_at, 
   status_message, 
-  last_status_update_at
+  last_status_update_at,
+  joinee_date
 FROM public.profiles;
 
 -- Ensure no global select permissions exist on profiles_public

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff } from 'lucide-react';
+import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
@@ -12,9 +12,35 @@ import BYOKSettingsModal from './BYOKSettingsModal';
 import { getRevisionStats } from '../lib/db';
 
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
+// ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
 export function MCQKashLogo({ tier = 'FREE' }) {
   const isPro = tier === 'Pro';
   const navigate = useNavigate();
+  const { theme } = useTheme();
+
+  // Dynamically resolve theme-sensitive styling for header badge
+  const getBadgeStyle = () => {
+    if (isPro) {
+      if (theme === 'dark') {
+        return 'bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 border border-amber-400/50 shadow-[0_2px_8px_rgba(245,158,11,0.25),inset_0_1px_0.5px_rgba(255,255,255,0.25)] animate-pro-glow';
+      }
+      if (theme === 'sepia') {
+        return 'bg-gradient-to-r from-[#b45309] to-[#d97706] text-amber-50 border border-[#b45309]/50 shadow-[0_2px_8px_rgba(180,83,9,0.2),inset_0_1px_0.5px_rgba(255,255,255,0.2)] animate-pro-glow-sepia';
+      }
+      // Light
+      return 'bg-gradient-to-r from-[#4361ee] to-[#7209b7] text-white border border-[#4361ee]/45 shadow-[0_2px_8px_rgba(67,97,238,0.2),inset_0_1px_0.5px_rgba(255,255,255,0.25)] animate-pro-glow-indigo';
+    } else {
+      if (theme === 'dark') {
+        return 'hidden sm:flex bg-white/[0.04] text-slate-300 border border-white/[0.15] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.1),_inset_0_-1px_1.5px_rgba(0,0,0,0.4)]';
+      }
+      if (theme === 'sepia') {
+        return 'hidden sm:flex bg-[#7c5e3d]/[0.06] text-[#7c5e3d] border border-[#7c5e3d]/[0.2] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.6),_inset_0_-1px_1.5px_rgba(0,0,0,0.05)]';
+      }
+      // Light
+      return 'hidden sm:flex bg-[#4361ee]/[0.06] text-[#4361ee] border border-[#4361ee]/[0.18] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.7),_inset_0_-1px_1.5px_rgba(0,0,0,0.05)]';
+    }
+  };
+
   return (
     <div className="shrink-0 flex items-center gap-1.5 sm:gap-2 z-50">
       <Link
@@ -61,12 +87,8 @@ export function MCQKashLogo({ tier = 'FREE' }) {
         </div>
       </Link>
 
-      {/* Tier Badge — hidden on very small screens if FREE to save space */}
-      <div className={`px-1.5 sm:px-2 py-0.5 rounded-md text-[7.5px] sm:text-[8.5px] font-black uppercase tracking-[0.12em] sm:tracking-[0.15em] border transition-all ${
-        isPro
-          ? 'bg-amber-500 text-amber-950 border-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.35)]'
-          : 'hidden sm:block bg-theme-bg/50 text-theme-muted border-theme-border/50 opacity-60'
-      }`}>
+      {/* Tier Badge — glassmorphic 3D premium feel */}
+      <div className={`px-2.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-[0.16em] sm:tracking-[0.18em] transition-all flex items-center gap-1 backdrop-blur-md select-none ${getBadgeStyle()}`}>
         {tier}
       </div>
     </div>
@@ -95,6 +117,10 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
   const navigate = useNavigate();
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const { economy } = useEconomy();
+  const { user, signOut } = useAuth();
+  const { showToast } = useToast();
+
+  const isGuest = !economy || economy.id === 'default_user';
 
   const safeIndex = (() => {
     const idx = TEXT_SIZE_STEPS.findIndex(s => s.id === textSize);
@@ -107,6 +133,18 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
       setTextSize(TEXT_SIZE_STEPS[val].id);
     }
   };
+
+  const getGlassBtnClass = () => {
+    if (theme === 'dark') {
+      return 'bg-white/[0.03] border-white/[0.08] hover:bg-white/[0.07] hover:border-white/[0.18] text-slate-200 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_4px_rgba(0,0,0,0.2)]';
+    }
+    if (theme === 'sepia') {
+      return 'bg-[#7c5e3d]/[0.05] border-[#7c5e3d]/[0.15] hover:bg-[#7c5e3d]/[0.1] hover:border-[#7c5e3d]/[0.25] text-[#5d3f10] shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_2px_4px_rgba(0,0,0,0.03)]';
+    }
+    return 'bg-[#4361ee]/[0.04] border-[#4361ee]/[0.12] hover:bg-[#4361ee]/[0.08] hover:border-[#4361ee]/[0.22] text-[#4361ee] shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.02)]';
+  };
+
+  const glassBtnClass = getGlassBtnClass();
 
   return (
     <motion.div
@@ -123,118 +161,203 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
         maxWidth: 'calc(100vw - 24px)',
       }}
     >
-      <div className="px-4 py-3 border-b border-theme-border/10 flex items-center justify-between shrink-0">
-        <span className="text-[11px] font-black uppercase tracking-widest opacity-60" style={{ color: 'var(--color-text)' }}>
+      <div className="px-4 py-3 flex items-center justify-center shrink-0 relative">
+        <span className="text-[11px] font-black uppercase tracking-widest opacity-60 text-center flex-1" style={{ color: 'var(--color-text)' }}>
           Settings
         </span>
-        <button onClick={onClose} className="p-1 hover:bg-theme-text/5 rounded-lg transition-colors">
+        <button onClick={onClose} className="p-1 hover:bg-theme-text/5 rounded-lg transition-colors absolute right-4">
           <X size={14} style={{ color: 'var(--color-text-muted)' }} />
         </button>
       </div>
 
-      <div className="p-2 flex flex-col gap-1 overflow-y-auto">
-        <div className="px-2 py-1.5 mt-1">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: 'var(--color-text)' }}>Themes</span>
+      <div className="p-3 flex flex-col gap-3 overflow-y-auto">
+        {/* Themes section */}
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Themes</span>
+          <div className="grid grid-cols-3 gap-2 pb-0.5">
+            {themes.map(t => {
+              const isActive = theme === t.id;
+              const Icon = t.icon;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setTheme(t.id)}
+                  title={t.desc}
+                  className="flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all duration-300 relative group backdrop-blur-md"
+                  style={{
+                    background: isActive 
+                      ? 'rgba(var(--color-primary-rgb, 67, 97, 238), 0.22)' 
+                      : 'rgba(var(--color-text-rgb), 0.02)',
+                    borderColor: isActive 
+                      ? 'rgb(var(--color-primary))' 
+                      : 'rgba(var(--color-text-rgb), 0.07)',
+                    color: isActive ? 'rgb(var(--color-primary))' : 'var(--color-text-muted)',
+                    boxShadow: isActive 
+                      ? '0 4px 12px rgba(var(--color-primary-rgb, 67, 97, 238), 0.15), inset 0 1px 1px rgba(255,255,255,0.12)' 
+                      : 'inset 0 1px 1px rgba(255,255,255,0.05)'
+                  }}
+                >
+                  <Icon size={18} className={`mb-1 transition-transform group-hover:scale-110 ${isActive ? 'text-theme-primary' : 'text-theme-muted'}`} />
+                  <span className="text-[10px] font-black uppercase tracking-wider">{t.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-        {themes.map(t => {
-          const isActive = theme === t.id;
-          return (
-            <button
-              key={t.id}
-              onClick={() => { setTheme(t.id); }}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left w-full group/t"
-              style={{
-                background: isActive ? 'rgba(var(--color-primary), 0.15)' : 'transparent',
-                color: isActive ? 'rgb(var(--color-primary))' : 'var(--color-text)'
-              }}
-            >
-              <div className="flex shrink-0">
-                {t.preview.map((c, i) => (
-                  <div key={i} style={{ width: 14, height: 14, borderRadius: '50%', background: c, border: '2px solid var(--color-surface)', marginLeft: i > 0 ? -4 : 0, zIndex: 3 - i, boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }} />
-                ))}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[13px] font-bold leading-none">{t.label}</p>
-              </div>
-              {isActive && <div className="w-4 h-4 rounded-full flex items-center justify-center bg-theme-primary"><svg width="8" height="6" viewBox="0 0 10 8" fill="none"><path d="M1.5 4L4 6.5L8.5 2" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg></div>}
-            </button>
-          );
-        })}
 
-        <div className="px-2 py-1.5 mt-2 border-t border-theme-border/10 flex justify-between items-center">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: 'var(--color-text)' }}>Text Size</span>
-          <span className="text-[10px] font-extrabold uppercase tracking-wider" style={{ color: 'rgb(var(--color-primary))' }}>
-            {TEXT_SIZE_STEPS[safeIndex]?.title}
-          </span>
-        </div>
-        
-        <div className="px-3 py-1 flex flex-col gap-1.5 mb-1">
-          <div className="flex items-center gap-3">
-            <span className="text-xs opacity-50 select-none font-normal" style={{ color: 'var(--color-text)' }}>A</span>
-            <div className="relative flex-1 flex items-center">
-              <input
-                type="range"
-                min="0"
-                max={TEXT_SIZE_STEPS.length - 1}
-                value={safeIndex}
-                onChange={handleSliderChange}
-                className="w-full h-1.5 rounded-lg appearance-none cursor-pointer bg-theme-border/30 accent-theme-primary focus:outline-none custom-range-slider"
-                style={{
-                  background: `linear-gradient(to right, rgb(var(--color-primary)) 0%, rgb(var(--color-primary)) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) 100%)`
-                }}
-              />
+        {/* Text Size section */}
+        <div className="flex flex-col gap-1">
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full mb-0.5" style={{ color: 'var(--color-text)' }}>Text Size</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-center" style={{ color: 'rgb(var(--color-primary))' }}>
+              {TEXT_SIZE_STEPS[safeIndex]?.title}
+            </span>
+          </div>
+          
+          <div className="px-1 py-1 flex flex-col gap-1.5">
+            <div className="flex items-center gap-3">
+              <span className="text-xs opacity-50 select-none font-normal" style={{ color: 'var(--color-text)' }}>A</span>
+              <div className="relative flex-1 flex items-center">
+                <input
+                  type="range"
+                  min="0"
+                  max={TEXT_SIZE_STEPS.length - 1}
+                  value={safeIndex}
+                  onChange={handleSliderChange}
+                  className="w-full h-1.5 rounded-lg appearance-none cursor-pointer bg-theme-border/30 accent-theme-primary focus:outline-none custom-range-slider"
+                  style={{
+                    background: `linear-gradient(to right, rgb(var(--color-primary)) 0%, rgb(var(--color-primary)) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) 100%)`
+                  }}
+                />
+              </div>
+              <span className="text-lg opacity-85 select-none font-bold" style={{ color: 'var(--color-text)' }}>A</span>
             </div>
-            <span className="text-lg opacity-85 select-none font-bold" style={{ color: 'var(--color-text)' }}>A</span>
-          </div>
-          {/* Discrete Dot Ticks */}
-          <div className="flex justify-between px-[10px] text-[8px] opacity-35 select-none" style={{ color: 'var(--color-text)' }}>
-            {TEXT_SIZE_STEPS.map((step, idx) => (
-              <span
-                key={step.id}
-                className={`transition-all duration-300 ${idx === safeIndex ? 'scale-150 font-bold' : 'scale-90 opacity-40'}`}
-                style={{ color: idx === safeIndex ? 'rgb(var(--color-primary))' : 'inherit' }}
-              >
-                •
-              </span>
-            ))}
+            {/* Discrete Dot Ticks */}
+            <div className="flex justify-between px-[10px] text-[8px] opacity-35 select-none" style={{ color: 'var(--color-text)' }}>
+              {TEXT_SIZE_STEPS.map((step, idx) => (
+                <span
+                  key={step.id}
+                  className={`transition-all duration-300 ${idx === safeIndex ? 'scale-150 font-bold' : 'scale-90 opacity-40'}`}
+                  style={{ color: idx === safeIndex ? 'rgb(var(--color-primary))' : 'inherit' }}
+                >
+                  •
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="px-2 py-1.5 mt-2 border-t border-theme-border/10">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: 'var(--color-text)' }}>AI Settings</span>
-        </div>
-        <div className="px-2 pb-1">
-          <button
-            onClick={() => {
-              onClose();
-              onOpenAiSettings();
-            }}
-            className="w-full py-2 rounded-xl text-xs font-bold transition-all bg-theme-surface-hover text-theme-text border border-theme-border hover:border-theme-primary/50 flex items-center justify-center gap-1.5"
-          >
-            <Sparkles size={12} className="text-amber-500 animate-pulse" />
-            Personal AI Settings
-          </button>
-        </div>
-
-        <div className="px-2 py-1.5 mt-1 border-t border-theme-border/10">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: 'var(--color-text)' }}>Membership</span>
-        </div>
-        <div className="px-2 pb-2">
-          {economy && (
+        {/* Preferences & Goals Section */}
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Study Config & AI</span>
+          <div className="flex flex-col gap-1.5">
+            {/* Set Study Goals */}
             <button
               onClick={() => {
-                if (economy.user_tier === 'Pro') {
-                  navigate('/profile', { state: { openBilling: true } });
-                } else {
-                  navigate('/upgrade');
-                }
                 onClose();
+                navigate('/profile', { state: { openStudyGoals: true } });
               }}
-              className="w-full py-2 rounded-xl text-xs font-bold transition-all bg-amber-500/10 text-amber-500 border border-amber-500/20 hover:bg-amber-500/20"
+              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
             >
-              {economy.user_tier === 'Pro' ? '★ Manage Plan' : 'Upgrade to Pro'}
+              <Award size={12} className="text-theme-primary" />
+              Set Study Goals
             </button>
-          )}
+
+            {/* Earn Rewards */}
+            <button
+              onClick={() => {
+                onClose();
+                navigate('/profile', { state: { openRewards: true } });
+              }}
+              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+            >
+              <Sparkles size={12} className="text-amber-500 animate-pulse" />
+              Earn Rewards
+            </button>
+
+            {/* AI Settings */}
+            <button
+              onClick={() => {
+                onClose();
+                onOpenAiSettings();
+              }}
+              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+            >
+              <Wand2 size={12} className="text-purple-400" />
+              Personal AI Settings
+            </button>
+          </div>
+        </div>
+
+        {/* Membership Section */}
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Membership</span>
+          <div className="pb-0.5">
+            {economy && (
+              <button
+                onClick={() => {
+                  if (economy.user_tier === 'Pro') {
+                    navigate('/profile', { state: { openBilling: true } });
+                  } else {
+                    navigate('/upgrade');
+                  }
+                  onClose();
+                }}
+                className={economy.user_tier === 'Pro' 
+                  ? 'w-full py-2 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 border-amber-400/50 shadow-[0_2px_8px_rgba(245,158,11,0.2)] animate-pro-glow'
+                  : 'w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20 hover:border-amber-500/30'
+                }
+              >
+                {economy.user_tier === 'Pro' ? '★ Manage Plan' : 'Upgrade to Pro'}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Account Section */}
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Account</span>
+          <div className="pb-1">
+            {!user || isGuest ? (
+              <button
+                onClick={() => {
+                  onClose();
+                  navigate('/profile');
+                  showToast("Please sign in to save your progress.", "info");
+                }}
+                className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+              >
+                <User size={12} />
+                Sign In
+              </button>
+            ) : (
+              <div className="flex flex-col gap-2">
+                <div className="text-[10px] text-theme-muted font-bold px-1 text-center w-full truncate max-w-full" title={user.email}>
+                  Email: <span className="font-extrabold text-theme-text">{user.email}</span>
+                </div>
+                <button
+                  onClick={async () => {
+                    onClose();
+                    try {
+                      await signOut();
+                      showToast("Signed out successfully.", "info");
+                      navigate('/profile');
+                    } catch (err) {
+                      showToast(err.message, "error");
+                    }
+                  }}
+                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${
+                    theme === 'dark'
+                      ? 'bg-rose-500/10 border-rose-500/20 hover:bg-rose-500/20 hover:border-rose-500/30 text-rose-400'
+                      : 'bg-rose-500/8 border-rose-500/15 hover:bg-rose-500/18 hover:border-rose-500/25 text-rose-600'
+                  }`}
+                >
+                  <LogOut size={12} />
+                  Sign Out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

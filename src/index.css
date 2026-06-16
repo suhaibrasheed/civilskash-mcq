@@ -2064,3 +2064,121 @@ textarea.text-theme-text {
   animation: bc-ambient-pulse 3.2s ease-in-out infinite;
 }
 
+/* Custom Pro Badge Glow and Premium Card Effects */
+@keyframes pro-badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    border-color: rgba(251, 191, 36, 0.9);
+  }
+}
+.animate-pro-glow {
+  animation: pro-badge-glow 3s infinite ease-in-out;
+}
+
+@keyframes pro-badge-glow-indigo {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(67, 97, 238, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    border-color: rgba(67, 97, 238, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(67, 97, 238, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    border-color: rgba(114, 9, 183, 0.9);
+  }
+}
+.animate-pro-glow-indigo {
+  animation: pro-badge-glow-indigo 3s infinite ease-in-out;
+}
+
+@keyframes pro-badge-glow-sepia {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(180, 83, 9, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    border-color: rgba(180, 83, 9, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(180, 83, 9, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+    border-color: rgba(154, 52, 18, 0.9);
+  }
+}
+.animate-pro-glow-sepia {
+  animation: pro-badge-glow-sepia 3s infinite ease-in-out;
+}
+
+@keyframes card-border-pulse-dark {
+  0%, 100% {
+    border-color: rgba(251, 191, 36, 0.1);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+  50% {
+    border-color: rgba(251, 191, 36, 0.28);
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+}
+.animate-card-glow-dark {
+  animation: card-border-pulse-dark 5.5s infinite ease-in-out;
+}
+
+@keyframes card-border-pulse-light {
+  0%, 100% {
+    border-color: rgba(114, 9, 183, 0.1);
+    box-shadow: 0 0 15px rgba(114, 9, 183, 0.03);
+  }
+  50% {
+    border-color: rgba(114, 9, 183, 0.28);
+    box-shadow: 0 0 30px rgba(114, 9, 183, 0.08);
+  }
+}
+.animate-card-glow-light {
+  animation: card-border-pulse-light 5.5s infinite ease-in-out;
+}
+
+@keyframes card-border-pulse-sepia {
+  0%, 100% {
+    border-color: rgba(154, 52, 18, 0.1);
+    box-shadow: 0 0 15px rgba(154, 52, 18, 0.02);
+  }
+  50% {
+    border-color: rgba(154, 52, 18, 0.28);
+    box-shadow: 0 0 30px rgba(154, 52, 18, 0.06);
+  }
+}
+.animate-card-glow-sepia {
+  animation: card-border-pulse-sepia 5.5s infinite ease-in-out;
+}
+
+/* Moving glass sheen sweep across card — slower & extremely subtle */
+@keyframes card-shine-sweep {
+  0% {
+    left: -150%;
+  }
+  35% {
+    left: 200%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+.animate-shine-sweep {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: card-shine-sweep 12s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+
