@@ -105,7 +105,7 @@ export default function ProfileCustomizerModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-          className="w-full max-w-lg bg-theme-surface border border-theme-border rounded-[2rem] p-6 md:p-8 shadow-2xl relative overflow-hidden"
+          className="w-full max-w-lg bg-theme-surface border border-theme-border rounded-[2rem] p-6 md:p-8 shadow-2xl relative overflow-y-auto max-h-full"
           style={{ background: 'var(--color-surface)' }}
         >
           {/* Close button (Only show if onboarded or onClose is provided) */}
