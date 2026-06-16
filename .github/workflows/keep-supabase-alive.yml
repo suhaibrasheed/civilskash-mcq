@@ -1,0 +1,26 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Fires automatically at 00:00 UTC every 3 days.
+    # This keeps your free tier active well before the 7-day limit.
+    - cron: '0 0 */3 * *'
+  workflow_dispatch:
+    # Adds a manual execution button in your GitHub dashboard for testing
+
+jobs:
+  ping-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Isolated Ping Request to Supabase
+        run: |
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/keep_alive?select=status&id=eq.1" \
+            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}")
+          
+          echo "Supabase API responded with Status Code: $STATUS_CODE"
+          
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Error: Database connection failed or returned unexpected status."
+            exit 1
+          fi
