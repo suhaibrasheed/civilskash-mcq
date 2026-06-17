@@ -218,6 +218,7 @@ export default function AdminSubiStudio() {
   const [pendingQuestionToLoad, setPendingQuestionToLoad] = useState(null);
   const [expandedIds, setExpandedIds] = useState([]);
   const [reviewTagFilter, setReviewTagFilter] = useState('all');
+  const [reviewSortOrder, setReviewSortOrder] = useState('latest');
 
   const [categories, setCategories] = useState(() => {
     const saved = localStorage.getItem('civilsKash_categories');
@@ -2628,7 +2629,7 @@ export default function AdminSubiStudio() {
   }, [reviewQuestions]);
 
   const filteredReviewQuestions = React.useMemo(() => {
-    return reviewQuestions.filter(q => {
+    const filtered = reviewQuestions.filter(q => {
       const qText = String(q.question || '').toLowerCase();
       const expText = String(q.explanation || '').toLowerCase();
       const s = reviewSearch.toLowerCase();
@@ -2652,7 +2653,24 @@ export default function AdminSubiStudio() {
 
       return matchText && matchDifficulty && matchTag;
     });
-  }, [reviewQuestions, reviewSearch, reviewDifficulty, reviewTagFilter]);
+
+    return filtered.sort((a, b) => {
+      const getReviewQuestionTime = (question) => {
+        const upTime = question.updated_at ? new Date(question.updated_at).getTime() : 0;
+        const creTime = question.created_at ? new Date(question.created_at).getTime() : 0;
+        return Math.max(upTime, creTime);
+      };
+      
+      const timeA = getReviewQuestionTime(a);
+      const timeB = getReviewQuestionTime(b);
+      
+      if (reviewSortOrder === 'latest') {
+        return timeB - timeA;
+      } else {
+        return timeA - timeB;
+      }
+    });
+  }, [reviewQuestions, reviewSearch, reviewDifficulty, reviewTagFilter, reviewSortOrder]);
 
   const getCollapsedExplanationPreview = (q) => {
     const cleanText = (html) => {
@@ -3930,6 +3948,20 @@ export default function AdminSubiStudio() {
                   {uniqueTags.map(tag => (
                     <option key={tag} value={tag}>#{tag}</option>
                   ))}
+                </select>
+                <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
+                  <ChevronDown size={12} />
+                </div>
+              </div>
+
+              <div className="relative">
+                <select
+                  value={reviewSortOrder}
+                  onChange={(e) => setReviewSortOrder(e.target.value)}
+                  className="bg-theme-surface border border-theme-border rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary appearance-none pr-8 cursor-pointer text-theme-text"
+                >
+                  <option value="latest">Latest</option>
+                  <option value="oldest">Oldest</option>
                 </select>
                 <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
                   <ChevronDown size={12} />
