@@ -326,6 +326,12 @@ export default function AdminSubiStudio() {
     }
   }, [selectedCategory, fetchCategoryTagsFromSupabase]);
 
+  // Tag Palette State
+  const [tagPalette, setTagPalette] = useState({ show: false, query: '', top: 0, left: 0, selectedIndex: 0, results: [] });
+
+  // PYQ Palette State
+  const [pyqPalette, setPyqPalette] = useState({ show: false, query: '', top: 0, left: 0, selectedIndex: 0, results: [] });
+
   useEffect(() => {
     if (cmdPalette.show) {
       const activeEl = document.querySelector('.nk-cmd-item-active');
@@ -335,11 +341,23 @@ export default function AdminSubiStudio() {
     }
   }, [cmdPalette.selectedIndex, cmdPalette.show]);
 
-  // Tag Palette State
-  const [tagPalette, setTagPalette] = useState({ show: false, query: '', top: 0, left: 0, selectedIndex: 0, results: [] });
+  useEffect(() => {
+    if (tagPalette.show) {
+      const activeEl = document.querySelector('.nk-tag-item-active');
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+      }
+    }
+  }, [tagPalette.selectedIndex, tagPalette.show]);
 
-  // PYQ Palette State
-  const [pyqPalette, setPyqPalette] = useState({ show: false, query: '', top: 0, left: 0, selectedIndex: 0, results: [] });
+  useEffect(() => {
+    if (pyqPalette.show) {
+      const activeEl = document.querySelector('.nk-pyq-item-active');
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+      }
+    }
+  }, [pyqPalette.selectedIndex, pyqPalette.show]);
 
   useEffect(() => {
     const handleDocumentClick = (e) => {
@@ -2139,13 +2157,64 @@ export default function AdminSubiStudio() {
             range.setStartAfter(span);
             range.collapse(true);
             selection.removeAllRanges();
-            selection.addRange(range);
         }
     }
     setTagPalette(p => ({ ...p, show: false }));
   };
 
+  const handleSelectSuggestedPyq = (exam) => {
+    const selection = window.getSelection();
+    if (selection && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        const textNode = range.startContainer;
+        const text = textNode.textContent || '';
+        const match = text.match(/\[\[([a-zA-Z0-9_\s]*)$/);
+        if (match) {
+            range.setStart(textNode, range.startOffset - match[0].length);
+            range.deleteContents();
+            
+            const span = document.createElement('span');
+            span.className = 'text-amber-500 font-bold pyq-marker';
+            span.textContent = `[[${exam.name} ]]`;
+            range.insertNode(span);
+            
+            range.setStart(span.firstChild, span.textContent.length - 2);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+    setPyqPalette(p => ({ ...p, show: false }));
+  };
+
   const handleEditorKeyDown = (e) => {
+    if (pyqPalette.show) {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            setPyqPalette(p => ({ ...p, show: false }));
+            return;
+        }
+
+        if (pyqPalette.results.length > 0) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setPyqPalette(p => ({ ...p, selectedIndex: (p.selectedIndex + 1) % p.results.length }));
+                return;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setPyqPalette(p => ({ ...p, selectedIndex: (p.selectedIndex - 1 + p.results.length) % p.results.length }));
+                return;
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                const selectedExam = pyqPalette.results[pyqPalette.selectedIndex];
+                if (selectedExam) {
+                    handleSelectSuggestedPyq(selectedExam);
+                }
+                return;
+            }
+        }
+    }
+
     if (tagPalette.show) {
         if (e.key === 'Escape') {
             e.preventDefault();
@@ -3701,7 +3770,7 @@ export default function AdminSubiStudio() {
                           <button 
                               key={tag}
                               onClick={() => handleSelectSuggestedTag(tag)}
-                              className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left transition-colors ${tagPalette.selectedIndex === idx ? 'bg-theme-surface text-theme-text' : 'text-theme-muted hover:bg-theme-surface hover:text-theme-text'}`}
+                              className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left transition-colors ${tagPalette.selectedIndex === idx ? 'nk-tag-item-active bg-theme-surface text-theme-text' : 'text-theme-muted hover:bg-theme-surface hover:text-theme-text'}`}
                           >
                               {isSpecial ? (
                                   <div className={`w-2 h-2 rounded-full ${tag==='hard'?'bg-rose-500':tag==='medium'?'bg-blue-500':'bg-emerald-500'}`} />
@@ -3725,35 +3794,12 @@ export default function AdminSubiStudio() {
               >
                 <div className="px-3 py-1.5 text-[10px] font-bold text-theme-muted uppercase tracking-wider border-b border-theme-border/50 bg-theme-surface">Select PYQ Exam</div>
                 <div className="max-h-44 overflow-y-auto custom-scrollbar">
-                  {pyqPalette.results.map((exam, idx) => (
-                      <button 
-                          key={exam.id}
-                          onClick={() => {
-                              const selection = window.getSelection();
-                              if (selection && selection.rangeCount > 0) {
-                                  const range = selection.getRangeAt(0);
-                                  const textNode = range.startContainer;
-                                  const text = textNode.textContent;
-                                  const match = text.match(/\[\[([a-zA-Z0-9_\s]*)$/);
-                                  if (match) {
-                                      range.setStart(textNode, range.startOffset - match[0].length);
-                                      range.deleteContents();
-                                      
-                                      const span = document.createElement('span');
-                                      span.className = 'text-amber-500 font-bold pyq-marker';
-                                      span.textContent = `[[${exam.name} ]]`;
-                                      range.insertNode(span);
-                                      
-                                      range.setStart(span.firstChild, span.textContent.length - 2);
-                                      range.collapse(true);
-                                      selection.removeAllRanges();
-                                      selection.addRange(range);
-                                  }
-                              }
-                              setPyqPalette(p => ({ ...p, show: false }));
-                          }}
-                          className={`w-full flex items-center gap-3 px-3 py-2 text-xs text-left transition-colors ${pyqPalette.selectedIndex === idx ? 'bg-theme-surface text-theme-text' : 'text-theme-muted hover:bg-theme-surface hover:text-theme-text'}`}
-                      >
+                   {pyqPalette.results.map((exam, idx) => (
+                       <button 
+                           key={exam.id}
+                           onClick={() => handleSelectSuggestedPyq(exam)}
+                           className={`w-full flex items-center gap-3 px-3 py-2 text-xs text-left transition-colors ${pyqPalette.selectedIndex === idx ? 'nk-pyq-item-active bg-theme-surface text-theme-text' : 'text-theme-muted hover:bg-theme-surface hover:text-theme-text'}`}
+                       >
                           <exam.icon size={14} className="text-amber-500 shrink-0" />
                           {exam.name}
                       </button>
