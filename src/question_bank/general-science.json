@@ -1,5 +1,185 @@
 [
   {
+    "id": "0ef8a1ad-25bf-4d15-8d24-737c4cab39f7",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "Which law explains that a moving body continues in motion unless acted upon by a force?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Newton's First Law",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Newton's Second Law",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Newton's Third Law",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Archimedes Principle",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Newton's First Law (Law of Inertia)</span> states that an object resists changes to its <span class=\"text-orange\" style=\"font-weight: 800;\">state of motion</span> unless compelled by an<span class=\"text-blue\" style=\"font-weight: 800;\"> external force</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "76450a40-287c-4de6-bc65-53d079023bb9",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following are examples of physical changes?<br>1- Melting of ice<br>2- Cooking Food<br>3- Burning of paper<br>4- Rusting of iron",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Physical changes</span> alter the s<span class=\"text-teal\" style=\"font-weight: 800;\">tate or appearance</span><span class=\"text-orange\" style=\"font-weight: 800;\"><span class=\"text-teal\" style=\"font-weight: 800;\"> </span>without forming new substances</span>. <span class=\"text-blue\" style=\"font-weight: 800;\">Melting of ice is reversible</span>, while cooking, burning, and rusting create new chemical substances.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "79887eea-b6bb-4f22-9c87-54a1dd32912f",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Periodic Table"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is a liquid non-metal at room temperature?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mercury",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Phosphorus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Chlorine",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bromine",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Bromine</span> is the<span class=\"text-green\" style=\"font-weight: 800;\"> only non-metal</span> that is<span class=\"text-green\" style=\"font-weight: 800;\"> liquid at room temperature</span>. <span class=\"text-red\" style=\"font-weight: 800;\">Mercury</span> is also a<span class=\"text-teal\" style=\"font-weight: 800;\"> liquid at room temperature</span>, but it <span class=\"text-teal\" style=\"font-weight: 800;\">is a metal</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "2dedbea8-2563-4b7c-9a70-f96125d81e3b",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Which enzyme is saliva helps in the digestion of starch?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pepsin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Amylase",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Trypsin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Lipase",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Salivary amylase (ptyalin)</span> initiates <span class=\"text-teal\" style=\"font-weight: 800;\">carbohydrate digestion</span> by <span style=\"font-style: italic;\">breaking down complex starch into simpler sugars (maltose)</span> in the mouth.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "e6a4c397-a4dd-4ba3-9944-4a73931e1d72",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "medium",
+    "question": "Match the following organisms with their respective kingdom.<br>1- Amoeba — Protista<br>2- Hyphae — Fungi<br>3- Cyanobacteria — Monera",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-i, 2-ii, 3-iii",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-ii, 2-iii, 3-i",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-iii, 2-i, 3-ii",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-iii, 2-ii, 3-i",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue\" style=\"font-weight: 800;\"><span class=\"text-red\" style=\"font-weight: 800;\">Monera</span></span> consists of <span class=\"text-blue\" style=\"font-weight: 800;\">prokaryotes (Cyanobacteria)</span>,<span class=\"text-red\" style=\"font-weight: 800;\"> Protista</span> contains <span class=\"text-green\" style=\"font-weight: 800;\">unicellular eukaryotes (Amoeba)</span>, and <span class=\"text-teal\" style=\"font-weight: 800;\">Hyphae</span> are the structural filaments <span class=\"text-red\" style=\"font-weight: 800;\">of Fungi</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
     "id": "e1157400-5f5a-4d6c-8155-a114d184a5a3",
     "category_id": "general-science",
     "tags": [
@@ -37,9 +217,7 @@
   {
     "id": "d164df25-85f8-4705-a792-7a4b922b56f4",
     "category_id": "general-science",
-    "tags": [
-      "Atmosphere"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "question": "Which gas is most abundant in the Earth atmosphere?",
     "correctId": "b",
@@ -65,8 +243,8 @@
         "label": "D"
       }
     ],
-    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Nitrogen</span> often called the <span class=\"text-green\" style=\"font-weight: 800;\">pnictogen</span>, makes up approximately <span class=\"text-orange\" style=\"font-weight: 800;\">78 percent</span> of Earth atmosphere as N2. The discovery of nitrogen by Scottish<span class=\"text-green\" style=\"font-weight: 800;\"> Daniel Rutherford in 1772</span>, who called it <span style=\"font-weight: bold;\"><span class=\"text-teal\" style=\"font-weight: 800;\">noxious air</span></span>.<div><img src=\"https://th.bing.com/th/id/R.48cda54194bac4937ae120e64804f1f8?rik=z%2f97zdoxmqa7Jg&amp;riu=http%3a%2f%2fwww.periodictable.com%2fSamples%2f007.8%2fs13.JPG&amp;ehk=iEF%2faR%2fhsbs4N%2boNNoKDz%2bUQv9eHtnX6nR%2b5z%2b0iDLM%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> <br></div><div> <span class=\"text-theme-primary font-medium\"> </span></div>",
-    "pyq": null,
+    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Nitrogen</span> often called the <span class=\"text-green\" style=\"font-weight: 800;\">pnictogen</span>, makes up approximately <span class=\"text-orange\" style=\"font-weight: 800;\">78 percent</span> of Earth atmosphere as N2. The discovery of nitrogen by Scottish<span class=\"text-green\" style=\"font-weight: 800;\"> Daniel Rutherford in 1772</span>, who called it <span style=\"font-weight: bold;\"><span class=\"text-teal\" style=\"font-weight: 800;\">noxious air</span></span>.<div><img src=\"https://th.bing.com/th/id/R.48cda54194bac4937ae120e64804f1f8?rik=z%2f97zdoxmqa7Jg&amp;riu=http%3a%2f%2fwww.periodictable.com%2fSamples%2f007.8%2fs13.JPG&amp;ehk=iEF%2faR%2fhsbs4N%2boNNoKDz%2bUQv9eHtnX6nR%2b5z%2b0iDLM%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> <br></div><div> <span class=\"text-theme-primary font-medium\"> </span></div>  <span class=\"text-amber-500 font-bold pyq-marker\"></span>",
+    "pyq": "State PSC Prelims 2023",
     "created_at": "2026-05-30T14:57:01.410878+00:00"
   }
 ]
