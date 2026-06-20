@@ -1,5 +1,5078 @@
 [
   {
+    "id": "11403bd5-a82a-445f-b588-7b4917522b5e",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Acids And Bases"
+    ],
+    "difficulty": "medium",
+    "question": "Which among the following is the chemical name of Plaster of Paris?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sodium chloride",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Calcium chloride",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Calcium sulfate hemihydrate",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">Plaster of Paris</span> is chemically known as <span class=\"text-teal font-bold\">Calcium sulfate hemihydrate</span>, produced by heating <span class=\"text-green\" style=\"font-weight: 800;\">Gypsum</span> to about <span class=\"text-orange font-bold\">120 degrees Celsius</span>. It holds the chemical formula <span class=\"text-teal font-bold\">CaSO4·1/2H2O</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "887ccef2-83df-4f0e-8ada-564512c6647c",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following substances is usually used in cold countries to melt ice accumulated on the roads during winter?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Salt",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Urea",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Boric Acid",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hydrogen Peroxide",
+        "label": "D"
+      }
+    ],
+    "explanation": "Spreading salt (<span class=\"text-teal font-bold\">sodium chloride</span>) on icy roads initiates <span class=\"text-green font-bold\">de-icing</span> by dissolving into a thin water film to create a <span class=\"text-teal font-bold\">brine solution</span>. This solution <span class=\"text-magenta font-bold\">lowers the freezing point</span> of water well below <span class=\"text-orange font-bold\">0 degrees Celsius</span>, causing the surrounding ice to melt.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "f6fbbef2-95d7-46a6-9248-16ad61d7fc29",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "A ligament is a fibrous connective tissue that attaches ____, and usually serves to hold structures together and keep them stable.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Muscles to bone",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bone to Bone",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Nerve to bone",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Muscles to Muscles",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Connective tissues</span> serve distinct structural anchoring roles in the musculoskeletal system based on the specific anatomical components they bridge together: <div><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Tissue Type</th><th>Attaches</th><th>Primary Structural Function</th></tr></thead><tbody><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Ligament</span></strong></td><td>Bone to Bone</td><td>Stabilizes skeletal joints and prevents abnormal joint displacement</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Tendon</span></strong></td><td>Muscle to Bone</td><td>Transmits mechanical forces from muscle contraction to move bones</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Fascia \"or\"</span><br><span class=\"text-red\" style=\"font-weight: 800;\">Aponeurosis</span></strong></td><td>Muscle to Muscle</td><td>Ensheathes skeletal muscles and binds muscle groups together</td></tr></tbody></table></div>   </div>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "455137a3-0d83-4d15-97f3-63341ca1e982",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Plant Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Water available in soil for the root of plant is ____",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capillary Water",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Gravitational Water",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hygroscopic Water",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Capillary water</span> is held inside small <span class=\"text-teal font-bold\">soil pores</span> against the pull of gravity by <span class=\"text-teal font-bold\">surface tension</span> forces. It is the only form of soil water that <span class=\"text-red font-bold\">roots can effectively absorb</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "e36d76bd-94be-4b96-b415-451256fc7bf3",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "What is the white of the eye called?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retina",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sclera",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cornea",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Iris",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">sclera</span> is the opaque, dense <span class=\"text-teal font-bold\">fibrous connective tissue</span> layer that forms the protective <span class=\"text-green font-bold\">\"white\" of the eye</span>, <span class=\"text-green font-bold\">maintaining its shape</span> and providing muscle attachment points. <img src=\"https://www.onlinebiologynotes.com/wp-content/uploads/2018/01/eye-anatomy-700x635.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\">",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "041346dc-5834-4922-999b-f70b07f27596",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Periodic Table"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following is a superconductor?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ceramic",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Air",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Paper",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mercury",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Superconductors</span> exhibit <span class=\"text-red font-bold\">zero electrical resistance</span> when cooled below a critical transition temperature. <span class=\"text-blue font-bold\">Mercury</span> was the very first superconductor discovered, showing this property below <span class=\"text-orange font-bold\">4.2 Kelvin</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "9e86edcf-1139-4a39-a94b-8e4192bdac1e",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Lung cancer be be caused by which of the following hazardous substance?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ozone",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nitrous Oxide",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Asbestos Particulates",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mercury",
+        "label": "D"
+      }
+    ],
+    "explanation": "Inhaled micro-fine <span class=\"text-red font-bold\">asbestos fibers</span> lodge deep within <span class=\"text-teal font-bold\">pulmonary alveoli</span>. Because they are <span class=\"text-teal font-bold\">chemically inert</span> and cannot be broken down, they cause chronic irritation leading to <span class=\"text-red font-bold\">asbestosis, lung cancer, or mesothelioma</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "ee991ae4-1fd7-4779-8de9-8c105b5c9ea5",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Periodic Table"
+    ],
+    "difficulty": "easy",
+    "question": "Among the following, what is Cupric sulfate commercially known as?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Baking Soda",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Blue Vitriol",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bleaching Powder",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Gypsum",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Pentahydrate cupric sulfate</span> (<span class=\"text-teal font-bold\">CuSO4·5H2O</span>) is commercially called <span class=\"text-green font-bold\">blue vitriol</span> due to its bright blue crystalline color. It is widely used as a <span class=\"text-green font-bold\">fungicide and algicide</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "e0e09ead-c384-4480-99e2-9dff5705c552",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Bio Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "What is the full form of MSG, a chief flavor enhancer used in the food industry?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Monosodium glycinate",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Monosodium glutamate",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Monosodium glutamine",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Monosulphur glycerol",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Monosodium glutamate</span> (MSG) is the <span class=\"text-teal font-bold\">sodium salt</span> of the naturally occurring amino acid glutamic acid, widely used as a <span class=\"text-green font-bold\">food additive</span> to stimulate savory <span class=\"text-teal font-bold\">umami taste receptors</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "254901cc-5f93-4bdd-b146-74c23a73a7b9",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following options is an example for chemical change?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Crystallization of salt",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Evaporation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Burning of coal",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Melting of ice",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Burning coal</span> is an <span class=\"text-red font-bold\">irreversible chemical change</span> where carbon bonds react with oxygen to form <span class=\"text-teal font-bold\">carbon dioxide gas</span> (CO2), producing entirely new chemical substances. Phase changes like melting or evaporation are <span class=\"text-magenta font-bold\">purely physical</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "c827d24c-0307-46e7-a7ee-129a09a4d27b",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following when added to pure water usually increases its surface tension?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Detergent",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sodium Chloride",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Kerosene oil",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Phenyl",
+        "label": "D"
+      }
+    ],
+    "explanation": "Highly soluble <span class=\"text-teal font-bold\">ionic salts</span> like <span class=\"text-teal font-bold\">sodium chloride</span> (NaCl) <span class=\"text-magenta font-bold\">increase the surface tension</span> of water because the strong <span class=\"text-teal font-bold\">ion-dipole interactions</span> draw water molecules tighter together at the surface than standard hydrogen bonds. Organic solutes like <span class=\"text-magenta font-bold\">detergents decrease it</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "498dc186-475d-4645-9d54-2c064288e867",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an example of vector quantity?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Momentum",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Mass",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Volume",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Speed",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Momentum</span> is a <span class=\"text-red font-bold\">vector quantity</span> because it is the mathematical product of a <span class=\"text-teal font-bold\">scalar mass</span> and a <span class=\"text-teal font-bold\">vector velocity</span> ($$p = mv$$), meaning it possesses both a defined <span class=\"text-green font-bold\">magnitude and direction</span>. Mass, volume, and speed only have magnitude.",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "6871d597-ae0d-40ab-adbf-7f8c3b49c05a",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following vitamin deficiencies causes Xerophthalmia?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vitamin A",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vitamin E",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Vitamin K",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vitamin B12",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Vitamin A</span> (retinol) is essential for maintaining healthy <span class=\"text-teal font-bold\">epithelial tissues</span>. Severe deficiency prevents <span class=\"text-red font-bold\">tear production</span> by the lacrimal glands, drying out the cornea and conjunctiva in a pathological condition called <span class=\"text-red font-bold\">Xerophthalmia</span>.",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "30b9a983-5c15-4aee-9758-84b404c1c4bd",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an example of mineral fuel?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bauxite",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Manganese",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mica",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Coal",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Mineral fuels</span> are <span class=\"text-teal font-bold\">carbon-rich fossilized</span> geological formations that can be burned to <span class=\"text-green font-bold\">produce energy</span>. <span class=\"text-teal font-bold\">Coal, petroleum, and natural gas</span> are <span class=\"text-teal font-bold\">mineral fuels</span>, while bauxite and manganese are metallic ores, and mica is a silicate mineral.",
+    "pyq": null,
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "6b1c09c9-fc5c-407c-88e8-4a305dc2651b",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Heat And Thermodynamics"
+    ],
+    "difficulty": "easy",
+    "question": "Which type of energy source is solar energy?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Conventional",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Non-Renewable",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Non-Conventional",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Exhaustible",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Non-conventional energy sources</span> are modern, <span class=\"text-green font-bold\">renewable</span>, and <span class=\"text-green font-bold\">eco-friendly</span> alternatives to fossil fuels that are <span class=\"text-green font-bold\">replenished naturally</span>. <span class=\"text-teal font-bold\">Solar, wind, and tidal energy</span> belong to this group.",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "f673f2a0-1f0c-4cdd-952b-c510b8a2cdce",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Atomic Structure"
+    ],
+    "difficulty": "medium",
+    "question": "What is the atomicity of Helium?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "8",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Atomicity</span> refers to the <span class=\"text-red font-bold\">total number of atoms</span> constituting a single molecule of an element. <span class=\"text-blue font-bold\">Helium</span> is a <span class=\"text-teal font-bold\">noble gas</span> with a completely filled valence shell, existing stably as a single, uncombined atom (monoatomic, <span class=\"text-orange font-bold\">atomicity = 1</span>).",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "2f09886d-9680-4294-a62a-194a5d741823",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an example of amorphous solid?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mica",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Quartz",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Diamond",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rubber",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Amorphous solids</span> <span class=\"text-red font-bold\">lack a long-range</span>, ordered repeating internal geometric pattern of their constituent particles. <span class=\"text-teal font-bold\">Rubber, glass, and plastics</span> are amorphous, whereas <span class=\"text-green\" style=\"font-weight: 800;\">mica, quartz, and diamond</span> are highly <span class=\"text-teal font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">crystalline</span> <span class=\"text-green\" style=\"font-weight: 800;\">solids</span></span>.",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "6b001330-79c5-4ae1-8647-68c16b3580a4",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Waves And Sound"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following has the lowest frequency in an electromagnetic spectrum?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gamma Rays",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Micro Waves",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Radio Waves",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Alpha Waves",
+        "label": "D"
+      }
+    ],
+    "explanation": "Inside the <span class=\"text-teal font-bold\">electromagnetic spectrum</span>, <span class=\"text-teal font-bold\">radio waves</span> possess the <span class=\"text-orange font-bold\">longest wavelengths</span> and the <span class=\"text-orange font-bold\">lowest frequencies</span>. <span class=\"text-teal font-bold\">Gamma rays</span> have the shortest wavelengths and highest frequencies, while alpha waves are particle radiation, not EM waves. <img src=\"https://www.nist.gov/sites/default/files/images/2025/03/28/Wavelength-spectroscopy.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "Sub Auditor 2021",
+    "created_at": "2026-06-20T14:02:11.934279+00:00"
+  },
+  {
+    "id": "29c577a4-e165-420e-af2a-51f34cbfa9df",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following does hard water contain?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Iron",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Calcium",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Phosphorus",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Potassium",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Water hardness</span> is primarily determined by the concentration of <span class=\"text-magenta font-bold\">multivalent dissolved metallic cations</span>, predominantly <span class=\"text-teal font-bold\">Calcium (Ca2+)</span> and <span class=\"text-green font-bold\">Magnesium (Mg2+)</span>, which form <span class=\"text-red font-bold\">mineral scales</span> and inhibit soap lathering.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "c588422e-7871-4492-b4c2-00ddd7829ec2",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "The cells that line the small intestine release additional enzymes that finally break apart the smaller protein fragments into the individual ____",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Carbohydrates",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vitamins",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Fats",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Amino Acids",
+        "label": "D"
+      }
+    ],
+    "explanation": "While <span class=\"text-teal font-bold\">pancreatic enzymes</span> like <span class=\"text-blue font-bold\">trypsin</span> and chymotrypsin cleave proteins into shorter oligopeptides, <span class=\"text-magenta font-bold\">brush-border peptidases</span> secreted by the microvilli of the <span class=\"text-teal font-bold\">small intestine</span> execute the final hydrolysis into individual, absorbable <span class=\"text-green font-bold\">amino acids</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "0952ff0a-f95c-4220-803a-c222df084467",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "From the given options, Fill in the blank:<br>If Seismograph is related to Earthquake then, Taseometer is related to ___",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Volcano",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Stress",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Tsaunami",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Thrust",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-teal font-bold\">seismograph</span> is a precise diagnostic instrument designed to detect and record seismic waves during <span class=\"text-red font-bold\">earthquakes</span>. Analogously, a <span class=\"text-teal font-bold\">taseometer</span> is a engineering instrument used to measure <span class=\"text-magenta font-bold\">structural strain</span> or <span class=\"text-magenta\" style=\"font-weight: 800;\">mechanical stress</span> within materials.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "41c7b89d-693f-452f-abc7-d25e9cd8c9a7",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following chemical is used as antidote to cyanide poisoning, a nephroprotective agent and a antifungal drug?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "sodium thiosulfate",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "barium hydroxide",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "blue vitriol",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "epsom salt",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Sodium thiosulfate</span> (<span class=\"text-orange font-bold\">Na2S2O3</span>) functions as a <span class=\"text-green font-bold\">medical antidote</span> for acute <span class=\"text-red font-bold\">cyanide toxicity</span> by donating a sulfur atom to convert lethal cyanide into <span class=\"text-green font-bold\">non-toxic thiocyanate</span>, which is safely cleared by the kidneys.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "f69b59e1-b44a-4025-bce5-0c55c3a898e1",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "hard",
+    "question": "What will be the image formation by a convex mirror when object is at infinity?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "virtual and inverted",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "real and erect",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "real and inverted",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "virtual and erect",
+        "label": "D"
+      }
+    ],
+    "explanation": "Regardless of the location of an object, a <span class=\"text-teal font-bold\">convex (diverging) mirror</span> always projects an image that is <span class=\"text-magenta font-bold\">virtual</span>, <span class=\"text-green font-bold\">upright (erect)</span>, and <span class=\"text-orange font-bold\">diminished in size</span>. For an object at infinity, this <span class=\"text-magenta font-bold\">virtual</span> image converges exactly at the <span class=\"text-teal font-bold\">principal focus</span> behind the mirror. <img src=\"https://physicsteacher.in/wp-content/uploads/2020/09/image-formation-by-convex-mirror-part-3.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "78b2dbe4-1552-4bf4-8465-c39b488b3a8d",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "medium",
+    "question": "To increase the solubility of CO2 in soft drinks and soda water, the bottle is sealed under which of the following condition?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "High pressure",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Low pressure",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Zero pressure",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "Based on <span class=\"text-blue font-bold\">Henry's Law</span>, the <span class=\"text-magenta font-bold\">solubility of a gas</span> inside a liquid matrix is directly proportional to the <span class=\"text-magenta font-bold\">partial pressure</span> of that gas over the solution surface. <span class=\"text-teal font-bold\">Carbonated beverages</span> are bottled under <span class=\"text-orange font-bold\">high pressure</span> to force gaseous CO2 to stay dissolved.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "669c9fc7-fcff-45b7-8781-8d774ff59c96",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the major pollinator?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Butterflies",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Moths",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Wasps",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Honeybees",
+        "label": "D"
+      }
+    ],
+    "explanation": "While many insects assist in <span class=\"text-magenta font-bold\">pollination</span>, <span class=\"text-teal font-bold\">honeybees (Apis species)</span> serve as the <span class=\"text-green font-bold\">most ecologially and commercially crucial</span> animal vectors for <span class=\"text-teal font-bold\">angiosperms</span> due to specialized pollen-collecting adaptations like <span class=\"text-blue font-bold\">corbiculae (pollen baskets)</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "3e2939f7-dcc3-4a2e-9ce9-41a69c403bef",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "which of the following acid is produced by our stomach which help in digestion?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sulphuric acid",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nitric acid",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ascorbic acid",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hydrochloric acid",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Gastric parietal cells</span> produce and pump concentrated <span class=\"text-teal font-bold\">Hydrochloric acid (HCl)</span>. This powerful acid drops the internal gastric environment to an optimal <span class=\"text-orange font-bold\">pH of 1.5–3.5</span>, which <span class=\"text-red font-bold\">denatures dietary proteins</span> and converts inactive pepsinogen into <span class=\"text-green font-bold\">active pepsin</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "a436807b-35b6-4f7c-bf01-122bc70d514b",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Organic Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which among the following are the principal constituents of petroleum and natural gas?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Allotropes",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Hydrocarbons",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Photolysis",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Amorphous",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Petroleum</span> and <span class=\"text-teal font-bold\">natural gas</span> are deep geologic formations consisting primarily of <span class=\"text-red font-bold\">hydrocarbons</span>—organic chemical compounds composed exclusively of <span class=\"text-magenta font-bold\">carbon and hydrogen atoms</span>, ranging from volatile methane (CH4) to <span class=\"text-orange font-bold\">complex solid alkanes</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "843e663a-e369-4658-b1ab-1e61c39e1d03",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following do not come under the Cetaceans group of species?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fish",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Whales",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Porpoises",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Dolphins",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Infraorder Cetacea</span> is a specialized taxonomic clade of <span class=\"text-magenta font-bold\">aquatic mammals</span>, which includes <span style=\"font-weight: bold; font-style: italic;\">whales, dolphins, and porpoises</span>. <span class=\"text-red font-bold\">True fishes</span> belong to distinct non-mammalian taxonomic classes like <span class=\"text-teal font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\"><span class=\"text-teal font-bold\">Chondrichthyes</span> (cartilaginous)</span> or <span class=\"text-teal font-bold\">Osteichthyes</span> (bony).",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "3b26e6f7-0889-473e-b018-6c320bad9cfc",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Organic Chemistry"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following has Fruity smell?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Esters",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Alcohols",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Chloroform",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Acid anhydride",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Esters</span> are <span class=\"text-teal font-bold\">volatile organic compounds</span> formed via the <span class=\"text-magenta font-bold\">condensation reaction</span> between a carboxylic acid and an alcohol (<span class=\"text-blue font-bold\">esterification</span>). They are structurally characterized by their distinct, highly pleasant, <span class=\"text-green font-bold\">sweet, or fruity odors</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "fb1d2c86-0a40-4589-9e62-0d1a0e7c915b",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Organic Chemistry"
+    ],
+    "difficulty": "hard",
+    "question": "Which among the following is a clear, colourless, viscous, sweet-tasting liquid belonging to the alcohol of organic compounds?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ethyl alcohol",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sodium Chloride",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Glycerol",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Oxalic Acid",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Glycerol</span> (or glycerin) is a simple, <span class=\"text-green font-bold\">non-toxic</span> <span class=\"text-red font-bold\">trihydroxy sugar alcohol</span> compound with the chemical formula <span class=\"text-orange font-bold\">C3H8O3</span>. It presents physically as a highly viscous, hygroscopic, colorless, and characteristically <span class=\"text-green font-bold\">sweet-tasting liquid</span> matrix.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "6a4221ce-fb28-47b3-89e0-57fd752e30d0",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following is true?<br>1- Water with high salinity is denser than water with low salinity<br>2- Cold water is denser than warm water",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only 1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Only 2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Fluid density</span> holds a <span class=\"text-magenta font-bold\">direct relationship</span> with <span class=\"text-teal font-bold\">total salt load</span> and an <span class=\"text-orange font-bold\">inverse relationship</span> with <span class=\"text-teal font-bold\">temperature</span>. Dissolved salts add mass per unit volume (salinity effect), and thermal drop decreases molecular kinetic motion to compact the fluid mass (<span class=\"text-teal font-bold\">temperature</span> effect).",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "07499d92-388c-45e0-8e81-d9a8c7950873",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "hard",
+    "question": "If in a concave mirror, the object is placed beyond the centre of curvature C, the size of the image will be ____.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "diminished",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "highly enlarged",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "enlarged",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "similar size",
+        "label": "D"
+      }
+    ],
+    "explanation": "When an object is positioned <span class=\"text-magenta font-bold\">beyond the center of curvature (C)</span> of a <span class=\"text-teal font-bold\">concave mirror</span>, the resulting geometric image forms <span class=\"text-magenta font-bold\">inverted</span>, <span class=\"text-green font-bold\">real</span>, and <span class=\"text-orange font-bold\">physically diminished in scale</span>, located directly between the focal point (F) and the center of curvature (C). <img src=\"https://library.88guru.com/wp-content/uploads/2022/12/Representation-of-Images-Formed-by-Spherical-Mirrors-Using-Ray-Diagrams_Image1.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "91dd02bb-ac8b-4260-9fcf-7773a83f796f",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which one of the following is a component of tear gas?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Methane",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Methanol",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ether",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Chloropicrin",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Chloropicrin</span> (trichloronitromethane, <span class=\"text-orange font-bold\">Cl3CNO2</span>) is a potent, volatile chemical compound historically used as a structural component of <span class=\"text-red font-bold\">chemical tear gas agents</span> due to its <span class=\"text-magenta font-bold\">severe lachrymatory effects</span> on ocular mucous membranes.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "6d1c898c-2bbb-4e92-bfab-08e66888e6f4",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Bio Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an essential trace element involved in the correct packing and storage of insulin?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sodium",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nickel",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Zinc",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Phosphorus",
+        "label": "D"
+      }
+    ],
+    "explanation": "Within the secretory vesicles of <span class=\"text-teal font-bold\">pancreatic beta-cells</span>, <span class=\"text-magenta font-bold\">insulin monomers</span> complex around <span class=\"text-teal font-bold\">divalent Zinc ions (Zn2+)</span> to form <span class=\"text-green font-bold\">stable hexamers</span>. This <span class=\"text-blue font-bold\">crystalline zinc hexamer configuration</span> allows efficient concentration and storage of the hormone.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T13:02:33.860621+00:00"
+  },
+  {
+    "id": "b96b43e0-4ae8-46bb-8976-72877fea4b07",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Metallurgy"
+    ],
+    "difficulty": "easy",
+    "question": "Which is the most malleable metal?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gold",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Copper",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Silver",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Aluminium",
+        "label": "D"
+      }
+    ],
+    "explanation": "Gold possesses the <span class=\"text-orange font-bold\">highest</span> <span class=\"text-green font-bold\">malleability</span> and <span class=\"text-green font-bold\">ductility</span> among all <span class=\"text-teal font-bold\">elemental metals</span>, allowing it to be hammered into microscopically thin sheets <span class=\"text-red font-bold\">without fracturing</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "a929a038-5666-4932-bc85-17ee45469037",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the given diseases caused due to deficiency of iodine?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cancer",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Night Blindness",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Goitre",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rickets",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Iodine</span> is a critical trace mineral required by the <span class=\"text-teal font-bold\">thyroid gland</span> to synthesize <span class=\"text-teal font-bold\">thyroxine hormones</span>. <span class=\"text-red font-bold\">Dietary deficiency</span> prevents hormone production, leading to compensatory swelling of the <span class=\"text-teal font-bold\">thyroid gland</span> known as <span class=\"text-red font-bold\">Goitre</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "8930a425-1def-4067-b2b2-de800f4499ff",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "medium",
+    "question": "'Short-sight' in human eye can be corrected by using proper:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Convex Lens",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Concave Lens",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cylindrical Lens",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bifocal Lens",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Eye Defect</th><th>Key Fact / Correction</th></tr></thead><tbody><tr><td>Myopia <br>(Short-sightedness)</td><td>Image forms <strong>in front of retina</strong>; corrected <span class=\"text-green\" style=\"font-weight: 800;\">by <strong>Concave Lens</strong></span><strong></strong></td></tr><tr><td>Hypermetropia <br>(Long-sightedness)</td><td>Image forms <strong>behind retina</strong>; corrected <span class=\"text-green\" style=\"font-weight: 800;\">by <strong>Convex Lens </strong></span><strong></strong></td></tr><tr><td>Presbyopia</td><td>Age-related loss of accommodation; corrected<span class=\"text-green\" style=\"font-weight: 800;\"> by <strong>Bifocal Lens</strong></span><strong></strong></td></tr><tr><td>Astigmatism</td><td>Irregular curvature of cornea/lens; corrected <span class=\"text-green\" style=\"font-weight: 800;\">by <strong>Cylindrical Lens</strong></span><strong></strong></td></tr><tr><td>Cataract</td><td>Clouding of eye lens; treated by <strong>surgical lens replacement</strong></td></tr><tr><td>Colour Blindness</td><td>Defective cone cells; no standard lens correction</td></tr><tr><td>Night Blindness</td><td>Usually caused <span class=\"text-teal\" style=\"font-weight: 800;\">by <strong>Vitamin A deficiency</strong></span><strong></strong>; poor vision in dim light</td></tr></tbody></table></div>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "7528ffdd-8818-4ea4-8730-a20b7de7df1e",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Name the hardest material present in the body?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dentin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bone marrow",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Enamel",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Femur",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Tooth enamel</span> is the <span class=\"text-green font-bold\">hardest</span>, <span class=\"text-magenta font-bold\">most highly mineralized</span> substance in the human body. It is composed of <span class=\"text-orange font-bold\">96%</span> densely packed crystalline <span class=\"text-teal font-bold\">calcium phosphate</span> (hydroxyapatite).",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "0c761e03-e27b-4abf-93b2-c0cad1e87686",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "easy",
+    "question": "The Bacille Calmette-Guerin vaccine (popularly called BCG vaccine) is a vaccine to prevent which of these diseases?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tuberculosis",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Polio",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Typhoid",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Tonsillitis",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">BCG vaccine</span> is prepared from a <span class=\"text-green font-bold\">weakened live strain</span> of <span class=\"text-teal font-bold\">Mycobacterium bovis</span> and is administered globally to <span class=\"text-blue font-bold\">infants</span> to provide <span class=\"text-green font-bold\">protective immunity</span> against severe forms of <span class=\"text-teal font-bold\">Tuberculosis (TB)</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "a60f73ab-1164-435f-8243-557575268607",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Noble Prize"
+    ],
+    "difficulty": "easy",
+    "question": "Who was the first Indian to receive the Nobel Prize?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mother Teresa",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "C.V Raman",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rabindranath Tagore",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Sarojini Naidu",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Rabindranath Tagore</span> became the <span class=\"text-green font-bold\">first Indian</span>, and the first non-European, to win a <span class=\"text-green font-bold\">Nobel Prize</span> when he was awarded the Literature prize in <span class=\"text-blue font-bold\">1913</span> for his poetry collection \"<span class=\"text-blue font-bold\">Gitanjali</span>\".",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "eff22e9c-554f-4950-8bf1-ee653a0e87f8",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "medium",
+    "question": "Vitamin B Complex consists of how many vitamins?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "6",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "8",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "7",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Vitamin B complex</span> comprises exactly <span class=\"text-orange font-bold\">8</span> distinct <span class=\"text-green font-bold\">water-soluble</span> vitamins (B1, B2, B3, B5, B6, B7, B9, B12) that act as <span class=\"text-magenta font-bold\">essential coenzymes</span> in <span class=\"text-teal font-bold\">cellular metabolism</span> and energy production.<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Vitamin</th><th>Major Function</th><th>Deficiency Disease</th></tr></thead><tbody><tr><td><strong>Thiamine (B1)</strong></td><td>Carbohydrate metabolism; nerve function</td><td><strong>Beri-Beri</strong></td></tr><tr><td><strong>Riboflavin (B2)</strong></td><td>Energy production; healthy skin and eyes</td><td><strong>Ariboflavinosis</strong> (cracked lips, mouth sores)</td></tr><tr><td><strong>Niacin (B3)</strong></td><td>Energy metabolism; nervous system health</td><td><strong>Pellagra</strong> (Dermatitis, Diarrhoea, Dementia)</td></tr><tr><td><strong>Pantothenic Acid (B5)</strong></td><td>Fat and carbohydrate metabolism</td><td>Fatigue, irritability (rare deficiency)</td></tr><tr><td><strong>Pyridoxine (B6)</strong></td><td>Protein metabolism; RBC formation</td><td>Anaemia, dermatitis, nerve disorders</td></tr><tr><td><strong>Biotin (B7)</strong></td><td>Fat metabolism; healthy skin and hair</td><td>Dermatitis, hair loss</td></tr><tr><td><strong>Folic Acid (B9)</strong></td><td>DNA synthesis; RBC formation</td><td><strong>Megaloblastic Anaemia</strong>, neural tube defects</td></tr><tr><td><strong>Cobalamin (B12)</strong></td><td>Nerve function; RBC production</td><td><strong>Pernicious Anaemia</strong>, nerve damage</td></tr></tbody></table></div><div>    </div>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "3bb6bd55-8978-4825-8612-0b0dffb02b6a",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "hard",
+    "question": "What is the dominating range of light wavelengths in the lower atmosphere?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Less than 100 nm",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Greater than 300 nm",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Between 100 and 300 nm",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All wavelengths are equally present",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">lower atmosphere</span> is dominated by wavelengths greater than <span class=\"text-orange font-bold\">300 nm</span> (primarily visible light from 400-700 nm and infrared). <span class=\"text-red font-bold\">Harmful</span>, shorter <span class=\"text-teal font-bold\">UV wavelengths</span> (below <span class=\"text-orange font-bold\">300 nm</span>) are almost entirely absorbed by the stratospheric <span class=\"text-teal font-bold\">ozone layer</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "05d8b1c3-32e1-4eff-a040-f878cc167d54",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "medium",
+    "question": "Vitamin which is believed to cure the common cold:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vitamin A",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vitamin B",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Vitamin K",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vitamin C",
+        "label": "D"
+      }
+    ],
+    "explanation": "While it is <span class=\"text-red font-bold\">not an absolute cure</span>, high supplemental doses of <span class=\"text-teal font-bold\">Vitamin C</span> (ascorbic acid) are clinically studied and popularly used for their potential to slightly <span class=\"text-green font-bold\">reduce</span> the duration and severity of the <span class=\"text-teal font-bold\">common cold</span> due to robust <span class=\"text-magenta font-bold\">antioxidant properties</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "1e0659e3-954d-4209-b19b-62f17fe2e907",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "The amount of air that moves in and out of the lungs, with each inspiration and expiration is called:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Residual volume",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vital capacity",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Tidal Volume",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Tidal capacity",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Tidal Volume</span> represents the standard volume of air displaced between <span class=\"text-magenta font-bold\">normal inhalation and exhalation</span> when <span class=\"text-red font-bold\">no extra respiratory effort</span> is applied. In a healthy adult, this is approximately <span class=\"text-orange font-bold\">500 mL</span> <span class=\"text-orange font-bold\">per breath</span>. <img src=\"https://upload.medbullets.com/question/100817/images/lungcapac.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "9bfb3b78-9103-4e8c-a0c8-3ec14358d6d6",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "medium",
+    "question": "Children with pot belly is an indicative of which type of disease?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Goitre",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Anaemia",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Kwashiorkor",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Chickenpox",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Kwashiorkor</span> is a severe form of <span class=\"text-red font-bold\">protein-energy malnutrition</span>. The characteristic distended \"<span class=\"text-red font-bold\">pot belly</span>\" appearance is caused by <span class=\"text-teal font-bold\">edema</span> (fluid retention) and an enlarged fatty liver resulting from profound dietary <span class=\"text-red font-bold\">protein deficiency</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "baf9b762-f7b7-402d-adc1-76a3fe0c2cb1",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "easy",
+    "question": "What is the primary function of phosphorus in the human body?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Development of bones and teeth",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Regulation of pH of body fluids",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Regulation of muscle contraction",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Phosphorus</span> is the <span class=\"text-orange font-bold\">second most abundant</span> mineral in the body. Its primary structural role is binding with <span class=\"text-teal font-bold\">calcium</span> to form <span class=\"text-teal font-bold\">calcium phosphate</span> grids, which provide <span class=\"text-magenta font-bold\">rigidity and structural integrity</span> to the skeletal system and teeth.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "39a06ba1-b4ed-43ac-ac44-e1b94d6d2d63",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "medium",
+    "question": "Which type of bacteria is most commonly associated with foodborne illness from undercooked or raw eggs?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "E. Coli",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Listeria",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Salmonella",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Staphylococcus",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Salmonella enterica</span> is the primary <span class=\"text-red font-bold\">pathogenic bacterium</span> naturally associated with the intestinal tracts of birds, commonly contaminating <span class=\"text-red font-bold\">raw or undercooked</span> <span class=\"text-teal font-bold\">poultry and eggs</span> to cause <span class=\"text-red font-bold\">acute gastroenteritis</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "a0f4bd5e-a074-4170-a6c9-9895a4a8171d",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "hard",
+    "question": "At what minimum internal temperature should poultry be cooked to ensure it is safe to eat?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "145 F (63 C)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "155 F (68 C)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "165 F (74 C)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "175 F (79 C)",
+        "label": "D"
+      }
+    ],
+    "explanation": "To <span class=\"text-green font-bold\">safely denature</span> and eliminate heat-resistant <span class=\"text-red font-bold\">pathogenic bacteria</span> like <span class=\"text-teal font-bold\">Salmonella</span> and Campylobacter, culinary food safety guidelines mandate cooking all <span class=\"text-teal font-bold\">poultry</span> to a minimum internal resting temperature of <span class=\"text-orange font-bold\">165 F (74 C)</span>.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "802ec417-b09f-4325-b309-73322333683f",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "easy",
+    "question": "Which vitamin is crucial for the absorption of calcium in the body?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vitamin A",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vitamin B12",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Vitamin C",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vitamin D",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Vitamin D</span> acts as a <span class=\"text-magenta font-bold\">steroid hormone</span> that upregulates the synthesis of <span class=\"text-teal font-bold\">calcium-binding proteins</span> in the intestine, drastically <span class=\"text-green font-bold\">increasing</span> the efficiency of dietary <span class=\"text-green font-bold\">calcium absorption</span> into the bloodstream.",
+    "pyq": "Supervisor 2024",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "d6bc0579-6855-4397-8bc0-ce4aa1dbabd0",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Most kidney stones are usually in the form of which among the following?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sodium nitrate",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Zinc oxide",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Calcium oxalate",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "Approximately <span class=\"text-orange font-bold\">80%</span> of all <span class=\"text-teal font-bold\">kidney stones</span> (renal calculi) are composed of <span class=\"text-teal font-bold\">calcium oxalate</span>. These crystallize and precipitate when urine becomes <span class=\"text-red font-bold\">supersaturated</span> with <span class=\"text-teal font-bold\">calcium and dietary oxalate</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "13e81082-4b39-4770-bed7-10adb925fccf",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Most toxic metal pollutant of automobile exhaust is which of the following?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cadmium",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Lead",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Copper",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "Historically, <span class=\"text-teal font-bold\">tetraethyl lead</span> was aggressively used as an <span class=\"text-magenta font-bold\">anti-knock additive</span> in gasoline fuels. It functioned as the <span class=\"text-red font-bold\">most toxic</span> <span class=\"text-red font-bold\">heavy metal pollutant</span> in automobile exhaust, causing widespread <span class=\"text-red font-bold\">neurological degradation</span> before being phased out.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "5db8dc72-54a2-468d-8b9e-460beea42719",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "hard",
+    "question": "The infertile Saline soils contain largely proportion of which of the following?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Zinc, Sodium and Magnesium",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Copper, Sodium and Potassium",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Sodium, Potassium and Magnesium",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bronze, Magnesium and Sulphur",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Saline soils</span> suffer from <span class=\"text-red font-bold\">extreme osmotic pressure</span> due to <span class=\"text-red font-bold\">toxic accumulations</span> of <span class=\"text-teal font-bold\">soluble salts</span>—specifically the chlorides and sulfates of sodium, potassium, and magnesium—making them biologically <span class=\"text-red font-bold\">inhospitable</span> for crop roots.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "1a2749b1-4246-4724-9d95-56e2ab4da128",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "The saliva contains an enzyme called ____ that breaks down carbohydrates which is a complex molecule to give sugar.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "isomerase",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "sucrase",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "kinase",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "salivary amylase",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Salivary amylase</span> (ptyalin) initiates <span class=\"text-magenta font-bold\">chemical digestion</span> immediately in the <span class=\"text-teal font-bold\">mouth</span> by catalyzing the hydrolysis of complex dietary <span class=\"text-teal font-bold\">starches</span> (polysaccharides) into simpler digestible sugars like <span class=\"text-green font-bold\">maltose</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "e4c20f7c-33c9-4520-bde5-6ba2aed4270e",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "During sleep, the blood pressure of human beings _____",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Decrease",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "First decrease and then increase",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Remain same",
+        "label": "D"
+      }
+    ],
+    "explanation": "During normal <span class=\"text-teal font-bold\">physiological sleep</span> (especially non-REM stages), <span class=\"text-teal font-bold\">sympathetic nervous system</span> tone drops. This leads to a natural <span class=\"text-green font-bold\">decrease</span> in heart rate and a <span class=\"text-orange font-bold\">10-20%</span> drop in systemic blood pressure known clinically as \"<span class=\"text-magenta font-bold\">nocturnal dipping</span>.\"",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "2347b315-3f2e-4eb5-b4cf-020c37ea5148",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the function of kidney?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "extract waste from blood",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "maintain blood supply",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "keep blood warm",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "The primary <span class=\"text-teal font-bold\">renal function</span> is <span class=\"text-magenta font-bold\">blood filtration</span>. <span class=\"text-teal font-bold\">Kidneys</span> systematically extract <span class=\"text-red font-bold\">nitrogenous metabolic wastes</span> (like urea) and excess water from the bloodstream, excreting them as urine while maintaining body <span class=\"text-green font-bold\">electrolyte homeostasis</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "54c37077-3a72-40ae-9451-7fe7f033894a",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Black carbon is another name for:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Soot",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Smog",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Smoke",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ozone",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Black carbon</span> is the highly light-absorbing, graphitic component of fine particulate matter, commonly known as <span class=\"text-teal font-bold\">soot</span>. It is an aggressive <span class=\"text-red font-bold\">climate forcer</span> produced by the <span class=\"text-red font-bold\">incomplete combustion</span> of <span class=\"text-teal font-bold\">fossil fuels</span> and biomass.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "0a5ac0de-0f29-4c45-8286-369d31724ab1",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the colorless and odorless air pollutant?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sulphur Dioxide",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Carbon Monoxide",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ozone",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Nitrous Oxide",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Carbon Monoxide (CO)</span> is a <span class=\"text-red font-bold\">highly toxic</span>, colorless, and odorless gas generated from incomplete combustion. It goes completely <span class=\"text-red font-bold\">undetected</span> by human senses and binds aggressively to <span class=\"text-teal font-bold\">hemoglobin</span>, <span class=\"text-red font-bold\">starving tissues of oxygen</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-20T12:40:28.624449+00:00"
+  },
+  {
+    "id": "4317a348-5d21-413c-ba1f-496d9d10d309",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "medium",
+    "question": "Deficiency of iron causes:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Leukemia",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Anaemia",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Polycythemia",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Leukopenia",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Iron</span> is a mandatory core building block of the oxygen-carrying protein <span class=\"text-teal font-bold\">hemoglobin</span>. <span class=\"text-red font-bold\">Iron deficiency</span> directly impairs <span class=\"text-green font-bold\">red blood cell production</span>, resulting in nutritional <span class=\"text-red font-bold\">microcytic anemia</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "c52da61d-5d56-4595-91f4-df0901e60dd2",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "The Taj Mahal is threatened by pollution from Mathura refinery. Threat is due to which gas(es)?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Oxides of Sulphur and Nitrogen",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Mercury vapours",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Oxides of Silicon and Arsenic",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Osmium tetroxide",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Mathura refinery</span> releases high amounts of <span class=\"text-teal font-bold\">sulfur dioxide (SO2)</span> and nitrogen oxides (NOx). These gases react with atmospheric moisture to form <span class=\"text-red font-bold\">acid rain</span>, which chemically corrodes the calcium carbonate (marble) of the <span class=\"text-teal font-bold\">Taj Mahal</span>, a phenomenon known as \"<span class=\"text-red font-bold\">Marble Cancer</span>.\" <img src=\"https://d1avenlh0i1xmr.cloudfront.net/5d695b7c-af4c-4613-87cd-f52ea2258044/marble-cancer-teachoo.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "148d7517-d150-41f4-baad-21bc6addb7ad",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "hard",
+    "question": "How is absorbance related to transmittance?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Directly proportional",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Inversely proportional",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "No relation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Both are same",
+        "label": "D"
+      }
+    ],
+    "explanation": "Based on the <span class=\"text-blue font-bold\">Beer-Lambert law</span>, <span class=\"text-teal font-bold\">absorbance (A)</span> and <span class=\"text-teal font-bold\">transmittance (T)</span> share an <span class=\"text-magenta font-bold\">inverse logarithmic relationship</span> expressed as <span class=\"text-green font-bold\">A = log(1/T)</span>. As more light is absorbed by a chemical solution, less light passes through (transmits) it. <img src=\"https://cdn1.byjus.com/wp-content/uploads/2023/03/Derivation-of-Beer-Lambert-Law-Updated.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "c132cc62-2ec1-4b4c-8f0e-7e07bd83e043",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "medium",
+    "question": "What is the unit of measurement for the total amount of ozone in the atmosphere above a point on the earth's surface?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dobson Unit",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Darson Unit",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Datsun Unit",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Dalton Unit",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Dobson Unit (DU)</span> is the standard measurement unit for <span class=\"text-teal font-bold\">column ozone</span>. One DU represents a layer of pure ozone that would be <span class=\"text-orange font-bold\">0.01 mm</span> thick under <span class=\"text-green font-bold\">standard temperature and pressure</span> conditions.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "d8f8c393-0c7e-44ea-850a-6e9ed557a138",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Ozone layer which absorbs harmful solar radiation is found in which layer of the atmosphere?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Troposphere",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Stratosphere",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mesosphere",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ionosphere",
+        "label": "D"
+      }
+    ],
+    "explanation": "Roughly <span class=\"text-orange font-bold\">90%</span> of atmospheric ozone is concentrated inside the <span class=\"text-teal font-bold\">Stratosphere</span> (extending from around <span class=\"text-orange font-bold\">10 km to 50 km</span> altitude). This stratospheric <span class=\"text-green font-bold\">ozone shield</span> filters out lethal solar ultraviolet-B (UV-B) radiation. <img src=\"https://th.bing.com/th/id/R.6dcbf0e807a0612c24d758263da056b1?rik=BfdCZc4LGrfGWQ&amp;riu=http%3a%2f%2fcleanairforelpaso.org%2fwp-content%2fuploads%2f2013%2f04%2fAtmosphere_Layers_Grey_Crop.png&amp;ehk=iRx705tvUM1e0Yp%2bQLdsHDs082BCKwDGkStPnR1%2fmwA%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "7f214a96-aee2-46b8-a5da-e6c8e80f2da7",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the gas is not known as greenhouse gas?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Methane",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nitrous Oxide",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Carbon dioxide",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hydrogen",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Greenhouse gases</span> like CO2, CH4, and N2O possess <span class=\"text-magenta font-bold\">asymmetric structures</span> capable of absorbing and emitting <span class=\"text-teal font-bold\">thermal infrared radiation</span>. <span class=\"text-teal font-bold\">Diatomic Hydrogen (H2)</span> is symmetric and <span class=\"text-red font-bold\">does not trap</span> surface thermal radiation directly. <img src=\"https://www.climatepartner.com/sites/default/files/content/images/glossary/greenhouse-gases-global-warming-potentials.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "d2d2d231-42fc-42dd-bcea-43304856ac10",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "easy",
+    "question": "Who invented vaccination?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Jonas Salk",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Edward Jenner",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Alexander Fleming",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Louis Pasteur",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Edward Jenner</span> developed the world's <span class=\"text-green font-bold\">first successful vaccine</span> in <span class=\"text-blue font-bold\">1796</span> by utilizing cowpox virus material to confer immunity against <span class=\"text-red font-bold\">smallpox</span>, earning him the title \"<span class=\"text-blue font-bold\">Father of Immunology</span>.\"  <img src=\"https://healthsciences.arizona.edu/sites/default/files/vaccine_graphic-hero_2400x1350_final-v2_0.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "21d38165-7b6b-413d-9b07-b1877a226ee0",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following organ is affected in jaundice?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Small Intestine",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pancreas",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Liver",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Stomach",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\"><img src=\"https://tse1.explicit.bing.net/th/id/OIP.h-QKxF8VhEXxV75OHTbr1AHaE7?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3\" class=\"nk-mcq-image cursor-pointer\" data-align=\"left\" style=\"width: 15%;\"> Jaundice</span> occurs due to <span class=\"text-red font-bold\">hepatic dysfunction</span>. When the <span class=\"text-teal font-bold\">liver</span> cannot properly process or excrete <span class=\"text-teal font-bold\">bilirubin</span> (a <span class=\"text-green font-bold\">yellow pigment</span> from broken-down red blood cells), the compound builds up in tissues, <span class=\"text-teal\" style=\"font-weight: 800;\">tinting the skin</span> and <span class=\"text-orange\" style=\"font-weight: 800;\">eyes yellow</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "122c7886-2795-4ef9-b1e2-664f4666a922",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "easy",
+    "question": "Deficiency of ____ causes rickets disease.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vitamin A",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Vitamin B",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Vitamin C",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vitamin D",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Vitamin D</span> is necessary for systemic <span class=\"text-green font-bold\">calcium and phosphate absorption</span> in the gut. Deficiency prevents proper <span class=\"text-magenta font-bold\">bone mineralization</span>, leading to soft, weak bones and <span class=\"text-red font-bold\">skeletal deformities</span> in children known as <span class=\"text-red font-bold\">Rickets</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "d03931f0-1dc4-48bd-bd6c-2521619fe57a",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "medium",
+    "question": "Inability to form white image?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Spherical aberration",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Chromatic aberration",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Chromochromatic",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Coma",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Chromatic aberration</span> occurs because a lens has different <span class=\"text-teal font-bold\">refractive indices</span> for <span class=\"text-magenta font-bold\">different wavelengths</span> of light. <span class=\"text-green font-bold\">White light splits</span> into component colors, preventing a single sharp focus point and causing <span class=\"text-red font-bold\">colored fringes</span> around the image.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "d8568d00-e68f-474d-b696-e91b51f051e3",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "medium",
+    "question": "f5.6 requires 8s. f11 requires?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "16s",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "32s",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "8s",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "24s",
+        "label": "D"
+      }
+    ],
+    "explanation": "Moving from <span class=\"text-orange font-bold\">f/5.6</span> to <span class=\"text-orange font-bold\">f/11</span> represents a reduction of <span class=\"text-orange font-bold\">2 full stops</span> in aperture diameter, which reduces the light entering the camera lens by a <span class=\"text-orange font-bold\">factor of 4</span>. To maintain identical exposure, the <span class=\"text-green font-bold\">shutter speed duration must be quadrupled</span> (8s x 4 = 32s).",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "16537b04-a9e9-47b8-980e-80e0af02ee29",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "medium",
+    "question": "Lenses coated with?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sodium fluoride",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Zinc fluoride",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Magnesium fluoride",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Nickel fluoride",
+        "label": "D"
+      }
+    ],
+    "explanation": "Precision <span class=\"text-teal font-bold\">optical lenses</span> are thinly coated with <span class=\"text-teal font-bold\">Magnesium fluoride (MgF2)</span>. Its <span class=\"text-magenta font-bold\">intermediate refractive index</span> facilitates <span class=\"text-teal font-bold\">destructive interference</span> of reflected light waves, reducing glare and <span class=\"text-green font-bold\">maximizing light transmission</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "6f994745-02ad-4365-9cff-28f07dd0c086",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Electricity And Magnetism"
+    ],
+    "difficulty": "hard",
+    "question": "Match List-I (Law) with List-II (Description):<br>1- Ampere Maxwell — a. Law relating currents and fields<br>2- Kirchhoff — b. Kirchhoff circuit laws<br>3- Faraday — c. EM induction law<br>4- Hertz — d. EM waves by accelerating charges<br>Choose correct:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-d, 2-c, 3-b, 4-a",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-a, 2-b, 3-c, 4-d",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-a, 2-d, 3-c, 4-b",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Ampere-Maxwell law</span> updates magnetic field generation using displacement current. <span class=\"text-blue font-bold\">Kirchhoff</span> provides structural loop and node conservation circuit laws. <span class=\"text-blue font-bold\">Faraday</span> establishes electromagnetic induction rules, and <span class=\"text-blue font-bold\">Hertz</span> experimentally proved that accelerating electrical charges produce <span class=\"text-teal font-bold\">electromagnetic waves</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "48251cef-be43-4ed1-907e-95f8e90253bf",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Waves And Sound"
+    ],
+    "difficulty": "hard",
+    "question": "Which of these waves can be polarized?<br>1- Waves on water pond<br>2- Electromagnetic waves<br>3- Sound in air",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Polarization</span> is an absolute signature trait exclusive to <span class=\"text-teal font-bold\">transverse waves</span>, where particle oscillations occur <span class=\"text-magenta font-bold\">perpendicular to wave propagation</span>. <span class=\"text-teal font-bold\">Light/EM waves</span> are transverse and can be polarized, whereas <span class=\"text-red font-bold\">sound waves in air</span> are longitudinal and cannot.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "81e01e45-fa20-46a6-a0b3-b2192383a82d",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Electricity And Magnetism"
+    ],
+    "difficulty": "medium",
+    "question": "Electromagnetic waves are produced by:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Static charge",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Moving charge",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Accelerating charge",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Charge-less particles",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Stationary charges</span> generate only <span class=\"text-teal font-bold\">static electric fields</span>, and uniform-velocity moving charges yield steady magnetic fields. An <span class=\"text-magenta font-bold\">accelerating or oscillating charge</span> modifies fields dynamically, <span class=\"text-green font-bold\">propagating energy outward</span> as an <span class=\"text-teal font-bold\">electromagnetic wave</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "d6741858-d76f-4c6a-9d5c-d13dad566bda",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "Match List-I (Newton's Laws) with List-II (Form):<br>1- 1st law — a. Law of inertia<br>2- 2nd law — b. F=ma<br>3- 3rd law — c. Action-reaction<br>Choose correct:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-c, 2-a, 3-b",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-a, 2-b, 3-c",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-b, 2-c, 3-a",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-a, 2-c, 3-b",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Newton's First Law</span> defines <span class=\"text-red font-bold\">inertia</span> (resistance to state changes). The <span class=\"text-blue font-bold\">Second Law</span> quantifies force based on momentum changes (<span class=\"text-green font-bold\">F = ma</span>), and the Third Law states forces occur in equal and opposite <span class=\"text-magenta font-bold\">action-reaction pairs</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "98912ca6-ccca-4487-b199-ed6f76aabef1",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Metallurgy"
+    ],
+    "difficulty": "easy",
+    "question": "Food cans are coated with tin instead of zinc due to:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Zinc is costlier than tin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Zinc is more reactive than tin",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Zinc has a higher melting point than tin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Zinc is less reactive than tin",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Zinc</span> sits much higher on the <span class=\"text-teal font-bold\">electrochemical activity series</span> than <span class=\"text-teal font-bold\">tin</span>. If food cans were galvanized with <span class=\"text-teal font-bold\">zinc</span>, the metal would readily <span class=\"text-red font-bold\">react with organic food acids</span>, producing <span class=\"text-red font-bold\">toxic compounds</span> and contaminating the food.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "fa80eae2-655e-4f7a-8275-0137c74dbfbb",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Nutrition"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following pairs:<br>Vitamin — Deficiency Disease<br>1- Vitamin A — Anaemia<br>2- Vitamin C — Skin Diseases<br>3- Vitamin D — Rickets<br>4- Vitamin B1 — Beri-Beri<br>Which of the above pairs are correctly matched?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3 and 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1 and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Vitamin D deficiency</span> alters calcium metabolism to cause <span class=\"text-red font-bold\">Rickets</span> in children, and <span class=\"text-teal font-bold\">Vitamin B1 (thiamine)</span> deficiency leads to <span class=\"text-red font-bold\">Beri-Beri</span>. Vitamin A deficiency yields xerophthalmia/night blindness, and Vitamin C deficiency triggers <span class=\"text-red font-bold\">Scurvy</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "b0fa6efc-18fe-4297-be46-5186e5b57f69",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "easy",
+    "question": "What causes the twinkling of stars?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Atmospheric refraction of starlight",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Dispersion of starlight",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Scattering of starlight",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Prism effect",
+        "label": "D"
+      }
+    ],
+    "explanation": "As <span class=\"text-teal font-bold\">starlight</span> enters <span class=\"text-teal font-bold\">Earth's atmosphere</span>, it travels through air layers of constantly <span class=\"text-magenta font-bold\">varying temperatures and densities</span>. This causes the light path to change continuously via <span class=\"text-teal font-bold\">refraction</span>, altering its <span class=\"text-green font-bold\">apparent position and brightness</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "8b59766c-be1f-40ee-b868-aae572b40228",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "The thrust on the rocket is:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the same direction of the rocket",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "In the opposite direction of the rocket",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "At 90 degrees to the direction of the rocket",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "Based on <span class=\"text-blue font-bold\">Newton's third law</span> of motion, a rocket forcefully expels <span class=\"text-teal font-bold\">combustion exhaust gases</span> downward. The <span class=\"text-magenta font-bold\">equal and opposite reaction force</span> (<span class=\"text-teal font-bold\">thrust</span>) acts directly upward, <span class=\"text-green font-bold\">pushing the rocket forward</span> in its direction of travel.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "bbdc0ad4-c8db-44eb-9456-46ab0cd87037",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Acids And Bases"
+    ],
+    "difficulty": "medium",
+    "question": "What is the common name of Calcium Hypochlorite?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Heavy water",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bleaching powder",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Baking soda",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Baking powder",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Calcium hypochlorite</span>, represented chemically as <span class=\"text-teal font-bold\">Ca(OCl)2</span>, is widely manufactured and commercially sold as <span class=\"text-teal font-bold\">bleaching powder</span> for <span class=\"text-green font-bold\">industrial bleaching</span> and <span class=\"text-green font-bold\">water disinfection</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "f68ce75a-27bd-4716-aa3d-f0662a5deadc",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "What is dry ice?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Liquid Nitrogen",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Water ice",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Solid Carbon dioxide",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Frozen ethanol",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Dry ice</span> is <span class=\"text-teal font-bold\">carbon dioxide</span> in its solid form. At standard atmospheric pressure, it does not melt into a liquid state but undergoes <span class=\"text-magenta font-bold\">sublimation</span> directly into <span class=\"text-teal font-bold\">CO2 gas</span> at <span class=\"text-orange font-bold\">-78.5 degrees Celsius</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T07:26:01.112308+00:00"
+  },
+  {
+    "id": "4c39092c-5a8d-42c9-91c6-297e53ca76ac",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "hard",
+    "question": "Match the Antibody Types with their functions.<br>Column -A(Antibody Type) — Column -B (Found in)<br>1- IgA — a. Blood and extracellular fluid<br>2- IgG — b. Surface of immature B cells<br>3- IgD — c. Basophils and mastocytes<br>4- IgE — d. Mucosal secretions like saliva, tears, and breast milk",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-d, 2-a, 3-b, 4-c",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-c, 2-d, 3-a, 4-b",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-a, 2-d, 3-b, 4-c",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-b, 2-a, 3-d, 4-c",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">IgA</span> protects <span class=\"text-teal font-bold\">mucosal surfaces</span> and is found in secretions like colostrum and saliva. IgG is the <span class=\"text-orange font-bold\">most abundant systemic antibody</span> in blood. IgD acts as an <span class=\"text-magenta font-bold\">antigen receptor</span> on naive B cells, and IgE binds to mast cells and basophils to trigger <span class=\"text-red font-bold\">allergic responses</span>. <img src=\"https://sciencenotes.org/wp-content/uploads/2022/09/5-Types-of-Antibodies-1024x683.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <div>   </div>",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a82a80e4-6a75-47da-b38e-90234148b362",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "B lymphocytes are involved in response to bacterial infection. Which of the following processes would typically be carried out?<br>1- Cell division by mitosis<br>2- Transcription producing mRNA<br>3- Engulfing and digesting bacteria",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and III only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "Upon <span class=\"text-magenta font-bold\">clonal selection</span>, <span class=\"text-green font-bold\">B lymphocytes</span> rapidly proliferate via mitosis and undergo transcription/translation to secrete <span class=\"text-orange font-bold\">large quantities</span> of plasma antibodies. <span class=\"text-red font-bold\">Phagocytosis</span> (engulfing bacteria) is exclusively performed by specialized phagocytes like <span class=\"text-teal font-bold\">macrophages</span> and <span class=\"text-teal\" style=\"font-weight: 800;\">neutrophils</span>, not B cells.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "35e7d6a3-dbc9-4bdb-b0c6-4c89188c2c5e",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following is the most famous example of industrial melanism?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Peppered moth",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Darwin's finches",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Galapagos tortoises",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Turtles",
+        "label": "D"
+      }
+    ],
+    "explanation": "The selection of the dark-colored (melanic) morph of the <span class=\"text-blue font-bold\">Peppered Moth</span> <span class=\"text-blue\" style=\"font-weight: 800;\">(Biston betularia)</span> over the light-colored morph in <span class=\"text-red font-bold\">polluted industrial areas</span> of <span class=\"text-teal font-bold\">England</span> is a classic textbook demonstration of <span class=\"text-magenta font-bold\">natural selection</span> in action. <img src=\"https://cdn.savemyexams.com/cdn-cgi/image/f=auto,width=3840/https://cdn.savemyexams.com/uploads/2022/10/natural-selection-example-2-igcse-and-gcse-biology-revision-notes.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <div>   </div>",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a392a48d-3409-4a19-a36c-b29057afd116",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Genetics"
+    ],
+    "difficulty": "medium",
+    "question": "The fossil of Java-Man was found in 1891 on banks of Solo River in Eastern Java by:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Davidson Black",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Dubois",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Leakey",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Robert Broom",
+        "label": "D"
+      }
+    ],
+    "explanation": "Dutch anatomist <span class=\"text-blue font-bold\">Eugène Dubois</span> discovered the fossil remains of <span class=\"text-magenta font-bold\">Homo erectus</span> (popularly known as <span class=\"text-orange font-bold\">Java Man</span>) at the <span class=\"text-teal font-bold\">Trinil site</span> along the Solo River in <span class=\"text-blue font-bold\">1891</span>.<div><img src=\"https://www.ancient-origins.net/sites/default/files/styles/large/public/A-1922-reconstruction-of-the-skull-of-Java-Man.jpg?itok=t9EJ2j9d\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\"> <br></div><div>    <span class=\"text-blue-500 font-bold\"> </span></div>",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "95135365-705b-47f8-b1e0-7f35d226bc0f",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "easy",
+    "question": "The unit of evolution is the:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "individual",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "social groups",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "population",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "species",
+        "label": "D"
+      }
+    ],
+    "explanation": "While <span class=\"text-magenta font-bold\">natural selection</span> acts directly on the <span class=\"text-teal font-bold\">individual phenotype</span>, evolution is a shifting of <span class=\"text-green font-bold\">allele frequencies</span> over generations within a group of interbreeding organisms. Hence, the <span class=\"text-red font-bold\">population</span> is the smallest unit that can evolve.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "1c634e7b-bed5-4709-b362-03efbc59ec41",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "medium",
+    "question": "Some of the oldest known fossils appear as stromatolites, formed by:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Marine invertebrates",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Photosynthetic prokaryotes",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Amoeba",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Heterotrophic prokaryotes",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">Stromatolites</span> are <span class=\"text-teal font-bold\">layered sedimentary structures</span> formed by the trapping, binding, and cementation of sedimentary grains by <span class=\"text-magenta font-bold\">biofilms of microorganisms</span>, primarily <span class=\"text-blue font-bold\">cyanobacteria</span> (<span class=\"text-red font-bold\">photosynthetic prokaryotes</span>).",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a48e839e-43a4-4f67-9b44-e6a0669aef93",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "hard",
+    "question": "Correct sequence of evolutionary events in allopatric speciation:<br>1- Geographical isolation<br>2- Ecological isolation<br>3- Pre-mating reproductive isolation<br>4- Increased genetic divergence<br>5- Selection completed",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "3, 4, 2, 5",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 4, 2, 5",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3, 4, 5",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, 4, 5",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Allopatric speciation</span> begins when a population is split by a <span class=\"text-teal font-bold\">physical barrier</span> (<span class=\"text-green font-bold\">geographical isolation</span>). This block to gene flow leads to a buildup of standalone mutations and drift (increased <span class=\"text-orange font-bold\">genetic divergence</span>), exposure to unique habitats (ecological isolation), and concludes when <span class=\"text-red font-bold\">intrinsic barriers</span> block interbreeding even if they reunite (selection completed). <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221003224513/Speciation.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <div>   </div>",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "36099852-c122-43a2-8dac-0b315a5128e5",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "Cholecystokinin, a hormone of digestive tract, stimulates release of:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Trypsin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pepsin",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Lipase",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Cholecystokinin (CCK)</span> is secreted by the <span class=\"text-teal font-bold\">duodenum</span> in response to <span class=\"text-magenta font-bold\">fatty acids</span> and amino acids. It triggers <span class=\"text-green font-bold\">gall bladder contraction</span> to release bile and stimulates pancreatic secretion of digestive enzymes, particularly <span class=\"text-orange font-bold\">pancreatic lipase</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "9b6c1598-7d4a-4ce2-ba48-5c84d0461e71",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Marine"
+    ],
+    "difficulty": "medium",
+    "question": "Assertion (A): Marine fishes excrete nitrogenous waste primarily as ammonia.<br>Reason (R): Marine fishes are hyperosmotic, leading to high water retention.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both A and R are true, and R explains A.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Both A and R are true, but R does not explain A.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A is correct, R is incorrect.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A is incorrect, R is correct.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Marine bony fishes</span> are <span class=\"text-magenta font-bold\">hypoosmotic</span> to seawater, meaning they <span style=\"font-style: italic;\">constantly lose water to their surroundings </span>and must <span class=\"text-green font-bold\">conserve it</span>. Most bony fishes (including marine fishes) are <span class=\"text-magenta\" style=\"font-weight: 800;\">ammonotelic</span>, meaning they <span class=\"text-blue\" style=\"font-weight: 800;\">excrete nitrogenous waste mainly as ammonia through their gills</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "4c321ea1-b947-4768-81aa-6dcbd62bbce0",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "If loop of Henle were absent from nephron, what would be expected?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "The urine will be more dilute",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The urine will be more concentrated",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "There will be no urine formation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "There will hardly be any change",
+        "label": "D"
+      }
+    ],
+    "explanation": "The primary function of the <span class=\"text-teal font-bold\">Loop of Henle</span> is to create a <span class=\"text-magenta font-bold\">hypertonic interstitial gradient</span> in the <span class=\"text-teal font-bold\">renal medulla</span> via a countercurrent multiplier system. Without this loop, the kidney <span class=\"text-red font-bold\">cannot reabsorb water</span> from the collecting duct, yielding <span class=\"text-orange font-bold\">highly dilute urine</span>. <img src=\"https://cdn.britannica.com/41/6541-050-F662DA80/regulation-freshwater-teleost-fishes.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "d62e5732-ac4a-4498-92a0-c2f1f1e4e06b",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "A high respiratory quotient indicates:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Absence of respiration",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Aerobic respiration",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Anaerobic respiration",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Inhibition of respiration",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Respiratory Quotient (RQ)</span> is the <span class=\"text-magenta font-bold\">ratio of volume of CO2 evolved to the volume of O2 consumed</span>. A definite numerical RQ (e.g., <span class=\"text-orange font-bold\">1.0 for carbohydrates</span>) indicates <span class=\"text-green font-bold\">aerobic respiration</span>. During pure anaerobic respiration, no O2 is consumed, making the mathematical value technically tend toward <span class=\"text-red font-bold\">infinity</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a24116c4-dc2c-4d76-b7f1-9e6c8145c758",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Partial pressure of oxygen in alveolar air is:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "159 mm Hg",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "90 mm Hg",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "104 mm Hg",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "45 mm Hg",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">partial pressure of oxygen</span> (pO2) in the <span class=\"text-teal font-bold\">alveoli</span> of the lungs is about <span class=\"text-orange font-bold\">104 mm Hg</span>. This is <span class=\"text-red font-bold\">lower than atmospheric air</span> (159 mm Hg) due to the continuous <span class=\"text-green font-bold\">exchange of gas with blood</span> and the humidification of incoming air.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "73b8a18c-8598-49fd-a2c0-90535e10c1a6",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following hormone helps in secretion of HCL from stomach?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Renin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Gastrin",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Secretin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Pepsin",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Gastrin</span> is a peptide hormone secreted by <span class=\"text-teal font-bold\">G cells</span> in the stomach antrum. It <span class=\"text-magenta font-bold\">directly stimulates</span> parietal cells to secrete <span class=\"text-green font-bold\">gastric acid (HCl)</span> to aid in <span class=\"text-orange font-bold\">protein digestion</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "c440dfee-07c6-4f10-85dd-624fc0f1dbee",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following reptile orders includes lizards and snakes?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Crocodilia",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Squamata",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Testudines",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Chelonia",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Order Squamata</span> is the <span class=\"text-orange font-bold\">largest order of reptiles</span>, comprising all <span class=\"text-magenta font-bold\">scaled reptiles</span>, which specifically includes <span class=\"text-green font-bold\">lizards</span>, snakes, and <span class=\"text-teal font-bold\">amphisbaenians</span> (worm <span class=\"text-green font-bold\">lizards</span>).",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "20f0a7cc-0cfa-4e25-8307-7b771cf89ad6",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Feather of the birds are waterproof due to the oil secretion of:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "mucus glands",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "uropygial glands",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "sudorific glands",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "green glands",
+        "label": "D"
+      }
+    ],
+    "explanation": "Most birds have a specialized <span class=\"text-magenta font-bold\">preen gland</span> called the <span class=\"text-blue font-bold\">uropygial gland</span> located at the base of their <span class=\"text-teal font-bold\">tail</span>. It secretes an <span class=\"text-orange font-bold\">oily, waxy substance</span> that birds spread across their feathers to maintain flexibility and <span class=\"text-green font-bold\">waterproofing</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "b49ebcbd-d4ee-4934-a42c-3aec0aac9eac",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is a poisonous snake?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Python",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rattlesnake",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Boa constrictor",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Garter snake",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Rattlesnakes</span> are <span class=\"text-red font-bold\">venomous pit vipers</span> native to the <span class=\"text-teal font-bold\">Americas</span> that use <span class=\"text-magenta font-bold\">hemotoxic venom</span> to immobilize prey. Pythons, boas, and garter snakes are <span class=\"text-green font-bold\">non-venomous</span>. <img src=\"https://cdn.mos.cms.futurecdn.net/vFf7Ey2prLo3VWTJWsG5wj-1920-80.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "6eebc97b-5173-43ec-93ee-fe156dcc8393",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Indian bull Frog is:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rana tigrina",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rana obstetricus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bufo melesticus",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hyla arbore",
+        "label": "D"
+      }
+    ],
+    "explanation": "The zoological scientific name of the <span class=\"text-blue font-bold\">Indian Bullfrog</span> is <span class=\"text-magenta font-bold\">Hoplobatrachus tigerinus</span> (formerly known widely as <span class=\"text-orange font-bold\">Rana tigrina</span>).",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "bb799081-a5df-4f49-a169-630d5f8968c3",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Complete metamorphosis occurs in:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Silverfish",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Locust",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bedbug",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mosquito",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Mosquitoes</span> undergo <span class=\"text-magenta font-bold\">holometabolous development</span> (<span class=\"text-green font-bold\">complete metamorphosis</span>), which features <span class=\"text-orange font-bold\">four distinct lifecycle stages</span>: egg, larva, pupa, and adult. Silverfish are ametabolous, while locusts and bedbugs display <span class=\"text-red font-bold\">incomplete (hemimetabolous) changes</span>. <img src=\"https://static.vecteezy.com/system/resources/previews/002/037/385/large_2x/diagram-showing-mosquito-life-cycle-on-white-background-free-vector.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a1f801aa-f013-4089-a12e-d6d7c1e27920",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "medium",
+    "question": "How many red colour eye spots are present in sea star?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 pair",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 pairs",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3 pairs",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5 pairs",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Sea stars</span> (starfish) typically feature <span class=\"text-orange font-bold\">five arms</span>, and at the very tip of each arm resides a simple, <span class=\"text-green font-bold\">light-sensitive</span> <span class=\"text-magenta font-bold\">ocellus</span> (eye spot), totaling 5 individual eye spots.  <img src=\"https://www.thoughtco.com/thmb/EQsMIL8EbJzALthhOp5fAkhxZOk=/2124x1413/filters:no_upscale():max_bytes(150000):strip_icc()/Common-sea-star-Paul-Kay-Getty2-56a5f7723df78cf7728abebe.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\"> <div>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "a6f250b9-15bf-412a-9872-c5d4b7ef8aca",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Animals"
+    ],
+    "difficulty": "easy",
+    "question": "Johnston's organ is found in:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Legs of Spider",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Head of Cockroach",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Antennae of Mosquitoes",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Abdomen of houseflies",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Johnston's organ</span> is a collection of sensory cells located in the second segment (<span class=\"text-teal font-bold\">pedicel</span>) of the <span class=\"text-magenta font-bold\">antennae</span> of insects, particularly highly developed in <span class=\"text-orange font-bold\">mosquitoes</span> for detecting flight vibrations and <span class=\"text-green font-bold\">auditory signals</span>. <img src=\"https://bioone.org/ContentImages/Journals/esaa/115/1/saab045/graphic/img-z3-8_113.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "12442f60-09fc-41a0-bc77-df870733bdda",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "easy",
+    "question": "The members of Kingdom Monera and Protista resemble each other in:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cell type",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Body organization",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Nature of cell wall",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Nuclear membrane",
+        "label": "D"
+      }
+    ],
+    "explanation": "Both <span class=\"text-blue font-bold\">Kingdom Monera</span> and <span class=\"text-teal font-bold\">Kingdom Protista</span> share a <span class=\"text-magenta font-bold\">unicellular body organization</span>. They differ drastically in cell type: Monerans are <span class=\"text-red font-bold\">prokaryotic</span> (lack nuclear membranes), while Protists are <span class=\"text-green font-bold\">eukaryotic</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "8d25edd5-e2f4-49f8-bb7a-7c707e71f141",
+    "category_id": "general-science",
+    "tags": [
+      "Biology"
+    ],
+    "difficulty": "easy",
+    "question": "The flame cells present in Platyhelminthes are specialized for:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Digestion",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Respiration",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Osmoregulation and excretion",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "/D) Locomotion",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Flame cells</span> (<span class=\"text-magenta font-bold\">protonephridia</span>) are primitive excretory structures found in <span class=\"text-teal font-bold\">flatworms</span> (<span class=\"text-orange font-bold\">Platyhelminthes</span>) that primarily regulate <span class=\"text-green font-bold\">osmotic balance</span> and eliminate metabolic fluid wastes.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "831fafa1-3e82-43c5-a20e-4cee13f71ad6",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "easy",
+    "question": "The definitive host for Taenia solium is:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pig",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Human",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cow",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Dog",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\"><img src=\"https://www.veterinaryparasitology.com/uploads/1/1/8/2/118230013/4c-taenia-solium-scolex-6-stack-logo_orig.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"left\" style=\"width: 15%;\">  Taenia solium</span> (the pork tapeworm) has a <span class=\"text-magenta font-bold\">digenetic lifecycle</span>. <span class=\"text-teal font-bold\">Humans</span> serve as the <span class=\"text-red font-bold\">definitive host</span> because they harbor the mature, sexually reproducing adult worm in their intestines. <span class=\"text-orange font-bold\">Pigs</span> act as the intermediate host harboring the larval cysticerci.",
+    "pyq": null,
+    "created_at": "2026-06-20T06:03:16.158578+00:00"
+  },
+  {
+    "id": "b8f28e92-c3cc-419c-a1b4-446a60a399c6",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "What is the process of a solid turning directly into a gas called?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sublimation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Evaporation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Condensation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Freezing",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Sublimation</span> is a <span class=\"text-teal font-bold\">phase transition</span> where a <span class=\"text-green font-bold\">solid converts directly into a vapor state</span> without passing through an <span class=\"text-magenta font-bold\">intermediate liquid phase</span> (e.g., dry ice, camphor, naphthalene).",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "7e57a526-44b5-460c-8bd4-bdd884aee592",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "medium",
+    "question": "What is the term used to describe an organism that has both male and female reproductive organs?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Hermaphrodite",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bisexual",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Unisexual",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Monoecious",
+        "label": "D"
+      }
+    ],
+    "explanation": "Organisms that possess functional <span class=\"text-teal font-bold\">male and female reproductive systems</span> within a <span class=\"text-green font-bold\">single individual body</span> are called <span class=\"text-red font-bold\">hermaphrodites</span> or bisexual animals (e.g., <span class=\"text-orange font-bold\">Earthworms, Leeches</span>).",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "9713c8b0-a20c-400a-a42a-8c328791e274",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Plant Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Cinchona belongs to which plant family?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rubiaceae",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rutaceae",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Fabaceae",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Solanaceae",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Cinchona</span> is a genus of medicinal flowering plants native to the <span class=\"text-teal font-bold\">Andes</span> that belongs to the Rubiaceae family. Its bark yields <span class=\"text-blue font-bold\">quinine</span>, which is historically used to <span class=\"text-green font-bold\">treat malaria</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "a252ca23-0772-4edd-baa6-43c7b9b1c5ad",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Plant Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Opium is derived from which part of the plant?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Seeds",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Latex from unripe seed pods",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Flowers",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Roots",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Opium</span> is harvested as a <span class=\"text-green font-bold\">milky exudate or latex</span> obtained by making strategic incisions into the <span class=\"text-teal font-bold\">unripe seed capsules</span> (pods) of the poppy plant, <span class=\"text-blue font-bold\">Papaver somniferum</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "02d7383c-763c-4f6b-a5af-0c4ae8fd8941",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "medium",
+    "question": "A colorimeter is used for measurement of:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Intensity of light",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Concentration of solution",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Concentration of coloured solution",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "Based on the <span class=\"text-blue font-bold\">Beer-Lambert law</span>, a <span class=\"text-teal font-bold\">colorimeter</span> measures the <span class=\"text-teal font-bold\">absorbance or transmittance</span> of specific wavelengths of light through a fluid to determine the <span class=\"text-magenta font-bold\">concentration</span> of a solutes in a colored solution.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "426e2b02-acd2-4ead-8244-00c858eaef67",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "hard",
+    "question": "To perform the test for anticoagulant activity of drugs, which bioassay would be used:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rabbit cornea test",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rat paw edema test",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Prothrombin time assay",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Chick embryo test",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">prothrombin time (PT) assay</span> measures the <span class=\"text-teal font-bold\">extrinsic pathway of coagulation</span>. It tracks the time it takes for <span class=\"text-green font-bold\">plasma to clot</span> after adding tissue factor, acting as an direct functional bioassay for <span class=\"text-red font-bold\">anticoagulants</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "20ef53f8-b9f9-4e35-8851-5c37f86cc8c3",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Heat And Thermodynamics"
+    ],
+    "difficulty": "easy",
+    "question": "What happens to the particles of a substance when it is heated?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The particles slow down and move closer together.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The particles stay the same.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The particles move faster and spread apart.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The particles stop moving.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Supplying <span class=\"text-teal font-bold\">thermal energy</span> increases the average <span class=\"text-magenta font-bold\">kinetic energy</span> of the constituent particles, causing them to <span class=\"text-green font-bold\">vibrate or translate faster</span> and overcome intermolecular attractive forces, leading to <span class=\"text-red font-bold\">thermal expansion</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "f043e775-b892-4895-a398-9b159ef40186",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "easy",
+    "question": "What is the phenomenon that occurs when the Moon passes between the Earth and the Sun?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Solar eclipse",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Lunar eclipse",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Meteor shower",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Comet tail",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">solar eclipse</span> occurs when the <span class=\"text-teal font-bold\">Moon</span> moves directly between the <span class=\"text-teal font-bold\">Earth and the Sun</span>, blocking out the solar disk and casting its <span class=\"text-magenta font-bold\">shadow</span> (umbra and penumbra) across portions of the Earth.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "4f464364-68d0-47f9-9dbc-efdc98841132",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Modern Physics"
+    ],
+    "difficulty": "easy",
+    "question": "What is the name of the fifth planet from the Sun?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Neptune",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Uranus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Jupiter",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mars",
+        "label": "D"
+      }
+    ],
+    "explanation": "Counting outward from the Sun, the <span class=\"text-magenta font-bold\">planetary order</span> is Mercury, Venus, Earth, Mars, and <span class=\"text-blue font-bold\">Jupiter</span>. <span class=\"text-blue font-bold\">Jupiter</span> is the <span class=\"text-orange font-bold\">fifth planet</span> and the <span class=\"text-green font-bold\">largest gas giant</span> in our <span class=\"text-teal font-bold\">solar system</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:47:15.848532+00:00"
+  },
+  {
+    "id": "1b536f33-c1a1-4e17-9846-a42ccc63abf2",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Acids And Bases"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding the properties of Acids and Bases:<br>1- Both acidic and basic solutions conduct electricity because they produce ions in aqueous solutions.<br>2- Antacids are weak bases that neutralize excess stomach acid.<br>3- Acidic solutions turn red litmus paper blue.<br>4- Phenolphthalein remains colourless in acidic solution but turns pink in basic solution.<br>5- Tooth decay starts when the pH of the mouth is above 8.5.<br>Which of the above statements are INCORRECT?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "2 and 4 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "3 and 5 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 2 and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "2, 3 and 5 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 3 is false because<span class=\"text-orange\" style=\"font-weight: 800;\"> Acids</span> turn<span class=\"text-red\" style=\"font-weight: 800;\"> blue litmus paper red</span>. Statement 5 is false because <span class=\"text-red\" style=\"font-weight: 800;\">dental enamel demineralization (tooth decay)</span> begins precisely when <span class=\"text-teal\" style=\"font-weight: 800;\">oral pH drops</span> below a <span class=\"text-teal\" style=\"font-weight: 800;\">critical acidic threshold of 5.5</span>.<div><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Indicator / Example</th><th>Acid</th><th>Base</th></tr></thead><tbody><tr><td>Litmus Paper</td><td>Turns <strong>blue litmus red</strong></td><td>Turns <strong>red litmus blue</strong></td></tr><tr><td>Phenolphthalein</td><td><strong>Colourless</strong></td><td><strong>Pink</strong></td></tr><tr><td>Methyl Orange</td><td><strong>Red</strong></td><td><strong>Yellow</strong></td></tr><tr><td>Turmeric</td><td><strong>No change (yellow)</strong></td><td><strong>Reddish-brown</strong></td></tr><tr><td>pH Value</td><td><strong>Less than 7</strong></td><td><strong>Greater than 7</strong></td></tr><tr><td>Taste<em></em></td><td><strong>Sour</strong></td><td><strong>Bitter</strong></td></tr><tr><td>Feel</td><td>—</td><td><strong>Soapy/Slippery</strong></td></tr><tr><td>Common Example</td><td>Vinegar, Lemon Juice</td><td>Soap Solution, Lime Water</td></tr><tr><td>Ions Produced in Water</td><td>H⁺ ions</td><td>OH⁻ ions</td></tr></tbody></table></div>   </div>",
+    "pyq": "Wildlife Guard 2026",
+    "created_at": "2026-06-20T04:44:23.874114+00:00"
+  },
+  {
+    "id": "b143d4b1-0afc-4f85-b0f0-62505ccdd833",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Heat And Thermodynamics"
+    ],
+    "difficulty": "medium",
+    "question": "A metal rod is heated at one end, and the temperature at the other end rises slowly over time. At the same time, a sealed glass flask filled with water is placed over a flame, and the water temperature rises quickly. Which of the following statements is correct regarding modes of heat transfer in each scenario (Rod and Flask)?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rod: Convection; Flask: Conduction and Radiation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rod: Conduction; Flask: Convection and Radiation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rod: Conduction; Flask: Convection",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rod: Radiation; Flask: Convection",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Heat transfer</span> in a solid metal rod occurs via <span class=\"text-red font-bold\">Conduction</span> as thermal kinetic energy passes through adjacent atoms. In the flask, fluid water circulates via <span class=\"text-teal font-bold\">density differences</span> forming <span class=\"text-red font-bold\">Convection</span> currents, while direct heat from the external flame transfers energy via <span class=\"text-red font-bold\">Radiation</span>.",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "827c9c08-f0f5-4054-be5b-7bea96f4bd6e",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "easy",
+    "question": "In the context of sanitation, \"Greywater\" primarily refers to wastewater generated from:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rainwater collected from rooftops",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Industrial effluents discharged from factories",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bathrooms, kitchens, and laundry activities, excluding toilets",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Treated sewage water ready for potable reuse",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Greywater</span> is domestic wastewater generated from household sinks, showers, and laundry. It contains <span class=\"text-green font-bold\">low pathogen loads</span> and can be <span class=\"text-green font-bold\">recycled</span>. Wastewater containing <span class=\"text-red font-bold\">human fecal matter</span> from toilets is classified as <span class=\"text-red font-bold\">Blackwater</span>.",
+    "pyq": "Wildlife Guard 2026",
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "496eb369-9492-42b6-bbc2-3f005efbae9a",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "hard",
+    "question": "Match the following List-I (Glands) with List-II (respective functions):<br>Glands — Functions<br>1- Hypothalamus — a. Metabolism regulation<br>2- Thymus — a. Large in infants, shrinks with age; trains T-cells<br>3- Thyroid — a. Regulates sleep patterns<br>4- Pineal gland — a. Controls the Pituitary<br>Choose the correct match:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-d, 2-a, 3-b, 4-c",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-d, 2-a, 3-c, 4-b",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-d, 2-c, 3-a, 4-b",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-d, 2-b, 3-a, 4-c",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">hypothalamus</span> controls the master pituitary gland. The thymus serves as the training site for <span class=\"text-teal font-bold\">T-lymphocytes</span> and undergoes <span class=\"text-red font-bold\">age-related involution</span>. The thyroid regulates <span class=\"text-magenta font-bold\">basal metabolic rate</span>, and the pineal gland secretes <span class=\"text-teal font-bold\">melatonin</span> to regulate sleep cycles.",
+    "pyq": "Wildlife Guard 2026",
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "1501525e-ebc8-40de-ad73-2c42547d226e",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "hard",
+    "question": "In the context of physics, why do we use a Convex Mirror as a 'Rear-view mirror' in vehicles?<br>1- It always forms an erect and diminished image.<br>2- It has a wider field of view as it is curved outwards.<br>3- It forms a real image of the objects behind.<br>Choose the correct option:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Convex mirrors</span> are preferred for driving because they always form <span class=\"text-magenta font-bold\">virtual</span>, <span class=\"text-green font-bold\">erect</span>, and <span class=\"text-orange font-bold\">diminished</span> images, providing an expanded, wider field of view compared to flat mirrors. They <span class=\"text-red font-bold\">never produce real images</span>.",
+    "pyq": "Wildlife Guard 2026",
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "8e7ad288-11dc-4f7f-b078-f158eceda311",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following statements is true about pressure?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pressure is directly proportional to the force applied",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pressure is inversely proportional to the area over which the force is applied",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both A and B",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither A nor B",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Pressure</span> is mathematically defined as normal force per unit area (<span class=\"text-teal font-bold\">P = F/A</span>). Therefore, <span class=\"text-red font-bold\">pressure</span> is <span class=\"text-magenta font-bold\">directly proportional</span> to the thrust force and <span class=\"text-magenta font-bold\">inversely proportional</span> to the surface area.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "e626b72a-05c3-4652-ad3b-8adaeb976e23",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "medium",
+    "question": "If the area over which a force is applied is doubled, what happens to the pressure?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "It doubles",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "It is halved",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It stays the same",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It is quadrupled",
+        "label": "D"
+      }
+    ],
+    "explanation": "Because pressure handles an <span class=\"text-magenta font-bold\">inverse mathematical relationship</span> with surface area (<span class=\"text-teal font-bold\">P = F/A</span>), <span class=\"text-orange font-bold\">doubling</span> the target distribution area cuts the resulting pressure exactly <span class=\"text-orange font-bold\">in half</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "f875f8a8-7b4b-4b0a-b605-462054aa05b0",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "medium",
+    "question": "The pressure exerted by a liquid depends on:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Its density and the depth of the liquid",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The volume of the liquid",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The color of the liquid",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The temperature of the liquid",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Hydrostatic pressure</span> in a stationary fluid fluid column depends entirely on <span class=\"text-magenta font-bold\">fluid density</span> (d), <span class=\"text-magenta font-bold\">depth</span> beneath the surface (h), and local gravity (g), expressed via the formula <span class=\"text-teal font-bold\">P = hdg</span>. It does <span class=\"text-red font-bold\">not depend on container volume</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "6be53c55-06a9-40ef-8411-506bdea7c3a6",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Optics"
+    ],
+    "difficulty": "easy",
+    "question": "In which medium does light travel the fastest?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Air",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Water",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Glass",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vacuum",
+        "label": "D"
+      }
+    ],
+    "explanation": "Light requires <span class=\"text-red font-bold\">no physical medium</span> to propagate and encounters zero optical density or refractive indexing in a <span class=\"text-teal font-bold\">vacuum</span>, travelling at its <span class=\"text-green font-bold\">maximum possible speed limit</span> of <span class=\"text-orange font-bold\">3 x 10^8 m/s</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "2001b7ba-a7d9-418e-aa57-94af64b69911",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Waves And Sound"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following colors of light has the shortest wavelength?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Red",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Green",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Blue",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Violet",
+        "label": "D"
+      }
+    ],
+    "explanation": "In the visible electromagnetic spectrum (<span class=\"text-teal font-bold\">VIBGYOR</span>), <span class=\"text-magenta font-bold\">violet light</span> possesses the <span class=\"text-red font-bold\">shortest wavelength</span> and <span class=\"text-magenta font-bold\">highest frequency</span>, while red light marks the <span class=\"text-green font-bold\">longest wavelength</span> and lowest frequency.",
+    "pyq": null,
+    "created_at": "2026-06-20T04:21:19.559471+00:00"
+  },
+  {
+    "id": "f27bf39a-3931-4bc1-8e40-8a1f510248bc",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Chemical Reactions"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following metals produces hydrogen gas on reaction with dilute nitric acid?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Copper (Cu)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Zinc (Zn)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Magnesium (Mg)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "Generally, <span class=\"text-red\"><span class=\"text-red font-bold\">nitric acid</span> is a <span class=\"text-red font-bold\">strong oxidizing agent</span></span>, which typically oxidizes the <span class=\"text-green\">hydrogen gas</span> produced by metal reactions into water, rather than releasing hydrogen. However, <span class=\"text-blue\"><span class=\"text-blue font-bold\">Magnesium (Mg)</span></span> and <span class=\"text-blue\"><span class=\"text-blue font-bold\">Manganese (Mn)</span></span> are specific exceptions; they react with <span class=\"text-orange\"><span class=\"text-orange font-bold\">very dilute</span></span> <span class=\"text-red font-bold\">nitric acid</span> to produce hydrogen gas.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:29:04.625684+00:00"
+  },
+  {
+    "id": "f0ad93c6-b6bb-4f80-a77f-9c5ad968c264",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Cell Biology"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about cells is NOT true?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Plasma membrane is selectively permeable that regulates the movement of nutrients into and out of the cell.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Cell interior contains many specialized membrane-bound organelles.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mitochondria are organelles responsible for energy transactions needed for cell survival.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ribosomes are membrane-bound organelles responsible for protein synthesis in eukaryotic cells.",
+        "label": "D"
+      }
+    ],
+    "explanation": "The statement is incorrect because <span class=\"text-teal\"><span class=\"text-teal font-bold\">ribosomes</span></span> are <span class=\"text-red\"><span class=\"text-red font-bold\">non-membrane-bound organelles</span></span>; they are composed of ribosomal RNA and protein, found either free in the cytoplasm or attached to the rough endoplasmic reticulum. Despite this, their primary function in <span class=\"text-teal\"><span class=\"text-teal font-bold\">eukaryotic cells</span></span> is <span class=\"text-green\"><span class=\"text-green font-bold\">protein synthesis</span></span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:29:04.625684+00:00"
+  },
+  {
+    "id": "ce7d9ddc-3e43-4c9a-8d4c-5ef2bb7bdc84",
+    "category_id": "general-science",
+    "tags": [
+      "Environmental Chemistry"
+    ],
+    "difficulty": "hard",
+    "question": "A city is located near a river and an industrial area. Over time, scientists observed the following:<br>1- Fish in the river showed bioaccumulation of a persistent chemical that caused neurological disorders in humans who consumed them.<br>2- The air contained high levels of a gas that reacts with water to form acid rain, damaging monuments and crops.<br>3- Soil had elevated heavy metal concentrations, leading to reduced fertility and toxicity in plants.<br>On the basis of the given observations, pair each cause (1, 2, 3) with the corresponding pollutant (a=Mercury, b=Sulfur dioxide, c=Lead):",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-a, 2-b, 3-c",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-a, 2-c, 3-b",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-b, 2-a, 3-c",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-c, 2-b, 3-a",
+        "label": "D"
+      }
+    ],
+    "explanation": "<text-blue><span class=\"text-blue font-bold\">Methylmercury</span></text-blue> undergoes <text-red><span class=\"text-red font-bold\">biomagnification</span></text-red> in aquatic food webs, targeting the human central nervous system (e.g., <text-blue><span class=\"text-blue font-bold\">Minamata disease</span></text-blue>). <text-teal>Sulfur dioxide (SO2)</text-teal> is a primary atmospheric precursor to <text-green><span class=\"text-green font-bold\">acid rain</span> (H2SO4)</text-green>, while <text-teal>lead (Pb)</text-teal> acts as a persistent heavy metal contaminant that <text-red><span class=\"text-red font-bold\">retards plant growth</span> and degrades soil biotas</text-red>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "f64825df-56fc-46a4-a202-e4c799b352c3",
+    "category_id": "general-science",
+    "tags": [
+      "Plant And Animal Excretion"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about excretion in plants and animals is correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Plants lack specialized excretory organs, so all metabolic wastes are removed exclusively through stomata by diffusion.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Plants assimilate ammonia into amino acids and can store waste in leaves, bark, and vacuoles.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "In mammals, the primary nitrogenous waste is uric acid, which requires minimal water for excretion compared to ammonia.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Animals and plants both rely mainly on transpiration as their primary mechanism of excretion.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Plants lack specialized excretory systems; instead, they safely <text-green><span class=\"text-green font-bold\">detoxify metabolic byproducts</span> by assimilating toxic free ammonia into amino acids</text-green> or by sequestering metabolic wastes permanently inside <text-teal><span class=\"text-teal font-bold\">cellular vacuoles</span>, aging leaves, or dead bark layers</text-teal>. <text-red><span class=\"text-red font-bold\">Mammals are ureotelic</span> (excreting urea), not uricotelic</text-red>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "432cbf58-fc11-463f-9966-d59b6f135ff5",
+    "category_id": "general-science",
+    "tags": [
+      "Plant Transport"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about transportation of water, food and minerals in plants is NOT correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "The ascent of sap in tall trees primarily occurs due to transpiration pull, cohesion, and adhesion forces rather than root pressure alone.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Xylem transports water and dissolved minerals mainly in an upward direction, while phloem can transport food both upward and downward.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Phloem transport requires metabolic energy, whereas xylem transport is largely a passive process.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Minerals absorbed by roots move through phloem vessels to reach the leaves where they are utilized for photosynthesis.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<text-teal><span class=\"text-teal font-bold\">Inorganic minerals</span></text-teal> dissolved in soil water are exclusively absorbed by roots and translocated upward along with water through the <text-green><span class=\"text-green font-bold\">xylem</span></text-green> via the <text-red><span class=\"text-red font-bold\">passive transpiration stream</span></text-red>. The <text-green><span class=\"text-green font-bold\">phloem</span></text-green> handles the <text-teal><span class=\"text-teal font-bold\">bidirectional active translocation</span> of organic photoassimilates (sucrose)</text-teal>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "52e36763-637a-4e78-9c83-9776edb73430",
+    "category_id": "general-science",
+    "tags": [
+      "Microbiology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following organisms exhibits parasitic nutrition?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nitrosomonas",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Amoeba",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Plasmodium",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Paramecium",
+        "label": "D"
+      }
+    ],
+    "explanation": "<text-blue><span class=\"text-blue font-bold\">Plasmodium</span></text-blue> is a protozoan <text-green><span class=\"text-green font-bold\">endoparasite</span></text-green> that derives its nutrition directly from host tissues (human red blood cells and hepatocytes), causing <text-red><span class=\"text-red font-bold\">malaria</span></text-red>. <text-teal><span class=\"text-teal font-bold\">Nitrosomonas</span></text-teal> is a <text-orange><span class=\"text-orange font-bold\">chemoautotroph</span></text-orange>, whereas Amoeba and Paramecium utilize <text-magenta>holozoic phagotrophic nutrition</text-magenta>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "13cadba6-4df9-4551-88a7-abed92b0d1ce",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry"
+    ],
+    "difficulty": "medium",
+    "question": "Match Column-I with Column-II and choose the correct option:<br>Column - I<br>i. Cesium<br>ii. Zinc<br>iii. Iodine<br>iv. Graphite<br>Column - II",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "A non-metal that is lustrous",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A metal that is brittle",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A metal that has a low melting point",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A non-metal that is a good conductor of electricity",
+        "label": "D"
+      },
+      {
+        "id": "e",
+        "text": "i-c, ii-b, iii-a, iv-d",
+        "label": "E"
+      }
+    ],
+    "explanation": "<text-blue><span class=\"text-blue font-bold\">Cesium</span></text-blue> (i) is an alkali metal known for its extremely <text-green>low melting point</text-green> (<text-orange><span class=\"text-orange font-bold\">28.4°C</span></text-orange>), while <text-teal><span class=\"text-teal font-bold\">Zinc</span></text-teal> (ii) is a metal that is characteristically <text-red><span class=\"text-red font-bold\">brittle</span> at room temperature</text-red>. <text-teal>Iodine</text-teal> (iii) is a unique <text-green>non-metal exhibiting metallic luster</text-green>, and <text-teal><span class=\"text-teal font-bold\">Graphite</span></text-teal> (iv), an allotrope of carbon, is a non-metal famously known as a <text-green>good conductor of electricity</text-green> due to its delocalized electrons.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "2364df55-8e5f-4088-80a9-6f03ec94f8c7",
+    "category_id": "general-science",
+    "tags": [
+      "Renewable Energy"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about non-conventional sources of energy and their improvements is correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Commercial Solar panels can only convert 10-12% of sunlight into electricity.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Wind energy efficiency improves by using larger and more aerodynamically designed blades.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Tidal energy cannot be harnessed effectively due to the predictability of tides.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Geothermal energy output is independent of drilling technology and heat extraction methods.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<text-green><span class=\"text-green font-bold\">Wind energy efficiency</span> significantly improves</text-green> with the use of <text-teal>larger and more aerodynamically designed blades</text-teal>, which capture more wind energy and increase power output. Conversely, modern solar panels achieve <text-orange><span class=\"text-orange font-bold\">15-22% efficiency</span></text-orange> (not <text-red><span class=\"text-red font-bold\">10-12%</span></text-red>), tidal energy is <text-green><span class=\"text-green font-bold\">highly predictable</span></text-green> and harnessable, and geothermal output heavily <text-red>depends on drilling technology and extraction methods</text-red>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "4cc2ed16-4f08-4048-b9dc-ac9fc294fd44",
+    "category_id": "general-science",
+    "tags": [
+      "Conventional Energy"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about conventional sources of energy and their improvements is true?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Thermal power plants cannot exceed 35% efficiency, even with advanced boiler technology.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Supercritical and ultra-supercritical boilers allow coal power plants to achieve higher efficiency.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hydroelectric power plants cannot improve energy output once the dam is built.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Efficiency of petroleum refining is solely determined by the quality of crude oil, not technology.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<text-green>Supercritical and ultra-<span class=\"text-green font-bold\">supercritical boilers</span></text-green> are crucial for improving the efficiency of coal-fired power plants, enabling them to achieve efficiencies of <text-orange><span class=\"text-orange font-bold\">45% or more</span></text-orange> by operating at higher pressures and temperatures. <text-red>Conventional thermal plants often <span class=\"text-red font-bold\">exceed 35% efficiency</span></text-red> with these technologies, hydroelectric output can be improved post-construction via upgrades, and refining efficiency depends on <text-magenta>both <span class=\"text-magenta font-bold\">crude quality</span> and <span class=\"text-magenta font-bold\">technological advancements</span></text-magenta>.",
+    "pyq": null,
+    "created_at": "2026-06-20T03:24:41.830589+00:00"
+  },
+  {
+    "id": "d4972abf-a8d9-42b9-8492-a5eb076be773",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Plant Biology"
+    ],
+    "difficulty": "medium",
+    "question": "Raghav was confused about how plants reproduce asexually. His teacher explained methods like Budding and Fragmentation, but Raghav wasn't sure how to tell them apart. Which of the following best distinguishes the two processes?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "In budding, a small protrusion forms on the parent and may stay attached before detaching, while in fragmentation, the parent breaks into pieces, and each piece grows into a new organism.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "In budding, offspring develop from specialized reproductive cells, whereas in fragmentation, the parent divides under environmental stress to form new organisms.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "In budding, a small part of the parent detaches and grows into an independent organism, whereas in fragmentation, the parent splits into fragments that grow into independent organisms.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "In budding, the offspring remain attached to the parent for a while, while in fragmentation, the parent breaks into two parts that grow into independent organisms.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Budding</span> involves an<span class=\"text-teal\" style=\"font-weight: 800;\"> unequal, localized division</span> where a tiny bud stays initially attached to a unicellular or multicellular parent (e.g., Yeast, Hydra). <span class=\"text-red\" style=\"font-weight: 800;\">Fragmentation</span> specifically requires a mature multicellular body to <span class=\"text-teal\" style=\"font-weight: 800;\">break into distinct structural fragments</span>, with each fragment regenerating into a complete individual (e.g., Spirogyra).<br>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "ce69bc72-5858-443e-97c8-008eb7ab0ab7",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Plant Biology"
+    ],
+    "difficulty": "hard",
+    "question": "Raghav is trying to understand when plant cells are haploid (N) or diploid (2N) during sexual reproduction. Which of the following statements is correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "The microspore and megaspore are diploid (2N) cells that undergo meiosis, and the fertilized zygote remains haploid (N).",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The microspore and megaspore are haploid (N) cells formed after meiosis, and fertilization restores the diploid (2N) number in the zygote.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The pollen and ovule mother cells are haploid (N) before meiosis and form diploid gametes after meiosis.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The pollen and ovule mother cells are diploid (2N), and meiosis produces haploid gametes, but fertilization does not restore the diploid number.",
+        "label": "D"
+      }
+    ],
+    "explanation": "In plants, <span class=\"text-blue\" style=\"font-weight: 800;\">spore mother cells are diploid (2N)</span> and <span class=\"text-teal\" style=\"font-weight: 800;\">undergo meiosis</span> to <span class=\"text-green\" style=\"font-weight: 800;\">produce haploid (N) microspores and megaspores</span>. The <span class=\"text-magenta\" style=\"font-weight: 800;\">subsequent fusion</span> of these <span class=\"text-orange\" style=\"font-weight: 800;\">haploid gametes during fertilization restores the diploid (2N)</span> genetic state in the zygote.<br>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "b1385627-0737-4e15-9cc6-8dff2e8982bd",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Genetics"
+    ],
+    "difficulty": "hard",
+    "question": "Ali was breeding two Pisum sativum plants for plant height and seed shape. He noticed the following in the offspring:<br>1- All plants were Tall<br>2- Seed shape ratio: 3 (Round): 1 (Wrinkled)<br>How many possible combinations (unordered) of parental genotypes could produce this result?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "4",
+        "label": "D"
+      }
+    ],
+    "explanation": "For seed shape, a 3:1 ratio requires both parents to be<span class=\"text-green\" style=\"font-weight: 800;\"> heterozygous (Rr x Rr)</span>. For height, all offspring are tall, meaning no dwarf (tt) offspring can form. This allows exactly <span class=\"text-green\" style=\"font-weight: 800;\">3 distinct unordered parental cross options</span> for height: TT x TT, TT x Tt, or TT x tt.<br>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "afb6ba14-abd7-418d-8d2c-da62b2c3b482",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Genetics"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following was NOT a character studied by Mendel in his experiments with Pisum sativum?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Stem Height",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Flower shape",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Pod shape and colour",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Seed shape and colour",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Mendel </span>evaluated <span class=\"text-magenta\" style=\"font-weight: 800;\">7 traits of the pea plant</span>. While flower position and flower color were included, flower shape was never one of the characters studied.<br>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "2ea5b833-6c92-48e7-8dc2-4cdfd457d626",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Environmental Chemistry"
+    ],
+    "difficulty": "medium",
+    "question": "Which statement is TRUE regarding the relationship between ozone depletion and climate change?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "CFCs destroy ozone and contribute to global warming",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ozone depletion directly causes the greenhouse effect",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Greenhouse gases directly destroy ozone molecules.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Reducing CO2 emissions alone can fully restore the ozone layer.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Chlorofluorocarbons (CFCs) play a double role: </span>they <span class=\"text-green\" style=\"font-weight: 800;\">break down stratospheric ozone</span> via catalytic chlorine releases and simultaneously<span class=\"text-green\" style=\"font-weight: 800;\"> act as high-efficiency greenhouse gases</span> that trap heat in the troposphere.<br>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "74eeeeb1-8170-476d-b163-d83b45a444ef",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Ecology"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following jumbled food chain:<br>Grasshopper, Grass, Hawk, Frog, Snake.<br>If the energy content of the frog is x kJ, the energy available to the primary consumer is",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "10x kJ",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "x kJ",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "x/10 kJ",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "x/100 kJ",
+        "label": "D"
+      }
+    ],
+    "explanation": "The correct food chain sequence is <span style=\"font-weight: bold;\">Grass (Producer) -&gt; Grasshopper (Primary Consumer) -&gt; Frog (Secondary Consumer)</span>. According to<span class=\"text-red\" style=\"font-weight: 800;\"> Lindeman's 10% law,</span><span style=\"font-style: italic;\"> </span><span class=\"text-blue\" style=\"font-weight: 800;\"><span style=\"font-style: italic;\">if the frog holds x energy, the grasshopper level right below it must possess 10 times more energy</span> </span>(x divided by 0.1 = 10x).<div><img src=\"https://files.askiitians.com/cdn1/images/2014813-142734139-138-10-law.jpeg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>     <span class=\"text-blue-500 font-bold\"> </span></div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-19T16:07:19.530612+00:00"
+  },
+  {
+    "id": "0ef8a1ad-25bf-4d15-8d24-737c4cab39f7",
+    "category_id": "general-science",
+    "tags": [
+      "Physics",
+      "Mechanics"
+    ],
+    "difficulty": "easy",
+    "question": "Which law explains that a moving body continues in motion unless acted upon by a force?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Newton's First Law",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Newton's Second Law",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Newton's Third Law",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Archimedes Principle",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Newton's First Law (Law of Inertia)</span> states that an object resists changes to its <span class=\"text-orange\" style=\"font-weight: 800;\">state of motion</span> unless compelled by an<span class=\"text-blue\" style=\"font-weight: 800;\"> external force</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "76450a40-287c-4de6-bc65-53d079023bb9",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "States Of Matter"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following are examples of physical changes?<br>1- Melting of ice<br>2- Cooking Food<br>3- Burning of paper<br>4- Rusting of iron",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Physical changes</span> alter the s<span class=\"text-teal\" style=\"font-weight: 800;\">tate or appearance</span><span class=\"text-orange\" style=\"font-weight: 800;\"><span class=\"text-teal\" style=\"font-weight: 800;\"> </span>without forming new substances</span>. <span class=\"text-blue\" style=\"font-weight: 800;\">Melting of ice is reversible</span>, while cooking, burning, and rusting create new chemical substances.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "79887eea-b6bb-4f22-9c87-54a1dd32912f",
+    "category_id": "general-science",
+    "tags": [
+      "Chemistry",
+      "Periodic Table"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is a liquid non-metal at room temperature?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mercury",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Phosphorus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Chlorine",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bromine",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Bromine</span> is the<span class=\"text-green\" style=\"font-weight: 800;\"> only non-metal</span> that is<span class=\"text-green\" style=\"font-weight: 800;\"> liquid at room temperature</span>. <span class=\"text-red\" style=\"font-weight: 800;\">Mercury</span> is also a<span class=\"text-teal\" style=\"font-weight: 800;\"> liquid at room temperature</span>, but it <span class=\"text-teal\" style=\"font-weight: 800;\">is a metal</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "2dedbea8-2563-4b7c-9a70-f96125d81e3b",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Human Biology"
+    ],
+    "difficulty": "easy",
+    "question": "Which enzyme is saliva helps in the digestion of starch?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pepsin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Amylase",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Trypsin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Lipase",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Salivary amylase (ptyalin)</span> initiates <span class=\"text-teal\" style=\"font-weight: 800;\">carbohydrate digestion</span> by <span style=\"font-style: italic;\">breaking down complex starch into simpler sugars (maltose)</span> in the mouth.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
+    "id": "e6a4c397-a4dd-4ba3-9944-4a73931e1d72",
+    "category_id": "general-science",
+    "tags": [
+      "Biology",
+      "Microbiology"
+    ],
+    "difficulty": "medium",
+    "question": "Match the following organisms with their respective kingdom.<br>1- Amoeba — Protista<br>2- Hyphae — Fungi<br>3- Cyanobacteria — Monera",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-i, 2-ii, 3-iii",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-ii, 2-iii, 3-i",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-iii, 2-i, 3-ii",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-iii, 2-ii, 3-i",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue\" style=\"font-weight: 800;\"><span class=\"text-red\" style=\"font-weight: 800;\">Monera</span></span> consists of <span class=\"text-blue\" style=\"font-weight: 800;\">prokaryotes (Cyanobacteria)</span>,<span class=\"text-red\" style=\"font-weight: 800;\"> Protista</span> contains <span class=\"text-green\" style=\"font-weight: 800;\">unicellular eukaryotes (Amoeba)</span>, and <span class=\"text-teal\" style=\"font-weight: 800;\">Hyphae</span> are the structural filaments <span class=\"text-red\" style=\"font-weight: 800;\">of Fungi</span>.",
+    "pyq": "FPF Guard 2026",
+    "created_at": "2026-06-19T15:40:34.221862+00:00"
+  },
+  {
     "id": "e1157400-5f5a-4d6c-8155-a114d184a5a3",
     "category_id": "general-science",
     "tags": [
@@ -37,9 +5110,7 @@
   {
     "id": "d164df25-85f8-4705-a792-7a4b922b56f4",
     "category_id": "general-science",
-    "tags": [
-      "Atmosphere"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "question": "Which gas is most abundant in the Earth atmosphere?",
     "correctId": "b",
@@ -65,8 +5136,8 @@
         "label": "D"
       }
     ],
-    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Nitrogen</span> often called the <span class=\"text-green\" style=\"font-weight: 800;\">pnictogen</span>, makes up approximately <span class=\"text-orange\" style=\"font-weight: 800;\">78 percent</span> of Earth atmosphere as N2. The discovery of nitrogen by Scottish<span class=\"text-green\" style=\"font-weight: 800;\"> Daniel Rutherford in 1772</span>, who called it <span style=\"font-weight: bold;\"><span class=\"text-teal\" style=\"font-weight: 800;\">noxious air</span></span>.<div><img src=\"https://th.bing.com/th/id/R.48cda54194bac4937ae120e64804f1f8?rik=z%2f97zdoxmqa7Jg&amp;riu=http%3a%2f%2fwww.periodictable.com%2fSamples%2f007.8%2fs13.JPG&amp;ehk=iEF%2faR%2fhsbs4N%2boNNoKDz%2bUQv9eHtnX6nR%2b5z%2b0iDLM%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> <br></div><div> <span class=\"text-theme-primary font-medium\"> </span></div>",
-    "pyq": null,
+    "explanation": "<span class=\"text-teal\" style=\"font-weight: 800;\">Nitrogen</span> often called the <span class=\"text-green\" style=\"font-weight: 800;\">pnictogen</span>, makes up approximately <span class=\"text-orange\" style=\"font-weight: 800;\">78 percent</span> of Earth atmosphere as N2. The discovery of nitrogen by Scottish<span class=\"text-green\" style=\"font-weight: 800;\"> Daniel Rutherford in 1772</span>, who called it <span style=\"font-weight: bold;\"><span class=\"text-teal\" style=\"font-weight: 800;\">noxious air</span></span>.<div><img src=\"https://th.bing.com/th/id/R.48cda54194bac4937ae120e64804f1f8?rik=z%2f97zdoxmqa7Jg&amp;riu=http%3a%2f%2fwww.periodictable.com%2fSamples%2f007.8%2fs13.JPG&amp;ehk=iEF%2faR%2fhsbs4N%2boNNoKDz%2bUQv9eHtnX6nR%2b5z%2b0iDLM%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> <br></div><div> <span class=\"text-theme-primary font-medium\"> </span></div>  <span class=\"text-amber-500 font-bold pyq-marker\"></span>",
+    "pyq": "State PSC Prelims 2023",
     "created_at": "2026-05-30T14:57:01.410878+00:00"
   }
 ]

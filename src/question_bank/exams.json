@@ -1,69 +1,7 @@
 [
   {
-    "id": "jkssb-faa",
-    "name": "JKSSB FAA",
-    "categories": [
-      {
-        "id": "accountancy",
-        "weight": 25
-      },
-      {
-        "id": "jk-affairs",
-        "weight": 12
-      },
-      {
-        "id": "english",
-        "weight": 8
-      },
-      {
-        "id": "computer-awareness",
-        "weight": 8
-      },
-      {
-        "id": "current-affairs",
-        "weight": 7
-      },
-      {
-        "id": "general-science",
-        "weight": 8
-      },
-      {
-        "id": "environment",
-        "weight": 6
-      },
-      {
-        "id": "indian-geography",
-        "weight": 5
-      },
-      {
-        "id": "modern-history",
-        "weight": 4
-      },
-      {
-        "id": "static-gk",
-        "weight": 4
-      },
-      {
-        "id": "indian-economy",
-        "weight": 10
-      },
-      {
-        "id": "physical-geography",
-        "weight": 3
-      }
-    ],
-    "difficulties": {
-      "easy": 0.35,
-      "hard": 0.25,
-      "medium": 0.4
-    },
-    "created_at": "2026-06-05T03:49:32.428023+00:00",
-    "status": "published",
-    "updated_at": "2026-06-16T15:27:33.837389+00:00"
-  },
-  {
     "id": "jkpsc-prelims-2026",
-    "name": "JKPSC Prelims 2026",
+    "name": "JKPSC Prelims",
     "categories": [
       {
         "id": "current-affairs",
@@ -124,6 +62,68 @@
       "medium": 0.5
     },
     "created_at": "2026-06-05T03:57:33.401074+00:00",
+    "status": "published",
+    "updated_at": "2026-06-20T06:28:56.372244+00:00"
+  },
+  {
+    "id": "jkssb-faa",
+    "name": "JKSSB FAA",
+    "categories": [
+      {
+        "id": "accountancy",
+        "weight": 25
+      },
+      {
+        "id": "jk-affairs",
+        "weight": 12
+      },
+      {
+        "id": "english",
+        "weight": 8
+      },
+      {
+        "id": "computer-awareness",
+        "weight": 8
+      },
+      {
+        "id": "current-affairs",
+        "weight": 7
+      },
+      {
+        "id": "general-science",
+        "weight": 8
+      },
+      {
+        "id": "environment",
+        "weight": 6
+      },
+      {
+        "id": "indian-geography",
+        "weight": 5
+      },
+      {
+        "id": "modern-history",
+        "weight": 4
+      },
+      {
+        "id": "static-gk",
+        "weight": 4
+      },
+      {
+        "id": "indian-economy",
+        "weight": 10
+      },
+      {
+        "id": "physical-geography",
+        "weight": 3
+      }
+    ],
+    "difficulties": {
+      "easy": 0.35,
+      "hard": 0.25,
+      "medium": 0.4
+    },
+    "created_at": "2026-06-05T03:49:32.428023+00:00",
     "status": "published",
     "updated_at": "2026-06-16T15:27:33.837389+00:00"
   },
