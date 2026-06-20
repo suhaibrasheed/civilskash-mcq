@@ -44,7 +44,7 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
       if (economy?.id && economy.id !== 'default_user') {
         await supabase
           .from('profiles')
-          .update({ target_exam: targetExam, smart_mock_limit: Number(smartMockLimit) })
+          .update({ target_exam: targetExam })
           .eq('id', economy.id);
       }
 

@@ -196,7 +196,7 @@ const OutputCard = ({ output, onSave, onDelete, onAnswerMCQ }) => {
                       className={`group ${rowClass}`}
                     >
                       <span className={bubbleClass}>{opt.id.toUpperCase()}</span>
-                      <span className="flex-1 text-[13px] md:text-sm leading-snug">{opt.text}</span>
+                      <span className="flex-1 text-[13px] md:text-sm leading-snug" dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text) }} />
                       {hasAnswered && isCorrect && <CheckCircle className="text-emerald-500 w-5 h-5 shrink-0" />}
                       {hasAnswered && isSelected && !isCorrect && <XCircle className="text-rose-500 w-5 h-5 shrink-0" />}
                     </button>

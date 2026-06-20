@@ -4,7 +4,7 @@ import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircl
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
-import { queryGenerativeAI, queryColorHighlightsForExplanations, applyHighlightsToText, stripCodeFences } from '../lib/ai';
+import { queryGenerativeAI, queryColorHighlightsForExplanations, applyHighlightsToText, stripCodeFences, renderMathInHtmlString, convertMarkdownTablesToHtml, convertMarkdownToHtml } from '../lib/ai';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
@@ -23,20 +23,23 @@ const TEXT_COLORS = [
 const DEFAULT_CATEGORIES = [
   { id: 'accountancy', name: 'Accountancy' },
   { id: 'ancient-history', name: 'Ancient History' },
+  { id: 'art-and-culture', name: 'Art and Culture' },
+  { id: 'biology', name: 'Biology' },
+  { id: 'chemistry', name: 'Chemistry' },
   { id: 'computer-awareness', name: 'Computer Awareness' },
-  { id: 'current-affairs', name: 'Current Affairs' },
-  { id: 'english', name: 'English' },
-  { id: 'environment', name: 'Environment' },
+  { id: 'ecology-and-environment', name: 'Ecology and Environment' },
+  { id: 'english-language', name: 'English Language' },
   { id: 'general-science', name: 'General Science' },
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
+  { id: 'indian-national-movement', name: 'Indian National Movement' },
   { id: 'indian-polity', name: 'Indian Polity' },
-  { id: 'maths', name: 'Maths' },
   { id: 'medieval-history', name: 'Medieval History' },
   { id: 'modern-history', name: 'Modern History' },
-  { id: 'physical-geography', name: 'Physical Geography' },
-  { id: 'reasoning', name: 'Reasoning' },
-  { id: 'static-gk', name: 'Static GK' },
+  { id: 'physics', name: 'Physics' },
+  { id: 'quantitative-aptitude', name: 'Quantitative Aptitude' },
+  { id: 'reasoning-ability', name: 'Reasoning Ability' },
+  { id: 'science-and-technology', name: 'Science and Technology' },
   { id: 'world-geography', name: 'World Geography' },
   { id: 'jk-affairs', name: 'JK Affairs' }
 ];
@@ -52,6 +55,20 @@ const normalizeTagName = (tag) => {
     .filter(Boolean)
     .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join(' ');
+};
+
+const splitExplanationTextAndTags = (text) => {
+  if (!text) return { cleanText: '', tagsPart: '' };
+  
+  // Match any hashtags #tag_name or PYQ brackets [[PYQ 2021]]
+  const tagRegex = /(?:#[\w_-]+|\[\[[^\]]+\]\])/g;
+  const tagsList = text.match(tagRegex) || [];
+  
+  // Clean text by removing all hashtags and PYQ brackets
+  const cleanText = text.replace(tagRegex, '').replace(/\s+/g, ' ').trim();
+  const tagsPart = tagsList.join(' ');
+  
+  return { cleanText, tagsPart };
 };
 
 export default function AdminSubiStudio() {
@@ -76,6 +93,25 @@ export default function AdminSubiStudio() {
   const cmdPaletteRef = useRef(null);
   const tagPaletteRef = useRef(null);
   const pyqPaletteRef = useRef(null);
+  
+  const getSelectedOrAllBlocks = useCallback(() => {
+    const range = lastSelectionRangeRef.current;
+    const hasSelection = range && !range.collapsed && editorRef.current?.contains(range.commonAncestorContainer);
+    
+    const allBlocks = getEditorBlocks();
+    if (hasSelection) {
+      const selected = allBlocks.filter(block => {
+        const blockRange = document.createRange();
+        blockRange.selectNode(block);
+        return (
+          range.compareBoundaryPoints(Range.END_TO_START, blockRange) < 0 &&
+          range.compareBoundaryPoints(Range.START_TO_END, blockRange) > 0
+        );
+      });
+      if (selected.length > 0) return selected;
+    }
+    return allBlocks;
+  }, []);
   
   // Passcode states
   const [isPasscodeValid, setIsPasscodeValid] = useState(false);
@@ -861,7 +897,8 @@ export default function AdminSubiStudio() {
 
           const hasTagInText = (text, tag) => {
               const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
-              const words = text.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
+              const noHtml = text.replace(/<[^>]*>/g, ' ');
+              const words = noHtml.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
               return words.includes(cleaned);
           };
 
@@ -892,8 +929,8 @@ export default function AdminSubiStudio() {
           const tagsHtml = tags.length > 0 ? ` data-tags="${tags.join(',')}"` : '';
           const difficultyHtml = difficulty ? ` data-difficulty="${difficulty}"` : '';
 
-          const cleanQuestion = convertImgCodesToTags(mcq.question);
-          const cleanExplanation = convertImgCodesToTags(exp);
+          const cleanQuestion = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertImgCodesToTags(mcq.question)));
+          const cleanExplanation = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertImgCodesToTags(exp)));
 
           return `
           <div class="nk-mcq-block" contenteditable="false">
@@ -1077,6 +1114,59 @@ export default function AdminSubiStudio() {
 
       const text = node.textContent || '';
 
+      // Real-time Bold/Italic markdown conversion
+      const boldMatch = text.match(/\*\*(.*?)\*\*/);
+      if (boldMatch) {
+          const fullMatch = boldMatch[0];
+          const innerText = boldMatch[1];
+          const startIndex = text.indexOf(fullMatch);
+          
+          const range = document.createRange();
+          range.setStart(node, startIndex);
+          range.setEnd(node, startIndex + fullMatch.length);
+          range.deleteContents();
+          
+          const strong = document.createElement('strong');
+          strong.className = 'font-bold text-theme-text';
+          strong.innerText = innerText;
+          
+          range.insertNode(strong);
+          
+          range.setStartAfter(strong);
+          range.collapse(true);
+          
+          selection.removeAllRanges();
+          selection.addRange(range);
+          return;
+      }
+
+      const italicMatch = text.match(/(?<!\*)\*([^\*]+?)\*(?!\*)/);
+      if (italicMatch) {
+          const fullMatch = italicMatch[0];
+          const innerText = italicMatch[1];
+          const startIndex = text.indexOf(fullMatch);
+          
+          const range = document.createRange();
+          range.setStart(node, startIndex);
+          range.setEnd(node, startIndex + fullMatch.length);
+          range.deleteContents();
+          
+          const em = document.createElement('em');
+          em.className = 'italic text-theme-text';
+          em.innerText = innerText;
+          
+          range.insertNode(em);
+          
+          range.setStartAfter(em);
+          range.collapse(true);
+          
+          selection.removeAllRanges();
+          selection.addRange(range);
+          return;
+      }
+
+
+
       // Real-time Image insertion logic: img/imgl/imgr/imgc <url>
       const imgMatch = text.match(/\b(img[lrc]?)\s+(https?:\/\/[^\s\u00a0]+)(?:\s|\u00a0|$)/i);
       if (imgMatch) {
@@ -1188,33 +1278,56 @@ export default function AdminSubiStudio() {
   const handleEditorPaste = (e) => {
     e.preventDefault();
     const text = e.clipboardData.getData('text/plain');
-    document.execCommand('insertText', false, text);
+    let converted = convertMarkdownTablesToHtml(text);
+    converted = convertMarkdownToHtml(converted);
+    if (converted !== text) {
+      document.execCommand('insertHTML', false, converted);
+    } else {
+      document.execCommand('insertText', false, text);
+    }
   };
 
   const executeConvertToMCQ = (useSelection = false) => {
-    const selection = window.getSelection();
-    if (!selection || !editorRef.current) return;
+    if (!editorRef.current) return;
+
+    const range = lastSelectionRangeRef.current;
+    const hasSelection = range && !range.collapsed && editorRef.current.contains(range.commonAncestorContainer);
 
     let textToParse = '';
     let rangeToReplace = null;
-    const selectionInsideEditor = selection.rangeCount > 0 && editorRef.current.contains(selection.anchorNode);
 
-    if (useSelection && !selection.isCollapsed && selectionInsideEditor) {
-        const range = selection.getRangeAt(0);
+    if (hasSelection) {
         const fragment = range.cloneContents();
         const tempDiv = document.createElement('div');
         tempDiv.appendChild(fragment);
         textToParse = getEditorPlainText(tempDiv);
         rangeToReplace = range;
     } else {
-        if (selectionInsideEditor && selection.anchorNode && selection.anchorNode.textContent.endsWith('/')) {
-            const range = selection.getRangeAt(0);
-            range.setStart(range.startContainer, range.startOffset - 1);
-            range.deleteContents();
+        // If cursor is inside some plain text node/element, try to convert just that element
+        let node = range ? range.startContainer : null;
+        let plainBlock = null;
+        while (node && node !== editorRef.current) {
+          if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('nk-mcq-block')) {
+            break;
+          }
+          if (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'P' || node.tagName === 'DIV')) {
+            plainBlock = node;
+          }
+          node = node.parentNode;
         }
-        
-        textToParse = getEditorPlainText().replace(/\/\s*$/, '');
-        rangeToReplace = null;
+
+        if (plainBlock && plainBlock.innerText.trim() && !plainBlock.closest('.nk-mcq-block')) {
+          textToParse = plainBlock.innerText;
+          const r = document.createRange();
+          r.selectNode(plainBlock);
+          rangeToReplace = r;
+        } else {
+          // Fall back to entire editor text, but clone and filter out native blocks
+          const clone = editorRef.current.cloneNode(true);
+          clone.querySelectorAll('.nk-mcq-block').forEach(el => el.remove());
+          textToParse = getEditorPlainText(clone);
+          rangeToReplace = null;
+        }
     }
 
     if (!textToParse.trim()) {
@@ -1233,15 +1346,30 @@ export default function AdminSubiStudio() {
 
     const fullHtml = generateMcqHtml(mcqs);
     if (rangeToReplace) {
+        const selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(rangeToReplace);
+        document.execCommand('insertHTML', false, fullHtml);
     } else {
-        const range = document.createRange();
-        range.selectNodeContents(editorRef.current);
-        selection.removeAllRanges();
-        selection.addRange(range);
+        const nativeBlocks = editorRef.current.querySelectorAll('.nk-mcq-block');
+        if (nativeBlocks.length > 0) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = fullHtml;
+            // Clean plain text nodes/paragraphs
+            Array.from(editorRef.current.childNodes).forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('nk-mcq-block')) {
+                    node.remove();
+                } else if (node.nodeType === Node.TEXT_NODE) {
+                    node.remove();
+                }
+            });
+            while (tempDiv.firstChild) {
+                editorRef.current.appendChild(tempDiv.firstChild);
+            }
+        } else {
+            editorRef.current.innerHTML = fullHtml;
+        }
     }
-    document.execCommand('insertHTML', false, fullHtml);
     
     setCmdPalette({ show: false, selectedIndex: 0 });
     setTextToolbar(prev => ({ ...prev, show: false }));
@@ -1538,6 +1666,10 @@ export default function AdminSubiStudio() {
       For each MCQ:
       - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts to increase knowledge.
       - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure explanations contain clear concepts fitting these categories so they can be highlighted beautifully.
+      - Tag the MCQ at the end of the explanation with:
+        1. A difficulty tag (#easy, #medium, or #hard).
+        2. A concise topic tag (using lowercase and underscores, e.g. #climatology).
+        3. Optionally, if there's a relevant past year question context, include a PYQ tag e.g. [[UPSC Prelims 2021]].
       - Return them in NoteKash text format, separated by >>>:
       
       Question details...
@@ -1546,7 +1678,7 @@ export default function AdminSubiStudio() {
       C) Opt C
       D) Opt D
       Correct Answer: [Letter]
-      Explanation: [Short explanation text] #easy/medium/hard #topicname`;
+      Explanation: [Short explanation text] #easy/medium/hard #topicname [[UPSC Prelims Year]]`;
 
       const result = await queryGenerativeAI(sys, aiGenPrompt);
       if (result) {
@@ -1578,28 +1710,32 @@ export default function AdminSubiStudio() {
 
   // AI Revise MCQs command
   const handleAIReviseMCQs = async () => {
-    const selection = window.getSelection();
-    if (!selection || !editorRef.current) return;
+    if (!editorRef.current) return;
+
+    const range = lastSelectionRangeRef.current;
+    const hasSelection = range && !range.collapsed && editorRef.current.contains(range.commonAncestorContainer);
 
     let textToParse = '';
     let rangeToReplace = null;
-    const selectionInsideEditor = selection.rangeCount > 0 && editorRef.current.contains(selection.anchorNode);
 
-    if (!selection.isCollapsed && selectionInsideEditor) {
-        const range = selection.getRangeAt(0);
+    if (hasSelection) {
         const fragment = range.cloneContents();
         const tempDiv = document.createElement('div');
         tempDiv.appendChild(fragment);
         textToParse = getEditorPlainText(tempDiv);
         rangeToReplace = range;
     } else {
-        if (selectionInsideEditor && selection.anchorNode && selection.anchorNode.textContent.endsWith('/')) {
-            const range = selection.getRangeAt(0);
-            range.setStart(range.startContainer, range.startOffset - 1);
-            range.deleteContents();
+        // Fallback: check if cursor is in an active MCQ block, if so revise only that block
+        const activeBlock = getActiveMCQBlock();
+        if (activeBlock) {
+            textToParse = getEditorPlainText(activeBlock);
+            const r = document.createRange();
+            r.selectNode(activeBlock);
+            rangeToReplace = r;
+        } else {
+            textToParse = getEditorPlainText().replace(/\/\s*$/, '');
+            rangeToReplace = null;
         }
-        textToParse = getEditorPlainText().replace(/\/\s*$/, '');
-        rangeToReplace = null;
     }
 
     if (!textToParse.trim()) {
@@ -1620,6 +1756,7 @@ export default function AdminSubiStudio() {
       - Tag the MCQ with exactly two hashtags at the end of the explanation:
         1. A difficulty tag (#easy, #medium, or #hard) based on your assessment.
         2. A single broad topic tag (only use broad topics e.g climatology in geography is tag, its broad tag like chapter, using lowercase and underscores for spaces).
+        3. If the input mentions a past exam year or details (e.g. UPSC 2020), preserve or generate it as a PYQ tag e.g. [[UPSC Prelims 2020]].
       
       We use 6 specific color codes to highlight explanations. Make sure your explanations naturally mention key concepts that fit these categories:
       - 'text-red': for critical warnings, pitfalls, or essential definitions.
@@ -1637,7 +1774,7 @@ export default function AdminSubiStudio() {
       C) Option C
       D) Option D
       Correct Answer: [Letter, e.g., A]
-      Explanation: Short explanation text here #difficulty #topic`;
+      Explanation: Short explanation text here #difficulty #topic [[PYQ Exam Year]]`;
 
       const result = await queryGenerativeAI(sys, textToParse);
       if (result) {
@@ -1654,6 +1791,7 @@ export default function AdminSubiStudio() {
 
           const html = generateMcqHtml(mcqs);
           if (rangeToReplace) {
+            const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(rangeToReplace);
             document.execCommand('insertHTML', false, html);
@@ -1722,6 +1860,10 @@ export default function AdminSubiStudio() {
       Mark exactly ONE correct option. If the user provided a correct option, build distractors around it.
       - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts.
       - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure the explanation contains clear concepts fitting these categories so they can be highlighted beautifully.
+      - Tag the MCQ at the end of the explanation with:
+        1. A difficulty tag (#easy, #medium, or #hard).
+        2. A concise topic tag (using lowercase and underscores, e.g. #climatology).
+        3. Optionally, if there's a relevant past year question context, include a PYQ tag e.g. [[UPSC Prelims 2021]].
       Generate in NoteKash text format:
       Question: [Original Question]
       A) [Text]
@@ -1729,7 +1871,7 @@ export default function AdminSubiStudio() {
       C) [Text]
       D) [Text]
       Correct Answer: [Letter]
-      Explanation: [Explanation details]`;
+      Explanation: [Explanation details] #difficulty #topic [[PYQ Exam Year]]`;
 
       const userText = `Question: ${questionText}\nExisting Options: ${JSON.stringify(existingOpts)}`;
       const result = await queryGenerativeAI(sys, userText);
@@ -1766,6 +1908,7 @@ export default function AdminSubiStudio() {
       - The explanation must be very short and precise (maximum 2-3 sentences), focusing only on the most important facts to increase knowledge.
       - Cover different facts from the document; do not repeat the same idea.
       - Add exactly two hashtags in the explanation: one difficulty tag (#easy, #medium, or #hard) and one concise topic tag (only use broad topics e.g climatology in geography is tag, its broad tag like chapter, using lowercase and underscores for spaces).
+      - Optionally, if the document references a specific past year exam and year, add a PYQ tag like [[UPSC Prelims 2022]].
       - We use 6 color codes for explanation highlights: red (warnings/definitions), green (facts/outcomes), blue (dates/names/acts), orange (numbers/stats), magenta (themes/concepts), and teal (geography/science/institutions). Ensure explanations contain clear concepts fitting these categories so they can be highlighted beautifully.
       - Return them in NoteKash format, separated by >>>:
       
@@ -1775,7 +1918,7 @@ export default function AdminSubiStudio() {
       C) ...
       D) ...
       Correct Answer: ...
-      Explanation: ... #topic #medium`;
+      Explanation: ... #topic #medium [[PYQ Exam Year]]`;
 
       const result = await queryGenerativeAI(sys, aiDocText);
       if (result) {
@@ -1809,13 +1952,15 @@ export default function AdminSubiStudio() {
   // 4. Color Explanation Keywords (Uses smart AI highlighting mapping applied inside the app)
   const handleAIColorExplanation = async () => {
     const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
-    if (cmdPalette.openedViaIcon && selectedText) {
+    if (selectedText) {
       setAiGenLoading(true);
       alert("AI: Color coding selected text... Feel free to continue editing!");
       try {
-        const highlightsList = await queryColorHighlightsForExplanations([selectedText]);
+        const { cleanText, tagsPart } = splitExplanationTextAndTags(selectedText);
+        const highlightsList = await queryColorHighlightsForExplanations([cleanText]);
         const highlights = highlightsList[0] || [];
-        const highlightedHtml = applyHighlightsToText(selectedText, highlights);
+        const highlightedHtml = applyHighlightsToText(cleanText, highlights);
+        const finalHtml = [highlightedHtml, tagsPart].filter(Boolean).join(' ');
         
         const selection = window.getSelection();
         if (selection && lastSelectionRangeRef.current) {
@@ -1825,7 +1970,7 @@ export default function AdminSubiStudio() {
           lastSelectionRangeRef.current.deleteContents();
           
           const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = highlightedHtml;
+          tempDiv.innerHTML = finalHtml;
           
           const fragment = document.createDocumentFragment();
           while (tempDiv.firstChild) {
@@ -1844,7 +1989,7 @@ export default function AdminSubiStudio() {
       return;
     }
 
-    const blocks = getEditorBlocks();
+    const blocks = getSelectedOrAllBlocks();
     if (blocks.length === 0) {
       alert("No MCQs found in the editor.");
       return;
@@ -1863,10 +2008,16 @@ export default function AdminSubiStudio() {
     alert("AI: Color coding explanations in the background... Feel free to continue editing!");
     try {
       const rawTexts = explanationItems.map(item => item.expEl.innerText.trim());
-      const highlightsList = await queryColorHighlightsForExplanations(rawTexts);
+      const splitItems = rawTexts.map(text => splitExplanationTextAndTags(text));
+      const cleanTexts = splitItems.map(item => item.cleanText);
+
+      const highlightsList = await queryColorHighlightsForExplanations(cleanTexts);
       explanationItems.forEach((item, idx) => {
         const highlights = highlightsList[idx] || [];
-        item.expEl.innerHTML = applyHighlightsToText(rawTexts[idx], highlights);
+        const { cleanText, tagsPart } = splitItems[idx];
+        const highlightedHtml = applyHighlightsToText(cleanText, highlights);
+        const finalExplanationHtml = convertMarkdownTablesToHtml(highlightedHtml);
+        item.expEl.innerHTML = [finalExplanationHtml, tagsPart].filter(Boolean).join(' ');
       });
       alert(`Explanation color coding successfully applied to ${explanationItems.length} MCQs!`);
     } catch (e) {
@@ -1878,7 +2029,7 @@ export default function AdminSubiStudio() {
 
   // 5. Auto-tag MCQ
   const handleAIAutoTagMCQ = async () => {
-    const blocks = getEditorBlocks();
+    const blocks = getSelectedOrAllBlocks();
     if (blocks.length === 0) {
       alert("No MCQs found in the editor.");
       return;
@@ -1886,7 +2037,7 @@ export default function AdminSubiStudio() {
 
     const summaries = blocks.map((block, index) => {
       const summary = getBlockSummary(block, index);
-      return { index, question: summary.question.slice(0, 260) };
+      return { index, question: summary.question.slice(0, 260), block };
     }).filter(item => item.question);
 
     if (summaries.length === 0) {
@@ -1898,32 +2049,39 @@ export default function AdminSubiStudio() {
     alert("AI: Auto-tagging MCQs in the background... Feel free to continue editing!");
     try {
       const allowedTopics = categoryTags[selectedCategory] || [];
+      const allowedTopicsStr = allowedTopics.map(t => t.name).join(', ');
+      
       const sys = `You are a fast MCQ tagging classifier.
-      For each item, read ONLY the question and return exactly two tags:
-      1. difficulty: one of easy, medium, hard
-      2. topic: one main topic within the selected category. Prefer an allowed topic if it fits; otherwise create a short 1-3 word topic.
-      Return ONLY valid JSON: { "items": [{ "index": 0, "difficulty": "medium", "topic": "Fundamental Rights" }] }`;
+      For each MCQ question text, you must output:
+      1. One difficulty level: 'easy', 'medium', or 'hard'.
+      2. One concise topic/sub-concept tag from the allowed list: [${allowedTopicsStr}].
+         If no good match exists in the allowed list, generate a standard lowercase, underscore-spaced tag.
+      
+      Return ONLY a JSON object:
+      {
+        "tags": [{ "index": 0, "difficulty": "medium", "topic": "polity" }]
+      }
+      Do NOT wrap in markdown code blocks.`;
 
-      const userText = JSON.stringify({
-        category: selectedCategory,
-        allowedTopics: allowedTopics.slice(0, 80),
-        items: summaries
-      });
-      const result = await queryGenerativeAI(sys, userText);
-      const data = safeParseAIJson(result);
-      const items = Array.isArray(data.items) ? data.items : [];
+      const userText = summaries.map(s => `[MCQ ${s.index}]:\n${s.question}`).join('\n\n');
+      const response = await queryGenerativeAI(sys, userText);
+      const data = safeParseAIJson(response);
+      const tags = Array.isArray(data.tags) ? data.tags : [];
       let applied = 0;
 
-      items.forEach(item => {
-        const block = blocks[item.index];
-        const expEl = block?.querySelector('.nk-mcq-explanation');
-        if (!expEl) return;
-        appendTagsToExplanation(expEl, item.difficulty, item.topic);
-        applied += 1;
+      tags.forEach(item => {
+        const summary = summaries.find(s => s.index === item.index);
+        if (summary) {
+          const expEl = summary.block.querySelector('.nk-mcq-explanation');
+          if (expEl) {
+            appendTagsToExplanation(expEl, item.difficulty, item.topic);
+            applied += 1;
+          }
+        }
       });
 
       const newTagsSet = new Set(categoryTags[selectedCategory] || []);
-      items.forEach(item => {
+      tags.forEach(item => {
         const topic = normalizeTagName(item.topic);
         if (topic) newTagsSet.add(topic);
       });
@@ -2935,7 +3093,8 @@ export default function AdminSubiStudio() {
           
           const hasTagInText = (text, tag) => {
               const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
-              const words = text.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
+              const noHtml = text.replace(/<[^>]*>/g, ' ');
+              const words = noHtml.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
               return words.includes(cleaned);
           };
 
@@ -2965,10 +3124,10 @@ export default function AdminSubiStudio() {
                   <button class="nk-mcq-copy-block" title="Copy MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
                   <button class="nk-mcq-delete-block" title="Delete MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
               </div>
-              <div class="nk-mcq-question" contenteditable="true" data-placeholder="Question text...">${q.question || ''}</div>
+              <div class="nk-mcq-question" contenteditable="true" data-placeholder="Question text...">${convertMarkdownToHtml(convertMarkdownTablesToHtml(q.question || ''))}</div>
               <div class="nk-mcq-options">${optionsHtml}</div>
               <button class="nk-mcq-add-option" contenteditable="false">+ Add Option</button>
-              <div class="nk-mcq-explanation" contenteditable="true" data-placeholder="Add answer explanation (optional)..."${tagsHtml}${difficultyHtml}>${expText}</div>
+              <div class="nk-mcq-explanation" contenteditable="true" data-placeholder="Add answer explanation (optional)..."${tagsHtml}${difficultyHtml}>${convertMarkdownToHtml(convertMarkdownTablesToHtml(expText))}</div>
           </div>
           <p><br></p>`;
 
@@ -3912,7 +4071,7 @@ export default function AdminSubiStudio() {
                                         <h5 className="text-[10px] font-black uppercase tracking-wider text-theme-muted mb-1">Full Question</h5>
                                         <div 
                                           className="text-xs font-bold text-theme-text leading-relaxed html-render-block"
-                                          dangerouslySetInnerHTML={{ __html: q.question }}
+                                          dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(q.question) }}
                                         />
                                         
                                         {/* Detailed Options rendering inside expanded content */}
@@ -3926,7 +4085,7 @@ export default function AdminSubiStudio() {
                                                 </span>
                                                 <span 
                                                   className={`mt-0.5 leading-tight html-render-block ${isCorrect ? 'text-emerald-500 font-bold' : 'text-theme-text'}`}
-                                                  dangerouslySetInnerHTML={{ __html: opt.text }}
+                                                  dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text) }}
                                                 />
                                               </div>
                                             );
@@ -3938,7 +4097,7 @@ export default function AdminSubiStudio() {
                                         <h5 className="text-[10px] font-black uppercase tracking-wider text-theme-muted mb-1">Full Explanation</h5>
                                         <div 
                                           className="text-xs font-semibold text-theme-muted leading-relaxed html-render-block"
-                                          dangerouslySetInnerHTML={{ __html: expandedExplanationHtml || '<em class="opacity-40">No explanation added</em>' }}
+                                          dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(expandedExplanationHtml) || '<em class="opacity-40">No explanation added</em>' }}
                                         />
                                       </div>
                                     </div>

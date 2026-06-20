@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { useEconomy } from '../context/EconomyContext';
 import { toggleBookmarkDB, isBookmarkedDB } from '../lib/db';
+import { renderMathInHtmlString } from '../lib/ai';
 import { StreakModal, CoinsVaultModal } from './EconomyUI';
 import { EXAM_SERIES } from '../lib/exams';
 import { 
@@ -761,9 +762,10 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                     </div>
 
                     {/* Question Text */}
-                    <h3 className="text-lg font-extrabold text-theme-text leading-relaxed">
-                      {previewQuestion.question}
-                    </h3>
+                    <h3 
+                      className="text-lg font-extrabold text-theme-text leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(previewQuestion.question) }}
+                    />
 
                     {/* Options list */}
                     <div className="space-y-2.5">
@@ -784,7 +786,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                               }`}>
                                 {opt.label || opt.id.toUpperCase()}
                               </span>
-                              <span className="text-sm font-semibold">{opt.text}</span>
+                              <span className="text-sm font-semibold" dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text) }} />
                             </div>
                             {isCorrect && (
                               <svg width="16" height="12" viewBox="0 0 10 8" className="text-emerald-500 stroke-current" fill="none">
@@ -801,7 +803,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                       <div className="space-y-2">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted opacity-60">Explanation</h4>
                         <div 
-                          dangerouslySetInnerHTML={{ __html: previewQuestion.explanation }}
+                          dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(previewQuestion.explanation) }}
                           className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs leading-relaxed text-theme-text/70"
                         />
                       </div>

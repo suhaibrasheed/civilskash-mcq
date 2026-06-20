@@ -134,12 +134,16 @@ export function stripCodeFences(text) {
 }
 
 /**
- * Parses inline and block math delimiters and renders them to KaTeX HTML string
+ * Parses inline and block math delimiters and renders them to KaTeX HTML string.
+ * Also converts any markdown tables to beautiful HTML tables.
  */
 export function renderMathInHtmlString(htmlString) {
   if (!htmlString) return '';
   
-  let result = htmlString.replace(/\$\$(.*?)\$\$/gs, (match, math) => {
+  // Convert markdown tables first
+  let result = convertMarkdownTablesToHtml(htmlString);
+  
+  result = result.replace(/\$\$(.*?)\$\$/gs, (match, math) => {
     try { return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false }); }
     catch (e) { return match; }
   });
@@ -161,6 +165,7 @@ export function renderMathInHtmlString(htmlString) {
   });
   
   result = result.replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold text-theme-text">$1</strong>');
+  result = result.replace(/\*([^\*]+?)\*/g, '<em class="italic text-theme-text">$1</em>');
   return result;
 }
 
@@ -188,10 +193,11 @@ export async function queryColorHighlightsForExplanations(explanations) {
   - 'magenta': for core themes or philosophical concepts.
   - 'teal': for geography, ecology, science terms, or institutions.
   
-  Rules:
+  Highlighting Rules:
   - Keep highlights short (usually 1-3 words).
   - Limit highlights to 3-5 key terms per explanation.
   - The keyword/phrase must match the text exactly (case-sensitive).
+  - IMPORTANT: Distribute highlights dynamically across all 6 colors. Do not just use one or two colors (like blue or green) repeatedly; make the explanations vibrant and colorful by utilizing different categories where appropriate.
   
   Return ONLY a JSON object:
   {
@@ -230,7 +236,7 @@ export function applyHighlightsToText(text, highlights) {
   if (!highlights || highlights.length === 0) return text;
   
   // Split text by LaTeX math equations so we don't apply highlighting inside formulas
-  const latexRegex = /(\$\$[\s\S]*?\$\$|\$[\s\S]*?\$|\\\(.*?\\\)|\\\[.*?\\\])/g;
+  const latexRegex = /(\$\$[\s\S]*?\ $\$|\$[\s\S]*?\$|\\\(.*?\\\)|\\\[.*?\\\])/g;
   const segments = text.split(latexRegex);
   
   const sorted = [...highlights].sort((a, b) => (b.text || '').length - (a.text || '').length);
@@ -252,8 +258,8 @@ export function applyHighlightsToText(text, highlights) {
       regex.lastIndex = 0;
       result = result.replace(regex, (match) => {
         const placeholder = `___HL_PLACEHOLDER_${placeholders.length}___`;
-        const color = hl.color || 'blue';
-        const html = `<span class="text-${color} font-bold">${match}</span>`;
+        const cleanColor = (hl.color || 'blue').toLowerCase().replace(/^text-/, '').trim();
+        const html = `<span class="text-${cleanColor} font-bold">${match}</span>`;
         placeholders.push({ placeholder, html });
         return placeholder;
       });
@@ -272,18 +278,22 @@ export function applyHighlightsToText(text, highlights) {
 /**
  * Converts markdown tables to beautifully styled HTML tables
  */
-function convertMarkdownTablesToHtml(text) {
-  const tableRegex = /((?:\|[^\n]*\|(?:\n|$))+)/g;
+export function convertMarkdownTablesToHtml(text) {
+  if (!text) return '';
+  const tableRegex = /((?:\s*\|[^\n]*\|[^\n]*(?:\n|$))+)/g;
   return text.replace(tableRegex, (match) => {
-    const lines = match.trim().split('\n');
+    const lines = match.trim().split('\n').map(l => l.trim());
     if (lines.length < 2) return match;
-    const isSeparator = /^\|[\s\:\-\|]+\|$/.test(lines[1].trim());
+    const isSeparator = /^\|[\s\:\-\|]+\|$/.test(lines[1]);
     if (!isSeparator) return match;
     
     let html = '<div class="nk-mentor-table-wrapper"><table class="nk-mentor-table">';
     const headers = lines[0].split('|').map(s => s.trim()).filter((_, i, arr) => i > 0 && i < arr.length - 1);
     html += '<thead><tr>';
-    headers.forEach(h => { html += `<th>${h}</th>`; });
+    headers.forEach(h => { 
+      const formattedHeader = h ? h.charAt(0).toUpperCase() + h.slice(1).toLowerCase() : '';
+      html += `<th>${formattedHeader}</th>`; 
+    });
     html += '</tr></thead><tbody>';
     for (let i = 2; i < lines.length; i++) {
       const cells = lines[i].split('|').map(s => s.trim()).filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
@@ -317,6 +327,7 @@ export function formatMentorResponse(text) {
   
   // Bold markdown → amber-colored keyword spans
   cleanText = cleanText.replace(/\*\*(.*?)\*\*/g, '<b class="text-amber-500 dark:text-amber-400 font-extrabold">$1</b>');
+  cleanText = cleanText.replace(/\*([^\*]+?)\*/g, '<i class="text-amber-500 dark:text-amber-400">$1</i>');
   
   const lines = cleanText.split('\n');
   let inList = false;
@@ -564,4 +575,17 @@ Return ONLY markdown. No JSON. No code fences.`;
 
   const userMsg = hasCustomTopic ? topic : "Teach me something interesting";
   return { systemPrompt, userMsg };
+}
+
+/**
+ * Converts markdown bold (**) and italics (*) to HTML tags (strong, em)
+ */
+export function convertMarkdownToHtml(text) {
+  if (!text) return '';
+  let result = text;
+  // bold: **text**
+  result = result.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // italic: *text*
+  result = result.replace(/\*([^\*]+?)\*/g, '<em>$1</em>');
+  return result;
 }
