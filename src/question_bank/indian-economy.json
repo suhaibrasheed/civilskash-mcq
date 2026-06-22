@@ -1,5 +1,3534 @@
 [
   {
+    "id": "613c056a-2454-499b-b3ca-53ebfb4d6da3",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "hard",
+    "question": "What will be the effect of a rise in the price of a commodity on total expenditure when demand is inelastic?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Total expenditure will reduce to zero",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Total expenditure will increase",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Total expenditure will decrease",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Total expenditure will remain unchanged",
+        "label": "D"
+      }
+    ],
+    "explanation": "When <span class=\"text-magenta\" style=\"font-weight: 800;\">demand is inelastic (elasticity &lt; 1)</span>, consumers consider the <span class=\"text-teal\" style=\"font-weight: 800;\">good a necessity</span> and <span style=\"font-style: italic;\">cannot easily cut back</span>. <span style=\"font-style: italic;\">Therefore, a rise in price leads to a proportionally much smaller drop in quantity demanded</span>. Mathematically, <span class=\"text-green font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\"><span class=\"text-green font-bold\">Total Expenditure</span> (Price × Quantity)</span> is dominated by the higher price, causing<span class=\"text-blue\" style=\"font-weight: 800;\"> total outlay to increase</span>.  <div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Price change</th><th>Elasticity of demand</th><th>Effect on total expenditure</th></tr></thead><tbody><tr><td><strong>Increase</strong></td><td><strong><span class=\"text-magenta\" style=\"font-weight: 800;\">Inelastic (E &lt; 1)</span></strong></td><td><strong><span class=\"text-green\" style=\"font-weight: 800;\">Increases</span> (Moves in same direction)</strong></td></tr><tr><td>Increase</td><td><span class=\"text-magenta\" style=\"font-weight: 800;\">Elastic (E &gt; 1)</span></td><td><span class=\"text-orange\" style=\"font-weight: 800;\">Decreases</span> (Moves in opposite direction)</td></tr><tr><td>Increase</td><td><span class=\"text-magenta\" style=\"font-weight: 800;\">Unitary (E = 1)</span></td><td><span class=\"text-blue\" style=\"font-weight: 800;\">Remains Unchanged</span></td></tr></tbody></table></div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "955e3106-ed54-42b1-a1e4-4c8d6db44257",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Which commodity is classified as a durable-use consumer good?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Coca Cola",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Food",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Milk",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "House",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Durable consumer goods</span> (such as houses, automobiles, and refrigerators) yield utility over an extended period and survive continuous, multiple uses. <span class=\"text-red font-bold\">Non-durable goods</span> (Coca-Cola, food, milk) are extinguished entirely in a <span class=\"text-teal font-bold\">single consumption act</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "861a5004-dc30-4462-b376-f3d2eb6753d5",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "As an individual purchases more units of a good, the marginal utility keeps on:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "decreasing",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "converging",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "increasing",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "fluctuating",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Law of Diminishing Marginal Utility</span> (historically known as <span class=\"text-magenta font-bold\">Gossen's First Law)</span> states that as the continuous consumption of a specific good increases, the <span style=\"font-style: italic;\">additional (marginal) psychological satisfaction derived from consuming each successive unit strictly declines</span>. <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20230705164319/Law-of-Diminishing-Marginal-Utility-copy.webp\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "1879b0d5-0d30-43b7-9304-6b3512b0a5d9",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange"
+    ],
+    "difficulty": "hard",
+    "question": "Which transaction is specifically included in the capital account of the balance of payments?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Interest earned on claims",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Banking",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Payments of claims",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Interest paid on claims",
+        "label": "D"
+      }
+    ],
+    "explanation": "In the BoP, the <span class=\"text-blue font-bold\">Capital Account</span> strictly records transactions that alter the asset or liability positions of a country. The \"<span class=\"text-orange font-bold\">payment of claims</span>\" (such as the principal amortization/repayment of external sovereign debt) directly reduces foreign liabilities, classifying it as a capital flow. Interest paid or earned, however, is recorded in the <span class=\"text-teal font-bold\">Current Account</span> as primary income.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "0f086a4c-ab57-43cc-82d2-7c9d47a9b1bc",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Employment"
+    ],
+    "difficulty": "medium",
+    "question": "The central element in the macroeconomic development strategy of the ______ five-year plan was the generation of productive employment.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "first",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "fifth",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "seventh",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "third",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red\" style=\"font-weight: 800;\">Seventh Five-Year Plan (1985-1990)</span>, drafted under the leadership of Rajiv Gandhi, marked a pivotal structural shift. Its official core development strategy was \"<span class=\"text-green font-bold\">Food, Work, and Productivity</span>,\" with a massive emphasis on the<span class=\"text-blue\" style=\"font-weight: 800;\"> generation of productive employment </span>and upgrading industrial technology.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "7507bff4-a830-4b8d-ac63-1083b0ebfb30",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "medium",
+    "question": "Calculate the actual growth in output from the following macroeconomic information: Total Investment = Rs. 500 crores; Capital–Output Ratio = 4.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rs. 2000 crores",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rs. 125 crores",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rs. 100 crores",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rs. 200 crores",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-red\" style=\"font-weight: 800;\"> Incremental Capital-Output Ratio <span class=\"text-red font-bold\">(ICOR)</span></span><span class=\"text-red font-bold\"></span> dictates <span style=\"text-decoration-line: underline;\">how much capital is required to produce one extra unit of output</span>. Formula: <span class=\"text-green\" style=\"font-weight: 800;\">Change in Output = Total Investment / Capital-Output Ratio</span>. Substituting the values: Change in Output = <span class=\"text-green font-bold\">500 / 4 = 125 crores</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "e834ffd2-a6c5-4faf-884c-c160c44aa6d2",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "Under ______, there is fierce competition among a few firms producing a perfectly homogeneous or identical product.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "monopolistic competition",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "differentiated oligopoly",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "perfect competition",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "pure oligopoly",
+        "label": "D"
+      }
+    ],
+    "explanation": "An <span class=\"text-red\" style=\"font-weight: 800;\">Oligopoly</span> consists of a<span style=\"font-style: italic;\"> few dominant firms controlling the market</span>. When these <span class=\"text-orange\" style=\"font-weight: 800;\">few firms</span> produce an <span class=\"text-orange\" style=\"font-weight: 800;\">identical commodity</span> (like steel, aluminum, or cement), it is technically termed a <span class=\"text-orange\" style=\"font-weight: 800;\"></span><span class=\"text-orange\" style=\"font-weight: 800;\"><span class=\"text-orange\" style=\"font-weight: 800;\">\"Pure\" or \"Perfect\" </span>Oligopoly</span>. If they produced <span class=\"text-teal\" style=\"font-weight: 800;\">distinct products</span> (like automobiles), it would be a <span class=\"text-teal\" style=\"font-weight: 800;\">\"Differentiated\" </span>Oligopoly.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "6401451e-c9df-4179-9fb1-e99f577ce83c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "hard",
+    "question": "According to the Law of Variable Proportions, how will Marginal Product (MP) react when Total Product (TP) rises at a diminishing rate?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "MP remains constant",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "MP falls, but remains positive",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "MP rises",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "MP falls, but remains negative",
+        "label": "D"
+      }
+    ],
+    "explanation": "As long as<span class=\"text-blue\" style=\"font-weight: 800;\"> Total Product (TP) is rising</span>, the <span style=\"text-decoration-line: underline;\">Marginal Product (MP) of the extra worker must be positive</span>. However, when<span class=\"text-blue\" style=\"font-weight: 800;\"> TP rises at a diminishing rate</span>, it means the incremental additions to total output are shrinking with each new worker. Therefore, <span style=\"text-decoration-line: underline;\">MP is falling, but it remains strictly above zero</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "04b620df-59ed-4b79-b7b7-7c1a2889df19",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "When two goods are perfect substitutes for each other, then the indifference curve representing them is:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "a straight line",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "upward sloping",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "convex shaped",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "concave shaped",
+        "label": "D"
+      }
+    ],
+    "explanation": "For <span class=\"text-blue font-bold\">perfect substitutes</span> (like two identical brands of bottled water), a <span class=\"text-blue\" style=\"font-style: italic;\">consumer is willing to replace Good X with Good Y </span>at a strictly constant rate. Because the<span class=\"text-magenta\" style=\"font-weight: 800;\"> Marginal Rate of Substitution (MRS)</span> does not diminish but remains constant, the<span class=\"text-green\" style=\"font-weight: 800;\"> Indifference Curve</span> is a downward-sloping, <span class=\"text-green font-bold\">straight diagonal line</span>. <img src=\"https://static.vecteezy.com/system/resources/previews/043/100/948/large_2x/properties-of-indifference-curve-in-economics-for-law-of-diminishing-marginal-rate-of-substitute-goods-vector.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "10f08418-c5aa-45e5-b613-8e4532415180",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "medium",
+    "question": "The total cost of a firm is increased by Rs. 450 when production increased from 12 units to 15 units. Calculate the marginal cost of the firm.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rs. 450",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rs. 37.5",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rs. 150",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rs. 30",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Marginal Cost (MC)</span> is the <span class=\"text-green\" style=\"font-weight: 800;\">cost of producing one additional unit</span>. <div>Formula: <span class=\"text-green\" style=\"font-weight: 800;\">MC = Change in Total Cost / Change in Quantity. </span></div><div>Change in Cost = 450. Change in Quantity = 15 - 12 = 3 units. Therefore, <span class=\"text-green font-bold\">MC = 450 / 3 = Rs. 150</span>.   </div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "25c1aa31-1d7e-489f-9571-1d90e5fef963",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "hard",
+    "question": "Which macroeconomic measure will successfully increase national income and employment when an economy is already fully utilizing its given resources?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Higher Capital Accumulation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Decrease in Aggregate Demand",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Increase in Aggregate Demand",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Technological Degradation",
+        "label": "D"
+      }
+    ],
+    "explanation": "If an economy is operating at full employment (sitting right on its <span class=\"text-blue font-bold\">Production Possibility Frontier)</span>, simply pumping up Aggregate Demand will only trigger <span class=\"text-red font-bold\">demand-pull inflation</span> without creating real growth. Real expansion requires supply-side capacity building, achieved strictly through <span class=\"text-teal font-bold\">Higher Capital Accumulation</span> (Gross Fixed Capital Formation) or technological breakthroughs.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "931a044d-68be-4695-a99c-12dc6dd2d98a",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry",
+      "Trade"
+    ],
+    "difficulty": "easy",
+    "question": "Flooding the domestic market with cheaper imported goods was one of the historical reasons behind:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Growing unemployment",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Unbalanced growth",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Spread of consumerism",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Low level of industrial growth",
+        "label": "D"
+      }
+    ],
+    "explanation": "During periods of aggressive colonial trade or international dumping, local markets are flooded with cheap, mass-produced imported goods. This outcompetes nascent domestic manufacturing—a phenomenon known as <span class=\"text-red font-bold\">deindustrialization, </span>resulting directly in a structurally low level of domestic industrial growth.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "0c3a6e61-201d-48d7-86e1-82811d75d09d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development",
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "Which model states that for rapid industrialization to occur, the country must aim at developing basic heavy industries and industries which make machines to make the machines needed for further development?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vakil – Brahmananda Model",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Mahalanobis Model",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Supply – Side Model",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Solow Model",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red\" style=\"font-weight: 800;\">Second Five-Year Plan</span> was heavily anchored on the <span class=\"text-blue font-bold\">Nehru-Mahalanobis strategy</span>, which prioritized heavy capital goods (machines making machines) to build a self-reliant industrial base. <div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Economic model</th><th>Core macroeconomic strategy</th></tr></thead><tbody><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Mahalanobis Model</span></strong></td><td>Prioritizes<span class=\"text-orange\" style=\"font-weight: 800;\"> heavy basic industries and capital goods </span>for long-term rapid industrialization (Top-down approach).</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Vakil-Brahmananda Model</span></strong></td><td><span class=\"text-teal\" style=\"font-weight: 800;\">Wage-Goods Model;</span> prioritizes<span class=\"text-teal\" style=\"font-weight: 800;\"> agriculture and consumer goods</span> to generate immediate employment and combat inflation.</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Solow Model</span></strong></td><td><span class=\"text-teal\" style=\"font-weight: 800;\">Neoclassical growth model </span>emphasizing<span class=\"text-blue\" style=\"font-weight: 800;\"> capital accumulation, labor, and exogenous technological progress</span>.</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Supply-Side Model</span></strong></td><td>Focuses on<span class=\"text-orange\" style=\"font-weight: 800;\"> lowering corporate taxes and deregulation</span> to increase production capacity (Laffer Curve framework).</td></tr></tbody></table></div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "9f890271-3d8e-48b9-bb68-1f6949d16b5c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "The marginal utility of a good divided by the price of that good is equal to the:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "marginal utility of demand",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "marginal utility of money",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "average utility of demand",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "average utility of money",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Consumer equilibrium</span> is achieved when the ratio of Marginal Utility to Price is perfectly equalized across all purchased goods and matches the <span class=\"text-green\" style=\"font-weight: 800;\">Marginal Utility of Money ($MU_m$)</span>. Mathematically: <span class=\"text-green\" style=\"font-weight: 800;\">$MU_x / P_x = MU_y / P_y = MU_m$</span>. This represents the utility gained from the absolute last rupee spent. <img src=\"https://cdn.educba.com/academy/wp-content/uploads/2022/07/Marginal-Utility-and-Total-Utility-Graph.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "89fc9132-fb86-4aab-8e0f-5d2df39430f0",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "hard",
+    "question": "If the price elasticity of a firm's average revenue (demand) curve at a given level of output is exactly equal to one (unitary), then the marginal revenue will be:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "greater than one",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "equal to one",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "less than one",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "equal to zero",
+        "label": "D"
+      }
+    ],
+    "explanation": "The direct mathematical relationship between Marginal Revenue (MR), Average Revenue (AR), and price elasticity ($e$) is defined by the formula: <span class=\"text-green\" style=\"font-weight: 800;\">$MR = AR × (1 - 1/e)$</span>. If elasticity $e = 1$, then the bracket becomes $(1 - 1) = 0$. Therefore, $MR = 0$. When <span class=\"text-blue font-bold\">Marginal Revenue</span> is zero, the firm's Total Revenue is strictly maximized.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "9c6c49d7-039a-4b97-bc3c-229e7405b8ac",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking",
+      "Rbi"
+    ],
+    "difficulty": "easy",
+    "question": "Which specific monetary policy change will the Reserve Bank of India (RBI) undertake when there is a severe recession or depression in the economy?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sales of securities in the open market",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rise in the cash reserve ratio",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Increase in the repo rate",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Reduction in the bank rate",
+        "label": "D"
+      }
+    ],
+    "explanation": "During a <span class=\"text-red\" style=\"font-weight: 800;\">Recession</span>, the RBI deploys a <span class=\"text-blue\" style=\"font-weight: 800;\">\"Dovish\" or Expansionary monetary policy</span> to<span class=\"text-blue\" style=\"font-weight: 800;\"> inject liquidity</span>. Reducing the <span class=\"text-blue\" style=\"font-weight: 800;\">Bank Rate lowers the cost of long-term funds</span> for commercial banks, leading to <span class=\"text-blue\" style=\"font-weight: 800;\">cheaper retail loans</span>. This credit expansion stimulates corporate investment and consumer aggregate demand. <span class=\"text-red\" style=\"font-weight: 800;\">(Options A, B, and C are hawkish tools used to fight inflation)</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "5c745428-49f8-4aed-8174-cdaf19db9a47",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "easy",
+    "question": "In standard macroeconomic modeling, a simplistic \"two-sector economy\" consists strictly of:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Households and Firms",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Households and Government",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Firms and Foreign Sector",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Firms and Government",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red\" style=\"font-weight: 800;\">most basic Circular Flow of Income model</span> is the <span class=\"text-blue font-bold\">two-sector economy</span>. It entirely abstracts away government intervention (taxes/subsidies) and foreign trade (imports/exports),<span style=\"font-style: italic;\"> isolating only the fundamental market interactions between Households (owners of factors of production) and Firms (producers of goods).</span>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "7b7cd0c6-c742-424d-a6af-6167c40a4130",
+    "category_id": "indian-economy",
+    "tags": [
+      "Employment"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following official concepts of unemployment measurement is considered a \"time rate\"?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Current weekly status unemployment",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Current monthly status unemployment",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Current daily status unemployment",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Usual weekly status unemployment",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under NSSO (National Sample Survey Office) methodology, the <span class=\"text-red\" style=\"font-weight: 800;\">Current Daily Status (CDS) approach</span> measures<span class=\"text-green\" style=\"font-weight: 800;\"> unemployment in terms of total \"person-days\"</span> rather than just headcounts. By tracking the activity status for each half-day of the reference week, it accurately <span class=\"text-blue\" style=\"font-weight: 800;\">captures chronic underemployment</span> as a precise time-rate metric.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "539d28e1-6580-4d3c-88cf-bd01905a2f42",
+    "category_id": "indian-economy",
+    "tags": [
+      "Taxation",
+      "Fiscal Policy"
+    ],
+    "difficulty": "medium",
+    "question": "The compulsory payment made by a person who receives in return a particular, identifiable benefit or service from the government is legally referred to as a:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "fee",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "finance",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "revenue",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "tax",
+        "label": "D"
+      }
+    ],
+    "explanation": "A<span class=\"text-red\" style=\"font-weight: 800;\"> <span class=\"text-red\" style=\"font-weight: 800;\">\"</span>Fee\" involves a direct quid pro quo, </span>it is a <span class=\"text-green\" style=\"font-weight: 800;\">compulsory payment</span> exacted in return<span class=\"text-green\" style=\"font-weight: 800;\"> for a specific administrative service or privilege</span> granted by the government (e.g., passport <span class=\"text-blue font-bold\">fee</span>, gun license <span class=\"text-blue font-bold\">fee)</span>. <div>A \"<span class=\"text-orange font-bold\">Tax</span>,\" conversely, is a <span class=\"text-green\" style=\"font-weight: 800;\">compulsory extraction</span> used for general public welfare <span class=\"text-green\" style=\"font-weight: 800;\">without any direct, proportional benefit </span>promised in return to the taxpayer.    </div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "1cb9b9e2-f2b4-4dce-884d-0fd4cf136672",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "medium",
+    "question": "Domar's analysis of the income effect of investment is theoretically based on the:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "samuelson theory of multiplier",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "keynesian theory of multiplier",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "solow theory of multiplier",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "lewis theory of multiplier",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span style=\"font-weight: bold;\"><span class=\"text-magenta\" style=\"font-weight: 800;\"> Harrod-Domar macroeconomic growth model</span></span> explicitly <span class=\"text-teal\" style=\"font-weight: 800;\">fuses two opposing concepts</span>: the <span class=\"text-teal\" style=\"font-weight: 800;\">Classical theory of capital accumulation</span> (where investment creates physical supply capacity) and the <span class=\"text-teal\" style=\"font-weight: 800;\">Keynesian theory of the investment multiplier</span> (where investment exponentially creates aggregate demand and income).",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "e3c63c7c-d073-4229-8af6-7c1cca73a047",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "hard",
+    "question": "What is the alternative economic terminology used for \"Equal Product Curves\"?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Production – Indifference curves",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Preference – Production curves",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Production – Cost curves",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Preference – Indifference curves",
+        "label": "D"
+      }
+    ],
+    "explanation": "An<span class=\"text-red\" style=\"font-weight: 800;\"> Equal Product Curve (Isoquant)</span> represents all possible combinations of <span class=\"text-green\" style=\"font-weight: 800;\">two variable factors </span>of production (like Labor and Capital) that<span class=\"text-green\" style=\"font-weight: 800;\"> yield exactly the same level of total output</span>. Because the producer is technically indifferent between utilizing any of these specific input combinations, they are conceptually termed \"<span class=\"text-teal font-bold\">Production-Indifference Curves</span>.\"",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "4f4d064f-f8f5-4799-bbd2-4d0d56e75a51",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "______ income elasticity signifies that the quantity demanded of a good is quite unresponsive to dramatic changes in consumer income.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Zero",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Unitary",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Positive",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Negative",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Zero income elasticity</span> of demand ($E_y = 0$) means that a <span style=\"font-style: italic;\">consumer's purchasing volume for a specific good remains perfectly static, regardless of whether their income surges or collapses</span>. This <span style=\"font-weight: bold;\">extreme inelasticity</span> is typical for<span style=\"font-weight: bold;\"> absolute necessities</span> like common salt or life-saving generic drugs.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "2db0c6e6-8973-4a9d-92d5-e29abcb06c7d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange",
+      "Trade"
+    ],
+    "difficulty": "hard",
+    "question": "In the Balance of Payments, the `Import of Machinery` is strictly recorded in the ______ account, and `borrowing from abroad` is recorded in the ______ account.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "capital, capital",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "capital, current",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "current, capital",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "current, current",
+        "label": "D"
+      }
+    ],
+    "explanation": "The physical import of machinery is a cross-border trade of tangible goods (visible items), so it is recorded in the Trade Balance portion of the <span class=\"text-blue font-bold\">Current Account</span>. External Commercial Borrowing (ECB) from abroad creates a future financial repayment liability for the nation, classifying it strictly as a <span class=\"text-orange font-bold\">Capital Account</span> receipt.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "39e4916a-6f24-430f-955a-d1cabbe89f53",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "Which specific measure was rapidly adopted by the Indian government exclusively as part of the \"macroeconomic stabilisation programme\" during the 1991 economic crisis?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capital flows reforms",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Industrial deregulation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Control of inflation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Public sector reforms",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-red\" style=\"font-weight: 800;\"> 1991 LPG architecture</span> had two distinct pillars. \"<span class=\"text-blue font-bold\">Macroeconomic Stabilization</span>\" comprised <span style=\"font-weight: bold; text-decoration-line: underline;\">short-term, crisis-management measures</span> aimed immediately at <span style=\"font-weight: bold; text-decoration-line: underline;\">controlling hyperinflation and averting BoP default</span>. Conversely, \"<span class=\"text-green font-bold\">Structural Reforms</span>\" (like industrial deregulation and PSU privatization) were long-term supply-side policies meant to permanently improve systemic efficiency.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "abac375b-c2d1-4393-9125-ced3f1e65771",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange",
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "Which measure of the 1991 macroeconomic stabilization programme explicitly suggested that the immediate accumulation of foreign exchange reserves would move the Indian economy to a sustainable Balance of Payments position?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Public sector reforms",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Balance of payments adjustment",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Capital flows Reforms",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Trade Reforms",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red\" style=\"font-weight: 800;\">1991 crisis</span> was fundamentally a severe<span class=\"text-red\" style=\"font-weight: 800;\"> Forex liquidity crunch</span>, with reserves dropping to a two-week import cover. The stabilization phase prioritized \"<span class=\"text-blue font-bold\">Balance of Payments Adjustments</span>\" (such as the immediate<span style=\"font-weight: bold;\"> two-step devaluation of the Rupee</span>) to<span style=\"text-decoration-line: underline; font-weight: bold;\"> aggressively boost exports, suppress imports, and rapidly rebuild sovereign foreign exchange reserves</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "ca085f7e-d2ac-4a9c-8c82-2a9178357dc1",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "hard",
+    "question": "The strict mathematical elasticity of substitution between the two primary factors (labor and capital) in a standard Cobb-Douglas production function is:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "equal to unity",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "greater than unity",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "equal to zero",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "less than unity",
+        "label": "D"
+      }
+    ],
+    "explanation": "In the classic <span class=\"text-blue font-bold\">Cobb-Douglas</span> production function ($Q = A × L^\\alpha × K^\\beta$), a defining mathematical axiom is that the <span class=\"text-teal font-bold\">elasticity of substitution</span> between Labor and Capital is exactly equal to one (unity). This means a 1% change in the marginal rate of technical substitution leads perfectly to a 1% change in the capital-labor ratio.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T07:40:07.723738+00:00"
+  },
+  {
+    "id": "0c5213bc-0e2a-4455-badf-2ef7f1876b37",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Which factor conveys information to the firms about how individuals value different goods and services?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inequality",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Prices",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Incentives",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Profits",
+        "label": "D"
+      }
+    ],
+    "explanation": "In a <span class=\"text-red\" style=\"font-weight: 800;\">Free-market economy</span>, the price mechanism acts as an <span class=\"text-green\" style=\"font-weight: 800;\">\"invisible hand\"</span> and a powerful signaling system. <span style=\"font-style: italic;\">High market prices signal high consumer valuation and demand</span>, prompting firms to allocate resources and produce more, <span style=\"font-style: italic;\">while low prices signal the opposite</span>.<br>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T05:50:53.208675+00:00"
+  },
+  {
+    "id": "ad026cfa-dc50-44e4-8765-05c905f9c8b2",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Industry"
+    ],
+    "difficulty": "medium",
+    "question": "What was the threshold limit for assets in respect of Monopolies and Restrictive Trade Practices (MRTP) and dominant undertakings under the new industrial policy of 1991?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rs. 100 crore",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rs. 50 crore",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rs. 101 crore",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "No limit",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Pre-1991, </span>companies with assets over Rs. 100 Crore were classified as MRTP companies and faced severe expansion restrictions. The <span class=\"text-green\" style=\"font-weight: 800;\">1991 Industrial Policy scrapped this asset limit entirely</span> (No Limit) to promote economies of scale. <div>Current Update: The <span class=\"text-orange\" style=\"font-weight: 800;\">MRTP Act</span> was completely<span class=\"text-orange\" style=\"font-weight: 800;\"> replaced by Competition Act (2002)</span>, and the Competition Commission of India (CCI)<span style=\"font-style: italic;\"> now regulates monopolies based on anti-competitive conduct rather than mere asset size.</span><br>   </div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T05:50:53.208675+00:00"
+  },
+  {
+    "id": "fc006b73-5e94-42bf-aa12-7fa5f2e1104b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "Which cost is determined by the relative prices of alternative goods?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Opportunity cost",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Average cost",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Total cost",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Marginal cost",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Opportunity cost </span>represents the value of the<span class=\"text-green\" style=\"font-weight: 800;\"> next best alternative forgone</span>. It is fundamentally determined <span class=\"text-blue\" style=\"font-weight: 800;\">by relative market prices</span> (e.g., the true economic cost of producing one more unit of Wheat is the exact amount of Rice that could have been produced instead, dictated by their relative price ratio). <br>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-22T05:50:53.208675+00:00"
+  },
+  {
+    "id": "feb4e481-e210-4c9d-897c-5e62df43796e",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "easy",
+    "question": "What is the maximum insurance coverage provided for bank deposits by the DICGC?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 Lakh",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2.5 Lakh",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "5 Lakh",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "7 Lakh",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Deposit Insurance and Credit Guarantee Corporation (DICGC)</span>, a <span class=\"text-green font-bold\">wholly-owned subsidiary of the RBI</span>, insures principal and interest up to a maximum of <span class=\"text-red font-bold\">Rs. 5 Lakhs</span> per depositor per bank. This limit was substantially <span class=\"text-teal font-bold\">raised from Rs. 1 Lakh in 2020</span> to <span class=\"text-orange font-bold\">prevent bank runs</span> and boost depositor confidence during financial stress.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "835a7744-e93c-4d07-b0d0-53dc5552fa03",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "easy",
+    "question": "Which is the first bank in India to launch a mobile application-based facility for opening a current account?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "ICICI Bank",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bank of Baroda",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "IndusInd Bank",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "HDFC Bank",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">IndusInd Bank</span> pioneered the <span class=\"text-blue font-bold\">paperless opening of current accounts</span> <span class=\"text-green font-bold\">via a mobile app</span>. This digital infrastructure push was a <span class=\"text-red font-bold\">major milestone in India's banking sector</span>, designed to reduce turnaround time and accelerate the <span class=\"text-teal font-bold\">formalization of MSMEs</span> and corporate clients.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "ba16153e-2f49-4496-a9fa-8bc707793aed",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "Which Indian economist has previously served as the Chief Economist of the Asian Development Bank (ADB)?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Arvind Panagariya",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Amartya Sen",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "P. Chidambaram",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Manmohan Singh",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange font-bold\">Arvind Panagariya</span>, a prominent free-trade economist and the <span class=\"text-blue font-bold\">first Vice-Chairman of NITI Aayog</span> (2015-2017), previously served as the <span class=\"text-green font-bold\">Chief Economist of the Asian Development Bank</span>. <span class=\"text-magenta font-bold\">Amartya Sen</span> is a Nobel laureate noted for <span class=\"text-red font-bold\">welfare economics</span>, not ADB leadership.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "0c831bfa-64a5-44ed-b60b-9a9a0ce24d36",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "easy",
+    "question": "What is the upper or maximum ceiling for an RTGS (Real Time Gross Settlement) transaction in India?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rs. 10 Lakhs",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rs. 15 Lakhs",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rs. 25 Lakhs",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It has no upper limit",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">RTGS</span> is India's sovereign settlement system designed specifically for <span class=\"text-blue font-bold\">high-value, instantaneous</span> corporate and institutional fund transfers. While the <span class=\"text-red font-bold\">minimum floor is Rs. 2 Lakhs</span>, the RBI intentionally imposes <span class=\"text-green font-bold\">no upper limit</span> to facilitate seamless <span class=\"text-orange font-bold\">macroeconomic liquidity flow</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "7dfbd140-6c55-4ee5-8e4d-5e4bb22e07f4",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "medium",
+    "question": "Which category of banks came under the direct regulatory supervision of the Reserve Bank of India after the passing of the Banking Regulation (Amendment) Act in 2020?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cooperative Banks",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "ICICI Ltd",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Land Developments Banks",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Nidhi Companies",
+        "label": "D"
+      }
+    ],
+    "explanation": "Historically plagued by \"<span class=\"text-magenta font-bold\">dual control</span>\" (RBI vs. State Registrars), <span class=\"text-blue font-bold\">Urban and Multi-State Cooperative Banks</span> were brought under <span class=\"text-green font-bold\">direct RBI supervision</span> via the <span class=\"text-red font-bold\">2020 amendment</span>. This structural reform was triggered by the <span class=\"text-teal font-bold\">PMC Bank crisis</span> to safeguard retail depositors.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "7328386b-b629-457c-b8d9-1d91e180ee5e",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "medium",
+    "question": "By what kind of mathematical curve is the degree of urbanization historically represented in an economy?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exponential",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Logarithmic",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Logistic",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Normal",
+        "label": "D"
+      }
+    ],
+    "explanation": "Urbanization follows a <span class=\"text-orange font-bold\">Logistic Curve</span> (an <span class=\"text-blue font-bold\">S-curve)</span>. It begins with a <span class=\"text-green font-bold\">slow initial phase</span> in agrarian societies, hits a <span class=\"text-red font-bold\">steep acceleration phase</span> during rapid industrialization, and eventually flattens out <span class=\"text-magenta font-bold\">(terminal phase)</span> as the population reaches maximum urban saturation.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "2109aace-105c-4b17-be89-ce8b76a20f7c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Through which method do companies raise fresh capital strictly from their existing shareholders?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Issue by offer for sale",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Offering rights issue",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Issue by prospectus",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Issue by private placement",
+        "label": "D"
+      }
+    ],
+    "explanation": "A \"<span class=\"text-orange font-bold\">Rights Issue</span>\" offers existing shareholders the <span class=\"text-blue font-bold\">preemptive right</span> to purchase additional new shares, usually at a discount to the current market price, in proportion to their current holdings. This mechanism allows companies to raise capital <span class=\"text-green font-bold\">without diluting the voting control</span> of existing owners.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "b8555d14-52df-4790-b183-eaeada62ad7e",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "easy",
+    "question": "Following the postponement of the Fourth Five-Year Plan, annual plans were launched for the first time in India. In which year did this \"Plan Holiday\" begin?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1951",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1956",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1961",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1966",
+        "label": "D"
+      }
+    ],
+    "explanation": "The macroeconomic shocks of the <span class=\"text-teal font-bold\">1965 Indo-Pak war</span>, a <span class=\"text-blue font-bold\">severe sequential drought</span>, and the forced <span class=\"text-green font-bold\">1966 rupee devaluation</span> depleted capital reserves, forcing the suspension of the Fourth Plan. The government executed three <span class=\"text-orange font-bold\">Annual Plans (1966-1969)</span>, termed the \"<span class=\"text-red font-bold\">Plan Holiday</span>.\"",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "5d78d6fd-79a6-408f-8866-1f8a50d56256",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange"
+    ],
+    "difficulty": "medium",
+    "question": "In the context of which of the following organizations do you frequently hear the term Reserve Tranche Position (RTP)?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Bank",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Organisation for Economic Co-operation and Development",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "International Monetary Fund",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Trade Organisation",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-magenta font-bold\">Reserve Tranche Position (RTP)</span> is the required quota of acceptable foreign currency that each member country must hold with the <span class=\"text-blue font-bold\">International Monetary Fund (IMF)</span>. It acts as an <span class=\"text-green font-bold\">emergency liquidity line</span> that the member country can access unconditionally.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "c525d44a-5dd2-4870-8038-73a29d87e47b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking",
+      "Rbi"
+    ],
+    "difficulty": "medium",
+    "question": "As an active tool of liquidity management, what benchmark percentage does the RBI typically target for the Cash Reserve Ratio (CRR) during non-crisis periods?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "2%",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "4%",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3%",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5%",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Cash Reserve Ratio (CRR)</span> is the strictly un-leveraged cash portion of a bank's <span class=\"text-blue font-bold\">Net Demand and Time Liabilities (NDTL)</span> kept with the RBI. In 2026 hovering around<span class=\"text-magenta\" style=\"font-weight: 800;\"> 3%</span>, the RBI MPC aggressively hikes it to <span class=\"text-green font-bold\">absorb excess systemic liquidity</span> and curb <span class=\"text-orange font-bold\">demand-pull inflation</span>.",
+    "pyq": null,
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "60f33a6d-e798-417b-a663-ffc2735f0223",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange",
+      "Industry"
+    ],
+    "difficulty": "medium",
+    "question": "The FDI Policy of India allows what percentage of Foreign Direct Investment under the automatic route for the marketplace model of e-commerce activities?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "25%",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "50%",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "75%",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "100%",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under <span class=\"text-red font-bold\">FEMA regulations</span>, India permits <span class=\"text-magenta font-bold\">100% FDI</span> via the automatic route for the \"<span class=\"text-blue font-bold\">marketplace model</span>\" <span style=\"font-style: italic;\">(where platforms act purely as tech facilitators between buyers and sellers)</span>. However, FDI is strictly <span class=\"text-teal font-bold\">0%</span> in the \"<span class=\"text-green font-bold\">inventory-based model</span>\" to protect domestic retail traders.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "ecfe97ca-1a18-490d-b627-bd934ab29ff4",
+    "category_id": "indian-economy",
+    "tags": [
+      "Taxation",
+      "Trade"
+    ],
+    "difficulty": "medium",
+    "question": "On what type of goods is a Countervailing Duty (CVD) imposed?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Imported Goods",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Exported Goods",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Local Goods",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rare Goods",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange font-bold\">Countervailing Duty</span> is a specific <span class=\"text-blue font-bold\">import tariff</span> imposed to neutralize the unfair price advantage foreign producers gain from massive <span class=\"text-green font-bold\">export <span class=\"text-green\" style=\"font-weight: 800;\"><span class=\"text-green\" style=\"font-weight: 800;\">subsidies</span></span></span> provided by their home governments. It prevents the <span class=\"text-red font-bold\">distortion of domestic markets</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "5611c378-de6b-42aa-b912-1fa64671df24",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking",
+      "Rbi"
+    ],
+    "difficulty": "medium",
+    "question": "The rate at which the RBI purchases or rediscounts bills of exchange and other commercial papers of commercial banks is formally called:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Interest Rate",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Repo Rate",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bank Rate",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "System Repo",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under <span class=\"text-magenta font-bold\">Section 49 of the RBI Act</span>, the <span class=\"text-blue font-bold\">Bank Rate</span> is the standard rate at which the <span style=\"font-weight: bold;\">RBI buys or rediscounts commercial bills</span>. Unlike the <span class=\"text-green font-bold\">Repo Rate</span> (which requires collateral like G-Secs), the <span class=\"text-blue font-bold\">Bank Rate</span> is a long-term penal rate directly aligned with the <span class=\"text-teal font-bold\">Marginal Standing Facility (MSF)</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "e11a0da8-b9e2-4c99-9843-883d440c0383",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking"
+    ],
+    "difficulty": "medium",
+    "question": "Which of these prominent macroeconomic committees is structurally related to Financial Inclusion?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vaghul Committee",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A. Ghosh Committee",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Narasimham Committee",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Raghuram Rajan Committee",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Raghuram Rajan Committee</span> on <span class=\"text-blue font-bold\">Financial Sector Reforms</span> (2008) heavily advocated for broadening financial inclusion. This foundational work later influenced the <span class=\"text-green font-bold\">Nachiket Mor Committee</span>, leading to the creation of differentiated banking models like <span class=\"text-orange font-bold\">Payment Banks and Small Finance Banks</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "1f12953c-e50b-41e4-86b2-d7c427ae2e8f",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development",
+      "Poverty"
+    ],
+    "difficulty": "easy",
+    "question": "The Human Development Index (HDI) includes which of the following core components?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ratio of Medical Doctors per 100 people in an area",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Life Expectancy at Birth",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The Students graduating from Pre Primary School",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The Infant mortality rate due to Pneumonia and Diarrhea",
+        "label": "D"
+      }
+    ],
+    "explanation": "Developed by <span class=\"text-magenta font-bold\">Mahbub ul Haq and Amartya Sen</span> for the UNDP, the <span class=\"text-blue font-bold\">HDI</span> is a <span class=\"text-green font-bold\">geometric mean</span> of three normalized indices: <span class=\"text-green\" style=\"font-weight: 800;\">Health </span><span class=\"text-red font-bold\">(Life Expectancy at birth)</span>, <span class=\"text-green\" style=\"font-weight: 800;\">Education</span> (Mean and Expected years of schooling), and <span class=\"text-green\" style=\"font-weight: 800;\">Standard of Living</span> <span class=\"text-teal font-bold\">(GNI per capita</span> based on PPP).",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "97a1af37-63a5-4b56-9e22-7d713c47736b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "medium",
+    "question": "Read the following statements and choose the CORRECT answer:<br>1- GDP is a specific measure of economic welfare that does NOT include aspects like leisure time, environmental quality, freedom, social justice or gender equality.<br>2- Per Capita Income includes and also indicates the level of income equality among people.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 is true and 2 is false",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 is false 2 is true",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 is true and 2 is true",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1 is false and 2 is false",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange font-bold\">Statement 1 is true</span>; <span class=\"text-blue font-bold\">GDP strictly measures formal market transactions</span>, ignoring <span class=\"text-green font-bold\">negative externalities like pollution</span>. <span class=\"text-red font-bold\">Statement 2 is entirely false</span>; Per Capita Income is a crude mathematical average (National Income / Population) that completely <span class=\"text-magenta font-bold\">masks severe wealth inequality</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "beb03b52-f003-40ab-a951-bc726756173d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following options includes machinery, work plants, equipment, new technology, factories, buildings and goods that are designed to increase the economy's potential?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fixed Capital",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Working Capital",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Capital Productivity",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Infrastructure",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Fixed Capital</span> encompasses long-term, <span class=\"text-blue font-bold\">durable physical assets</span> utilized repeatedly across multiple production cycles without being consumed. At a macroeconomic level, the accumulation of these assets is measured as <span class=\"text-green font-bold\">Gross Fixed Capital Formation (GFCF)</span>.",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "3f3864dd-6292-4095-a4c2-da048c49ed7d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "easy",
+    "question": "__________ is the total value of all final goods and services that the economy produces during a given year, mathematically adjusted for inflation.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Potential GDP",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nominal GDP",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Actual GDP",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Real GDP",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Real GDP</span> is evaluated at <span class=\"text-blue font-bold\">constant (base year) prices</span>, effectively stripping out the illusion of inflation. <span class=\"text-green font-bold\">Nominal GDP</span> uses <span class=\"text-orange font-bold\">current market prices</span>, which can falsely signal economic growth even if actual physical output stagnated but prices surged.",
+    "pyq": null,
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "3fe67db6-71e6-4d8e-bf65-d92075b1511c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "hard",
+    "question": "The ______ the elasticity of supply and demand for rental housings in the ______, the greater will be the shortage of rental housing units as a result of the imposition of a rent control act.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "greater, long run",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "lower, short run",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "greater, short run",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "lower, long run",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Rent control</span> is a strict <span class=\"text-blue font-bold\">price ceiling</span>. In the short run, housing supply is <span class=\"text-green font-bold\">perfectly inelastic</span> (buildings already exist). But in the long run, supply becomes highly elastic (builders stop investing in new apartments) and demand becomes highly elastic (more people want cheap rent). This dual elasticity creates massive <span class=\"text-red font-bold\">market deadweight loss</span> and <span class=\"text-teal font-bold\">severe housing shortages</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "28776564-af6e-4c56-a728-06874a8e5aee",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "Which law states that the consumer will distribute his money income between goods in such a way that the utility derived from the last rupee spent on each good is exactly equal?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Law of demand",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Law of diminishing marginal utility",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Law of equi-marginal utility",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Law of supply",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-orange font-bold\">Law of Equi-Marginal Utility</span> (also known as <span class=\"text-blue font-bold\">Gossen's Second Law)</span> states that a rational consumer maximizes total satisfaction when the <span class=\"text-green font-bold\">marginal utility per rupee</span> spent is identical across all purchased goods <span class=\"text-red font-bold\">(MUx/Px = MUy/Py) <span style=\"font-weight: normal; font-style: italic;\">where MU is Marginal Utility and P is price for goods \"x\" and \"y\"</span></span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "bf6ac285-1611-46bb-b082-4c3b1ee4be64",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "What is the primary macroeconomic reason for the collapse of a command (socialist) economy?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lack of efficiency in resource allocation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Efficient allocation of resources",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Economic stability",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Maximum social satisfaction",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Command economies</span> suffer from the \"<span class=\"text-magenta font-bold\">economic calculation problem</span>.\" Without a <span class=\"text-green font-bold\">free-market pricing mechanism</span> driven by supply and demand, <span style=\"font-style: italic;\">central planners cannot accurately gauge consumer preferences</span> <span style=\"font-style: italic;\">or the true opportunity cost</span> of resources, leading to <span class=\"text-teal\" style=\"font-weight: 800;\">massive inefficiencies</span> and <span class=\"text-teal font-bold\">chronic shortages</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "421d07c7-42d9-4315-8302-26b0c4facea1",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "hard",
+    "question": "According to Domar's growth model, growth in capacity output will be realized only if ______ increases by a sufficient amount.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "money supply",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "aggregate supply",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "money demand",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "aggregate demand",
+        "label": "D"
+      }
+    ],
+    "explanation": "In the <span class=\"text-red font-bold\">Harrod-Domar model</span>, investment has a <span class=\"text-blue font-bold\">dual macroeconomic character</span>: it simultaneously generates income and increases productive capacity. For the newly created factory capacity to be fully utilized without triggering a recession, <span class=\"text-green font-bold\">Aggregate Demand</span> must rise sufficiently to absorb the new output. <img src=\"https://cdn-images.prepp.in/public/image/96f7be8de0c449991bb7a7ffde82305c.png?tr=w-400,h-361,c-force\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\">",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "b504de1a-14ea-4d81-9705-b830b1aa4114",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "What will be the effect of a decrease in the absolute wealth of an individual on his demand curve for a normal good?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Leftward shift in the demand curve",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rightward shift in the demand curve",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Downward movement along the same demand curve",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Upward movement along the same demand curve",
+        "label": "D"
+      }
+    ],
+    "explanation": "A<span style=\"font-weight: bold;\"> </span><span style=\"font-style: italic;\"><span class=\"text-blue\" style=\"font-weight: bold;\">decrease in wealth reduces absolute purchasing power</span></span> (the <span class=\"text-orange font-bold\">Income Effect)</span>. For normal goods, the consumer will demand fewer units at every possible price point, resulting in a complete <span class=\"text-blue font-bold\">leftward shift of the entire demand curve</span>. Movements \"along\" the curve only occur when the price of the good itself changes.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "b7ca4ced-c6b5-4462-8d03-2485ba8d504a",
+    "category_id": "indian-economy",
+    "tags": [
+      "Budget",
+      "Fiscal Policy"
+    ],
+    "difficulty": "medium",
+    "question": "Debt-financing of a government budget deficit is practically also known as:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "money-financing of budget deficit",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "revenue deficit",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "primary deficit",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "bond-financing of budget deficit",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Debt-financing</span> implies the government bridges its deficit by issuing sovereign bonds <span class=\"text-blue font-bold\">(G-Secs)</span> to borrow from the public and institutional markets. This can lead to the \"<span class=\"text-red font-bold\">Crowding Out effect</span>,\" where excessive government borrowing leaves less capital for the private sector.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "7157395a-33a4-42e4-8d12-cad040fe004f",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "hard",
+    "question": "When the price of a commodity falls by Rs. 2 per unit, its quantity demanded increases by 10 units. Its price elasticity of demand is (-)1. Calculate its quantity demanded at the original price before the change, which was Rs. 10 per unit.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "40 units",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "55 units",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "50 units",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "60 units",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Price Elasticity Formula</span>:<span class=\"text-blue\" style=\"font-weight: 800;\"> <span class=\"text-blue font-bold\">Ed = (Change in Q / Change in P)</span> (Original Price / Original Quantity)</span>. <div>We know: Ed = -1, Change in Price = -2, Change in Q = +10, Original Price = 10. Substitute values: -1 = (10 / -2) (10 / Original Quantity). Solve: -1 = -5 (10 / Original Quantity) -&gt; -1 = -50 / Original Quantity -&gt; <span class=\"text-green font-bold\">Original Quantity = 50</span>.   </div>",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "e7306468-4e9c-47c8-acc8-dc84091af280",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "Under imperfect competition, the marginal revenue (MR) curve ______ the average revenue (AR) curve.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "is parallel to the",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "lies below the",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "lies above the",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "coincides with",
+        "label": "D"
+      }
+    ],
+    "explanation": "In <span class=\"text-orange font-bold\">imperfect competition</span> (like a monopoly or oligopoly), a firm faces a <span class=\"text-blue font-bold\">downward-sloping demand curve</span>. To sell an additional unit, it must lower the price (AR) for all units. Consequently, the revenue gained from the marginal unit is always less than the average price, pulling the <span class=\"text-red font-bold\">MR curve below the AR curve</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "6aa311b8-9614-4dbf-bc5e-6121121a525f",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation",
+      "Money"
+    ],
+    "difficulty": "medium",
+    "question": "According to the classical quantity theory of money, what will be the direct effect of doubling the quantity of money on the general price level?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Price level will remain same",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Price level will be halved",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Price level will rise by a factor of 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Price level will also get doubled",
+        "label": "D"
+      }
+    ],
+    "explanation": "Based on <span class=\"text-magenta font-bold\">Irving Fisher's Equation of Exchange</span> <span class=\"text-blue font-bold\">(MV = PT)</span>, where Money Supply (M) Velocity (V) = Price Level (P) Volume of Transactions (T). If Velocity and Transactions are assumed constant in the short run, a <span class=\"text-green font-bold\">100% increase in Money Supply</span> creates a direct, proportional 100% increase in the general Price Level.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "e6940e36-a78b-4723-87e5-f41b068f5c6a",
+    "category_id": "indian-economy",
+    "tags": [
+      "Banking",
+      "Money"
+    ],
+    "difficulty": "medium",
+    "question": "If the total deposit created by commercial banks is Rs. 12,000 crores and the legal reserve requirement (LRR) is 25 percent, calculate the amount of the initial deposit.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rs. 48,000 crores",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rs. 3,000 crores",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Rs. 600 crores",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rs. 2,500 crores",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Money Multiplier</span> indicates how initial deposits exponentially expand via lending. Formula: <span class=\"text-blue font-bold\">Multiplier = 1 / LRR</span>. Here, Multiplier = 1 / 0.25 = 4. Total Deposits = Initial Deposit Multiplier. 12,000 = Initial Deposit * 4 -&gt; Initial Deposit = 12,000 / 4 = 3,000 crores.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "d78b3b00-62cd-4dc5-9c40-e7ab549f3f77",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "An indifference curve is relatively ______ in its right-hand portion and relatively ______ in its left-hand portion.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "flatter, flatter",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "steeper, flatter",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "flatter, steeper",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "steeper, steeper",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Indifference curves</span> are strictly <span class=\"text-blue font-bold\">convex to the origin</span> due to the Law of <span class=\"text-red font-bold\">Diminishing Marginal Rate of Substitution</span>. At the top-left (steep), the consumer has an abundance of Good Y and is willing to sacrifice a lot of it for a little of Good X. At the bottom-right (flat), Good Y is scarce, so they will surrender very little of it for more X.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "4c4abe77-134f-4b86-ab00-08cb6244e8d8",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange",
+      "Trade"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following macroeconomic transactions is properly included in the ‘capital account’ of a country's Balance of Payments?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Remittance from abroad",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Foreign direct investment",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Transportation charges",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Interest on investments",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Capital Account</span> strictly records transactions that create future claims or alter the asset/liability status of a nation, such as <span class=\"text-blue font-bold\">Foreign Direct Investment (FDI)</span>, External Commercial Borrowings (ECB), and FPI. Remittances, shipping fees, and interest payouts are unilateral or service transfers recorded in the <span class=\"text-green font-bold\">Current Account</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "aa7ac9d0-9545-48f5-9854-9a441db2d528",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "easy",
+    "question": "In which method of privatization does the government sell a substantial block of its equity in a Public Sector Undertaking (PSU) to a single private entity while actively handing over management control?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Management-employee buyouts",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sale to foreigners",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Equal-access voucher programmes",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Strategic sale",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-orange font-bold\">Strategic Sale</span> involves the government transferring ownership of a major block of shares (typically <span class=\"text-blue font-bold\">51% or more)</span> along with the outright transfer of management control to a private strategic partner, aiming to inject private-sector efficiency. (e.g., <span class=\"text-red font-bold\">Tata Group's acquisition of Air India)</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "d0086cba-4324-4f20-bb77-f7407652dbf0",
+    "category_id": "indian-economy",
+    "tags": [
+      "Agriculture",
+      "Trade"
+    ],
+    "difficulty": "medium",
+    "question": "Which government policy specifically introduced the concept of Agri Export Zones (AEZs) to give primacy to the promotion of agricultural exports?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Foreign trade policy (2004-09)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "New industrial policy (1991)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Exim policy (2001)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "New economic policy (1991)",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-magenta font-bold\">EXIM Policy of 2001-2002</span> pioneered the concept of <span class=\"text-blue font-bold\">Agri Export Zones</span>. It utilized a <span class=\"text-green font-bold\">cluster-based geographical approach</span> to seamlessly integrate the sourcing of raw agricultural goods, localized processing, and specialized packaging to target international export markets efficiently.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "73e6de12-4936-4e7b-96e8-5da43e8b1253",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "medium",
+    "question": "Variable costs of production, which fluctuate directly in tandem with output volume, are also technically called:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "fixed costs",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "prime costs",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "overhead costs",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "sunk costs",
+        "label": "D"
+      }
+    ],
+    "explanation": "In cost accounting, <span class=\"text-teal font-bold\">prime costs</span> are the direct, traceable costs tied immediately to the production of a specific unit, consisting primarily of <span class=\"text-blue font-bold\">direct labor and direct raw materials</span>. Because these inputs scale linearly with every new unit produced, they form the core foundation of <span class=\"text-red font-bold\">variable costs</span>.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "33000231-a254-4c0c-9f62-d110cf777810",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "hard",
+    "question": "In the Harrod-Domar growth model, which strict mathematical condition must be satisfied to achieve the \"equilibrium growth rate\" at the full employment level of all existing resources?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gn = Gw",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Gn = l + t",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Gy = (S/V)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Gn = Gw = Gy",
+        "label": "D"
+      }
+    ],
+    "explanation": "This is the famous \"<span class=\"text-orange font-bold\">Knife-edge equilibrium</span>.\" Steady, non-inflationary, full-employment growth requires the <span class=\"text-blue font-bold\">Natural rate of growth (Gn)</span> to perfectly equal the <span class=\"text-green font-bold\">Warranted rate of growth (Gw)</span> and the Actual rate of growth (Gy). If these diverge even slightly, the economy spirals into either chronic secular inflation or chronic secular unemployment.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "749192e4-931e-4fc8-9dc0-e08e8b32d896",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Industry"
+    ],
+    "difficulty": "easy",
+    "question": "On the eve of the First Five-Year Plan, industries manufacturing intermediate products were established but their actual production was ______ as the nation's productive capacity was considerably ______ the aggregate requirements.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "large, above",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "small, below",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "large, below",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "small, above",
+        "label": "D"
+      }
+    ],
+    "explanation": "When India began its <span class=\"text-magenta font-bold\">planned economic journey in 1951</span>, it suffered from severe <span class=\"text-blue font-bold\">structural bottlenecks</span>. The domestic production base for intermediate and <span class=\"text-red font-bold\">capital goods</span> was overwhelmingly small, and the built industrial capacity fell far below the massive requirements necessary for a newly independent developing nation.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "ddfc94e7-d406-46d3-a30e-c77fb27807f1",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "medium",
+    "question": "Which classical economic law is conceptually considered the short-run extension of the historical \"Law of Diminishing Returns\"?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Law of diminishing marginal utility",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Law of variable proportions",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Law of equi-marginal utility",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Law of demand",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Law of Variable Proportions</span> operates strictly in the <span class=\"text-blue font-bold\">short run</span> when at least one factor of production (like Land or Factory size) is fixed. As more units of a variable factor (like Labor) are continuously added, the <span class=\"text-orange font-bold\">marginal physical product</span> initially increases, inevitably diminishes (the core of <span class=\"text-green font-bold\">diminishing returns)</span>, and eventually turns negative.",
+    "pyq": "JSA 2021",
+    "created_at": "2026-06-21T09:56:51.341903+00:00"
+  },
+  {
+    "id": "65761e75-3bb8-4d4c-8b5b-019fd5124faf",
+    "category_id": "indian-economy",
+    "tags": [
+      "Poverty"
+    ],
+    "difficulty": "easy",
+    "question": "Inequality of income is measured by:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Human development index",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Gini coefficient",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Per capita income",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Physical quality of life index",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Gini coefficient</span> is a standard statistical measure of <span class=\"text-magenta font-bold\">income or wealth inequality</span>, ranging from <span class=\"text-orange font-bold\">0 (perfect equality)</span> to 1 (perfect inequality). It is graphically derived from the <span class=\"text-teal font-bold\">Lorenz Curve</span>. <img src=\"https://ourworldindata.org/wp-content/uploads/2013/12/Gini-measure-schematic_simplified.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "c40c528a-7543-4d69-b743-f18069542d49",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation"
+    ],
+    "difficulty": "medium",
+    "question": "Match List A with List B:<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>List A</th><th>List B</th></tr></thead><tbody><tr><td>(I) Fall in general price level</td><td>(1) Devaluation</td></tr><tr><td>(II) Reduction in value of currency</td><td>(2) Expansionary policy</td></tr><tr><td>(III) Increase in spending by the government</td><td>(3) Deflation</td></tr><tr><td>(IV) Increase in taxes on traded goods</td><td>(4) Tariff</td></tr></tbody></table></div>Choose the correct option:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "(I)-(1), (II)-(3), (III)-(4), (IV)-(2)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "(1)-(2), (II)-(1), (III)-(3), (IV)-(4)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "(I)-(3), (II)-(1), (III)-(2), (IV)-(4)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "(I)-(3), (II)-(1), (III)-(4), (IV)-(2)",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Deflation</span> is a sustained decrease in the general price level. <span class=\"text-red font-bold\">Devaluation</span> is the deliberate reduction in a currency's value under a fixed exchange system. <span class=\"text-green font-bold\">Increased spending</span> marks <span class=\"text-magenta font-bold\">expansionary fiscal policy</span>, and tariffs are taxes on imports/exports.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "9be09bec-6bc2-469b-9ba7-19a2ad4a630d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "In the case of a perfectly competitive firm, the:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "firm's marginal revenue exceeds the price of the product.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "change in the firm's total revenue equals the price of the product multiplied by the change in quantity sold.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "firm's marginal revenue is less than average revenue.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "price of the product falls sharply when the quantity the firm sells doubles.",
+        "label": "D"
+      }
+    ],
+    "explanation": "In <span class=\"text-magenta font-bold\">perfect competition</span>, a<span class=\"text-orange\" style=\"font-weight: 800;\"> firm is a <span class=\"text-red font-bold\">price taker</span></span><span class=\"text-red font-bold\"></span>, so <span class=\"text-green\" style=\"font-weight: 800;\">Price (P) = Average Revenue (AR) = Marginal Revenue (MR)</span>. Since price is constant, <span style=\"font-style: italic;\">any change in Total Revenue is exactly equal to the fixed Price multiplied by the change in quantity sold</span>.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "72513ef1-a3cc-48cd-aacc-e127db529679",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Under which market structure does the firm's demand curve coincide with the market demand curve?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Perfect Competition",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Monopoly",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Monopolistic Competition",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Oligopoly",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">monopoly</span> features a <span class=\"text-green font-bold\">single seller</span> dominating the entire industry. Because the individual firm is the industry, its independent <span class=\"text-teal font-bold\">demand curve</span> is identical to the overall market <span class=\"text-teal font-bold\">demand curve</span>.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "acc30157-a2a0-4602-94dd-69e16533b59d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "hard",
+    "question": "(10, 16) and (12, 14) are two points on an isoquant, where the first input is labour and the second is capital. The rate of substitution of labour of capital between these two points is:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "zero.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "10.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\"></span><span class=\"text-red\" style=\"font-weight: 800;\"><span class=\"text-red font-bold\">Marginal Rate of Technical Substitution</span> (MRTS)</span> = <span class=\"text-green font-bold\">Change in Capital / Change in Labour</span>. Moving from (10, 16) to (12, 14), Capital decreases by 2 units (16 to 14) and Labour increases by 2 units (10 to 12). <span class=\"text-green font-bold\">MRTS = 2 / 2 = 1</span>.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "88c33fd3-76ec-4724-856f-2b862eceb7b8",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "medium",
+    "question": "If the cross elasticity of demand between goods A and B is positive:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "the demands for A and B are both price elastic.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A and B are complements.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A and B are substitutes.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "the demands for A and B are both price inelastic.",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">positive cross elasticity</span> means an increase in the price of Good A leads to an increase in the demand for Good B. This is the defining characteristic of <span class=\"text-magenta font-bold\">substitute goods</span> (e.g., <span class=\"text-teal font-bold\">Tea and Coffee</span>). <img src=\"https://economics-tuition.sg/wp-content/uploads/2023/02/cross-price_elasticity_of_demand.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "f51965c5-790e-457c-bdb3-3ec0bb0b63cb",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation",
+      "Employment"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following best describes the Phillips Curve in macroeconomics?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "It shows the trade off between inflation and unemployment",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "It illustrates the relationship between interest rate and unemployment",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It analyzes the impact of government spending on national income",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It represents the equilibrium in the foreign exchange market",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Phillips Curve</span> shows an <span class=\"text-green font-bold\">inverse relationship</span> and historical <span class=\"text-magenta font-bold\">trade-off</span> between the<span class=\"text-blue\" style=\"font-weight: 800;\"> rate of inflation and rate of unemployment</span> in an economy in the <span class=\"text-teal font-bold\">short run</span>. <img src=\"https://cdn.educba.com/academy/wp-content/uploads/2024/01/Phillips-Curve-e1705557480561-1024x640.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": "UPSC Prelims 2019",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "1195f424-ad47-4374-a404-3dfd359fb15a",
+    "category_id": "indian-economy",
+    "tags": [
+      "Taxation"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following are part of the Goods and Services Tax (GST) Council of India?<br>1- Cabinet Ministers of Union Government<br>2- Union Finance Minister<br>3- Union Minister of State in charge of Revenue or Finance<br>4- The Minister in charge of Finance for each state or any minister nominated by the state government",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1, 2, and 3",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 2, and 4",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3, and 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3 and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "Per <span class=\"text-blue font-bold\">Article 279A</span>, the <span class=\"text-teal font-bold\">GST Council</span> consists of the <span class=\"text-blue font-bold\">Union Finance Minister</span> (Chairperson), the Union Minister of State for Finance/Revenue, and the Finance/Taxation Ministers of each State government.<span class=\"text-red\" style=\"font-weight: 800;\"> Broad Union Cabinet ministers are <span class=\"text-red font-bold\">not members</span></span><span class=\"text-red font-bold\"></span>.",
+    "pyq": "JKSSB FAA 2021",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "7b296b5b-2ecd-4573-bb1f-ce7fbb822b51",
+    "category_id": "indian-economy",
+    "tags": [
+      "Rbi",
+      "Banking"
+    ],
+    "difficulty": "easy",
+    "question": "How many times in a year does the RBI regularly release its monetary policy statement?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "6",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "3",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-teal font-bold\">Monetary Policy Committee</span> (MPC) of the <span class=\"text-teal font-bold\">RBI</span> is statutorily required to meet at least <span class=\"text-orange font-bold\">four times a year</span>, <span class=\"text-green\" style=\"font-weight: 800;\">but it meets bi-monthly</span>, meaning it <span class=\"text-teal\" style=\"font-weight: 800;\">releases statements <span class=\"text-orange font-bold\">6 times a year</span></span><span class=\"text-orange font-bold\"></span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "8445e26d-f008-475d-b275-8bfb40b15225",
+    "category_id": "indian-economy",
+    "tags": [
+      "Budget",
+      "Fiscal Policy"
+    ],
+    "difficulty": "easy",
+    "question": "Who is responsible for maintaining and supervising the compilation of government accounts in India?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Controller General of Accounts",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "NITI Aayog",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "RBI",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "SEBI",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Controller General of Accounts</span> (CGA), in the Department of Expenditure, <span class=\"text-teal font-bold\">Ministry of Finance</span>, is the <span class=\"text-green font-bold\">principal advisor</span> on accounting matters and establishes the technical <span class=\"text-teal font-bold\">accounting standards</span> for the Union government.",
+    "pyq": "JKP Photographer 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "a1c00c17-e817-4392-a074-311d70e7ef90",
+    "category_id": "indian-economy",
+    "tags": [
+      "Poverty"
+    ],
+    "difficulty": "medium",
+    "question": "What does the Lorenz curve represent?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Taxable income elasticity",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Relationship between the price of a certain commodity and its demand",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Income distribution",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rate of employment",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Lorenz Curve</span> is a graphical representation of <span class=\"text-magenta font-bold\">wealth or income distribution</span> within an economy. The deviation of the curve from the straight 45-degree line of <span class=\"text-green font-bold\">perfect equality</span> indicates the level of <span class=\"text-red font-bold\">inequality</span>. <img src=\"https://io.traffine.com/img/articles/economics/macroeconomics/lorenz-curve-and-gini-conefficient/lorenz-curve.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "c0b11b74-1e13-442c-9500-cf66cb5d9d9b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Industry"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is not one of the four main factors of production?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Land",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Labour",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Manufacturing",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Capital",
+        "label": "D"
+      }
+    ],
+    "explanation": "The four classical <span class=\"text-red font-bold\">factors of production</span> required to produce goods and services are <span class=\"text-green font-bold\">Land, Labour, Capital, and Entrepreneurship</span>. Manufacturing is a secondary economic sector activity, <span class=\"text-red font-bold\">not a factor input</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "7ed2b234-003e-486a-b2de-d7eb3ff63be8",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Industry"
+    ],
+    "difficulty": "easy",
+    "question": "Which five year plan of India was based on the Mahalanobis model?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "First",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Second",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Third",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Fourth",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Second Five-Year Plan</span> (<span class=\"text-blue font-bold\">1956–1961</span>) was based on the <span class=\"text-blue font-bold\">Nehru-Mahalanobis model</span>, which prioritized <span class=\"text-magenta font-bold\">rapid industrialization</span> with a heavy focus on basic and capital goods industries.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "4c6e6fa7-6b42-4a67-a335-67048d12ef57",
+    "category_id": "indian-economy",
+    "tags": [
+      "Trade"
+    ],
+    "difficulty": "easy",
+    "question": "Agreement on Technical Barriers to Trade (TBT) is related with which institution?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Bank",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "NITI Aayog",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "World Trade Organization",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Economic Forum",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-teal\" style=\"font-weight: 800;\"> Technical Barriers to Trade (TBT) Agreement</span> is a treaty administered by the <span class=\"text-teal font-bold\">World Trade Organization</span> (WTO) to ensure that technical regulations, standards, and testing procedures do not create <span class=\"text-red font-bold\">unnecessary obstacles</span> to <span class=\"text-magenta font-bold\">international commerce</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "3f2193f1-f41e-4f71-b4b0-21a8e3b6e293",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "easy",
+    "question": "What is Gross Domestic Product (GDP)?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "The total value of goods and services manufactured in the country.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The total value of all the transactions in the country.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The reduction in the total value of goods and services produced in the country.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The monetary value of all finished goods and services made within a country during a specific period.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Option D is the precise definition because <span class=\"text-red font-bold\">GDP</span> counts only \"finished\" (final) goods to avoid <span class=\"text-red font-bold\">double-counting</span> raw inputs. Option A is incomplete as it ignores the <span class=\"text-teal font-bold\">geographical territory rule</span> and intermediate vs. final economic distinctions.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "1db7a2be-a673-4469-8d18-6963bd5a2308",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the relation that the law of demand defines?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Income and price of a commodity",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Price and quantity of a commodity",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Income and quantity demanded",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Quantity demanded and quantity supplied",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Law of Demand</span> states that, <span class=\"text-magenta font-bold\">ceteris paribus</span> (other factors remaining constant), there is an <span class=\"text-green font-bold\">inverse relationship</span> between the price of a commodity and its quantity demanded. <img src=\"https://articles.outlier.org/_next/image?url=https:%2F%2Fimages.ctfassets.net%2Fkj4bmrik9d6o%2F5kwrf49cYeWPYWwCLSxOf6%2Ff463240d9b70908e3666a0b632a86ecf%2FOutlier_Graph_ShiftInDemandCurve-01.png&amp;w=3840&amp;q=75\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "909839cb-0d90-4cb2-ba71-c4780c1f7b66",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "easy",
+    "question": "What is the meaning of a `Mixed Economy`?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Traditional and modern industries",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Both the public and private sectors are involved",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Involvement of both foreign and domestic investors",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Subsistence and commercial farming",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">mixed economy</span> co-exists with both <span class=\"text-teal font-bold\">state-owned public enterprises</span> and private privately-owned businesses, working together under a <span class=\"text-magenta font-bold\">unified regulatory framework</span>. <span class=\"text-blue font-bold\">India</span> is a primary example.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "d802b615-ef42-4499-a55d-eb1e6c39dd29",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the below statements is correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Microeconomics is primarily concerned with the overall economy.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Individual markets are the focus of macroeconomics.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Governments do not have any control over market prices.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "When economists study a market`s price, their main goal is to figure out why the price is what it is and how it might change.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement D is accurate as <span class=\"text-magenta font-bold\">price determination</span> and price dynamics form the core objective of <span class=\"text-teal font-bold\">microeconomic market analysis</span>. Statements A and B completely <span class=\"text-red font-bold\">swap the definitions</span> of <span class=\"text-red font-bold\">micro and macroeconomics</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "8e2013c1-4d6d-4afc-8404-a8755b21e504",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "hard",
+    "question": "An economist estimated that a commodity Y had a price index of 100, calculated for 1993 with a base year of 1990, and a quantity index of 0.5 when calculated for 1990 with a base year of 1993. What is the Fisher Ideal Value Index for 1993 with the base year taken to be 1990?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "10.5",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "20",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "15",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "12",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Fisher's Ideal Index</span> is the <span class=\"text-green font-bold\">geometric mean</span> of <span class=\"text-blue font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\"><span class=\"text-blue font-bold\">Laspeyres and Paasche</span> index indicators</span>. Formula: <span class=\"text-magenta\" style=\"font-weight: 800;\">Fisher Index = Square Root of (Price Index × Quantity Index) = sqrt (P₀₁xQ₀₁) </span><span class=\"text-magenta\" style=\"font-style: italic;\">(for scale base)</span>. <div>Quantity Index is given in reverse form (1990 with base 1993 = 0.5), so first reverse it: Q₀₁ = 1 / 0.5 = 2 (or 200 as an index number).</div><div>Substituting the absolute mathematical products: Value Index= sqrt (P₀₁xQ₀₁)  = Square Root of (100 × 2) = <span class=\"text-orange font-bold\">15</span>.   </div>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "ac2b454a-2daf-419d-b16d-290d13e9003b",
+    "category_id": "indian-economy",
+    "tags": [
+      "Financial Markets"
+    ],
+    "difficulty": "easy",
+    "question": "What does “consumer sovereignty” in a free market economy refer to?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The government`s ability to control consumer preferences.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Producer`s decision about production of goods and services based on their preferences.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Consumer preferences guide the production of goods and services.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Consumers and producers equally share the decision-making process.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Consumer sovereignty</span> implies that consumers are the <span class=\"text-green font-bold\">ultimate deciders</span> of what gets produced, as businesses must align production outputs with <span class=\"text-magenta font-bold\">consumer demand</span> and purchasing preferences to <span class=\"text-red font-bold\">survive</span>.",
+    "pyq": null,
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "07f48a3e-09cd-495d-a719-87c2865e9fd1",
+    "category_id": "indian-economy",
+    "tags": [
+      "Trade"
+    ],
+    "difficulty": "easy",
+    "question": "Government strategy regarding exporters and importers is called:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Commercial Policy",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Monetary Policy",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Fiscal Policy",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Finance Policy",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Commercial policy</span> (or trade policy) refers to the regulations, tariffs, and strategic measures a government implements to manage <span class=\"text-magenta font-bold\">international trade</span>, <span class=\"text-teal font-bold\">imports, and exports</span>.",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "91332877-9721-4294-9282-09bb72500036",
+    "category_id": "indian-economy",
+    "tags": [
+      "Taxation"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following taxes are abolished and subsumed by the Goods and Services Tax (GST)?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Property Tax",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Corporation Tax",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "VAT",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Value Added Tax</span> (VAT) was a state-level indirect tax that was completely <span class=\"text-green font-bold\">subsumed by GST</span>. Property tax and Corporation Tax are <span class=\"text-red font-bold\">direct taxes</span> and remain <span class=\"text-red font-bold\">entirely separate</span>.",
+    "pyq": "Stock Assistant 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "8f97e589-e0f0-4ff6-84c5-0097a5570702",
+    "category_id": "indian-economy",
+    "tags": [
+      "Inflation",
+      "Taxation"
+    ],
+    "difficulty": "hard",
+    "question": "In periods of inflation, the impact of changing the method of valuation of inventories from the LIFO method to the FIFO method will cause:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase in profit and decrease in the cost of goods sold",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Decrease in profit and increase in the cost of goods sold",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Increase in profit and decrease in the value of closing stock",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Decrease in profit and decrease in the value of closing stock",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under <span class=\"text-red font-bold\">FIFO</span> (First In, First Out), <span class=\"text-orange font-bold\">older, cheaper inventory</span> items are matched against current high inflationary revenues. This artificially decreases the <span class=\"text-teal font-bold\">Cost of Goods Sold</span> (COGS) and consequently <span class=\"text-magenta font-bold\">boosts reporting profits</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "84963290-8e5d-4e6c-98cd-c6628727e3ad",
+    "category_id": "indian-economy",
+    "tags": [
+      "Taxation"
+    ],
+    "difficulty": "easy",
+    "question": "The temporary tax levied on top of an existing tax liability to obtain additional revenue for short-term needs is called:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cess",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rate",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Fee",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Surcharge",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">surcharge</span> is an additional tax calculated on top of the existing tax payable, meant to raise <span class=\"text-magenta font-bold\">general revenue</span>. Note: A <span class=\"text-red font-bold\">Cess</span> is also a tax on tax but is strictly earmarked for a <span class=\"text-green font-bold\">specific purpose</span> (e.g., Education <span class=\"text-red font-bold\">Cess</span>).",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "adee2a1c-c858-4268-a07b-0783d97616a5",
+    "category_id": "indian-economy",
+    "tags": [
+      "Trade"
+    ],
+    "difficulty": "easy",
+    "question": "Balance of trade is the:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Difference between export and import of goods",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sum total of export and import of goods",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Difference between export and import of services",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Sum total of export and import of services",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Balance of Trade</span> (BoT) exclusively tracks <span class=\"text-green font-bold\">visible items</span>, meaning the net trade balance of physical merchandise/goods exports versus imports. <span class=\"text-magenta font-bold\">Services</span> fall under the <span class=\"text-teal font-bold\">Balance of Invisibles</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "16bf5a49-ae97-47f5-8114-2bc20ff697cb",
+    "category_id": "indian-economy",
+    "tags": [
+      "Budget",
+      "Fiscal Policy"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following is the definition of a fiscal budget deficit?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Excess of the total expenditure over the total receipts minus interest payments and borrowings",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Excess of the total expenditure over the total receipts minus borrowings",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Excess of the revenue expenditure over the revenue receipts",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Excess of the total expenditure over total receipts",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">budget deficit</span> or <span class=\"text-teal font-bold\">fiscal borrowing</span> benchmark is evaluated by tracking how far <span class=\"text-red font-bold\">total expenditure exceeds</span> the total incoming revenue receipts and <span class=\"text-orange font-bold\">non-debt capital receipts</span> (total receipts minus total fresh borrowings).",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-21T04:59:10.758116+00:00"
+  },
+  {
+    "id": "8ff4109b-4334-428c-94bd-866f85b5215d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "hard",
+    "question": "Suppose, GDP in India in FY 2023-24 is 6,00,000 and we also assume the following: Mr. P, an Indian citizen, works in Tokyo and earns 50,000. Mr. Q, an Australian citizen, works in Mumbai and earns 30,000. Mrs. R, an Indian citizen, owns a restaurant in UK which she rents to a British family for 25,000. Mrs. S, a German citizen, owns a factory in New Delhi which she rents to an Indian firm for 60,000. Given above, GNP in India in FY 2023-24 will be:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "5,85,000",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "6,45,000",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "4,80,000",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5,30,000",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green\" style=\"font-weight: 800;\">Gross National Product (GNP) = GDP + Net Factor Income from Abroad (NFIA)</span>.<br>Step 1: <span class=\"text-orange\" style=\"font-weight: 800;\">Calculate Factor Income earned by citizens abroad</span> = Mr. P's earnings in Tokyo (50,000) + Mrs. R's rental income from UK (25,000) = 75,000.<br>Step 2: <span class=\"text-orange\" style=\"font-weight: 800;\">Calculate Factor Income earned by foreign nationals within the country</span> = Mr. Q's earnings in Mumbai (30,000) + Mrs. S's rental income from New Delhi (60,000) = 90,000.<br>Step 3: <span class=\"text-blue\" style=\"font-weight: 800;\">NFIA = Income from abroad (75,000) - Income to abroad (90,000)</span> = -15,000.<br>Therefore, GNP = 6,00,000 + (-15,000) = 5,85,000.<br>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-21T04:15:54.883224+00:00"
+  },
+  {
+    "id": "5d79d724-d28c-4e14-811e-f5d934e9f536",
+    "category_id": "indian-economy",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "hard",
+    "question": "Suppose the GDP at Market Price of a country was 1000 crores. The value of Net factor income from abroad was 100 crores, net factor income paid to abroad was 50 crores, net indirect taxes were 100 crores and the national income was 700 crores. Calculate the total value of depreciation.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "250 crores",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "450 crores",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1850 crores",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "300 crores",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange\" style=\"font-weight: 800;\">National Income is NNP at Factor Cost (NNP_FC)</span>. The core formula is: <span class=\"text-green\" style=\"font-weight: 800;\">NNP_FC = GDP_MP - Depreciation + NFIA - NIT</span>.<br>Step 1: <span class=\"text-green\" style=\"font-weight: 800;\">Net Factor Income from Abroad (NFIA)</span> = Factor Income earned from abroad (100) - Factor Income paid abroad (50) = 50 crores.<br>Step 2:<span class=\"text-magenta\" style=\"font-weight: 800;\"> Substitute values</span> into the equation: 700 = 1000 - Depreciation + 50 - 100 -&gt; 700 = 950 - Depreciation -&gt; Depreciation = 950 - 700 = 250 crores.<br>",
+    "pyq": null,
+    "created_at": "2026-06-21T03:00:17.008989+00:00"
+  },
+  {
+    "id": "b602ff41-72e7-4033-a944-981fa1eb6641",
+    "category_id": "indian-economy",
+    "tags": [
+      "Employment"
+    ],
+    "difficulty": "easy",
+    "question": "Unemployment that occurs due to a mismatch between the skills of workers and the requirements of jobs is called:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Structural unemployment",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Frictional unemployment",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Seasonal unemployment",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Disguised unemployment",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Structural unemployment</span> occurs when workers <span class=\"text-red font-bold\">lack the skills</span> required for newly available jobs, often caused by <span class=\"text-magenta font-bold\">technological shifts</span> or <span class=\"text-magenta font-bold\">structural changes</span> in the economy.",
+    "pyq": null,
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "75d1b76f-e90b-4a83-be4e-8bedd03a8229",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Foreign Exchange"
+    ],
+    "difficulty": "easy",
+    "question": "What was the main reason for introducing economic reforms in India in 1991?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "High agricultural output",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Increase in exports",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Political instability",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Balance of Payments crisis",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">1991 LPG reforms</span> were triggered by a severe <span class=\"text-red font-bold\">Balance of Payments (BoP) crisis</span>, where India's <span class=\"text-teal font-bold\">foreign exchange reserves</span> plummeted to a level barely sufficient to finance <span class=\"text-orange font-bold\">two weeks</span> of essential imports.",
+    "pyq": null,
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "00b0953b-b449-4867-bad1-64f0ee82fa8f",
+    "category_id": "indian-economy",
+    "tags": [
+      "Budget",
+      "Fiscal Policy"
+    ],
+    "difficulty": "easy",
+    "question": "The excess of total expenditure over total receipts, excluding debt capital receipts, is called:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Revenue deficit",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Budgetary deficit",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Fiscal deficit",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Primary deficit",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Fiscal Deficit</span> represents the <span class=\"text-magenta font-bold\">gap</span> between the government's total expenditure and its <span class=\"text-teal font-bold\">non-debt receipts</span>. It reflects the total <span class=\"text-magenta font-bold\">borrowing requirements</span> of the government.",
+    "pyq": null,
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "88a1a25b-31a0-4506-a9d9-437796139bb6",
+    "category_id": "indian-economy",
+    "tags": [
+      "Poverty"
+    ],
+    "difficulty": "hard",
+    "question": "Arrange the following committees related to poverty estimation in India in chronological order:<br>1- Alagh Committee<br>2- Lakdawala Committee<br>3- Tendulkar Committee<br>4- Rangarajan Committee",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "2, 1, 3, 4",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 3, 2, 4",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3, 1, 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Committee</th><th>Year</th><th>Poverty measurement approach</th></tr></thead><tbody><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Alagh Committee</span></strong></td><td>1979</td><td>Poverty based on <strong><span class=\"text-teal\" style=\"font-weight: 800;\">minimum calorie requirement</span></strong>. Poverty line derived from expenditure needed to obtain required calories <span class=\"text-teal\" style=\"font-weight: 800;\">(2400 rural, 2100 urban)</span>.</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Lakdawala Committee</span></strong></td><td>1993</td><td>Continued<span class=\"text-teal\" style=\"font-weight: 800;\"> <strong>calorie-based poverty line</strong></span><strong></strong>, but used state-specific poverty lines and Consumer Price Indices for <span class=\"text-teal\" style=\"font-weight: 800;\">updating poverty estimates</span>.</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Tendulkar Committee</span></strong></td><td>2009</td><td>Shifted focus from calories to <strong><span class=\"text-green\" style=\"font-weight: 800;\">actual consumption expenditure</span></strong> on essentials such as education, health, food, clothing, and shelter.</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">Rangarajan Committee</span></strong></td><td>2014</td><td>Broader consumption basket than Tendulkar; included<span class=\"text-blue\" style=\"font-weight: 800;\"> <strong>food + education + health + housing + transport + other basic needs</strong></span><strong></strong>, resulting in a<span class=\"text-teal\" style=\"font-weight: 800;\"> higher poverty line</span>. Rural areas of ₹22 per day.</td></tr></tbody></table></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "ff9514a0-0828-42ea-bfc0-6d58237937f3",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms",
+      "Banking"
+    ],
+    "difficulty": "medium",
+    "question": "Arrange the following economic events in India in chronological order:<br>1- Nationalization of 14 major banks<br>2- India's LPG reforms<br>3- Launch of the First Five-Year Plan<br>4- Formation of NITI Aayog",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "3, 1, 2, 4",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 3, 2, 4",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3, 2, 1, 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">First Five-Year Plan</span> launched in <span class=\"text-blue font-bold\">1951</span>; <span class=\"text-orange font-bold\"></span><span class=\"text-orange\" style=\"font-weight: 800;\"><span class=\"text-orange font-bold\">14</span> major </span>commercial <span class=\"text-orange\" style=\"font-weight: 800;\">banks nationalized in 1969</span>; <span class=\"text-blue\" style=\"font-weight: 800;\">LPG reforms</span> initiated<span class=\"text-blue\" style=\"font-weight: 800;\"> in 1991</span>; <span class=\"text-teal font-bold\">NITI Aayog</span> formed on <span class=\"text-blue font-bold\">January 1, 2015</span>.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "f204956d-c1e8-476a-921f-8aad647af24c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Foreign Exchange"
+    ],
+    "difficulty": "medium",
+    "question": "Identify which of the following statements is true?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The flexible exchange rate system gives the government more flexibility to maintain large stocks of foreign exchange reserves.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "In the fixed exchange rate system, the government intervenes to buy and sell foreign currencies.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "In the managed floating exchange rate system, the central bank intervenes to moderate exchange rate fluctuations.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "In the fixed exchange rate system, market forces fix the exchange rate.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under a <span class=\"text-red font-bold\">managed float</span>, <span class=\"text-magenta font-bold\">market forces</span> determine the exchange rate, but the <span class=\"text-teal font-bold\">central bank</span> (like RBI) actively <span class=\"text-green font-bold\">intervenes</span> in the forex market to curb excessive <span class=\"text-red font-bold\">volatility</span>. Statement B is incomplete/misleading compared to the precise definition of C.",
+    "pyq": null,
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
+    "id": "52242837-f1ef-4d11-9b71-cf9b5a9b88ca",
+    "category_id": "indian-economy",
+    "tags": [
+      "Money",
+      "Budget"
+    ],
+    "difficulty": "hard",
+    "question": "If the Indian government is running a budget deficit and net exports are zero, then:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "investment is greater than saving.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "saving is greater than investment.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "investment and saving are equal.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of the above.",
+        "label": "D"
+      }
+    ],
+    "explanation": "By <span class=\"text-magenta font-bold\">national income identity</span>, (Saving - Investment) + (Taxes - Government Spending) = <span class=\"text-teal font-bold\">Net Exports</span>. When <span class=\"text-teal font-bold\">Net Exports</span> = 0, then Saving - Investment = Government Spending - Taxes. Since a <span class=\"text-red font-bold\">budget deficit</span> means <span class=\"text-orange font-bold\">Government Spending is greater than Taxes</span>, the right side is positive, which forces <span class=\"text-green font-bold\">Saving to be greater than Investment</span>.",
+    "pyq": null,
+    "created_at": "2026-06-20T16:22:40.902534+00:00"
+  },
+  {
     "id": "3621210b-6da9-4a55-baff-519187df3ec4",
     "category_id": "indian-economy",
     "tags": [
