@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Header from '../components/Header';
-import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown } from 'lucide-react';
+import McqCard from '../components/McqCard';
+import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff } from 'lucide-react';
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
@@ -197,6 +198,10 @@ export default function AdminSubiStudio() {
   const [backupLoading, setBackupLoading] = useState(false);
   const [syncLoading, setSyncLoading] = useState(false);
   
+  // App Preview States
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [previewQuestions, setPreviewQuestions] = useState([]);
+  
   // Searchable Command Palette state
   const [cmdPalette, setCmdPalette] = useState({ show: false, selectedIndex: 0, openedViaIcon: false });
   const [cmdPosition, setCmdPosition] = useState({ top: 0, left: 0 });
@@ -208,6 +213,9 @@ export default function AdminSubiStudio() {
   const [aiGenLoading, setAiGenLoading] = useState(false);
 
   const [showAiDocModal, setShowAiDocModal] = useState(false);
+  const [showManualColorModal, setShowManualColorModal] = useState(false);
+  const [manualModalMode, setManualModalMode] = useState('color');
+  const [manualColorPayload, setManualColorPayload] = useState('');
   const [aiDocText, setAiDocText] = useState('');
   const [aiDocCount, setAiDocCount] = useState(10);
   const [aiDocLoading, setAiDocLoading] = useState(false);
@@ -226,11 +234,13 @@ export default function AdminSubiStudio() {
     { id: 'ai-complete', label: 'AI: Complete MCQ & Explanation', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Autofill remaining options and explanation' },
     { id: 'ai-doc', label: 'AI: Document to MCQs', icon: <FileText size={14} className="text-amber-500" />, desc: 'Bulk generate MCQs from a document' },
     { id: 'ai-color', label: 'AI: Color Explanation', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Apply bold formatting and theme coloring' },
+    { id: 'manual-color', label: 'Manual Color Code (No API)', icon: <Sparkles size={14} className="text-emerald-500" />, desc: 'Color code using copy-paste prompts from external AI (ChatGPT, etc.)' },
+    { id: 'manual-explanation', label: 'Manual Explanation (No API)', icon: <Sparkles size={14} className="text-emerald-500" />, desc: 'Generate enhanced study explanations with tags' },
     { id: 'ai-tag', label: 'AI: Auto-Tag MCQ', icon: <Tag size={14} className="text-amber-500" />, desc: 'Auto-suggest hashtags for category and difficulty' },
     { id: 'ai-review', label: 'AI: Review MCQs Quality', icon: <BarChart size={14} className="text-amber-500" />, desc: 'Audit spelling, grammar, and correctness' },
     { id: 'ai-revise', label: 'AI: Revise MCQ\'s', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Convert website-copied or messy MCQ text to native MCQ blocks' },
-    { id: 'copy', label: 'Copy All (NoteKash)', icon: <Copy size={14} />, desc: 'Copy all MCQs in NoteKash text format' },
-    { id: 'paste', label: 'Paste MCQs', icon: <Clipboard size={14} />, desc: 'Paste NoteKash text from clipboard' },
+    { id: 'copy-mcq', label: 'Copy MCQ', icon: <Copy size={14} className="text-emerald-500" />, desc: 'Copy all MCQs preserving native MCQKash format (colors, tags, difficulty, LaTeX)' },
+    { id: 'paste-mcq', label: 'Paste MCQ', icon: <Clipboard size={14} className="text-emerald-500" />, desc: 'Paste native MCQKash MCQs from clipboard — restores full formatting, colors and tags' },
     { id: 'clean', label: 'Clean Editor', icon: <Trash2 size={14} />, desc: 'Keep only native MCQ blocks, clearing all other text and extra spacing' }
   ];
 
@@ -241,6 +251,7 @@ export default function AdminSubiStudio() {
 
   // Text Toolbar State
   const [textToolbar, setTextToolbar] = useState({ show: false, top: 0, left: 0 });
+  const [showFormatMenu, setShowFormatMenu] = useState(false);
   // Image Toolbar State
   const [imgToolbar, setImgToolbar] = useState({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
   const [activeMode, setActiveMode] = useState('write'); // 'write' | 'exams' | 'review'
@@ -277,6 +288,19 @@ export default function AdminSubiStudio() {
   });
 
   const [categoryTags, setCategoryTags] = useState({});
+
+  useEffect(() => {
+    if (editorRef.current) {
+      const backup = localStorage.getItem('civilsKash_editorBackup');
+      if (backup) {
+        editorRef.current.innerHTML = backup;
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    setIsPreviewMode(false);
+  }, [activeMode]);
 
   useEffect(() => {
     localStorage.setItem('civilsKash_categories', JSON.stringify(categories));
@@ -792,9 +816,16 @@ export default function AdminSubiStudio() {
       }));
   };
 
+  const saveEditorBackup = () => {
+    if (editorRef.current) {
+      localStorage.setItem('civilsKash_editorBackup', editorRef.current.innerHTML);
+    }
+  };
+
   const replaceEditorWithMcqHtml = (html) => {
       if (!editorRef.current) return;
       editorRef.current.innerHTML = html || '<p><br></p>';
+      saveEditorBackup();
   };
 
   const getEditorPlainText = (rootEl = editorRef.current) => {
@@ -1020,6 +1051,12 @@ export default function AdminSubiStudio() {
     document.addEventListener('selectionchange', handleSelection);
     return () => document.removeEventListener('selectionchange', handleSelection);
   }, [handleSelection]);
+
+  useEffect(() => {
+    if (!textToolbar.show) {
+      setShowFormatMenu(false);
+    }
+  }, [textToolbar.show]);
 
   useEffect(() => {
     const handleDocumentMouseDown = (e) => {
@@ -1270,6 +1307,7 @@ export default function AdminSubiStudio() {
         }
     }
     setPyqPalette(p => ({ ...p, show: false }));
+    saveEditorBackup();
     } catch (err) {
       console.error("Error in handleEditorInput:", err);
     }
@@ -1277,6 +1315,22 @@ export default function AdminSubiStudio() {
 
   const handleEditorPaste = (e) => {
     e.preventDefault();
+
+    // 1. Check for native MCQKash HTML first (has nk-mcq-block) — pass through directly
+    const pastedHtml = e.clipboardData.getData('text/html');
+    if (pastedHtml && pastedHtml.includes('nk-mcq-block')) {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = pastedHtml;
+      // Re-assign fresh UUIDs to avoid duplicate IDs
+      tempDiv.querySelectorAll('.nk-mcq-block[id]').forEach(block => {
+        block.removeAttribute('id');
+      });
+      document.execCommand('insertHTML', false, tempDiv.innerHTML);
+      saveEditorBackup();
+      return;
+    }
+
+    // 2. Fall back to plain text with markdown conversion
     const text = e.clipboardData.getData('text/plain');
     let converted = convertMarkdownTablesToHtml(text);
     converted = convertMarkdownToHtml(converted);
@@ -1285,6 +1339,7 @@ export default function AdminSubiStudio() {
     } else {
       document.execCommand('insertText', false, text);
     }
+    saveEditorBackup();
   };
 
   const executeConvertToMCQ = (useSelection = false) => {
@@ -1584,7 +1639,7 @@ export default function AdminSubiStudio() {
   };
 
   // --- AI CREATOR TOOLS INTERFACES ---
-  const handleExecuteCommand = (commandId) => {
+  const handleExecuteCommand = async (commandId) => {
     setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
     setCmdQuery('');
 
@@ -1598,10 +1653,61 @@ export default function AdminSubiStudio() {
         }
     }
 
-    if (commandId === 'copy') {
-      handleBulkCopy();
-    } else if (commandId === 'paste') {
-      handleBulkPaste();
+    if (commandId === 'copy-mcq') {
+      // Copy native MCQKash HTML to clipboard — preserves all colors, tags, difficulty, LaTeX
+      if (editorRef.current) {
+        const blocks = editorRef.current.querySelectorAll('.nk-mcq-block');
+        if (blocks.length === 0) {
+          alert('No MCQ blocks found in editor to copy.');
+        } else {
+          // Build a minimal HTML payload containing only the MCQ blocks
+          const payload = Array.from(blocks).map(b => b.outerHTML).join('\n<p><br></p>\n');
+          try {
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                'text/html': new Blob([payload], { type: 'text/html' }),
+                'text/plain': new Blob([payload], { type: 'text/plain' }),
+              })
+            ]);
+            alert(`${blocks.length} MCQ${blocks.length > 1 ? 's' : ''} copied! Paste directly into any MCQKash editor to restore full native formatting.`);
+          } catch {
+            // Fallback for browsers that don't support ClipboardItem
+            navigator.clipboard.writeText(payload)
+              .then(() => alert(`${blocks.length} MCQ${blocks.length > 1 ? 's' : ''} copied!`))
+              .catch(() => alert('Clipboard access blocked. Please grant permissions.'));
+          }
+        }
+      }
+    } else if (commandId === 'paste-mcq') {
+      // Paste native MCQKash HTML — detects nk-mcq-block and inserts faithfully
+      try {
+        const text = await navigator.clipboard.readText();
+        if (!text || !text.trim()) {
+          alert('Clipboard is empty.');
+        } else if (text.includes('nk-mcq-block')) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = text;
+          // Strip IDs to avoid duplicates
+          tempDiv.querySelectorAll('.nk-mcq-block[id]').forEach(block => block.removeAttribute('id'));
+          const cleanHtml = tempDiv.innerHTML;
+          if (editorRef.current) {
+            const isEmpty = editorRef.current.innerHTML === '<p><br></p>' || editorRef.current.innerHTML === '<p><br></p><p><br></p>';
+            if (isEmpty) {
+              editorRef.current.innerHTML = cleanHtml;
+            } else {
+              editorRef.current.insertAdjacentHTML('beforeend', cleanHtml);
+            }
+            saveEditorBackup();
+            const count = tempDiv.querySelectorAll('.nk-mcq-block').length;
+            alert(`${count} MCQ${count > 1 ? 's' : ''} pasted with full native MCQKash formatting restored!`);
+          }
+        } else {
+          alert('Clipboard does not contain native MCQKash MCQs.\n\nMake sure you copied using the "Copy MCQ" command.');
+        }
+      } catch (err) {
+        console.error('Paste MCQ failed', err);
+        alert('Failed to read clipboard. Please grant clipboard permissions.');
+      }
     } else if (commandId === 'convert') {
       executeConvertToMCQ(false);
     } else if (commandId === 'template') {
@@ -1623,6 +1729,12 @@ export default function AdminSubiStudio() {
       setShowAiDocModal(true);
     } else if (commandId === 'ai-color') {
       handleAIColorExplanation();
+    } else if (commandId === 'manual-color') {
+      setManualModalMode('color');
+      setShowManualColorModal(true);
+    } else if (commandId === 'manual-explanation') {
+      setManualModalMode('explanation');
+      setShowManualColorModal(true);
     } else if (commandId === 'ai-tag') {
       handleAIAutoTagMCQ();
     } else if (commandId === 'ai-review') {
@@ -2024,6 +2136,311 @@ export default function AdminSubiStudio() {
       alert("AI Coloring failed: " + e.message);
     } finally {
       setAiGenLoading(false);
+    }
+  };
+
+  // Manual Color Code Implementation
+  const handleCopyManualColorPrompt = () => {
+    const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
+    let targetExplanations = [];
+    if (selectedText) {
+      const { cleanText } = splitExplanationTextAndTags(selectedText);
+      targetExplanations = [cleanText];
+    } else {
+      const blocks = getSelectedOrAllBlocks();
+      const explanationItems = blocks
+        .map((block, index) => ({ block, index, expEl: block.querySelector('.nk-mcq-explanation') }))
+        .filter(item => item.expEl && item.expEl.innerText.trim());
+      targetExplanations = explanationItems.map(item => {
+        const { cleanText } = splitExplanationTextAndTags(item.expEl.innerText.trim());
+        return cleanText;
+      });
+    }
+
+    if (targetExplanations.length === 0) {
+      alert("No MCQ explanations found in the editor to color.");
+      return;
+    }
+
+    const systemPrompt = `You are a premium MCQ editor. Analyze the following MCQ explanation(s) and select the key terms, concepts, data points, or complete important lines to highlight.
+Highlighting Rules:
+- You have full creative freedom to select what to highlight. Highlight words, phrases, or even whole key concept lines if they are highly important for study.
+- Each highlighted string must match the text in the explanation EXACTLY (case-sensitive).
+- You must dynamically distribute highlights across all 6 allowed colors: 'red', 'green', 'blue', 'orange', 'magenta', 'teal' to make the explanations visually stunning, highly readable, and study-effective.
+- If a keyword is inside parentheses in the explanation (e.g. "(keyword)"), provide the keyword without the parentheses in your JSON, and the app will automatically handle coloring the parentheses.
+
+Return ONLY a valid JSON array of objects, one for each explanation in order:
+[
+  {
+    "highlights": [
+      { "text": "exact substring", "color": "blue" }
+    ]
+  }
+]
+Do NOT wrap in markdown code blocks. Do NOT include any explanation or extra text.`;
+
+    const promptText = `${systemPrompt}\n\nExplanation(s) to highlight:\n` + targetExplanations.map((exp, i) => `[Explanation ${i}]:\n${exp}`).join('\n\n');
+
+    navigator.clipboard.writeText(promptText)
+      .then(() => {
+        alert("Success: External AI Prompt & Explanations copied to clipboard! Paste it into your external AI (ChatGPT/Claude/Gemini), copy the resulting JSON, and paste it in the box below.");
+      })
+      .catch(err => {
+        alert("Failed to copy prompt: " + err.message);
+      });
+  };
+
+  const handleCopyManualExplanationPrompt = () => {
+    const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
+    let targetExplanations = [];
+    if (selectedText) {
+      const { cleanText } = splitExplanationTextAndTags(selectedText);
+      targetExplanations = [cleanText];
+    } else {
+      const blocks = getSelectedOrAllBlocks();
+      const explanationItems = blocks
+        .map((block, index) => ({ block, index, expEl: block.querySelector('.nk-mcq-explanation') }))
+        .filter(item => item.expEl && item.expEl.innerText.trim());
+      targetExplanations = explanationItems.map(item => {
+        const { cleanText } = splitExplanationTextAndTags(item.expEl.innerText.trim());
+        return cleanText;
+      });
+    }
+
+    if (targetExplanations.length === 0) {
+      alert("No MCQ explanations found in the editor to enhance.");
+      return;
+    }
+
+    const systemPrompt = `You are a world-class academic tutor and competitive exam expert. 
+Your task is to analyze the following MCQ explanation(s) and rewrite them into high-density, study-effective masterclass explanations.
+
+Rules for rewriting:
+1. Act as an expert in the subject. Do not change the core academic meaning, correct facts, or names.
+2. Structure the explanation beautifully. Keep it high-density, engaging, and clear.
+3. Keep it academically professional. Remove any chit-chat or meta-commentary.
+4. Ensure each rewritten explanation concludes with appropriate hashtags/tags representing:
+   - The difficulty (e.g. #easy, #medium, #hard).
+   - Topic area tags. IMPORTANT: Topic tags must use underscores (_) in place of spaces, e.g. #Fiscal_policy, #General_science, #Ancient_history, #Indian_economy. Do NOT use spaces in tags.
+   - Only include the tags if they are appropriate. If the original explanation already had tags, preserve and adapt them to this format.
+5. If there are tables in the explanation, keep the markdown tables formatted cleanly.
+
+Return ONLY a valid JSON array of objects, one for each explanation in order, containing the rewritten explanation (including its hashtags at the end of the text string):
+[
+  {
+    "explanation": "The fully rewritten explanation text... #difficulty #Topic"
+  }
+]
+Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Just the JSON array.`;
+
+    const promptText = `${systemPrompt}\n\nExplanation(s) to enhance:\n` + targetExplanations.map((exp, i) => `[Explanation ${i}]:\n${exp}`).join('\n\n');
+
+    navigator.clipboard.writeText(promptText)
+      .then(() => {
+        alert("Success: External AI Prompt & Explanations copied to clipboard! Paste it into your external AI, copy the resulting JSON, and paste it in the box below.");
+      })
+      .catch(err => {
+        alert("Failed to copy prompt: " + err.message);
+      });
+  };
+
+  const handleManualColorApply = () => {
+    if (!manualColorPayload.trim()) {
+      alert("Please paste the JSON payload first.");
+      return;
+    }
+
+    try {
+      let cleanedPayload = manualColorPayload.trim();
+      if (cleanedPayload.startsWith("```")) {
+        cleanedPayload = cleanedPayload.replace(/^```[a-zA-Z]*\n/, '').replace(/\n```$/, '');
+      }
+
+      const parsed = JSON.parse(cleanedPayload);
+
+      if (manualModalMode === 'explanation') {
+        let results = [];
+        if (Array.isArray(parsed)) {
+          results = parsed.map(item => {
+            if (typeof item === 'string') return item;
+            if (item && typeof item === 'object') {
+              return item.explanation || item.content || item.text || Object.values(item).find(v => typeof v === 'string') || '';
+            }
+            return '';
+          });
+        } else if (parsed && typeof parsed === 'object') {
+          if (parsed.explanation) results = [parsed.explanation];
+          else if (parsed.content) results = [parsed.content];
+          else if (parsed.text) results = [parsed.text];
+          else {
+            const firstStrVal = Object.values(parsed).find(v => typeof v === 'string');
+            results = firstStrVal ? [firstStrVal] : [];
+          }
+        } else if (typeof parsed === 'string') {
+          results = [parsed];
+        }
+
+        if (results.length === 0) {
+          alert("Invalid format. Expected JSON array of objects or strings.");
+          return;
+        }
+
+        const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
+        if (selectedText) {
+          const newExplanationText = results[0];
+          if (!newExplanationText) {
+            alert("No explanation text found in the first JSON item.");
+            return;
+          }
+          
+          const formattedHtml = convertMarkdownTablesToHtml(newExplanationText).replace(/\n/g, '<br />');
+          const selection = window.getSelection();
+          if (selection && lastSelectionRangeRef.current) {
+            selection.removeAllRanges();
+            selection.addRange(lastSelectionRangeRef.current);
+            lastSelectionRangeRef.current.deleteContents();
+            
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = formattedHtml;
+            const fragment = document.createDocumentFragment();
+            while (tempDiv.firstChild) {
+              fragment.appendChild(tempDiv.firstChild);
+            }
+            lastSelectionRangeRef.current.insertNode(fragment);
+            selection.removeAllRanges();
+          }
+        } else {
+          const blocks = getSelectedOrAllBlocks();
+          const explanationItems = blocks
+            .map((block, index) => ({ block, index, expEl: block.querySelector('.nk-mcq-explanation') }))
+            .filter(item => item.expEl && item.expEl.innerText.trim());
+
+          if (explanationItems.length === 0) {
+            alert("No MCQ explanations found in the editor to replace.");
+            return;
+          }
+
+          explanationItems.forEach((item, idx) => {
+            const newExplanationText = results[idx];
+            if (newExplanationText) {
+              const formattedHtml = convertMarkdownTablesToHtml(newExplanationText).replace(/\n/g, '<br />');
+              item.expEl.innerHTML = formattedHtml;
+            }
+          });
+        }
+
+        setManualColorPayload('');
+        setShowManualColorModal(false);
+        alert("Manual explanations successfully replaced!");
+        return;
+      }
+
+      let results = [];
+      if (Array.isArray(parsed)) {
+        results = parsed.map(p => p?.highlights || []);
+      } else if (parsed && Array.isArray(parsed.highlights)) {
+        results = [parsed.highlights];
+      } else {
+        alert("Invalid format. Expected JSON array with 'highlights' property.");
+        return;
+      }
+
+      const selectedText = lastSelectionRangeRef.current ? lastSelectionRangeRef.current.toString().trim() : '';
+      if (selectedText) {
+        const { cleanText, tagsPart } = splitExplanationTextAndTags(selectedText);
+        const highlights = results[0] || [];
+        const highlightedHtml = applyHighlightsToText(cleanText, highlights);
+        const finalHtml = [highlightedHtml, tagsPart].filter(Boolean).join(' ');
+
+        const selection = window.getSelection();
+        if (selection && lastSelectionRangeRef.current) {
+          selection.removeAllRanges();
+          selection.addRange(lastSelectionRangeRef.current);
+          lastSelectionRangeRef.current.deleteContents();
+          
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = finalHtml;
+          const fragment = document.createDocumentFragment();
+          while (tempDiv.firstChild) {
+            fragment.appendChild(tempDiv.firstChild);
+          }
+          lastSelectionRangeRef.current.insertNode(fragment);
+          selection.removeAllRanges();
+        }
+      } else {
+        const blocks = getSelectedOrAllBlocks();
+        const explanationItems = blocks
+          .map((block, index) => ({ block, index, expEl: block.querySelector('.nk-mcq-explanation') }))
+          .filter(item => item.expEl && item.expEl.innerText.trim());
+
+        if (explanationItems.length === 0) {
+          alert("No MCQ explanations found in the editor to color.");
+          return;
+        }
+
+        explanationItems.forEach((item, idx) => {
+          const highlights = results[idx] || [];
+          const text = item.expEl.innerText.trim();
+          const { cleanText, tagsPart } = splitExplanationTextAndTags(text);
+          const highlightedHtml = applyHighlightsToText(cleanText, highlights);
+          const finalExplanationHtml = convertMarkdownTablesToHtml(highlightedHtml);
+          item.expEl.innerHTML = [finalExplanationHtml, tagsPart].filter(Boolean).join(' ');
+        });
+      }
+
+      setManualColorPayload('');
+      setShowManualColorModal(false);
+      alert("Manual color coding successfully applied to explanations!");
+    } catch (err) {
+      alert("Error parsing JSON: " + err.message + "\n\nMake sure the AI output was valid JSON.");
+    }
+  };
+
+  const handleClearSelectedFormatting = () => {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+    
+    // 1. Standard formatting removal (bold, italic, underline)
+    document.execCommand('removeFormat', false, null);
+    
+    // 2. Custom color span tag removal
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    
+    const rangeIntersectsNode = (r, node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return r.intersectsNode(node);
+      }
+      const nodeRange = document.createRange();
+      nodeRange.selectNode(node);
+      return r.compareBoundaryPoints(Range.END_TO_START, nodeRange) < 0 &&
+             r.compareBoundaryPoints(Range.START_TO_END, nodeRange) > 0;
+    };
+
+    // Find closest parent span if selection is inside it
+    let parentNode = container;
+    while (parentNode && parentNode !== editorRef.current) {
+      if (parentNode.nodeName === 'SPAN' && /text-(red|green|blue|orange|magenta|teal)/.test(parentNode.className || '')) {
+        // Replace the parent span with its raw text content
+        const textNode = document.createTextNode(parentNode.innerText);
+        parentNode.parentNode.replaceChild(textNode, parentNode);
+        return;
+      }
+      parentNode = parentNode.parentNode;
+    }
+
+    // Otherwise, find all nested spans inside the selection and strip them
+    if (container.nodeType === Node.ELEMENT_NODE) {
+      const spans = Array.from(container.getElementsByTagName('span'));
+      spans.forEach(span => {
+        if (/text-(red|green|blue|orange|magenta|teal)/.test(span.className || '') && rangeIntersectsNode(range, span)) {
+          const fragment = document.createDocumentFragment();
+          while (span.firstChild) {
+            fragment.appendChild(span.firstChild);
+          }
+          span.parentNode.replaceChild(fragment, span);
+        }
+      });
     }
   };
 
@@ -2546,29 +2963,27 @@ export default function AdminSubiStudio() {
         return;
     }
 
-    // Copy Block Click (Copied HTML to cache and written NoteKash text to clipboard)
+    // Copy Block Click — copies native MCQKash HTML for perfect paste restoration
     const copyBlockBtn = e.target.closest('.nk-mcq-copy-block');
     if (copyBlockBtn) {
         const block = copyBlockBtn.closest('.nk-mcq-block');
         if (block) {
-            const question = block.querySelector('.nk-mcq-question')?.innerText || '';
-            const optEls = block.querySelectorAll('.nk-mcq-option');
-            const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-            let optsStr = '';
-            let correct = 'A';
-            optEls.forEach((opt, idx) => {
-              const isCorr = opt.getAttribute('data-is-correct') === 'true';
-              const lbl = labels[idx] || 'A';
-              if (isCorr) correct = lbl;
-              const text = opt.querySelector('.nk-mcq-option-text')?.innerText || '';
-              optsStr += `${lbl}) ${text}\n`;
-            });
-            const exp = block.querySelector('.nk-mcq-explanation')?.innerText || '';
-            const copyStr = `${question}\n${optsStr}Correct Answer: ${correct}\nExplanation: ${exp}`;
-            
-            navigator.clipboard.writeText(copyStr)
-              .then(() => alert("MCQ copied!"))
-              .catch(err => console.error(err));
+            const payload = block.outerHTML;
+            (async () => {
+                try {
+                    await navigator.clipboard.write([
+                        new ClipboardItem({
+                            'text/html': new Blob([payload], { type: 'text/html' }),
+                            'text/plain': new Blob([payload], { type: 'text/plain' }),
+                        })
+                    ]);
+                    alert('MCQ copied! Paste into any MCQKash editor to restore full native formatting.');
+                } catch {
+                    navigator.clipboard.writeText(payload)
+                        .then(() => alert('MCQ copied!'))
+                        .catch(err => console.error(err));
+                }
+            })();
         }
         return;
     }
@@ -2614,22 +3029,21 @@ export default function AdminSubiStudio() {
     }
   };
 
-  const preparePush = () => {
-    if (!editorRef.current) return;
+  const extractMCQsFromEditor = () => {
+    if (!editorRef.current) return [];
     let blocks = editorRef.current.querySelectorAll('.nk-mcq-block');
     if (blocks.length === 0) {
         const rawText = getEditorPlainText();
         const mcqs = parseMcqText(rawText);
         if (mcqs.length === 0) {
-            alert("No MCQs found. Paste NoteKash text or use / Convert to MCQ first.");
-            return;
+            return [];
         }
         replaceEditorWithMcqHtml(generateMcqHtml(mcqs));
         blocks = editorRef.current.querySelectorAll('.nk-mcq-block');
     }
 
     const extracted = [];
-    blocks.forEach((block) => {
+    blocks.forEach((block, index) => {
         const dbId = block.getAttribute('data-db-id') || null;
         let qEl = block.querySelector('.nk-mcq-question');
         let questionHtml = qEl ? qEl.innerHTML : '';
@@ -2725,6 +3139,15 @@ export default function AdminSubiStudio() {
         });
     });
 
+    return extracted;
+  };
+
+  const preparePush = () => {
+    const extracted = extractMCQsFromEditor();
+    if (extracted.length === 0) {
+        alert("No MCQs found. Paste NoteKash text or use / Convert to MCQ first.");
+        return;
+    }
     setParsedMCQs(extracted);
     setShowPreviewModal(true);
   };
@@ -3678,6 +4101,36 @@ export default function AdminSubiStudio() {
               <Settings size={18} />
             </button>
             
+            {activeMode === 'write' && (
+              <button
+                onClick={() => {
+                  if (isPreviewMode) {
+                    setIsPreviewMode(false);
+                  } else {
+                    const parsed = extractMCQsFromEditor();
+                    if (parsed.length === 0) {
+                      alert("No MCQs to preview. Start writing or formatting MCQs first.");
+                      return;
+                    }
+                    const previewData = parsed.map((q, idx) => ({
+                      ...q,
+                      id: q.id || `preview_${idx}`
+                    }));
+                    setPreviewQuestions(previewData);
+                    setIsPreviewMode(true);
+                  }
+                }}
+                className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all shadow-sm shrink-0 border ${
+                  isPreviewMode 
+                    ? 'bg-amber-500 text-white border-amber-500 hover:bg-amber-600' 
+                    : 'text-theme-muted hover:text-theme-primary hover:bg-theme-primary/10 border-theme-border'
+                }`}
+                title={isPreviewMode ? "Switch to Write Mode" : "Preview MCQs (App View)"}
+              >
+                {isPreviewMode ? <Edit3 size={18} /> : <Eye size={18} />}
+              </button>
+            )}
+
             {activeMode !== 'review' && (
               <button 
                 onClick={activeMode === 'write' ? preparePush : () => pushExamsToSupabase(exams)} 
@@ -3804,24 +4257,54 @@ export default function AdminSubiStudio() {
                     style={{ top: textToolbar.top, left: textToolbar.left }}
                 >
                     <div className="flex items-center gap-1 border-r border-theme-border pr-2 mr-2">
-                        <button
-                            onClick={() => {
-                                document.execCommand('bold', false, null);
-                            }}
-                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"
-                            title="Bold"
+                        {/* Nested Hover Formatting Menu */}
+                        <div 
+                            className="relative"
+                            onMouseEnter={() => setShowFormatMenu(true)}
+                            onMouseLeave={() => setShowFormatMenu(false)}
                         >
-                            <Bold size={14} />
-                        </button>
-                        <button
-                            onClick={() => {
-                                document.execCommand('italic', false, null);
-                            }}
-                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"
-                            title="Italic"
-                        >
-                            <Italic size={14} />
-                        </button>
+                            <button
+                                className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all active:scale-95 hover:bg-theme-surface ${showFormatMenu ? 'text-theme-primary bg-theme-primary/10' : 'text-theme-muted'}`}
+                                title="Formatting Options"
+                            >
+                                <Type size={15} />
+                            </button>
+                            
+                            {showFormatMenu && (
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 pb-2">
+                                    <div className="bg-theme-bg border border-theme-border rounded-lg shadow-xl flex items-center p-1.5 gap-1.5 animate-in fade-in slide-in-from-bottom-2 backdrop-blur-md">
+                                        <button
+                                            onClick={() => document.execCommand('bold', false, null)}
+                                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"
+                                            title="Bold"
+                                        >
+                                            <Bold size={13} />
+                                        </button>
+                                        <button
+                                            onClick={() => document.execCommand('italic', false, null)}
+                                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"
+                                            title="Italic"
+                                        >
+                                            <Italic size={13} />
+                                        </button>
+                                        <button
+                                            onClick={() => document.execCommand('underline', false, null)}
+                                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"
+                                            title="Underline"
+                                        >
+                                            <Underline size={13} />
+                                        </button>
+                                        <button
+                                            onClick={handleClearSelectedFormatting}
+                                            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-rose-500 text-theme-muted hover:scale-105 transition-all active:scale-95"
+                                            title="Clear Formatting"
+                                        >
+                                            <Eraser size={13} />
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className="flex items-center gap-1 border-r border-theme-border pr-2 mr-2">
@@ -3846,9 +4329,29 @@ export default function AdminSubiStudio() {
                 </div>
             )}
 
+            {isPreviewMode && (
+              <div className="flex-1 overflow-y-auto p-6 md:p-8 pb-20 space-y-6 custom-scrollbar bg-theme-bg/30">
+                <div className="max-w-2xl mx-auto space-y-6">
+                  {previewQuestions.map((q, idx) => (
+                    <div key={q.id || idx} className="relative">
+                      <div className="absolute -left-10 top-4 w-7 h-7 rounded-full bg-theme-primary/10 border border-theme-primary/20 flex items-center justify-center text-xs font-black text-theme-primary select-none hidden md:flex shadow-sm">
+                        {idx + 1}
+                      </div>
+                      <McqCard 
+                        questionData={q} 
+                        showExplanationToggle={false} 
+                        mode="result"
+                        externalSelection={q.correctId}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div 
                 ref={editorRef}
-                className="flex-1 overflow-y-auto p-6 md:p-8 pb-20 outline-none nk-editor-area custom-scrollbar text-[1rem] md:text-[1.05rem]"
+                className={`flex-1 overflow-y-auto p-6 md:p-8 pb-20 outline-none nk-editor-area custom-scrollbar text-[1rem] md:text-[1.05rem] ${isPreviewMode ? 'hidden' : ''}`}
                 contentEditable={true}
                 suppressContentEditableWarning={true}
                 onInput={handleEditorInput}
@@ -3861,15 +4364,17 @@ export default function AdminSubiStudio() {
             >
                 <p><br/></p>
             </div>
-
+ 
             {/* Floating Command Palette Trigger */}
-            <button
-              onClick={handleOpenCmdPaletteFromIcon}
-              className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-theme-primary hover:bg-theme-primary/95 text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-30 border border-theme-primary/20"
-              title="Open Command Palette"
-            >
-              <Command size={20} />
-            </button>
+            {!isPreviewMode && (
+              <button
+                onClick={handleOpenCmdPaletteFromIcon}
+                className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-theme-primary hover:bg-theme-primary/95 text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-30 border border-theme-primary/20"
+                title="Open Command Palette"
+              >
+                <Command size={20} />
+              </button>
+            )}
 
             {/* Searchable Command Palette Overlay */}
             {cmdPalette.show && (
@@ -4511,6 +5016,46 @@ export default function AdminSubiStudio() {
             <div className="flex gap-3">
               <button onClick={() => setShowAiDocModal(false)} className="flex-1 py-2.5 bg-theme-bg border border-theme-border rounded-xl text-xs font-bold text-theme-muted hover:text-theme-text">Cancel</button>
               <button onClick={handleAIDocToMCQs} className="flex-1 py-2.5 bg-theme-primary text-white rounded-xl text-xs font-bold shadow-md hover:opacity-90">Generate MCQs</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Manual Color / Explanation Modal */}
+      {showManualColorModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-theme-surface border border-theme-border rounded-2xl w-full max-w-md shadow-2xl p-6 space-y-4 animate-in zoom-in-95 duration-200">
+            <h3 className="font-black text-lg text-theme-text flex items-center gap-2 uppercase tracking-tight">
+              <Sparkles size={18} className="text-emerald-500" /> {manualModalMode === 'explanation' ? 'Manual Explanation' : 'Manual Color Code'}
+            </h3>
+            
+            <button 
+              onClick={manualModalMode === 'explanation' ? handleCopyManualExplanationPrompt : handleCopyManualColorPrompt}
+              className="w-full py-2.5 bg-theme-primary/10 border border-theme-primary/30 hover:bg-theme-primary/20 text-theme-primary rounded-xl text-xs font-bold transition duration-200"
+            >
+              Copy Prompt & Explanations
+            </button>
+
+            <textarea
+              value={manualColorPayload}
+              onChange={(e) => setManualColorPayload(e.target.value)}
+              placeholder={manualModalMode === 'explanation' ? 'Paste the JSON array of rewritten explanations here...' : 'Paste the JSON response here...'}
+              className="w-full h-36 bg-theme-bg border border-theme-border rounded-xl p-3 text-xs font-semibold outline-none focus:border-theme-primary text-theme-text resize-none custom-scrollbar"
+            />
+
+            <div className="flex gap-3">
+              <button 
+                onClick={() => { setShowManualColorModal(false); setManualColorPayload(''); }} 
+                className="flex-1 py-2.5 bg-theme-bg border border-theme-border rounded-xl text-xs font-bold text-theme-muted hover:text-theme-text"
+              >
+                Cancel
+              </button>
+              <button 
+                onClick={handleManualColorApply} 
+                className="flex-1 py-2.5 bg-theme-primary text-white rounded-xl text-xs font-bold shadow-md hover:opacity-90 transition duration-200"
+              >
+                {manualModalMode === 'explanation' ? 'Replace Explanations' : 'Apply Highlights'}
+              </button>
             </div>
           </div>
         </div>

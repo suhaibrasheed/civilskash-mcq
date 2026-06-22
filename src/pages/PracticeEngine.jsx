@@ -60,7 +60,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [selectedDifficulties, setSelectedDifficulties] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [pyqOnly, setPyqOnly] = useState(false);
-  const [sortBy, setSortBy] = useState('default');
+  const [sortBy, setSortBy] = useState('random');
   const [searchTerm, setSearchTerm] = useState('');
   const [showAllTags, setShowAllTags] = useState(false);
 
@@ -132,7 +132,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       setSelectedDifficulties(prefs?.selectedDifficulties || []);
       setSelectedTags(prefs?.selectedTags || []);
       setPyqOnly(prefs?.pyqOnly || false);
-      setSortBy(prefs?.sortBy || 'default');
+      setSortBy(prefs?.sortBy || 'random');
       setRandomSeed(prefs?.randomSeed || Date.now());
       setVisibleCount(PAGE_SIZE);
       setPrefsLoaded(true);
@@ -327,8 +327,8 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     return result.length;
   }, [allQuestions, selectedDifficulties, selectedTags, pyqOnly, isTagMode, tag, searchTerm]);
 
-  const hasActiveFilters = selectedDifficulties.length > 0 || selectedTags.length > 0 || pyqOnly || sortBy !== 'default' || searchTerm.trim() !== '';
-  const activeFilterCount = selectedDifficulties.length + selectedTags.length + (pyqOnly ? 1 : 0) + (sortBy !== 'default' ? 1 : 0) + (searchTerm.trim() !== '' ? 1 : 0);
+  const hasActiveFilters = selectedDifficulties.length > 0 || selectedTags.length > 0 || pyqOnly || sortBy !== 'random' || searchTerm.trim() !== '';
+  const activeFilterCount = selectedDifficulties.length + selectedTags.length + (pyqOnly ? 1 : 0) + (sortBy !== 'random' ? 1 : 0) + (searchTerm.trim() !== '' ? 1 : 0);
 
   const loadMore = () => setVisibleCount(prev => prev + PAGE_SIZE);
 
@@ -351,7 +351,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     setSelectedDifficulties([]);
     setSelectedTags([]);
     setPyqOnly(false);
-    setSortBy('default');
+    setSortBy('random');
     setRandomSeed(Date.now());
     setSearchTerm('');
     setVisibleCount(PAGE_SIZE);

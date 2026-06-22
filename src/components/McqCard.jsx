@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { toggleBookmarkDB, isBookmarkedDB, markQuestionForResurrection } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { useSound } from '../context/SoundContext';
-import { queryGenerativeAI, renderMathInHtmlString, applyHighlightsToText } from '../lib/ai';
+import { queryGenerativeAI, renderMathInHtmlString, applyHighlightsToText, formatExplanationLayout } from '../lib/ai';
 import { useToast } from '../context/ToastContext';
 
 /**
@@ -640,7 +640,7 @@ export default function McqCard({
               ) : (
                 <div className="space-y-4">
                   <div className="mcq-explanation-content text-theme-text leading-relaxed">
-                    <div dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(questionData.explanation) }} />
+                    <div dangerouslySetInnerHTML={{ __html: formatExplanationLayout(renderMathInHtmlString(questionData.explanation)) }} />
                   </div>
 
                   {/* AI Response Area */}

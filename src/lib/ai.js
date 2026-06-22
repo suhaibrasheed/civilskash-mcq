@@ -253,8 +253,20 @@ export function applyHighlightsToText(text, highlights) {
     sorted.forEach((hl) => {
       if (!hl.text || !hl.text.trim()) return;
       const escaped = hl.text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-      let regex = new RegExp(`\\b${escaped}\\b`, 'gi');
-      if (!regex.test(result)) regex = new RegExp(escaped, 'gi');
+      const hasParentheses = hl.text.startsWith('(') || hl.text.endsWith(')');
+      
+      let pattern;
+      let patternFallback;
+      if (hasParentheses) {
+        pattern = `\\b${escaped}\\b`;
+        patternFallback = escaped;
+      } else {
+        pattern = `(?:\\()?(\\b${escaped}\\b)(?:\\))?`;
+        patternFallback = `(?:\\()?(${escaped})(?:\\))?`;
+      }
+      
+      let regex = new RegExp(pattern, 'gi');
+      if (!regex.test(result)) regex = new RegExp(patternFallback, 'gi');
       regex.lastIndex = 0;
       result = result.replace(regex, (match) => {
         const placeholder = `___HL_PLACEHOLDER_${placeholders.length}___`;
@@ -588,4 +600,42 @@ export function convertMarkdownToHtml(text) {
   // italic: *text*
   result = result.replace(/\*([^\*]+?)\*/g, '<em>$1</em>');
   return result;
+}
+
+/**
+ * Formats the explanation layout into a 2-column flexbox container if a left/right aligned image is present.
+ * This aligns the image on the left/right and centers the text vertically next to it.
+ */
+export function formatExplanationLayout(html) {
+  if (!html) return '';
+  // Check for img tag with data-align="left" or "right"
+  const imgRegex = /<img[^>]*data-align=["'](left|right)["'][^>]*>/i;
+  const match = html.match(imgRegex);
+  if (match) {
+    const align = match[1].toLowerCase();
+    const fullImgTag = match[0];
+    
+    // Remove the image tag from the rest of the content
+    const cleanHtml = html.replace(fullImgTag, '').trim();
+    
+    // Strip inline width/height styles from the image if present to allow fluid responsive scaling
+    const fluidImgTag = fullImgTag.replace(/style=["'][^"']*["']/i, '');
+    
+    if (align === 'left') {
+      return `
+        <div class="flex flex-col md:flex-row items-center gap-5 w-full">
+          <div class="flex-shrink-0 w-full md:max-w-[45%] flex justify-center">${fluidImgTag}</div>
+          <div class="flex-1">${cleanHtml}</div>
+        </div>
+      `;
+    } else if (align === 'right') {
+      return `
+        <div class="flex flex-col md:flex-row-reverse items-center gap-5 w-full">
+          <div class="flex-shrink-0 w-full md:max-w-[45%] flex justify-center">${fluidImgTag}</div>
+          <div class="flex-1">${cleanHtml}</div>
+        </div>
+      `;
+    }
+  }
+  return html;
 }
