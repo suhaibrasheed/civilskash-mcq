@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Header from '../components/Header';
 import McqCard from '../components/McqCard';
-import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff } from 'lucide-react';
+import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff, Lock, LogOut } from 'lucide-react';
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
@@ -116,6 +116,7 @@ export default function AdminSubiStudio() {
   
   // Passcode states
   const [isPasscodeValid, setIsPasscodeValid] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [isValidatingStored, setIsValidatingStored] = useState(true);
   const [passcodeAttempt, setPasscodeAttempt] = useState('');
   const [passcodeError, setPasscodeError] = useState(false);
@@ -132,6 +133,7 @@ export default function AdminSubiStudio() {
         localStorage.removeItem('civilsKash_adminPassword');
         setIsAdminUser(false);
         setIsPasscodeValid(false);
+        setIsSuperAdmin(false);
         setIsValidatingStored(false);
         return;
       }
@@ -139,6 +141,7 @@ export default function AdminSubiStudio() {
       const stored = localStorage.getItem('civilsKash_adminPassword');
       if (!stored) {
         setIsPasscodeValid(false);
+        setIsSuperAdmin(false);
         setIsValidatingStored(false);
         return;
       }
@@ -146,6 +149,7 @@ export default function AdminSubiStudio() {
       if (!isSupabaseConfigured()) {
         localStorage.removeItem('civilsKash_adminPassword');
         setIsPasscodeValid(false);
+        setIsSuperAdmin(false);
         setIsValidatingStored(false);
         return;
       }
@@ -166,6 +170,7 @@ export default function AdminSubiStudio() {
         if (!adminOk) {
           localStorage.removeItem('civilsKash_adminPassword');
           setIsPasscodeValid(false);
+          setIsSuperAdmin(false);
           setAdminCheckError('This doesnt seem to be account of Admin');
           return;
         }
@@ -173,15 +178,19 @@ export default function AdminSubiStudio() {
         const { data, error } = await supabase.rpc('verify_admin_passcode', { entered_passcode: stored });
         if (!error && data === true) {
           setIsPasscodeValid(true);
+          const { data: isSuper } = await supabase.rpc('verify_superadmin_passcode', { entered_passcode: stored });
+          setIsSuperAdmin(isSuper === true);
         } else {
           localStorage.removeItem('civilsKash_adminPassword');
           setIsPasscodeValid(false);
+          setIsSuperAdmin(false);
         }
       } catch (err) {
         console.error("Passcode verification error:", err);
         localStorage.removeItem('civilsKash_adminPassword');
         setIsAdminUser(false);
         setIsPasscodeValid(false);
+        setIsSuperAdmin(false);
         setAdminCheckError('Could not verify admin profile.');
       } finally {
         setIsValidatingStored(false);
@@ -3240,6 +3249,10 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
   };
 
   const handleTriggerManualSync = async () => {
+    if (!isSuperAdmin) {
+      alert("Access Denied: You do not have Super Admin permissions to run the Syncer.");
+      return;
+    }
     if (!isSupabaseConfigured()) {
       alert("Supabase URL is missing. Add VITE_SUPABASE_URL to your environment before syncing.");
       return;
@@ -3447,9 +3460,13 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
   useEffect(() => {
     if (activeMode === 'review') {
+      if (!isSuperAdmin) {
+        setActiveMode('write');
+        return;
+      }
       fetchReviewQuestions();
     }
-  }, [activeMode, selectedCategory, fetchReviewQuestions]);
+  }, [activeMode, selectedCategory, fetchReviewQuestions, isSuperAdmin]);
 
   const copyQuestionNoteKash = (q) => {
     try {
@@ -3774,6 +3791,10 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
   };
 
   const handleBulkExportBackup = async () => {
+    if (!isSuperAdmin) {
+      alert("Access Denied: You do not have Super Admin permissions to Bulk Export.");
+      return;
+    }
     setBackupLoading(true);
     try {
       if (!isSupabaseConfigured()) {
@@ -3844,6 +3865,10 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
   };
 
   const handleBackupFileSelected = async (event) => {
+    if (!isSuperAdmin) {
+      alert("Access Denied: You do not have Super Admin permissions to Bulk Import.");
+      return;
+    }
     const file = event.target.files?.[0];
     event.target.value = '';
     if (!file) return;
@@ -3965,8 +3990,12 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
         localStorage.setItem('civilsKash_adminPassword', passcodeAttempt);
         setPasscodeError(false);
         setAdminCheckError('');
+        
+        const { data: isSuper } = await supabase.rpc('verify_superadmin_passcode', { entered_passcode: passcodeAttempt });
+        setIsSuperAdmin(isSuper === true);
       } else {
         setPasscodeError(true);
+        setIsSuperAdmin(false);
       }
     } catch (err) {
       console.error(err);
@@ -4099,6 +4128,19 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
               title="Workspace Mode"
             >
               <Settings size={18} />
+            </button>
+
+            <button 
+              onClick={() => {
+                localStorage.removeItem('civilsKash_adminPassword');
+                setIsPasscodeValid(false);
+                setIsSuperAdmin(false);
+                setPasscodeAttempt('');
+              }} 
+              className="w-10 h-10 flex items-center justify-center text-theme-muted hover:text-rose-500 hover:bg-rose-500/10 border border-theme-border rounded-xl transition-all shadow-sm shrink-0"
+              title="Logout / Reset Passcode"
+            >
+              <LogOut size={18} />
             </button>
             
             {activeMode === 'write' && (
@@ -4907,18 +4949,36 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                       </div>
                     </button>
 
-                    <button 
-                      onClick={() => { setActiveMode('review'); setShowSettingsModal(false); }}
-                      className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all group ${activeMode === 'review' ? 'border-purple-500 bg-purple-500/5 shadow-md' : 'border-theme-border hover:border-purple-500/30 hover:bg-theme-bg/55'}`}
-                    >
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:rotate-12 ${activeMode === 'review' ? 'bg-purple-500 text-white shadow-sm' : 'bg-theme-border text-theme-muted'}`}>
-                        <FileText size={18} />
+                    {isSuperAdmin ? (
+                      <button 
+                        onClick={() => { setActiveMode('review'); setShowSettingsModal(false); }}
+                        className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all group ${activeMode === 'review' ? 'border-purple-500 bg-purple-500/5 shadow-md' : 'border-theme-border hover:border-purple-500/30 hover:bg-theme-bg/55'}`}
+                      >
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:rotate-12 ${activeMode === 'review' ? 'bg-purple-500 text-white shadow-sm' : 'bg-theme-border text-theme-muted'}`}>
+                          <FileText size={18} />
+                        </div>
+                        <div className="text-center">
+                          <span className={`block font-black text-xs ${activeMode === 'review' ? 'text-theme-text' : 'text-theme-muted'}`}>Review</span>
+                          <span className="text-[7px] uppercase tracking-widest text-theme-muted font-bold mt-0.5 opacity-60">Database</span>
+                        </div>
+                      </button>
+                    ) : (
+                      <div 
+                        className="flex flex-col items-center gap-3 p-4 rounded-xl border-2 border-theme-border bg-theme-bg/20 opacity-50 relative select-none cursor-not-allowed"
+                        title="Super Admin Only"
+                      >
+                        <div className="absolute top-2 right-2 text-rose-500">
+                          <Lock size={12} />
+                        </div>
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-theme-border text-theme-muted">
+                          <FileText size={18} />
+                        </div>
+                        <div className="text-center">
+                          <span className="block font-black text-xs text-theme-muted">Review</span>
+                          <span className="text-[7px] uppercase tracking-widest text-theme-muted font-bold mt-0.5 opacity-60">Database</span>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <span className={`block font-black text-xs ${activeMode === 'review' ? 'text-theme-text' : 'text-theme-muted'}`}>Review</span>
-                        <span className="text-[7px] uppercase tracking-widest text-theme-muted font-bold mt-0.5 opacity-60">Database</span>
-                      </div>
-                    </button>
+                    )}
                   </div>
                </div>
 
@@ -4931,30 +4991,58 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                     className="hidden"
                   />
 
-                  <button
-                    onClick={handleTriggerManualSync}
-                    disabled={syncLoading}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 mb-3 rounded-xl bg-theme-primary hover:opacity-90 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
-                  >
-                    <RefreshCw size={16} className={syncLoading ? 'animate-spin' : ''} />
-                    {syncLoading ? 'Syncing...' : 'Syncer'}
-                  </button>
+                  {isSuperAdmin ? (
+                    <button
+                      onClick={handleTriggerManualSync}
+                      disabled={syncLoading}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 mb-3 rounded-xl bg-theme-primary hover:opacity-90 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
+                    >
+                      <RefreshCw size={16} className={syncLoading ? 'animate-spin' : ''} />
+                      {syncLoading ? 'Syncing...' : 'Syncer'}
+                    </button>
+                  ) : (
+                    <button
+                      disabled
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 mb-3 rounded-xl bg-theme-bg border border-theme-border text-theme-muted text-xs font-black uppercase tracking-wider transition-all cursor-not-allowed opacity-50 select-none"
+                    >
+                      <Lock size={14} className="text-rose-500" /> Syncer
+                    </button>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <button
-                      onClick={handleBulkExportBackup}
-                      disabled={backupLoading}
-                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-bg hover:bg-theme-surface-hover border border-theme-border text-theme-text text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
-                    >
-                      <Download size={16} /> Bulk Export
-                    </button>
-                    <button
-                      onClick={() => backupImportRef.current?.click()}
-                      disabled={backupLoading}
-                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
-                    >
-                      <Upload size={16} /> Bulk Import
-                    </button>
+                    {isSuperAdmin ? (
+                      <button
+                        onClick={handleBulkExportBackup}
+                        disabled={backupLoading}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-bg hover:bg-theme-surface-hover border border-theme-border text-theme-text text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
+                      >
+                        <Download size={16} /> Bulk Export
+                      </button>
+                    ) : (
+                      <button
+                        disabled
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-bg border border-theme-border text-theme-muted text-xs font-black uppercase tracking-wider cursor-not-allowed opacity-50 select-none"
+                      >
+                        <Lock size={14} className="text-rose-500" /> Bulk Export
+                      </button>
+                    )}
+
+                    {isSuperAdmin ? (
+                      <button
+                        onClick={() => backupImportRef.current?.click()}
+                        disabled={backupLoading}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-black uppercase tracking-wider transition-all disabled:opacity-60"
+                      >
+                        <Upload size={16} /> Bulk Import
+                      </button>
+                    ) : (
+                      <button
+                        disabled
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-bg border border-theme-border text-theme-muted text-xs font-black uppercase tracking-wider cursor-not-allowed opacity-50 select-none"
+                      >
+                        <Lock size={14} className="text-rose-500" /> Bulk Import
+                      </button>
+                    )}
                   </div>
                </div>
             </div>
