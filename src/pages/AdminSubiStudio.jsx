@@ -45,7 +45,7 @@ const DEFAULT_CATEGORIES = [
   { id: 'jk-affairs', name: 'JK Affairs' }
 ];
 
-const RESIZE_STEPS = [15, 25, 35, 50, 65, 80, 100];
+const RESIZE_STEPS = [15, 25, 35, 45, 50, 60, 70, 80, 90, 100];
 
 const normalizeTagName = (tag) => {
   return String(tag || '')
@@ -256,7 +256,19 @@ export default function AdminSubiStudio() {
   const filteredCommands = ALL_COMMANDS.filter(cmd => 
     cmd.label.toLowerCase().includes(cmdQuery.toLowerCase()) ||
     cmd.desc.toLowerCase().includes(cmdQuery.toLowerCase())
-  );
+  ).sort((a, b) => {
+    const q = cmdQuery.toLowerCase();
+    const aLabelMatch = a.label.toLowerCase().includes(q);
+    const bLabelMatch = b.label.toLowerCase().includes(q);
+    if (aLabelMatch && !bLabelMatch) return -1;
+    if (!aLabelMatch && bLabelMatch) return 1;
+    if (aLabelMatch && bLabelMatch) {
+      const aStart = a.label.toLowerCase().indexOf(q);
+      const bStart = b.label.toLowerCase().indexOf(q);
+      if (aStart !== bStart) return aStart - bStart;
+    }
+    return 0;
+  });
 
   // Text Toolbar State
   const [textToolbar, setTextToolbar] = useState({ show: false, top: 0, left: 0 });
@@ -2727,6 +2739,21 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
     const selection = window.getSelection();
     if (selection && selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
+        
+        if (!range.collapsed) {
+            range.deleteContents();
+            const span = document.createElement('span');
+            span.className = isSpecial ? (tag==='hard'?'text-rose-500 font-bold':tag==='medium'?'text-blue-500 font-bold':'text-emerald-500 font-bold') : 'text-theme-primary font-medium';
+            const tagValue = isSpecial ? tag : tag.replace(/\s+/g, '_');
+            span.textContent = `#${tagValue} `;
+            range.insertNode(span);
+            range.setStartAfter(span);
+            range.collapse(true);
+            selection.removeAllRanges();
+            setTagPalette(p => ({ ...p, show: false }));
+            return;
+        }
+
         const textNode = range.startContainer;
         const text = textNode.textContent || '';
         const match = text.match(/#([a-zA-Z0-9_]*)$/);
@@ -2750,6 +2777,20 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
     const selection = window.getSelection();
     if (selection && selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
+        
+        if (!range.collapsed) {
+            range.deleteContents();
+            const span = document.createElement('span');
+            span.className = 'text-amber-500 font-bold pyq-marker';
+            span.textContent = `[[${exam.name} ]]`;
+            range.insertNode(span);
+            range.setStartAfter(span);
+            range.collapse(true);
+            selection.removeAllRanges();
+            setPyqPalette(p => ({ ...p, show: false }));
+            return;
+        }
+
         const textNode = range.startContainer;
         const text = textNode.textContent || '';
         const match = text.match(/\[\[([a-zA-Z0-9_\s]*)$/);
@@ -3035,6 +3076,105 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
             }
         }
         return;
+    }
+    // Click on hashtag or PYQ in explanation to trigger suggestion palettes
+    const explanationBlock = e.target.closest('.nk-mcq-explanation');
+    if (explanationBlock) {
+        const selection = window.getSelection();
+        let range = null, isTag = false, isPyq = false, query = '';
+
+        const tagSpan = e.target.closest('.nk-mcq-explanation span');
+        if (tagSpan) {
+            const text = tagSpan.textContent.trim();
+            isTag = text.startsWith('#');
+            isPyq = text.startsWith('[[') || tagSpan.classList.contains('pyq-marker');
+            if (isTag || isPyq) {
+                if (tagPalette.show || pyqPalette.show || selection.toString().trim() === text) {
+                    setTagPalette(p => ({ ...p, show: false }));
+                    setPyqPalette(p => ({ ...p, show: false }));
+                    return;
+                }
+                range = document.createRange();
+                range.selectNode(tagSpan);
+                selection.removeAllRanges();
+                selection.addRange(range);
+                query = isTag ? text.slice(1) : text.replace(/[\[\]]/g, '');
+                query = query.toLowerCase().replace(/_/g, ' ').trim();
+            }
+        } else if (selection && selection.rangeCount > 0) {
+            // Fallback to text node click
+            const textRange = selection.getRangeAt(0);
+            const node = textRange.startContainer;
+            if (node && node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent || '';
+                const offset = textRange.startOffset;
+                
+                let start = offset;
+                while (start > 0 && !/\s/.test(text[start - 1]) && text[start - 1] !== '[' && text[start - 1] !== ']') start--;
+                let end = offset;
+                while (end < text.length && !/\s/.test(text[end]) && text[end] !== '[' && text[end] !== ']') end++;
+                
+                const clickedWord = text.substring(start, end).trim();
+                if (clickedWord.startsWith('#')) {
+                    isTag = true;
+                    query = clickedWord.slice(1).toLowerCase().replace(/_/g, ' ');
+                    range = document.createRange();
+                    range.setStart(node, start);
+                    range.setEnd(node, end);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                } else {
+                    let pyqStart = offset;
+                    while (pyqStart > 0 && text[pyqStart] !== '[' && text[pyqStart - 1] !== '[') pyqStart--;
+                    if (pyqStart >= 1 && text[pyqStart - 1] === '[' && text[pyqStart] === '[') {
+                        let pyqEnd = offset;
+                        while (pyqEnd < text.length && text[pyqEnd] !== ']' && text[pyqEnd + 1] !== ']') pyqEnd++;
+                        if (pyqEnd + 1 < text.length && text[pyqEnd] === ']' && text[pyqEnd + 1] === ']') {
+                            isPyq = true;
+                            query = text.substring(pyqStart + 1, pyqEnd).trim().toLowerCase();
+                            range = document.createRange();
+                            range.setStart(node, pyqStart - 1);
+                            range.setEnd(node, pyqEnd + 2);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (range && (isTag || isPyq)) {
+            const rect = range.getBoundingClientRect();
+            const editorRect = editorRef.current.getBoundingClientRect();
+            const pWidth = isTag ? 192 : 256;
+            
+            let top = rect.bottom - editorRect.top + 10;
+            let left = Math.max(10, Math.min(rect.left - editorRect.left, editorRect.width - pWidth - 10));
+            if (top + 200 > editorRef.current.clientHeight - 10) {
+                top = Math.max(10, rect.top - editorRect.top - 210);
+            }
+
+            if (isTag) {
+                const existingTags = categoryTags[selectedCategory] || [];
+                setTagPalette({
+                    show: true,
+                    query,
+                    top,
+                    left,
+                    selectedIndex: 0,
+                    results: ['easy', 'medium', 'hard', ...existingTags]
+                });
+            } else {
+                setPyqPalette({
+                    show: true,
+                    query,
+                    top,
+                    left,
+                    selectedIndex: 0,
+                    results: EXAM_SERIES
+                });
+            }
+        }
     }
   };
 
@@ -4266,7 +4406,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                         <input 
                             type="range"
                             min="0"
-                            max="6"
+                            max={RESIZE_STEPS.length - 1}
                             step="1"
                             value={RESIZE_STEPS.indexOf(RESIZE_STEPS.reduce((p, c) => Math.abs(c - imgToolbar.currentWidth) < Math.abs(p - imgToolbar.currentWidth) ? c : p))}
                             onChange={(e) => {

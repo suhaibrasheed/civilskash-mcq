@@ -2243,5 +2243,28 @@ textarea.text-theme-text {
   z-index: 2;
 }
 
+/* Image alignments for MCQKash */
+.nk-mcq-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+.nk-mcq-image[data-align="left"] {
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.nk-mcq-image[data-align="center"] {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.nk-mcq-image[data-align="right"] {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
 
 

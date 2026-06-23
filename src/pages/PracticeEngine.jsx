@@ -54,6 +54,16 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [mistakeIds, setMistakeIds] = useState(new Set());
   const [randomSeed, setRandomSeed] = useState(Date.now());
   const [prefsLoaded, setPrefsLoaded] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
+
+  const handleSelectOption = (question, selectedOptionId) => {
+    if (selectedOptionId === question.correctId) {
+      setCorrectCount(prev => prev + 1);
+    } else {
+      setWrongCount(prev => prev + 1);
+    }
+  };
 
   // Filter state
   const [showFilters, setShowFilters] = useState(false);
@@ -793,6 +803,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
                   showExplanationToggle={true}
                   onTagClick={handleTagClick}
                   searchTerm={searchTerm}
+                  onSelect={(optionId) => handleSelectOption(q, optionId)}
                 />
               ))}
 
@@ -854,6 +865,33 @@ export default function PracticeEngine({ isPyqArchive = false }) {
           )}
         </div>
       </main>
+
+      {/* Floating Session Score Widget */}
+      <AnimatePresence>
+        {(correctCount > 0 || wrongCount > 0) && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="fixed bottom-6 left-6 z-50 flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-white/5 dark:bg-white/[0.02] backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+          >
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-black text-emerald-500 dark:text-emerald-400">{correctCount}</span>
+              <svg className="w-4 h-4 text-emerald-500 drop-shadow-[0_0_4px_rgba(16,185,129,0.2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div className="w-[1px] h-4 bg-black/[0.08] dark:bg-white/[0.08]" />
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-black text-rose-500 dark:text-rose-400">{wrongCount}</span>
+              <svg className="w-4 h-4 text-rose-500 drop-shadow-[0_0_4px_rgba(239,68,68,0.2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
