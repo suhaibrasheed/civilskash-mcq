@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Header from '../components/Header';
 import McqCard from '../components/McqCard';
-import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff, Lock, LogOut } from 'lucide-react';
+import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, Video, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff, Lock, LogOut } from 'lucide-react';
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
@@ -10,6 +10,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
 import { parseBulkMCQText } from '../lib/mcqParser';
+import { convertVideoCodesToTags, videoHtmlTemplate } from '../lib/video';
 
 // Exact NoteKash Colors for Text Toolbar
 const TEXT_COLORS = [
@@ -239,6 +240,7 @@ export default function AdminSubiStudio() {
     { id: 'convert', label: 'Convert to MCQ', icon: <Wand2 size={14} />, desc: 'Parse text details into standard blocks' },
     { id: 'template', label: 'Insert MCQ Template', icon: <Layers size={14} />, desc: 'Create a blank MCQ template' },
     { id: 'img-insert', label: 'Insert Image by Link', icon: <ImageIcon size={14} />, desc: 'Add image using URL' },
+    { id: 'vid-insert', label: 'Insert Video by Link', icon: <Video size={14} />, desc: 'Add YouTube, Instagram, or X video using URL' },
     { id: 'ai-generate', label: 'AI: Generate MCQ', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Draft an MCQ from a prompt/topic' },
     { id: 'ai-complete', label: 'AI: Complete MCQ & Explanation', icon: <Sparkles size={14} className="text-amber-500" />, desc: 'Autofill remaining options and explanation' },
     { id: 'ai-doc', label: 'AI: Document to MCQs', icon: <FileText size={14} className="text-amber-500" />, desc: 'Bulk generate MCQs from a document' },
@@ -969,7 +971,7 @@ export default function AdminSubiStudio() {
           const optionsHtml = mcq.options.map((optText, idx) => {
               const id = labels[idx] || 'a';
               const isCorrect = correctId === id;
-              const cleanOptText = convertImgCodesToTags(optText);
+              const cleanOptText = convertVideoCodesToTags(convertImgCodesToTags(optText));
               return `
               <div class="nk-mcq-option" data-is-correct="${isCorrect ? 'true' : 'false'}">
                   <div class="nk-mcq-option-radio" contenteditable="false"></div>
@@ -977,12 +979,12 @@ export default function AdminSubiStudio() {
                   <button class="nk-mcq-delete-option" contenteditable="false" title="Remove Option"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
               </div>`;
           }).join('');
-
+ 
           const tagsHtml = tags.length > 0 ? ` data-tags="${tags.join(',')}"` : '';
           const difficultyHtml = difficulty ? ` data-difficulty="${difficulty}"` : '';
-
-          const cleanQuestion = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertImgCodesToTags(mcq.question)));
-          const cleanExplanation = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertImgCodesToTags(exp)));
+ 
+          const cleanQuestion = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertVideoCodesToTags(convertImgCodesToTags(mcq.question))));
+          const cleanExplanation = convertMarkdownToHtml(convertMarkdownTablesToHtml(convertVideoCodesToTags(convertImgCodesToTags(exp))));
 
           return `
           <div class="nk-mcq-block" contenteditable="false">
@@ -1080,56 +1082,62 @@ export default function AdminSubiStudio() {
   }, [textToolbar.show]);
 
   useEffect(() => {
-    const handleDocumentMouseDown = (e) => {
-      if (e.target.tagName === 'IMG' && (e.target.classList.contains('nk-mcq-image') || editorRef.current?.contains(e.target))) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const imgRect = e.target.getBoundingClientRect();
+    let hideTimeout = null;
+
+    const handleDocumentMouseMove = (e) => {
+      const img = e.target.closest('.nk-mcq-image');
+      const videoWrapper = e.target.closest('.nk-video-wrapper');
+      const toolbar = e.target.closest('.nk-mcq-image-toolbar');
+      const targetEl = img || videoWrapper;
+
+      if (targetEl && editorRef.current?.contains(targetEl)) {
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+        const targetRect = targetEl.getBoundingClientRect();
         const toolbarWidth = 220; 
-        let left = (imgRect.left + imgRect.width / 2) - (toolbarWidth / 2);
-        let top = imgRect.top - 50; 
+        let left = (targetRect.left + targetRect.width / 2) - (toolbarWidth / 2);
+        let top = targetRect.top - 50; 
         
         if (left < 10) left = 10;
         if (left + toolbarWidth > window.innerWidth - 10) {
             left = window.innerWidth - toolbarWidth - 10;
         }
         if (top < 10) {
-            top = imgRect.bottom + 10; 
+            top = targetRect.bottom + 10; 
         }
         
-        const currentWidthStr = e.target.style.width || '';
+        const currentWidthStr = targetEl.style.width || '';
         const currentWidth = parseInt(currentWidthStr) || 100;
         
         setImgToolbar({
             show: true,
             top,
             left,
-            targetImg: e.target,
+            targetImg: targetEl,
             currentWidth
         });
-      } else if (imgToolbar.show && !e.target.closest('.nk-mcq-image-toolbar')) {
-        setImgToolbar({ show: false, top: 0, left: 0, targetImg: null });
+      } else if (toolbar) {
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+      } else if (imgToolbar.show) {
+        if (!hideTimeout) {
+          hideTimeout = setTimeout(() => {
+            setImgToolbar({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
+          }, 350);
+        }
       }
     };
     
-    const handleScroll = () => {
-      if (imgToolbar.show) {
-        setImgToolbar({ show: false, top: 0, left: 0, targetImg: null });
-      }
-    };
-    
-    document.addEventListener('mousedown', handleDocumentMouseDown, true);
-    
-    const editor = editorRef.current;
-    if (editor) {
-      editor.addEventListener('scroll', handleScroll);
-    }
+    document.addEventListener('mousemove', handleDocumentMouseMove, true);
     
     return () => {
-      document.removeEventListener('mousedown', handleDocumentMouseDown, true);
-      if (editor) {
-        editor.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousemove', handleDocumentMouseMove, true);
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
       }
     };
   }, [imgToolbar.show]);
@@ -1252,6 +1260,40 @@ export default function AdminSubiStudio() {
           
           const space = document.createTextNode('\u00A0');
           range.setStartAfter(img);
+          range.insertNode(space);
+          range.setStartAfter(space);
+          range.collapse(true);
+          
+          selection.removeAllRanges();
+          selection.addRange(range);
+          return;
+      }
+
+      // Real-time Video insertion logic: vid/vidl/vidr/vidc <url>
+      const vidMatch = text.match(/\b(vid[lrc]?)\s+(https?:\/\/[^\s\u00a0]+)(?:\s|\u00a0|$)/i);
+      if (vidMatch) {
+          const fullMatch = vidMatch[0];
+          const cmd = vidMatch[1].toLowerCase();
+          const url = vidMatch[2];
+          const startIndex = text.indexOf(fullMatch);
+          
+          let align = 'center';
+          if (cmd === 'vidl') align = 'left';
+          else if (cmd === 'vidr') align = 'right';
+          
+          const range = document.createRange();
+          range.setStart(node, startIndex);
+          range.setEnd(node, startIndex + fullMatch.length);
+          range.deleteContents();
+          
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = videoHtmlTemplate(url.trim(), align);
+          const videoNode = tempDiv.firstElementChild;
+          
+          range.insertNode(videoNode);
+          
+          const space = document.createTextNode('\u00A0');
+          range.setStartAfter(videoNode);
           range.insertNode(space);
           range.setStartAfter(space);
           range.collapse(true);
@@ -1735,6 +1777,15 @@ export default function AdminSubiStudio() {
       executeInsertTemplate();
     } else if (commandId === 'img-insert') {
       setCmdQuery('img ');
+      setCmdPalette(p => ({ ...p, show: true }));
+      setTimeout(() => {
+        if (cmdSearchRef.current) {
+          cmdSearchRef.current.focus({ preventScroll: true });
+          cmdSearchRef.current.selectionStart = cmdSearchRef.current.selectionEnd = 4;
+        }
+      }, 50);
+    } else if (commandId === 'vid-insert') {
+      setCmdQuery('vid ');
       setCmdPalette(p => ({ ...p, show: true }));
       setTimeout(() => {
         if (cmdSearchRef.current) {
@@ -2672,6 +2723,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
       
       let align = 'center';
       let isImgCommand = false;
+      let isVidCommand = false;
       let url = '';
       
       if (lowerQuery.startsWith('imgl ')) {
@@ -2689,6 +2741,22 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
       } else if (lowerQuery.startsWith('img ')) {
         align = 'center';
         isImgCommand = true;
+        url = trimmedQuery.substring(4).trim();
+      } else if (lowerQuery.startsWith('vidl ')) {
+        align = 'left';
+        isVidCommand = true;
+        url = trimmedQuery.substring(5).trim();
+      } else if (lowerQuery.startsWith('vidr ')) {
+        align = 'right';
+        isVidCommand = true;
+        url = trimmedQuery.substring(5).trim();
+      } else if (lowerQuery.startsWith('vidc ')) {
+        align = 'center';
+        isVidCommand = true;
+        url = trimmedQuery.substring(5).trim();
+      } else if (lowerQuery.startsWith('vid ')) {
+        align = 'center';
+        isVidCommand = true;
         url = trimmedQuery.substring(4).trim();
       }
 
@@ -2714,6 +2782,37 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
             
             const space = document.createTextNode('\u00A0');
             range.setStartAfter(img);
+            range.insertNode(space);
+            range.setStartAfter(space);
+            range.collapse(true);
+            
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
+        }
+        return;
+      }
+
+      if (isVidCommand && url) {
+        setCmdPalette({ show: false, selectedIndex: 0, openedViaIcon: false });
+        setCmdQuery('');
+        
+        if (editorRef.current) {
+          editorRef.current.focus({ preventScroll: true });
+          const selection = window.getSelection();
+          if (selection && lastSelectionRangeRef.current) {
+            selection.removeAllRanges();
+            selection.addRange(lastSelectionRangeRef.current);
+            
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = videoHtmlTemplate(url, align);
+            const videoNode = tempDiv.firstElementChild;
+            
+            const range = lastSelectionRangeRef.current;
+            range.insertNode(videoNode);
+            
+            const space = document.createTextNode('\u00A0');
+            range.setStartAfter(videoNode);
             range.insertNode(space);
             range.setStartAfter(space);
             range.collapse(true);
@@ -3321,7 +3420,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
       const cleanHtml = (value) => String(value || '')
         .replace(/&nbsp;/g, ' ')
-        .replace(/\sdata-(?!align)[\w-]+="[^"]*"/g, '')
+        .replace(/\sdata-(?!align|video-url|video-platform|video-aspect)[\w-]+="[^"]*"/g, '')
         .replace(/\scontenteditable="[^"]*"/g, '')
         .trim();
       const cleanTags = (tags = []) => Array.from(new Set(

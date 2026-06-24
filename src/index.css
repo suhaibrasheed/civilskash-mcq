@@ -2251,20 +2251,161 @@ textarea.text-theme-text {
   transition: all 0.2s ease;
 }
 .nk-mcq-image[data-align="left"] {
-  display: block !important;
+  float: left !important;
+  display: inline-block !important;
   margin-left: 0 !important;
-  margin-right: auto !important;
+  margin-right: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
 }
 .nk-mcq-image[data-align="center"] {
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  float: none !important;
 }
 .nk-mcq-image[data-align="right"] {
-  display: block !important;
-  margin-left: auto !important;
+  float: right !important;
+  display: inline-block !important;
   margin-right: 0 !important;
+  margin-left: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
+/* Prevent BFC collapses and clear floated images inside MCQ components */
+.nk-mcq-question,
+.nk-mcq-explanation,
+.nk-mcq-option-text {
+  display: flow-root !important;
+}
+/* Video Commands and Player Styles */
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.2);
+  }
+}
 
+.nk-video-wrapper[data-align="left"] {
+  float: left !important;
+  display: inline-block !important;
+  margin-left: 0 !important;
+  margin-right: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
 
+.nk-video-wrapper[data-align="center"] {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+}
+
+.nk-video-wrapper[data-align="right"] {
+  float: right !important;
+  display: inline-block !important;
+  margin-right: 0 !important;
+  margin-left: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.nk-video-wrapper {
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.nk-video-wrapper:hover {
+  transform: translateY(-5px) scale(1.007);
+  box-shadow:
+    0 24px 48px -8px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 0 60px -15px rgba(130, 120, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.nk-video-poster {
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nk-video-wrapper:hover .nk-video-poster {
+  transform: scale(1.05);
+}
+
+@keyframes nk-play-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 20px 4px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+}
+
+.nk-video-play-btn {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: nk-play-pulse 3.5s ease-in-out infinite;
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.45s ease !important;
+}
+
+.nk-video-wrapper:hover .nk-video-play-btn {
+  animation: none !important;
+  transform: scale(1.2) !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.58) !important;
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.06),
+    0 0 45px 12px rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+.nk-video-play-btn svg {
+  transition: transform 0.4s ease, filter 0.35s ease;
+}
+
+.nk-video-wrapper:hover .nk-video-play-btn svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+/* Theme-sensitive premium scrollbars for iframes inside video/tweet wrappers */
+.nk-video-wrapper iframe {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track) !important;
+}
+.nk-video-wrapper iframe::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+.nk-video-wrapper iframe::-webkit-scrollbar-track {
+  background: var(--scrollbar-track) !important;
+  border-radius: 4px !important;
+}
+.nk-video-wrapper iframe::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb) !important;
+  border-radius: 4px !important;
+  border: 1.5px solid var(--scrollbar-track) !important;
+}
+.nk-video-wrapper iframe::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover) !important;
+}

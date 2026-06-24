@@ -18,6 +18,7 @@ import { useEconomy } from './context/EconomyContext';
 
 
 import { useAuth } from './context/AuthContext';
+import { parseVideoUrl } from './lib/video';
 
 function OnboardingGuard({ children }) {
   const { user, loading } = useAuth();
@@ -109,6 +110,55 @@ function AppContent() {
       return () => clearTimeout(timer);
     }
   }, [isFullyLoaded]);
+
+  useEffect(() => {
+    const handleVideoClick = (e) => {
+      const wrapper = e.target.closest('.nk-video-wrapper');
+      const playBtn = e.target.closest('.nk-video-play-btn');
+      if (wrapper && !wrapper.querySelector('iframe') && !wrapper.querySelector('video')) {
+        // If clicking play button, allow play anywhere. Otherwise prevent inside editor.
+        if (!playBtn && wrapper.closest('[contenteditable="true"]')) {
+          return;
+        }
+        e.preventDefault();
+        e.stopPropagation();
+        const url = wrapper.getAttribute('data-video-url');
+        const parsed = parseVideoUrl(url);
+        if (parsed) {
+          if (parsed.platform === 'native') {
+            wrapper.innerHTML = `<video src="${parsed.embedUrl}" controls autoplay class="absolute inset-0 w-full h-full rounded-xl object-cover bg-black" style="border: none;"></video>`;
+          } else {
+            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b; max-width: 550px; left: 0; right: 0; margin: 0 auto;"></iframe>`;
+          }
+        }
+      }
+    };
+    document.addEventListener('click', handleVideoClick, true);
+
+    // Auto-load X.com (Twitter) embeds immediately
+    const autoLoadTwitterEmbeds = () => {
+      const wrappers = document.querySelectorAll('.nk-video-wrapper[data-video-platform="x"]');
+      wrappers.forEach(wrapper => {
+        if (!wrapper.querySelector('iframe')) {
+          const url = wrapper.getAttribute('data-video-url');
+          const parsed = parseVideoUrl(url);
+          if (parsed) {
+            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b; max-width: 550px; left: 0; right: 0; margin: 0 auto;"></iframe>`;
+          }
+        }
+      });
+    };
+
+    autoLoadTwitterEmbeds();
+
+    const observer = new MutationObserver(autoLoadTwitterEmbeds);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      document.removeEventListener('click', handleVideoClick, true);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="relative min-h-screen">
