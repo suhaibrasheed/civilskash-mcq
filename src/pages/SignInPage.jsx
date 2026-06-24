@@ -32,6 +32,7 @@ export default function SignInPage() {
   const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
   const [referredBy, setReferredBy] = useState('');
+  const [onboardingPassword, setOnboardingPassword] = useState('');
   const [usernameStatus, setUsernameStatus] = useState(null); // 'checking' | 'valid' | 'invalid' | null
   const [usernameError, setUsernameError] = useState('');
   const [checkingTimeout, setCheckingTimeout] = useState(null);
@@ -61,6 +62,7 @@ export default function SignInPage() {
               .toLowerCase();
             setUsername(suggested);
             setFullName(user.user_metadata?.full_name || '');
+            setOnboardingPassword(''); // empty for google users so they can set it
             setIsLogin(false);
             setActiveStep('onboarding');
           }
@@ -179,6 +181,7 @@ export default function SignInPage() {
         const suggest = authEmail.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '').toLowerCase();
         setUsername(suggest);
         setFullName(suggest.charAt(0).toUpperCase() + suggest.slice(1));
+        setOnboardingPassword(authPassword); // prefill with registration password
         
         // Advance to step 2: Onboarding Setup
         showToast('Account registered! Now let\'s set up your profile.', 'success');
@@ -204,10 +207,24 @@ export default function SignInPage() {
       return;
     }
 
+    if (!tempUser && (!onboardingPassword || onboardingPassword.trim().length < 6)) {
+      setAuthError('Password must be at least 6 characters.');
+      return;
+    }
+
     setAuthError('');
     setIsAuthSubmitting(true);
 
     try {
+      // 0. Update User Password in Supabase auth (only if it has changed from the registration password, or is a new password for Google users)
+      const isPasswordChanged = !tempUser || onboardingPassword.trim() !== authPassword;
+      if (isPasswordChanged && onboardingPassword.trim()) {
+        const { error: pwdError } = await supabase.auth.updateUser({
+          password: onboardingPassword.trim()
+        });
+        if (pwdError) throw pwdError;
+      }
+
       // 1. Apply Referral Code
       if (referredBy.trim()) {
         try {
@@ -247,7 +264,15 @@ export default function SignInPage() {
 
   return (
     <div className="min-h-screen bg-theme-bg text-theme-text flex flex-col font-sans">
-      <Header />
+      {activeStep === 'onboarding' ? (
+        <header className="w-full py-5 px-6 border-b border-theme-border/30 bg-theme-surface/10 backdrop-blur-md flex items-center justify-center relative z-20">
+          <span className="text-sm md:text-base font-black tracking-wider text-theme-primary uppercase">
+            Setup your Amazing Profile
+          </span>
+        </header>
+      ) : (
+        <Header />
+      )}
       
       <main className="flex-1 flex items-center justify-center p-4 md:p-8 relative overflow-hidden">
         {/* Decorative background glow */}
@@ -400,18 +425,41 @@ export default function SignInPage() {
                     exit={{ opacity: 0, x: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <form onSubmit={handleOnboardingSubmit} className="space-y-5 relative z-10">
-                      <div className="space-y-1">
-                        <label className="text-[10px] md:text-xs font-black text-theme-muted uppercase tracking-wider block pl-1 mb-1">Choose Unique Username *</label>
+                    <form onSubmit={handleOnboardingSubmit} className="space-y-6 relative z-10">
+                      {/* Full Name */}
+                      <div className="space-y-2 mb-4">
+                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Full Name</label>
                         <div className="relative">
+                          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
+                            <User size={16} />
+                          </div>
+                          <input
+                            type="text"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                            placeholder="Your Display Name"
+                            style={{ color: 'var(--color-text)' }}
+                            className="w-full bg-theme-bg border border-theme-border rounded-xl pl-11 pr-5 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50 transition-all"
+                          />
+                        </div>
+                        <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">Optional display name for global leaderboards</p>
+                      </div>
+
+                      {/* Choose Unique Username */}
+                      <div className="space-y-2 mb-4">
+                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Choose Unique Username *</label>
+                        <div className="relative">
+                          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted font-bold text-xs md:text-sm select-none">
+                            @
+                          </div>
                           <input
                             type="text"
                             required
                             value={username}
                             onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z0-9_]/g, '').toLowerCase())}
-                            placeholder="e.g. topper_ias"
+                            placeholder="topper_ias"
                             style={{ color: 'var(--color-text)' }}
-                            className="w-full bg-theme-bg border border-theme-border rounded-xl pl-5 pr-10 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50"
+                            className="w-full bg-theme-bg border border-theme-border rounded-xl pl-10 pr-10 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50 transition-all"
                           />
                           <div className="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center justify-center">
                             {usernameStatus === 'checking' && (
@@ -428,38 +476,52 @@ export default function SignInPage() {
                         {usernameError && usernameStatus === 'invalid' && (
                           <p className="text-[10px] md:text-xs text-rose-500 font-bold pl-1 mt-0.5">{usernameError}</p>
                         )}
-                        <p className="text-[9px] md:text-[10px] text-theme-muted/80 pl-1 mt-1">Username is permanent & can't be changed later</p>
+                        <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">Username is permanent & can't be changed later</p>
                       </div>
 
-                      <div className="space-y-1">
-                        <label className="text-[10px] md:text-xs font-black text-theme-muted uppercase tracking-wider block pl-1 mb-1">Full Name</label>
-                        <input
-                          type="text"
-                          value={fullName}
-                          onChange={(e) => setFullName(e.target.value)}
-                          placeholder="Your Display Name"
-                          style={{ color: 'var(--color-text)' }}
-                          className="w-full bg-theme-bg border border-theme-border rounded-xl px-5 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50"
-                        />
-                        <p className="text-[9px] md:text-[10px] text-theme-muted/80 pl-1 mt-1">Optional display name for global leaderboards</p>
-                      </div>
+                      {/* Set Password (Google signups only) */}
+                      {!tempUser && (
+                        <div className="space-y-2 mb-4">
+                          <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">
+                            Set Password *
+                          </label>
+                          <div className="relative">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
+                              <Lock size={16} />
+                            </div>
+                            <input
+                              type="password"
+                              required
+                              value={onboardingPassword}
+                              onChange={(e) => setOnboardingPassword(e.target.value)}
+                              placeholder="Enter secure password"
+                              style={{ color: 'var(--color-text)' }}
+                              className="w-full bg-theme-bg border border-theme-border rounded-xl pl-11 pr-5 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50 transition-all"
+                            />
+                          </div>
+                          <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">
+                            Set a password for manual email login later
+                          </p>
+                        </div>
+                      )}
 
-                      <div className="space-y-1">
-                        <label className="text-[10px] md:text-xs font-black text-theme-muted uppercase tracking-wider block pl-1 mb-1">Referred By (Optional)</label>
+                      {/* Referred By */}
+                      <div className="space-y-2 mb-5">
+                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Referred By (Optional)</label>
                         <div className="relative">
+                          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
+                            <Gift size={16} />
+                          </div>
                           <input
                             type="text"
                             value={referredBy}
                             onChange={(e) => setReferredBy(e.target.value.trim())}
                             placeholder="Referrer's username"
                             style={{ color: 'var(--color-text)' }}
-                            className="w-full bg-theme-bg border border-theme-border rounded-xl pl-5 pr-10 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50"
+                            className="w-full bg-theme-bg border border-theme-border rounded-xl pl-11 pr-10 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50 transition-all"
                           />
-                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 text-theme-muted">
-                            <Gift size={14} />
-                          </div>
                         </div>
-                        <p className="text-[9px] md:text-[10px] text-theme-muted/80 pl-1 mt-1">Enter friend's username to earn 150 KashCoins reward</p>
+                        <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">Enter friend's username to Earn Rewards & Discounts</p>
                       </div>
 
                       <button

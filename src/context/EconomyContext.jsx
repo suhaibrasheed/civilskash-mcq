@@ -56,6 +56,17 @@ export function EconomyProvider({ children }) {
 
           if (insertError) {
             console.error('Failed to create fallback profile:', insertError);
+            // Construct a local fallback profile so the app doesn't lock up on the loading splash screen
+            profile = {
+              id: user.id,
+              email: user.email,
+              full_name: defaultName.charAt(0).toUpperCase() + defaultName.slice(1),
+              avatar_id: 1,
+              liquid_coins: 100,
+              staked_coins: 0,
+              streak_days: 0,
+              onboarded: false
+            };
           } else {
             profile = newProfile;
           }

@@ -21,12 +21,26 @@ import { useAuth } from './context/AuthContext';
 import { parseVideoUrl } from './lib/video';
 
 function OnboardingGuard({ children }) {
+  const { user } = useAuth();
+  const { economy } = useEconomy();
+
+  if (user && economy && economy.onboarded === false) {
+    return <Navigate to="/signin" replace />;
+  }
   return children;
 }
 
 function NavigationWrapper() {
   const location = useLocation();
-  const hideNav = location.pathname === '/mock-test' || location.pathname.startsWith('/admin/') || location.pathname === '/battle-arena';
+  const { user } = useAuth();
+  const { economy } = useEconomy();
+  
+  const isNotOnboarded = user && economy && economy.onboarded === false;
+  const hideNav = location.pathname === '/mock-test' || 
+                  location.pathname.startsWith('/admin/') || 
+                  location.pathname === '/battle-arena' ||
+                  location.pathname === '/signin' ||
+                  isNotOnboarded;
   return !hideNav ? <FloatingNav /> : null;
 }
 
