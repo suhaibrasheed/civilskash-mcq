@@ -430,8 +430,7 @@ export default function LeaderboardPage() {
                   </p>
                   <button
                     onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      showToast('Please sign in or create an account on your Profile page.', 'info');
+                      navigate('/signin', { state: { from: '/leaderboard' } });
                     }}
                     className="self-start sm:self-center px-4 py-1.5 text-white text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm hover:opacity-95 transition-all"
                     style={{ background: 'linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)))' }}

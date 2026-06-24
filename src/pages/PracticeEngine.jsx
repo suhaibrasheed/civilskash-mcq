@@ -58,6 +58,16 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [wrongCount, setWrongCount] = useState(0);
 
   const handleSelectOption = (question, selectedOptionId) => {
+    if (question.isGuestQuestion) {
+      navigate('/signin', {
+        state: {
+          from: location.pathname,
+          message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!"
+        }
+      });
+      return;
+    }
+
     if (selectedOptionId === question.correctId) {
       setCorrectCount(prev => prev + 1);
     } else {
@@ -452,11 +462,10 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   // Phase 5: Organic Gating Injection
   const gatedFeed = useMemo(() => {
     if (!user) {
-      return [{
-        id: 'guest-advertising-card',
-        isLockedDummy: true,
-        isGuestDummy: true
-      }];
+      return visibleQuestions.map(q => ({
+        ...q,
+        isGuestQuestion: true
+      }));
     }
 
     if (!economy || economy.user_tier === 'Pro') return visibleQuestions;

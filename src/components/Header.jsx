@@ -322,7 +322,7 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
               <button
                 onClick={() => {
                   onClose();
-                  navigate('/profile');
+                  navigate('/signin');
                   showToast("Please sign in to save your progress.", "info");
                 }}
                 className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}

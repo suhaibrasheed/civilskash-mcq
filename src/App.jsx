@@ -13,7 +13,7 @@ import ResurrectionMockDashboard from './pages/ResurrectionMockDashboard';
 import LeaderboardPage from './pages/LeaderboardPage';
 import PricingPage from './pages/PricingPage';
 import BattleArena from './pages/BattleArena';
-import SetupProfile from './pages/SetupProfile';
+import SignInPage from './pages/SignInPage';
 import { useEconomy } from './context/EconomyContext';
 
 
@@ -21,29 +21,12 @@ import { useAuth } from './context/AuthContext';
 import { parseVideoUrl } from './lib/video';
 
 function OnboardingGuard({ children }) {
-  const { user, loading } = useAuth();
-  const { economy } = useEconomy();
-  const location = useLocation();
-
-  if (loading || (user && (!economy || economy.id !== user.id))) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-theme-bg text-theme-text">
-        <div className="btn-spin w-8 h-8 border-4 border-theme-primary border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  // If user is authenticated but not onboarded, redirect to /setup-profile
-  if (user && economy && !economy.onboarded && location.pathname !== '/setup-profile') {
-    return <Navigate to="/setup-profile" replace />;
-  }
-
   return children;
 }
 
 function NavigationWrapper() {
   const location = useLocation();
-  const hideNav = location.pathname === '/mock-test' || location.pathname.startsWith('/admin/') || location.pathname === '/battle-arena' || location.pathname === '/setup-profile';
+  const hideNav = location.pathname === '/mock-test' || location.pathname.startsWith('/admin/') || location.pathname === '/battle-arena';
   return !hideNav ? <FloatingNav /> : null;
 }
 
@@ -58,7 +41,7 @@ function ExamEngineWrapper() {
   const { user } = useAuth();
 
   if (!user) {
-    return <Navigate to="/profile" state={{ message: "Sign up to start this Mock test and start Analyzing performance!" }} replace />;
+    return <Navigate to="/signin" state={{ message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!" }} replace />;
   }
 
   const mockId = location.state?.mock?.id ?? 'no-mock';
@@ -175,13 +158,13 @@ function AppContent() {
           <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
           <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
           <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
-          <Route path="/profile" element={<OnboardingGuard><ProfileDashboard /></OnboardingGuard>} />
+          <Route path="/profile" element={<ProfileDashboard />} />
           <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
           <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
           <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
           <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
           <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-          <Route path="/setup-profile" element={<SetupProfile />} />
+          <Route path="/signin" element={<SignInPage />} />
         </Routes>
         <NavigationWrapper />
       </BrowserRouter>

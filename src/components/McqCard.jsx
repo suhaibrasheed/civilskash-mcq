@@ -60,6 +60,15 @@ const getLockedCardVisuals = (id) => {
   return { difficulty, tagWidths };
 };
 
+const hasImageOrVideo = (explanation) => {
+  if (!explanation) return false;
+  if (/<img|<iframe|<video/i.test(explanation)) return true;
+  if (/(?:^|\s|\b)(img[lrc]?|vid)\s+https?:\/\//i.test(explanation)) return true;
+  if (/\bhttps?:\/\/[^\s"']+\.(?:png|jpg|jpeg|gif|svg|webp)\b/i.test(explanation)) return true;
+  if (/youtube\.com|youtu\.be|vimeo\.com|data-video-url/i.test(explanation)) return true;
+  return false;
+};
+
 export default function McqCard({
   questionData,
   showExplanationToggle = false,
@@ -270,6 +279,11 @@ export default function McqCard({
     if (mode === 'result') return;
     if (mode === 'practice' && selectedOption) return; // Lock once answered
 
+    if (questionData.isGuestQuestion && onSelect) {
+      onSelect(optionId);
+      return;
+    }
+
     if (!externalSelection) {
       setLocalSelectedOption(optionId);
     }
@@ -368,7 +382,7 @@ export default function McqCard({
             </p>
             {isGuestDummy ? (
               <Link
-                to="/profile"
+                to="/signin"
                 className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-theme-primary to-theme-accent text-white font-black text-xs uppercase tracking-widest shadow-md hover:opacity-95 transition-all"
               >
                 Sign Up Now
@@ -631,7 +645,10 @@ export default function McqCard({
                 </button>
               </div>
 
-              {economy?.user_tier !== 'Pro' && questionData.difficulty?.toLowerCase() === 'hard' ? (
+              {economy?.user_tier !== 'Pro' && (
+                questionData.difficulty?.toLowerCase() === 'hard' ||
+                (questionData.difficulty?.toLowerCase() === 'medium' && !hasImageOrVideo(questionData.explanation))
+              ) ? (
                 <div className="flex flex-col items-center justify-center py-4 text-center">
                   <Lock className="text-amber-500 mb-2" size={24} />
                   <p className="text-theme-text font-bold mb-1">Expert Breakdown Locked</p>

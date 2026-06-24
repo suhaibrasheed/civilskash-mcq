@@ -288,7 +288,7 @@ export default function PricingPage() {
   const handleUpgrade = async (plan) => {
     if (!user) {
       showToast('Sign In to upgrade your account!', 'warning');
-      navigate('/profile');
+      navigate('/signin');
       return;
     }
     if (economy?.user_tier === 'Pro' && economy?.pro_tier === plan.id) {
@@ -661,7 +661,7 @@ export default function PricingPage() {
             <span className="sub-gounstoppable">Go Unstoppable.</span>
           </div>
           {!user && (
-            <div className="guest-warn" onClick={() => navigate('/profile')}>
+            <div className="guest-warn" onClick={() => navigate('/signin')}>
               <AlertCircle size={14} />
               <span>You're offline. <u>Sign In</u> to activate your plan.</span>
             </div>

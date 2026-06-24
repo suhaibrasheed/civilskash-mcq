@@ -8,6 +8,7 @@ import { toggleBookmarkDB, isBookmarkedDB } from '../lib/db';
 import { renderMathInHtmlString } from '../lib/ai';
 import { StreakModal, CoinsVaultModal } from './EconomyUI';
 import { EXAM_SERIES } from '../lib/exams';
+import { useAuth } from '../context/AuthContext';
 import { 
   getFilteredResults, 
   formatCategoryName, 
@@ -17,7 +18,7 @@ import {
   CATEGORIES
 } from '../lib/searchEngine';
 
-const navItems = [
+const baseNavItems = [
   {
     icon: Search,
     label: 'Search',
@@ -57,26 +58,33 @@ const navItems = [
 
 const itemVariants = {
   hidden: { scale: 0, opacity: 0, y: 16 },
-  visible: (i) => ({
-    scale: 1,
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.055,
-      duration: 0.4,
-      ease: [0.34, 1.56, 0.64, 1],
-    },
-  }),
-  exit: (i) => ({
-    scale: 0,
-    opacity: 0,
-    y: 8,
-    transition: {
-      delay: (navItems.length - 1 - i) * 0.04,
-      duration: 0.22,
-      ease: [0.4, 0, 1, 1],
-    },
-  }),
+  visible: (custom) => {
+    const i = typeof custom === 'number' ? custom : (custom?.index || 0);
+    return {
+      scale: 1,
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.055,
+        duration: 0.4,
+        ease: [0.34, 1.56, 0.64, 1],
+      },
+    };
+  },
+  exit: (custom) => {
+    const i = typeof custom === 'number' ? custom : (custom?.index || 0);
+    const total = custom?.total || 6;
+    return {
+      scale: 0,
+      opacity: 0,
+      y: 8,
+      transition: {
+        delay: (total - 1 - i) * 0.04,
+        duration: 0.22,
+        ease: [0.4, 0, 1, 1],
+      },
+    };
+  },
 };
 
 function NavTrigger({ isOpen, onClick }) {
@@ -847,11 +855,28 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
 }
 
 export default function FloatingNav() {
+  const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [streakModalOpen, setStreakModalOpen] = useState(false);
   const [coinsVaultOpen, setCoinsVaultOpen] = useState(false);
   const location = useLocation();
+
+  // Dynamically compute navItems depending on guest status
+  const navItems = useMemo(() => {
+    const items = [...baseNavItems];
+    if (!user) {
+      // Profile remains integral and unchanged, but we add a new 'Sign In' option for guest users
+      items.push({
+        icon: User,
+        label: 'Sign In',
+        to: '/signin',
+        color: '#818cf8',
+        bg: 'rgba(129,140,248,0.12)',
+      });
+    }
+    return items;
+  }, [user]);
 
   // Keyboard shortcut listener Ctrl/Cmd + K & Esc global close
   useEffect(() => {
@@ -915,7 +940,7 @@ export default function FloatingNav() {
                 return (
                   <motion.div
                     key={item.label}
-                    custom={i}
+                    custom={{ index: i, total: navItems.length }}
                     variants={itemVariants}
                     initial="hidden"
                     animate="visible"

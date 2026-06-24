@@ -306,14 +306,6 @@ export default function ProfileDashboard() {
     return history.filter(item => item.type === 'Welcome Card').length;
   };
 
-  const [authEmail, setAuthEmail] = useState('');
-  const [authPassword, setAuthPassword] = useState('');
-  const [authUsername, setAuthUsername] = useState('');
-  const [referredBy, setReferredBy] = useState('');
-  const [isUsernameManuallyEdited, setIsUsernameManuallyEdited] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
-  const [isAuthSubmitting, setIsAuthSubmitting] = useState(false);
-  const [authError, setAuthError] = useState('');
   const [studyGoalsOpen, setStudyGoalsOpen] = useState(false);
   
   // Customizer state
@@ -392,20 +384,13 @@ export default function ProfileDashboard() {
   const [userRank, setUserRank] = useState(null);
   const [totalAspirants, setTotalAspirants] = useState(null);
 
-  // Auto-suggest username from email prefix
-  useEffect(() => {
-    if (!isLogin && !isUsernameManuallyEdited && authEmail) {
-      const prefix = authEmail.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '').toLowerCase();
-      setAuthUsername(prefix);
-    }
-  }, [authEmail, isLogin, isUsernameManuallyEdited]);
+
 
   // Handle redirect messages (e.g. guest intercepts)
   const toastFiredRef = useRef(false);
   useEffect(() => {
     if (location.state && (location.state.message || location.state.openStudyGoals || location.state.openRewards)) {
       if (location.state.message && !toastFiredRef.current) {
-        setAuthError(location.state.message);
         showToast(location.state.message, 'warning');
         toastFiredRef.current = true;
       }
@@ -418,15 +403,6 @@ export default function ProfileDashboard() {
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location.state, location.pathname, navigate, showToast]);
-
-  // Parse invite referral param from link
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const refParam = params.get('ref');
-    if (refParam) {
-      setReferredBy(refParam.trim());
-    }
-  }, [location.search]);
 
   // Parse query params to auto-open Reward Center
   useEffect(() => {
@@ -554,45 +530,7 @@ export default function ProfileDashboard() {
     }
   }, [location.state, economy?.user_tier]);
 
-  // ── 3. AUTHENTICATION HANDLERS ──
-  const handleGoogleAuth = async () => {
-    setAuthError('');
-    setIsAuthSubmitting(true);
-    try {
-      await signInWithGoogle();
-    } catch (err) {
-      console.error('Google Auth error:', err);
-      setAuthError(err.message || 'Google Sign-in failed.');
-      showToast(err.message || 'Google Sign-in failure.', 'error');
-      setIsAuthSubmitting(false);
-    }
-  };
-
-  const handleAuthSubmit = async (e) => {
-    e.preventDefault();
-    if (!authEmail || !authPassword) {
-      setAuthError('Email and Password are required.');
-      return;
-    }
-    setAuthError('');
-    setIsAuthSubmitting(true);
-
-    try {
-      if (isLogin) {
-        await signIn(authEmail, authPassword);
-        showToast('Successfully logged in! 👋', 'success');
-      } else {
-        await signUp(authEmail, authPassword);
-        showToast('Successfully registered! Welcome to MCQKash.', 'success');
-      }
-    } catch (err) {
-      console.error('Auth error:', err);
-      setAuthError(err.message || 'Authentication failed. Please verify credentials.');
-      showToast(err.message || 'Auth failure.', 'error');
-    } finally {
-      setIsAuthSubmitting(false);
-    }
-  };
+  // ── 3. SIGN OUT HANDLER ──
 
   const handleSignOut = async () => {
     try {
@@ -913,133 +851,10 @@ export default function ProfileDashboard() {
             <p className="text-xs text-theme-muted font-bold uppercase tracking-widest">Validating Session...</p>
           </div>
         ) : !user ? (
-          /* ── GUEST / LOGGED-OUT: SIDE-BY-SIDE GUEST PREVIEW & SYNC CARD (Redesigned) ── */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            
-            {/* SYNC FORM CARD (Spacious & Premium Design) */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-theme-surface rounded-3xl border border-theme-border p-6 md:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between"
-            >
-              <div className="absolute bottom-0 right-0 w-48 h-48 bg-theme-accent/5 rounded-full blur-[60px] pointer-events-none" />
-              
-              <div className="w-full">
-                {/* Form Tabs */}
-                <div className="grid grid-cols-2 gap-2 mb-6 p-1 bg-theme-bg/60 border border-theme-border/50 rounded-xl relative z-10">
-                  <button
-                    type="button"
-                    onClick={() => { setIsLogin(true); setAuthError(''); }}
-                    className={`py-2.5 rounded-lg text-xs md:text-sm font-black uppercase tracking-wider transition-all ${
-                      isLogin ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted'
-                    }`}
-                  >
-                    Sign In
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => { setIsLogin(false); setAuthError(''); }}
-                    className={`py-2.5 rounded-lg text-xs md:text-sm font-black uppercase tracking-wider transition-all ${
-                      !isLogin ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted'
-                    }`}
-                  >
-                    Register
-                  </button>
-                </div>
-
-                {authError && (
-                  <div className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl text-rose-500 text-xs font-semibold text-center mb-4 flex items-center justify-center gap-1.5 relative z-10">
-                    <AlertTriangle size={14} />
-                    {authError}
-                  </div>
-                )}
-
-                <form onSubmit={handleAuthSubmit} className="space-y-4 relative z-10">
-                  <div className="space-y-1">
-                    <input
-                      type="text"
-                      required
-                      value={authEmail}
-                      onChange={(e) => setAuthEmail(e.target.value)}
-                      placeholder={isLogin ? "Enter Email Address or Username" : "Enter Email Address"}
-                      style={{ color: 'var(--color-text)' }}
-                      className="w-full bg-theme-bg border border-theme-border rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <input
-                      type="password"
-                      required
-                      value={authPassword}
-                      onChange={(e) => setAuthPassword(e.target.value)}
-                      placeholder="Enter Password"
-                      style={{ color: 'var(--color-text)' }}
-                      className="w-full bg-theme-bg border border-theme-border rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isAuthSubmitting}
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-theme-primary to-theme-accent text-white font-black text-xs md:text-sm uppercase tracking-widest shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-2"
-                  >
-                    {isAuthSubmitting ? (
-                      <div className="btn-spin" />
-                    ) : (
-                      isLogin ? 'Sign In To Sync' : 'Sign Up'
-                    )}
-                  </button>
-
-                  <div className="relative my-4 flex items-center justify-center">
-                    <hr className="w-full border-theme-border/50" />
-                    <span className="absolute bg-theme-surface px-3 text-[10px] font-bold uppercase tracking-wider text-theme-muted">Or</span>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={handleGoogleAuth}
-                    disabled={isAuthSubmitting}
-                    className="w-full py-3.5 rounded-xl border border-theme-border hover:border-theme-primary/30 text-theme-text font-black text-xs md:text-sm uppercase tracking-widest shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2.5 bg-theme-bg"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24">
-                      <path
-                        fill="currentColor"
-                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                      />
-                    </svg>
-                    Continue with Google
-                  </button>
-
-                  {!isLogin && (
-                    <div className="flex items-start gap-2.5 p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-2xl text-rose-500 text-xs font-semibold leading-relaxed mt-4 text-left">
-                      <AlertTriangle size={18} className="shrink-0 mt-0.5 text-rose-500 animate-pulse" />
-                      <div>
-                        <span className="block font-black">Danger: Using Fake Emails/Accounts will result in suspension of Account & ban of IP Address.</span>
-                        <span className="block mt-1 font-semibold opacity-90 text-[11px] text-theme-muted">
-                          Email can't be changed later, so select your correct email address carefully.
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </form>
-              </div>
-            </motion.div>
-
+          /* ── GUEST / LOGGED-OUT: SIDE-BY-SIDE GUEST PREVIEW & SYNC CARD ── */
+          <div className="max-w-md mx-auto mb-8">
             {/* GUEST INFO CARD (Redesigned, Spacious, Premium) */}
-            <div className="bg-gradient-to-br from-theme-surface via-theme-surface to-theme-primary/5 rounded-3xl p-6 md:p-8 border border-theme-border shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[280px] hover:border-theme-primary/30 transition-all duration-300">
+            <div className="bg-gradient-to-br from-theme-surface via-theme-surface to-theme-primary/5 rounded-3xl p-6 md:p-8 border border-theme-border shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[340px] hover:border-theme-primary/30 transition-all duration-300">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-theme-primary/10 rounded-full blur-[50px] pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/5 rounded-full blur-[50px] pointer-events-none" />
               
@@ -1082,6 +897,17 @@ export default function ProfileDashboard() {
                   <span className="text-[9px] font-black uppercase tracking-widest text-theme-muted">Streak</span>
                   <span className="text-sm font-black text-rose-500 mt-1">{economy?.current_streak_days || 0} Days</span>
                 </div>
+              </div>
+
+              {/* Catchy Get Me In Button */}
+              <div className="mt-6 w-full relative z-10">
+                <button
+                  onClick={() => navigate('/signin')}
+                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-theme-primary to-theme-accent text-white font-black text-sm uppercase tracking-widest shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-98"
+                >
+                  <Sparkles size={16} className="animate-pulse" />
+                  Get me In
+                </button>
               </div>
             </div>
           </div>

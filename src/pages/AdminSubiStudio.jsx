@@ -5,7 +5,7 @@ import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircl
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
-import { queryGenerativeAI, queryColorHighlightsForExplanations, applyHighlightsToText, stripCodeFences, renderMathInHtmlString, convertMarkdownTablesToHtml, convertMarkdownToHtml } from '../lib/ai';
+import { queryGenerativeAI, queryColorHighlightsForExplanations, applyHighlightsToText, highlightHtmlContent, stripCodeFences, renderMathInHtmlString, convertMarkdownTablesToHtml, convertMarkdownToHtml } from '../lib/ai';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
@@ -872,6 +872,44 @@ export default function AdminSubiStudio() {
           if (node.nodeType !== Node.ELEMENT_NODE) return;
           const tag = node.tagName;
 
+          if (tag === 'TABLE') {
+              flush();
+              // Parse headers
+              const headers = [];
+              const ths = node.querySelectorAll('th');
+              if (ths.length > 0) {
+                  ths.forEach(th => headers.push(th.innerText.trim()));
+              } else {
+                  // Fallback: check first row td's
+                  const firstRowTds = node.querySelector('tr')?.querySelectorAll('td');
+                  if (firstRowTds) {
+                      firstRowTds.forEach(td => headers.push(td.innerText.trim()));
+                  }
+              }
+              
+              if (headers.length > 0) {
+                  lines.push('| ' + headers.join(' | ') + ' |');
+                  lines.push('| ' + headers.map(() => '---').join(' | ') + ' |');
+              }
+              
+              // Parse body rows
+              const trs = Array.from(node.querySelectorAll('tr'));
+              trs.forEach(tr => {
+                  // Skip if this row was used for headers
+                  if (ths.length === 0 && tr === node.querySelector('tr')) {
+                      return;
+                  }
+                  const tds = tr.querySelectorAll('td');
+                  if (tds.length > 0) {
+                      const rowCells = Array.from(tds).map(td => td.innerText.trim());
+                      lines.push('| ' + rowCells.join(' | ') + ' |');
+                  }
+              });
+              
+              flush();
+              return;
+          }
+
           if (tag === 'BR') {
               flush();
               return;
@@ -1435,7 +1473,7 @@ export default function AdminSubiStudio() {
         }
 
         if (plainBlock && plainBlock.innerText.trim() && !plainBlock.closest('.nk-mcq-block')) {
-          textToParse = plainBlock.innerText;
+          textToParse = getEditorPlainText(plainBlock);
           const r = document.createRange();
           r.selectNode(plainBlock);
           rangeToReplace = r;
@@ -2198,10 +2236,12 @@ export default function AdminSubiStudio() {
       const highlightsList = await queryColorHighlightsForExplanations(cleanTexts);
       explanationItems.forEach((item, idx) => {
         const highlights = highlightsList[idx] || [];
-        const { cleanText, tagsPart } = splitItems[idx];
-        const highlightedHtml = applyHighlightsToText(cleanText, highlights);
-        const finalExplanationHtml = convertMarkdownTablesToHtml(highlightedHtml);
-        item.expEl.innerHTML = [finalExplanationHtml, tagsPart].filter(Boolean).join(' ');
+        const originalHtml = item.expEl.innerHTML;
+        const tagsPartMatch = originalHtml.match(/((?:#[\w_-]+\s*|\[\[[^\]]+\]\]\s*)+)$/);
+        const tagsPart = tagsPartMatch ? tagsPartMatch[0] : '';
+        const cleanHtml = tagsPart ? originalHtml.slice(0, -tagsPart.length).trim() : originalHtml.trim();
+        const highlightedHtml = highlightHtmlContent(cleanHtml, highlights);
+        item.expEl.innerHTML = [highlightedHtml, tagsPart].filter(Boolean).join(' ');
       });
       alert(`Explanation color coding successfully applied to ${explanationItems.length} MCQs!`);
     } catch (e) {
@@ -2452,11 +2492,12 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
         explanationItems.forEach((item, idx) => {
           const highlights = results[idx] || [];
-          const text = item.expEl.innerText.trim();
-          const { cleanText, tagsPart } = splitExplanationTextAndTags(text);
-          const highlightedHtml = applyHighlightsToText(cleanText, highlights);
-          const finalExplanationHtml = convertMarkdownTablesToHtml(highlightedHtml);
-          item.expEl.innerHTML = [finalExplanationHtml, tagsPart].filter(Boolean).join(' ');
+          const originalHtml = item.expEl.innerHTML;
+          const tagsPartMatch = originalHtml.match(/((?:#[\w_-]+\s*|\[\[[^\]]+\]\]\s*)+)$/);
+          const tagsPart = tagsPartMatch ? tagsPartMatch[0] : '';
+          const cleanHtml = tagsPart ? originalHtml.slice(0, -tagsPart.length).trim() : originalHtml.trim();
+          const highlightedHtml = highlightHtmlContent(cleanHtml, highlights);
+          item.expEl.innerHTML = [highlightedHtml, tagsPart].filter(Boolean).join(' ');
         });
       }
 

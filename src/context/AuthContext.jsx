@@ -93,7 +93,7 @@ export function AuthProvider({ children }) {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: window.location.origin + (window.location.pathname.startsWith('/mcq') ? '/mcq/profile' : '/profile'),
+        redirectTo: window.location.origin + (window.location.pathname.startsWith('/mcq') ? '/mcq/signin' : '/signin'),
       },
     });
     if (error) throw error;

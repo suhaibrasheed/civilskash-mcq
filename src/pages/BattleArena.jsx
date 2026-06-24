@@ -289,7 +289,7 @@ export default function BattleArena() {
   const { playVictory, playShatter, playCorrect, playWrong } = useSound();
 
   if (!user) {
-    return <Navigate to="/profile" replace state={{ message: "You must sign in to play Battle Arena." }} />;
+    return <Navigate to="/signin" replace state={{ message: "You must sign in to play Battle Arena." }} />;
   }
 
   // Screen state

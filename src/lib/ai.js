@@ -288,13 +288,94 @@ export function applyHighlightsToText(text, highlights) {
 }
 
 /**
+ * Strips existing highlight spans from HTML to prevent nested highlights
+ */
+export function stripHighlightSpans(htmlString) {
+  if (!htmlString) return '';
+  // Support SSR or non-browser environments if any, though this is browser-based
+  if (typeof document === 'undefined') return htmlString;
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString;
+  const highlightSpans = tempDiv.querySelectorAll('span.font-bold');
+  highlightSpans.forEach(span => {
+    const isHighlight = Array.from(span.classList).some(cls => 
+      /^(text-)(red|green|blue|orange|magenta|teal|emerald)$/.test(cls)
+    );
+    if (isHighlight) {
+      const parent = span.parentNode;
+      if (parent) {
+        while (span.firstChild) {
+          parent.insertBefore(span.firstChild, span);
+        }
+        parent.removeChild(span);
+      }
+    }
+  });
+  return tempDiv.innerHTML;
+}
+
+/**
+ * Walks the DOM tree of HTML content and highlights matching text nodes only, preserving all tags (e.g. tables)
+ */
+export function highlightHtmlContent(htmlString, highlights) {
+  if (!htmlString) return '';
+  if (typeof document === 'undefined') return htmlString;
+  const cleanHtml = stripHighlightSpans(htmlString);
+  if (!highlights || highlights.length === 0) return cleanHtml;
+
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = cleanHtml;
+
+  const walk = (node) => {
+    if (node.nodeType === 3) { // Node.TEXT_NODE
+      const parent = node.parentNode;
+      if (parent) {
+        const tagName = parent.tagName.toLowerCase();
+        if (tagName === 'script' || tagName === 'style') {
+          return;
+        }
+      }
+      
+      const originalText = node.nodeValue;
+      if (originalText.trim()) {
+        const escapedOriginal = originalText
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+        const highlightedText = applyHighlightsToText(escapedOriginal, highlights);
+        if (highlightedText !== escapedOriginal) {
+          const tempSpan = document.createElement('span');
+          tempSpan.innerHTML = highlightedText;
+          const parentNode = node.parentNode;
+          if (parentNode) {
+            while (tempSpan.firstChild) {
+              parentNode.insertBefore(tempSpan.firstChild, node);
+            }
+            parentNode.removeChild(node);
+          }
+        }
+      }
+    } else if (node.nodeType === 1) { // Node.ELEMENT_NODE
+      const children = Array.from(node.childNodes);
+      children.forEach(walk);
+    }
+  };
+
+  walk(tempDiv);
+  return tempDiv.innerHTML;
+}
+
+/**
  * Converts markdown tables to beautifully styled HTML tables
  */
 export function convertMarkdownTablesToHtml(text) {
   if (!text) return '';
-  const tableRegex = /((?:\s*\|[^\n]*\|[^\n]*(?:\n|$))+)/g;
+  // Support tables separated by \n or <br> / <br /> elements
+  const tableRegex = /((?:\s*\|(?:(?!<br\s*\/?>)[^\n])*\|(?:(?!<br\s*\/?>)[^\n])*(?:\n|<br\s*\/?>|$))+)/gi;
   return text.replace(tableRegex, (match) => {
-    const lines = match.trim().split('\n').map(l => l.trim());
+    const lines = match.split(/\n|<br\s*\/?>/i).map(l => l.trim()).filter(Boolean);
     if (lines.length < 2) return match;
     const isSeparator = /^\|[\s\:\-\|]+\|$/.test(lines[1]);
     if (!isSeparator) return match;

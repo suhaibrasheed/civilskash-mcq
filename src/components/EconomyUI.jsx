@@ -223,7 +223,7 @@ export function StreakModal({ isOpen, onClose }) {
   const handleBet = async () => {
     if (!user) {
       onClose();
-      navigate('/profile', { state: { message: "Sign up to start this Mock test and start Analyzing performance!" } });
+      navigate('/signin', { state: { message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!" } });
       return;
     }
     setError(null);
@@ -421,7 +421,7 @@ export function StreakModal({ isOpen, onClose }) {
                       onClick={() => {
                         if (!user) {
                           onClose();
-                          navigate('/profile', { state: { message: "Sign up to start this Mock test and start Analyzing performance!" } });
+                          navigate('/signin', { state: { message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!" } });
                           return;
                         }
                         buyStreakFreeze();
