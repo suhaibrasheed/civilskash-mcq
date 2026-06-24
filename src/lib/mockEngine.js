@@ -400,8 +400,8 @@ export function generateMocksForExam(examId) {
     return question;
   };
 
-  // ── Elite Full-Length Mocks (20 × 100 questions) ──────────────
-  const ELITE_COUNT = 30;
+  // ── Elite Full-Length Mocks (10 free Full + 30 Elite Pro mocks) ──────────────
+  const ELITE_COUNT = 40;
   const ELITE_Q = 100;
 
   const eliteEasyPtrs = {};
@@ -434,10 +434,13 @@ export function generateMocksForExam(examId) {
       });
     }
 
+    const isFree = mockIdx < 10;
+    const displayName = isFree ? `Full Mock ${mockIdx + 1}` : `Elite Mock ${mockIdx - 9}`;
+
     return {
       id: `${examId}-elite-${mockIdx + 1}`,
       index: mockIdx + 1,
-      title: `${config.label} Elite Mock ${mockIdx + 1}`,
+      title: `${config.label} ${displayName}`,
       questions: qs.length,
       minutes: qs.length,
       type: 'elite',
@@ -507,7 +510,7 @@ export function generateMocksForExam(examId) {
   //
   //  Naming: clean, simple "[Category] [Exam] Mock N" — no tag logic.
   //
-  const SECT_COUNT = 70;
+  const SECT_COUNT = 90;
   const SECT_Q     = 10;
   const sectionalMocks = {};
 

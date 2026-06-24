@@ -36,7 +36,9 @@ export default function ExamEngine() {
     // Phase 5: Gating Logic. Paid revision modes must never receive dummy MCQs.
     const canInjectProLocks = mock.type !== 'resurrection' && mock.type !== 'srs';
     if (economy && economy.user_tier !== 'Pro' && canInjectProLocks) {
-      const lockCount = Math.max(1, Math.floor(selected.length * 0.2)); // Lock ~20%
+      // Dynamic lock percentage between 10% and 20% to create variable FOMO
+      const lockPercentage = 0.10 + Math.random() * 0.10;
+      const lockCount = Math.max(1, Math.floor(selected.length * lockPercentage));
       
       // Get all indices except the first one (so the very first question is never locked instantly)
       const availableIndices = [];
@@ -204,18 +206,56 @@ export default function ExamEngine() {
           />
           
           {/* Action Buttons */}
-          <div className="max-w-3xl mx-auto w-full mt-8 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-3">
-              <button onClick={() => handleNext('marked')} className="px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-purple-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95">
-                Mark for Review
+          <div className="max-w-3xl mx-auto w-full mt-8 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 px-1">
+            <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
+              <button 
+                onClick={() => handleNext('marked')} 
+                className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-purple-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Mark for Review</span>
+                <span className="sm:hidden">Review</span>
               </button>
-              <button onClick={handleClear} className="px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-rose-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95">
+              <button 
+                onClick={handleClear} 
+                className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-rose-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap"
+              >
                 Clear
               </button>
             </div>
-            <button onClick={() => handleNext('answered')} className="px-8 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full font-black text-sm transition-all shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/40 active:scale-95">
+            <button 
+              onClick={() => handleNext('answered')} 
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full font-black text-sm transition-all shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/40 active:scale-95 whitespace-nowrap"
+            >
               Save & Next
             </button>
+          </div>
+
+          {/* Mobile Smart-Mock Palette */}
+          <div className="max-w-3xl mx-auto w-full mt-10 border-t border-theme-border/60 pt-6 lg:hidden">
+            <h3 className="font-bold text-theme-text text-sm mb-3">Smart-Mock Palette</h3>
+            
+            {/* Palette Legend */}
+            <div className="grid grid-cols-2 gap-2 text-[10px] sm:text-xs text-theme-text font-medium mb-4">
+              <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-emerald-600 shadow-sm inline-block"></span> Answered</div>
+              <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-rose-500 border border-rose-600 shadow-sm inline-block"></span> Not Answered</div>
+              <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-theme-bg border border-theme-border shadow-sm inline-block"></span> Not Visited</div>
+              <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-purple-500 border border-purple-600 shadow-sm inline-block"></span> Marked</div>
+            </div>
+
+            <div className="grid grid-cols-5 sm:grid-cols-8 gap-2">
+              {palette.map((q, idx) => (
+                <button 
+                  key={q.id} 
+                  onClick={() => {
+                    setCurrentIdx(idx);
+                    currentIdxRef.current = idx;
+                  }}
+                  className={`aspect-square rounded-xl flex items-center justify-center text-sm font-bold border shadow-sm ${getStatusColor(q.status)} hover:scale-105 transition-transform ${currentIdx === idx ? 'ring-2 ring-theme-primary ring-offset-2 ring-offset-theme-bg' : ''}`}
+                >
+                  {q.id}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -293,7 +333,7 @@ export default function ExamEngine() {
                 <span>🔒</span> Free Tier Scoring Limit
               </h4>
               <p className="text-[11px] text-amber-700 dark:text-amber-300 leading-relaxed">
-                As a Free member, this test contains locked Pro questions (~20% locked). These questions cannot be answered, reducing your maximum potential score. Upgrade to Pro to unlock 100% scoring capacity!
+                Serious aspirants attempt the complete Mock Test. This Test includes locked tricky Pro Questions (10–20%), reducing your maximum achievable score and earning ability as a Free Member. Upgrade to Pro for Full Access.
               </p>
               <button
                 onClick={() => {

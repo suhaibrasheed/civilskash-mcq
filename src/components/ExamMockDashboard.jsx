@@ -24,7 +24,7 @@ function SolvedBadge({ solvedInfo }) {
 // ─── Sub-components ────────────────────────────────────────────────
 
 /** Elite Mock tile (100Q / 100M) */
-function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle }) {
+function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, displayName }) {
   const navigate  = useNavigate();
   const solved    = solvedMap?.[mock.id];
   const band      = getScoreBand(solved);
@@ -49,7 +49,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle }) {
           </div>
           <div>
             <h4 className={`font-black text-sm ${isLocked ? 'mock-pro-title text-theme-primary/95' : 'text-theme-muted'}`}>
-              {isLocked ? proTitle : `Full Mock ${index}`}
+              {isLocked ? proTitle : displayName}
             </h4>
             <p className="text-[10px] uppercase tracking-[0.15em] text-theme-muted/70 font-bold mt-1">
               {isLocked ? '✦ Pro Content' : 'No questions yet'}
@@ -83,7 +83,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle }) {
             <h4 className={`font-black text-sm transition-colors
               ${band ? `${band.className} mock-score-text` : 'text-theme-text group-hover:text-theme-primary'}`}
             >
-              Full Mock {index}
+              {displayName}
             </h4>
             <p className={`text-[10px] uppercase tracking-[0.15em] font-bold mt-1
               ${band ? `${band.className} mock-score-text opacity-80` : 'text-theme-primary/70'}`}
@@ -366,7 +366,12 @@ export default function ExamMockDashboard({ exam, onBack }) {
   const allEliteEmpty  = eliteMocks.every(m => m.isEmpty);
   const userTier       = economy?.user_tier || 'FREE';
 
-  const displayedElite = showAllElite ? eliteMocks : eliteMocks.slice(0, 5);
+  const displayedElite = showAllElite 
+    ? eliteMocks 
+    : [
+        ...eliteMocks.filter(m => m.index <= 10).slice(0, 3),
+        ...eliteMocks.filter(m => m.index > 10).slice(0, 2)
+      ];
   
   const currentMocks = activeTab === 'all' ? quickMocks : sectionalData;
   const displayedQuick = showAllQuick ? currentMocks : currentMocks.slice(0, MAX_VISIBLE);
@@ -412,7 +417,7 @@ export default function ExamMockDashboard({ exam, onBack }) {
                 <span className="relative w-1.5 h-1.5 rounded-full bg-emerald-500" />
               </div>
               <span className="text-xs font-bold text-theme-muted opacity-80">
-                {eliteMocks.length} Elite • {quickMocks.length} Quick • {config.categories.length} Sections
+                10 Full • 30 Elite • {quickMocks.length} Quick • {config.categories.length} Sections
               </span>
             </div>
           </div>
@@ -429,7 +434,7 @@ export default function ExamMockDashboard({ exam, onBack }) {
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">
-                  Elite Full Mocks
+                  Full & Elite Mocks
                 </h2>
                 <span className="px-2 py-0.5 rounded-lg bg-theme-primary/15 text-theme-primary text-[9px] font-black border border-theme-primary/25 uppercase tracking-widest">
                   Elite
@@ -466,15 +471,19 @@ export default function ExamMockDashboard({ exam, onBack }) {
                 return displayedElite.map((mock) => {
                   const locked = isExamMockLockedForFreeUser(mock, userTier);
                   if (locked) proCounter++;
+                  const isFree = mock.index <= 10;
+                  const displayIndex = isFree ? mock.index : mock.index - 10;
+                  const displayName = isFree ? `Full Mock ${displayIndex}` : `Elite Mock ${displayIndex}`;
                   return (
                     <EliteTile
                       key={mock.id}
                       mock={mock}
-                      index={mock.index}
+                      index={displayIndex}
                       examId={exam.id}
                       solvedMap={solvedMap}
                       isLocked={locked}
-                      proTitle={`Elite Mock ${mock.index}`}
+                      proTitle={displayName}
+                      displayName={displayName}
                     />
                   );
                 });

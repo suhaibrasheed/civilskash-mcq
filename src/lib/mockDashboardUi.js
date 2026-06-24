@@ -60,7 +60,7 @@ export function isExamMockLockedForFreeUser(mock, userTier) {
   if (mock.type === 'elite') return mock.index > 10;
   // Quick Mocks: first 50 free → 100/150 locked (~67%)
   if (mock.type === 'quick') return mock.index > 50;
-  // Sectional: first 30 free → 40/70 locked (57.1%)
+  // Sectional: first 30 free → 60/90 locked (66.7%)
   if (mock.type === 'sectional') return mock.index > 30;
 
   return false;
