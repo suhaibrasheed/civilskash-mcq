@@ -1,5 +1,4380 @@
 [
   {
+    "id": "d3d3329f-9f26-4129-b7d4-82696f7b99a8",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "hard",
+    "question": "Histogram matching is also called?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Equalisation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Specification",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Normalisation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "In digital image processing, <span class=\"text-blue font-bold\">Histogram Matching</span> is technically known as <span class=\"text-red font-bold\">Histogram Specification</span>. It modifies a source image so that its color/contrast histogram precisely matches the shape of a specified target histogram, whereas <span class=\"text-green font-bold\">Equalization</span> simply flattens it. <div>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "4b0005a2-a3de-4b56-a1b5-f500cfd36770",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "A unique piece of information that is used in encryption is called a:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cipher",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Plain Text",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Key",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Prime number",
+        "label": "D"
+      }
+    ],
+    "explanation": "In cryptography, while the '<span class=\"text-blue font-bold\">Cipher</span>' is the mathematical algorithm dictating how data gets scrambled, the '<span class=\"text-red font-bold\">Key</span>' is the unique, secret string of data (the password) required to successfully lock <span class=\"text-green font-bold\">(encrypt)</span> or unlock <span class=\"text-orange font-bold\">(decrypt)</span> the information.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "9d90365b-b4e8-4883-b274-db05c7fa6802",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "A graphics method in which one object is transformed into another is called:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Animation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Morphing",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Designing",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Graphics art",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Morphing</span> is a special visual effect in digital image processing that seamlessly transitions (or morphs) one image, shape, or face into another. <span class=\"text-red font-bold\">Animation</span>, by contrast, is simply the rapid display of static images to create the illusion of movement.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "6c73ff1a-3cd2-4598-a482-a93cd5cbe006",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "easy",
+    "question": "Which view in MS Word shows printed look?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Outline",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Print Layout",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Web Layout",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Draft",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Print Layout view</span> is the <span class=\"text-red font-bold\">default working mode</span> in MS Word. It displays the document exactly as it will appear when physically printed on paper, accurately rendering <span class=\"text-green font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\"><span class=\"text-green font-bold\">margins, headers, footers</span>, and page breaks</span>.<div><img src=\"https://computerhindinotes.com/wp-content/uploads/2018/09/print-layout.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "820c973a-9f85-46bb-a12b-fdfe06de7b54",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Database"
+    ],
+    "difficulty": "easy",
+    "question": "File extension for MS Access database?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": ".mdb",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": ".xls",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": ".accdb",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": ".pptx",
+        "label": "D"
+      }
+    ],
+    "explanation": "Microsoft Access uses <span class=\"text-orange\" style=\"font-weight: 800;\">`.accdb`</span><span class=\"text-orange\" style=\"font-weight: 800;\"><span class=\"text-orange\" style=\"font-weight: 800;\"> </span>(Access Database)</span> as its default file extension for modern versions (2007 and later). The <span class=\"text-blue\" style=\"font-weight: 800;\">older legacy format </span>used for Access 2003 and prior was `<span class=\"text-green font-bold\">.mdb</span>` <span class=\"text-orange font-bold\">(Microsoft Database)</span>.<br>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "02172909-0eeb-4ac5-b2fe-0104c208b884",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "A digital image is made of?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bitmap",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pixels",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Resolution",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Vector",
+        "label": "D"
+      }
+    ],
+    "explanation": "A standard digital image <span class=\"text-blue font-bold\">(raster graphic)</span> is composed of a massive grid of tiny, square, color-emitting dots called <span class=\"text-red font-bold\">Pixels</span> <span class=\"text-green font-bold\">(Picture Elements)</span>. The total density of these <span class=\"text-red font-bold\">pixels</span> determines the overall <span class=\"text-orange font-bold\">image resolution</span> and clarity.<div><img src=\"https://images7.memedroid.com/images/UPLOADED403/66968a0bd171e.jpeg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 45%;\"> <br> <span class=\"text-blue-500 font-bold\"> </span> </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "4d764c67-2230-410f-bf62-2de89bccf831",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is NOT application software?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Photoshop",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "WinWord XP",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "PageMaker",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Windows NT",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Windows NT</span> is an Operating System, which strictly classifies as <span class=\"text-red font-bold\">System Software</span>. Photoshop, MS Word (WinWord), and PageMaker are <span class=\"text-green font-bold\">Application Software</span>, as they are designed for the end-user to perform specific creative or productivity tasks.<div><img src=\"https://i.ytimg.com/vi/I7JSkv7LlGU/maxresdefault.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "1349b5d1-0851-4a1d-9032-66b0b048ad97",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "easy",
+    "question": "MS-Word utility for sending the same letter to multiple recipients?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Macros",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Micros",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mail merge",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mailer",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Mail Merge</span> is a powerful MS Word <span class=\"text-red font-bold\">automation feature</span>. It takes a single master document (like a formal letter) and automatically links it to a database (like an Excel contact list) to instantly generate hundreds of <span class=\"text-green font-bold\">personalized copies</span>.<div><img src=\"https://geekflare.com/es/wp-content/uploads/2023/11/Start-mail-merge.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "993c4f6a-084f-4e66-960e-d7027f4b1044",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "The Home key is used for?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Beginning of document",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Beginning of paragraph",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Beginning of screen",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Beginning of line",
+        "label": "D"
+      }
+    ],
+    "explanation": "Pressing the `Home` key instantly jumps your typing cursor to the very beginning of the current line you are on.<br>Exam Trick: Pressing `<span class=\"text-red font-bold\">Ctrl + Home</span>` jumps the cursor to the very beginning of the entire document.<br>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "f18e05a6-0355-4914-955f-b385e5209420",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is NOT a magnetic storage device?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Magnetic tape",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Compact disk",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hard disk",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Floppy disk",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Compact Disk (CD)</span> is an <span class=\"text-red font-bold\">Optical Storage</span> device; it reads and writes data using a microscopic <span class=\"text-green font-bold\">laser beam</span> reflecting off physical pits on the disc. Hard disks, floppy disks, and magnetic tapes all rely on magnetized particles.<div><img src=\"https://i.gifer.com/origin/18/18294eed8a0a076acb9c2f5c2e826c9c.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> </div><div>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "7a5ae0fa-6a99-4530-969c-3464860b763b",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "hard",
+    "question": "Arrange the following facilities in chronological order: ARPANET, NSFNET, X.25, Euronet, WWW.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "ARPANET, X.25, Euronet, NSFNET, WWW",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "ARPANET, NSFNET, X.25, Euronet, WWW",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "NSFNET, X.25, Euronet, ARPANET, WWW",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "ARPANET, X.25, NSFNET, Euronet, WWW",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Network/standard</th><th>Year</th><th>Description</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">ARPANET</span></td><td>1969</td><td>The first packet-switched network (DoD).</td></tr><tr><td>X.25</td><td>1976</td><td>Standardized packet switching for WANs.</td></tr><tr><td>Euronet</td><td>1979</td><td>European data network.</td></tr><tr><td><span class=\"text-red font-bold\">NSFNET</span></td><td>1985</td><td>Major US university backbone.</td></tr><tr><td><span class=\"text-green font-bold\">WWW</span></td><td>1989</td><td>World Wide Web invented by <span class=\"text-orange font-bold\">Tim Berners-Lee</span>.</td></tr></tbody></table></div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "c2c63292-b9d4-4b43-b513-a95d020d28da",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following functions:<br>1- Interpret commands<br>2- Provide interface<br>3- Coordinate hardware<br>4- Ensure security<br>Which of the above are functions of an Operating System?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1, 2, and 3",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 3, and 4",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3, and 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "An <span class=\"text-blue font-bold\">Operating System</span> is the ultimate <span class=\"text-red font-bold\">resource manager</span>. It translates user commands to machine code, provides the <span class=\"text-green font-bold\">graphical interface</span>, manages all hardware driver communications, and enforces system security through user accounts and firewalls.<br>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "bb3efcd9-07e4-4c62-803b-f7dac1b5c1f1",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "medium",
+    "question": "Which topology is used for constructing a single large network by combining others?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Star",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hybrid",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mesh",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Hybrid Topology</span> combines two or more different standard network layouts (e.g., branching a <span class=\"text-red font-bold\">Star topology</span> off a main <span class=\"text-green font-bold\">Bus topology</span> backbone). This flexible structure is the standard method for constructing massive, complex networks like the global Internet.<br>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "52dbb906-71f6-404c-897e-7ed8e18f4566",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Programming"
+    ],
+    "difficulty": "hard",
+    "question": "Software that helps detect errors while executing a program is a/an:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Language translator",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Debugger",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Loader",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Linker",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Debugger</span> is an essential programming utility. It allows developers to test their code in a controlled environment, pause execution, inspect memory values, and <span class=\"text-red font-bold\">step through the logic</span> line-by-line to locate and fix \"<span class=\"text-green font-bold\">bugs</span>\" (errors).<div><img src=\"https://i.pinimg.com/originals/da/e1/66/dae166500522e3d093e520692812c49f.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br> </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "55f2b8cd-09c1-43b9-bf0d-0bfa005bdcb1",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "Which computer is multi-user and supports thousands of simultaneous programs?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Personal computer",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Workstation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mainframe",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Mainframes</span> are massive, ultra-reliable computers primarily used by large organizations (like banks and airlines) for <span class=\"text-red font-bold\">bulk data processing</span>. They are specifically architected to process millions of secure transactions while supporting <span class=\"text-green font-bold\">thousands of simultaneous users</span>.<div><img src=\"https://slidetodoc.com/presentation_image_h2/16106ad979465a08d1739388b3a5d058/image-9.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"></div><div>  </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "3d01b6bd-ff74-45b5-bfcc-b0504bed4ca6",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "medium",
+    "question": "The digital signature service that has been launched on the Aadhaar platform is called:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sign Desk",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "E-sign Desk",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Online Sign Desk",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Single Sign Desk",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">eSign</span> (or e-Sign Desk) is an Indian online<span class=\"text-blue\" style=\"font-weight: 800;\"> electronic signature service</span>. It allows citizens to legally and securely sign digital documents using biometric or OTP-based authentication directly linked to the <span class=\"text-red font-bold\">Aadhaar</span> database platform.<br>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "6b282e96-768c-44b3-a8cd-4a30161273ba",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "hard",
+    "question": "In the IT Act 2000, which section deals with the punishment for cyber terrorism?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "66 (A)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "66 (F)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "66 (C)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "66 (E)",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under the Indian Information Technology Act, 2000:<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Section</th><th>Offense addressed</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">66F</span></td><td><span class=\"text-red font-bold\">Cyber Terrorism</span> (punishable up to life imprisonment)</td></tr><tr><td><span class=\"text-green font-bold\">66C</span></td><td><span class=\"text-green\" style=\"font-weight: 800;\">Identity Theft</span></td></tr><tr><td><span class=\"text-orange font-bold\">66E</span></td><td><span class=\"text-orange\" style=\"font-weight: 800;\">Violation of Privacy</span></td></tr></tbody></table></div>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "0d4adf8c-93a1-4189-b1bc-060df107c629",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "easy",
+    "question": "Storage of firmware is typically in:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cache Memory",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "RAM",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "External Drive",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "ROM",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Firmware</span> (like a computer's <span class=\"text-red font-bold\">BIOS)</span> is low-level control software permanently embedded directly into the hardware. Because it must remain intact and immediately available even when the device loses all power, it is stored in <span class=\"text-green font-bold\">non-volatile ROM</span> (Read-Only Memory).<div><img src=\"https://th.bing.com/th/id/R.6e40f1d61bc2da8d5f667e9fe84aa131?rik=2E6f4tOi7ZnuoQ&amp;riu=http%3a%2f%2fwww.quickmeme.com%2fimg%2ff4%2ff40a3ee9a52a8c0ace769863e375f8bfb25edabbd09944e0e2eb17bf8695fa95.jpg&amp;ehk=oJOQgzciI%2fyHMlupCVGXEm18j2MwtpipgW9smeW3N6A%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>   </div>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "85dc7761-4a7b-401a-ab96-85c06fbf8662",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "easy",
+    "question": "A Daisy wheel printer is what type of printer?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Non-impact",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Impact",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Laser",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Line Printer",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Daisy Wheel printer</span> is an early <span class=\"text-red font-bold\">Impact Printer</span>. It operates much like a mechanical typewriter, using a rotating plastic or metal wheel with raised letters that physically strike an ink ribbon against the paper to print characters. <div><img src=\"https://i.redd.it/evz18mdnu0v51.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 45%;\"> <br>   </div>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "7f84e97b-cb22-45c7-8549-aaeb268daa7a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "The term FLOSS is associated with:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Non-Open Source software",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Proprietary software",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Open-source software",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">FLOSS</span> stands for <span class=\"text-red font-bold\">Free/Libre and Open Source Software</span>. It designates software that is not only free to download and use, but also has its underlying source code legally open for anyone to inspect, modify, and improve (e.g., <span class=\"text-green font-bold\">Linux</span>, Mozilla Firefox).<br>",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "f5edf325-ebe4-4901-8582-737053249e97",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following information security technologies is used for avoiding browser-based hacking?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Anti-malware in browsers",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Remote browser access",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Adware remover in browsers",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Incognito mode in a browser",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Remote Browser Isolation</span> <span class=\"text-red font-bold\">(RBI)</span> physically executes the web browsing session on a secure, remote cloud server rather than on the user's local machine. This guarantees that any malicious web code, trackers, or ransomware remain safely isolated off-site.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "91e945ee-9d33-49de-9561-e524a70e66aa",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following infects the master boot record and is a complex task to remove?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Polymorphic Virus",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Multipartite Virus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Boot Sector Virus",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Trojans",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Boot Sector Virus</span> specifically infects the <span class=\"text-red font-bold\">Master Boot Record (MBR)</span> of a hard drive. Because the MBR loads before the Operating System even boots up, the virus is already active in memory before standard antivirus software can launch, making removal highly difficult.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "c3f8da72-baff-44b5-84e4-50fe3a93a816",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "A system for transferring web documents that defines how messages are formatted and transmitted over the internet is:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Wide Web",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Uniform Resource Locator",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hypertext Transfer Protocol",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hyper Transformed Text Publisher",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">HTTP</span> <span class=\"text-red font-bold\">(Hypertext Transfer Protocol)</span> is the foundational application-layer protocol of the web. It dictates the exact universal rules and formatting required for transmitting text, images, and video files successfully between web servers and your browser.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "a0fd1ee4-e08d-4c4d-94ad-5c6da0df644f",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "easy",
+    "question": "Which function in Excel counts the number of characters in a cell?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "LT",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "LENGTH",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "LGT",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "LEN",
+        "label": "D"
+      }
+    ],
+    "explanation": "The `<span class=\"text-blue font-bold\">=LEN()</span>` function returns the total number of characters contained within a specified text string or cell.<br>Exam Trap: Be aware that `<span class=\"text-blue font-bold\">=LEN()</span>` <span class=\"text-red font-bold\">counts everything</span>, including visible letters, numbers, punctuation, and invisible spaces.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "b06b28b7-cc6d-4c86-ba8f-ddde31efd26e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is NOT a point and draw device?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Trackball",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Touch screen",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Mouse",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Keypad",
+        "label": "D"
+      }
+    ],
+    "explanation": "Mice, trackballs, and touchscreens are classified as \"<span class=\"text-blue font-bold\">point and draw</span>\" input devices because they allow the user to control the movement of an on-screen graphical cursor. A <span class=\"text-red font-bold\">keypad</span> is exclusively used for raw text or numerical data entry.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "7627e31c-0cb8-4ecf-95da-da7010f4d76c",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "easy",
+    "question": "A directory within a directory is called a:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mini Directory",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Junior Directory",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Senior Directory",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Sub Directory",
+        "label": "D"
+      }
+    ],
+    "explanation": "In a hierarchical computer file system, a folder that is placed completely inside another folder is formally called a <span class=\"text-blue font-bold\">Subdirectory</span>. The overarching folder holding it is referred to as the <span class=\"text-red font-bold\">Parent Directory</span>.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "54ff5961-9a64-4114-94b5-3c592afca73d",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "In negative logic, the logic state 1 corresponds to:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Negative voltage",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "High voltage",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Zero voltage",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "High impedance",
+        "label": "D"
+      }
+    ],
+    "explanation": "In standard <span class=\"text-blue font-bold\">Positive Logic</span>, binary 1 represents a High voltage, and binary 0 represents Low/Zero voltage. In <span class=\"text-red font-bold\">Negative Logic</span>, the system is inverted: binary 1 corresponds to the lower (or zero) voltage level, and binary 0 corresponds to the higher voltage.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "1b2f3a36-3149-4084-81b6-08e997601269",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "hard",
+    "question": "A set of information that defines the status of resources allocated to a process is a:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Process control block",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Process table",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Page table",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Process description",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Process Control Block</span> <span class=\"text-red font-bold\">(PCB)</span> is a critical OS data structure. It acts as a digital \"passport\" for a process, storing its exact current state, CPU register values, memory limits, and open files so the OS can safely pause and resume it during multitasking.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "b83a9b3a-c34c-4b51-bf27-b115ebb1a80e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "medium",
+    "question": "Which input device converts bitmap images of characters to equivalent ASCII codes?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Scanner",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "OMR",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "OCR",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Biometric device",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Recognition tech</th><th>Core function</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">OCR</span> (Optical Character Recognition)</td><td>Reads printed text images and converts them into editable digital ASCII text.</td></tr><tr><td><span class=\"text-red font-bold\">OMR</span> (Optical Mark Recognition)</td><td>Scans for the presence of pencil marks (used for grading exam bubble sheets).</td></tr><tr><td><span class=\"text-green font-bold\">MICR</span> (Magnetic Ink Character Recognition)</td><td>Reads specialized magnetic ink at the bottom of bank cheques.</td></tr></tbody></table></div>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T06:03:54.07972+00:00"
+  },
+  {
+    "id": "d7430e92-8ff8-445c-8ed6-5e6dc7bc4e95",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "easy",
+    "question": "The port connecting flat panel LCD monitors to a computer's video card is the:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Game port",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Modem port",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "DVI port",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "PS/2 port",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Port</th><th>Primary function</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">DVI / HDMI</span></td><td>Transmits <span class=\"text-blue\" style=\"font-weight: 800;\">high-quality digital video/audio</span> to modern LCD panels.</td></tr><tr><td><span class=\"text-red font-bold\">VGA</span></td><td>Older standard for <span class=\"text-magenta font-bold\">analog video transmission</span> (CRT monitors).</td></tr><tr><td><span class=\"text-green font-bold\">PS/2</span></td><td>Legacy port used for <span class=\"text-green\" style=\"font-weight: 800;\">connecting older keyboards and mice</span>.</td></tr><tr><td><span class=\"text-orange font-bold\">Game Port</span></td><td>Legacy port for<span class=\"text-orange\" style=\"font-weight: 800;\"> older joysticks and MIDI devices</span>.</td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2025",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "5bd58877-4f25-4095-981a-d46def56bdc8",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "medium",
+    "question": "Public Switched Telephone Network (PSTN) is a part of:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Datagram Switching",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Circuit Switching",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "None",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Both",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Switching type</th><th>How it works</th><th>Example</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">Circuit Switching</span></td><td>Locks a dedicated, continuous physical path between sender and receiver for the entire session.</td><td><span class=\"text-green font-bold\">PSTN</span> (Traditional Landline Calls)</td></tr><tr><td><span class=\"text-red font-bold\">Packet Switching</span></td><td>Breaks data into small chunks that travel independently and reassemble at the destination.</td><td>The <span class=\"text-orange font-bold\">Modern Internet</span></td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "40d21016-f759-4898-8f07-6329de66b48c",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "Who was the founder of the Free Software Foundation?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Richard Stallman",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Dan Murdock",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Miguel de Icaza",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Linus Torvalds",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Tech pioneer</th><th>Major contribution</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">Richard Stallman</span></td><td>Founded the Free Software Foundation (FSF) &amp; <span class=\"text-orange font-bold\">GNU Project</span>.</td></tr><tr><td><span class=\"text-red font-bold\">Linus Torvalds</span></td><td>Created the <span class=\"text-teal font-bold\">Linux Kernel</span> &amp; Git version control.</td></tr><tr><td><span class=\"text-green font-bold\">Tim Berners-Lee</span></td><td>Invented the World Wide Web (WWW).</td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "3bafced8-c1c8-41e0-b652-4969ddb022a5",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "easy",
+    "question": "What action is performed by pressing Ctrl+E in MS Word?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exit Application",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Select All",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Clear All",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Align Center",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Shortcut</th><th>Ms word alignment function</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">Ctrl + L</span></td><td>Align text to the Left</td></tr><tr><td><span class=\"text-red font-bold\">Ctrl + R</span></td><td>Align text to the Right</td></tr><tr><td><span class=\"text-green font-bold\">Ctrl + E</span></td><td>Align text to the Center</td></tr><tr><td><span class=\"text-orange font-bold\">Ctrl + J</span></td><td><span class=\"text-magenta font-bold\">Justify text</span> (aligns to both left and right margins)</td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "ad8d9b57-3377-4a05-8a9f-f9df6062aadb",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following statements is correct regarding the `Number` type formatting of cells in MS-Excel 2007?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "30 is the maximum value for decimal places.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "4 is the default value for decimal places.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The 1000 separator is a feature that places a comma after each digit.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1 is the minimum value for decimal places.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Excel number formatting rule</th><th>Value / fact</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">Maximum Decimals</span></td><td><span class=\"text-red font-bold\">30 places</span></td></tr><tr><td>Minimum Decimals</td><td>0 places</td></tr><tr><td>Default Decimals</td><td>2 places</td></tr><tr><td><span class=\"text-green font-bold\">1000 Separator</span></td><td>Adds a comma every 3 digits (e.g., 1,000,000)</td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "fe82880f-0ea4-473f-9e50-b4caf309336a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "easy",
+    "question": "A program that converts assembly language to machine language is called _____.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assembler",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Interpreter",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Compiler",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Comparator",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Translator</th><th>Function</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">Assembler</span></td><td>Converts low-level Assembly Language into <span class=\"text-orange font-bold\">Machine Code</span>.</td></tr><tr><td><span class=\"text-red font-bold\">Compiler</span></td><td>Converts entire High-Level Language (like C++) into <span class=\"text-orange font-bold\">Machine Code</span> all at once.</td></tr><tr><td><span class=\"text-green font-bold\">Interpreter</span></td><td>Converts High-Level Language into <span class=\"text-orange font-bold\">Machine Code</span> line-by-line during execution (like Python).</td></tr></tbody></table></div><div><img src=\"https://i.pinimg.com/originals/37/17/14/371714b76a63b5b447cf9b5b13e3ace8.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "42b58905-06dd-4d8d-a39a-a99542b8bbd1",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Programming"
+    ],
+    "difficulty": "medium",
+    "question": "Which of these computer languages do we primarily use in artificial intelligence?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "PROLOG",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "FORTRAN",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "COBOL",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "C",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Programming language</th><th>Primary use case (historical &amp; modern)</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">PROLOG / LISP</span></td><td><span class=\"text-orange font-bold\">Artificial Intelligence</span>, Logic, and Pattern Matching</td></tr><tr><td><span class=\"text-red font-bold\">FORTRAN</span></td><td>Complex Scientific and Mathematical calculations</td></tr><tr><td><span class=\"text-green font-bold\">COBOL</span></td><td>Legacy Business, Finance, and Administrative systems</td></tr></tbody></table></div>",
+    "pyq": "Data Operator 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "c88d3b36-6b64-4b5e-a5f8-555037c50e15",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "easy",
+    "question": "A ____ is a pre-designed document that already has coordinating fonts, a layout, and a background.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Model",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Prototype",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Format",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Template",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Template</span> acts as a <span class=\"text-red font-bold\">foundational blueprint</span>. It provides <span class=\"text-green font-bold\">pre-formatted placeholders</span> for text, standard fonts, and background layouts, allowing users to rapidly create professional documents (like resumes or invoices) without designing them from scratch.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "8c8cb7f9-b967-4708-aa46-6b61c98538aa",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "medium",
+    "question": "_____ is the programming language used to write a Macro in MS Excel.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "VBA (Visual Basic for Applications)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Python",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "C++",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Java",
+        "label": "D"
+      }
+    ],
+    "explanation": "Fact Check: The original exam option listed \"VB Script\", which is technically incorrect for modern Office. <span class=\"text-green font-bold\">Macros</span> in MS Excel are natively recorded and written in <span class=\"text-blue font-bold\">VBA</span> <span class=\"text-red font-bold\">(Visual Basic for Applications)</span> to automate repetitive tasks and calculations within the workbook.<div><img src=\"https://tse2.mm.bing.net/th/id/OIP.AFb5nZXHaKxpUTcMRD7gSQHaF7?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "5ed76915-e72b-4af8-82d1-4746c9f4b85b",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about email protocols and services is NOT true?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "POP3 enables users to access their email messages directly on the server without downloading them.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "IMAP allows users to access and manage their email on multiple devices while keeping the messages synchronized.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "SMTP is used for sending outgoing email messages from the client to the server.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Email clients can use SSL/TLS to encrypt the communication for secure email transmission.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Email protocol</th><th>Core function</th></tr></thead><tbody><tr><td><span class=\"text-blue font-bold\">POP3</span></td><td>Downloads mail locally to one device, then usually deletes it from the server. (Statement A is FALSE).</td></tr><tr><td><span class=\"text-red font-bold\">IMAP</span></td><td>Syncs mail across multiple devices, keeping the master copy on the server.</td></tr><tr><td><span class=\"text-green font-bold\">SMTP</span></td><td>Handles Sending outgoing emails only.</td></tr></tbody></table></div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "b9ab1c68-46fa-418b-b4f1-06ebfc3ae315",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Database"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is a primary feature of Microsoft Access?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is a web development framework that manages web applications and websites.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "It is a spreadsheet application that can capture, display and manipulate data.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It is graphic design software used to create, edit, and manipulate digital images.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It is a database management system used for creating, managing, and querying databases.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Microsoft Access</span> is a Relational Database Management System <span class=\"text-red font-bold\">(RDBMS)</span> included in the MS Office suite. Unlike Excel (which is for flat spreadsheet analysis), Access is designed for linking complex data tables and running structured <span class=\"text-green font-bold\">SQL queries</span>.<div><img src=\"https://th.bing.com/th/id/R.abc3f654453727c72fb3a6e54f9bdf18?rik=%2b2VItz%2fGJNw5MA&amp;riu=http%3a%2f%2fwww.quickmeme.com%2fimg%2f88%2f88ed7d4cf12e0ba6a8b2ae20829c30935d29a667b536dab0230ea3838dfca6e9.jpg&amp;ehk=O%2fSe%2fPtQpxa6ef45tnR5nEhQwLwdyAxmJLoy2AN7feY%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "b83d121f-3280-42d2-bf1e-0b5c0d1c74e2",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following is NOT a real-time operating system?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "RTLinux",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Palm OS",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "QNX",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "VxWorks",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Real-Time Operating Systems (RTOS)</span> like RTLinux, QNX, and VxWorks are used in robotics and avionics where a task must execute within strict microseconds to prevent system failure. <span class=\"text-red font-bold\">Palm OS</span> was a legacy mobile operating system for 90s PDAs, relying on standard, non-guaranteed time-sharing.<div>   </div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "3ef798d1-37df-4324-8ff6-928354633c27",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "Direct Memory Access (DMA) controller is a feature within the computer that:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Transfers the data to the main memory without continuous intervention of the CPU.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Coordinates communication between the computer and network devices.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Provides a graphical interface for managing system resources.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Manages the CPU's clock speed and temperature.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Without <span class=\"text-blue font-bold\">DMA</span>, the CPU has to personally manage every byte of data moving from a disk drive to RAM, wasting processing power. The <span class=\"text-red font-bold\">DMA Controller</span> handles these <span class=\"text-blue\" style=\"font-weight: 800;\">bulk data transfers</span> independently, <span class=\"text-blue\" style=\"font-weight: 800;\">freeing the CPU</span> to execute other critical instructions simultaneously.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "7263913a-5a39-46d2-8403-23fb42e26345",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Hardware"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an example of an internal hardware device?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Video card",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Touchpad",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Webcam",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Microphone",
+        "label": "D"
+      }
+    ],
+    "explanation": "Hardware components are categorized by location. <span class=\"text-blue font-bold\">Internal hardware</span> (Video Card, CPU, RAM, Motherboard) is housed permanently inside the computer chassis. <span class=\"text-red font-bold\">External hardware</span> (Webcam, Microphone, Touchpad/Mouse) connects from the outside via ports like USB.<div><img src=\"https://images7.memedroid.com/images/UPLOADED197/563f3f54b36cc.jpeg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 25%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "a8ef25c3-e746-44a5-81c1-c9c5b931501a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements about Device Drivers:<br>1- It is a hardware device that is attached to a computer.<br>2- It acts as a translator between the hardware device and operating systems or applications that use it.<br>3- It instructs the computer on how to communicate with the device by translating OS instructions into a language the device can understand.<br>4- Examples include printer drivers, display drivers, USB drivers, and sound card drivers.<br>Which of the above statements is/are correct?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 3 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1, 2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3 and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3 and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 1 is false because a <span class=\"text-blue font-bold\">Device Driver</span> is strictly a piece of <span class=\"text-red font-bold\">software code</span>, not a physical piece of hardware. It acts as the digital manual that teaches the Operating System how to operate specific physical hardware components (Statements 2, 3, and 4 are correct).<div><img src=\"https://www.cgdirector.com/wp-content/uploads/media/2023/10/What-is-a-Device-Driver.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "913ecb13-ab36-4209-8f95-7b07d4b4789a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "easy",
+    "question": "IP stands for?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Internet Process",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Instant Processing",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Internet Protocol",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Information Program",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">IP</span> stands for <span class=\"text-red font-bold\">Internet Protocol</span>. Operating at the <span class=\"text-green font-bold\">Network Layer</span>, it provides the fundamental addressing system (like postal addresses) that routes data packets to their exact destination across the globe.<br>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "ae883cd8-55e5-49c2-bf68-c8f22e394335",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "Who is the inventor of the WWW?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bill Gates",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Lee Foyeng",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Tim Berners-Lee",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Tom Berners Lee",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Tim Berners-Lee</span>, a British computer scientist, invented the <span class=\"text-red font-bold\">World Wide Web</span> in 1989 while working at CERN. He developed the first web browser, <span class=\"text-green font-bold\">HTML</span>, and <span class=\"text-orange font-bold\">HTTP</span> protocols.<br>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "8a110a58-7dd8-444b-a57d-44a9cc796e51",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "medium",
+    "question": "What is the purpose of Track Changes in MS Word?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Insert comments",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Monitor multi-users",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Change formatting",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Create hyperlinks",
+        "label": "D"
+      }
+    ],
+    "explanation": "\"<span class=\"text-blue font-bold\">Track Changes</span>\" is a vital <span class=\"text-red font-bold\">proofreading and collaboration</span> tool. It visually highlights every insertion, deletion, and formatting edit, allowing multiple users (like editors and authors) to monitor, accept, or reject each other's modifications.<br> <span class=\"text-blue-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "a1660f90-5a9f-4b4b-a1b0-113517d77ce3",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "easy",
+    "question": "The internet uses ___________",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Circuit switching",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Telex",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Packet switching",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Telephone switching",
+        "label": "D"
+      }
+    ],
+    "explanation": "Unlike old telephone lines that used <span class=\"text-blue font-bold\">Circuit Switching</span> (locking a single continuous path), the Internet relies on <span class=\"text-red font-bold\">Packet Switching</span>. Data is chopped into small packets that take multiple different optimal routes across the web before reassembling at the destination.<div><img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20241029165933712408/Packet-Switching.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br>   </div>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "9f7c273c-36ea-4dd4-9108-5d5b722e3631",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "easy",
+    "question": "Which key on the keyboard sets full-screen mode in browsers?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "F1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "F10",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "F11",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "F12",
+        "label": "D"
+      }
+    ],
+    "explanation": "Pressing <span class=\"text-orange\" style=\"font-weight: 800;\">F11 toggles Full-Screen mode</span> in almost all major web browsers (Chrome, Edge, Firefox), hiding the taskbar, address bar, and tabs to maximize viewing space. (<span class=\"text-teal\" style=\"font-weight: 800;\">F1 usually opens Help</span>, and <span class=\"text-orange\" style=\"font-weight: 800;\">F12 opens Developer Tools</span>).<br>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "5ecb2762-2b64-480a-95d2-eb94a48f254b",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "System software acts as a bridge between hardware and ____ software?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Management",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Processing",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Utility",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Application",
+        "label": "D"
+      }
+    ],
+    "explanation": "The computer operates in layers:<br>1. <span class=\"text-blue font-bold\">Hardware</span> (Bottom level - CPU/RAM)<br>2. <span class=\"text-red font-bold\">System Software</span> (Middle level - Windows/Linux)<br>3. <span class=\"text-green font-bold\">Application Software</span> (Top level - MS Word/Chrome)<br><span class=\"text-red font-bold\">System software</span> bridges the gap, allowing your apps to safely use the physical <span class=\"text-blue font-bold\">hardware</span>.<br> <span class=\"text-blue-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-06-24T05:04:58.685128+00:00"
+  },
+  {
+    "id": "d20f13e5-1944-4fd5-ae9c-5b8256626f30",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Data Representation"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following best describes how information is represented inside a computer system?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Information is stored as analog signals because they provide more accurate data representation.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Information is stored in text format only, which computers interpret directly as commands.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Information is represented using decimal numbers for all processing and storage tasks.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Information is represented using binary code, where data is stored as combinations of 0s and 1s.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Computers are <span class=\"text-blue font-bold\">digital electronic devices</span> built using millions of <span class=\"text-magenta font-bold\">microscopic switches</span> <span class=\"text-red font-bold\">(transistors)</span>. These hardware switches only understand two distinct electrical states: <span class=\"text-green font-bold\">ON (1) or OFF (0)</span>. Therefore, all data, text, images, or audio must be converted into this <span class=\"text-orange\" style=\"font-weight: 800;\">raw <span class=\"text-orange font-bold\">binary format</span> </span>for processing. <div><img src=\"https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejl4bXEyOWl6bWh2ODR6bDZxbm1wendxdnV6OWRzaW1wMHRwc2l3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wwg1suUiTbCY8H8vIA/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 45%;\"> <br></div><div>  </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "888d140f-71a8-4d84-82b5-1c0d6e92c485",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Programming"
+    ],
+    "difficulty": "medium",
+    "question": "What is the main disadvantage of using assembly language in programming?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assembly language programs run slower than high-level language programs.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Assembly language is hardware-dependent, making programs less portable across different systems.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Assembly language automatically manages memory, leading to unpredictable behavior.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Assembly language code is easier to write but harder to debug.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Assembly language</span> is a <span class=\"text-red font-bold\">low-level language</span> mapped directly to a specific CPU's instruction set. Code written specifically for an <span class=\"text-orange font-bold\">Intel processor</span> will<span class=\"text-orange\" style=\"font-weight: 800;\"> completely fail </span>on an <span class=\"text-teal font-bold\">Apple ARM processor</span>. This severe <span class=\"text-green font-bold\">lack of portability</span> is its main disadvantage compared to high-level languages like Java or Python.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "b8938b2a-770d-4545-a0f5-eb5544411249",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "What role does the RSA algorithm play in computer communication systems?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "It compresses data to reduce transmission time and improve network efficiency.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "It encrypts and decrypts messages to ensure secure data exchange between parties.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It helps in routing decisions by verifying the authenticity of network nodes.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It detects errors in data transmission by using mathematical checksums.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\"><span class=\"text-blue font-bold\">RSA</span> (Rivest-Shamir-Adleman)</span> is a widely used <span class=\"text-red font-bold\">asymmetric cryptographic algorithm</span>. It uses a paired key system—a <span class=\"text-green font-bold\">Public Key</span> to <span class=\"text-green\" style=\"font-weight: 800;\">encrypt data</span>, and a tightly guarded <span class=\"text-orange font-bold\">Private Key</span> to <span class=\"text-orange\" style=\"font-weight: 800;\">decrypt</span> it—making it foundational for securing sensitive internet communications like <span class=\"text-magenta font-bold\">online banking</span>.<div><img src=\"https://www.tutorialspoint.com/cryptography/images/rsa_algorithm.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "6e7c39d5-09e5-4978-bf9a-a34117b926bf",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "What best describes the relationship between firmware, hardware, and humanware in a computer system?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Firmware provides the physical structure that users interact with.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Humanware develops and operates systems, while firmware acts as specialized software that manages hardware.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Firmware is used exclusively by humanware to create application-level interfaces.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Humanware includes only end-users, while firmware refers to temporary boot software.",
+        "label": "D"
+      }
+    ],
+    "explanation": "A computer ecosystem relies on <span class=\"text-blue font-bold\">THREE PILLARS</span>. <span class=\"text-red font-bold\">Hardware</span> is the<span class=\"text-red\" style=\"font-weight: 800;\"> physical machine</span>. <span class=\"text-green font-bold\">Firmware</span> is the <span class=\"text-green\" style=\"font-weight: 800;\">permanent, low-level software</span> embedded directly into that <span class=\"text-red font-bold\">hardware</span> to control it (e.g., <span class=\"text-teal font-bold\">BIOS)</span>. <span class=\"text-orange font-bold\">Humanware</span> refers to the living people who <span class=\"text-blue\" style=\"font-weight: 800;\">design, program, and operate</span> the entire system. <div>  </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "3a5ae121-2686-46c3-98b7-5b09ee02a570",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following statements is NOT true about software?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Software is a collection of programs, procedures, and related documentation.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Once developed and tested, software requires no further maintenance.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Software becomes obsolete due to changes in the environment or requirements.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Software can be classified into system software and application software.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Software is <span class=\"text-blue font-bold\">never truly \"finished.\"</span> Even after deployment, it requires <span class=\"text-red font-bold\">constant maintenance</span> to fix newly discovered bugs, patch critical <span class=\"text-green font-bold\">security vulnerabilities</span>, ensure compatibility with newer operating systems, and add requested features.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "a9f3ecdd-7dbe-45c1-9d61-2276cb6a3db8",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "medium",
+    "question": "Arrange the following storage media in ascending order of storage density.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Magnetic Tape -&gt; Optical Disc -&gt; Hard Disk Drive -&gt; Solid State Drive",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Optical Disc -&gt; Solid State Drive -&gt; Magnetic Tape -&gt; Hard Disk Drive",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Magnetic Tape -&gt; Hard Disk Drive -&gt; Optical Disc -&gt; Solid State Drive",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hard Disk Drive -&gt; Magnetic Tape -&gt; Solid State Drive -&gt; Optical Disc",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Storage density</span> measures <span style=\"font-style: italic; text-decoration-line: underline;\">how much data fits into a specific physical area</span>. <span class=\"text-blue\" style=\"font-weight: 800;\">Magnetic Tapes and Optical Discs (CD/DVD)</span> have the<span class=\"text-blue\" style=\"font-weight: 800;\"> lowest modern density</span>. Mechanical Hard Disk Drives <span class=\"text-red font-bold\">(HDDs)</span> are highly dense, but Solid State Drives <span class=\"text-green font-bold\">(SSDs) </span>especially those using vertically stacked <span class=\"text-orange font-bold\">3D NAND flash cells, </span>currently achieve the <span class=\"text-magenta font-bold\">highest possible data density</span>.",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "0bffbfd7-df9f-4522-be2a-1eb4cc120d67",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following best explains the function of the operating system (OS) in managing hardware and software resources on a computer?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "The OS translates high-level programming languages into machine code directly.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The OS manages hardware, provides a user interface, and allocates resources like CPU and memory.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The OS takes a program instruction by instruction and computes its output.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The OS primarily functions as a web browser that facilitates internet connectivity.",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Operating System</span> acts as the <span class=\"text-red font-bold\">central manager</span> of the computer. It allocates CPU processing time, manages RAM limits, controls input/output devices, and provides a stable interface <span class=\"text-green font-bold\">(GUI or CLI)</span> so humans and application software can interact with the <span class=\"text-orange font-bold\">physical hardware</span> effortlessly.<div><img src=\"https://i.imgflip.com/5dh0zy.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "9c63b296-fed3-41c1-bef4-883b442058cd",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "What is the main difference between data and information in computer science?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Data and information are the same.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Information is unprocessed facts, while data is organized and meaningful.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Data is raw and unprocessed, while information is processed and meaningful.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Information is stored in binary, while data is not.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Data</span> consists of <span class=\"text-green font-bold\">raw, unorganized</span>, and isolated facts with no context (e.g., the number \"100\" or the word \"Red\"). <span class=\"text-red font-bold\">Information</span> is <span class=\"text-blue font-bold\">data</span> that has been intentionally processed, structured, and given context to make it <span class=\"text-orange font-bold\">logically meaningful</span> (e.g., \"The student scored 100 on the final exam\").<div><img src=\"https://learn.g2.com/hubfs/Data%20vs.%20information.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "e7036b08-d85b-4290-b76f-138c00092eda",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "hard",
+    "question": "________ gets installed and stays hidden in your computer's memory. It stays involved to the specific type of files which it infects.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Boot Sector Virus",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Direct Action Virus",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Polymorphic Virus",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Multipartite Virus",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Direct Action Virus</span> installs itself directly into the system's memory and typically attaches its malicious payload to specific executable files (like <span class=\"text-red font-bold\">.exe)</span>. The moment you click to run that legitimate file, the virus rapidly activates, <span class=\"text-green font-bold\">replicates</span>, and then goes dormant again to avoid detection.<div>   </div>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "cd7d95b7-5e8f-4776-ab7d-0d1155a96aa3",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "easy",
+    "question": "Which device is primarily responsible for connecting different networks and making decisions based on IP addresses to forward data packets?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "VLAN",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Router",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Repeater",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bridge",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Router</span> operates at the <span class=\"text-red font-bold\">Network Layer (Layer 3)</span> of the <span class=\"text-green font-bold\">OSI model</span>. Its core responsibility is to connect multiple distinct networks (like your home network and the broader internet) and use <span class=\"text-orange font-bold\">routing tables</span> to calculate the fastest path to forward data packets based on destination <span class=\"text-teal font-bold\">IP addresses</span>.<div><img src=\"https://th.bing.com/th/id/R.c13fc8cbe989bb2e657bb52fd16be204?rik=MKRVEDT0BqaiUg&amp;riu=http%3a%2f%2fwww.quickmeme.com%2fimg%2f7c%2f7c7145c7fda1afff52f88fd322b40fd5c1c7d00efd301e2963712c80c3a5b15e.jpg&amp;ehk=i613jgGZn4gt6Bt3G1tcEOabJvBMh%2boQDxcFWU4Vh0Y%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 45%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "2092ef8c-58a5-431d-adfb-3c17dac1bbc2",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "How do most modern antivirus solutions detect suspicious files that may contain viruses or malware?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "By matching file signatures and using heuristic analysis to detect abnormal behavior.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "By encrypting the file system and checking hashes against a global ledger.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "By monitoring network traffic and source IPs to block threats before download.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "By analyzing code behavior and alerting if it resembles a virus.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Elite antiviruses use a dual-threat approach. First, <span class=\"text-blue font-bold\">Signature-based detection</span> catches known threats by matching their code against a database. Second, <span class=\"text-red font-bold\">Heuristic (behavioral) analysis</span> monitors programs for highly suspicious actions, allowing the software to trap brand-new, unlisted <span class=\"text-green font-bold\">(zero-day)</span> viruses.<div><img src=\"https://images7.memedroid.com/images/UPLOADED464/5c8803428ea27.jpeg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "295f2af0-09ad-416f-9578-9a2516882dac",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following techniques is commonly used by advanced computer viruses to avoid detection by antivirus software and maintain persistence on an infected system?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using polymorphic code that changes its appearance each time it infects a new file.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Utilizing public-key cryptography to trigger execution from a command server.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Altering system-level DNS resolver cache entries.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Injecting kernel-mode rootkits that intercept system calls.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Polymorphic viruses</span> are designed to constantly <span class=\"text-red font-bold\">mutate and encrypt</span> their underlying source code every single time they replicate. Because their digital \"fingerprint\" <span class=\"text-green font-bold\">(signature)</span> is perpetually changing, traditional <span class=\"text-green font-bold\">signature</span>-based antivirus scanners fail to identify them. <span class=\"text-magenta\" style=\"font-weight: 800;\">Chameleon</span> was<span class=\"text-teal\" style=\"font-weight: 800;\"> first polymorphic virus</span> in 90s.<div><br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "2e23788d-40eb-4828-9f81-8c2d8727a5ad",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "hard",
+    "question": "What best describes the purpose of DKIM (DomainKeys Identified Mail) in email security?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "It encrypts the entire email message to ensure only the recipient can read it.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "It verifies that the sender's IP address is authorized to send email for the domain.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It adds a digital signature to the email header to verify authenticity and integrity.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It blocks spam emails by checking the sender's IP reputation.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">DKIM</span> provides cryptographic proof of an email's origin. By attaching an invisible <span class=\"text-red font-bold\">digital signature</span> to the <span class=\"text-green font-bold\">email header</span>, the receiving server can<span class=\"text-blue\" style=\"font-weight: 800;\"> mathematically verify</span> that the<span class=\"text-blue\" style=\"font-weight: 800;\"> email genuinely originated from</span> the claimed domain owner and was not tampered with by hackers in transit.<div><img src=\"https://media.emailonacid.com/wp-content/uploads/2021/07/DKIM-Authentication-Process.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br></div><div>   </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "1966741c-f28b-4178-bd27-79eaf59210fd",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "medium",
+    "question": "What does IPv6 stand for, and what is its primary improvement over IPv4?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Internet Packet Version 6; it introduces encrypted headers and replaces TCP.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Internet Protocol Version 6; it expands the address space from 32-bit to 128-bit.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Interconnect Protocol Virtual 6; it uses MAC addressing for global routing.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Internet Pathway Version 6; it eliminates IP routing.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">IPv4</span> (e.g., 192.168.1.1) uses a <span class=\"text-red font-bold\">32-bit</span> format, creating a hard limit of about<span class=\"text-blue\" style=\"font-weight: 800;\"> 4.3 billion unique IP addresses</span>—<span style=\"font-style: italic;\">a cap the world has outgrown</span>. Internet Protocol Version 6 <span class=\"text-green font-bold\">(IPv6)</span> uses a <span class=\"text-orange font-bold\">128-bit</span> format, providing a virtually infinite pool of unique IP addresses to support the global explosion of smartphones and <span class=\"text-magenta font-bold\">IoT devices</span>. <div><img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20241209154735532715/IPv4-vs-ipv6.webp\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br><div>  </div></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "c61d69a5-ed95-46e6-9a8a-f2474fe66167",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "hard",
+    "question": "In Excel, you have a dataset with dates in column A and sales amounts in column B. You want to calculate the total sales for the month of March 2025 using a single formula. Which of the following formulas will correctly calculate this?<br>1- =SUMIFS(B:B, A:A, \"&gt;=03/01/2025\", A:A, \"&lt;=03/31/2025\")<br>2- =SUMPRODUCT((MONTH(A:A)=3)(YEAR(A:A)=2025)B:B)<br>3- =SUMIF(A:A, \"March 2025\", B:B)<br>4- =SUM(IF((TEXT(A:A,\"mmmm yyyy\")=\"March 2025\"), B:B, 0)) (entered as an array formula)<br>Which formula(s) will correctly calculate the total sales for March 2025?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only 2 and 3",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Only 1, 3 and 4",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Only 1, 2, and 4",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of the above",
+        "label": "D"
+      }
+    ],
+    "explanation": "Formula 1 works perfectly using <span class=\"text-blue\" style=\"font-weight: 800;\">standard criteria bracketing</span>. <div>Formula 2 works elegantly by generating boolean arrays for Month/Year and multiplying against the sum range. </div><div>Formula 4 works via an array text conversion. </div><div><span class=\"text-red\" style=\"font-weight: 800;\">Formula 3 fails</span> because <span class=\"text-blue font-bold\">SUMIF</span> attempts to match the literal text string \"<span class=\"text-red font-bold\">March 2025</span>\" rather than evaluating Excel's underlying <span class=\"text-green font-bold\">serial date values</span>. <div>  </div></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "67895d78-2aea-443b-8ed6-66e41b1fc2a9",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "hard",
+    "question": "Which algorithm is used by Google Maps to calculate the fastest route based on travel time?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Breadth-First Search (BFS)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Depth-First Search (DFS)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Dijkstra's Algorithm",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bellman-Ford Algorithm",
+        "label": "D"
+      }
+    ],
+    "explanation": "Google Maps treats road networks as massive graphs, where intersections are <span class=\"text-green\" style=\"font-weight: 800;\">nodes and roads</span> are <span class=\"text-green font-bold\">weighted edges</span> (based on travel time). While modern GPS relies on hybrid models like A search for speed, the foundational logic engine is <span class=\"text-blue font-bold\">Dijkstra's Algorithm</span>, which efficiently calculates the absolute <span class=\"text-red font-bold\">shortest path</span> <span style=\"font-style: italic;\">between a source node and all others</span>. <div>  </div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "1a96f0fe-c4f9-4eff-bdd0-fd16fd9b1c56",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following was an output device used in the first generation of computers?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vacuum Tubes",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Paper Tapes",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Punched Cards",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Magnetic Tapes",
+        "label": "D"
+      }
+    ],
+    "explanation": "First-generation machines (like the <span class=\"text-green font-bold\">ENIAC)</span> predated digital monitors and printers. All data was physically fed into the machine, and results were physically punched back out by the machine using stiff paper <span class=\"text-blue font-bold\">Punched Cards</span>, where the strategic absence or presence of a hole represented <span class=\"text-red font-bold\">binary logic</span>.<div><img src=\"https://www.computerhope.com/jargon/p/punch-card.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br><div>  </div></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "1bfd6946-1f0e-4a41-bdbf-cbcc2de2c027",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is an example of open-source technology?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Microsoft Office",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "LibreOffice",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "FreeOffice",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "WPS Office",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">LibreOffice</span> is a highly capable, community-driven office suite whose foundational source code is freely available for anyone to inspect, modify, and distribute. In stark contrast, <span class=\"text-green\" style=\"font-weight: 800;\">Microsoft Office, WPS, and FreeOffice are proprietary tools</span> where the core code is legally locked down and hidden from the public.<div><img src=\"https://dashboard.snapcraft.io/site_media/appmedia/2019/09/Screenshot-05-New-EN.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>  </div></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "fa06c53c-7253-4e87-9dbb-78b499757bca",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Programming"
+    ],
+    "difficulty": "medium",
+    "question": "Arrange the following programming languages in ascending order of execution speed.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Python, Java, C, Machine Code",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Java, Python, C, Machine Code",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Machine Code, C, Java, Python",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Machine Code, Python, C, Java",
+        "label": "D"
+      }
+    ],
+    "explanation": "Ascending order means slowest to fastest. <span class=\"text-blue font-bold\">Python</span> is an interpreted language (Slowest). <span class=\"text-red font-bold\">Java</span> compiles to bytecode run by a Virtual Machine (Faster). <span class=\"text-green font-bold\">C</span> compiles directly down to <span class=\"text-green\" style=\"font-weight: 800;\">native OS binaries (Very Fast)</span>. <span class=\"text-orange font-bold\">Machine Code</span> is the pure, raw binary language executed directly by the CPU hardware without any translation <span class=\"text-teal font-bold\">(Absolute Fastest)</span>.<div><img src=\"https://i.redd.it/y6laupmei9u91.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>  </div></div>",
+    "pyq": "Statistical Assistant 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "bb307da7-f3e5-466d-8631-cf45d57fac08",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Hardware"
+    ],
+    "difficulty": "easy",
+    "question": "How many color dots make up one color pixel on a screen?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "8",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1080",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "265",
+        "label": "D"
+      }
+    ],
+    "explanation": "Look closely at a digital display, and you'll find that a single <span class=\"text-red\" style=\"font-weight: 800;\"></span><span class=\"text-red\" style=\"font-weight: 800;\">pixel</span> is not one uniform color. It is a microscopic cluster of exactly <span class=\"text-teal\" style=\"font-weight: 800;\">three light-emitting</span> <span class=\"text-green\" style=\"font-weight: 800;\">sub-pixels: Red, Green, and Blue (RGB)</span>. By blending the intensities of these three dots, the screen produces millions of distinct colors. <div><img src=\"https://i.pinimg.com/736x/29/1f/eb/291feb2f1de9f627058f80dbe53509a1.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>  </div>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "54259dd7-1d39-4150-b781-6f9b2d19cc8e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "'Ctrl + Right Arrow' is used to:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Move the cursor one word right",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Move the cursor to the end of the line",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Move the cursor to the end of the document",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Move the cursor one paragraph down",
+        "label": "D"
+      }
+    ],
+    "explanation": "In nearly all standard text editing environments, pressing the Left or Right Arrow key moves your blinking cursor a single letter at a time. Holding down the <span class=\"text-blue\" style=\"font-weight: 800;\">'<span class=\"text-blue font-bold\">Ctrl</span>' modifier </span>key overrides this, allowing you to leap the cursor an <span class=\"text-red font-bold\">entire word at a time</span>, drastically <span class=\"text-blue\" style=\"font-weight: 800;\">speeding up navigation</span>.<div>   </div>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "b03398f7-cdf8-4ce4-81d8-3f36c4bbaec5",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "hard",
+    "question": "Wireless mouse communicates through:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Radiowaves",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Wire",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Microwaves",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Electromagnetic signal",
+        "label": "D"
+      }
+    ],
+    "explanation": "Standard wireless mice and keyboards cut the cord by transmitting input data to your computer using low-power <span class=\"text-blue font-bold\">Radio Frequency (RF)</span> waves. They almost exclusively operate on the globally available <span class=\"text-red font-bold\">2.4 GHz</span> ISM band or via specialized <span class=\"text-green font-bold\">Bluetooth</span> radio protocols. <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "548ca7f6-158f-4320-b280-5b93ff63ced8",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "The term 'Computer' is derived from:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Latin",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "German",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "French",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Arabic",
+        "label": "D"
+      }
+    ],
+    "explanation": "The etymological root of \"computer\" is the Latin word <span class=\"text-blue font-bold\">computare</span>, which translates to \"<span class=\"text-red font-bold\">to calculate</span>,\" \"to count,\" or \"to sum up.\" Interestingly, before machines took over, a \"Computer\" was an actual job title for a human clerk tasked with performing tedious mathematical calculations.<div>   </div>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "680a4444-6f69-44c3-b45c-becbed9eaa1a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Hardware"
+    ],
+    "difficulty": "medium",
+    "question": "What is the name of the non-volatile chip that stores the date, time, and system configuration?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "RAM",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "CMOS",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "JFET",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "FET",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">CMOS</span> (Complementary Metal-Oxide Semiconductor) chip is a specialized memory module on the motherboard. Because it is powered by a small, dedicated <span class=\"text-red font-bold\">coin-cell battery</span>, it remains active even when the PC is unplugged, allowing it to preserve the system clock and core <span class=\"text-green font-bold\">BIOS settings</span>.<div><img src=\"https://1.bp.blogspot.com/-1p8wU7fYHUQ/Xy3T1Yxj2jI/AAAAAAAAAv0/25QoOlojiUYtui1FYRlpW3w_lOGX4lSMwCLcBGAsYHQ/s1600/Full%2BForm%2Bof%2BCMOS%2B-%2BCMOS%2Bin%2BComputer.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\">    </div>",
+    "pyq": "JKSSB Steno 2024",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "76b30631-a96d-42e0-ac7e-edddc081b50e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about computer memory are correct?<br>1- Cache memory is faster than RAM.<br>2- SSDs are slower than HDDs.<br>3- Virtual memory extends RAM using storage space.<br>4- DRAM is a type of non-volatile memory.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 3 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 4 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 3, and 4 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 1 is True: <span class=\"text-blue font-bold\">Cache</span> is a lightning-fast CPU buffer. <div>Statement 3 is True: <span class=\"text-red font-bold\">Virtual Memory</span> borrows hard disk space to prevent crashing when RAM is full. Statement 2 is False: <span class=\"text-green font-bold\">SSDs</span> use flash memory and crush mechanical HDDs in speed. </div><div>Statement 4 is False: <span class=\"text-orange font-bold\">DRAM</span> is volatile; it wipes clean the second power is lost. </div><div>  </div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "67b92dca-5d39-4b29-beca-eac8119ea39a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "hard",
+    "question": "Match the following Operating System Types with their examples:<br>Os typeExamplei. Batch Operating System1. UNIXii. Time-Sharing Operating System2. Windows Serveriii. Distributed Operating System3. IBM (Mainframe)iv. Network Operating System4. Android OS<br>Choose the correct match:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "i-3, ii-4, iii-1, iv-2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "i-3, ii-1, iii-4, iv-2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "i-4, ii-2, iii-3, iv-1",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "i-2, ii-4, iii-3, iv-1",
+        "label": "D"
+      }
+    ],
+    "explanation": "Early IBM mainframes processed massive jobs sequentially via <span class=\"text-blue font-bold\">Batch OS</span> (i-3). <span class=\"text-green font-bold\">UNIX</span> revolutionized computing as a <span class=\"text-red font-bold\">Time-Sharing OS</span>, slicing CPU time fairly among multiple active users (ii-1). Windows Server governs permissions across local network environments (iv-2). <span class=\"text-orange font-bold\">Android OS</span> leverages distributed architectures for device-to-cloud synchronization (iii-4).",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "df644750-60be-46a5-a94e-3ee5f7caea49",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "Assertion (A): The BIOS is responsible for initializing hardware components during the computer's boot process.<br>Reason (R): The BIOS loads the operating system into memory to start the computer.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both Assertion and Reason are true, and Reason is the correct explanation of Assertion.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Both Assertion and Reason are true, but Reason is not the correct explanation of Assertion.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Assertion is true, but Reason is false.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Assertion is false, but Reason is true.",
+        "label": "D"
+      }
+    ],
+    "explanation": "The Assertion is true: The <span class=\"text-green font-bold\">BIOS</span> executes the <span class=\"text-blue font-bold\">POST (Power-On Self Test)</span> to ensure all hardware is functional. The Reason is technically false: The <span class=\"text-green font-bold\">BIOS</span> lacks the capacity to load a massive Operating System directly. Instead, it <span style=\"text-decoration-line: underline;\">only locates and loads a tiny utility</span> called the <span class=\"text-red font-bold\">Bootloader</span> (e.g., Windows Boot Manager), which then <span style=\"text-decoration-line: underline;\">takes over the heavy lifting of loading</span> the actual OS into RAM.",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "97054dc6-6f8f-4a88-9287-6053a0119880",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "easy",
+    "question": "Microsoft Windows is an example of which type of operating system?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Multitasking Operating System",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Realtime Operating System",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Embedded Operating System",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Multiuser Operating System",
+        "label": "D"
+      }
+    ],
+    "explanation": "Microsoft Windows is architected primarily as a <span class=\"text-blue font-bold\">Preemptive Multitasking</span> operating system. It allows a single user to run dozens of applications simultaneously (like streaming Spotify while typing in Word and browsing Chrome), rapidly switching CPU focus behind the scenes to create the illusion of <span class=\"text-red font-bold\">parallel execution</span>.<div><img src=\"https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDhta3d0d3VrcTN5MW1yeWV4aW5iaHRvZ2hra3BhcmVrejd5OHRxaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NV4cSrRYXXwfUcYnua/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "d7e4bccd-c45d-4973-b387-f5eac6688238",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "Read the following two statements:<br>1- ICT is considered a subset of Information Technology (IT).<br>2- The `right to use` a piece of software is termed as copyright.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both 1 and 2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Neither 1 nor 2",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 Only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1 Only",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 1 is accepted in this specific exam context (though structurally, IT is usually a subset of the broader ICT). Statement 2 is definitively false: <span class=\"text-blue font-bold\">Copyright</span> is the legal ownership right protecting the creator from unauthorized duplication. The specific \"right to use\" software is granted through a <span class=\"text-red font-bold\">Software License</span> (like an <span class=\"text-green font-bold\">EULA)</span>.<div><img src=\"https://i.imgflip.com/4uf3xm.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 45%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "1b32e99b-59bc-41d8-a6bd-40624e3cca5a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Data Representation"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements:<br>1- The decimal number 11 is larger than the hexadecimal number 11.<br>2- In the binary number 1110.101, the fractional part has the decimal value as 0.625.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 Only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 Only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 1 is False: <span class=\"text-blue font-bold\">Hexadecimal</span> operates in <span class=\"text-red font-bold\">base-16</span>. Hex '11' is mathematically (1 × 16¹) + (1 × 16⁰) = 16 + 1 = 17 in standard decimal. 17 is larger than decimal 11. * <div>Statement 2 is True: <span class=\"text-green font-bold\">Binary fractions</span> halve in value moving right of the point. 0.101 translates to (1 × 0.5) + (0 × 0.25) + (1 × 0.125) = 0.5 + 0.125 = 0.625.</div><div>   </div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "df67a744-424a-414f-86bf-ce485b319f0f",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "Which statement is correct regarding e-mail?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Invented by Ray Tomlinson (1971)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Required sender &amp; recipient online",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "e-Mail = Electronic Messaging",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Exclusively between same computer users",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Ray Tomlinson</span> is universally credited with inventing network electronic mail in 1971 while developing the <span class=\"text-red font-bold\">ARPANET</span>. He revolutionized communication by implementing the \"<span class=\"text-green font-bold\">@</span>\" symbol to separate a user's name from their destination host server. Also, E-mail specifically stands for Electronic Mail, not Messaging.<div><img src=\"https://tse1.mm.bing.net/th/id/OIP.8buJvyYrpz4ErYQHMY-RXAHaHa?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\"> <br><div>   </div></div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "27e417ef-a960-4818-8dcd-f55234b70463",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "Process of monitoring &amp; capturing data packets across network is called?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sniffing",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Spoofing",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Back doors",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Interference",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\"><img src=\"https://i.pinimg.com/736x/1f/bd/14/1fbd14e2988e501a399e20c8c8cd2d4d.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> Packet Sniffing</span> (or network sniffing) is the act of intercepting and capturing data packets as they transit across a digital network. While hackers use sniffing maliciously to steal unencrypted passwords, IT administrators legally rely on sniffing software (like <span class=\"text-red font-bold\">Wireshark)</span> for diagnosing severe <span class=\"text-green font-bold\">network bottlenecks</span>.<div><br></div><div>   </div>",
+    "pyq": "JKSSB Pharma 2025",
+    "created_at": "2026-06-23T14:36:33.470804+00:00"
+  },
+  {
+    "id": "03e7a9a2-8b1a-4fb1-9d2e-0ce7edab26d5",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "In an email address, the symbol \"@\" separates:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Protocol and domain",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Name Domain and Host Name",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Folder and Username",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "User Name and Domain Name",
+        "label": "D"
+      }
+    ],
+    "explanation": "An email address has two core parts separated by the \"@\" (at) symbol. Everything before the @ is the unique <span class=\"text-blue font-bold\">User Name</span> (e.g., 'student'), and everything after the @ is the <span class=\"text-red font-bold\">Domain Name</span> of the email provider (e.g., 'gmail.com').",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "0e2d46f3-d107-4063-b52d-785cebb81910",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following is incorrect regarding the use of modern computer applications in field operations of a Forest Department?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mobile apps are used for taking photographs of trees.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "GIS-enabled apps integrate GPS data and satellite imagery.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Forest apps replace the need for physical field inspections completely.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Field applications can work offline and sync data later.",
+        "label": "D"
+      }
+    ],
+    "explanation": "While modern applications significantly speed up data collection, <span class=\"text-blue font-bold\">GPS mapping</span>, and logging, they cannot completely replace the need for <span class=\"text-red font-bold\">human presence</span> and <span class=\"text-green font-bold\">physical field inspections</span> to verify ground realities in forestry operations.",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "1993ffa5-5c15-455c-aeb3-578fdb2c4507",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements is correct regarding computer viruses and modern antivirus systems?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "A virus can execute automatically without user action once present in memory.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Signature-based antivirus detects only previously identified malware patterns.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Online registration guarantees protection against zero-day attacks.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A firewall and antivirus perform exactly the same function.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Signature-based detection</span> works like a police \"<span class=\"text-red font-bold\">Most Wanted</span>\" list. The antivirus compares files against a database of known malware code (signatures). If a brand-new virus (a <span class=\"text-green font-bold\">zero-day attack)</span> appears that isn't in the database yet, a signature-based scanner will not catch it.<div><img src=\"https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWExYmhmd2cwM2k1Znhma2hoeHV2YXZpOG43OTNkdW9wN2l4dTY3cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Hlw1wlzvxTvxiZG/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 35%;\"> <br></div><div>   </div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "e4f348e1-ea80-4793-8329-0285a26d0f5f",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following statements is true regarding KMZ files and geo-tagged photos?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "A KMZ file stores only image files with location names.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Geo-tagging embeds latitude and longitude inside image metadata.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "KMZ files cannot contain coordinate information.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Uploading a geo-tagged photo automatically creates a KMZ file.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Geo-tagging</span> directly embeds geographical coordinates <span class=\"text-red font-bold\">(latitude and longitude)</span> into the <span class=\"text-green font-bold\">EXIF metadata</span> of an image file. A <span class=\"text-orange font-bold\">KMZ file</span> (Keyhole Markup Language Zipped) is a map file used by Google Earth, and it fundamentally relies on coordinate information, making statement C false.",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "60f3b231-7e23-4385-82bf-c9b15b6cba5d",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "A student uploads a PDF file to an online PDF-to-JPG converter website. After conversion, he downloads the JPG files but later notices the images are blurred, the file size is much larger than expected, and text cannot be copied anymore. Which of the following is the most accurate reason?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "The PDF was converted into raster images.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The website reduced internet speed.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The browser changed the file extension.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The file was uncompressed using ZIP format.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">PDFs</span> often use <span class=\"text-blue font-bold\">vector graphics</span> (which render text sharply at any zoom level). <span class=\"text-red font-bold\">JPG</span> is a <span class=\"text-green font-bold\">raster format</span> made of fixed pixels. <span style=\"font-style: italic;\">Converting PDF text to JPG pixels</span> destroys the readable text layer (making it uncopyable), causes <span class=\"text-orange font-bold\">blurriness when zoomed</span>, and drastically increases file size.",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "d826f19a-2a16-4ed5-a60e-784796e211ec",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "medium",
+    "question": "A student is using a computer with 8 GB RAM. He opens a web browser with 25 tabs, a video editing software, a music player, and a code editor. After some time, the system becomes slow, but it does NOT crash. The hard disk activity light keeps blinking continuously even though he is not saving files. Which of the following is the most accurate explanation?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The operating system has stopped multitasking and is running programs one by one.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The CPU cache memory is full, so the system is waiting for space to free up.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The operating system is using virtual memory and swapping data between RAM and disk.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The BIOS is reallocating hardware resources dynamically.",
+        "label": "D"
+      }
+    ],
+    "explanation": "When RAM is completely full, the OS borrows space from the Hard Disk (creating <span class=\"text-blue font-bold\">Virtual Memory)</span> to keep the system from crashing. It constantly moves data back and forth between the RAM and the hard drive <span class=\"text-red font-bold\">(Paging/Swapping)</span>. This heavy disk usage causes extreme slowness and constant hard disk blinking, a condition known as <span class=\"text-green font-bold\">Thrashing</span>.<div><img src=\"https://www.learncomputerscienceonline.com/wp-content/uploads/2019/06/OS-Memory-Management-Virtual-Memory.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "734b93ba-e51f-406f-b2b3-3b412426cf01",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Data Representation"
+    ],
+    "difficulty": "easy",
+    "question": "The binary number equivalent to decimal 10 is:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1010",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "0101",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1111",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1001",
+        "label": "D"
+      }
+    ],
+    "explanation": "To find binary quickly, use the <span class=\"text-blue font-bold\">8-4-2-1</span> <span class=\"text-red font-bold\">place value method</span>. To make the number 10, you need an 8 and a 2. Place a '1' under the 8 and 2, and a '0' under the rest: (8x1) + (4x0) + (2x1) + (1x0) = <span class=\"text-green font-bold\">1010</span>.",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "2af071bb-5763-4bd7-acf9-c5a00a199399",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "Match the following:<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>List a</th><th>List b</th></tr></thead><tbody><tr><td>1. <span class=\"text-red\" style=\"font-weight: 800;\">Firmware</span></td><td>a. Translates high-level language into machine code</td></tr><tr><td>2. <span class=\"text-red\" style=\"font-weight: 800;\">Utility Software</span></td><td>b. Controls communication between OS and hardware</td></tr><tr><td>3. <span class=\"text-red\" style=\"font-weight: 800;\">Device Driver</span></td><td>c. Stored permanently in ROM to initialize hardware</td></tr><tr><td>4. <span class=\"text-red\" style=\"font-weight: 800;\">Compiler</span></td><td>d. Performs system maintenance tasks</td></tr></tbody></table></div>Choose the correct option:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-c, 2-d, 3-b, 4-a",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-b, 2-a, 3-c, 4-d",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-d, 2-b, 3-a, 4-c",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-a, 2-c, 3-d, 4-b",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Firmware</span> is hardware-specific code permanently stored in <span class=\"text-red font-bold\">ROM</span> (c). <div><span class=\"text-green font-bold\">Utility Software</span> performs maintenance like disk cleanup (d). </div><div><span class=\"text-orange font-bold\">Device Drivers</span> act as translators between the OS and physical hardware (b). </div><div><span class=\"text-magenta font-bold\">Compilers</span> translate human-readable code into binary machine code (a). </div><div> <span class=\"text-blue-500 font-bold\">  </span>  </div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "aa4095ee-a409-488a-8113-f8862a57aa53",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Data Representation"
+    ],
+    "difficulty": "hard",
+    "question": "A computer uses 8-bit 2's complement representation. Which of the following operations will NOT cause overflow?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "01010101 + 00110011",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "10011001 + 10101010",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "01111111 + 00000001",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "11110000 + 00010000",
+        "label": "D"
+      }
+    ],
+    "explanation": "Master Trick to solve <span class=\"text-blue font-bold\">Overflow</span> instantly: <div>1. <span class=\"text-red font-bold\">Positive + Positive = Negative Result</span>? <span class=\"text-blue font-bold\">Overflow</span>! </div><div>2. <span class=\"text-green font-bold\">Negative + Negative = Positive Result</span>? <span class=\"text-blue font-bold\">Overflow</span>! </div><div>3. <span class=\"text-orange font-bold\">Positive + Negative</span>? NEVER OVERFLOWS. </div><div>Look at the <span class=\"text-teal font-bold\">most significant bit</span> (leftmost bit: 0=Pos, 1=Neg). Option D adds a negative (1...) and a positive (0...). Opposite signs are mathematically guaranteed to never cause an <span class=\"text-blue font-bold\">overflow</span>. </div><div>   </div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "0c3910cc-4254-442b-ad9a-704f1739ae05",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Powerpoint"
+    ],
+    "difficulty": "easy",
+    "question": "Which key is used to start a slide show from the beginning?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "F1",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "F5",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "F7",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "F9",
+        "label": "D"
+      }
+    ],
+    "explanation": "Pressing <span class=\"text-blue font-bold\">F5</span> launches the PowerPoint presentation from the very first slide. If you want to start the presentation from the current slide you are actively editing, use <span class=\"text-red font-bold\">Shift + F5</span>. <div>  </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "3b62208c-84cd-4348-995a-755846c25187",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Database"
+    ],
+    "difficulty": "medium",
+    "question": "Which type of query retrieves data based on a condition?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Update Query",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Append Query",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Select Query",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Delete Query",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Select Query</span> is the most common database operation. It searches the database and <span class=\"text-red font-bold\">retrieves specific rows</span> of data that match the conditions you set, without permanently altering or deleting the original data.",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "4ee19300-92a4-4cb6-873f-deb42ec1682e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "easy",
+    "question": "Which symbol is used to start a formula in Excel?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "%",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "=",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "+",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "#",
+        "label": "D"
+      }
+    ],
+    "explanation": "Every formula or function in MS Excel must begin with the <span class=\"text-blue font-bold\">equals sign (=)</span>. This signals to the software that the cell contains a mathematical calculation rather than plain text. <div><img src=\"https://i.ytimg.com/vi/dGed6-7VGnU/maxresdefault.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br><div>  </div></div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "9565fc05-7156-4432-82c0-20c1aca7d3ab",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "easy",
+    "question": "The following feature in Word allows you to combine letters with a database of addresses?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Track Changes",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Header &amp; Footer",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "AutoCorrect",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mail Merge",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Mail Merge</span> is a powerful <span class=\"text-red font-bold\">automation tool</span> in MS Word. It takes a single template document (like an invitation letter) and links it to a database (like an Excel sheet of names and addresses) to instantly generate hundreds of personalized letters.<div><img src=\"https://www.customguide.com/images/lessons/word-2019/word-2019--mail-merge--01.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "a5371cf7-1078-4bf1-b4fd-3c71d52da2d2",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "medium",
+    "question": "Which of these protocols ensures secure email transmission?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "FTP",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "HTTP",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "SSL/TLS",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "TCP",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">SSL</span> (Secure Sockets Layer) and its modern successor <span class=\"text-red font-bold\">TLS</span> (Transport Layer Security) are cryptographic protocols designed to provide secure, <span class=\"text-green font-bold\">encrypted communication</span> over a network. They secure emails in transit to prevent hackers from intercepting and reading them.<div><img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG4wAoBSJHt3BR6lmVgAoI4R0SZWGw0xMUF5Q6OGg2lGKQO56VlQI88N1tUgdhv-TTbNhgpnJDXEZWbs86Svkmpz31tbMvov_nWXUUc6KpANLCtB8pqc4GDX4PdXF-MNcQ1kNvjgh2JtrXSxp5_Qrj7UZYkjZqfiGxUBoLffNjp6eBfaDWiCvVvpJDxA/w1200-h630-p-k-no-nu/SSL.JPG\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "3bdadb5d-b025-49f2-a270-b08c3322bbda",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "medium",
+    "question": "Which generation of computers introduced the concept of integrated circuits (ICs)?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "First generation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Second generation",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Third generation",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Fourth generation",
+        "label": "D"
+      }
+    ],
+    "explanation": "The evolution of computer hardware: 1st Gen used <span class=\"text-blue font-bold\">Vacuum Tubes</span> (huge, hot). 2nd Gen used <span class=\"text-red font-bold\">Transistors</span> (smaller). 3rd Gen revolutionized computing by shrinking thousands of <span class=\"text-red font-bold\">transistors</span> onto a single silicon <span class=\"text-green font-bold\">Integrated Circuit (IC)</span> chip. 4th Gen introduced <span class=\"text-orange font-bold\">Microprocessors</span>.<div><img src=\"https://image.slidesharecdn.com/computergenerations-160414192711/95/computer-generations-10-638.jpg?cb=1460662327\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "e11b2b34-aa06-45f4-b34e-22c9c5d3cffd",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "easy",
+    "question": "Which output device is most appropriate for printing large engineering drawings?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Laser printer",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Plotter",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Inkjet printer",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Dot matrix printer",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Plotter</span> uses <span class=\"text-red font-bold\">mechanical pens</span> to draw continuous, high-precision lines on large sheets of paper. It is the industry standard for architects, engineers, and designers printing massive blueprints and <span class=\"text-green font-bold\">CAD drawings</span>.<div><img src=\"https://miro.medium.com/max/1400/1*_H7axjQZNSM3h02DJKtX0w.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "5a056f7b-5e63-4a25-b9bc-879edec69639",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Hardware"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following firmware is responsible for initializing hardware and loading the operating system?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Device driver",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Compiler",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "BIOS",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Kernel",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">BIOS</span> (Basic Input/Output System) is the very first code that runs when you press the power button. It checks if all hardware is functioning <span class=\"text-red font-bold\">(POST test)</span> and then locates the Operating System on the hard drive to boot the computer.<div><img src=\"https://computercraft.ru/uploads/monthly_2020_06/bios.gif.a40a6a79e2992e45669c4c73e32cd615.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "ff5323d9-135f-4beb-8b8b-748990a5c207",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "easy",
+    "question": "The highest data transfer rate is provided by which of the following storage devices?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Magnetic Tape",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Hard Disk Drive",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Solid State Drive",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Optical Disk",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Solid State Drives (SSDs)</span> use <span class=\"text-red font-bold\">flash memory</span> chips with zero moving parts, allowing data to be read and written at lightning speeds. <span class=\"text-green font-bold\">Hard Disk Drives (HDDs)</span> rely on <span class=\"text-orange font-bold\">spinning magnetic platters</span> and a mechanical read/write arm, making them significantly slower.<div><img src=\"https://www.business2community.com/wp-content/uploads/2013/07/ssd-drive.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "ab5dd16a-7fd1-4e56-b236-c37e73d12d7e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "medium",
+    "question": "Which type of software license lets users see the source code, change it, and share it with others?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Open-source license",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Proprietary license",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Freeware license",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Shareware license",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>License type</th><th>Can view source code?</th><th>Cost</th><th>Example</th></tr></thead><tbody><tr><td><strong>Open-Source</strong></td><td>Yes (Free to modify)</td><td>Free</td><td>Linux, Android</td></tr><tr><td><strong>Proprietary</strong></td><td>No (Code is hidden)</td><td>Paid</td><td>MS Windows, MS Office</td></tr><tr><td><strong>Freeware</strong></td><td>No (Code is hidden)</td><td>Free</td><td>Adobe Reader, WhatsApp</td></tr><tr><td><strong>Shareware</strong></td><td>No (Code is hidden)</td><td>Trial/Paid</td><td>WinRAR</td></tr></tbody></table></div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "ce4bcc3e-f0e6-4c8c-8155-7bc1b5aaee43",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "medium",
+    "question": "Which component of the CPU is responsible for controlling the sequence of operations and managing the flow of data?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "ALU",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Register",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cache",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Control Unit",
+        "label": "D"
+      }
+    ],
+    "explanation": "Think of the <span class=\"text-blue font-bold\">Control Unit (CU)</span> as the <span class=\"text-green font-bold\">traffic cop</span> of the CPU. It doesn't do the actual math (the <span class=\"text-red font-bold\">ALU</span> does that), but it fetches instructions, decodes them, and directs the flow of data across the processor and memory to ensure operations happen in the correct sequence. <div><img src=\"https://res.cloudinary.com/witspry/image/upload/witscad/public/content/courses/computer-architecture/model-of-a-control-unit.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "654219bb-61b9-4ca9-af96-5bdf5b484ba8",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "medium",
+    "question": "While a computer is switched on, its operating system software has to stay in:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "External storage",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Disk drive",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Floppy disk/Pen Drive",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Primary storage",
+        "label": "D"
+      }
+    ],
+    "explanation": "The Boot Process Concept: 1. Sleeping: When powered off, the OS rests safely in <span class=\"text-blue font-bold\">Secondary Storage</span> (Hard Drive/SSD). 2. Waking Up: When you press power, the <span class=\"text-green font-bold\">BIOS (ROM)</span> wakes up. 3. Loading: The BIOS copies the core of the OS from the slow Hard Drive into the fast <span class=\"text-red font-bold\">Primary Storage (RAM)</span>. 4. Running: For the computer to actually function, the OS must stay active inside RAM until you shut down.",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "4d7c667b-1e0f-40a4-8c12-3604081da8f6",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "easy",
+    "question": "Operating System:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Links a program with subordinate interferences",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Enables the programmer to draw a flowchart",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Provides a layer, user-friendly interface",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All of these",
+        "label": "D"
+      }
+    ],
+    "explanation": "The primary job of an <span class=\"text-blue font-bold\">Operating System</span> is to act as a <span class=\"text-red font-bold\">bridge (interface)</span> between the human user and the complex physical hardware. Without an OS providing a <span class=\"text-green font-bold\">user-friendly layer</span>, you would have to type complex binary codes just to save a file.<div> <img src=\"https://i.pinimg.com/originals/fe/37/1f/fe371f5f3785a1c4414ef44b039f9229.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "Website Operator 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "58def711-d2aa-44c9-bbd7-3d3bb40a42fd",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Cyber Security"
+    ],
+    "difficulty": "medium",
+    "question": "In an e-Office system, a confidential file is sent digitally from a section officer to a higher authority. The department wants to ensure that only the intended officer can read the file during transmission. Which of the following ensures confidentiality during transmission?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Applying a digital signature to the document",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Encrypting the file using the recipient's public key",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Adding a watermark to the document",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Scanning the file before sending it",
+        "label": "D"
+      }
+    ],
+    "explanation": "Fact Check: A <span class=\"text-blue font-bold\">watermark</span> only proves ownership, and a <span class=\"text-red font-bold\">digital signature</span> only proves <span class=\"text-green font-bold\">authenticity</span> (who sent it). To ensure strict confidentiality so no one else can read it, you must <span class=\"text-orange font-bold\">encrypt the file</span> using the recipient's <span class=\"text-magenta font-bold\">Public Key</span>. Once encrypted, it can only be unlocked by the recipient's closely guarded <span class=\"text-teal font-bold\">Private Key</span>.  <div><img src=\"https://cdn.educba.com/academy/wp-content/uploads/2019/11/Digital-Signature-Cryptography-2.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\">   <div>   </div></div>",
+    "pyq": "Forest Inspector 2026",
+    "created_at": "2026-06-23T09:35:07.106563+00:00"
+  },
+  {
+    "id": "a9938c72-d159-4534-ac39-35dd418656c5",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "hard",
+    "question": "In the context of cloud computing in an IaaS (Infrastructure as a Service) model, what is managed by the service provider?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Networking hardware",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Operating system",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Hardware platform and operating system",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Operating system and data",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Cloud model</th><th>Provider manages</th><th>User manages</th><th>Example</th></tr></thead><tbody><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">IaaS (Infrastructure as Service)</span></strong></td><td>Hardware, Storage, Networking, Virtualization</td><td>OS, Applications, Data</td><td>AWS EC2, Azure VM</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">PaaS (Platform as a Service)</span></strong></td><td>Hardware, Networking, OS, Runtime Environment</td><td>Applications, Data</td><td>Google App Engine, Heroku</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">SaaS (Software as a Service)</span></strong></td><td>Entire Platform including Application</td><td>Only uses the software</td><td>Gmail, Google Docs, Microsoft 365</td></tr><tr><td><strong><span class=\"text-red\" style=\"font-weight: 800;\">FaaS / Serverless <br>(Function as Service)</span></strong></td><td>Infrastructure, OS, Runtime, Scaling</td><td>Individual Functions/Code</td><td>AWS Lambda, Azure Functions</td></tr></tbody></table></div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "7e4dc1c5-e176-4a29-a5fe-4869eaf6a192",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements about Internet routing and protocols is correct?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "BGP (Border Gateway Protocol) is used primarily for routing within a single local network.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "ICMP is used to encrypt data packets over the Internet.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "IPv6 adoption eliminates the need for NAT because it provides a vastly larger address space.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "HTTP/3 relies on TCP for faster connections and multiplexing multiple streams.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Network Address Translation (NAT)</span> was created as a band-aid for <span class=\"text-red font-bold\">IPv4</span>'s limited address space, allowing an <span style=\"font-style: italic; text-decoration-line: underline;\">entire private network to share one public IP</span>. <span class=\"text-green font-bold\">IPv6</span> uses a massive <span class=\"text-orange font-bold\">128-bit address scheme</span>, meaning every device globally can have its own unique IP, making NAT's sharing mechanism technically obsolete. <img src=\"https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/IPv4%20vs.%20IPv6%20What%E2%80%99s%20the%20Difference/IPv4-vs-IPv6.png?width=2750&amp;name=IPv4-vs-IPv6.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "02f56c73-3f63-4c37-acca-688e986b74bc",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements about TCP/IP and Internet communication:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "TCP guarantees delivery and the correct order of packets, but not the timing.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "TCP is faster than UDP because it does not perform any error checking.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "IPv6 uses 256-bit addresses, but the header size is fixed at 40 bytes.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "ICMP is used primarily for application-layer data transfer between web servers.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">TCP</span> is <span class=\"text-red font-bold\">connection-oriented</span> (like registered mail): it guarantees packet delivery and correct sequencing via a system of acknowledgments. However, it <span style=\"font-style: italic;\">cannot guarantee timing or latency</span> due to <span style=\"font-style: italic;\">unpredictable network congestion</span>.   <span class=\"text-green font-bold\">UDP</span> is <span class=\"text-orange font-bold\">connectionless</span> and <span class=\"text-orange\" style=\"font-weight: 800;\">faster</span>, but skips error-checking. <img src=\"https://i.pinimg.com/originals/9f/d9/83/9fd98355faa1f6ee2ce66efd65a3cb85.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\">",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "ccbf4fa3-e1a9-49b6-a82a-9cccf735bbdf",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Powerpoint"
+    ],
+    "difficulty": "easy",
+    "question": "In Microsoft PowerPoint, which of the following existing slide contents cannot be directly converted into SmartArt without re-entering the data?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "A bulleted list",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "An indented text",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A block of descriptive paragraph text",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A numbered list",
+        "label": "D"
+      }
+    ],
+    "explanation": "PowerPoint's <span class=\"text-blue font-bold\">SmartArt</span> engine relies on structured text to map out visual nodes. It easily converts <span class=\"text-red font-bold\">bulleted, numbered, or indented lists</span> into flowcharts and graphics. A <span class=\"text-green font-bold\">continuous, unstructured block</span> of descriptive text lacks this hierarchy, making direct conversion impossible without manual reformatting. <img src=\"https://media.giphy.com/media/1oHmASyOkABYmqecGn/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "e764abbc-4f47-4970-8ff7-4d5b1a2bb5d7",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following statements is correct about email functionality?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Email filters/rules cannot automatically forward emails to another account without user intervention.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Digital signatures in email encrypt the message body so that only the recipient can read it.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "POP3 protocol is used to download emails from the server to a local computer.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Using BCC ensures the sender and recipients cannot see each other.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange\" style=\"font-weight: 800;\">POP3 (Post Office Protocol v3)</span> downloads emails from a remote server directly to a local client and typically deletes the server copy. <div><span class=\"text-red\" style=\"font-weight: 800;\">Key Exam Distinctions: </span></div><div><span class=\"text-blue font-bold\">POP3</span>: Downloads locally to one device. </div><div><span class=\"text-red font-bold\">IMAP</span>: Syncs seamlessly across multiple devices. </div><div><span class=\"text-green font-bold\">SMTP</span>: Used exclusively for sending outgoing mail. </div><div><img src=\"https://th.bing.com/th/id/R.a875603707cc67db4ab50ced3cc38a2e?rik=Yt7H6rwYbSqNQw&amp;riu=http%3a%2f%2fwww.calcouk.com%2fimages%2fpop3.gif&amp;ehk=%2b5tLY7sVCPGk%2bqZU3HdUQNP99mioU2%2bWbrLFJkuTENI%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> <br></div><div>  </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "2e2f75db-37d1-4f8c-98ce-4a4e24ea2bb4",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "hard",
+    "question": "In Microsoft Excel, student scores are listed in column B (Math) and column C (Science). Which formula correctly counts the number of students who scored &gt;= 80 in Math and &gt;= 90 in Science?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "=COUNTIFS(B2:B10,\"&gt;=80\",C2:C10,\"&gt;=90\")",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "=SUM(B2:B10&gt;=80, C2:C10&gt;=90)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "=COUNTIF(B2:B10,\"&gt;=80\",C2:C10,\"&gt;=90\")",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "=SUMIF(B2:B10,\"&gt;=80\",C2:C10,\"&gt;=90\")",
+        "label": "D"
+      }
+    ],
+    "explanation": "`<span class=\"text-blue font-bold\">COUNTIFS</span>` is the required statistical function when <span class=\"text-blue\" style=\"font-weight: 800;\">checking multiple conditions </span>across different ranges simultaneously. It only increments the count if all given criteria (Math &gt;=80 AND Science &gt;=90) are met for the exact same row. `<span class=\"text-red font-bold\">COUNTIF</span>` only handles a single condition.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "5bacbad0-2dd8-43be-bd2f-9957d06b174a",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "hard",
+    "question": "A company keeps sales data in column B, and wants to categorise sales into three levels:<br>1- \"High\" if sales &gt;= 1000<br>2- \"Medium\" if sales &gt;= 500 but &lt; 1000<br>3- \"Low\" if sales &lt; 500<br>A student writes the formula in cell C2 as: =IF(B2&gt;=1000,\"High\",IF(B2&gt;=500,\"Medium\",\"Low\"))<br>Which of the following statements is correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "The formula will always give an error.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The formula will give an error if B2 is blank.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The formula evaluates incorrectly for values between 500 and 999.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The formula will work correctly for all numeric values in B2.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Excel evaluates nested `IF` functions <span class=\"text-red font-bold\">sequentially from left to right</span>. Once a true condition is met, it stops. If a value is &gt;= 1000, it returns \"High\". If it moves to the second condition (&gt;= 500), Excel already knows the value must be &lt; 1000. This perfectly traps the \"Medium\" tier without needing an explicitly stated upper limit.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "e9ad558b-7aee-4748-8304-da61d477a631",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following statements is true about MS Word?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using Section Breaks allows different headers and footers in the same document.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Using Page Break allows you to have different headers and footers in the same document.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Headers and footers cannot be changed once set in a document.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The same header must apply to all odd pages regardless of sections.",
+        "label": "D"
+      }
+    ],
+    "explanation": "A standard <span class=\"text-blue font-bold\">Page Break</span> merely<span class=\"text-blue\" style=\"font-weight: 800;\"> pushes text to a new page</span> within the same structural section, <span style=\"font-style: italic;\">carrying over the existing header/footer</span>. To apply completely different page-level formatting (like distinct headers, footers, or margin changes) to a specific part of a document, inserting a <span class=\"text-red font-bold\">Section Break</span> is mandatory to \"unlink\" it.<div><img src=\"https://static.wixstatic.com/media/1c29e0_5a28a951e9f443ba865c99b2d15c8ea0~mv2.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "a5b3cab6-74f0-4591-984e-5fcc086ce066",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Word"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following statements is NOT correct about MS Word?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "A content control can restrict editing in a document, but cannot enforce data validation.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "You can apply different first-line indents and hanging indents to different paragraphs within the same style.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The Navigation Pane allows searching by headings, pages, or results.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "In Track Changes, accepting a change permanently applies it and removes the associated markup.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Content controls</span> in MS Word can absolutely enforce <span class=\"text-red font-bold\">data validation</span>. For instance, a <span class=\"text-green font-bold\">Date Picker</span> control restricts a user to <span class=\"text-green\" style=\"font-weight: 800;\">selecting valid calendar dates</span>, and a <span class=\"text-orange font-bold\">Drop-Down List</span> restricts inputs to predefined choices. Therefore, the claim that they cannot enforce validation is false.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "19c4e3cd-9045-4003-b971-08151103cc9f",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "hard",
+    "question": "Consider a system using preemptive priority scheduling with multiple real-time and user-level processes. Priority inheritance protocol is implemented.<br>1- Priority inversion can occur when a low-priority process holds a resource that a high-priority process needs.<br>2- Under priority inheritance, the low-priority process temporarily inherits the higher priority to avoid blocking.<br>3- Priority inversion can be completely avoided if all processes are scheduled in a round-robin fashion.<br>4- Starvation may still occur for low-priority processes even with priority inheritance.<br>Which of the statements are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 4 only",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Priority Inversion</span> happens when a low-priority task holds a resource a high-priority task needs. <span class=\"text-red font-bold\">Priority Inheritance</span> solves this by temporarily boosting the low-priority task's priority so it finishes and releases the resource faster. <div>Statement 3 is false: <span class=\"text-green font-bold\">Round-robin</span> ignores priorities entirely, which defeats the purpose of a real-time system and fails to solve resource-dependency blocks.</div><div><img src=\"https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3OHl1c3g4enA1NjY2NGo5bjQ1czVyMjczd2FkYWptaHVnd245NzZ5ZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Qoo3bwSnTeXD2/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\">  </div><div>  </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "656e6df7-ff03-4e05-926d-0e653c2b8d89",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "medium",
+    "question": "In a system with multiple processes and resource types, which of the following is a valid method to recover from a deadlock?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Decreasing the CPU priority of all processes",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Preempt resources from one process and allocate to another",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Increase the priority of all processes in the deadlock",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Restarting the system cache memory",
+        "label": "D"
+      }
+    ],
+    "explanation": "To recover from a deadlock, the OS must break the fundamental<span class=\"text-blue\" style=\"font-weight: 800;\"> \"<span class=\"text-blue font-bold\">circular wait</span>\" condition</span>. It does this via two main strategies: <span class=\"text-red font-bold\">Process Termination</span> <span style=\"font-style: italic;\">(aborting one or more deadlocked processes)</span> or <span class=\"text-green font-bold\">Resource Preemption</span><span style=\"font-style: italic;\"> (forcibly taking a required resource from one process to grant it to another)</span>. Changing CPU priorities does not release locked hardware resources.<div><img src=\"https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bnJtYXc3M3BsZjI4a2d5Z3A4YWlhamp1cWE0Y2xjM3IzaHhqMXU2byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/WgNPzBBjMwuo6Dq76e/giphy.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "e034b866-77e6-4c7e-a760-938e7208ca38",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Input Output"
+    ],
+    "difficulty": "easy",
+    "question": "Match the following devices with their corresponding descriptions.<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>List a (device)</th><th>List b (description)</th></tr></thead><tbody><tr><td>1. Haptic Gloves</td><td>i. Generates tactile sensations and may sense user interaction.</td></tr><tr><td>2. Tactile Display</td><td>ii. Captures fine hand/finger movements for computer input.</td></tr><tr><td>3. Voice Response Unit</td><td>iii. Detects user gestures and provides force feedback.</td></tr><tr><td>4. Data Glove</td><td>iv. Generates synthesised audio output for interaction with users.</td></tr></tbody></table></div>Choose the correct match:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-ii, 2-i, 3-iv, 4-iii",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-ii, 2-iv, 3-i, 4-iii",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-iii, 2-iv, 3-i, 4-ii",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-iii, 2-i, 3-iv, 4-ii",
+        "label": "D"
+      }
+    ],
+    "explanation": "<div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Device</th><th>Key function</th></tr></thead><tbody><tr><td><strong><span class=\"text-green\" style=\"font-weight: 800;\">Haptic Gloves</span></strong></td><td>Detect user gestures and provide <strong><span class=\"text-green\" style=\"font-weight: 800;\">force/resistance feedback</span></strong></td></tr><tr><td><strong><span class=\"text-orange\" style=\"font-weight: 800;\">Tactile Display</span></strong></td><td>Generates <strong><span class=\"text-green\" style=\"font-weight: 800;\">physical touch sensations</span></strong> (e.g., refreshable Braille)</td></tr><tr><td><strong><span class=\"text-teal\" style=\"font-weight: 800;\">Voice Response Unit</span></strong></td><td>Produces <strong><span class=\"text-teal\" style=\"font-weight: 800;\">synthesized speech/audio output</span></strong></td></tr><tr><td><strong><span class=\"text-orange\" style=\"font-weight: 800;\">Data Glove</span></strong></td><td>Captures<span class=\"text-orange\" style=\"font-weight: 800;\"> <strong>precise hand and finger movements</strong></span><strong></strong> for computer input</td></tr></tbody></table></div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "395799c4-027d-4990-8984-35a5c4ad1a93",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Hardware"
+    ],
+    "difficulty": "medium",
+    "question": "Categorize the following devices as Input (I) or Output (O).<br>1- Light Pen<br>2- Punch Card Reader<br>3- Plotter<br>4- Sound Card<br>5- Digitizer Tablet<br>6- Drum Printer<br>7- Scanner",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Input: 1, 2, 5, 7; Output: 1, 4, 5, 6",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Input: 1, 2, 5; Output: 1, 2, 4, 6",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Input: 2, 6, 7; Output: 1, 2, 4, 6",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Input: 1, 2, 5, 7; Output: 3, 4, 6",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Input</span> (Sending data IN): Light Pen, Punch Card Reader, Digitizer Tablet, Scanner. <span class=\"text-red font-bold\">Output</span> (Getting data OUT): <span class=\"text-green font-bold\">Plotter</span> (draws blueprints), <span class=\"text-orange font-bold\">Sound Card</span> (drives speakers for audio), Drum Printer. Exam Trick: Any device that generates physical mechanical drawings, physical prints, or sound is strictly an <span class=\"text-red font-bold\">output</span> device.<div><img src=\"https://i.ytimg.com/vi/hIiBD3u-YBI/maxresdefault.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "aa53d668-7634-4b37-b009-30cc8fa59215",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "hard",
+    "question": "A computer has a quad-core CPU with a 2.4 GHz frequency, 16 GB RAM, and a 1TB SSD. A program that uses many threads and performs frequent disk operations is running very slowly and sometimes crashes. What is the most likely cause?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inefficient multithreading causing race conditions and memory leaks",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Insufficient CPU core performance",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Large SSD causing slow disk access",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Slow processor frequency",
+        "label": "D"
+      }
+    ],
+    "explanation": "A 2.4 GHz quad-core processor with 16GB of RAM and an SSD is a highly capable, modern hardware setup. If an application is experiencing severe slowdowns and random crashes in a multithreaded environment on this rig, the bottleneck is almost certainly <span class=\"text-blue font-bold\">bad software architecture</span> (e.g., <span class=\"text-red font-bold\">race conditions, deadlocks, or severe memory leaks)</span>, <span style=\"font-style: italic;\"><span class=\"text-orange\" style=\"\">not the physical hardware</span></span>.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "9a9f1ef0-c005-4391-8d7e-2a0cdce4831c",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Fundamentals"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following correctly classifies hardware and system software?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Device Driver - Hardware; Keyboard - System Software",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "CPU - Hardware; Operating System - System Software",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Adobe Scan - System Software; Monitor - Hardware",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Compiler - Hardware; Mouse - System Software",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Hardware</span> consists of the tangible, physical components of a computer (CPU, RAM, Monitor). <span class=\"text-red font-bold\">Software</span> is the intangible set of instructions. <span class=\"text-green font-bold\">System Software</span>: Manages the <span class=\"text-blue font-bold\">hardware</span> directly (Operating System, Device Drivers). <span class=\"text-orange font-bold\">Application Software</span>: Performs specific tasks for the user (Adobe Scan, MS Word). Therefore, the CPU is <span class=\"text-blue font-bold\">Hardware</span> and the OS is <span class=\"text-green font-bold\">System Software</span>.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "78505435-6eb5-4899-8a30-aa3427bc431b",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following statements is/are correct?<br>1- Overflow in two's complement addition can be detected by examining only the carry out of the most significant bit.<br>2- When converting an unsigned integer to a larger type, zero extension is used to preserve its value.<br>3- In Binary-Coded Decimal (BCD) representation, each decimal digit is encoded separately using four binary bits.<br>4- In a byte-addressable system, the effective address calculation is dependent on instruction length.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only 4 is True",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Only 2 and 3 are True",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Only 2 and 4 are True",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Only 3 and 4 are True",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statement 2 is True: <span class=\"text-blue font-bold\">Unsigned integers</span> use <span class=\"text-red font-bold\">Zero Extension</span> to fill higher-order bits without changing the value. Statement 3 is True: <span class=\"text-green font-bold\">BCD</span> encodes every single decimal digit into a distinct 4-bit block (nibble). Statement 1 is False: <span class=\"text-orange font-bold\">Signed overflow</span> requires comparing both the carry-in and carry-out of the MSB. Statement 4 is False: Effective address depends heavily on the specific addressing mode (direct, indirect, indexed), not the raw length of the instruction.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "ae58ab8c-5d7a-4f12-a0ae-c9c295d8ccfd",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "medium",
+    "question": "Which statement is correct regarding CPU operation and instruction execution?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Program counter stores the address of the current instruction, executed by the CPU.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "An interrupt is processed only after the completion of the entire program.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The instruction register stores the current instruction being decoded or executed.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "All machine instructions require the same number of clock cycles to execute.",
+        "label": "D"
+      }
+    ],
+    "explanation": "During the standard <span class=\"text-blue font-bold\">Fetch-Decode-Execute cycle</span>, the fetched instruction is temporarily locked into the <span class=\"text-red font-bold\">Instruction Register (IR)</span> so the Control Unit can decode what needs to be done. Exam Trap: The <span class=\"text-green font-bold\">Program Counter (PC)</span> does not hold the current instruction; it holds the memory address of the next instruction waiting in line to be fetched.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "dee45baf-98fa-4b75-9189-e39d24a76713",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "easy",
+    "question": "Which statement is correct concerning computer memory and data storage fundamentals?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "RAM is non-volatile memory and retains data without power.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "ROM allows both read and write operations during normal computer functioning.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cache memory is faster than the Main memory and stores frequently accessed data.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "CPU directly accesses secondary storage devices without involving the main memory.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Cache memory</span> is ultra-fast <span class=\"text-red font-bold\">SRAM</span> situated directly on or adjacent to the CPU chip. It drastically reduces processing bottlenecks by storing duplicate copies of the most frequently accessed data and instructions from the slower <span class=\"text-green font-bold\">Main Memory (RAM)</span>, acting as a high-speed buffer.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "5713f2e1-daeb-40be-8c66-0bddc713445e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following statements is correct regarding the relationship between instruction execution, memory hierarchy, and addressing modes in a typical computer system?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Immediate addressing completely bypasses the need to fetch the instruction from memory.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A larger cache memory guarantees a performance improvement with a 100% hit ratio.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Data hazards can occur in pipelined CPUs even if they only use register addressing.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Virtual memory acts as a physical substitute, removing the need for cache memory entirely.",
+        "label": "D"
+      }
+    ],
+    "explanation": "In <span class=\"text-blue font-bold\">CPU pipelining</span>, multiple instructions overlap in different stages of execution. Even if instructions strictly use internal CPU registers (register addressing), a <span class=\"text-red font-bold\">Data Hazard</span> can occur. For example, a <span class=\"text-green font-bold\">Read-After-Write (RAW)</span> hazard happens if Instruction B tries to read a register's value before Instruction A has finished writing the new result to that exact same register.<div><img src=\"https://i.gifer.com/7qcV.gif\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 65%;\"> <br></div><div>   </div>",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
+    "id": "2d903087-a263-47ba-b6b7-ea31ff14a59c",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the fundamental operation performed by computers to carry out arithmetic computations in the ALU?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using transistors to store decimal values directly",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Processing binary data through logic gate operations",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Executing floating-point operations via mechanical switches",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Running high-level programming instructions natively in the CPU",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Arithmetic Logic Unit (ALU)</span> does not \"do math\" in the human sense. At the microscopic hardware level, it simply processes <span style=\"font-style: italic;\">binary electrical signals (0s and 1s) through a complex network</span> of <span class=\"text-red font-bold\">logic gates</span> <span class=\"text-green font-bold\">(AND, OR, XOR, NOT)</span>. These gates manipulate the voltages to produce arithmetic and logical outcomes.",
+    "pyq": "JKSSB JA 2026",
+    "created_at": "2026-06-23T04:32:33.548625+00:00"
+  },
+  {
     "id": "d071436f-c1eb-4039-bc0b-822f3213a707",
     "category_id": "computer-awareness",
     "tags": [
