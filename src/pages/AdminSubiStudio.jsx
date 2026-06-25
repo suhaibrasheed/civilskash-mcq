@@ -25,25 +25,23 @@ const TEXT_COLORS = [
 const DEFAULT_CATEGORIES = [
   { id: 'accountancy', name: 'Accountancy' },
   { id: 'ancient-history', name: 'Ancient History' },
-  { id: 'art-and-culture', name: 'Art and Culture' },
-  { id: 'biology', name: 'Biology' },
-  { id: 'chemistry', name: 'Chemistry' },
   { id: 'computer-awareness', name: 'Computer Awareness' },
-  { id: 'ecology-and-environment', name: 'Ecology and Environment' },
-  { id: 'english-language', name: 'English Language' },
+  { id: 'current-affairs', name: 'Current Affairs' },
+  { id: 'english', name: 'English' },
+  { id: 'environment', name: 'Environment' },
   { id: 'general-science', name: 'General Science' },
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
-  { id: 'indian-national-movement', name: 'Indian National Movement' },
+  { id: 'indian-history', name: 'Indian History' },
   { id: 'indian-polity', name: 'Indian Polity' },
+  { id: 'jk-affairs', name: 'JK Affairs' },
+  { id: 'maths', name: 'Maths' },
   { id: 'medieval-history', name: 'Medieval History' },
   { id: 'modern-history', name: 'Modern History' },
-  { id: 'physics', name: 'Physics' },
-  { id: 'quantitative-aptitude', name: 'Quantitative Aptitude' },
-  { id: 'reasoning-ability', name: 'Reasoning Ability' },
-  { id: 'science-and-technology', name: 'Science and Technology' },
-  { id: 'world-geography', name: 'World Geography' },
-  { id: 'jk-affairs', name: 'JK Affairs' }
+  { id: 'physical-geography', name: 'Physical Geography' },
+  { id: 'reasoning', name: 'Reasoning' },
+  { id: 'static-gk', name: 'Static GK' },
+  { id: 'world-geography', name: 'World Geography' }
 ];
 
 const RESIZE_STEPS = [15, 25, 35, 45, 50, 60, 70, 80, 90, 100];
