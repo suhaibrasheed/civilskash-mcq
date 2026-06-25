@@ -1,5 +1,320 @@
 [
   {
+    "id": "10339737-3905-4278-81b9-fbb630761f07",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Memory"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following memory is used for storing software that does not need updates?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Flash Memory",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "ROM",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "SRAM",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "DRAM",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">ROM</span> <span class=\"text-red font-bold\">(Read-Only Memory)</span> is <span class=\"text-green font-bold\">non-volatile memory</span> that comes permanently pre-programmed from the manufacturer. It stores essential, unchangeable system firmware (like a computer's legacy <span class=\"text-orange font-bold\">BIOS)</span>. In contrast, <span class=\"text-magenta font-bold\">Flash Memory</span> (like USB drives) and <span class=\"text-teal font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\"><span class=\"text-teal font-bold\">RAM</span> (SRAM/DRAM)</span> are designed to be easily rewritten. <div><img src=\"https://i.programmerhumor.io/2021/10/programmerhumor-io-programming-memes-00eb0382e14abd8.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 50%;\"> </div><div>   </div>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "c95c4836-6fd9-4fc3-a491-d5df6c13990b",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Computer Architecture"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following is an efficient method to update hardware cache in a CPU?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Write back",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Write through",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Write within",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Buffered write",
+        "label": "D"
+      }
+    ],
+    "explanation": "In CPU architecture, \"<span class=\"text-blue font-bold\">Write-back</span>\" is highly efficient. When the processor changes data, it writes only to the ultra-fast <span class=\"text-green font-bold\">cache</span> first. The slower <span class=\"text-orange font-bold\">Main Memory (RAM)</span> is updated only later when that specific <span class=\"text-green font-bold\">cache</span> block is replaced. \"<span class=\"text-red font-bold\">Write-through</span>\" updates both <span class=\"text-green font-bold\">cache</span> and RAM simultaneously, which consumes significantly more time and bus bandwidth.<br>",
+    "pyq": "Panchayat Secretary 2025",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "796f53f4-b594-4a4c-a992-df22848c33e2",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet Technology"
+    ],
+    "difficulty": "easy",
+    "question": "A small text file created by a website and stored on the user's computer to track sessions and preferences is called a:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cookie",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Cache",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Malware",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Registry",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-blue font-bold\">Cookie</span> is a tiny text file saved on your hard drive by your web browser. Websites use cookies to \"<span class=\"text-green font-bold\">remember</span>\" you—keeping you logged in, storing your site preferences, and tracking your <span class=\"text-orange font-bold\">shopping cart items</span>. <span class=\"text-red font-bold\">Cache</span>, on the other hand, stores actual website assets (like images) to speed up load times.<div><img src=\"https://outranking.s3.amazonaws.com/934231_Monique%20Dahito/57302896/2023-10-17T02%3A48%3A39.196644_663a5987-9425-43a4-945c-f05365cba1a4\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br>   </div>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "cab09cbe-11a9-4d30-ba5a-9acc0045540c",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Internet"
+    ],
+    "difficulty": "easy",
+    "question": "The World Wide Web is a standard maintained by the:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Wide Corporation",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "World Wide Web Center",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "World Wide Consortium",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Wide Web Consortium (W3C)",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">World Wide Web Consortium</span> <span class=\"text-red font-bold\">(W3C)</span> is the principal international standards organization for the Internet. Founded by <span class=\"text-green font-bold\">Tim Berners-Lee</span>, it develops standardized protocols and guidelines (like <span class=\"text-orange font-bold\">HTML and CSS</span> specifications) to ensure websites render correctly and securely across all browsers globally.<br>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "f8444c9f-61d4-47d6-8516-8aa333476ee3",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "medium",
+    "question": "In MS-Excel, one can use the formula palette (Insert Function dialog) to:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Format cells containing numbers",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Select and edit formulas containing functions",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Enter data for a formula",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Select a range of cells for a formula",
+        "label": "D"
+      }
+    ],
+    "explanation": "In MS Excel, the <span class=\"text-blue font-bold\">Formula Palette</span> (accessible via the \"<span class=\"text-red font-bold\">Insert Function</span>\" or <span class=\"text-green font-bold\">fx button</span> next to the formula bar) is a built-in GUI tool. It helps users search for, select, and accurately edit complex mathematical functions by clearly breaking down their required arguments step-by-step.<div><img src=\"https://www.exceldemy.com/wp-content/uploads/2023/06/Excel-Formula-Bar-6.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"> </div><div>   </div>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "96288123-3ebd-466d-9a62-196b4858ffb3",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Software"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is designed to control the overall operations of a computer?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Register",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Application Software",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Utility Software",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "System Software",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">System Software</span> (like Windows, Linux, or macOS) is the <span class=\"text-green font-bold\">foundational layer</span> of programming that controls and manages the physical hardware components of a computer. It provides the core platform and resources necessary for <span class=\"text-red font-bold\">Application Software</span> (like games and browsers) to run safely.<div><img src=\"https://th.bing.com/th/id/R.cbfecefcddd2698ab600732d35727b46?rik=0xYVb6YCo9y8PQ&amp;riu=http%3a%2f%2fstartertutorials.com%2fblog%2fwp-content%2fuploads%2f2016%2f04%2flayers-of-computer-system.png&amp;ehk=l1o7zcQ68cINEkBANoASy6VqOJCau72IzOZ532ii4zk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 90%;\"> <br>   </div>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "6bfb2109-f9d8-422f-92ed-20443f1e638e",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Networking"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following services allows a user to log in to another computer somewhere on the Internet?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "e-mail",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "UseNet",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Telnet",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "FTP",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Telnet (Teletype Network)</span> is a classic network protocol that provides a two-way, text-based command-line connection, allowing a user to remotely log into and control a distant server.<br>Exam Note: Modern networks have largely replaced <span class=\"text-blue font-bold\">Telnet</span> with <span class=\"text-red font-bold\">SSH</span> <span class=\"text-green font-bold\">(Secure Shell)</span> because <span class=\"text-blue font-bold\">Telnet</span> sends passwords over the internet in dangerous, <span class=\"text-orange font-bold\">unencrypted plain text</span>.<div><img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20230314171443/Remote-login.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 80%;\"><br>   </div>",
+    "pyq": "JKSSB Police 2024",
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "d0547623-772a-423f-b0a9-29a7af4e7793",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Operating System"
+    ],
+    "difficulty": "medium",
+    "question": "The process of dividing a disk into tracks and sectors is known as:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Formatting",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Tracking",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Crashing",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Allotting",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Formatting</span> is the crucial process of <span class=\"text-green\" style=\"font-weight: 800;\">preparing a brand-new storage drive (HDD or SSD) for initial use</span>. At the physical level, it magnetically maps the disk's surface into concentric rings called \"Tracks,\" which are further divided into tiny data wedges called \"Sectors,\" allowing the OS to store files systematically.<div><img src=\"https://image2.slideserve.com/4048290/tracks-and-sectors-l.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 60%;\"> <br> </div>",
+    "pyq": null,
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
+    "id": "0c862d84-70a9-4189-8341-7a0a2337ad5f",
+    "category_id": "computer-awareness",
+    "tags": [
+      "Ms Excel"
+    ],
+    "difficulty": "medium",
+    "question": "What is the keyboard shortcut to switch between displaying Excel calculated values and their underlying formulas in a cell?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ctrl + Shift + #",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ctrl + Shift + @",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ctrl + ~ (Tilde/Grave Accent)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ctrl + Shift + &amp;",
+        "label": "D"
+      }
+    ],
+    "explanation": "Fact Check: The universally accepted shortcut is<span class=\"text-green\" style=\"font-weight: 800;\"> `Ctrl + ~` </span>(the tilde or grave accent key, usually located right below the Escape key). Pressing this acts as a <span class=\"text-orange\" style=\"font-weight: 800;\">master toggle switch</span>. It expands all columns and reveals the raw formulas driving your data, allowing you to quickly audit the entire worksheet for errors.<br>",
+    "pyq": null,
+    "created_at": "2026-06-24T17:02:40.815901+00:00"
+  },
+  {
     "id": "d3d3329f-9f26-4129-b7d4-82696f7b99a8",
     "category_id": "computer-awareness",
     "tags": [
