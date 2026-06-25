@@ -5,7 +5,8 @@ import confetti from 'canvas-confetti';
 import { 
   Swords, ArrowLeft, Clock, ShieldCheck, Sparkles, Trophy, Lock, 
   AlertTriangle, AlertCircle, Share2, Info, CheckCircle2, XCircle, 
-  RefreshCw, Star, Coins, Zap, HelpCircle, User, ChevronRight, Eye, Trash2, X, Quote
+  RefreshCw, Star, Coins, Zap, HelpCircle, User, ChevronRight, Eye, Trash2, X, Quote,
+  MinusCircle, Activity
 } from 'lucide-react';
 import Header, { MCQKashLogo } from '../components/Header';
 import Avatar from '../components/Avatars';
@@ -21,6 +22,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
 import { EXAM_CONFIG } from '../lib/mockEngine';
 import McqCard from '../components/McqCard';
+import { queryGenerativeAI, formatMentorResponse, stripCodeFences } from '../lib/ai';
 
 // ─── Helpers ─────────────────────────────────────────────────────────
 
@@ -316,6 +318,11 @@ export default function BattleArena() {
   // Mock Exam state
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [isAiLoading, setIsAiLoading] = useState(false);
+  const [aiLoadingText, setAiLoadingText] = useState('');
+  const [isEarlySubmitWaiting, setIsEarlySubmitWaiting] = useState(false);
+  const [earlySubmitTimeRemaining, setEarlySubmitTimeRemaining] = useState(0);
+  const [pendingNotifId, setPendingNotifId] = useState('');
   const [answers, setAnswers] = useState({});
   const [mockTimeLeft, setMockTimeLeft] = useState(1200); // 20 mins for 20 questions
   const [timeSpent, setTimeSpent] = useState({});
@@ -591,6 +598,10 @@ export default function BattleArena() {
 
   // Pull leaderboard and pick candidate
   const selectLeaderboardOpponent = async () => {
+    if (!user?.id) {
+      generateMockOpponent();
+      return;
+    }
     try {
       // Query 10 random opponents for matchmaking to perform anti-collision and diversity filtering
       const { data: rawLeaderboard, error } = await supabase.rpc('get_random_opponents', {
@@ -949,6 +960,82 @@ export default function BattleArena() {
       return;
     }
 
+    // Normal PvP Payout Economics (calculate early so it can be stored in pending ghost/early submit notifications)
+    let winProfit = 0;
+    let insActive = false;
+    let insMsg = '';
+    const userIsPro = economy.is_pro;
+    const oppIsPro = opponent.is_pro;
+
+    if (score > oppScore) {
+      if (!userIsPro && oppIsPro) {
+        winProfit = 150;
+        insActive = true;
+        insMsg = "Pro Opponent triggered Betting Insurance. 50 coins refunded to them.";
+      } else {
+        winProfit = 200;
+      }
+    } else if (score < oppScore) {
+      if (userIsPro) {
+        winProfit = 50;
+        insActive = true;
+        insMsg = "You are Pro, 50 coins refunded.";
+      } else {
+        winProfit = 0;
+      }
+    } else {
+      winProfit = 100;
+    }
+
+    setPayoutAmount(winProfit);
+    setInsuranceActive(insActive);
+    setInsuranceMessage(insMsg);
+
+    // Early submit waiting logic (User submits in under 5 minutes / 300 seconds)
+    const elapsedTime = 1200 - mockTimeLeft;
+    const isEarlySubmit = elapsedTime < 300;
+
+    if (isEarlySubmit && !isGhostMode) {
+      setIsEarlySubmitWaiting(true);
+      const delaySeconds = Math.floor(Math.random() * 241) + 180; // 180 to 420 seconds (3 to 7 minutes)
+      setEarlySubmitTimeRemaining(delaySeconds);
+
+      const newNotifId = `battle_notif_${Date.now()}`;
+      setPendingNotifId(newNotifId);
+
+      const userId = economy.id || 'guest';
+      const triggerTimestamp = Date.now() + (delaySeconds * 1000);
+
+      const newNotif = {
+        id: newNotifId,
+        opponentName: opponent.full_name,
+        opponentAvatarId: opponent.avatar_id,
+        opponentAccuracy: opponent.accuracy,
+        opponentScore: oppScore,
+        opponentIsPro: oppIsPro,
+        userScore: score,
+        userAccuracy: Math.round((correct / 20) * 100),
+        timestamp: triggerTimestamp,
+        status: 'pending',
+        userWon: score > oppScore,
+        targetExam: economy.target_exam || 'UPSC Pre',
+        date: getISTDetails().dateStr,
+        coinChange: winProfit - 100,
+        userRank: userKashRank || 15,
+        opponentRank: opponent.rank || 15
+      };
+
+      try {
+        const stored = localStorage.getItem(`mcqkash_battle_notifications_${userId}`);
+        const list = stored ? JSON.parse(stored) : [];
+        list.push(newNotif);
+        localStorage.setItem(`mcqkash_battle_notifications_${userId}`, JSON.stringify(list));
+      } catch (e) {}
+
+      setStep('reveal');
+      return;
+    }
+
     // Ghost match completion scheduling
     if (isGhostMode) {
       // Save pending battle notification
@@ -979,7 +1066,7 @@ export default function BattleArena() {
         userWon: isUserWinner,
         targetExam: economy.target_exam || 'UPSC Pre',
         date: getISTDetails().dateStr,
-        coinChange: ghostOutcomeChange,
+        coinChange: winProfit - 100,
         userRank: userKashRank || 15,
         opponentRank: opponent.rank || 15
       };
@@ -996,44 +1083,9 @@ export default function BattleArena() {
       return;
     }
 
-    // Normal PvP Payout Economics
-    let winProfit = 0;
-    let insActive = false;
-    let insMsg = '';
-
-    const userIsPro = economy.is_pro;
-    const oppIsPro = opponent.is_pro;
-
-    if (score > oppScore) {
-      // User won
-      if (!userIsPro && oppIsPro) {
-        winProfit = 150; // payout 150 (net +50)
-        insActive = true;
-        insMsg = "Pro Opponent triggered Betting Insurance. 50 coins refunded to them.";
-      } else {
-        winProfit = 200; // payout 200 (net +100)
-      }
-    } else if (score < oppScore) {
-      // User lost
-      if (userIsPro) {
-        winProfit = 50; // payout 50 (net -50)
-        insActive = true;
-        insMsg = "You are Pro, 50 coins refunded.";
-      } else {
-        winProfit = 0; // payout 0 (net -100)
-      }
-    } else {
-      // Tie
-      winProfit = 100; // payout 100 (net 0)
-    }
-
-    setPayoutAmount(winProfit);
-    setInsuranceActive(insActive);
-    setInsuranceMessage(insMsg);
-
-    // Apply normal PvP payout instantly
-    if (winProfit > 0) {
-      await transactKC(winProfit);
+    // Apply normal PvP payout instantly (already computed above)
+    if (payoutAmount > 0) {
+      await transactKC(payoutAmount);
     }
 
     // Save Battle Card in History Gallery
@@ -1109,6 +1161,7 @@ export default function BattleArena() {
   useEffect(() => {
     if (step !== 'reveal') return;
     if (isGhostMode) return; // Ghost mode doesn't tick opponent score
+    if (isEarlySubmitWaiting) return; // Don't tick score or play sounds if user is waiting for opponent
 
     if (isInstantReveal) {
       // Instant reveal
@@ -1269,14 +1322,18 @@ export default function BattleArena() {
       const tmpDiv = document.createElement('div');
       tmpDiv.style.cssText = 'position:fixed;left:-9999px;top:0;';
       document.body.appendChild(tmpDiv);
-      const ReactDOM = await import('react-dom');
+      const { createRoot } = await import('react-dom/client');
+      const { flushSync } = await import('react-dom');
       const React2 = await import('react');
       const { avatarsList: avList } = await import('../components/Avatars');
       const avDef = avList.find(a => a.id === Number(avatarId)) || avList[0];
       const AvatarComp = avDef.component;
-      ReactDOM.render(React2.createElement(AvatarComp, { className: 'w-full h-full' }), tmpDiv);
+      const root = createRoot(tmpDiv);
+      flushSync(() => {
+        root.render(React2.createElement(AvatarComp, { className: 'w-full h-full' }));
+      });
       const svgString = defsHtml + tmpDiv.innerHTML;
-      ReactDOM.unmountComponentAtNode(tmpDiv);
+      root.unmount();
       document.body.removeChild(tmpDiv);
 
       return new Promise((resolve) => {
@@ -1520,17 +1577,18 @@ export default function BattleArena() {
     ctx.fill();
   }
 
-  const handleFlexShare = async (customText) => {
+  const handleFlexShare = async (customText, cardData = null) => {
     const defaultText = customText || `I just fought in the Battle Arena on MCQKash! Flexing my score card. Join the arena: ${window.location.origin}`;
 
-    if (!selectedHistoryCard) {
+    const cardToShare = cardData || selectedHistoryCard;
+    if (!cardToShare) {
       showToast('No card selected to share.', 'warning');
       return;
     }
 
     try {
       showToast('Generating Battle Card...', 'info');
-      const canvas = await drawBattleCardCanvas(selectedHistoryCard);
+      const canvas = await drawBattleCardCanvas(cardToShare);
       canvas.toBlob(async (blob) => {
         if (!blob) {
           showToast('Failed to generate card image.', 'error');
@@ -1586,6 +1644,322 @@ export default function BattleArena() {
     URL.revokeObjectURL(url);
     showToast('Battle Card downloaded as image!', 'success');
   };
+
+  const finalizeEarlySubmit = async () => {
+    setIsEarlySubmitWaiting(false);
+    
+    // Apply normal PvP payout instantly
+    if (payoutAmount > 0) {
+      await transactKC(payoutAmount);
+    }
+    
+    // Save Battle Card in History Gallery
+    const userId = economy?.id || 'guest';
+    const newBattleCard = {
+      id: pendingNotifId,
+      userId: userId,
+      userFullName: economy?.full_name || 'You',
+      userAvatarId: economy?.avatar_id || 1,
+      userIsPro: economy?.is_pro || false,
+      userScore: userScore,
+      userCorrect: correctCount,
+      userIncorrect: incorrectCount,
+      userRank: userKashRank || 15,
+      
+      opponentName: opponent?.full_name || 'Opponent',
+      opponentAvatarId: opponent?.avatar_id || 2,
+      opponentIsPro: opponent?.is_pro || false,
+      opponentScore: opponentScore,
+      opponentStreak: opponent?.streak || 0,
+      opponentRank: opponent?.rank || 15,
+      
+      targetExam: economy?.target_exam || 'UPSC Pre',
+      date: getISTDetails().dateStr,
+      timestamp: Date.now(),
+      outcome: userScore > opponentScore ? 'VICTORY' : userScore < opponentScore ? 'DEFEAT' : 'TIE',
+      coinChange: payoutAmount - 100,
+      unboxed: true
+    };
+
+    try {
+      const stored = localStorage.getItem(`mcqkash_battle_history_${userId}`);
+      const list = stored ? JSON.parse(stored) : [];
+      if (!list.some(item => item.id === pendingNotifId)) {
+        list.unshift(newBattleCard);
+        localStorage.setItem(`mcqkash_battle_history_${userId}`, JSON.stringify(list));
+        setBattleHistory(list);
+      }
+    } catch (e) {}
+
+    // Update pending notification in localStorage
+    try {
+      const storedNotif = localStorage.getItem(`mcqkash_battle_notifications_${userId}`);
+      if (storedNotif) {
+        const list = JSON.parse(storedNotif);
+        const filtered = list.filter(n => n.id !== pendingNotifId);
+        localStorage.setItem(`mcqkash_battle_notifications_${userId}`, JSON.stringify(filtered));
+      }
+    } catch (e) {}
+
+    // Play Victory or defeat sound
+    const outcome = userScore > opponentScore ? 'VICTORY' : userScore < opponentScore ? 'DEFEAT' : 'TIE';
+    if (outcome === 'VICTORY') {
+      if (playVictory) playVictory();
+    } else if (outcome === 'DEFEAT') {
+      if (playShatter) playShatter();
+    } else {
+      if (playCorrect) playCorrect();
+    }
+  };
+
+  useEffect(() => {
+    if (!isEarlySubmitWaiting || earlySubmitTimeRemaining <= 0) return;
+    
+    const interval = setInterval(() => {
+      setEarlySubmitTimeRemaining(prev => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          finalizeEarlySubmit();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, [isEarlySubmitWaiting, earlySubmitTimeRemaining, pendingNotifId, payoutAmount, userScore, correctCount, incorrectCount, opponent, opponentScore]);
+
+  const handleGenerateCheatSheet = async () => {
+    if (economy?.user_tier !== 'Pro') {
+      showToast("★ Elite Feature: 'Smart Notes' is exclusive to Pro Members. Upgrade to access!", "error");
+      navigate('/upgrade');
+      return;
+    }
+
+    const incorrectQuestions = questions.filter(q => answers[q.id] && answers[q.id] !== q.correctId);
+    const skippedQuestions = questions.filter(q => !answers[q.id]);
+    const totalMistakes = incorrectQuestions.length + skippedQuestions.length;
+
+    if (totalMistakes === 0) {
+      showToast("Awesome job! You got a perfect score, so no mistakes to revise. Try generating a similar mock instead!", "info");
+      return;
+    }
+
+    setIsAiLoading(true);
+    setAiLoadingText("Analyzing your test performance and mistakes...");
+
+    try {
+      const questionsToInclude = [...incorrectQuestions, ...skippedQuestions].slice(0, 10);
+      const mistakesText = questionsToInclude.map((q, idx) => {
+        const optionsText = q.options.map(o => `${o.label || o.id}) ${o.text}`).join('\n');
+        return `Question #${idx + 1}:
+Question: ${q.question}
+Options:
+${optionsText}
+Correct Option: ${q.correctId}
+Standard Explanation: ${q.explanation}
+`;
+      }).join('\n\n');
+
+      setAiLoadingText("Synthesizing concept revision notes...");
+
+      const systemPrompt = `You are 'Kash, the Knowledge Architect' — a master teacher who explains concepts beautifully and memorably.
+Your task is to analyze the student's mistakes and skipped questions, then generate crisp, high-yield revision notes and core concepts.
+Identify common conceptual themes or core weaknesses in their performance and write sections to address them.
+Structure your notes beautifully with markdown headings (## for main sections, ### for subsections), clear bullet points, and highlight crucial keywords or rules using **bold** formatting (which will be styled as amber highlights).
+
+Constraints:
+- Do not use LaTeX formatting. Return standard text/markdown only.
+- Do NOT include any introductory or concluding conversational text. Start immediately with the first ## section.
+- Be academically rigorous, highly dense, and clear.`;
+
+      const userPrompt = `Mistakes and skipped questions from Mock Exam:
+${mistakesText}
+
+Generate high-yield revision notes.`;
+
+      const resultText = await queryGenerativeAI(systemPrompt, userPrompt);
+      const formattedHtml = formatMentorResponse(resultText);
+
+      const output = {
+        id: Date.now(),
+        mode: 'learn',
+        title: `Revision Sheet: Battle Arena Challenge`,
+        html: formattedHtml,
+        mcqs: null,
+        timestamp: new Date().toISOString(),
+        savedToDb: false
+      };
+
+      const savedOutputs = localStorage.getItem('civilsKash_mentorOutputs');
+      let outputsList = [];
+      if (savedOutputs) {
+        try {
+          outputsList = JSON.parse(savedOutputs);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      outputsList = [output, ...outputsList];
+      localStorage.setItem('civilsKash_mentorOutputs', JSON.stringify(outputsList));
+
+      showToast("Cheat Sheet generated! Opening Personal AI Mentor...", "success");
+      
+      navigate('/profile', {
+        state: {
+          openMentor: true,
+          mentorMode: 'learn',
+          pipeOutput: output
+        }
+      });
+    } catch (err) {
+      console.error(err);
+      showToast(err.message || "Failed to generate cheat sheet.", "error");
+    } finally {
+      setIsAiLoading(false);
+    }
+  };
+
+  const handleGenerateSimilarMock = async () => {
+    if (economy?.user_tier !== 'Pro') {
+      showToast("★ Elite Feature: 'Mock Forge' is exclusive to Pro Members. Upgrade to access!", "error");
+      navigate('/upgrade');
+      return;
+    }
+
+    setIsAiLoading(true);
+    setAiLoadingText("Extracting topics, tags, and sample questions...");
+
+    try {
+      const categories = Array.from(new Set(questions.map(q => q.category).filter(Boolean)));
+      const tags = Array.from(new Set(questions.flatMap(q => q.tags || []).filter(Boolean)));
+      const topics = Array.from(new Set(questions.map(q => q.topic || q.subject).filter(Boolean)));
+
+      const exampleQs = [];
+      const incorrects = questions.filter(q => answers[q.id] && answers[q.id] !== q.correctId);
+      exampleQs.push(...incorrects.slice(0, 2));
+      if (exampleQs.length < 2) {
+        const otherQs = questions.filter(q => !exampleQs.includes(q));
+        exampleQs.push(...otherQs.slice(0, 2 - exampleQs.length));
+      }
+
+      const examplesText = exampleQs.map((q, idx) => {
+        const optionsText = q.options.map(o => `${o.label || o.id}) ${o.text}`).join('\n');
+        return `Example Question #${idx + 1}:
+Question: ${q.question.replace(/<[^>]*>/g, '').trim()}
+Options:
+${optionsText.replace(/<[^>]*>/g, '').trim()}
+Correct Option: ${q.correctId}
+`;
+      }).join('\n\n');
+
+      setAiLoadingText("Kash is generating 10 new similar questions...");
+
+      const systemPrompt = `You are 'Kash, the MCQ Creator' — an elite question designer for competitive exam aspirants.
+Your task is to generate exactly 10 new, challenging multiple-choice questions similar to the student's mock exam profile.
+Use the categories, topics, tags, and examples provided to guide the subject matter and difficulty level.
+
+Strict Schema Requirements:
+Return ONLY a raw JSON array of exactly 10 question objects. Do NOT wrap in markdown fences. Do NOT add any extra text or conversation.
+Each object in the array must strictly match this schema:
+[
+  {
+    "question": "The question text.",
+    "options": [
+      "Option 1",
+      "Option 2",
+      "Option 3",
+      "Option 4"
+    ],
+    "correctOptionIndex": 0,
+    "explanation": "A short, clear explanation of 2-3 sentences.",
+    "category": "The subject category of the question (must choose from: ${categories.slice(0, 5).join(', ') || 'General Studies'}).",
+    "tag": "Exactly 1 specific topic tag (must choose from: ${tags.slice(0, 8).join(', ') || 'General Concept'}).",
+    "difficulty": "The difficulty of the question (must choose from: Easy, Medium, Hard)."
+  }
+]
+
+Constraints:
+- Strictly avoid LaTeX formatting. Use standard plain text only.
+- Options must be challenging and require critical thinking.
+- correctOptionIndex must be a number from 0 to 3 corresponding to the correct option.
+- Ensure a natural mix of Easy (20%), Medium (50%), and Hard (30%) difficulties.`;
+
+      const userPrompt = `Mock Exam Profile:
+Categories: ${categories.slice(0, 5).join(', ') || 'General Studies'}
+Tags: ${tags.slice(0, 8).join(', ') || 'Mock'}
+
+Similar Style Examples:
+${examplesText}
+
+Generate exactly 10 new questions.`;
+
+      const rawResult = await queryGenerativeAI(systemPrompt, userPrompt);
+      setAiLoadingText("Parsing and building your custom test session...");
+
+      const stripped = stripCodeFences(rawResult);
+      let data = [];
+      try {
+        data = JSON.parse(stripped);
+      } catch (err) {
+        console.warn("JSON parse failed, attempting robust parsing:", err);
+        const startIdx = rawResult.indexOf('[');
+        const endIdx = rawResult.lastIndexOf(']');
+        if (startIdx !== -1 && endIdx !== -1) {
+          data = JSON.parse(rawResult.substring(startIdx, endIdx + 1));
+        } else {
+          throw new Error("Could not parse AI response as JSON.");
+        }
+      }
+
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("AI output was not in correct JSON array format.");
+      }
+
+      const labels = ['a', 'b', 'c', 'd'];
+      const convertedMcqs = data.map((q, idx) => {
+        return {
+          id: `ai_mock_${Date.now()}_${idx}`,
+          question: q.question,
+          options: q.options.map((optText, optIdx) => ({
+            id: labels[optIdx] || String(optIdx),
+            label: (labels[optIdx] || String(optIdx)).toUpperCase(),
+            text: optText
+          })),
+          correctId: labels[q.correctOptionIndex] || 'a',
+          explanation: q.explanation || 'No explanation provided.',
+          difficulty: q.difficulty || 'Medium',
+          category: q.category || categories[0] || 'AI Generated',
+          tags: [q.tag || tags[0] || 'General'].filter(Boolean),
+          isAiMockQuestion: true
+        };
+      });
+
+      const newMock = {
+        id: `ai_mock_${Date.now()}`,
+        title: `AI similar mock: Battle Arena Challenge`,
+        minutes: 10,
+        questionData: convertedMcqs,
+        type: 'ai_generated',
+        isAiGenerated: true
+      };
+
+      showToast("Similar Mock generated! Loading test session...", "success");
+
+      navigate('/mock-test', {
+        state: {
+          mock: newMock,
+          from: '/profile'
+        }
+      });
+    } catch (err) {
+      console.error(err);
+      showToast(err.message || "Failed to generate similar mock.", "error");
+    } finally {
+      setIsAiLoading(false);
+    }
+  };
+
 
   const handleTryAgain = () => {
     const isSuccessfulMatch = Math.random() < 0.60;
@@ -1778,26 +2152,27 @@ export default function BattleArena() {
             </div>
             
             {/* Action Buttons */}
-            <div className="max-w-3xl mx-auto w-full mt-8 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-3">
+            <div className="max-w-3xl mx-auto w-full mt-8 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 px-1">
+              <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
                 <button 
                   onClick={handleToggleMark} 
-                  className={`px-5 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover transition-all font-bold text-xs shadow-sm active:scale-95 ${marked[currentQuestion.id] ? 'border-purple-500 text-purple-500 bg-purple-500/5' : ''}`}
+                  className={`flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border rounded-full text-theme-text hover:bg-theme-surface-hover transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap ${marked[currentQuestion.id] ? 'border-purple-500 text-purple-500 bg-purple-500/5' : 'border-theme-border hover:border-purple-500/50'}`}
                 >
-                  {marked[currentQuestion.id] ? 'Marked for Review' : 'Mark for Review'}
+                  <span className="hidden sm:inline">{marked[currentQuestion.id] ? 'Marked for Review' : 'Mark for Review'}</span>
+                  <span className="sm:hidden">{marked[currentQuestion.id] ? 'Marked' : 'Review'}</span>
                 </button>
                 <button 
                   onClick={handleClear} 
-                  className="px-5 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-rose-500/40 transition-all font-bold text-xs shadow-sm active:scale-95"
+                  className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-rose-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap"
                 >
                   Clear
                 </button>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto mt-3 sm:mt-0">
                 <button 
                   disabled={currentIdx === 0}
                   onClick={() => handleSelectQuestion(currentIdx - 1)}
-                  className="px-4 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover disabled:opacity-40 disabled:cursor-not-allowed transition-all font-bold text-xs"
+                  className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover disabled:opacity-40 disabled:cursor-not-allowed transition-all font-bold text-sm shadow-md hover:shadow-lg"
                 >
                   Prev
                 </button>
@@ -1807,9 +2182,44 @@ export default function BattleArena() {
                       handleSelectQuestion(currentIdx + 1);
                     }
                   }} 
-                  className="px-6 py-2.5 bg-theme-primary hover:bg-blue-600 text-white rounded-full font-black text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                  className="flex-1 sm:flex-none px-6 sm:px-8 py-2.5 bg-theme-primary hover:bg-blue-600 text-white rounded-full font-black text-sm transition-all shadow-md shadow-theme-primary/20 hover:shadow-theme-primary/45 active:scale-95 whitespace-nowrap"
                 >
                   Save & Next
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Smart-Mock Palette */}
+            <div className="max-w-3xl mx-auto w-full mt-10 border-t border-theme-border/60 pt-6 lg:hidden">
+              <h3 className="font-bold text-theme-text text-sm mb-3">Smart-Mock Palette</h3>
+              
+              {/* Palette Legend */}
+              <div className="grid grid-cols-2 gap-2 text-[10px] sm:text-xs text-theme-text font-medium mb-4">
+                <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-emerald-600 shadow-sm inline-block"></span> Answered</div>
+                <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-rose-500 border border-rose-600 shadow-sm inline-block"></span> Not Answered</div>
+                <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-theme-bg border border-theme-border shadow-sm inline-block"></span> Not Visited</div>
+                <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-purple-500 border border-purple-600 shadow-sm inline-block"></span> Marked</div>
+              </div>
+
+              <div className="grid grid-cols-5 sm:grid-cols-8 gap-2">
+                {questions.map((q, idx) => (
+                  <button 
+                    key={q.id} 
+                    onClick={() => handleSelectQuestion(idx)}
+                    className={getStatusColor(getQuestionStatus(idx), idx)}
+                  >
+                    {idx + 1}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile Submit Button */}
+              <div className="mt-6">
+                <button 
+                  onClick={handleSubmitMock} 
+                  className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-black text-lg transition-all shadow-xl shadow-emerald-500/10 active:scale-95 animate-subtle"
+                >
+                  Submit Challenge
                 </button>
               </div>
             </div>
@@ -2694,6 +3104,139 @@ export default function BattleArena() {
                   ⏳ Generating opponent score telemetry... Calibrating decimal snaps...
                 </p>
               </div>
+             ) : isEarlySubmitWaiting ? (
+               /* Early Submit Pending screen (User finishes early, waiting for opponent) */
+               <div className="flex flex-col items-center justify-center space-y-8 w-full">
+                 <div className="text-center space-y-2">
+                   <span className="text-[10px] font-black uppercase tracking-[0.25em] px-3 py-1 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/15 animate-pulse">
+                     CHALLENGER ATTEMPTING BATTLE
+                   </span>
+                   <h1 className="text-3xl md:text-4xl font-black tracking-tighter leading-none font-outfit mt-1.5 uppercase text-gradient-primary">
+                     Match in Progress
+                   </h1>
+                 </div>
+
+                 {/* Bento Grid: User Card (left) + Wait Diagnostics (right) */}
+                 <div className="grid grid-cols-1 md:grid-cols-5 gap-5 max-w-4xl mx-auto items-start w-full px-4">
+                   
+                   {/* LEFT: Live Match Card (Pending State) */}
+                   <div className="md:col-span-2 flex flex-col gap-4 w-full">
+                     <div
+                       className={`w-full rounded-[28px] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden border transition-all duration-300 ${theme === 'dark' ? 'battle-card-glass-dark' : theme === 'sepia' ? 'battle-card-glass-sepia' : 'battle-card-glass-light'}`}
+                       style={{
+                         minHeight: '400px',
+                         background: 'linear-gradient(145deg, rgba(var(--color-surface-rgb), 0.95) 0%, rgba(245, 158, 11, 0.05) 100%)',
+                         borderColor: 'rgba(245, 158, 11, 0.35)',
+                         boxShadow: '0 15px 35px -10px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255,255,255,0.06)'
+                       }}
+                     >
+                       <div className="battle-card-sheen" />
+                       
+                       {/* Card Header */}
+                       <div className="flex justify-between items-center relative z-10">
+                         <div className="bg-theme-primary/10 border border-theme-primary/25 rounded-full px-3 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-theme-primary select-none">
+                           {economy?.target_exam === 'upsc-pre' ? 'UPSC Prelims' : economy?.target_exam === 'ssc-cgl' ? 'SSC CGL' : 'State PSC'}
+                         </div>
+                         <div className="bg-theme-primary/10 border border-theme-primary/25 rounded-full px-2.5 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-theme-primary select-none">
+                           {getISTDetails().dateStr}
+                         </div>
+                       </div>
+
+                       {/* Players */}
+                       <div className="relative z-10 flex-1 flex flex-col justify-center my-4 sm:my-5 space-y-4 sm:space-y-5">
+                         <div className="flex items-center justify-between gap-3">
+                           {/* User */}
+                           <div className="flex flex-col items-center flex-1 space-y-2.5 min-w-0">
+                             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-theme-primary p-0.5 bg-theme-bg shadow-lg shrink-0">
+                               <Avatar id={economy?.avatar_id || 1} className="w-full h-full rounded-full" />
+                             </div>
+                             <div className="text-center">
+                               <div className="text-sm sm:text-base font-black text-theme-text truncate max-w-[100px] sm:max-w-[120px]">{economy?.full_name || 'You'}</div>
+                               <div className="text-[10px] text-theme-muted/60 font-normal lowercase mt-0.5 truncate max-w-[100px] sm:max-w-[120px]">@{economy?.username || 'you'}</div>
+                             </div>
+                             <span className="font-mono text-xl sm:text-2xl font-black text-theme-primary">
+                               {userScore.toFixed(2)}
+                             </span>
+                           </div>
+
+                           {/* VS */}
+                           <div className="flex items-center justify-center shrink-0 self-center">
+                             <div className="relative w-11 h-11 sm:w-14 sm:h-14 filter drop-shadow-[0_0_8px_rgba(245,158,11,0.35)] select-none">
+                               <Swords size={24} className="text-amber-500 animate-pulse" />
+                             </div>
+                           </div>
+
+                           {/* Opponent */}
+                           <div className="flex flex-col items-center flex-1 space-y-2.5 min-w-0">
+                             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-theme-accent/60 p-0.5 bg-theme-bg shadow-lg relative shrink-0">
+                               <Avatar id={opponent?.avatar_id || 2} className="w-full h-full rounded-full" />
+                               <div className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center">
+                                 <Clock size={16} className="text-amber-500 animate-spin" />
+                               </div>
+                             </div>
+                             <div className="text-center">
+                               <div className="text-sm sm:text-base font-black text-theme-text truncate max-w-[100px] sm:max-w-[120px]">{opponent?.full_name}</div>
+                               <div className="text-[10px] text-theme-muted/60 font-normal lowercase mt-0.5 truncate max-w-[100px] sm:max-w-[120px]">@{opponent?.full_name ? opponent.full_name.toLowerCase().replace(/\s+/g, '') : 'aspirant'}</div>
+                             </div>
+                             <span className="font-mono text-xl sm:text-2xl font-black text-theme-muted animate-pulse">
+                               Solving...
+                             </span>
+                           </div>
+                         </div>
+                       </div>
+
+                       {/* Bottom Status */}
+                       <div className="flex items-center justify-center gap-1.5 select-none mb-1 relative z-10 text-[10px] font-black uppercase tracking-wider text-amber-500 animate-pulse">
+                         <Activity size={10} className="shrink-0" />
+                         SYNCING LIVE SCORE BOARDS...
+                       </div>
+                     </div>
+
+                     {/* Exit Button */}
+                     <button
+                       onClick={() => navigate('/')}
+                       className="w-full py-3 bg-theme-primary text-white rounded-2xl font-black text-xs uppercase tracking-wider hover:opacity-95 transition-all active:scale-95 shadow-md"
+                     >
+                       Exit to Homepage
+                     </button>
+                   </div>
+
+                   {/* RIGHT: Live Monitoring Panel */}
+                   <div className="md:col-span-3 flex flex-col gap-4 w-full">
+                     <div 
+                       className="rounded-2xl p-5 space-y-4 relative overflow-hidden border border-theme-border/60 bg-theme-surface/40 backdrop-blur-md text-left"
+                     >
+                       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-xl pointer-events-none" />
+                       
+                       <div className="flex items-center gap-2.5 pb-3 border-b border-white/[0.06] relative z-10">
+                         <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                           <Activity size={16} className="animate-pulse" />
+                         </div>
+                         <div>
+                           <h4 className="text-xs font-black text-theme-text uppercase tracking-wider leading-none">Challenger Live Status</h4>
+                           <span className="text-[8px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block">PvP Battle</span>
+                         </div>
+                       </div>
+
+                       <div className="space-y-3 relative z-10 text-xs font-medium text-theme-muted leading-relaxed">
+                         <p>
+                           Your opponent, <span className="text-theme-text font-black">{opponent?.full_name}</span>, is currently completing their arena battle.
+                         </p>
+                         <p>
+                           To ensure competitive integrity, the final scoreboard will synchronize and reveal both players' scores simultaneously once your opponent has completed and submitted their attempt.
+                         </p>
+                        <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3 flex items-start gap-2.5">
+                          <Clock size={16} className="text-amber-500 shrink-0 mt-0.5" />
+                          <p className="text-[10px] text-amber-500 font-bold leading-normal">
+                            You do not need to wait here. You can safely close this screen or go back to the homepage. The match will resolve in the background, and you'll be notified via your dashboard once the final results are locked in.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             ) : (
               /* Bento Dashboard (Once ticking is complete) */
               <div className="w-full space-y-3">
@@ -2935,7 +3478,23 @@ export default function BattleArena() {
                           {!isGhostMode ? (
                             <>
                               <button
-                                onClick={() => handleFlexShare(`I just battled in MCQKash! Scored ${userScore.toFixed(2)} points. Beat my score: ${window.location.origin}`)}
+                                onClick={() => handleFlexShare(
+                                  `I just battled in MCQKash! Scored ${userScore.toFixed(2)} points. Beat my score: ${window.location.origin}`,
+                                  {
+                                    outcome: liveOutcome,
+                                    targetExam: economy?.target_exam,
+                                    userRank: liveUserRank,
+                                    opponentRank: liveOppRank,
+                                    coinChange: netKC,
+                                    userFullName: economy?.full_name || 'You',
+                                    opponentName: opponent?.full_name || 'Opponent',
+                                    userScore: userScore,
+                                    opponentScore: opponentScore,
+                                    date: getISTDetails().dateStr,
+                                    userAvatarId: economy?.avatar_id || 1,
+                                    opponentAvatarId: opponent?.avatar_id || 2
+                                  }
+                                )}
                                 className="flex-1 py-3 bg-gradient-primary text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-theme-primary/10"
                               >
                                 <Share2 size={14} />
@@ -2962,10 +3521,10 @@ export default function BattleArena() {
                       {/* ─── RIGHT: Premium Analytics Panel ─── */}
                       <div className="md:col-span-3 flex flex-col gap-4">
 
-                        {/* Wager Economics Tile */}
+                        {/* Wager Economics Tile (Compact version) */}
                         {!isGhostMode && (
                           <div
-                            className="rounded-3xl p-5 space-y-4 relative overflow-hidden"
+                            className="rounded-2xl p-4 space-y-2.5 relative overflow-hidden text-left"
                             style={{
                               background: netKC >= 0
                                 ? 'linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(var(--color-surface-rgb),0.6) 100%)'
@@ -2981,7 +3540,7 @@ export default function BattleArena() {
                           >
                             {/* Subtle radial glow */}
                             <div
-                              className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                              className="absolute top-0 right-0 w-24 h-24 rounded-full pointer-events-none"
                               style={{
                                 background: netKC >= 0
                                   ? 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)'
@@ -2990,99 +3549,69 @@ export default function BattleArena() {
                             />
 
                             {/* Header */}
-                            <div className="flex items-center gap-2 pb-3 border-b border-white/[0.06] relative z-10">
-                              <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${netKC >= 0 ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'}`}>
-                                <KashCoinIcon className="w-5 h-5" glow={false} />
+                            <div className="flex items-center gap-2 pb-2 border-b border-white/[0.06] relative z-10">
+                              <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${netKC >= 0 ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'}`}>
+                                <KashCoinIcon className="w-4 h-4" glow={false} />
                               </div>
                               <div>
-                                <h4 className="text-xs font-black text-theme-text uppercase tracking-wider leading-none">Wager Outcome</h4>
-                                <span className="text-[8px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block">Match Economics</span>
+                                <h4 className="text-[11px] font-black text-theme-text uppercase tracking-wider leading-none">Wager Outcome</h4>
+                                <span className="text-[7.5px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block leading-none">Match Economics</span>
                               </div>
                             </div>
 
                             {/* Stats rows */}
-                            <div className="space-y-3 relative z-10">
+                            <div className="space-y-2 relative z-10">
                               <div className="flex items-center justify-between">
-                                <span className="text-xs font-semibold text-theme-muted uppercase tracking-wider">Wager Stake</span>
-                                <div className="flex items-center gap-1.5">
-                                  <span className="text-sm font-black text-theme-text">100</span>
-                                  <KashCoinIcon className="w-4 h-4" glow={false} />
+                                <span className="text-[10px] font-semibold text-theme-muted uppercase tracking-wider">Wager Stake</span>
+                                <div className="flex items-center gap-1">
+                                  <span className="text-xs font-black text-theme-text">100</span>
+                                  <KashCoinIcon className="w-3.5 h-3.5" glow={false} />
                                 </div>
                               </div>
                               <div className="flex items-center justify-between">
-                                <span className="text-xs font-semibold text-theme-muted uppercase tracking-wider">Winnings Credited</span>
-                                <div className="flex items-center gap-1.5">
-                                  <span className={`text-sm font-black ${netKC >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{payoutAmount}</span>
-                                  <KashCoinIcon className="w-4 h-4" glow={false} />
+                                <span className="text-[10px] font-semibold text-theme-muted uppercase tracking-wider">Winnings Credited</span>
+                                <div className="flex items-center gap-1">
+                                  <span className={`text-xs font-black ${netKC >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{payoutAmount}</span>
+                                  <KashCoinIcon className="w-3.5 h-3.5" glow={false} />
                                 </div>
                               </div>
                               <div className="h-px bg-white/[0.06]" />
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-black text-theme-text uppercase tracking-wider">Net Outcome</span>
-                                <div className="flex items-center gap-1.5">
-                                  <span className={`text-lg font-black ${netKC >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                <span className="text-[11px] font-black text-theme-text uppercase tracking-wider">Net Outcome</span>
+                                <div className="flex items-center gap-1">
+                                  <span className={`text-sm font-black ${netKC >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
                                     {netKC >= 0 ? '+' : ''}{netKC}
                                   </span>
-                                  <KashCoinIcon className="w-5 h-5" glow={netKC > 0} />
+                                  <KashCoinIcon className="w-4 h-4" glow={netKC > 0} />
                                 </div>
                               </div>
                             </div>
 
                             {/* Insurance alert */}
                             {insuranceActive && (
-                              <div className="relative z-10 rounded-xl border border-amber-500/20 bg-amber-500/5 px-4 py-2 text-[10px] text-amber-500 font-bold flex items-center gap-1.5 leading-tight">
-                                <Star size={12} className="shrink-0 animate-pulse text-amber-400" />
+                              <div className="relative z-10 rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 text-[9px] text-amber-500 font-bold flex items-center gap-1 leading-tight">
+                                <Star size={11} className="shrink-0 animate-pulse text-amber-400" />
                                 <span>{insuranceMessage}</span>
                               </div>
                             )}
                           </div>
                         )}
 
-                        {/* Free scoring cap banner */}
-                        {economy?.user_tier !== 'Pro' && (
-                          <div className="rounded-3xl border border-amber-500/25 bg-amber-500/5 p-5 space-y-2.5 shadow-md relative overflow-hidden text-left" style={{ backdropFilter: 'blur(12px)' }}>
-                            <div className="absolute top-0 right-0 w-16 h-16 bg-amber-500/5 rounded-full blur-xl pointer-events-none" />
-                            <div className="flex items-center gap-2 text-amber-500">
-                              <Lock size={14} className="animate-pulse animate-duration-1000" />
-                              <h5 className="font-black text-[10px] uppercase tracking-wider">Free Member Scoring Cap</h5>
-                            </div>
-                            <p className="text-[10px] text-theme-muted font-bold leading-relaxed">
-                              Your scoring capacity was reduced by <span className="text-amber-500 font-black">2.00 points</span> because this challenge contained <span className="text-amber-500 font-black">2 Pro Locked questions</span>. Upgrade to Pro to unlock 100% of your scoring potential!
-                            </p>
-                            <button
-                              onClick={() => navigate('/upgrade')}
-                              className="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-black rounded-xl text-[9px] uppercase tracking-widest transition-all active:scale-95 text-center block"
-                            >
-                              Upgrade to Pro Now
-                            </button>
-                          </div>
-                        )}
 
-                        {/* AI X-Ray Telemetry Tile */}
+
+                        {/* AI X-Ray Telemetry Tile (Compact version) */}
                         <div
-                          className="rounded-3xl p-6 flex flex-col justify-between flex-1 space-y-4 relative overflow-hidden"
+                          className="rounded-2xl p-4 flex flex-col justify-between flex-1 space-y-3 relative overflow-hidden text-left"
                           style={{
-                            background: isGhostMode
-                              ? 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.05) 0%, rgba(var(--color-surface-rgb),0.6) 100%)'
-                              : netKC >= 0
-                              ? 'linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(var(--color-surface-rgb),0.6) 100%)'
-                              : 'linear-gradient(135deg, rgba(244,63,94,0.05) 0%, rgba(var(--color-surface-rgb),0.6) 100%)',
-                            border: isGhostMode
-                              ? '1px solid rgba(var(--color-primary-rgb),0.12)'
-                              : netKC >= 0
-                              ? '1px solid rgba(16,185,129,0.15)'
-                              : '1px solid rgba(244,63,94,0.15)',
-                            backdropFilter: 'blur(16px)',
-                            boxShadow: isGhostMode
-                              ? '0 8px 32px -8px rgba(var(--color-primary-rgb),0.1), inset 0 1px 0 rgba(255,255,255,0.06)'
-                              : netKC >= 0
-                              ? '0 8px 32px -8px rgba(16,185,129,0.1), inset 0 1px 0 rgba(255,255,255,0.06)'
-                              : '0 8px 32px -8px rgba(244,63,94,0.1), inset 0 1px 0 rgba(255,255,255,0.06)'
+                            background: 'linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(15,18,29,0.75) 100%)',
+                            border: '1px solid rgba(99,102,241,0.25)',
+                            backdropFilter: 'blur(20px)',
+                            boxShadow: '0 12px 40px -12px rgba(99,102,241,0.15), inset 0 1px 0 rgba(255,255,255,0.05)'
                           }}
                         >
                           {/* Radial glow top-right */}
                           <div
-                            className="absolute top-0 right-0 w-24 h-24 rounded-full pointer-events-none"
+                            className="absolute top-0 right-0 w-20 h-20 rounded-full pointer-events-none"
                             style={{
                               background: isGhostMode
                                 ? 'radial-gradient(circle, rgba(var(--color-primary-rgb),0.12) 0%, transparent 70%)'
@@ -3093,19 +3622,19 @@ export default function BattleArena() {
                           />
 
                           {/* Diagnostic Title */}
-                          <div className="flex items-center gap-2.5 pb-3 border-b border-white/[0.06] relative z-10">
-                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${
+                          <div className="flex items-center gap-2 pb-2 border-b border-white/[0.06] relative z-10">
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
                               isGhostMode
                                 ? 'bg-theme-primary/10 text-theme-primary'
                                 : netKC >= 0
                                 ? 'bg-emerald-500/15 text-emerald-400'
                                 : 'bg-rose-500/15 text-rose-400'
                             }`}>
-                              <Eye size={16} />
+                              <Eye size={14} />
                             </div>
                             <div>
-                              <h4 className="text-xs font-black text-theme-text uppercase tracking-wider leading-none">AI X-Ray Telemetry</h4>
-                              <span className="text-[8px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block">Accuracy Diagnostic</span>
+                              <h4 className="text-[11px] font-black text-theme-text uppercase tracking-wider leading-none">AI X-Ray Telemetry</h4>
+                              <span className="text-[7.5px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block leading-none">Accuracy Diagnostic</span>
                             </div>
                           </div>
 
@@ -3113,78 +3642,74 @@ export default function BattleArena() {
                           <div className="relative z-10 flex-1">
                             {isGhostMode ? (
                               economy?.user_tier === 'Pro' ? (
-                                <div className="space-y-4 flex flex-col justify-center text-center py-6">
-                                  <p className="text-xs text-theme-muted leading-relaxed font-semibold">
+                                <div className="space-y-2.5 flex flex-col justify-center text-center py-4">
+                                  <p className="text-[10px] text-theme-muted leading-relaxed font-semibold">
                                     AI X-Ray Telemetry accuracy diagnostics will calibrate once an opponent matches your queued challenge card.
                                   </p>
                                 </div>
                               ) : (
-                                <div className="space-y-4 flex flex-col justify-between h-full">
-                                  <div className="relative rounded-2xl border border-rose-500/10 p-5 overflow-hidden select-none bg-rose-500/[0.02]">
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-4 text-center">
-                                      <Lock size={20} className="text-amber-500 animate-pulse mb-1.5" />
-                                      <p className="text-[10px] font-black text-theme-text uppercase tracking-wider leading-snug">X-Ray Telemetry for Pro Users</p>
-                                      <p className="text-[8px] text-theme-muted font-bold uppercase mt-0.5">Unlock when matched</p>
+                                <div className="space-y-3 flex flex-col justify-between h-full">
+                                  <div className="relative rounded-xl border border-rose-500/10 p-4 overflow-hidden select-none bg-rose-500/[0.02]">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-3 text-center">
+                                      <Lock size={16} className="text-amber-500 animate-pulse mb-1" />
+                                      <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">X-Ray Telemetry for Pro Users</p>
+                                      <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock when matched</p>
                                     </div>
                                   </div>
-                                  <p className="text-[11px] font-semibold text-theme-muted leading-relaxed text-center">
+                                  <p className="text-[10px] font-semibold text-theme-muted leading-relaxed text-center">
                                     Upgrade to Pro to unveil comparative diagnostics once a competitor matches your card.
                                   </p>
                                   <button
                                     onClick={() => navigate('/upgrade')}
-                                    className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:opacity-95 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shadow-amber-500/20 shrink-0"
+                                    className="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-500/20 text-white rounded-xl text-[9px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shrink-0"
                                   >
-                                    <Star size={12} fill="currentColor" />
+                                    <Star size={11} fill="currentColor" />
                                     UPGRADE TO PRO
                                   </button>
                                 </div>
                               )
                             ) : economy?.user_tier === 'Pro' ? (
-                              <div className="space-y-4 flex flex-col justify-center">
-                                <p className="text-[11px] text-theme-muted leading-relaxed font-medium">
+                              <div className="space-y-2.5 flex flex-col justify-center">
+                                <p className="text-[10px] text-theme-muted leading-relaxed font-medium">
                                   Algorithmic breakdown of your 20-Question match against {opponent?.full_name}:
                                 </p>
                                 <div
-                                  className="rounded-2xl p-4 text-left space-y-3"
-                                  style={{
-                                    background: 'rgba(var(--color-bg-rgb),0.6)',
-                                    border: '1px solid rgba(var(--color-border-rgb),0.5)'
-                                  }}
+                                  className="rounded-xl p-3 text-left space-y-2 bg-theme-bg/60 border border-theme-border/50"
                                 >
-                                  <div className="flex items-start gap-2.5 text-xs text-theme-text font-semibold leading-normal">
+                                  <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
                                     <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-1.5" />
                                     <div>{opponent?.full_name} dominated in <span className="text-theme-accent font-black">{xrayBreakdown.worst}</span>.</div>
                                   </div>
-                                  <div className="flex items-start gap-2.5 text-xs text-theme-text font-semibold leading-normal">
+                                  <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
                                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 mt-1.5 animate-pulse" />
                                     <div>You were untouchable in <span className="text-theme-primary font-black">{xrayBreakdown.best}</span>.</div>
                                   </div>
                                 </div>
-                                <p className="text-[10px] text-theme-muted leading-snug">
+                                <p className="text-[9px] text-theme-muted leading-snug">
                                   💡 Tip: Practice more questions under <span className="text-theme-accent font-bold">{xrayBreakdown.worst}</span> in Subject Hub to prevent close losses.
                                 </p>
                               </div>
                             ) : (
-                              <div className="space-y-4 flex flex-col justify-between h-full">
-                                <div className="relative rounded-2xl border border-rose-500/10 p-5 overflow-hidden select-none bg-rose-500/[0.02]">
-                                  <div className="filter blur-[5px] opacity-25 space-y-2 text-left text-[11px] font-bold leading-normal">
+                              <div className="space-y-3 flex flex-col justify-between h-full">
+                                <div className="relative rounded-xl border border-rose-500/10 p-4 overflow-hidden select-none bg-rose-500/[0.02]">
+                                  <div className="filter blur-[4px] opacity-20 space-y-1.5 text-left text-[10px] font-bold leading-normal">
                                     <p>• {opponent?.full_name} dominated you in Geography with a 92% accuracy spread.</p>
                                     <p>• You were completely untouchable in Science with a +15 speed index.</p>
                                   </div>
-                                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-4 text-center">
-                                    <Lock size={20} className="text-amber-500 animate-pulse mb-1.5" />
-                                    <p className="text-[10px] font-black text-theme-text uppercase tracking-wider leading-snug">See where {opponent?.full_name} beat you.</p>
-                                    <p className="text-[8px] text-theme-muted font-bold uppercase mt-0.5">Unlock X-Ray Analysis</p>
+                                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-3 text-center">
+                                    <Lock size={16} className="text-amber-500 animate-pulse mb-1" />
+                                    <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">See where {opponent?.full_name} beat you.</p>
+                                    <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock X-Ray Analysis</p>
                                   </div>
                                 </div>
-                                <p className="text-[11px] font-semibold text-theme-muted leading-relaxed text-center">
+                                <p className="text-[10px] font-semibold text-theme-muted leading-relaxed text-center">
                                   Unveil algorithmic diagnostic alerts of your mock challenge. Learn your critical weakness gaps to boost leaderboard standings.
                                 </p>
                                 <button
                                   onClick={() => navigate('/upgrade')}
-                                  className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:opacity-95 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shadow-amber-500/20 shrink-0"
+                                  className="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-500/20 text-white rounded-xl text-[9px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shrink-0"
                                 >
-                                  <Star size={12} fill="currentColor" />
+                                  <Star size={11} fill="currentColor" />
                                   UPGRADE TO PRO
                                 </button>
                               </div>
@@ -3192,9 +3717,143 @@ export default function BattleArena() {
                           </div>
                         </div>
 
+                        {/* Compact Free member scoring cap banner */}
+                        {economy?.user_tier !== 'Pro' && (
+                          <div 
+                            className="rounded-3xl border border-amber-500/15 bg-amber-500/5 p-4 flex items-center justify-between gap-4 text-left relative overflow-hidden backdrop-blur-md shadow-sm animate-fade-in"
+                          >
+                            <div className="absolute top-0 right-0 w-12 h-12 bg-amber-500/5 rounded-full blur-lg pointer-events-none" />
+                            <div className="flex items-center gap-3 relative z-10">
+                              <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                                <Lock size={15} className="animate-pulse" />
+                              </div>
+                              <div>
+                                <h5 className="font-black text-[10px] text-amber-500 uppercase tracking-widest leading-none">Free member scoring cap</h5>
+                                <p className="text-[10px] text-theme-muted font-bold mt-1 leading-snug">
+                                  Your scoring capacity was capped by <span className="text-amber-500">2.00 pts</span> due to <span className="text-amber-500">2 Pro Locked Questions</span>.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
                       </div>
 
                     </div>
+                  );
+                })()}
+
+                {/* Analysis Hub Control Center */}
+                <div className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 via-theme-surface to-amber-500/5 backdrop-blur-md p-6 shadow-[0_12px_40px_-20px_rgba(147,51,234,0.3)] mt-6 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6 transition-all text-left relative z-10">
+                  {/* Glow vignettes */}
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-amber-500/5 rounded-full blur-[65px] pointer-events-none" />
+
+                  <div className="flex items-center gap-4 relative z-10 flex-1 min-w-0">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 shrink-0 shadow-lg shadow-purple-500/10">
+                      <Activity size={22} className="animate-pulse" />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="text-sm md:text-base font-black text-theme-text uppercase tracking-wider">Analysis Hub</h4>
+                      <p className="text-xs md:text-sm text-theme-muted font-bold block mt-1">
+                        AI-powered mock intelligence
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Premium Aesthetics Button Suite */}
+                  <div className="grid grid-cols-3 gap-2 w-full md:w-auto md:flex md:flex-nowrap md:gap-3 items-center relative z-10 shrink-0">
+                    {/* War Room button */}
+                    <button
+                      onClick={() => navigate('/profile', { state: { scrollToSection: 'war-room-analytics' } })}
+                      className="w-full md:w-auto px-4 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest bg-gradient-to-r from-rose-500 to-red-600 text-white transition-all active:scale-95 shadow-md shadow-rose-500/15 hover:shadow-rose-500/35 flex items-center justify-center gap-1.5 whitespace-nowrap"
+                    >
+                      <Trophy size={11} className="text-white shrink-0" />
+                      <span>War Room</span>
+                    </button>
+
+                    {/* Generate Smart Notes button */}
+                    <button
+                      onClick={handleGenerateCheatSheet}
+                      className="w-full md:w-auto px-4 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest bg-gradient-to-r from-amber-500 to-amber-600 text-white transition-all active:scale-95 shadow-md shadow-amber-500/15 hover:shadow-amber-500/35 flex items-center justify-center gap-1.5 whitespace-nowrap"
+                    >
+                      <Sparkles size={11} className="text-white shrink-0" />
+                      <span>Smart Notes</span>
+                    </button>
+
+                    {/* Generate Mock Forge button */}
+                    <button
+                      onClick={handleGenerateSimilarMock}
+                      className="w-full md:w-auto px-4 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest bg-gradient-to-r from-purple-500 to-indigo-600 text-white transition-all active:scale-95 shadow-md shadow-purple-500/15 hover:shadow-purple-500/35 flex items-center justify-center gap-1.5 whitespace-nowrap"
+                    >
+                      <Zap size={11} className="text-white shrink-0" />
+                      <span>Mock Forge</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Detailed Review Section */}
+                {(() => {
+                  const hasMedia = (q) => {
+                    if (!q) return false;
+                    const inExpl = q.explanation && (/<img|<iframe|<video/i.test(q.explanation) || /(?:^|\s|\b)(img[lrc]?|vid)\s+https?:\/\//i.test(q.explanation) || /\bhttps?:\/\/[^\s"']+\.(?:png|jpg|jpeg|gif|svg|webp)\b/i.test(q.explanation) || /youtube\.com|youtu\.be|vimeo\.com|data-video-url/i.test(q.explanation));
+                    const inQuest = q.question && (/<img|<iframe|<video/i.test(q.question) || /(?:^|\s|\b)(img[lrc]?|vid)\s+https?:\/\//i.test(q.question) || /\bhttps?:\/\/[^\s"']+\.(?:png|jpg|jpeg|gif|svg|webp)\b/i.test(q.question) || /youtube\.com|youtu\.be|vimeo\.com|data-video-url/i.test(q.question));
+                    return !!(inExpl || inQuest);
+                  };
+                  
+                  const getPriorityScore = (q) => {
+                    const media = hasMedia(q);
+                    const isLocked = economy?.user_tier !== 'Pro' && (
+                      q.difficulty?.toLowerCase() === 'hard' ||
+                      (q.difficulty?.toLowerCase() === 'medium' && !media)
+                    );
+                    if (media) return 3;
+                    if (isLocked) return 1;
+                    if (q.explanation && q.explanation.trim()) return 2;
+                    return 0;
+                  };
+
+                  const sortedReviewQuestions = [...questions].sort((a, b) => {
+                    return getPriorityScore(b) - getPriorityScore(a);
+                  });
+
+                  return (
+                    <section className="max-w-4xl mx-auto w-full mt-10 bg-theme-surface rounded-2xl border border-theme-border shadow-sm overflow-hidden relative z-10 text-left">
+                      <div className="p-4 md:p-5 border-b border-theme-border flex items-center gap-3 bg-theme-surface">
+                        <div className="w-9 h-9 rounded-xl bg-theme-primary/10 text-theme-primary flex items-center justify-center">
+                          <Eye size={18} />
+                        </div>
+                        <h2 className="text-lg font-black text-theme-text">Detailed Review</h2>
+                      </div>
+                      <div className="p-4 md:p-8 space-y-12 bg-theme-bg/50">
+                        {sortedReviewQuestions.map((q, idx) => {
+                          const userAnswer = answers[q.id];
+                          const isCorrect = userAnswer === q.correctId;
+                          const isSkipped = !userAnswer;
+                          const originalIdx = questions.findIndex(origQ => origQ.id === q.id);
+                          return (
+                            <div key={q.id} className="relative">
+                              <div
+                                className="absolute -top-3 left-6 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border shadow-sm"
+                                style={{
+                                  backgroundColor: isCorrect ? 'rgba(16,185,129,0.1)' : isSkipped ? 'rgba(100,116,139,0.1)' : 'rgba(244,63,94,0.1)',
+                                  borderColor:     isCorrect ? 'rgba(16,185,129,0.2)' : isSkipped ? 'rgba(100,116,139,0.2)' : 'rgba(244,63,94,0.2)',
+                                  color:           isCorrect ? '#10b981'               : isSkipped ? '#64748b'               : '#f43f5e',
+                                }}
+                              >
+                                {isCorrect && <CheckCircle2 size={12} />}
+                                {!isCorrect && !isSkipped && <XCircle size={12} />}
+                                {isSkipped && <MinusCircle size={12} />}
+                                <span className="ml-1">
+                                  Question {originalIdx + 1}: {isCorrect ? 'Correct' : isSkipped ? 'Skipped' : 'Incorrect'}
+                                </span>
+                              </div>
+                              <McqCard questionData={q} mode="result" externalSelection={userAnswer || null} />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </section>
                   );
                 })()}
 
@@ -3775,6 +4434,47 @@ export default function BattleArena() {
           </div>
         </div>
       </UniversalModal>
+
+      {/* AI Premium Features Glassmorphic Loading Overlay */}
+      <AnimatePresence>
+        {isAiLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-[99999] flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 15 }}
+              className="bg-[#0f121d]/90 border border-purple-500/20 rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl relative overflow-hidden"
+            >
+              {/* Glow vignette */}
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] pointer-events-none" />
+              <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-amber-500/10 rounded-full blur-[40px] pointer-events-none" />
+              
+              <div className="relative w-16 h-16 mx-auto">
+                <div className="absolute inset-0 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin" />
+                <Sparkles size={26} className="text-amber-500 absolute inset-0 m-auto animate-pulse" />
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-black text-lg text-slate-100 uppercase tracking-wider">Kash AI Working</h3>
+                <p className="text-xs text-slate-400 font-semibold leading-relaxed">
+                  {aiLoadingText || "Synthesizing intelligence features..."}
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <span className="text-[9px] font-black uppercase tracking-widest bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/20">
+                  ★ Pro AI Integration
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

@@ -1866,6 +1866,7 @@ export default function AdminSubiStudio() {
   const handleResizeImage = (widthPercent) => {
     if (imgToolbar.targetImg) {
       imgToolbar.targetImg.style.width = widthPercent + '%';
+      imgToolbar.targetImg.style.maxWidth = '100%';
       setImgToolbar({ show: false, top: 0, left: 0, targetImg: null });
     }
   };
@@ -4554,6 +4555,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                                 const newWidth = RESIZE_STEPS[idx];
                                 if (imgToolbar.targetImg) {
                                     imgToolbar.targetImg.style.width = newWidth + '%';
+                                    imgToolbar.targetImg.style.maxWidth = '100%';
                                     setImgToolbar(prev => ({ ...prev, currentWidth: newWidth }));
                                 }
                             }}

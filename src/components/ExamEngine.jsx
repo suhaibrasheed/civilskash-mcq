@@ -256,6 +256,16 @@ export default function ExamEngine() {
                 </button>
               ))}
             </div>
+
+            {/* Mobile Submit Button */}
+            <div className="mt-6">
+              <button 
+                onClick={handleSubmit} 
+                className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-black text-lg transition-all shadow-xl shadow-emerald-500/10 active:scale-95"
+              >
+                Submit Test
+              </button>
+            </div>
           </div>
         </div>
 

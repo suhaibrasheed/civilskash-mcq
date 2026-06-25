@@ -700,7 +700,25 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ── Filter logic ─────────────────────────────────────────────────
+  const hasMedia = (q) => {
+    if (!q) return false;
+    const inExpl = q.explanation && (/<img|<iframe|<video/i.test(q.explanation) || /(?:^|\s|\b)(img[lrc]?|vid)\s+https?:\/\//i.test(q.explanation) || /\bhttps?:\/\/[^\s"']+\.(?:png|jpg|jpeg|gif|svg|webp)\b/i.test(q.explanation) || /youtube\.com|youtu\.be|vimeo\.com|data-video-url/i.test(q.explanation));
+    const inQuest = q.question && (/<img|<iframe|<video/i.test(q.question) || /(?:^|\s|\b)(img[lrc]?|vid)\s+https?:\/\//i.test(q.question) || /\bhttps?:\/\/[^\s"']+\.(?:png|jpg|jpeg|gif|svg|webp)\b/i.test(q.question) || /youtube\.com|youtu\.be|vimeo\.com|data-video-url/i.test(q.question));
+    return !!(inExpl || inQuest);
+  };
+
+  const getPriorityScore = (q) => {
+    const media = hasMedia(q);
+    const isLocked = economy?.user_tier !== 'Pro' && (
+      q.difficulty?.toLowerCase() === 'hard' ||
+      (q.difficulty?.toLowerCase() === 'medium' && !media)
+    );
+    if (media) return 3;
+    if (isLocked) return 1;
+    if (q.explanation && q.explanation.trim()) return 2;
+    return 0;
+  };
+
   const filteredQuestions = questions.filter(q => {
     const ans = answers[q.id];
     if (filter === 'all')       return true;
@@ -708,6 +726,8 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
     if (filter === 'incorrect') return ans && ans !== q.correctId;
     if (filter === 'skipped')   return !ans;
     return true;
+  }).sort((a, b) => {
+    return getPriorityScore(b) - getPriorityScore(a);
   });
 
   const handleGenerateCheatSheet = async () => {

@@ -125,7 +125,7 @@ function AppContent() {
           if (parsed.platform === 'native') {
             wrapper.innerHTML = `<video src="${parsed.embedUrl}" controls autoplay class="absolute inset-0 w-full h-full rounded-xl object-cover bg-black" style="border: none;"></video>`;
           } else {
-            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b; max-width: 550px; left: 0; right: 0; margin: 0 auto;"></iframe>`;
+            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b;"></iframe>`;
           }
         }
       }
@@ -140,7 +140,7 @@ function AppContent() {
           const url = wrapper.getAttribute('data-video-url');
           const parsed = parseVideoUrl(url);
           if (parsed) {
-            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b; max-width: 550px; left: 0; right: 0; margin: 0 auto;"></iframe>`;
+            wrapper.innerHTML = `<iframe src="${parsed.embedUrl}" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen allowtransparency="true" style="border: none; color-scheme: dark; background: #15202b;"></iframe>`;
           }
         }
       });
