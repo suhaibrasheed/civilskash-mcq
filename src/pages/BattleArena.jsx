@@ -991,13 +991,13 @@ export default function BattleArena() {
     setInsuranceActive(insActive);
     setInsuranceMessage(insMsg);
 
-    // Early submit waiting logic (User submits in under 5 minutes / 300 seconds)
+    // Early submit waiting logic (User submits in under 3 minutes / 200 seconds)
     const elapsedTime = 1200 - mockTimeLeft;
-    const isEarlySubmit = elapsedTime < 300;
+    const isEarlySubmit = elapsedTime < 200;
 
     if (isEarlySubmit && !isGhostMode) {
       setIsEarlySubmitWaiting(true);
-      const delaySeconds = Math.floor(Math.random() * 241) + 180; // 180 to 420 seconds (3 to 7 minutes)
+      const delaySeconds = Math.floor(Math.random() * 181) + 120; // 120 to 300 seconds (2 to 5 minutes)
       setEarlySubmitTimeRemaining(delaySeconds);
 
       const newNotifId = `battle_notif_${Date.now()}`;
