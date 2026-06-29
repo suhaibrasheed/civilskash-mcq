@@ -25,7 +25,7 @@ function OnboardingGuard({ children }) {
   const { user } = useAuth();
   const { economy } = useEconomy();
 
-  if (user && economy && economy.onboarded === false) {
+  if (user && economy && economy.id === user.id && economy.onboarded === false) {
     return <Navigate to="/signin" replace />;
   }
   return children;
@@ -36,7 +36,7 @@ function NavigationWrapper() {
   const { user } = useAuth();
   const { economy } = useEconomy();
   
-  const isNotOnboarded = user && economy && economy.onboarded === false;
+  const isNotOnboarded = user && economy && economy.id === user.id && economy.onboarded === false;
   const hideNav = location.pathname === '/mock-test' || 
                   location.pathname.startsWith('/admin/') || 
                   location.pathname === '/battle-arena' ||

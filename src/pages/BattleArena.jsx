@@ -629,6 +629,12 @@ export default function BattleArena() {
     }
   }, [location.state, economy?.id]);
 
+  // Simple obfuscation helper: base64 encode/decode score
+  const encodeScore = (s) => btoa(String(s));
+  const decodeScore = (s) => {
+    try { return parseFloat(atob(s)); } catch(e) { return parseFloat(s) || 0; }
+  };
+
   // Parse challenge parameters if deep linked via WhatsApp/Telegram (Runs 100% offline, zero database queries!)
   useEffect(() => {
     const query = new URLSearchParams(location.search);
@@ -640,6 +646,7 @@ export default function BattleArena() {
     const scoreParam = query.get('score');
 
     if (challengerId && examParam && seedParam && scoreParam) {
+      const parsedScore = decodeScore(scoreParam);
       setChallengeData({
         challengerId,
         challengerName: challengerName,
@@ -649,7 +656,7 @@ export default function BattleArena() {
         challengerStreak: 0,
         exam: examParam,
         seed: seedParam,
-        scoreToBeat: parseFloat(scoreParam)
+        scoreToBeat: parsedScore
       });
       setOpponent({
         id: challengerId,
@@ -657,7 +664,7 @@ export default function BattleArena() {
         username: challengerUsername,
         avatar_id: 1,
         accuracy: 75,
-        rank: 15,
+        rank: parseInt(query.get('challenger_rank') || '15', 10),
         is_pro: false
       });
       setStep('challenge-intro');
@@ -670,9 +677,10 @@ export default function BattleArena() {
       challenger_id: challengerId,
       challenger_name: challengerName || 'Aspirant',
       challenger_username: challengerUsername || 'challenger',
+      challenger_rank: String(userKashRank || 15),
       exam: exam,
       seed: String(seed),
-      score: String(score)
+      score: encodeScore(score)
     });
     return `${baseUrl}?${params.toString()}`;
   };
@@ -1455,7 +1463,7 @@ export default function BattleArena() {
     const effectiveOppName = challengeData ? challengeData.challengerName : opponent.full_name;
     const effectiveOppAvatarId = challengeData ? challengeData.challengerAvatarId : opponent.avatar_id;
     const effectiveOppIsPro = challengeData ? false : oppIsPro;
-    const effectiveOppRank = challengeData ? 15 : (opponent.rank || 15);
+    const effectiveOppRank = challengeData ? (opponent.rank || 15) : (opponent.rank || 15);
 
     // Save Battle Card in History Gallery (for the person submitting — friend or regular player)
     const newBattleCard = {
@@ -1536,6 +1544,15 @@ export default function BattleArena() {
           console.error('[Challenge Notif] Supabase insert failed:', notifError.code, notifError.message, notifError.details);
         } else {
           console.log('[Challenge Notif] Notification sent to challenger:', challengeData.challengerId);
+          // Mark seed as attempted locally
+          try {
+            const attemptedStr = localStorage.getItem(`mcqkash_attempted_challenges_${userId}`);
+            const attemptedList = attemptedStr ? JSON.parse(attemptedStr) : [];
+            if (!attemptedList.includes(challengeData.seed)) {
+              attemptedList.push(challengeData.seed);
+              localStorage.setItem(`mcqkash_attempted_challenges_${userId}`, JSON.stringify(attemptedList));
+            }
+          } catch (e) {}
         }
       } catch (err) {
         console.error('[Challenge Notif] Network error:', err);
@@ -2830,60 +2847,88 @@ Generate exactly 10 new questions.`;
         </div>
 
         {/* ─── SCREEN 0: CHALLENGE INTRO DASHBOARD CARD ─── */}
-        {step === 'challenge-intro' && challengeData && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-md mx-auto relative overflow-hidden rounded-[32px] border border-amber-500/35 bg-theme-surface/40 backdrop-blur-md p-8 shadow-2xl space-y-6 text-center"
-            style={{
-              background: 'linear-gradient(145deg, rgba(var(--color-surface-rgb), 0.95) 0%, rgba(245, 158, 11, 0.05) 100%)',
-              boxShadow: '0 20px 50px -15px rgba(245, 158, 11, 0.15)'
-            }}
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }} />
+        {step === 'challenge-intro' && challengeData && (() => {
+          // Check if seed was already attempted
+          const userId = economy?.id || 'guest';
+          let alreadyAttempted = false;
+          try {
+            const attemptedStr = localStorage.getItem(`mcqkash_attempted_challenges_${userId}`);
+            const attemptedList = attemptedStr ? JSON.parse(attemptedStr) : [];
+            if (attemptedList.includes(challengeData.seed)) {
+              alreadyAttempted = true;
+            }
+          } catch(e) {}
 
-            <div className="w-20 h-20 rounded-full border-4 border-amber-500/40 p-0.5 mx-auto bg-theme-bg shadow-xl relative z-10 animate-bounce flex items-center justify-center overflow-hidden">
-              <Avatar id={challengeData.challengerAvatarId} className="w-full h-full rounded-full" />
-            </div>
+          return (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="max-w-md mx-auto relative overflow-hidden rounded-[32px] border border-amber-500/35 bg-theme-surface/40 backdrop-blur-md p-8 shadow-2xl space-y-6 text-center"
+              style={{
+                background: 'linear-gradient(145deg, rgba(var(--color-surface-rgb), 0.95) 0%, rgba(245, 158, 11, 0.05) 100%)',
+                boxShadow: '0 20px 50px -15px rgba(245, 158, 11, 0.15)'
+              }}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }} />
 
-            <div className="space-y-2 relative z-10">
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/15 select-none animate-pulse">
-                CHALLENGE INVITE
-              </span>
-              <h1 className="text-3xl font-black tracking-tight uppercase mt-2">
-                Challenge Accepted
-              </h1>
-              <p className="text-xs sm:text-sm font-semibold text-theme-muted">
-                <span className="text-theme-primary font-bold">{challengeData.challengerName} (@{challengeData.challengerUsername || 'challenger'})</span> has challenged you to beat their score in <span className="text-theme-accent font-black uppercase">{challengeData.exam.replace(/-/g, ' ')}</span>!
-              </p>
-            </div>
+              <div className="w-20 h-20 rounded-full border-4 border-amber-500/40 p-0.5 mx-auto bg-theme-bg shadow-xl relative z-10 animate-bounce flex items-center justify-center overflow-hidden">
+                <Avatar id={challengeData.challengerAvatarId} className="w-full h-full rounded-full" />
+              </div>
 
-            {/* Score to beat block */}
-            <div className="p-5 bg-amber-500/5 rounded-2xl border border-amber-500/20 max-w-[240px] mx-auto relative z-10">
-              <span className="text-[9px] font-black text-theme-muted uppercase tracking-widest block mb-1">SCORE TO BEAT</span>
-              <span className="text-4xl font-mono font-black text-amber-500">{challengeData.scoreToBeat.toFixed(2)}</span>
-              <span className="text-xs font-semibold text-theme-muted block mt-1">out of 20.00</span>
-            </div>
+              <div className="space-y-2 relative z-10">
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/15 select-none animate-pulse">
+                  CHALLENGE INVITE
+                </span>
+                <h1 className="text-3xl font-black tracking-tight uppercase mt-2">
+                  Challenge Accepted
+                </h1>
+                <p className="text-xs sm:text-sm font-semibold text-theme-muted">
+                  <span className="text-theme-primary font-bold">{challengeData.challengerName} (@{challengeData.challengerUsername || 'challenger'})</span> has challenged you to beat their score in <span className="text-theme-accent font-black uppercase">{challengeData.exam.replace(/-/g, ' ')}</span>!
+                </p>
+              </div>
 
-            <div className="flex gap-4 pt-2 relative z-10">
-              <button
-                onClick={handleStartChallengeMock}
-                className="flex-1 py-4 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-500 text-slate-950 font-black rounded-2xl text-xs uppercase tracking-wider hover:opacity-95 transition-all active:scale-95 shadow-lg shadow-amber-500/20"
-              >
-                Accept & Start Duel
-              </button>
-              <button
-                onClick={() => {
-                  setChallengeData(null);
-                  setStep('gate');
-                }}
-                className="py-4 px-6 border border-theme-border bg-theme-surface text-theme-text font-black rounded-2xl text-xs uppercase tracking-wider hover:border-theme-primary transition-all active:scale-95"
-              >
-                Decline
-              </button>
-            </div>
-          </motion.div>
-        )}
+              {/* Score to beat block */}
+              <div className="p-5 bg-amber-500/5 rounded-2xl border border-amber-500/20 max-w-[240px] mx-auto relative z-10">
+                <span className="text-[9px] font-black text-theme-muted uppercase tracking-widest block mb-1">SCORE TO BEAT</span>
+                <span className="text-4xl font-mono font-black text-amber-500">{challengeData.scoreToBeat.toFixed(2)}</span>
+                <span className="text-xs font-semibold text-theme-muted block mt-1">out of 20.00</span>
+              </div>
+
+              {alreadyAttempted && (
+                <div className="p-4 bg-rose-500/10 border border-rose-500/20 rounded-2xl text-xs font-semibold text-rose-500 relative z-10">
+                  ⚠️ You have already played this duel! Ask your friend for a new challenge link.
+                </div>
+              )}
+
+              <div className="flex gap-4 pt-2 relative z-10">
+                {alreadyAttempted ? (
+                  <button
+                    disabled
+                    className="flex-1 py-4 bg-theme-border text-theme-muted font-black rounded-2xl text-xs uppercase tracking-wider cursor-not-allowed opacity-50"
+                  >
+                    Already Attempted
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleStartChallengeMock}
+                    className="flex-1 py-4 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-500 text-slate-950 font-black rounded-2xl text-xs uppercase tracking-wider hover:opacity-95 transition-all active:scale-95 shadow-lg shadow-amber-500/20"
+                  >
+                    Accept & Start Duel
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    setChallengeData(null);
+                    setStep('gate');
+                  }}
+                  className="py-4 px-6 border border-theme-border bg-theme-surface text-theme-text font-black rounded-2xl text-xs uppercase tracking-wider hover:border-theme-primary transition-all active:scale-95"
+                >
+                  Decline
+                </button>
+              </div>
+            </motion.div>
+          );
+        })()}
 
         {/* ─── SCREEN 1: BATTLE GATE ─── */}
         {step === 'gate' && (

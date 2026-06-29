@@ -75,12 +75,52 @@ export default function SignInPage() {
     }
   }, [user, loading, navigate, fromPath]);
 
-  // Display custom message
+  // Display custom message & parse referral parameter
   useEffect(() => {
     if (customMessage) {
       showToast(customMessage, 'info', 5000);
     }
-  }, [customMessage, showToast]);
+    
+    const parseAndSaveReferral = async () => {
+      // Parse referral code if deep-linked/navigated via ?ref=username
+      const queryParams = new URLSearchParams(location.search);
+      const refCode = queryParams.get('ref');
+      if (refCode) {
+        localStorage.setItem('mcqkash_pending_referral_code', refCode);
+        setReferredBy(refCode);
+        setIsLogin(false); // Directly take the invitee to sign up page (register mode)
+        
+        // Also save to IndexedDB
+        try {
+          const { updateUserEconomy } = await import('../lib/db');
+          await updateUserEconomy({ pending_referral_code: refCode });
+        } catch (dbErr) {
+          console.error('Failed to save referral to IndexedDB:', dbErr);
+        }
+      } else {
+        // Try localStorage first
+        let savedRef = localStorage.getItem('mcqkash_pending_referral_code');
+        if (savedRef) {
+          setReferredBy(savedRef);
+        } else {
+          // If not in localStorage, try IndexedDB
+          try {
+            const { getUserEconomy } = await import('../lib/db');
+            const econ = await getUserEconomy();
+            if (econ && econ.pending_referral_code) {
+              setReferredBy(econ.pending_referral_code);
+              // sync back to localStorage
+              localStorage.setItem('mcqkash_pending_referral_code', econ.pending_referral_code);
+            }
+          } catch (dbErr) {
+            console.error('Failed to read referral from IndexedDB:', dbErr);
+          }
+        }
+      }
+    };
+
+    parseAndSaveReferral();
+  }, [customMessage, location.search, showToast]);
 
   // Debounced uniqueness check in database
   useEffect(() => {
@@ -250,6 +290,9 @@ export default function SignInPage() {
         .eq('id', targetUser.id);
 
       if (profileError) throw profileError;
+
+      // Mark onboarding as complete in localStorage
+      localStorage.setItem(`mcqkash_onboarded_${targetUser.id}`, 'true');
 
       showToast('Profile configured successfully! Welcome aboard 🚀', 'success');
       await refreshEconomy().catch(() => {});

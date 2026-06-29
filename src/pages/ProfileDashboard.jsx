@@ -514,7 +514,7 @@ export default function ProfileDashboard() {
 
   // ── 2. ONBOARDING MODAL DETECT ──
   useEffect(() => {
-    if (user && economy) {
+    if (user && economy && economy.id === user.id) {
       const isComplete = economy.onboarded || localStorage.getItem(`mcqkash_onboarded_${user.id}`) === 'true';
       if (!isComplete) {
         setShowCustomizer(true);
@@ -568,14 +568,15 @@ export default function ProfileDashboard() {
   };
 
   const handleShareReferral = async () => {
-    const shareText = `📚 Preparing for Competitive Exams?\nI'm using MCQkash for topic-wise MCQs, PYQ's, Smart Revision, and exam-focused Mock Test with AI Analysis.\nJoin to compete with me on Leaderboard and USE my referral code "${economy?.username}" when signing up and we'll both earn Jackpot KashCoins + Exclusive FREE Rewards 🎁\n🚀 Click --> https://civilskash.in/mcq`;
+    const inviteUrl = window.location.origin + (window.location.pathname.startsWith('/mcq') ? '/mcq' : '') + '/signin?ref=' + encodeURIComponent(economy?.username || '');
+    const shareText = `📚 Preparing for Competitive Exams?\nI'm using MCQkash for topic-wise MCQs, PYQ's, Smart Revision, and exam-focused Mock Test with AI Analysis.\nJoin to compete with me on Leaderboard and USE my referral code "${economy?.username}" when signing up and we'll both earn Jackpot KashCoins + Exclusive FREE Rewards 🎁\n🚀 Click here to register directly --> ${inviteUrl}`;
     
     if (navigator.share) {
       try {
         await navigator.share({
           title: 'MCQ Kash',
           text: shareText,
-          url: 'https://civilskash.in/mcq'
+          url: inviteUrl
         });
         showToast("Referral shared successfully! 🚀", "success");
       } catch (err) {
