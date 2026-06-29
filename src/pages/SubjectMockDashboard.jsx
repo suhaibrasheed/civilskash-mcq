@@ -5,6 +5,7 @@ import { ArrowLeft, Trophy, Zap, ChevronRight, ChevronDown, Lock, AlertCircle, T
 import { generateSubjectMocks } from '../lib/mockEngine';
 import { getSolvedMocks } from '../lib/db';
 import { getScoreBand, normalizeSolvedMocks } from '../lib/mockDashboardUi';
+import { useEconomy } from '../context/EconomyContext';
 import Header from '../components/Header';
 
 // ─── Sub-components ────────────────────────────────────────────────
@@ -241,14 +242,15 @@ export default function SubjectMockDashboard() {
   const [showAllElite, setShowAllElite] = useState(false);
   const [showAllMini, setShowAllMini] = useState(false);
   const [solvedMap, setSolvedMap] = useState({});
+  const { economy } = useEconomy();
 
   useEffect(() => {
     getSolvedMocks().then(records => setSolvedMap(normalizeSolvedMocks(records))).catch(() => {});
   }, [category]);
 
   const { topics, mocksByTopic, pyqMocks = [] } = useMemo(
-    () => generateSubjectMocks(category),
-    [category]
+    () => generateSubjectMocks(category, economy?.target_exam),
+    [category, economy?.target_exam]
   );
 
   const formatCategoryName = (slug) => {

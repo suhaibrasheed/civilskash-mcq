@@ -864,7 +864,20 @@ export default function Home() {
     mcqCount: categoryCounts[cat.slug] || 0,
   })).sort((a, b) => b.mcqCount - a.mcqCount);
 
-  const visibleExams = showAllExams ? EXAM_SERIES : EXAM_SERIES.slice(0, 4);
+  const { economy } = useEconomy();
+
+  const sortedExams = React.useMemo(() => {
+    if (!economy?.target_exam) return EXAM_SERIES;
+    const targetId = economy.target_exam;
+    const targetIdx = EXAM_SERIES.findIndex(e => e.id === targetId);
+    if (targetIdx === -1) return EXAM_SERIES;
+    const list = [...EXAM_SERIES];
+    const [target] = list.splice(targetIdx, 1);
+    list.unshift(target);
+    return list;
+  }, [economy?.target_exam]);
+
+  const visibleExams = showAllExams ? sortedExams : sortedExams.slice(0, 4);
   const visibleCategories = showAllCategories ? categories : categories.slice(0, 8);
   const visibleSubjectCategories = showAllSubjectCategories ? categories : categories.slice(0, 8);
 

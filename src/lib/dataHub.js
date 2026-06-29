@@ -9,17 +9,62 @@ import staticExams from '../question_bank/exams.json';
 export const ALL_STATIC_BANKS_SYNC = [];
 export const DYNAMIC_EXAMS = [];
 
-const normalizeSupabaseQuestion = (question) => ({
-  id: question.id,
-  category_id: question.category_id || 'general',
-  tags: Array.isArray(question.tags) ? question.tags : [],
-  difficulty: question.difficulty || null,
-  question: question.question,
-  correctId: question.correct_id || question.correctId || 'a',
-  options: Array.isArray(question.options) ? question.options : [],
-  explanation: question.explanation || '',
-  pyq: question.pyq || null,
-});
+const hashString = (value = '') => {
+  let hash = 0;
+  const text = String(value);
+  for (let i = 0; i < text.length; i++) {
+    hash = ((hash << 5) - hash) + text.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
+const shuffleOptions = (options, id) => {
+  if (!options || !Array.isArray(options) || options.length === 0) return [];
+  const seed = hashString(id || '');
+  let s = seed | 0;
+  const rng = () => {
+    s = (s + 0x6d2b79f5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const a = [...options];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  return a.map((opt, index) => ({
+    ...opt,
+    label: labels[index] || opt.label || String.fromCharCode(65 + index)
+  }));
+};
+
+const normalizeSupabaseQuestion = (question) => {
+  const rawOptions = Array.isArray(question.options) ? question.options : [];
+  const mappedOptions = rawOptions.map((opt, idx) => {
+    const optId = opt.id || String.fromCharCode(97 + idx);
+    return {
+      id: optId,
+      label: optId.toUpperCase(),
+      text: typeof opt === 'string' ? opt : (opt.text || '')
+    };
+  });
+  const shuffledOptions = shuffleOptions(mappedOptions, question.id);
+
+  return {
+    id: question.id,
+    category_id: question.category_id || 'general',
+    tags: Array.isArray(question.tags) ? question.tags : [],
+    difficulty: question.difficulty || null,
+    question: question.question,
+    correctId: question.correct_id || question.correctId || 'a',
+    options: shuffledOptions,
+    explanation: question.explanation || '',
+    pyq: question.pyq || null,
+  };
+};
 
 /**
  * Returns empty array as questions are now compiled at build-time.
@@ -121,7 +166,7 @@ export const loadOfflineQuestionsIntoSyncBank = async () => {
     const offlineQuestions = await getAllOfflineQuestions();
     offlineQuestions.forEach(q => {
       if (!ALL_STATIC_BANKS_SYNC.some(existing => existing.id === q.id)) {
-        ALL_STATIC_BANKS_SYNC.push(q);
+        ALL_STATIC_BANKS_SYNC.push(normalizeSupabaseQuestion(q));
       }
     });
 

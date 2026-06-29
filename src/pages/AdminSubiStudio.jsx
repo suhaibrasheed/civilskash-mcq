@@ -32,7 +32,6 @@ const DEFAULT_CATEGORIES = [
   { id: 'general-science', name: 'General Science' },
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
-  { id: 'indian-history', name: 'Indian History' },
   { id: 'indian-polity', name: 'Indian Polity' },
   { id: 'jk-affairs', name: 'JK Affairs' },
   { id: 'maths', name: 'Maths' },
@@ -283,7 +282,7 @@ export default function AdminSubiStudio() {
   const [reviewSearch, setReviewSearch] = useState('');
   const [reviewDifficulty, setReviewDifficulty] = useState('all');
   const [checkedIds, setCheckedIds] = useState([]);
-  const [pendingQuestionToLoad, setPendingQuestionToLoad] = useState(null);
+  const [pendingQuestionsToLoad, setPendingQuestionsToLoad] = useState(null);
   const [expandedIds, setExpandedIds] = useState([]);
   const [reviewTagFilter, setReviewTagFilter] = useState('all');
   const [reviewSortOrder, setReviewSortOrder] = useState('latest');
@@ -291,13 +290,17 @@ export default function AdminSubiStudio() {
   const [categories, setCategories] = useState(() => {
     const saved = localStorage.getItem('civilsKash_categories');
     if (saved) {
-      const parsed = JSON.parse(saved);
-      const cleanedSaved = parsed.filter(c => !['environment-ecology', 'history'].includes(c.id));
-      const merged = [...DEFAULT_CATEGORIES];
-      cleanedSaved.forEach(c => {
-        if (!merged.find(m => m.id === c.id)) merged.push(c);
-      });
-      return merged;
+      try {
+        const parsed = JSON.parse(saved);
+        const cleanedSaved = parsed.filter(c => DEFAULT_CATEGORIES.some(dc => dc.id === c.id));
+        const merged = [...DEFAULT_CATEGORIES];
+        cleanedSaved.forEach(c => {
+          if (!merged.find(m => m.id === c.id)) merged.push(c);
+        });
+        return merged;
+      } catch (e) {
+        console.error("Failed to parse cached categories:", e);
+      }
     }
     return DEFAULT_CATEGORIES;
   });
@@ -366,6 +369,29 @@ export default function AdminSubiStudio() {
       }
     };
     fetchExams();
+  }, []);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      if (!isSupabaseConfigured()) return;
+      try {
+        const { data, error } = await supabase
+          .from('categories')
+          .select('id, name');
+        if (error) {
+          if (error.code === 'PGRST404') return;
+          throw error;
+        }
+        if (data && data.length > 0) {
+          const sorted = [...data].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+          setCategories(sorted);
+          localStorage.setItem('civilsKash_categories', JSON.stringify(sorted));
+        }
+      } catch (e) {
+        console.error("Failed to load categories from database:", e);
+      }
+    };
+    fetchCategories();
   }, []);
 
   const fetchCategoryTagsFromSupabase = useCallback(async (catId) => {
@@ -1197,11 +1223,34 @@ export default function AdminSubiStudio() {
     const selection = window.getSelection();
     if (!selection.rangeCount) return;
     
+    const range = selection.getRangeAt(0);
+    const contents = range.extractContents();
+    
+    const colorClasses = ['text-red', 'text-green', 'text-blue', 'text-orange', 'text-magenta', 'text-teal'];
+    
+    // Clean nested color spans from the extracted contents
+    const nestedSpans = contents.querySelectorAll('span');
+    nestedSpans.forEach(s => {
+      if (colorClasses.some(cls => s.classList.contains(cls))) {
+        const parent = s.parentNode;
+        while (s.firstChild) {
+          parent.insertBefore(s.firstChild, s);
+        }
+        parent.removeChild(s);
+      }
+    });
+
     const span = document.createElement('span');
     span.className = colorClass;
     span.style.fontWeight = '800'; 
-    span.appendChild(selection.getRangeAt(0).extractContents());
-    selection.getRangeAt(0).insertNode(span);
+    span.appendChild(contents);
+    range.insertNode(span);
+    
+    // Clean up empty parent spans left behind
+    const parentNode = span.parentNode;
+    if (parentNode && parentNode.tagName === 'SPAN' && colorClasses.some(cls => parentNode.classList.contains(cls)) && parentNode.textContent.trim() === '') {
+      parentNode.parentNode.replaceChild(span, parentNode);
+    }
     
     setTextToolbar(prev => ({ ...prev, show: false }));
   };
@@ -1290,7 +1339,7 @@ export default function AdminSubiStudio() {
           img.src = url.trim();
           img.className = 'nk-mcq-image cursor-pointer';
           img.setAttribute('data-align', align);
-          img.style.width = (align === 'left' || align === 'right') ? '45%' : '60%';
+          img.style.width = (align === 'left' || align === 'right') ? '45%' : '100%';
           
           range.insertNode(img);
           
@@ -1421,8 +1470,9 @@ export default function AdminSubiStudio() {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = pastedHtml;
       // Re-assign fresh UUIDs to avoid duplicate IDs
-      tempDiv.querySelectorAll('.nk-mcq-block[id]').forEach(block => {
+      tempDiv.querySelectorAll('.nk-mcq-block').forEach(block => {
         block.removeAttribute('id');
+        block.removeAttribute('data-db-id');
       });
       document.execCommand('insertHTML', false, tempDiv.innerHTML);
       saveEditorBackup();
@@ -1787,7 +1837,10 @@ export default function AdminSubiStudio() {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = text;
           // Strip IDs to avoid duplicates
-          tempDiv.querySelectorAll('.nk-mcq-block[id]').forEach(block => block.removeAttribute('id'));
+          tempDiv.querySelectorAll('.nk-mcq-block').forEach(block => {
+            block.removeAttribute('id');
+            block.removeAttribute('data-db-id');
+          });
           const cleanHtml = tempDiv.innerHTML;
           if (editorRef.current) {
             const isEmpty = editorRef.current.innerHTML === '<p><br></p>' || editorRef.current.innerHTML === '<p><br></p><p><br></p>';
@@ -2815,7 +2868,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
             img.src = url;
             img.className = 'nk-mcq-image cursor-pointer';
             img.setAttribute('data-align', align);
-            img.style.width = (align === 'left' || align === 'right') ? '45%' : '60%';
+            img.style.width = (align === 'left' || align === 'right') ? '45%' : '100%';
             
             const range = lastSelectionRangeRef.current;
             range.insertNode(img);
@@ -3333,6 +3386,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
     const extracted = [];
     blocks.forEach((block, index) => {
         const dbId = block.getAttribute('data-db-id') || null;
+        const status = block.getAttribute('data-status') || 'published';
         let qEl = block.querySelector('.nk-mcq-question');
         let questionHtml = qEl ? qEl.innerHTML : '';
 
@@ -3423,7 +3477,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
             explanation: explanationHtml,
             tags,
             difficulty,
-            pyq: pyqVal
+            pyq: pyqVal,
+            status
         });
     });
 
@@ -3492,7 +3547,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
           tags: cleanTags(mcq.tags || []),
           difficulty: cleanDifficulty(mcq.difficulty),
           source: adminFullName || user?.email?.split('@')[0] || 'admin',
-          status: 'published',
+          status: mcq.status || 'published',
           pyq: mcq.pyq || null
         };
         if (mcq.id) {
@@ -3572,6 +3627,13 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
   const filteredReviewQuestions = React.useMemo(() => {
     const filtered = reviewQuestions.filter(q => {
+      // Filter by status based on sort order
+      if (reviewSortOrder === 'unpublished') {
+        if (q.status !== 'unpublished') return false;
+      } else {
+        if (q.status === 'unpublished') return false;
+      }
+
       const qText = String(q.question || '').toLowerCase();
       const expText = String(q.explanation || '').toLowerCase();
       const s = reviewSearch.toLowerCase();
@@ -3606,7 +3668,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
       const timeA = getReviewQuestionTime(a);
       const timeB = getReviewQuestionTime(b);
       
-      if (reviewSortOrder === 'latest') {
+      if (reviewSortOrder === 'latest' || reviewSortOrder === 'unpublished') {
         return timeB - timeA;
       } else {
         return timeA - timeB;
@@ -3788,84 +3850,98 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
   };
 
   useEffect(() => {
-    if (activeMode === 'write' && pendingQuestionToLoad) {
+    if (activeMode === 'write' && pendingQuestionsToLoad && pendingQuestionsToLoad.length > 0) {
       const timer = setTimeout(() => {
         if (editorRef.current) {
-          const q = pendingQuestionToLoad;
-          
+          const qs = pendingQuestionsToLoad;
           const labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-          const optionsHtml = (q.options || []).map((opt, idx) => {
-            const id = labels[idx] || 'a';
-            const isCorrect = q.correct_id === opt.id;
+          
+          const fullHtml = qs.map(q => {
+            const optionsHtml = (q.options || []).map((opt, idx) => {
+              const id = labels[idx] || 'a';
+              const isCorrect = q.correct_id === opt.id;
+              return `
+              <div class="nk-mcq-option" data-is-correct="${isCorrect ? 'true' : 'false'}">
+                  <div class="nk-mcq-option-radio" contenteditable="false"></div>
+                  <div class="nk-mcq-option-text" contenteditable="true" data-placeholder="Option ${id.toUpperCase()}">${opt.text || ''}</div>
+                  <button class="nk-mcq-delete-option" contenteditable="false" title="Remove Option"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+              </div>`;
+            }).join('');
+
+            const tagsHtml = q.tags && q.tags.length > 0 ? ` data-tags="${q.tags.map(t => normalizeTagName(t)).join(',')}"` : '';
+            const difficultyHtml = q.difficulty ? ` data-difficulty="${q.difficulty}"` : '';
+            const statusHtml = q.status ? ` data-status="${q.status}"` : '';
+            
+            let expText = q.explanation || '';
+            
+            const hasTagInText = (text, tag) => {
+                const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
+                const noHtml = text.replace(/<[^>]*>/g, ' ');
+                const words = noHtml.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
+                return words.includes(cleaned);
+            };
+
+            if (q.difficulty) {
+                const diffLower = q.difficulty.toLowerCase();
+                if (!hasTagInText(expText, diffLower)) {
+                    expText = expText.trim() + ` #${diffLower}`;
+                }
+            }
+
+            if (q.tags && q.tags.length > 0) {
+                q.tags.forEach(t => {
+                    const tagSlug = normalizeTagName(t).replace(/\s+/g, '_');
+                    if (!hasTagInText(expText, tagSlug) && !hasTagInText(expText, t)) {
+                        expText = expText.trim() + ` #${tagSlug}`;
+                    }
+                });
+            }
+
+            if (q.pyq) {
+              expText += ` [[${q.pyq}]]`;
+            }
+
             return `
-            <div class="nk-mcq-option" data-is-correct="${isCorrect ? 'true' : 'false'}">
-                <div class="nk-mcq-option-radio" contenteditable="false"></div>
-                <div class="nk-mcq-option-text" contenteditable="true" data-placeholder="Option ${id.toUpperCase()}">${opt.text || ''}</div>
-                <button class="nk-mcq-delete-option" contenteditable="false" title="Remove Option"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-            </div>`;
+            <div class="nk-mcq-block" contenteditable="false" data-db-id="${q.id}"${tagsHtml}${difficultyHtml}${statusHtml}>
+                <div class="nk-mcq-toolbar" contenteditable="false">
+                    <button class="nk-mcq-copy-block" title="Copy MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                    <button class="nk-mcq-delete-block" title="Delete MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+                </div>
+                <div class="nk-mcq-question" contenteditable="true" data-placeholder="Question text...">${convertMarkdownToHtml(convertMarkdownTablesToHtml(q.question || ''))}</div>
+                <div class="nk-mcq-options">${optionsHtml}</div>
+                <button class="nk-mcq-add-option" contenteditable="false">+ Add Option</button>
+                <div class="nk-mcq-explanation" contenteditable="true" data-placeholder="Add answer explanation (optional)..."${tagsHtml}${difficultyHtml}>${convertMarkdownToHtml(convertMarkdownTablesToHtml(expText))}</div>
+            </div>
+            <p><br></p>`;
           }).join('');
 
-          const tagsHtml = q.tags && q.tags.length > 0 ? ` data-tags="${q.tags.map(t => normalizeTagName(t)).join(',')}"` : '';
-          const difficultyHtml = q.difficulty ? ` data-difficulty="${q.difficulty}"` : '';
-          
-          let expText = q.explanation || '';
-          
-          const hasTagInText = (text, tag) => {
-              const cleaned = tag.toLowerCase().replace(/[^a-z0-9_]/g, '');
-              const noHtml = text.replace(/<[^>]*>/g, ' ');
-              const words = noHtml.toLowerCase().replace(/[^a-z0-9_\s]/g, '').split(/\s+/);
-              return words.includes(cleaned);
-          };
-
-          if (q.difficulty) {
-              const diffLower = q.difficulty.toLowerCase();
-              if (!hasTagInText(expText, diffLower)) {
-                  expText = expText.trim() + ` #${diffLower}`;
-              }
-          }
-
-          if (q.tags && q.tags.length > 0) {
-              q.tags.forEach(t => {
-                  const tagSlug = normalizeTagName(t).replace(/\s+/g, '_');
-                  if (!hasTagInText(expText, tagSlug) && !hasTagInText(expText, t)) {
-                      expText = expText.trim() + ` #${tagSlug}`;
-                  }
-              });
-          }
-
-          if (q.pyq) {
-            expText += ` [[${q.pyq}]]`;
-          }
-
-          const mcqHtml = `
-          <div class="nk-mcq-block" contenteditable="false" data-db-id="${q.id}">
-              <div class="nk-mcq-toolbar" contenteditable="false">
-                  <button class="nk-mcq-copy-block" title="Copy MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-                  <button class="nk-mcq-delete-block" title="Delete MCQ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
-              </div>
-              <div class="nk-mcq-question" contenteditable="true" data-placeholder="Question text...">${convertMarkdownToHtml(convertMarkdownTablesToHtml(q.question || ''))}</div>
-              <div class="nk-mcq-options">${optionsHtml}</div>
-              <button class="nk-mcq-add-option" contenteditable="false">+ Add Option</button>
-              <div class="nk-mcq-explanation" contenteditable="true" data-placeholder="Add answer explanation (optional)..."${tagsHtml}${difficultyHtml}>${convertMarkdownToHtml(convertMarkdownTablesToHtml(expText))}</div>
-          </div>
-          <p><br></p>`;
-
-          editorRef.current.innerHTML = mcqHtml;
-          setPendingQuestionToLoad(null);
-          alert("Successfully loaded question back into the editor! Make edits and click Review & Push to save changes.");
+          editorRef.current.innerHTML = fullHtml;
+          setPendingQuestionsToLoad(null);
+          setCheckedIds([]);
+          alert(`Successfully loaded ${qs.length} question(s) back into the editor! Make edits and click Review & Push to save changes.`);
         }
       }, 50);
       return () => clearTimeout(timer);
     }
-  }, [activeMode, pendingQuestionToLoad, alert]);
+  }, [activeMode, pendingQuestionsToLoad, alert]);
 
   const loadQuestionIntoEditor = (q) => {
     try {
-      setPendingQuestionToLoad(q);
+      setPendingQuestionsToLoad([q]);
       setActiveMode('write');
     } catch (err) {
       console.error(err);
       alert("Could not load question into editor.");
+    }
+  };
+
+  const loadMultipleQuestionsIntoEditor = (qs) => {
+    try {
+      setPendingQuestionsToLoad(qs);
+      setActiveMode('write');
+    } catch (err) {
+      console.error(err);
+      alert("Could not load questions into editor.");
     }
   };
 
@@ -4819,11 +4895,27 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                     <table className="nk-review-table" style={{ tableLayout: 'fixed' }}>
                       <thead>
                         <tr>
-                          <th className="w-12 text-center"></th>
-                          <th className="w-[40%]">Question</th>
+                          <th className="w-6 text-center !px-1">
+                            <input 
+                              type="checkbox"
+                              checked={filteredReviewQuestions.length > 0 && filteredReviewQuestions.every(q => checkedIds.includes(q.id))}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  const allIds = filteredReviewQuestions.map(q => q.id);
+                                  setCheckedIds(prev => Array.from(new Set([...prev, ...allIds])));
+                                } else {
+                                  const filteredIds = filteredReviewQuestions.map(q => q.id);
+                                  setCheckedIds(prev => prev.filter(id => !filteredIds.includes(id)));
+                                }
+                              }}
+                              className="nk-review-checkbox cursor-pointer align-middle"
+                              title="Select all on screen"
+                            />
+                          </th>
+                          <th className="w-6 text-center !px-1"></th>
+                          <th className="w-[45%]">Question</th>
                           <th className="w-[35%]">Explanation</th>
-                          <th className="w-[11%] text-center">Status</th>
-                          <th className="w-[14%] text-center">Actions</th>
+                          <th className="w-[15%] text-center">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -4840,35 +4932,43 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                           return (
                             <React.Fragment key={q.id}>
                               <tr className={isExpanded ? 'bg-theme-surface/30 border-b-0' : ''}>
-                                <td className="text-center">
+                                <td className="text-center !px-1">
+                                  <input 
+                                    type="checkbox"
+                                    checked={checkedIds.includes(q.id)}
+                                    onChange={(e) => {
+                                      if (e.target.checked) {
+                                        setCheckedIds(prev => [...prev, q.id]);
+                                      } else {
+                                        setCheckedIds(prev => prev.filter(id => id !== q.id));
+                                      }
+                                    }}
+                                    className="nk-review-checkbox cursor-pointer align-middle"
+                                  />
+                                </td>
+                                <td className="text-center !px-1">
                                   <button
                                     onClick={() => setExpandedIds(prev => prev.includes(q.id) ? prev.filter(id => id !== q.id) : [...prev, q.id])}
-                                    className="p-1 hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:text-theme-text rounded-lg transition-all active:scale-95"
+                                    className="p-1 hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:text-theme-text rounded-lg transition-all active:scale-95 align-middle"
                                     title={isExpanded ? "Collapse Question" : "Expand Question"}
                                   >
                                     {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
                                   </button>
                                 </td>
                                 <td>
-                                  <div className="truncate font-bold text-theme-text text-xs pr-1 leading-relaxed">
-                                    {qPreview}
+                                  <div className="truncate font-bold text-theme-text text-xs pr-1 leading-relaxed flex items-center gap-1.5">
+                                    {q.status !== 'published' && (
+                                      <span className="shrink-0 text-[8px] font-black uppercase tracking-widest text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded-full select-none">
+                                        {q.status}
+                                      </span>
+                                    )}
+                                    <span className="truncate">{qPreview}</span>
                                   </div>
                                 </td>
                                 <td>
                                   <div className="truncate font-semibold text-theme-muted text-xs pr-1 leading-relaxed">
                                     {formatExplanationHtml(collapsedExpPreview)}
                                   </div>
-                                </td>
-                                <td className="text-center">
-                                  <label className="switch-container">
-                                    <input 
-                                      type="checkbox"
-                                      checked={q.status === 'published'}
-                                      onChange={() => handleToggleStatus(q.id, q.status)}
-                                      className="switch-input"
-                                    />
-                                    <span className="switch-slider" />
-                                  </label>
                                 </td>
                                 <td className="text-center">
                                   <div className="flex items-center justify-center gap-2">
@@ -4891,7 +4991,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                               </tr>
                               {isExpanded && (
                                 <tr className="bg-theme-surface/30 border-t-0 border-b border-theme-border/50">
-                                  <td></td>
+                                  <td className="!px-1"></td>
+                                  <td className="!px-1"></td>
                                   <td colSpan={2} className="py-4 pr-6">
                                     <div className="space-y-4 animate-in fade-in slide-in-from-top-1 duration-200">
                                       <div>
@@ -4929,7 +5030,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                                       </div>
                                     </div>
                                   </td>
-                                  <td colSpan={2}></td>
+                                  <td colSpan={1}></td>
                                 </tr>
                               )}
                             </React.Fragment>
@@ -4944,6 +5045,58 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
             {/* Floating controls inside review panel */}
             <div className="fixed bottom-2 right-6 z-30 flex items-center gap-2.5 bg-theme-bg/95 backdrop-blur-md border border-theme-border p-2 rounded-2xl shadow-2xl">
+              {/* Live MCQ Counter Pill */}
+              <div className="px-3 py-1.5 bg-theme-surface border border-theme-border rounded-xl text-[10px] font-black text-theme-text uppercase tracking-wider shadow-sm flex items-center gap-1 shrink-0">
+                <span className="text-theme-primary">{filteredReviewQuestions.length}</span>
+                <span className="text-theme-muted">/</span>
+                <span className="text-theme-muted">{reviewQuestions.length} MCQs</span>
+              </div>
+
+              {/* Dynamic Bulk Action Buttons */}
+              {checkedIds.length > 0 && (
+                <div className="flex items-center gap-2">
+                  {(() => {
+                    const checkedQs = reviewQuestions.filter(q => checkedIds.includes(q.id));
+                    const anyUnpublished = checkedQs.some(q => q.status !== 'published');
+                    const targetStatus = anyUnpublished ? 'published' : 'unpublished';
+                    const IconComponent = anyUnpublished ? Eye : EyeOff;
+                    const btnColorClass = anyUnpublished 
+                      ? "bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-500/30 text-emerald-500" 
+                      : "bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/30 text-amber-500";
+                    const tooltipText = anyUnpublished 
+                      ? `Publish Selected (${checkedIds.length})` 
+                      : `Unpublish Selected (${checkedIds.length})`;
+
+                    return (
+                      <button
+                        onClick={() => handleBulkToggleStatus(targetStatus)}
+                        className={`w-9 h-9 flex items-center justify-center border rounded-xl transition-all active:scale-95 shadow-sm shrink-0 relative ${btnColorClass}`}
+                        title={tooltipText}
+                      >
+                        <IconComponent size={15} />
+                        <span className="absolute -top-1.5 -right-1.5 bg-theme-text text-theme-bg text-[8px] font-black rounded-full w-4 h-4 flex items-center justify-center border border-theme-border shadow-sm">
+                          {checkedIds.length}
+                        </span>
+                      </button>
+                    );
+                  })()}
+
+                  <button
+                    onClick={() => {
+                      const selectedQs = reviewQuestions.filter(q => checkedIds.includes(q.id));
+                      loadMultipleQuestionsIntoEditor(selectedQs);
+                    }}
+                    className="w-9 h-9 flex items-center justify-center bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-500 hover:text-purple-600 rounded-xl transition-all active:scale-95 shadow-sm shrink-0 relative"
+                    title={`Rewrite Selected (${checkedIds.length})`}
+                  >
+                    <Edit3 size={15} />
+                    <span className="absolute -top-1.5 -right-1.5 bg-theme-text text-theme-bg text-[8px] font-black rounded-full w-4 h-4 flex items-center justify-center border border-theme-border shadow-sm">
+                      {checkedIds.length}
+                    </span>
+                  </button>
+                </div>
+              )}
+
               <input 
                 type="text" 
                 value={reviewSearch}
@@ -4994,6 +5147,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                 >
                   <option value="latest">Latest</option>
                   <option value="oldest">Oldest</option>
+                  <option value="unpublished">Private</option>
                 </select>
                 <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
                   <ChevronDown size={12} />

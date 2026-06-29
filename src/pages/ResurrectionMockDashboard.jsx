@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Target, RefreshCw, Lock, Sparkles, CalendarClock, Flame } from 'lucide-react';
-import { getDueSRSQuestions, getResurrectionQuestions, getRevisionStats } from '../lib/db';
+import { ArrowLeft, Target, RefreshCw, Lock, Sparkles, CalendarClock, Flame, Bookmark, Eye } from 'lucide-react';
+import { getDueSRSQuestions, getResurrectionQuestions, getRevisionStats, getWarRoomStats } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { KashCoinIcon } from '../components/EconomyUI';
 import Header from '../components/Header';
 import { useToast } from '../context/ToastContext';
 import { ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
+import { queryGenerativeAI, buildMcqCreatorPrompt, stripCodeFences } from '../lib/ai';
 
 const CATEGORY_NAMES = {
   'accountancy': 'Accountancy',
@@ -323,12 +324,136 @@ export default function ResurrectionMockDashboard() {
   };
 
   const navigate = useNavigate();
-  const { economy, spendRevisionKC } = useEconomy();
+  const { economy, spendRevisionKC, openProUpsell } = useEconomy();
   const [resurrectionQuestions, setResurrectionQuestions] = useState([]);
   const [dueQuestions, setDueQuestions] = useState([]);
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [spendPulse, setSpendPulse] = useState(null);
+
+  const [isAiGenerating, setIsAiGenerating] = useState(false);
+
+  const handleRefineClick = async () => {
+    if (economy?.user_tier !== 'Pro') {
+      openProUpsell('Gap Hunter');
+      return;
+    }
+
+    try {
+      // Pro Tier: query weakest category accuracy stats
+      const warRoom = await getWarRoomStats().catch(() => ({ categories: [] }));
+      const categoriesList = warRoom.categories || [];
+
+      // Find weakest categories
+      let weakestCategoryIds = [];
+      if (categoriesList.length > 0) {
+        // Sort ascending by accuracyRate
+        const sortedCats = [...categoriesList].sort((a, b) => (a.accuracyRate || 0) - (b.accuracyRate || 0));
+        weakestCategoryIds = sortedCats.slice(0, 3).map(c => c.categoryId);
+      }
+
+      // If no statistics gathered yet, pick 3 general categories
+      if (weakestCategoryIds.length === 0) {
+        weakestCategoryIds = ['general-science', 'indian-polity', 'indian-economy'];
+      }
+
+      // Grab questions from the weak categories
+      let pool = ALL_STATIC_BANKS_SYNC.filter(q => weakestCategoryIds.includes(q.category_id));
+      if (pool.length === 0) {
+        pool = [...ALL_STATIC_BANKS_SYNC];
+      }
+
+      // Shuffle and pick 30 questions
+      const mockQuestions = [...pool].sort(() => 0.5 - Math.random()).slice(0, 30);
+      
+      const mock = {
+        id: `refine-mock-${Date.now()}`,
+        title: 'Elite Pro: Gap Hunter',
+        minutes: 30,
+        questionData: mockQuestions,
+        type: 'smart-mock'
+      };
+
+      navigate('/mock-test', { state: { mock, from: '/resurrection' } });
+      showToast("Generated a 30-MCQ attack on your weakest categories!", "success");
+    } catch (error) {
+      console.error(error);
+      showToast("Failed to generate Gap Hunter mock.", "error");
+    }
+  };
+
+  const handleSimulateClick = async () => {
+    if (economy?.user_tier !== 'Pro') {
+      openProUpsell('Trap Finder');
+      return;
+    }
+
+    setIsAiGenerating(true);
+    try {
+      // Grab 5 questions from user's resurrection/mistakes list to simulate recent practice mistakes
+      let baseQuestions = resurrectionQuestions.slice(0, 5);
+      if (baseQuestions.length === 0) {
+        // Fallback to general MCQs if no mistakes exist yet
+        baseQuestions = ALL_STATIC_BANKS_SYNC.slice(0, 5);
+      }
+
+      const questionsSummaryText = baseQuestions.map((q, idx) => {
+        return `Q${idx+1}: ${q.question?.replace(/<[^>]*>/g, '')}\nCategory ID: ${q.category_id || 'general-science'}\nTags: ${Array.isArray(q.tags) ? q.tags.join(', ') : ''}\nDifficulty: ${q.difficulty || 'Medium'}\n`;
+      }).join('\n');
+
+      const userPrompt = `Generate exactly 20 challenging MCQs similar in format, style, and subject matter to the following set of exam practice questions, retaining corresponding Category IDs and Tags in your response:\n${questionsSummaryText}`;
+
+      const { systemPrompt, userMsg } = buildMcqCreatorPrompt(userPrompt);
+
+      // Make sure the creator prompt expects exactly 20 questions
+      const modifiedSystemPrompt = systemPrompt.replace(/Generate exactly \d+/g, "Generate exactly 20");
+      const modifiedUserMsg = userMsg.replace(/Generate exactly \d+/g, "Generate exactly 20");
+
+      const rawResult = await queryGenerativeAI(modifiedSystemPrompt, modifiedUserMsg);
+      const stripped = stripCodeFences(rawResult);
+      const data = JSON.parse(stripped);
+
+      if (!data || !data.mcqs || data.mcqs.length === 0) {
+        throw new Error("Invalid AI model payload.");
+      }
+
+      const generatedQuestions = data.mcqs.map((q, idx) => {
+        const correspondingBaseQ = baseQuestions[idx % baseQuestions.length] || {};
+        return {
+          id: `ai_mock_${Date.now()}_${idx}`,
+          question: q.question,
+          options: q.options || [
+            { id: 'a', text: 'Option A' },
+            { id: 'b', text: 'Option B' },
+            { id: 'c', text: 'Option C' },
+            { id: 'd', text: 'Option D' }
+          ],
+          correctId: q.correctId || 'a',
+          explanation: q.explanation || 'No explanation generated.',
+          difficulty: q.difficulty || q.difficulty === '' ? q.difficulty : (correspondingBaseQ.difficulty || 'Medium'),
+          category_id: q.category_id || correspondingBaseQ.category_id || 'general-science',
+          tags: q.tags || correspondingBaseQ.tags || ['AI Generated', 'Simulation'],
+          isAiMockQuestion: true
+        };
+      });
+
+      const mock = {
+        id: `simulate-mock-${Date.now()}`,
+        title: 'Elite Pro: Trap Finder',
+        minutes: 20,
+        questionData: generatedQuestions,
+        type: 'smart-mock'
+      };
+
+      setIsAiGenerating(false);
+      navigate('/mock-test', { state: { mock, from: '/resurrection' } });
+      showToast("Successfully generated a 20-question AI simulated Trap Finder mock!", "success");
+    } catch (error) {
+      console.error(error);
+      setIsAiGenerating(false);
+      showToast("Unable to generate AI simulation mock. Please check your BYOK keys.", "error");
+    }
+  };
 
   const resurrectionMocks = useMemo(
     () => buildDynamicResurrectionMocks(resurrectionQuestions),
@@ -431,7 +556,7 @@ export default function ResurrectionMockDashboard() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-8"
+          className="space-y-4"
         >
           <div>
             <button
@@ -442,9 +567,9 @@ export default function ResurrectionMockDashboard() {
               Back to Home
             </button>
 
-            <div className="flex flex-col md:flex-row md:items-end gap-6 justify-between">
-              <div className="flex items-end gap-5">
-                <div className="w-16 h-16 rounded-3xl border border-theme-primary/25 flex items-center justify-center text-white shadow-xl bg-gradient-primary">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 rounded-3xl border border-theme-primary/25 flex items-center justify-center text-white shadow-xl bg-gradient-primary shrink-0">
                   <Flame size={32} />
                 </div>
                 <div>
@@ -483,6 +608,96 @@ export default function ResurrectionMockDashboard() {
           ) : (
             <>
               <DailyMasteryCard dueQuestions={dueLevel15} onUnlock={unlockDailyMastery} />
+
+              {/* Elite Bento Tiles Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 -mt-1">
+                {/* Tile A: Gap Hunter */}
+                <motion.div
+                  onClick={handleRefineClick}
+                  whileHover={{ y: -3, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="relative overflow-hidden rounded-2xl border border-amber-500/25 bg-gradient-to-b from-amber-500/[0.07] to-transparent px-5 py-5 shadow-2xl cursor-pointer transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_15px_40px_rgba(245,158,11,0.1)] group flex justify-between items-center"
+                >
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.1),transparent_50%)] pointer-events-none" />
+                  
+                  <div className="relative flex items-center gap-4 min-w-0">
+                    <div className="w-11 h-11 rounded-2xl bg-amber-500/12 border border-amber-500/25 text-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/10 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                      <Target size={20} className="animate-subtle" />
+                    </div>
+                    
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-base font-black text-theme-text tracking-tight group-hover:text-amber-400 transition-colors">
+                          Gap Hunter
+                        </span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/25 shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                          Elite
+                        </span>
+                      </div>
+                      <p className="text-xs font-semibold text-theme-muted group-hover:text-theme-text/80 transition-colors leading-relaxed">
+                        Hunt down your weakest concepts.
+                      </p>
+                    </div>
+                  </div>
+
+                  {economy?.user_tier !== 'Pro' && (
+                    <div className="relative z-10 w-6.5 h-6.5 rounded-full bg-theme-bg/80 border border-theme-border flex items-center justify-center text-amber-500 shadow-inner shrink-0 ml-2">
+                      <Lock size={11} />
+                    </div>
+                  )}
+                </motion.div>
+
+                {/* Tile B: Trap Finder */}
+                <motion.div
+                  onClick={handleSimulateClick}
+                  whileHover={{ y: -3, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="relative overflow-hidden rounded-2xl border border-purple-500/25 bg-gradient-to-b from-purple-500/[0.07] to-transparent px-5 py-5 shadow-2xl cursor-pointer transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_15px_40px_rgba(168,85,247,0.1)] group flex justify-between items-center"
+                >
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.1),transparent_50%)] pointer-events-none" />
+                  
+                  <div className="relative flex items-center gap-4 min-w-0">
+                    <div className="w-11 h-11 rounded-2xl bg-purple-500/12 border border-purple-500/25 text-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/10 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                      <Eye size={20} className="animate-subtle" />
+                    </div>
+                    
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-base font-black text-theme-text tracking-tight group-hover:text-purple-400 transition-colors">
+                          Trap Finder
+                        </span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/25 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
+                          Elite
+                        </span>
+                      </div>
+                      <p className="text-xs font-semibold text-theme-muted group-hover:text-theme-text/80 transition-colors leading-relaxed">
+                        AI uncovers the Traps with X-ray Analytics.
+                      </p>
+                    </div>
+                  </div>
+
+                  {economy?.user_tier !== 'Pro' && (
+                    <div className="relative z-10 w-6.5 h-6.5 rounded-full bg-theme-bg/80 border border-theme-border flex items-center justify-center text-purple-500 shadow-inner shrink-0 ml-2">
+                      <Lock size={11} />
+                    </div>
+                  )}
+                </motion.div>
+              </div>
+
+              {/* AI Mock Generator Modal Loading Spinner */}
+              <AnimatePresence>
+                {isAiGenerating && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <div className="bg-theme-surface border border-theme-border p-8 rounded-3xl flex flex-col items-center max-w-sm text-center shadow-2xl">
+                      <RefreshCw size={40} className="animate-spin text-theme-primary mb-4" />
+                      <h4 className="font-black text-theme-text text-lg">AI Mock Simulation</h4>
+                      <p className="text-xs text-theme-muted mt-2">
+                        Analyzing 5 recent mistakes and running clone synthesis via your BYOK credentials... Please wait.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </AnimatePresence>
 
               {/* --- Level 6 Mastery Checkpoints --- */}
               {dueLevel6.length > 0 && (

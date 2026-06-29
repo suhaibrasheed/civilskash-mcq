@@ -5,7 +5,7 @@ import { useEconomy } from '../context/EconomyContext';
 import { useToast } from '../context/ToastContext';
 
 export default function BYOKSettingsModal({ isOpen, onClose }) {
-  const { economy, toggleProTier } = useEconomy();
+  const { economy, toggleProTier, openProUpsell } = useEconomy();
   const { showToast } = useToast();
   
   const alert = (msg) => {
@@ -13,6 +13,14 @@ export default function BYOKSettingsModal({ isOpen, onClose }) {
   };
 
   const [forceFormView, setForceFormView] = useState(false);
+
+  // If a Free user opens this modal, redirect them to the unified upsell
+  useEffect(() => {
+    if (isOpen && economy && economy.user_tier !== 'Pro') {
+      openProUpsell('Personal AI Settings');
+      onClose();
+    }
+  }, [isOpen, economy]);
 
   // AI Keys & Config States initialized on mount when modal opens
   const [aiProvider, setAiProvider] = useState('gemini');

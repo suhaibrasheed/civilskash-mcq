@@ -25,14 +25,14 @@ const DEFAULT_CATEGORIES = [
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
   { id: 'indian-polity', name: 'Indian Polity' },
+  { id: 'jk-affairs', name: 'JK Affairs' },
   { id: 'maths', name: 'Maths' },
   { id: 'medieval-history', name: 'Medieval History' },
   { id: 'modern-history', name: 'Modern History' },
   { id: 'physical-geography', name: 'Physical Geography' },
   { id: 'reasoning', name: 'Reasoning' },
   { id: 'static-gk', name: 'Static GK' },
-  { id: 'world-geography', name: 'World Geography' },
-  { id: 'jk-affairs', name: 'JK Affairs' }
+  { id: 'world-geography', name: 'World Geography' }
 ];
 
 function SavedOutputCard({ output, onDelete, onImportClick }) {

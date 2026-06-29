@@ -19,10 +19,11 @@ import { useEconomy } from '../context/EconomyContext';
 import { useToast } from '../context/ToastContext';
 import { useSound } from '../context/SoundContext';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
+import { ALL_STATIC_BANKS_SYNC, DYNAMIC_EXAMS } from '../lib/dataHub';
 import { EXAM_CONFIG } from '../lib/mockEngine';
 import McqCard from '../components/McqCard';
 import { queryGenerativeAI, formatMentorResponse, stripCodeFences } from '../lib/ai';
+import QOTDBento from '../components/QOTDBento';
 
 // ─── Helpers ─────────────────────────────────────────────────────────
 
@@ -72,6 +73,21 @@ const calculateCaliber = (accuracy, rank = 15) => {
   return Math.round((acc * 0.7) + (percentile * 0.3));
 };
 
+// Dynamically resolve and format target exam labels (e.g. 'jkssb-faa' -> 'JKSSB FAA')
+const getExamLabel = (examId) => {
+  if (!examId) return 'State PSC';
+  const conf = EXAM_CONFIG[examId];
+  if (conf && conf.label) return conf.label;
+  
+  // Try to find in dynamic exams list to get the exact name
+  const dynamicMatch = DYNAMIC_EXAMS.find(e => e.id === examId);
+  if (dynamicMatch && dynamicMatch.name) return dynamicMatch.name;
+
+  // Clean trailing year suffix (e.g., -2026) and format
+  const cleanId = examId.replace(/-\d{4}$/, '');
+  return cleanId.replace(/-/g, ' ').toUpperCase();
+};
+
 // Snap score to the nearest valid MCQ marking scheme decimal (+1 / -0.25)
 // Snapping options: .00, .25, .50, .75
 const snapToMarkingScheme = (score) => {
@@ -97,11 +113,11 @@ const runBattleEngine = (userAccuracy, opponentAccuracy, userScore, userRank = 1
   } else if (userScore < 10.0) {
     baseWinProb = 0.30;
   } else if (userScore < 12.0) {
-    baseWinProb = 0.40;
+    baseWinProb = 0.45;
   } else if (userScore < 14.0) {
-    baseWinProb = 0.50;
+    baseWinProb = 0.60;
   } else if (userScore < 16.0) {
-    baseWinProb = 0.65;
+    baseWinProb = 0.70;
   } else if (userScore < 18.0) {
     baseWinProb = 0.80;
   } else {
@@ -188,17 +204,76 @@ const runBattleEngine = (userAccuracy, opponentAccuracy, userScore, userRank = 1
   return snappedScore;
 };
 
-// Generate deterministic target exam mock questions
-const generateBattleMockQuestions = (targetExamId) => {
-  const config = EXAM_CONFIG[targetExamId];
-  if (!config) return [];
+// Seeded PRNG and shuffle helpers for Asynchronous Challenge
+const mulberry32 = (seed) => {
+  return () => {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
 
+const getSeedHash = (seedVal) => {
+  const str = String(seedVal);
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) ^ str.charCodeAt(i);
+    hash = hash >>> 0;
+  }
+  return hash;
+};
+
+const seededShuffle = (arr, rng) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+// Generate deterministic target exam mock questions
+const generateBattleMockQuestions = (targetExamId, seed = null) => {
+  // 1. Dynamic registration of Supabase-loaded exams (e.g. JKSSB faa)
+  if (DYNAMIC_EXAMS && Array.isArray(DYNAMIC_EXAMS)) {
+    DYNAMIC_EXAMS.forEach(exam => {
+      if (!EXAM_CONFIG[exam.id]) {
+        EXAM_CONFIG[exam.id] = {
+          label: exam.name,
+          fullName: `${exam.name} Series`,
+          categories: exam.categories.map(c => c.id),
+          weights: exam.categories.map(c => ({ categoryId: c.id, fraction: c.weight / 100 })),
+          categoryLabels: Object.fromEntries(exam.categories.map(c => [c.id, c.id.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())])),
+          difficultyWeights: exam.difficulties || { easy: 0.33, medium: 0.33, hard: 0.34 }
+        };
+      }
+    });
+  }
+
+  const config = EXAM_CONFIG[targetExamId];
   const totalQuestionsNeeded = 20;
+
+  const isSeeded = seed !== null;
+  const rng = isSeeded ? mulberry32(getSeedHash(seed)) : null;
+
+  // Helper sorting function to ensure same base alignment
+  const alignSort = (arr) => [...arr].sort((a, b) => String(a.id).localeCompare(String(b.id)));
+
+  // Fallback 1: If config is missing, return 20 random static questions
+  if (!config) {
+    const aligned = alignSort(ALL_STATIC_BANKS_SYNC);
+    return isSeeded ? seededShuffle(aligned, rng).slice(0, totalQuestionsNeeded) : aligned.sort(() => 0.5 - Math.random()).slice(0, totalQuestionsNeeded);
+  }
+
   const categories = config.categories;
   const pool = ALL_STATIC_BANKS_SYNC.filter(q => categories.includes(q.category_id));
 
+  // Fallback 2: If category pool is empty, return 20 random static questions
   if (pool.length === 0) {
-    return ALL_STATIC_BANKS_SYNC.slice(0, totalQuestionsNeeded);
+    const aligned = alignSort(ALL_STATIC_BANKS_SYNC);
+    return isSeeded ? seededShuffle(aligned, rng).slice(0, totalQuestionsNeeded) : aligned.sort(() => 0.5 - Math.random()).slice(0, totalQuestionsNeeded);
   }
 
   // Group by category and difficulty
@@ -228,8 +303,10 @@ const generateBattleMockQuestions = (targetExamId) => {
   // Adjust diff
   let diffCount = totalQuestionsNeeded - allocatedSum;
   if (diffCount !== 0) {
-    const topCategory = config.weights[0].categoryId;
-    categoryAllocations[topCategory] = (categoryAllocations[topCategory] || 0) + diffCount;
+    const topCategory = config.weights[0]?.categoryId || categories[0];
+    if (topCategory) {
+      categoryAllocations[topCategory] = (categoryAllocations[topCategory] || 0) + diffCount;
+    }
   }
 
   const selectedQuestions = [];
@@ -246,8 +323,8 @@ const generateBattleMockQuestions = (targetExamId) => {
 
     const pullFromGroup = (diffLevel, count) => {
       const list = grouped[catId][diffLevel] || [];
-      const shuffled = [...list].sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, count);
+      const aligned = alignSort(list);
+      return isSeeded ? seededShuffle(aligned, rng).slice(0, count) : aligned.sort(() => 0.5 - Math.random()).slice(0, count);
     };
 
     let pulledEasy = pullFromGroup('easy', easySlots);
@@ -261,23 +338,36 @@ const generateBattleMockQuestions = (targetExamId) => {
       const alreadyPulledIds = new Set(pulled.map(q => q.id));
       const categoryAllPool = pool.filter(q => q.category_id === catId && !alreadyPulledIds.has(q.id));
       const needed = categoryQty - pulled.length;
-      const extra = categoryAllPool.sort(() => 0.5 - Math.random()).slice(0, needed);
+      const aligned = alignSort(categoryAllPool);
+      const extra = isSeeded ? seededShuffle(aligned, rng).slice(0, needed) : aligned.sort(() => 0.5 - Math.random()).slice(0, needed);
       pulled.push(...extra);
     }
 
     selectedQuestions.push(...pulled);
   });
 
-  // Final fallback
+  // Fallback 3: If category slots are dry, pull from remaining categories of this exam
   if (selectedQuestions.length < totalQuestionsNeeded) {
     const alreadySelectedIds = new Set(selectedQuestions.map(q => q.id));
     const remainingPool = pool.filter(q => !alreadySelectedIds.has(q.id));
     const extraNeeded = totalQuestionsNeeded - selectedQuestions.length;
-    const extras = remainingPool.sort(() => 0.5 - Math.random()).slice(0, extraNeeded);
+    const aligned = alignSort(remainingPool);
+    const extras = isSeeded ? seededShuffle(aligned, rng).slice(0, extraNeeded) : aligned.sort(() => 0.5 - Math.random()).slice(0, extraNeeded);
     selectedQuestions.push(...extras);
   }
 
-  return selectedQuestions.sort(() => 0.5 - Math.random()).slice(0, totalQuestionsNeeded);
+  // Fallback 4: If still short of 20 questions, pull globally from any category
+  if (selectedQuestions.length < totalQuestionsNeeded) {
+    const alreadySelectedIds = new Set(selectedQuestions.map(q => q.id));
+    const globalPool = ALL_STATIC_BANKS_SYNC.filter(q => !alreadySelectedIds.has(q.id));
+    const extraNeeded = totalQuestionsNeeded - selectedQuestions.length;
+    const aligned = alignSort(globalPool);
+    const extras = isSeeded ? seededShuffle(aligned, rng).slice(0, extraNeeded) : aligned.sort(() => 0.5 - Math.random()).slice(0, extraNeeded);
+    selectedQuestions.push(...extras);
+  }
+
+  const finalAligned = alignSort(selectedQuestions);
+  return isSeeded ? seededShuffle(finalAligned, rng).slice(0, totalQuestionsNeeded) : finalAligned.sort(() => 0.5 - Math.random()).slice(0, totalQuestionsNeeded);
 };
 
 // ─── Component ───────────────────────────────────────────────────────
@@ -285,14 +375,11 @@ const generateBattleMockQuestions = (targetExamId) => {
 export default function BattleArena() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user } = useAuth();
-  const { economy, transactKC, refreshEconomy } = useEconomy();
+  const { user, loading } = useAuth();
+  const { economy, transactKC, refreshEconomy, openProUpsell } = useEconomy();
   const { showToast } = useToast();
   const { playVictory, playShatter, playCorrect, playWrong } = useSound();
 
-  if (!user) {
-    return <Navigate to="/signin" replace state={{ message: "You must sign in to play Battle Arena." }} />;
-  }
 
   // Screen state
   const [step, setStep] = useState('gate'); // 'gate', 'matchmaking', 'pre-start', 'mock', 'reveal', 'genius-trap', 'finished'
@@ -316,6 +403,9 @@ export default function BattleArena() {
   const [matchFailed, setMatchFailed] = useState(false);
   
   // Mock Exam state
+  const [currentSeed, setCurrentSeed] = useState(null);
+  const [challengeData, setChallengeData] = useState(null);
+  const [isFriendChallengeSetup, setIsFriendChallengeSetup] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isAiLoading, setIsAiLoading] = useState(false);
@@ -417,11 +507,20 @@ export default function BattleArena() {
     try {
       const stored = localStorage.getItem(`mcqkash_battle_history_${userId}`);
       if (stored) {
-        setBattleHistory(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        // Retroactively fix any challenge result cards that were saved with unboxed: false
+        // (from earlier code) so they render as visible in the gallery
+        const fixed = parsed.map(card =>
+          (card.isChallengeMode && card.unboxed === false) ? { ...card, unboxed: true } : card
+        );
+        // Persist the fix if anything changed
+        const hadFix = fixed.some((c, i) => c.unboxed !== parsed[i].unboxed);
+        if (hadFix) localStorage.setItem(`mcqkash_battle_history_${userId}`, JSON.stringify(fixed));
+        setBattleHistory(fixed);
       }
     } catch(e) {}
     
-    // Check if deep linked from notification
+    // Check if deep linked from notification (ghost/early submit)
     if (location.state?.showBattleId) {
       const bId = location.state.showBattleId;
       // Clear location state immediately to prevent re-opening on refresh
@@ -452,26 +551,27 @@ export default function BattleArena() {
 
             setPayoutAmount(found.coinChange + 100);
             
-            // Auto open the detailed card view
-            const simulatedCard = {
-              id: found.id,
-              userFullName: economy?.full_name || 'You',
-              userAvatarId: economy?.avatar_id || 1,
-              userIsPro: economy?.is_pro || false,
-              userScore: found.userScore,
-              opponentName: found.opponentName,
-              opponentAvatarId: found.opponentAvatarId,
-              opponentIsPro: found.opponentIsPro,
-              opponentScore: found.opponentScore,
-              targetExam: found.targetExam,
-              date: found.date,
-              outcome: found.userScore > found.opponentScore ? 'VICTORY' : found.userScore < found.opponentScore ? 'DEFEAT' : 'TIE',
-              coinChange: found.coinChange,
-              unboxed: true,
-              userRank: found.userRank || 15,
-              opponentRank: found.opponentRank || 15
-            };
-            handleSelectHistoryCard(simulatedCard);
+            // Load saved questions & answers from local storage
+            let loadedQuestions = [];
+            let loadedAnswers = {};
+            try {
+              const savedQs = localStorage.getItem(`mcqkash_pending_battle_questions_${found.id}`);
+              const savedAns = localStorage.getItem(`mcqkash_pending_battle_answers_${found.id}`);
+              if (savedQs) loadedQuestions = JSON.parse(savedQs);
+              if (savedAns) loadedAnswers = JSON.parse(savedAns);
+            } catch (e) {
+              console.warn('Failed to load saved battle details:', e);
+            }
+
+            // Fallback if not saved
+            if (loadedQuestions.length === 0) {
+              loadedQuestions = generateBattleMockQuestions(found.targetExam);
+            }
+
+            setQuestions(loadedQuestions);
+            setAnswers(loadedAnswers);
+            setIsInstantReveal(true);
+            setStep('reveal');
             
             // Play victory or defeat sounds according to user's performance
             const outcome = found.userScore > found.opponentScore ? 'VICTORY' : found.userScore < found.opponentScore ? 'DEFEAT' : 'TIE';
@@ -486,7 +586,227 @@ export default function BattleArena() {
         }
       } catch (e) {}
     }
+
+    // Check if navigated from challenge notification → show challenger's result card
+    if (location.state?.showChallengeResult) {
+      const card = location.state.showChallengeResult;
+      navigate(location.pathname, { replace: true, state: {} });
+
+      // CRITICAL: Reset these flags so the reveal step doesn't use placeholder overrides
+      // isFriendChallengeSetup = true would hide opponent name/score with 'Your Friend'/'---'
+      setIsFriendChallengeSetup(false);
+      setIsGhostMode(false);
+      setIsTickingActive(false);
+      setIsEarlySubmitWaiting(false);
+
+      // Reconstruct opponent (the friend who accepted the challenge)
+      setOpponent({
+        full_name: card.opponentName || 'Your Friend',
+        avatar_id: card.opponentAvatarId || 1,
+        is_pro: card.opponentIsPro || false,
+        accuracy: 75,
+        rank: card.opponentRank || 15
+      });
+
+      // Set scores so the reveal step renders correctly
+      setUserScore(card.userScore || 0);
+      setOpponentScore(card.opponentScore || 0);
+
+      // Approximate correct/incorrect from challenger's original score
+      const compCorrect = Math.max(0, Math.min(20, Math.round((card.userScore + 5) / 1.25)));
+      setCorrectCount(compCorrect);
+      setIncorrectCount(Math.max(0, 20 - compCorrect));
+
+      // Show payout amount (abs so UI doesn't show negative)
+      setPayoutAmount(Math.abs(card.coinChange || 0) + 100);
+      setIsInstantReveal(true);
+
+      // Go straight to the reveal step — full result UI renders cleanly
+      if (card.outcome === 'VICTORY') { if (playVictory) playVictory(); }
+      else if (card.outcome === 'DEFEAT') { if (playShatter) playShatter(); }
+      else { if (playCorrect) playCorrect(); }
+      setStep('reveal');
+    }
   }, [location.state, economy?.id]);
+
+  // Parse challenge parameters if deep linked via WhatsApp/Telegram (Runs 100% offline, zero database queries!)
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const challengerId = query.get('challenger_id');
+    const challengerName = query.get('challenger_name') || 'Aspirant';
+    const challengerUsername = query.get('challenger_username') || 'challenger';
+    const examParam = query.get('exam');
+    const seedParam = query.get('seed');
+    const scoreParam = query.get('score');
+
+    if (challengerId && examParam && seedParam && scoreParam) {
+      setChallengeData({
+        challengerId,
+        challengerName: challengerName,
+        challengerUsername: challengerUsername,
+        challengerAvatarId: 1,
+        challengerAccuracy: 75,
+        challengerStreak: 0,
+        exam: examParam,
+        seed: seedParam,
+        scoreToBeat: parseFloat(scoreParam)
+      });
+      setOpponent({
+        id: challengerId,
+        full_name: challengerName,
+        username: challengerUsername,
+        avatar_id: 1,
+        accuracy: 75,
+        rank: 15,
+        is_pro: false
+      });
+      setStep('challenge-intro');
+    }
+  }, [location.search]);
+
+  const buildChallengeUrl = (challengerId, challengerName, challengerUsername, exam, seed, score) => {
+    const baseUrl = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}/arena/challenge`;
+    const params = new URLSearchParams({
+      challenger_id: challengerId,
+      challenger_name: challengerName || 'Aspirant',
+      challenger_username: challengerUsername || 'challenger',
+      exam: exam,
+      seed: String(seed),
+      score: String(score)
+    });
+    return `${baseUrl}?${params.toString()}`;
+  };
+
+  const handleStartChallengeSetup = async () => {
+    if (!economy) return;
+    if (!economy.target_exam) {
+      showToast('You must select your Target Exam to start a challenge', 'warning');
+      navigate('/profile', { state: { openStudyGoals: true, message: 'You must select your Target Exam to start a challenge' } });
+      return;
+    }
+
+    const randomSeed = Math.floor(Math.random() * 1000000) + 1;
+    setCurrentSeed(randomSeed);
+    setIsFriendChallengeSetup(true);
+    setChallengeData(null);
+
+    setIsAiLoading(true);
+    setAiLoadingText('Generating challenge questions...');
+
+    const pulledQuestions = generateBattleMockQuestions(economy.target_exam, randomSeed);
+    if (pulledQuestions.length === 0) {
+      showToast('Failed to generate challenge questions.', 'error');
+      setIsAiLoading(false);
+      return;
+    }
+    setOpponent({
+      id: 'friend_placeholder',
+      full_name: 'Your Friend',
+      avatar_id: 2,
+      accuracy: 75,
+      rank: 15,
+      is_pro: false
+    });
+    setQuestions(pulledQuestions);
+    setCurrentIdx(0);
+    setAnswers({});
+    setMockTimeLeft(1200);
+    setTimeSpent({});
+    setVisited(new Set([0]));
+    setIsAiLoading(false);
+    setStep('pre-start');
+  };
+
+  const handleStartChallengeMock = async () => {
+    if (!economy || !challengeData) return;
+
+    // Deduct 50 KashCoins wager for friend duel
+    const transOk = await transactKC(-50);
+    if (!transOk) {
+      // Generous Mode: Accept challenge with subsidized wager
+      showToast('Generous Mode: Entering duel with subsidized wager! 🪙', 'info');
+    }
+
+    setIsAiLoading(true);
+    setAiLoadingText('Reconstituting challenge telemetry...');
+
+    // Normalize and locate matching exam configuration (or fall back to first key)
+    let examKey = challengeData.exam;
+    let config = EXAM_CONFIG[examKey];
+
+    if (!config && examKey) {
+      const normalizedSearch = examKey.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const matchedKey = Object.keys(EXAM_CONFIG).find(key => {
+        return key.toLowerCase().replace(/[^a-z0-9]/g, '') === normalizedSearch;
+      });
+      if (matchedKey) {
+        examKey = matchedKey;
+        config = EXAM_CONFIG[matchedKey];
+      }
+    }
+
+    // Direct fallback to prevent hangs
+    if (!config) {
+      const fallbackKey = Object.keys(EXAM_CONFIG)[0];
+      if (fallbackKey) {
+        examKey = fallbackKey;
+        config = EXAM_CONFIG[fallbackKey];
+      }
+    }
+
+    if (config) {
+      const pulledQuestions = generateBattleMockQuestions(examKey, challengeData.seed);
+      if (pulledQuestions.length === 0) {
+        showToast('Failed to pull questions for your challenge.', 'error');
+        setIsAiLoading(false);
+        return;
+      }
+
+      setQuestions(pulledQuestions);
+      setCurrentIdx(0);
+      setAnswers({});
+      setMockTimeLeft(1200);
+      setTimeSpent({});
+      setVisited(new Set([0]));
+      setIsAiLoading(false);
+      setStep('mock');
+    } else {
+      showToast('Failed to launch challenge. No target categories available.', 'error');
+      setIsAiLoading(false);
+    }
+  };
+
+  const handleChallengeShare = async () => {
+    if (!economy) return;
+    const shareSeed = currentSeed || Math.floor(Math.random() * 1000000) + 1;
+    const challengeUrl = buildChallengeUrl(economy.id, economy.full_name || 'Aspirant', economy.username || 'challenger', economy.target_exam || 'upsc-pre', shareSeed, userScore);
+    const formattedMessage = `⚡ Think you've got superior prep? I just set a challenge deck in ${getExamLabel(economy.target_exam)} Battle Arena. Accept my MCQ challenge and let's see who wins this! ⚔️ Enter the duel here: ${challengeUrl}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'MCQKash Asynchronous Duel',
+          text: formattedMessage,
+          url: challengeUrl
+        });
+        showToast('Challenge link shared successfully! ⚔️', 'success');
+      } catch (err) {
+        console.warn('Navigator share failed, copying link to clipboard instead:', err);
+        copyToClipboard(challengeUrl);
+      }
+    } else {
+      copyToClipboard(challengeUrl);
+    }
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('Challenge link copied to clipboard! 📋', 'success');
+    }).catch(() => {
+      showToast('Failed to copy challenge link.', 'error');
+    });
+  };
+
 
   // Run initial gate checks when page loads
   useEffect(() => {
@@ -532,12 +852,8 @@ export default function BattleArena() {
     setIsLockedByDailyLimit(false);
 
     // Check 4: Coins requirement (100 coins minimum)
-    if (economy.kash_coins_balance < 100) {
-      setIsLockedByCoins(true);
-      return;
-    } else {
-      setIsLockedByCoins(false);
-    }
+    // Generous Mode: Insufficient coins never locks the user out
+    setIsLockedByCoins(false);
   };
 
   // Matchmaking Telemetry Copy Cycler
@@ -599,128 +915,155 @@ export default function BattleArena() {
   // Pull leaderboard and pick candidate
   const selectLeaderboardOpponent = async () => {
     if (!user?.id) {
-      generateMockOpponent();
+      setMatchFailed(true);
       return;
     }
     try {
-      // Query 10 random opponents for matchmaking to perform anti-collision and diversity filtering
-      const { data: rawLeaderboard, error } = await supabase.rpc('get_random_opponents', {
-        viewer_id: user?.id || null,
-        max_limit: 10
-      });
-
-      if (error || !rawLeaderboard || rawLeaderboard.length === 0) {
-        throw new Error('Fallback to static/mock opponents');
-      }
-
-      // Resolve usernames and anti-collision checks
-      const userUsername = economy?.username || '';
-      const userReferredBy = economy?.referred_by || '';
-
-      const candidates = rawLeaderboard.filter(opp => {
-        if (opp.id === user?.id) return false;
-        
-        const oppUsername = opp.username || opp.full_name?.toLowerCase().replace(/[^a-z0-9]/g, '') || '';
-        const oppReferredBy = opp.referred_by || '';
-        
-        // Anti-collision check
-        if (userReferredBy && userReferredBy === oppUsername) return false;
-        if (oppReferredBy && oppReferredBy === userUsername) return false;
-
-        return true;
-      });
-
-      // Filter out last 4 matched opponents to maximize diversity
-      const lastOpponentsKey = `mcqkash_last_opponents_${user?.id || 'guest'}`;
-      let lastOpponents = [];
+      // Get recently matched opponent usernames from local storage (history of last 3)
+      const lastUsernamesKey = `mcqkash_last_usernames_${user?.id || 'guest'}`;
+      let lastUsernames = [];
       try {
-        const stored = localStorage.getItem(lastOpponentsKey);
-        lastOpponents = stored ? JSON.parse(stored) : [];
+        const stored = localStorage.getItem(lastUsernamesKey);
+        lastUsernames = stored ? JSON.parse(stored) : [];
       } catch (e) {}
 
-      let eligibleCandidates = candidates.filter(c => !lastOpponents.includes(c.id));
-      if (eligibleCandidates.length === 0) {
-        eligibleCandidates = candidates; // Fallback to all if pool collapses
+      // Clean the usernames list to prevent null/empty strings
+      const cleanUsernames = lastUsernames.filter(uname => uname && typeof uname === 'string' && uname.trim() !== '');
+
+      // Resolve usernames and anti-collision checks params
+      const userUsername = economy?.username || null;
+      const userReferredBy = economy?.referred_by || null;
+
+      // Query exactly 1 diverse opponent using get_diverse_opponent RPC filtering by exclude_usernames
+      const { data: responseData, error } = await supabase.rpc('get_diverse_opponent', {
+        viewer_id: user?.id,
+        exclude_usernames: cleanUsernames,
+        viewer_username: userUsername,
+        viewer_referred_by: userReferredBy
+      });
+
+      const chosen = responseData && responseData.length > 0 ? responseData[0] : null;
+
+      if (error || !chosen) {
+        console.error('get_diverse_opponent RPC Error details:', error);
+        throw new Error('No candidate found or database error.');
       }
 
-      let chosen = null;
-      if (eligibleCandidates.length > 0) {
-        chosen = eligibleCandidates[Math.floor(Math.random() * eligibleCandidates.length)];
-      } else {
-        // Fallback: Pick any random user other than self
-        const fallbackList = rawLeaderboard.filter(opp => opp.id !== user?.id && !lastOpponents.includes(opp.id));
-        const finalFallbackList = fallbackList.length > 0 ? fallbackList : rawLeaderboard.filter(opp => opp.id !== user?.id);
-        if (finalFallbackList.length > 0) {
-          chosen = finalFallbackList[Math.floor(Math.random() * finalFallbackList.length)];
-        }
-      }
+      // Resolve usernames with fallback
+      const resolvedUsername = chosen.username || (chosen.full_name || 'aspirant').toLowerCase().replace(/[^a-z0-9]/g, '');
 
-      if (!chosen) {
-        generateMockOpponent();
-        return;
-      }
-
-      // Save to recently matched cache
-      lastOpponents.push(chosen.id);
-      if (lastOpponents.length > 4) {
-        lastOpponents.shift();
+      // Save to recently matched usernames cache (keep last 3)
+      lastUsernames.push(resolvedUsername);
+      if (lastUsernames.length > 3) {
+        lastUsernames.shift();
       }
       try {
-        localStorage.setItem(lastOpponentsKey, JSON.stringify(lastOpponents));
+        localStorage.setItem(lastUsernamesKey, JSON.stringify(lastUsernames));
       } catch (e) {}
 
-      // Try to fetch opponent's accuracy. If unavailable, calculate based on user's range.
+      // Try to fetch opponent's accuracy. If 0 or unavailable, calculate based on user's range.
       let oppAccuracy = chosen.users_accuracy;
-      if (!oppAccuracy) {
+      if (!oppAccuracy || oppAccuracy <= 0) {
         const userAcc = economy?.users_accuracy || 70;
-        oppAccuracy = Math.max(5, Math.min(100, Math.round(userAcc + (Math.random() * 10 - 5))));
+        let offset = 0;
+        while (offset === 0) {
+          offset = Math.floor(Math.random() * 41) - 20; // Random offset between -20 and +20 (excluding 0)
+        }
+        oppAccuracy = Math.max(30, Math.min(95, Math.round(userAcc + offset)));
       }
 
       const oppStreak = chosen.streak_days || chosen.daily_streak || chosen.streak || (Math.random() < 0.3 ? Math.floor(Math.random() * 6) + 3 : 0);
+      
+      // Default opponent's target exam to matching user's exam if null/missing
+      const oppTargetExam = chosen.target_exam || economy?.target_exam || 'upsc-pre';
 
       setOpponent({
         id: chosen.id,
-        full_name: chosen.full_name,
+        full_name: chosen.full_name || 'Aspirant',
         avatar_id: chosen.avatar_id || 1,
-        username: chosen.username || chosen.full_name.toLowerCase().replace(/[^a-z0-9]/g, ''),
+        username: resolvedUsername,
         referred_by: chosen.referred_by || null,
         is_pro: (chosen.pro_expires_at && new Date(chosen.pro_expires_at) > new Date()) || !!chosen.is_admin,
         accuracy: Math.round(oppAccuracy),
         rank: chosen.rank || 15,
         streak: oppStreak,
-        status_message: chosen.status_message || null
+        status_message: chosen.status_message || null,
+        target_exam: oppTargetExam
       });
       setStep('pre-start');
     } catch (err) {
-      console.warn('Database error in matchmaking, using fallback offline generator:', err);
-      generateMockOpponent();
+      console.warn('Database error in matchmaking, setting match failed:', err);
+      setMatchFailed(true);
     }
   };
 
   const generateMockOpponent = () => {
-    // Collectible fallback opponents
+    // Get recently matched opponent usernames from local storage (history of last 3)
+    const lastUsernamesKey = `mcqkash_last_usernames_${user?.id || 'guest'}`;
+    let lastUsernames = [];
+    try {
+      const stored = localStorage.getItem(lastUsernamesKey);
+      lastUsernames = stored ? JSON.parse(stored) : [];
+    } catch (e) {}
+
+    // Collectible fallback opponents (expanded and given stable usernames)
     const fallbacks = [
-      { full_name: 'Anjali Sharma', is_pro: true, rank: 4, status_message: 'Rank 1 is mine! 🎯 Keep pushing!' },
-      { full_name: 'Vikram Malhotra', is_pro: false, rank: 12 },
-      { full_name: 'Karan Mehra', is_pro: true, rank: 2, status_message: 'UPSC Prelims prep mode: ON. Let’s match!' },
-      { full_name: 'Sneha Patel', is_pro: false, rank: 23 },
-      { full_name: 'Rahul Verma', is_pro: false, rank: 9 },
+      { id: 'mock_opp_anjali', full_name: 'Anjali Sharma', username: 'anjali_sharma', is_pro: true, rank: 4, status_message: 'Rank 1 is mine! 🎯 Keep pushing!' },
+      { id: 'mock_opp_vikram', full_name: 'Vikram Malhotra', username: 'vikram_malhotra', is_pro: false, rank: 12 },
+      { id: 'mock_opp_karan', full_name: 'Karan Mehra', username: 'karan_mehra', is_pro: true, rank: 2, status_message: 'UPSC Prelims prep mode: ON. Let’s match!' },
+      { id: 'mock_opp_sneha', full_name: 'Sneha Patel', username: 'sneha_patel', is_pro: false, rank: 23 },
+      { id: 'mock_opp_rahul', full_name: 'Rahul Verma', username: 'rahul_verma', is_pro: false, rank: 9 },
+      { id: 'mock_opp_priya', full_name: 'Priya Nandy', username: 'priya_nandy', is_pro: true, rank: 6, status_message: 'Syllabus revised twice. Bring it on!' },
+      { id: 'mock_opp_amit', full_name: 'Amit Chaudhary', username: 'amit_chaudhary', is_pro: false, rank: 18 },
+      { id: 'mock_opp_rohit', full_name: 'Rohit Sharma', username: 'rohit_sharma', is_pro: false, rank: 15 },
+      { id: 'mock_opp_tanvi', full_name: 'Tanvi Goyal', username: 'tanvi_goyal', is_pro: true, rank: 8, status_message: 'Consistency is key. 🔑' },
+      { id: 'mock_opp_arjun', full_name: 'Arjun Kapoor', username: 'arjun_kapoor', is_pro: false, rank: 29 },
+      { id: 'mock_opp_deepika', full_name: 'Deepika Sen', username: 'deepika_sen', is_pro: true, rank: 11 },
+      { id: 'mock_opp_abhishek', full_name: 'Abhishek Roy', username: 'abhishek_roy', is_pro: false, rank: 20 },
+      { id: 'mock_opp_neha', full_name: 'Neha Gupta', username: 'neha_gupta', is_pro: true, rank: 7, status_message: 'Focused on high-yield topics.' },
+      { id: 'mock_opp_vivek', full_name: 'Vivek Joshi', username: 'vivek_joshi', is_pro: false, rank: 33 },
+      { id: 'mock_opp_divya', full_name: 'Divya Iyer', username: 'divya_iyer', is_pro: true, rank: 5, status_message: 'Answer writing + MCQs daily.' }
     ];
-    const picked = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+
+    // Filter out mock opponents recently battled by matching username
+    let eligible = fallbacks.filter(f => !lastUsernames.includes(f.username));
+    if (eligible.length === 0) {
+      eligible = fallbacks; // Fallback to all if pool collapses
+    }
+
+    const picked = eligible[Math.floor(Math.random() * eligible.length)];
     const userAcc = economy?.users_accuracy || 70;
-    const oppAccuracy = Math.max(5, Math.min(100, Math.round(userAcc + (Math.random() * 10 - 5))));
+    let offset = 0;
+    while (offset === 0) {
+      offset = Math.floor(Math.random() * 41) - 20; // Random offset between -20 and +20 (excluding 0)
+    }
+    const oppAccuracy = Math.max(30, Math.min(95, Math.round(userAcc + offset)));
+
+    // Save mock opponent username to history cache (keep last 3)
+    lastUsernames.push(picked.username);
+    if (lastUsernames.length > 3) {
+      lastUsernames.shift();
+    }
+    try {
+      localStorage.setItem(lastUsernamesKey, JSON.stringify(lastUsernames));
+    } catch (e) {}
+
+    // Mock target exam - selected completely at random from all registered exams
+    const examKeys = Object.keys(EXAM_CONFIG);
+    const simulatedExam = examKeys[Math.floor(Math.random() * examKeys.length)] || 'upsc-pre';
 
     setOpponent({
-      id: `mock_opp_${Date.now()}`,
+      id: picked.id,
       full_name: picked.full_name,
       avatar_id: Math.floor(Math.random() * 9) + 1,
-      username: picked.full_name.toLowerCase().replace(/\s+/g, '_'),
+      username: picked.username,
       referred_by: null,
       is_pro: picked.is_pro,
       accuracy: oppAccuracy,
       rank: picked.rank,
       streak: Math.random() < 0.3 ? Math.floor(Math.random() * 6) + 3 : 0,
-      status_message: picked.status_message || null
+      status_message: picked.status_message || null,
+      target_exam: simulatedExam
     });
     setStep('pre-start');
   };
@@ -740,8 +1083,8 @@ export default function BattleArena() {
     if (isLockedByDailyLimit) return;
     if (isLockedByCoins) return;
 
-    // Roll matching success: 60% match, 40% no match
-    const isSuccessfulMatch = Math.random() < 0.60;
+    // Roll matching success: 80% match, 20% no match
+    const isSuccessfulMatch = Math.random() < 0.80;
     setMatchWillSucceed(isSuccessfulMatch);
 
     setIsGhostMode(false);
@@ -755,11 +1098,12 @@ export default function BattleArena() {
   const handleStartMock = async () => {
     if (!economy || !opponent) return;
 
-    // Deduct 100 KashCoins wager
-    const transOk = await transactKC(-100);
+    // Deduct KashCoins wager (50 for Friend Challenge, 100 for Daily Battle)
+    const wagerAmount = isFriendChallengeSetup ? -50 : -100;
+    const transOk = await transactKC(wagerAmount);
     if (!transOk) {
-      showToast('Wager transaction failed. Please check your KashCoins.', 'error');
-      return;
+      // Generous Mode: Enter battle with subsidized wager
+      showToast('Generous Mode: Entering battle with subsidized wager! 🪙', 'info');
     }
 
     // Set daily limit battle timestamp (in IST dateStr)
@@ -767,8 +1111,14 @@ export default function BattleArena() {
     const userId = economy.id || 'guest';
     localStorage.setItem(`mcqkash_last_battle_date_${userId}`, dateStr);
 
+    // Generate a random seed if not in challenge mode
+    const activeSeed = challengeData ? challengeData.seed : (currentSeed || Math.floor(Math.random() * 1000000) + 1);
+    if (!challengeData) {
+      setCurrentSeed(activeSeed);
+    }
+
     // Pull 20 Questions based on target exam
-    const pulledQuestions = generateBattleMockQuestions(economy.target_exam);
+    const pulledQuestions = generateBattleMockQuestions(economy.target_exam, activeSeed);
     if (pulledQuestions.length === 0) {
       showToast('Failed to pull questions for your target exam.', 'error');
       return;
@@ -943,7 +1293,11 @@ export default function BattleArena() {
     const userAcc = economy.users_accuracy || 75;
 
     // Run Relative Probability Battle Engine to determine opponent's score
-    const oppScore = runBattleEngine(userAcc, opponent.accuracy, score, userKashRank, opponent.rank || 15);
+    const oppScore = challengeData 
+      ? challengeData.scoreToBeat 
+      : isFriendChallengeSetup
+      ? 0
+      : runBattleEngine(userAcc, opponent.accuracy, score, userKashRank, opponent.rank || 15);
     setOpponentScore(oppScore);
 
     // Determine Reveal Flow (Ticking vs Instant)
@@ -995,7 +1349,7 @@ export default function BattleArena() {
     const elapsedTime = 1200 - mockTimeLeft;
     const isEarlySubmit = elapsedTime < 200;
 
-    if (isEarlySubmit && !isGhostMode) {
+    if (isEarlySubmit && !isGhostMode && !challengeData && !isFriendChallengeSetup) {
       setIsEarlySubmitWaiting(true);
       const delaySeconds = Math.floor(Math.random() * 181) + 120; // 120 to 300 seconds (2 to 5 minutes)
       setEarlySubmitTimeRemaining(delaySeconds);
@@ -1030,6 +1384,9 @@ export default function BattleArena() {
         const list = stored ? JSON.parse(stored) : [];
         list.push(newNotif);
         localStorage.setItem(`mcqkash_battle_notifications_${userId}`, JSON.stringify(list));
+        // Save current battle questions & answers
+        localStorage.setItem(`mcqkash_pending_battle_questions_${newNotifId}`, JSON.stringify(questions));
+        localStorage.setItem(`mcqkash_pending_battle_answers_${newNotifId}`, JSON.stringify(answers));
       } catch (e) {}
 
       setStep('reveal');
@@ -1052,8 +1409,9 @@ export default function BattleArena() {
         ghostOutcomeChange = economy.is_pro ? -50 : -100;
       }
 
+      const ghostNotifId = `battle_notif_${Date.now()}`;
       const newNotif = {
-        id: `battle_notif_${Date.now()}`,
+        id: ghostNotifId,
         opponentName: opponent.full_name,
         opponentAvatarId: opponent.avatar_id,
         opponentAccuracy: opponent.accuracy,
@@ -1076,6 +1434,9 @@ export default function BattleArena() {
         const list = stored ? JSON.parse(stored) : [];
         list.push(newNotif);
         localStorage.setItem(`mcqkash_battle_notifications_${userId}`, JSON.stringify(list));
+        // Save current battle questions & answers
+        localStorage.setItem(`mcqkash_pending_battle_questions_${ghostNotifId}`, JSON.stringify(questions));
+        localStorage.setItem(`mcqkash_pending_battle_answers_${ghostNotifId}`, JSON.stringify(answers));
       } catch (e) {}
 
       // Open Ghost pending results screen
@@ -1088,7 +1449,15 @@ export default function BattleArena() {
       await transactKC(payoutAmount);
     }
 
-    // Save Battle Card in History Gallery
+    // For challenge mode: oppScore is challengeData.scoreToBeat (already set above)
+    // Use it so the friend's battle card correctly shows the challenger's real score
+    const effectiveOppScore = challengeData ? challengeData.scoreToBeat : oppScore;
+    const effectiveOppName = challengeData ? challengeData.challengerName : opponent.full_name;
+    const effectiveOppAvatarId = challengeData ? challengeData.challengerAvatarId : opponent.avatar_id;
+    const effectiveOppIsPro = challengeData ? false : oppIsPro;
+    const effectiveOppRank = challengeData ? 15 : (opponent.rank || 15);
+
+    // Save Battle Card in History Gallery (for the person submitting — friend or regular player)
     const newBattleCard = {
       id: `battle_${Date.now()}`,
       userId: economy.id || 'guest',
@@ -1099,33 +1468,79 @@ export default function BattleArena() {
       userCorrect: correct,
       userIncorrect: incorrect,
       userRank: userKashRank || 15,
-      
-      opponentName: opponent.full_name,
-      opponentAvatarId: opponent.avatar_id,
-      opponentIsPro: oppIsPro,
-      opponentScore: oppScore,
-      opponentStreak: opponent.streak || 0,
-      opponentRank: opponent.rank || 15,
-      
-      targetExam: economy.target_exam || 'UPSC Pre',
+
+      opponentName: effectiveOppName,
+      opponentAvatarId: effectiveOppAvatarId,
+      opponentIsPro: effectiveOppIsPro,
+      opponentScore: effectiveOppScore,
+      opponentStreak: opponent?.streak || 0,
+      opponentRank: effectiveOppRank,
+
+      targetExam: economy.target_exam || challengeData?.exam || 'UPSC Pre',
       date: getISTDetails().dateStr,
       timestamp: Date.now(),
-      outcome: score > oppScore ? 'VICTORY' : score < oppScore ? 'DEFEAT' : 'TIE',
-      coinChange: score > oppScore 
-        ? (userIsPro ? 100 : (oppIsPro ? 50 : 100)) 
-        : (score < oppScore ? (userIsPro ? -50 : -100) : 0),
+      outcome: score > effectiveOppScore ? 'VICTORY' : score < effectiveOppScore ? 'DEFEAT' : 'TIE',
+      coinChange: score > effectiveOppScore
+        ? (userIsPro ? 100 : (effectiveOppIsPro ? 50 : 100))
+        : (score < effectiveOppScore ? (userIsPro ? -50 : -100) : 0),
+      isChallengeMode: !!challengeData,
       unboxed: true
     };
 
-    // Save to localStorage history
+    // Save submitter's battle card to their localStorage history
+    // SKIP for isFriendChallengeSetup (challenger's own run) — their card is created from
+    // notification metadata when they click "See Battle Result" in the bell icon.
+    // The friend (accepter) correctly gets their card saved here since challengeData is set for them.
     const userId = economy.id || 'guest';
-    try {
-      const stored = localStorage.getItem(`mcqkash_battle_history_${userId}`);
-      const list = stored ? JSON.parse(stored) : [];
-      list.unshift(newBattleCard); // latest first
-      localStorage.setItem(`mcqkash_battle_history_${userId}`, JSON.stringify(list));
-      setBattleHistory(list);
-    } catch (e) {}
+    if (!isFriendChallengeSetup) {
+      try {
+        const stored = localStorage.getItem(`mcqkash_battle_history_${userId}`);
+        const list = stored ? JSON.parse(stored) : [];
+        list.unshift(newBattleCard);
+        localStorage.setItem(`mcqkash_battle_history_${userId}`, JSON.stringify(list));
+        setBattleHistory(list);
+      } catch (e) {}
+    }
+
+    // Challenge Friend: notify challenger with suspenseful message + compact result payload
+    if (challengeData) {
+      const friendName = economy.full_name || 'A friend';
+      const friendUsername = economy.username || 'friend';
+      // Suspenseful message — does NOT reveal who won (challenger must click to see)
+      const suspenseMessage = `⚔️ ${friendName} (@${friendUsername}) accepted your challenge! Tap to see who won the duel!`;
+
+      // Compact metadata to reconstruct the challenger's result card (minimal payload)
+      const resultMeta = JSON.stringify({
+        fn: friendName,                    // friend full name
+        fu: friendUsername,                // friend username
+        fa: economy.avatar_id || 1,       // friend avatar id
+        fr: userKashRank || 15,           // friend's real Kash rank
+        fs: score,                         // friend score
+        cs: challengeData.scoreToBeat,     // challenger's original score
+        ex: challengeData.exam,            // exam slug
+        dt: getISTDetails().dateStr        // date
+      });
+
+      try {
+        const { error: notifError } = await supabase
+          .from('notifications')
+          .insert({
+            user_id: challengeData.challengerId,
+            message: suspenseMessage,
+            metadata: resultMeta,
+            created_at: new Date().toISOString(),
+            read: false,
+            type: 'challenge_resolved'
+          });
+        if (notifError) {
+          console.error('[Challenge Notif] Supabase insert failed:', notifError.code, notifError.message, notifError.details);
+        } else {
+          console.log('[Challenge Notif] Notification sent to challenger:', challengeData.challengerId);
+        }
+      } catch (err) {
+        console.error('[Challenge Notif] Network error:', err);
+      }
+    }
 
     // Open reveal page
     setStep('reveal');
@@ -1731,8 +2146,7 @@ export default function BattleArena() {
 
   const handleGenerateCheatSheet = async () => {
     if (economy?.user_tier !== 'Pro') {
-      showToast("★ Elite Feature: 'Smart Notes' is exclusive to Pro Members. Upgrade to access!", "error");
-      navigate('/upgrade');
+      openProUpsell('Smart Notes');
       return;
     }
 
@@ -1822,8 +2236,7 @@ Generate high-yield revision notes.`;
 
   const handleGenerateSimilarMock = async () => {
     if (economy?.user_tier !== 'Pro') {
-      showToast("★ Elite Feature: 'Mock Forge' is exclusive to Pro Members. Upgrade to access!", "error");
-      navigate('/upgrade');
+      openProUpsell('Mock Forge');
       return;
     }
 
@@ -1962,7 +2375,7 @@ Generate exactly 10 new questions.`;
 
 
   const handleTryAgain = () => {
-    const isSuccessfulMatch = Math.random() < 0.60;
+    const isSuccessfulMatch = Math.random() < 0.80;
     setMatchWillSucceed(isSuccessfulMatch);
 
     setGhostChoiceNeeded(false);
@@ -1977,8 +2390,8 @@ Generate exactly 10 new questions.`;
     setGhostChoiceNeeded(false);
     setMatchFailed(false);
     setIsGhostMode(true);
-    // Continue with Ghost match! We'll match against a simulated baseline
-    generateMockOpponent();
+    // Fetch a real opponent from the database, but play asynchronously (Ghost Mode)
+    selectLeaderboardOpponent();
   };
 
   // Calculate user categories correct/incorrect breakdown for X-Ray
@@ -2065,7 +2478,10 @@ Generate exactly 10 new questions.`;
 
     const handleToggleMark = () => {
       const q = questions[currentIdx];
-      setMarked(prev => ({ ...prev, [q.id]: !prev[q.id] }));
+      setMarked(prev => ({ ...prev, [q.id]: true }));
+      if (currentIdx < questions.length - 1) {
+        handleSelectQuestion(currentIdx + 1);
+      }
     };
 
     const handleClear = () => {
@@ -2158,8 +2574,8 @@ Generate exactly 10 new questions.`;
                   onClick={handleToggleMark} 
                   className={`flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border rounded-full text-theme-text hover:bg-theme-surface-hover transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap ${marked[currentQuestion.id] ? 'border-purple-500 text-purple-500 bg-purple-500/5' : 'border-theme-border hover:border-purple-500/50'}`}
                 >
-                  <span className="hidden sm:inline">{marked[currentQuestion.id] ? 'Marked for Review' : 'Mark for Review'}</span>
-                  <span className="sm:hidden">{marked[currentQuestion.id] ? 'Marked' : 'Review'}</span>
+                  <span className="hidden sm:inline">Mark for Review</span>
+                  <span className="sm:hidden">Review</span>
                 </button>
                 <button 
                   onClick={handleClear} 
@@ -2366,6 +2782,12 @@ Generate exactly 10 new questions.`;
     );
   }
 
+  if (loading) return null; // Wait for initial session loading to complete
+
+  if (!user) {
+    return <Navigate to="/signin" replace state={{ from: location.pathname + location.search, message: "Accept battle after quick sign in!" }} />;
+  }
+
   return (
     <div className="min-h-screen pb-20 relative bg-theme-bg text-theme-text font-sans">
       <Header />
@@ -2406,6 +2828,62 @@ Generate exactly 10 new questions.`;
             <span className="text-[10px] font-black uppercase tracking-wider text-theme-accent">Battle Gate</span>
           </div>
         </div>
+
+        {/* ─── SCREEN 0: CHALLENGE INTRO DASHBOARD CARD ─── */}
+        {step === 'challenge-intro' && challengeData && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-md mx-auto relative overflow-hidden rounded-[32px] border border-amber-500/35 bg-theme-surface/40 backdrop-blur-md p-8 shadow-2xl space-y-6 text-center"
+            style={{
+              background: 'linear-gradient(145deg, rgba(var(--color-surface-rgb), 0.95) 0%, rgba(245, 158, 11, 0.05) 100%)',
+              boxShadow: '0 20px 50px -15px rgba(245, 158, 11, 0.15)'
+            }}
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }} />
+
+            <div className="w-20 h-20 rounded-full border-4 border-amber-500/40 p-0.5 mx-auto bg-theme-bg shadow-xl relative z-10 animate-bounce flex items-center justify-center overflow-hidden">
+              <Avatar id={challengeData.challengerAvatarId} className="w-full h-full rounded-full" />
+            </div>
+
+            <div className="space-y-2 relative z-10">
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/15 select-none animate-pulse">
+                CHALLENGE INVITE
+              </span>
+              <h1 className="text-3xl font-black tracking-tight uppercase mt-2">
+                Challenge Accepted
+              </h1>
+              <p className="text-xs sm:text-sm font-semibold text-theme-muted">
+                <span className="text-theme-primary font-bold">{challengeData.challengerName} (@{challengeData.challengerUsername || 'challenger'})</span> has challenged you to beat their score in <span className="text-theme-accent font-black uppercase">{challengeData.exam.replace(/-/g, ' ')}</span>!
+              </p>
+            </div>
+
+            {/* Score to beat block */}
+            <div className="p-5 bg-amber-500/5 rounded-2xl border border-amber-500/20 max-w-[240px] mx-auto relative z-10">
+              <span className="text-[9px] font-black text-theme-muted uppercase tracking-widest block mb-1">SCORE TO BEAT</span>
+              <span className="text-4xl font-mono font-black text-amber-500">{challengeData.scoreToBeat.toFixed(2)}</span>
+              <span className="text-xs font-semibold text-theme-muted block mt-1">out of 20.00</span>
+            </div>
+
+            <div className="flex gap-4 pt-2 relative z-10">
+              <button
+                onClick={handleStartChallengeMock}
+                className="flex-1 py-4 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-500 text-slate-950 font-black rounded-2xl text-xs uppercase tracking-wider hover:opacity-95 transition-all active:scale-95 shadow-lg shadow-amber-500/20"
+              >
+                Accept & Start Duel
+              </button>
+              <button
+                onClick={() => {
+                  setChallengeData(null);
+                  setStep('gate');
+                }}
+                className="py-4 px-6 border border-theme-border bg-theme-surface text-theme-text font-black rounded-2xl text-xs uppercase tracking-wider hover:border-theme-primary transition-all active:scale-95"
+              >
+                Decline
+              </button>
+            </div>
+          </motion.div>
+        )}
 
         {/* ─── SCREEN 1: BATTLE GATE ─── */}
         {step === 'gate' && (
@@ -2461,25 +2939,57 @@ Generate exactly 10 new questions.`;
               </div>
             )}
 
-            {/* Start matchmaking button */}
+            {/* Start matchmaking buttons */}
             {!isLockedBySleep && !isLockedByDailyLimit && !isLockedByCoins && (
-              <div className="flex justify-center py-1">
+              <div className="flex flex-col sm:flex-row justify-center gap-5 py-4 px-4 items-center w-full max-w-2xl mx-auto">
+                {/* DAILY BATTLE BUTTON */}
                 <button
                   onClick={handleStartSearch}
-                  className="group relative flex items-center gap-4 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(var(--color-primary),0.35)] active:scale-95 text-white"
-                  style={{ background: 'var(--gradient-primary)' }}
+                  className="group relative w-full sm:w-1/2 flex items-center justify-between px-7 py-4 rounded-3xl overflow-hidden transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.25)] active:scale-95 text-white border border-orange-500/30 bg-gradient-to-br from-orange-500 via-red-500 to-amber-600 shadow-lg"
                 >
-                  <Swords size={22} className="group-hover:rotate-12 transition-transform duration-500" />
-                  <div className="flex flex-col text-left">
-                    <span className="font-black text-lg tracking-tight leading-none mb-1">FIND MATCH</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest opacity-80 leading-none">
-                      Wager: 100 KashCoins
-                    </span>
+                  {/* Subtle hover sweep light */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:rotate-6 transition-transform">
+                      <Swords size={20} className="text-white" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="font-extrabold text-[15px] tracking-tight leading-none mb-1.5 uppercase font-outfit">DAILY BATTLE</span>
+                      <span className="text-[10px] font-black uppercase tracking-wider text-white/80 leading-none">
+                        Wager: 100 KashCoins
+                      </span>
+                    </div>
                   </div>
-                  <ChevronRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
+                  <ChevronRight size={18} className="text-white/70 group-hover:translate-x-1 transition-transform relative z-10" />
+                </button>
+
+                {/* CHALLENGE FRIEND BUTTON */}
+                <button
+                  onClick={handleStartChallengeSetup}
+                  className="group relative w-full sm:w-1/2 flex items-center justify-between px-7 py-4 rounded-3xl overflow-hidden transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(139,92,246,0.25)] active:scale-95 text-white border border-purple-500/30 bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 shadow-lg"
+                >
+                  {/* Subtle hover sweep light */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:scale-105 transition-transform">
+                      <Zap size={20} className="text-amber-300 fill-amber-300/20" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="font-extrabold text-[15px] tracking-tight leading-none mb-1.5 uppercase font-outfit">CHALLENGE FRIEND</span>
+                      <span className="text-[10px] font-black uppercase tracking-wider text-white/80 leading-none">
+                        Wager: 50 KashCoins
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-white/70 group-hover:translate-x-1 transition-transform relative z-10" />
                 </button>
               </div>
             )}
+            
+            {/* QOTD Bento Section */}
+            <QOTDBento />
 
             {/* Collectible gallery cards section */}
             <div className="pt-8 space-y-4">
@@ -2743,7 +3253,7 @@ Generate exactly 10 new questions.`;
                   "Couldn't find an opponent right now."
                 </h3>
                 <p className="text-xs font-semibold text-theme-muted leading-normal">
-                  No online competitors match your exact calibre brackets currently. You can wait more or play this mock challenge immediately as an asynchronous ghost card.
+                  No active competitors are matching in the lobby right now. You can try searching again, or jump straight into the challenge immediately in asynchronous ghost mode.
                 </p>
                 <div className="flex gap-3 pt-2">
                   <button 
@@ -2798,7 +3308,7 @@ Generate exactly 10 new questions.`;
                   </p>
                   <span className="text-[10px] text-theme-muted font-normal block mt-0.5">@{economy?.username || 'you'}</span>
                   <p className="text-[10px] font-black uppercase tracking-wider text-theme-muted">
-                    {economy?.target_exam === 'upsc-pre' ? 'UPSC Prelims' : economy?.target_exam === 'ssc-cgl' ? 'SSC CGL' : 'State PSC'} Aspirant
+                    {getExamLabel(economy?.target_exam)}
                   </p>
                 </div>
                 {/* Mini Stats Grid */}
@@ -2847,30 +3357,30 @@ Generate exactly 10 new questions.`;
                 <div className="relative">
                   <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-theme-accent to-red-500 opacity-30 blur-sm animate-pulse" />
                   <div className="relative w-24 h-24 rounded-full border-3 border-theme-accent p-1 bg-theme-bg shadow-xl z-10">
-                    <Avatar id={isGhostMode ? 1 : opponent.avatar_id} className="w-full h-full rounded-full" />
+                    <Avatar id={isGhostMode ? 1 : isFriendChallengeSetup ? 2 : opponent.avatar_id} className="w-full h-full rounded-full" />
                   </div>
                 </div>
                 <div className="space-y-1">
                   <p className="text-base font-black text-theme-text flex items-center justify-center gap-1.5 leading-none">
-                    {isGhostMode ? 'Awaiting Challenger' : opponent.full_name}
-                    {!isGhostMode && opponent.is_pro && (
+                    {isGhostMode ? 'Awaiting Challenger' : isFriendChallengeSetup ? 'Your Friend' : opponent.full_name}
+                    {!isGhostMode && !isFriendChallengeSetup && opponent.is_pro && (
                       <span className="px-2 py-0.5 rounded border border-amber-400 bg-amber-500/10 text-amber-500 text-[8.5px] font-black leading-none uppercase animate-pulse">PRO</span>
                     )}
                   </p>
-                  <span className="text-[10px] text-theme-muted font-normal block mt-0.5">{isGhostMode ? '@matching_soon' : `@${opponent.username}`}</span>
+                  <span className="text-[10px] text-theme-muted font-normal block mt-0.5">{isGhostMode ? '@matching_soon' : isFriendChallengeSetup ? '@friend' : `@${opponent.username}`}</span>
                   <p className="text-[10px] font-black uppercase tracking-wider text-theme-muted">
-                    {isGhostMode ? 'Competitor' : `${economy?.target_exam === 'upsc-pre' ? 'UPSC Prelims' : economy?.target_exam === 'ssc-cgl' ? 'SSC CGL' : 'State PSC'} Aspirant`}
+                    {isGhostMode ? 'Competitor' : isFriendChallengeSetup ? 'Opponent' : getExamLabel(opponent?.target_exam)}
                   </p>
                 </div>
                 {/* Mini Stats Grid */}
                 <div className="grid grid-cols-2 gap-2 w-full max-w-[200px] bg-theme-bg/40 border border-theme-border/30 rounded-xl p-2 text-[10px] font-black uppercase tracking-wider text-theme-muted">
                   <div className="border-r border-theme-border/30 pr-2">
                     <div className="text-[8px] opacity-60">Avg Acc</div>
-                    <div className="text-theme-accent font-bold text-xs">{isGhostMode ? '---' : `${opponent.accuracy}%`}</div>
+                    <div className="text-theme-accent font-bold text-xs">{isGhostMode || isFriendChallengeSetup ? '---' : `${opponent.accuracy}%`}</div>
                   </div>
                   <div className="pl-2">
                     <div className="text-[8px] opacity-60">Kash Rank</div>
-                    <div className="text-theme-accent font-bold text-xs">{isGhostMode ? '---' : `#${opponent.rank}`}</div>
+                    <div className="text-theme-accent font-bold text-xs">{isGhostMode || isFriendChallengeSetup ? '---' : `#${opponent.rank}`}</div>
                   </div>
                 </div>
                 {/* Embedded Caliber progress bar */}
@@ -2878,7 +3388,7 @@ Generate exactly 10 new questions.`;
                   <div className="w-full h-2.5 rounded-full bg-theme-bg overflow-hidden border border-theme-border/30 shadow-inner">
                     <div 
                       className="h-full bg-gradient-to-r from-theme-accent to-red-500 rounded-full" 
-                      style={{ width: `${isGhostMode ? 0 : calculateCaliber(opponent.accuracy, opponent.rank)}%` }}
+                      style={{ width: `${isGhostMode || isFriendChallengeSetup ? 0 : calculateCaliber(opponent.accuracy, opponent.rank)}%` }}
                     />
                   </div>
                 </div>
@@ -2917,12 +3427,65 @@ Generate exactly 10 new questions.`;
             </div>
 
             {/* Battle Gating warnings */}
-            <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-4 flex gap-3 text-xs text-theme-muted max-w-md mx-auto">
-              <Info size={16} className="text-theme-primary shrink-0 mt-0.5" />
-              <p className="leading-relaxed">
-                Rules: 20 MCQs based on your target syllabus. +1 Mark for correct, -0.25 Mark for incorrect. Wager of 100 KashCoins will be committed upon starting the mock.
-              </p>
-            </div>
+            {isFriendChallengeSetup ? (
+              <div className="max-w-xl mx-auto rounded-3xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 via-theme-surface/60 to-indigo-500/10 backdrop-blur-md p-6 shadow-[0_15px_35px_-10px_rgba(139,92,246,0.15)] space-y-4 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
+                    <Zap size={18} className="text-purple-400 fill-purple-400/20" />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-sm text-slate-100 uppercase tracking-wider font-outfit">Challenge Mode Active</h4>
+                    <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest leading-none">Asynchronous Friend Duel</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2.5 text-xs text-theme-muted font-medium leading-relaxed border-t border-purple-500/20 pt-3">
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <p>Complete this 20-question mock test first to establish your benchmark score.</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <p>We'll generate a special "Link Magic" URL to share via WhatsApp/Telegram.</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <p>When your friend accepts, they tackle the identical deck of questions.</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <p>Wager of <strong className="text-slate-100">50 KashCoins</strong> committed. You will be notified instantly when they finish!</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="max-w-xl mx-auto rounded-3xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-theme-surface/60 to-orange-500/10 backdrop-blur-md p-6 shadow-[0_15px_35px_-10px_rgba(245,158,11,0.15)] space-y-4 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-500/20 flex items-center justify-center border border-amber-500/30">
+                    <Swords size={18} className="text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-sm text-slate-100 uppercase tracking-wider font-outfit">Daily Battle Rules</h4>
+                    <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest leading-none">Standard Mock Rules</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2.5 text-xs text-theme-muted font-medium leading-relaxed border-t border-amber-500/20 pt-3">
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <p>Standard mock consists of 20 randomized questions based on your target syllabus.</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <p>Scoring scheme is <strong>+1.00 Mark</strong> for correct and <strong>-0.25 Mark</strong> for incorrect answers.</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <p>Wager of <strong className="text-slate-100">100 KashCoins</strong> committed upon starting the mock match.</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
 
@@ -3114,6 +3677,9 @@ Generate exactly 10 new questions.`;
                    <h1 className="text-3xl md:text-4xl font-black tracking-tighter leading-none font-outfit mt-1.5 uppercase text-gradient-primary">
                      Match in Progress
                    </h1>
+                   <p className="text-xs sm:text-sm font-extrabold text-amber-500 italic mt-2 animate-pulse">
+                     Fast isn't always smart. Pace yourself in exam mocks and avoid idle waiting.
+                   </p>
                  </div>
 
                  {/* Bento Grid: User Card (left) + Wait Diagnostics (right) */}
@@ -3252,10 +3818,10 @@ Generate exactly 10 new questions.`;
                       ? 'bg-rose-500/10 text-rose-500 border border-rose-500/15' 
                       : 'bg-yellow-500/10 text-yellow-500 border border-yellow-500/15'
                   }`}>
-                    {isGhostMode ? 'GHOST CHALLENGE SUBMITTED' : currentGreeting()}
+                    {isGhostMode ? 'GHOST CHALLENGE SUBMITTED' : isFriendChallengeSetup ? 'CHALLENGE PREPARED' : currentGreeting()}
                   </span>
                   <h1 className="text-3xl md:text-4xl font-black tracking-tighter leading-none font-outfit mt-1.5 uppercase text-gradient-primary">
-                    {isGhostMode ? 'Challenge Queued' : userScore > opponentScore ? 'Victory Earned' : userScore < opponentScore ? 'Defeated' : 'Arena Tie'}
+                    {isGhostMode ? 'Challenge Queued' : isFriendChallengeSetup ? 'Challenge Prepared!' : userScore > opponentScore ? 'Victory Earned' : userScore < opponentScore ? 'Defeated' : 'Arena Tie'}
                   </h1>
                 </div>
 
@@ -3406,15 +3972,15 @@ Generate exactly 10 new questions.`;
                                   <Avatar id={isGhostMode ? 1 : (opponent?.avatar_id || 2)} className="w-full h-full rounded-full" />
                                 </div>
                                 <div className="text-center">
-                                  <div className="text-sm sm:text-base font-black text-theme-text truncate max-w-[100px] sm:max-w-[120px]">{isGhostMode ? 'Awaiting Challenger' : (opponent?.full_name || 'Opponent')}</div>
-                                  <div className="text-[10px] text-theme-muted/60 font-normal lowercase mt-0.5 truncate max-w-[100px] sm:max-w-[120px]">{isGhostMode ? '@matching_soon' : `@${opponent?.full_name ? opponent.full_name.toLowerCase().replace(/\s+/g, '') : 'aspirant'}`}</div>
+                                  <div className="text-sm sm:text-base font-black text-theme-text truncate max-w-[100px] sm:max-w-[120px]">{isGhostMode ? 'Awaiting Challenger' : isFriendChallengeSetup ? 'Your Friend' : (opponent?.full_name || 'Opponent')}</div>
+                                  <div className="text-[10px] text-theme-muted/60 font-normal lowercase mt-0.5 truncate max-w-[100px] sm:max-w-[120px]">{isGhostMode ? '@matching_soon' : isFriendChallengeSetup ? '@challenger' : `@${opponent?.full_name ? opponent.full_name.toLowerCase().replace(/\s+/g, '') : 'aspirant'}`}</div>
                                 </div>
                                 <div className="flex items-center gap-1 bg-amber-500/10 border border-amber-500/25 text-amber-500 px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider select-none">
                                   <svg className="w-3 h-3 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.2 1.8 4 4 4h1.1c.9 2 2.8 3.5 5.1 3.9v3.1H9v2h6v-2h-4.2v-3.1c2.3-.4 4.2-1.9 5.1-3.9H17c2.2 0 4-1.8 4-4V7c0-1.1-.9-2-2-2zM7 11c-1.1 0-2-.9-2-2V7h2v4zm12-2c0 1.1-.9 2-2 2v-4h2v2z"/></svg>
-                                  <span>{isGhostMode ? '---' : `#${liveOppRank}`} Rank</span>
+                                  <span>{isGhostMode || isFriendChallengeSetup ? '---' : `#${liveOppRank}`} Rank</span>
                                 </div>
                                 <span className="font-mono text-xl sm:text-2xl font-black text-theme-primary">
-                                  {isGhostMode ? '---' : opponentScore.toFixed(2)}
+                                  {isGhostMode || isFriendChallengeSetup ? '---' : opponentScore.toFixed(2)}
                                 </span>
                               </div>
 
@@ -3425,7 +3991,9 @@ Generate exactly 10 new questions.`;
                               <div className="flex justify-center items-center py-1.5 select-none">
                                 <div
                                   className={`inline-flex items-center justify-center px-8 sm:px-10 py-2.5 sm:py-3 rounded-lg border-[3px] select-none transform -rotate-6 ${
-                                    liveOutcome === 'VICTORY'
+                                    isFriendChallengeSetup
+                                      ? 'border-purple-500/60 text-purple-400 bg-purple-500/5'
+                                      : liveOutcome === 'VICTORY'
                                       ? 'border-emerald-500/60 text-emerald-400 bg-emerald-500/5'
                                       : liveOutcome === 'DEFEAT'
                                       ? 'border-rose-500/60 text-rose-400 bg-rose-500/5'
@@ -3437,19 +4005,23 @@ Generate exactly 10 new questions.`;
                                     fontWeight: 900,
                                     letterSpacing: '0.28em',
                                     textTransform: 'uppercase',
-                                    boxShadow: liveOutcome === 'VICTORY'
+                                    boxShadow: isFriendChallengeSetup
+                                      ? '0 0 18px rgba(168,85,247,0.3), inset 0 0 18px rgba(168,85,247,0.07)'
+                                      : liveOutcome === 'VICTORY'
                                       ? '0 0 18px rgba(16,185,129,0.3), inset 0 0 18px rgba(16,185,129,0.07)'
                                       : liveOutcome === 'DEFEAT'
                                       ? '0 0 18px rgba(244,63,94,0.3), inset 0 0 18px rgba(244,63,94,0.07)'
                                       : '0 0 18px rgba(59,130,246,0.3), inset 0 0 18px rgba(59,130,246,0.07)',
-                                    filter: liveOutcome === 'VICTORY'
+                                    filter: isFriendChallengeSetup
+                                      ? 'drop-shadow(0 0 8px rgba(168,85,247,0.4))'
+                                      : liveOutcome === 'VICTORY'
                                       ? 'drop-shadow(0 0 8px rgba(16,185,129,0.4))'
                                       : liveOutcome === 'DEFEAT'
                                       ? 'drop-shadow(0 0 8px rgba(244,63,94,0.4))'
                                       : 'drop-shadow(0 0 8px rgba(59,130,246,0.4))'
                                   }}
                                 >
-                                  {liveOutcome}
+                                  {isFriendChallengeSetup ? 'PENDING' : liveOutcome}
                                 </div>
                               </div>
                             )}
@@ -3459,6 +4031,10 @@ Generate exactly 10 new questions.`;
                           {isGhostMode ? (
                             <div className="flex items-center justify-center gap-1.5 select-none mb-1 relative z-10 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-theme-muted">
                               Wager counts only when opponent found
+                            </div>
+                          ) : isFriendChallengeSetup ? (
+                            <div className="flex items-center justify-center gap-1.5 select-none mb-1 relative z-10 text-[10px] font-black uppercase tracking-wider text-purple-400">
+                              Wager Stake: 50 KashCoins
                             </div>
                           ) : (
                             <div className="flex items-center justify-center gap-1.5 select-none mb-1 relative z-10">
@@ -3474,35 +4050,46 @@ Generate exactly 10 new questions.`;
                         </div>
 
                         {/* Action buttons */}
-                        <div className="flex gap-3 w-full">
+                        <div className="flex flex-col gap-3 w-full">
                           {!isGhostMode ? (
                             <>
-                              <button
-                                onClick={() => handleFlexShare(
-                                  `I just battled in MCQKash! Scored ${userScore.toFixed(2)} points. Beat my score: ${window.location.origin}`,
-                                  {
-                                    outcome: liveOutcome,
-                                    targetExam: economy?.target_exam,
-                                    userRank: liveUserRank,
-                                    opponentRank: liveOppRank,
-                                    coinChange: netKC,
-                                    userFullName: economy?.full_name || 'You',
-                                    opponentName: opponent?.full_name || 'Opponent',
-                                    userScore: userScore,
-                                    opponentScore: opponentScore,
-                                    date: getISTDetails().dateStr,
-                                    userAvatarId: economy?.avatar_id || 1,
-                                    opponentAvatarId: opponent?.avatar_id || 2
-                                  }
+                              <div className="flex gap-3 w-full">
+                                <button
+                                  onClick={() => handleFlexShare(
+                                    `I just battled in MCQKash! Scored ${userScore.toFixed(2)} points. Beat my score: ${window.location.origin}`,
+                                    {
+                                      outcome: liveOutcome,
+                                      targetExam: economy?.target_exam,
+                                      userRank: liveUserRank,
+                                      opponentRank: liveOppRank,
+                                      coinChange: netKC,
+                                      userFullName: economy?.full_name || 'You',
+                                      opponentName: opponent?.full_name || 'Opponent',
+                                      userScore: userScore,
+                                      opponentScore: opponentScore,
+                                      date: getISTDetails().dateStr,
+                                      userAvatarId: economy?.avatar_id || 1,
+                                      opponentAvatarId: opponent?.avatar_id || 2
+                                    }
+                                  )}
+                                  className={`${isFriendChallengeSetup ? 'w-full' : 'flex-1'} py-3 bg-gradient-primary text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-theme-primary/10`}
+                                >
+                                  <Share2 size={14} />
+                                  Flex Card
+                                </button>
+                                {!isFriendChallengeSetup && (
+                                  <button
+                                    onClick={handleChallengeShare}
+                                    className="flex-1 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-indigo-500/10"
+                                  >
+                                    <Zap size={14} />
+                                    Challenge Friend
+                                  </button>
                                 )}
-                                className="flex-1 py-3 bg-gradient-primary text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-theme-primary/10"
-                              >
-                                <Share2 size={14} />
-                                Flex Card
-                              </button>
+                              </div>
                               <button
-                                onClick={() => { setStep('gate'); refreshEconomy(); }}
-                                className="flex-1 py-3 border border-theme-border bg-theme-surface text-theme-text rounded-2xl text-xs font-black uppercase tracking-wider hover:border-theme-primary transition-all flex items-center justify-center gap-2 active:scale-95"
+                                onClick={() => { setStep('gate'); setIsFriendChallengeSetup(false); refreshEconomy(); }}
+                                className="w-full py-3 border border-theme-border bg-theme-surface text-theme-text rounded-2xl text-xs font-black uppercase tracking-wider hover:border-theme-primary transition-all flex items-center justify-center gap-2 active:scale-95"
                               >
                                 Exit Arena
                               </button>
@@ -3521,8 +4108,38 @@ Generate exactly 10 new questions.`;
                       {/* ─── RIGHT: Premium Analytics Panel ─── */}
                       <div className="md:col-span-3 flex flex-col gap-4">
 
+                        {/* Share with Friend Card (High-Stakes Mode) */}
+                        {isFriendChallengeSetup && (
+                          <div className="bg-theme-surface/50 border border-purple-500/30 rounded-3xl p-5 shadow-[0_15px_30px_-10px_rgba(139,92,246,0.15)] relative overflow-hidden space-y-4 text-left backdrop-blur-md">
+                            {/* Pulse Glow Vignette */}
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl pointer-events-none animate-pulse" />
+                            
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-2xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 shrink-0">
+                                <Zap size={18} className="text-purple-400 fill-purple-400/10 animate-bounce-slow" />
+                              </div>
+                              <div>
+                                <h4 className="font-extrabold text-sm text-slate-100 uppercase tracking-wider leading-none">Share invitation</h4>
+                                <span className="text-[8px] text-purple-400 font-black uppercase tracking-widest mt-1 block leading-none">Your Challenge is Ready</span>
+                              </div>
+                            </div>
+
+                            <p className="text-xs text-theme-muted font-medium leading-relaxed">
+                              Send the challenge mock invitation link to your friends. They will take the identical test deck, and your scores will duel asynchronously!
+                            </p>
+
+                            <button
+                              onClick={handleChallengeShare}
+                              className="w-full py-3.5 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:shadow-[0_8px_20px_rgba(139,92,246,0.25)] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
+                            >
+                              <Share2 size={14} />
+                              Share with Friend
+                            </button>
+                          </div>
+                        )}
+
                         {/* Wager Economics Tile (Compact version) */}
-                        {!isGhostMode && (
+                        {!isGhostMode && !isFriendChallengeSetup && (
                           <div
                             className="rounded-2xl p-4 space-y-2.5 relative overflow-hidden text-left"
                             style={{
@@ -3600,64 +4217,111 @@ Generate exactly 10 new questions.`;
 
 
                         {/* AI X-Ray Telemetry Tile (Compact version) */}
-                        <div
-                          className="rounded-2xl p-4 flex flex-col justify-between flex-1 space-y-3 relative overflow-hidden text-left"
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(15,18,29,0.75) 100%)',
-                            border: '1px solid rgba(99,102,241,0.25)',
-                            backdropFilter: 'blur(20px)',
-                            boxShadow: '0 12px 40px -12px rgba(99,102,241,0.15), inset 0 1px 0 rgba(255,255,255,0.05)'
-                          }}
-                        >
-                          {/* Radial glow top-right */}
+                        {!isFriendChallengeSetup && (
                           <div
-                            className="absolute top-0 right-0 w-20 h-20 rounded-full pointer-events-none"
+                            className="rounded-2xl p-4 flex flex-col justify-between flex-1 space-y-3 relative overflow-hidden text-left"
                             style={{
-                              background: isGhostMode
-                                ? 'radial-gradient(circle, rgba(var(--color-primary-rgb),0.12) 0%, transparent 70%)'
-                                : netKC >= 0
-                                ? 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)'
-                                : 'radial-gradient(circle, rgba(244,63,94,0.12) 0%, transparent 70%)'
+                              background: 'linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(15,18,29,0.75) 100%)',
+                              border: '1px solid rgba(99,102,241,0.25)',
+                              backdropFilter: 'blur(20px)',
+                              boxShadow: '0 12px 40px -12px rgba(99,102,241,0.15), inset 0 1px 0 rgba(255,255,255,0.05)'
                             }}
-                          />
+                          >
+                            {/* Radial glow top-right */}
+                            <div
+                              className="absolute top-0 right-0 w-20 h-20 rounded-full pointer-events-none"
+                              style={{
+                                background: isGhostMode
+                                  ? 'radial-gradient(circle, rgba(var(--color-primary-rgb),0.12) 0%, transparent 70%)'
+                                  : netKC >= 0
+                                  ? 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)'
+                                  : 'radial-gradient(circle, rgba(244,63,94,0.12) 0%, transparent 70%)'
+                              }}
+                            />
 
-                          {/* Diagnostic Title */}
-                          <div className="flex items-center gap-2 pb-2 border-b border-white/[0.06] relative z-10">
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
-                              isGhostMode
-                                ? 'bg-theme-primary/10 text-theme-primary'
-                                : netKC >= 0
-                                ? 'bg-emerald-500/15 text-emerald-400'
-                                : 'bg-rose-500/15 text-rose-400'
-                            }`}>
-                              <Eye size={14} />
+                            {/* Diagnostic Title */}
+                            <div className="flex items-center gap-2 pb-2 border-b border-white/[0.06] relative z-10">
+                              <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+                                isGhostMode
+                                  ? 'bg-theme-primary/10 text-theme-primary'
+                                  : netKC >= 0
+                                  ? 'bg-emerald-500/15 text-emerald-400'
+                                  : 'bg-rose-500/15 text-rose-400'
+                              }`}>
+                                <Eye size={14} />
+                              </div>
+                              <div>
+                                <h4 className="text-[11px] font-black text-theme-text uppercase tracking-wider leading-none">AI X-Ray Telemetry</h4>
+                                <span className="text-[7.5px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block leading-none">Accuracy Diagnostic</span>
+                              </div>
                             </div>
-                            <div>
-                              <h4 className="text-[11px] font-black text-theme-text uppercase tracking-wider leading-none">AI X-Ray Telemetry</h4>
-                              <span className="text-[7.5px] text-theme-muted font-bold uppercase tracking-widest mt-0.5 block leading-none">Accuracy Diagnostic</span>
-                            </div>
-                          </div>
 
-                          {/* Diagnostic Content */}
-                          <div className="relative z-10 flex-1">
-                            {isGhostMode ? (
-                              economy?.user_tier === 'Pro' ? (
-                                <div className="space-y-2.5 flex flex-col justify-center text-center py-4">
-                                  <p className="text-[10px] text-theme-muted leading-relaxed font-semibold">
-                                    AI X-Ray Telemetry accuracy diagnostics will calibrate once an opponent matches your queued challenge card.
+                            {/* Diagnostic Content */}
+                            <div className="relative z-10 flex-1">
+                              {isGhostMode ? (
+                                economy?.user_tier === 'Pro' ? (
+                                  <div className="space-y-2.5 flex flex-col justify-center text-center py-4">
+                                    <p className="text-[10px] text-theme-muted leading-relaxed font-semibold">
+                                      AI X-Ray Telemetry accuracy diagnostics will calibrate once an opponent matches your queued challenge card.
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div className="space-y-3 flex flex-col justify-between h-full">
+                                    <div className="relative rounded-xl border border-rose-500/10 p-4 overflow-hidden select-none bg-rose-500/[0.02]">
+                                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-3 text-center">
+                                        <Lock size={16} className="text-amber-500 animate-pulse mb-1" />
+                                        <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">X-Ray Telemetry for Pro Users</p>
+                                        <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock when matched</p>
+                                      </div>
+                                    </div>
+                                    <p className="text-[10px] font-semibold text-theme-muted leading-relaxed text-center">
+                                      Upgrade to Pro to unveil comparative diagnostics once a competitor matches your card.
+                                    </p>
+                                    <button
+                                      onClick={() => navigate('/upgrade')}
+                                      className="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-500/20 text-white rounded-xl text-[9px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shrink-0"
+                                    >
+                                      <Star size={11} fill="currentColor" />
+                                      UPGRADE TO PRO
+                                    </button>
+                                  </div>
+                                )
+                              ) : economy?.user_tier === 'Pro' ? (
+                                <div className="space-y-2.5 flex flex-col justify-center">
+                                  <p className="text-[10px] text-theme-muted leading-relaxed font-medium">
+                                    Algorithmic breakdown of your 20-Question match against {opponent?.full_name}:
+                                  </p>
+                                  <div
+                                    className="rounded-xl p-3 text-left space-y-2 bg-theme-bg/60 border border-theme-border/50"
+                                  >
+                                    <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-1.5" />
+                                      <div>{opponent?.full_name} dominated in <span className="text-theme-accent font-black">{xrayBreakdown.worst}</span>.</div>
+                                    </div>
+                                    <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 mt-1.5 animate-pulse" />
+                                      <div>You were untouchable in <span className="text-theme-primary font-black">{xrayBreakdown.best}</span>.</div>
+                                    </div>
+                                  </div>
+                                  <p className="text-[9px] text-theme-muted leading-snug">
+                                    💡 Tip: Practice more questions under <span className="text-theme-accent font-bold">{xrayBreakdown.worst}</span> in Subject Hub to prevent close losses.
                                   </p>
                                 </div>
                               ) : (
                                 <div className="space-y-3 flex flex-col justify-between h-full">
                                   <div className="relative rounded-xl border border-rose-500/10 p-4 overflow-hidden select-none bg-rose-500/[0.02]">
+                                    <div className="filter blur-[4px] opacity-20 space-y-1.5 text-left text-[10px] font-bold leading-normal">
+                                      <p>• {opponent?.full_name} dominated you in Geography with a 92% accuracy spread.</p>
+                                      <p>• You were completely untouchable in Science with a +15 speed index.</p>
+                                    </div>
                                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-3 text-center">
                                       <Lock size={16} className="text-amber-500 animate-pulse mb-1" />
-                                      <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">X-Ray Telemetry for Pro Users</p>
-                                      <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock when matched</p>
+                                      <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">See where {opponent?.full_name} beat you.</p>
+                                      <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock X-Ray Analysis</p>
                                     </div>
                                   </div>
                                   <p className="text-[10px] font-semibold text-theme-muted leading-relaxed text-center">
-                                    Upgrade to Pro to unveil comparative diagnostics once a competitor matches your card.
+                                    Unveil algorithmic diagnostic alerts of your mock challenge. Learn your critical weakness gaps to boost leaderboard standings.
                                   </p>
                                   <button
                                     onClick={() => navigate('/upgrade')}
@@ -3667,55 +4331,10 @@ Generate exactly 10 new questions.`;
                                     UPGRADE TO PRO
                                   </button>
                                 </div>
-                              )
-                            ) : economy?.user_tier === 'Pro' ? (
-                              <div className="space-y-2.5 flex flex-col justify-center">
-                                <p className="text-[10px] text-theme-muted leading-relaxed font-medium">
-                                  Algorithmic breakdown of your 20-Question match against {opponent?.full_name}:
-                                </p>
-                                <div
-                                  className="rounded-xl p-3 text-left space-y-2 bg-theme-bg/60 border border-theme-border/50"
-                                >
-                                  <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-1.5" />
-                                    <div>{opponent?.full_name} dominated in <span className="text-theme-accent font-black">{xrayBreakdown.worst}</span>.</div>
-                                  </div>
-                                  <div className="flex items-start gap-2 text-[11px] text-theme-text font-semibold leading-normal">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 mt-1.5 animate-pulse" />
-                                    <div>You were untouchable in <span className="text-theme-primary font-black">{xrayBreakdown.best}</span>.</div>
-                                  </div>
-                                </div>
-                                <p className="text-[9px] text-theme-muted leading-snug">
-                                  💡 Tip: Practice more questions under <span className="text-theme-accent font-bold">{xrayBreakdown.worst}</span> in Subject Hub to prevent close losses.
-                                </p>
-                              </div>
-                            ) : (
-                              <div className="space-y-3 flex flex-col justify-between h-full">
-                                <div className="relative rounded-xl border border-rose-500/10 p-4 overflow-hidden select-none bg-rose-500/[0.02]">
-                                  <div className="filter blur-[4px] opacity-20 space-y-1.5 text-left text-[10px] font-bold leading-normal">
-                                    <p>• {opponent?.full_name} dominated you in Geography with a 92% accuracy spread.</p>
-                                    <p>• You were completely untouchable in Science with a +15 speed index.</p>
-                                  </div>
-                                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-theme-surface/50 backdrop-blur-[2px] p-3 text-center">
-                                    <Lock size={16} className="text-amber-500 animate-pulse mb-1" />
-                                    <p className="text-[9px] font-black text-theme-text uppercase tracking-wider leading-none">See where {opponent?.full_name} beat you.</p>
-                                    <p className="text-[7px] text-theme-muted font-bold uppercase mt-0.5">Unlock X-Ray Analysis</p>
-                                  </div>
-                                </div>
-                                <p className="text-[10px] font-semibold text-theme-muted leading-relaxed text-center">
-                                  Unveil algorithmic diagnostic alerts of your mock challenge. Learn your critical weakness gaps to boost leaderboard standings.
-                                </p>
-                                <button
-                                  onClick={() => navigate('/upgrade')}
-                                  className="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-500/20 text-white rounded-xl text-[9px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md shrink-0"
-                                >
-                                  <Star size={11} fill="currentColor" />
-                                  UPGRADE TO PRO
-                                </button>
-                              </div>
-                            )}
+                              )}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* Compact Free member scoring cap banner */}
                         {economy?.user_tier !== 'Pro' && (
@@ -4460,7 +5079,9 @@ Generate exactly 10 new questions.`;
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-black text-lg text-slate-100 uppercase tracking-wider">Kash AI Working</h3>
+                <h3 className="font-black text-lg text-slate-100 uppercase tracking-wider">
+                  {(isFriendChallengeSetup || challengeData) && step !== 'reveal' ? "Duel Arena Setup" : "Kash AI Working"}
+                </h3>
                 <p className="text-xs text-slate-400 font-semibold leading-relaxed">
                   {aiLoadingText || "Synthesizing intelligence features..."}
                 </p>
@@ -4468,7 +5089,7 @@ Generate exactly 10 new questions.`;
 
               <div className="pt-2">
                 <span className="text-[9px] font-black uppercase tracking-widest bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/20">
-                  ★ Pro AI Integration
+                  {(isFriendChallengeSetup || challengeData) && step !== 'reveal' ? "⚔️ Asynchronous Duel" : "★ Pro AI Integration"}
                 </span>
               </div>
             </motion.div>

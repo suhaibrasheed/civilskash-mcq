@@ -10,10 +10,12 @@ import { useSound } from '../context/SoundContext';
 import { KashCoinDisplay, StreakModal, CoinsVaultModal } from './EconomyUI';
 import BYOKSettingsModal from './BYOKSettingsModal';
 import { getRevisionStats } from '../lib/db';
+import { supabase } from '../lib/supabase';
+
 
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
-export function MCQKashLogo({ tier = 'FREE' }) {
+export function MCQKashLogo({ tier = 'FREE', onlyIcon = false }) {
   const isPro = tier === 'Pro';
   const navigate = useNavigate();
   const { theme } = useTheme();
@@ -41,6 +43,39 @@ export function MCQKashLogo({ tier = 'FREE' }) {
     }
   };
 
+  const logoIconContent = (
+    <div className="relative flex items-center justify-center w-[34px] h-[34px] sm:w-[38px] sm:h-[38px]">
+      <Hexagon
+        size={32}
+        className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 sm:hidden"
+        strokeWidth={1.6}
+        style={{ color: 'rgb(var(--color-primary))' }}
+      />
+      <Hexagon
+        size={36}
+        className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 hidden sm:block"
+        strokeWidth={1.6}
+        style={{ color: 'rgb(var(--color-primary))' }}
+      />
+      <span
+        className="text-[12px] sm:text-[13px] font-black tracking-tighter relative z-10"
+        style={{ color: 'rgb(var(--color-primary))' }}
+      >
+        M
+      </span>
+    </div>
+  );
+
+  if (onlyIcon) {
+    return (
+      <div className="shrink-0 flex items-center z-50">
+        <div className="flex items-center select-none group">
+          {logoIconContent}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="shrink-0 flex items-center gap-1.5 sm:gap-2 z-50">
       <Link
@@ -56,27 +91,7 @@ export function MCQKashLogo({ tier = 'FREE' }) {
         aria-label="MCQ Kash — Go to home"
         className="flex items-center gap-1.5 select-none group cursor-pointer"
       >
-        {/* Hexagon icon — slightly larger */}
-        <div className="relative flex items-center justify-center w-[34px] h-[34px] sm:w-[38px] sm:h-[38px]">
-          <Hexagon
-            size={32}
-            className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 sm:hidden"
-            strokeWidth={1.6}
-            style={{ color: 'rgb(var(--color-primary))' }}
-          />
-          <Hexagon
-            size={36}
-            className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 hidden sm:block"
-            strokeWidth={1.6}
-            style={{ color: 'rgb(var(--color-primary))' }}
-          />
-          <span
-            className="text-[12px] sm:text-[13px] font-black tracking-tighter relative z-10"
-            style={{ color: 'rgb(var(--color-primary))' }}
-          >
-            M
-          </span>
-        </div>
+        {logoIconContent}
         <div className="hidden min-[480px]:flex items-baseline gap-0.5 leading-none mt-0.5">
           <span className="text-[16px] sm:text-[19px] font-black tracking-tight" style={{ color: 'var(--color-text)' }}>
             MCQ
@@ -116,7 +131,7 @@ const TEXT_SIZE_STEPS = [
 function SettingsPanel({ onClose, onOpenAiSettings }) {
   const navigate = useNavigate();
   const { theme, setTheme, textSize, setTextSize } = useTheme();
-  const { economy } = useEconomy();
+  const { economy, openProUpsell } = useEconomy();
   const { user, signOut } = useAuth();
   const { showToast } = useToast();
 
@@ -279,12 +294,16 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
             <button
               onClick={() => {
                 onClose();
-                onOpenAiSettings();
+                if (economy?.user_tier !== 'Pro') {
+                  openProUpsell('Elite AI Suite');
+                } else {
+                  onOpenAiSettings();
+                }
               }}
               className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
             >
               <Wand2 size={12} className="text-purple-400" />
-              Personal AI Settings
+              Elite AI Suite
             </button>
           </div>
         </div>
@@ -421,13 +440,13 @@ const getBacklogLevel = (count) => {
 };
 
 // ── Notifications Command Center Panel ──────────────────────────────
-function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, battleNotifications, setBattleNotifications, economy }) {
+function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, battleNotifications, setBattleNotifications, dbNotifications, setDbNotifications, economy }) {
   const navigate = useNavigate();
   const backlogCount = stats?.totalResurrection || 0;
   const backlogLevel = getBacklogLevel(backlogCount);
   const hasBacklog = backlogLevel.active;
   const srsDue = stats?.dueSRS || 0;
-  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || (battleNotifications && battleNotifications.length > 0);
+  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || (battleNotifications && battleNotifications.length > 0) || (dbNotifications && dbNotifications.length > 0);
 
   return (
     <motion.div
@@ -457,6 +476,102 @@ function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, b
           </div>
         ) : (
           <div className="flex flex-col gap-3">
+            {dbNotifications && dbNotifications.map(n => {
+              // Parse compact metadata for challenge notifications
+              let meta = null;
+              if (n.type === 'challenge_resolved' && n.metadata) {
+                try { meta = JSON.parse(n.metadata); } catch (e) {}
+              }
+
+              const handleSeeResult = async () => {
+                try {
+                  await supabase.from('notifications').update({ read: true }).eq('id', n.id);
+                } catch (e) {}
+                if (setDbNotifications) {
+                  setDbNotifications(prev => prev.filter(item => item.id !== n.id));
+                }
+                // Navigate to battle arena with reconstructed result card data
+                if (meta) {
+                  // Fetch challenger's own live rank
+                  let challengerRank = 15;
+                  try {
+                    const { data: rankData } = await supabase.rpc('get_logged_in_user_coins_rank');
+                    if (rankData) challengerRank = rankData;
+                  } catch (e) {}
+
+                  const challengerWon = (meta.cs || 0) > (meta.fs || 0);
+                  const isTie = (meta.cs || 0) === (meta.fs || 0);
+                  const challengeResultCard = {
+                    id: `challenge_result_${n.id}`,
+                    userId: economy?.id || 'guest',
+                    userFullName: economy?.full_name || 'You',
+                    userAvatarId: economy?.avatar_id || 1,
+                    userIsPro: false,
+                    userScore: meta.cs,
+                    userCorrect: null,
+                    userIncorrect: null,
+                    userRank: challengerRank,           // Real challenger rank from RPC
+                    opponentName: meta.fn,
+                    opponentAvatarId: meta.fa || 1,    // Real friend avatar from metadata
+                    opponentIsPro: false,
+                    opponentScore: meta.fs,
+                    opponentRank: meta.fr || 15,       // Real friend rank from metadata
+                    targetExam: meta.ex || 'UPSC Pre',
+                    date: meta.dt || new Date().toDateString(),
+                    timestamp: Date.now(),
+                    outcome: challengerWon ? 'VICTORY' : isTie ? 'TIE' : 'DEFEAT',
+                    coinChange: challengerWon ? 100 : isTie ? 0 : -50,
+                    isChallengeMode: true,
+                    unboxed: true
+                  };
+                  // Save challenger's battle card to their history
+                  const userId = economy?.id || 'guest';
+                  try {
+                    const stored = localStorage.getItem(`mcqkash_battle_history_${userId}`);
+                    const list = stored ? JSON.parse(stored) : [];
+                    if (!list.find(c => c.id === challengeResultCard.id)) {
+                      list.unshift(challengeResultCard);
+                      localStorage.setItem(`mcqkash_battle_history_${userId}`, JSON.stringify(list));
+                    }
+                  } catch (e) {}
+                  navigate('/battle-arena', { state: { showChallengeResult: challengeResultCard } });
+                } else {
+                  navigate('/battle-arena');
+                }
+                onClose();
+              };
+
+              return (
+                <div key={n.id} className="flex flex-col gap-1.5 text-[11px] leading-relaxed border-b border-theme-border/10 pb-3 last:border-0 last:pb-0">
+                  <div className="flex items-start gap-2 text-theme-text font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 mt-1.5 animate-pulse" />
+                    <div>{n.message}</div>
+                  </div>
+                  <div className="flex gap-2 pl-3.5">
+                    {n.type === 'challenge_resolved' && meta ? (
+                      <button
+                        onClick={handleSeeResult}
+                        className="text-left text-[10px] font-black text-amber-500 hover:opacity-80 transition-colors uppercase tracking-wider inline-flex items-center"
+                      >
+                        See Battle Result →
+                      </button>
+                    ) : (
+                      <button
+                        onClick={async () => {
+                          try { await supabase.from('notifications').update({ read: true }).eq('id', n.id); } catch (e) {}
+                          if (setDbNotifications) setDbNotifications(prev => prev.filter(item => item.id !== n.id));
+                          onClose();
+                        }}
+                        className="text-left text-[10px] font-black text-theme-primary hover:opacity-80 transition-colors uppercase tracking-wider inline-flex items-center"
+                      >
+                        Dismiss →
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+
             {battleNotifications && battleNotifications.map(n => (
               <div key={n.id} className="flex flex-col gap-1.5 text-[11px] leading-relaxed border-b border-theme-border/10 pb-3 last:border-0 last:pb-0">
                 <div className="flex items-start gap-2 text-theme-text font-bold">
@@ -562,12 +677,42 @@ export default function Header() {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const notificationsRef = useRef(null);
   const [revisionStats, setRevisionStats] = useState(null);
+  const [dbNotifications, setDbNotifications] = useState([]);
 
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const { economy, toggleProTier, aiSettingsOpen, setAiSettingsOpen, refreshEconomy, transactKC } = useEconomy();
   const { showToast } = useToast();
   const { playVictory, playShatter } = useSound();
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) return;
+    let isDisabled = false;
+    const fetchDbNotifications = async () => {
+      if (isDisabled) return;
+      try {
+        const { data, error } = await supabase
+          .from('notifications')
+          .select('*')
+          .eq('user_id', user.id)
+          .eq('read', false)
+          .order('created_at', { ascending: false });
+        if (error) {
+          isDisabled = true;
+          return;
+        }
+        if (data) {
+          setDbNotifications(data);
+        }
+      } catch (err) {
+        isDisabled = true;
+      }
+    };
+    fetchDbNotifications();
+    const interval = setInterval(fetchDbNotifications, 8000);
+    return () => clearInterval(interval);
+  }, [user]);
+
 
   // Scratch Card pending calculation
   const welcomePending = !!localStorage.getItem('mcqkash_welcome_coins_pending');
@@ -700,7 +845,8 @@ export default function Header() {
   const backlogLevel = getBacklogLevel(backlogCount);
   const hasBacklog = backlogLevel.active;
   const srsDue = revisionStats?.dueSRS || 0;
-  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || battleNotifications.length > 0;
+  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || battleNotifications.length > 0 || dbNotifications.length > 0;
+
 
   useEffect(() => {
     let active = true;
@@ -894,6 +1040,8 @@ export default function Header() {
                     pendingScratchCount={pendingScratchCount}
                     battleNotifications={battleNotifications}
                     setBattleNotifications={setBattleNotifications}
+                    dbNotifications={dbNotifications}
+                    setDbNotifications={setDbNotifications}
                     economy={economy}
                   />
                 )}
@@ -945,7 +1093,6 @@ export default function Header() {
       <StreakModal isOpen={streakModalOpen} onClose={() => setStreakModalOpen(false)} />
       <CoinsVaultModal isOpen={coinsVaultOpen} onClose={() => setCoinsVaultOpen(false)} />
 
-      {/* ⚙️ PERSONAL BYOK AI SETTINGS MODAL */}
       <BYOKSettingsModal 
         isOpen={aiSettingsOpen} 
         onClose={() => setAiSettingsOpen(false)} 

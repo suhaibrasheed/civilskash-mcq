@@ -231,10 +231,11 @@ export default function ProfileDashboard() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, loading: authLoading, signUp, signIn, signInWithGoogle, signOut } = useAuth();
-  const { economy, toggleProTier, aiSettingsOpen, setAiSettingsOpen, refreshEconomy } = useEconomy();
+  const { economy, toggleProTier, refreshEconomy, spendRevisionKC, openProUpsell, aiSettingsOpen, setAiSettingsOpen } = useEconomy();
   const { showToast } = useToast();
   const { playVictory } = useSound();
   const { theme } = useTheme();
+
 
   const getScratchHistory = () => {
     try {
@@ -476,7 +477,7 @@ export default function ProfileDashboard() {
     history: []
   });
 
-  // Load stats
+  // Load aggregated mock stats
   useEffect(() => {
     const loadStats = async () => {
       try {
@@ -544,7 +545,11 @@ export default function ProfileDashboard() {
   // ── 4. SETTINGS CLICK ──
   const handleSettingClick = (id) => {
     if (id === 'ai') {
-      setAiSettingsOpen(true);
+      if (economy?.user_tier !== 'Pro') {
+        openProUpsell('Elite AI Suite');
+      } else {
+        setAiSettingsOpen(true);
+      }
     } else if (id === 'billing') {
       if (economy?.user_tier === 'Pro') {
         setShowBillingModal(true);
@@ -591,7 +596,7 @@ export default function ProfileDashboard() {
 
   const handleAiCoachClick = () => {
     if (economy?.user_tier !== 'Pro') {
-      setAiSettingsOpen(true);
+      openProUpsell('Personal Coach');
     } else {
       setShowAiCoachModal(true);
     }
@@ -1284,7 +1289,7 @@ export default function ProfileDashboard() {
                 { id: 'personal', title: 'Personal Information', desc: 'Update your name and contact details' },
                 { id: 'billing', title: 'Subscription & Billing', desc: 'Manage your Pro plan' },
                 { id: 'rewards', title: 'Earn Rewards', desc: 'Invite friends, earn KashCoins, and unlock premium discounts' },
-                { id: 'ai', title: 'Personal AI Settings', desc: 'Configure your personal AI keys, models, and explore premium features' },
+                { id: 'ai', title: 'Elite AI Suite', desc: 'Configure your personal AI keys, models, and explore premium features' },
                 { id: 'goals', title: 'Study Goals', desc: 'Set daily targets and target exams' },
                 { id: 'notifications', title: 'Notification Preferences', desc: 'Email and push alerts' },
               ].map((item, i, arr) => (

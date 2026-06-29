@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import { Bookmark, CheckCircle2, XCircle, Lightbulb, Lock, Zap, Wand2, Sparkles, Loader2, ArrowRight } from 'lucide-react';
+import { Bookmark, CheckCircle2, XCircle, Lightbulb, Lock, Zap, Wand2, Sparkles, Loader2, ArrowRight, Split } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toggleBookmarkDB, isBookmarkedDB, markQuestionForResurrection } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
@@ -26,13 +26,13 @@ function DifficultyDot({ difficulty }) {
   const style = config[d] || config.unmarked;
 
   return (
-    <div className="relative flex-shrink-0 w-3.5 h-3.5 mr-2 group-hover:scale-110 transition-transform duration-300">
+    <div className="relative flex-shrink-0 w-4 h-4 group-hover:scale-110 transition-transform duration-300">
       {/* 3D glowing sphere */}
-      <div className={`absolute inset-0 rounded-full ${style.dot} shadow-[0_0_10px_rgba(0,0,0,0.15),inset_-2px_-2px_4px_rgba(0,0,0,0.25)] shadow-lg ${style.glow}`} />
+      <div className={`absolute inset-0 rounded-full ${style.dot} shadow-[0_0_10px_rgba(0,0,0,0.15),inset_-2px_-2px_4px_rgba(0,0,0,0.25)] shadow-md ${style.glow}`} />
       {/* Specular highlight — top-left white glint for 3D look */}
-      <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 rounded-full bg-white/80 blur-[0.2px]" />
+      <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 rounded-full bg-white/90 blur-[0.1px]" />
       {/* Subtle outer ring */}
-      <div className="absolute -inset-0.5 rounded-full border border-theme-border opacity-30" />
+      <div className="absolute -inset-0.5 rounded-full border border-theme-border opacity-20" />
     </div>
   );
 }
@@ -79,7 +79,7 @@ export default function McqCard({
   searchTerm = "",
   onUse5050 = null,           // Callback when 50/50 lifeline is activated
 }) {
-  const { economy, transactKC, setAiSettingsOpen } = useEconomy();
+  const { economy, transactKC, openProUpsell } = useEconomy();
   const { showToast } = useToast();
   const navigate = useNavigate();
   const alert = (msg) => {
@@ -113,8 +113,7 @@ export default function McqCard({
   const handleAiTutorClick = async (e) => {
     e.stopPropagation();
     if (economy?.user_tier !== 'Pro') {
-      showToast("★ Elite Feature: 'AI Tutor' is exclusive to Pro Members.", "error");
-      setAiSettingsOpen(true);
+      openProUpsell('AI Tutor');
       return;
     }
 
@@ -256,7 +255,12 @@ export default function McqCard({
       setIsBookmarked(saved);
     };
     checkBookmark();
-  }, [questionData.id]);
+
+    // Reset local selection when question changes or when external selection is cleared
+    if (externalSelection === null) {
+      setLocalSelectedOption(null);
+    }
+  }, [questionData.id, externalSelection]);
 
   const toggleBookmark = async () => {
     const newState = await toggleBookmarkDB(questionData);
@@ -451,74 +455,82 @@ export default function McqCard({
     >
 
       {/* Header: Difficulty Dot + Tags + Flag */}
-      <div className="relative flex justify-between items-center mb-4">
-        <div className="flex flex-wrap gap-2 items-center">
-          {/* Difficulty Dot — first, special */}
-          <DifficultyDot difficulty={questionData.difficulty} />
+      <div className="relative flex justify-between items-start mb-4 gap-2">
+        <div className="flex items-start gap-2 flex-grow min-w-0">
+          {/* Difficulty Dot — anchored at the start, never wraps alone */}
+          <div className="mt-[7px] flex-shrink-0">
+            <DifficultyDot difficulty={questionData.difficulty} />
+          </div>
 
-          {/* PYQ Badge — preceeds all tag badges and has distinct premium styling */}
-          {pyqVal && (
-            <button
-              onClick={(e) => handleTagClick(e, `PYQ: ${pyqVal}`)}
-              disabled={mode !== 'practice' || !onTagClick}
-              className={`flex items-center text-xs font-bold px-3 py-1 rounded-full border border-amber-500 bg-amber-500/15 text-amber-600 dark:text-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.12)] transition-all duration-150
-                ${mode === 'practice' && onTagClick
-                  ? 'cursor-pointer hover:bg-amber-500/25 hover:border-amber-500 hover:scale-105 active:scale-95'
-                  : 'cursor-default'
-                }`}
-            >
-              <Sparkles size={10} className="mr-1 text-amber-500 fill-amber-500" />
-              {pyqVal}
-            </button>
-          )}
+          <div className="flex flex-wrap gap-1.5 items-center min-w-0">
+            {/* PYQ Badge — gold accent premium badge */}
+            {pyqVal && (
+              <button
+                onClick={(e) => handleTagClick(e, `PYQ: ${pyqVal}`)}
+                disabled={mode !== 'practice' || !onTagClick}
+                className={`flex items-center text-xs font-bold px-3 py-1.5 rounded-full border border-amber-500/25 dark:border-amber-400/20 bg-amber-500/8 dark:bg-amber-400/5 text-amber-600 dark:text-amber-400 shadow-[0_1px_6px_rgba(245,158,11,0.05)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
+                  ${mode === 'practice' && onTagClick
+                    ? 'cursor-pointer hover:bg-amber-500/15 dark:hover:bg-amber-400/10 hover:border-amber-500/40 hover:scale-105 active:scale-95'
+                    : 'cursor-default'
+                  }`}
+              >
+                <Sparkles size={10} className="mr-1.5 text-amber-500 fill-amber-500 flex-shrink-0" />
+                <span>{pyqVal}</span>
+              </button>
+            )}
 
-          {/* Pro Tag Badge */}
-          {hasProTag && (
-            <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 text-[10px] font-semibold border border-amber-500/20">
-              <Zap size={10} className="fill-current" />
-              <span>Pro</span>
-            </div>
-          )}
+            {/* Pro Tag Badge */}
+            {hasProTag && (
+              <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-500 text-[10px] font-semibold border border-amber-500/20 flex-shrink-0 whitespace-nowrap">
+                <Zap size={10} className="fill-current flex-shrink-0" />
+                <span>Pro</span>
+              </div>
+            )}
 
-          {/* Regular tags — clickable in practice mode */}
-          {regularTags.map(tag => (
-            <button
-              key={tag}
-              onClick={(e) => handleTagClick(e, tag)}
-              disabled={mode !== 'practice' || !onTagClick}
-              className={`mcq-pill text-xs font-semibold px-3 py-1 rounded-full transition-all duration-150
-                ${mode === 'practice' && onTagClick
-                  ? 'cursor-pointer hover:bg-theme-primary hover:text-white hover:border-theme-primary hover:scale-105 active:scale-95'
-                  : 'cursor-default'
-                }`}
-            >
-              {tag}
-            </button>
-          ))}
+            {/* Regular tags — matching design system gold glassmorphic pill */}
+            {regularTags.map(tag => (
+              <button
+                key={tag}
+                onClick={(e) => handleTagClick(e, tag)}
+                disabled={mode !== 'practice' || !onTagClick}
+                className={`flex items-center text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-500/25 dark:border-amber-400/20 bg-amber-500/8 dark:bg-amber-400/5 text-amber-600 dark:text-amber-400 shadow-[0_1px_6px_rgba(245,158,11,0.05)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
+                  ${mode === 'practice' && onTagClick
+                    ? 'cursor-pointer hover:bg-amber-500/15 dark:hover:bg-amber-400/10 hover:border-amber-500/40 hover:scale-105 active:scale-95'
+                    : 'cursor-default'
+                  }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex gap-2 ml-2 flex-shrink-0 items-center">
+        {/* Action Toolbar — Borderless, clean, and spacious */}
+        <div className="flex items-center gap-[3px] flex-shrink-0 ml-2">
           {mode !== 'result' && eliminatedOptions.length === 0 && !selectedOption && economy?.kash_coins_balance >= 3 && (
             <button
               onClick={handle5050}
-              className="flex items-center justify-center w-10 h-10 rounded-xl text-amber-500 hover:bg-amber-500/10 transition-all active:scale-90"
+              className="flex items-center justify-center w-9 h-9 rounded-full text-amber-500 hover:bg-amber-500/10 transition-all active:scale-90 flex-shrink-0"
               title="50/50 Hint (Cost: 3 KC)"
             >
-              <Wand2 size={20} />
+              <Split size={20} />
             </button>
           )}
           {mode !== 'exam' && showExplanationToggle && selectedOption && (
             <button
               onClick={() => setShowExplanation(!showExplanation)}
-              className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 h-9 rounded-xl bg-theme-surface-hover text-theme-text transition-colors border border-theme-border"
+              className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 h-9 rounded-xl transition-all duration-200 flex-shrink-0 whitespace-nowrap active:scale-90
+                ${showExplanation 
+                  ? 'text-amber-500 bg-amber-500/10' 
+                  : 'text-theme-text hover:bg-theme-surface-hover/50 dark:hover:bg-theme-surface-hover/20 hover:text-theme-text'}`}
             >
-              <Lightbulb size={16} className={showExplanation ? 'text-amber-500' : ''} />
-              {showExplanation ? 'Hide' : 'Solution'}
+              <Lightbulb size={18} className={showExplanation ? 'text-amber-500' : ''} />
+              <span>{showExplanation ? 'Hide' : 'Solution'}</span>
             </button>
           )}
           <button
             onClick={toggleBookmark}
-            className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all active:scale-90 ${isBookmarked ? 'text-amber-500 bg-amber-500/10' : 'text-theme-muted hover:bg-theme-surface-hover hover:text-theme-text'}`}
+            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 active:scale-90 flex-shrink-0 ${isBookmarked ? 'text-amber-500 bg-amber-500/10 shadow-[0_0_12px_rgba(245,158,11,0.1)]' : 'text-slate-400 dark:text-slate-500 hover:text-amber-500/85 hover:bg-amber-500/5'}`}
             title="Bookmark this question"
           >
             <Bookmark size={20} fill={isBookmarked ? 'currentColor' : 'none'} />
@@ -637,10 +649,10 @@ export default function McqCard({
                 {/* Catchy Pro AI Tutor explain button */}
                 <button
                   onClick={handleAiTutorClick}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-600 border border-amber-500/20 hover:bg-amber-500/20 active:scale-95 transition-all uppercase tracking-wider cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-600 border border-amber-500/20 hover:bg-amber-500/20 active:scale-95 transition-all uppercase tracking-wider cursor-pointer whitespace-nowrap"
                 >
                   <Sparkles size={11} className="animate-pulse" />
-                  {economy?.user_tier === 'Pro' ? 'Ask AI Tutor' : 'AI Tutor'}
+                  <span>AI Tutor</span>
                   {economy?.user_tier !== 'Pro' && <Lock size={10} className="ml-0.5 text-amber-500" />}
                 </button>
               </div>
@@ -657,7 +669,7 @@ export default function McqCard({
               ) : (
                 <div className="space-y-4">
                   <div className="mcq-explanation-content text-theme-text leading-relaxed">
-                    <div dangerouslySetInnerHTML={{ __html: formatExplanationLayout(renderMathInHtmlString(questionData.explanation)) }} />
+                    <div dangerouslySetInnerHTML={{ __html: formatExplanationLayout(renderMathInHtmlString(questionData.explanation)).replace(/autoplay=1/g, 'autoplay=0').replace(/allow="autoplay;/g, 'allow="') }} />
                   </div>
 
                   {/* AI Response Area */}

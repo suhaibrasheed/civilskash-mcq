@@ -469,7 +469,7 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
   const [insightsReady, setInsightsReady] = useState(false);
   const hasSaved = useRef(false);
   
-  const { economy, transactKC, completeDailyStreak, refreshEconomy, setAiSettingsOpen } = useEconomy();
+  const { economy, transactKC, completeDailyStreak, refreshEconomy, setAiSettingsOpen, openProUpsell } = useEconomy();
   const { playVictory, playShatter } = useSound();
   const { showToast } = useToast();
   const [earnings, setEarnings] = useState(null);
@@ -732,8 +732,7 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
 
   const handleGenerateCheatSheet = async () => {
     if (economy?.user_tier !== 'Pro') {
-      showToast("★ Elite Feature: 'Smart Notes' is exclusive to Pro Members.", "error");
-      setAiSettingsOpen(true);
+      openProUpsell('Smart Notes');
       return;
     }
 
@@ -823,8 +822,7 @@ Generate high-yield revision notes.`;
 
   const handleGenerateSimilarMock = async () => {
     if (economy?.user_tier !== 'Pro') {
-      showToast("★ Elite Feature: 'Mock Forge' is exclusive to Pro Members.", "error");
-      setAiSettingsOpen(true);
+      openProUpsell('Mock Forge');
       return;
     }
 

@@ -14,6 +14,8 @@ const EconomyContext = createContext(null);
 export function EconomyProvider({ children }) {
   const [economy, setEconomy] = useState(null);
   const [aiSettingsOpen, setAiSettingsOpen] = useState(false);
+  const [proUpsellOpen, setProUpsellOpen] = useState(false);
+  const [proUpsellFeature, setProUpsellFeature] = useState('');
   const { user } = useAuth();
   const [prevUser, setPrevUser] = useState(user);
 
@@ -559,6 +561,10 @@ export function EconomyProvider({ children }) {
       confirmFailure,
       aiSettingsOpen,
       setAiSettingsOpen,
+      proUpsellOpen,
+      setProUpsellOpen,
+      proUpsellFeature,
+      openProUpsell: (featureName = '') => { setProUpsellFeature(featureName); setProUpsellOpen(true); },
       refreshEconomy: loadEconomy
     }}>
       {children}

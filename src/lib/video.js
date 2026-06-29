@@ -98,7 +98,7 @@ export function videoHtmlTemplate(url, align = 'center') {
   const { platform, thumbnail, aspect, embedUrl, maxWidth } = parsed;
 
   // Width based on alignment
-  const width = (align === 'left' || align === 'right') ? '45%' : '75%';
+  const width = (align === 'left' || align === 'right') ? '45%' : '100%';
 
   // ── Background poster layer ────────────────────────────────────────────────
   // YouTube: real thumbnail; others: rich brand-appropriate gradient

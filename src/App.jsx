@@ -14,6 +14,7 @@ import LeaderboardPage from './pages/LeaderboardPage';
 import PricingPage from './pages/PricingPage';
 import BattleArena from './pages/BattleArena';
 import SignInPage from './pages/SignInPage';
+import ProUpsellModal from './components/ProUpsellModal';
 import { useEconomy } from './context/EconomyContext';
 
 
@@ -52,7 +53,9 @@ function NavigationWrapper() {
  */
 function ExamEngineWrapper() {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) return null; // Wait for initial session loading to complete
 
   if (!user) {
     return <Navigate to="/signin" state={{ message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!" }} replace />;
@@ -178,9 +181,12 @@ function AppContent() {
           <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
           <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
           <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
+          <Route path="/arena/challenge" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
           <Route path="/signin" element={<SignInPage />} />
         </Routes>
         <NavigationWrapper />
+        {/* 🔒 UNIFIED PRO UPSELL MODAL — globally mounted so it is active even on custom router/header unmounted views */}
+        <ProUpsellModal />
       </BrowserRouter>
     </div>
   );

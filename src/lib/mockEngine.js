@@ -326,6 +326,10 @@ export function generateMocksForExam(examId) {
     };
   });
 
+  // Flat fallback pool = every question across all categories of this exam.
+  const examFallbackPool = config.categories
+    .flatMap(cId => poolsByCatDiff[cId]?.all ?? []);
+
   // Dynamic category weight redistribution
   const activeCats = config.categories.filter(catId => poolsByCatDiff[catId].all.length > 0);
   let adjustedWeights = [];
@@ -364,7 +368,7 @@ export function generateMocksForExam(examId) {
   };
 
   // Helper to select next matching question with fallbacks
-  const drawNextQuestion = (catId, targetDiff, easyPtrs, medPtrs, hardPtrs, unmarkedPtrs, genPtrs) => {
+  const drawNextQuestion = (catId, targetDiff, easyPtrs, medPtrs, hardPtrs, unmarkedPtrs, genPtrs, usedIds) => {
     const subPools = poolsByCatDiff[catId];
     if (!subPools || subPools.all.length === 0) return null;
 
@@ -374,27 +378,42 @@ export function generateMocksForExam(examId) {
     for (const d of order) {
       const pool = subPools[d];
       if (pool && pool.length > 0) {
-        if (d === 'easy') {
-          question = pool[easyPtrs[catId] % pool.length];
-          easyPtrs[catId]++;
-        } else if (d === 'medium') {
-          question = pool[medPtrs[catId] % pool.length];
-          medPtrs[catId]++;
-        } else if (d === 'hard') {
-          question = pool[hardPtrs[catId] % pool.length];
-          hardPtrs[catId]++;
-        } else if (d === 'unmarked') {
-          question = pool[unmarkedPtrs[catId] % pool.length];
-          unmarkedPtrs[catId]++;
+        let ptrVal;
+        if (d === 'easy') ptrVal = easyPtrs[catId];
+        else if (d === 'medium') ptrVal = medPtrs[catId];
+        else if (d === 'hard') ptrVal = hardPtrs[catId];
+        else if (d === 'unmarked') ptrVal = unmarkedPtrs[catId];
+
+        // Search the pool sequentially for the first question that is NOT in usedIds
+        for (let attempt = 0; attempt < pool.length; attempt++) {
+          const candidate = pool[(ptrVal + attempt) % pool.length];
+          if (!usedIds.has(candidate.id)) {
+            question = candidate;
+            const nextPtr = ptrVal + attempt + 1;
+            if (d === 'easy') easyPtrs[catId] = nextPtr;
+            else if (d === 'medium') medPtrs[catId] = nextPtr;
+            else if (d === 'hard') hardPtrs[catId] = nextPtr;
+            else if (d === 'unmarked') unmarkedPtrs[catId] = nextPtr;
+            break;
+          }
         }
-        break;
+        if (question) break;
       }
     }
 
     if (!question) {
       const pool = subPools.all;
-      question = pool[genPtrs[catId] % pool.length];
-      genPtrs[catId]++;
+      if (pool && pool.length > 0) {
+        const ptrVal = genPtrs[catId];
+        for (let attempt = 0; attempt < pool.length; attempt++) {
+          const candidate = pool[(ptrVal + attempt) % pool.length];
+          if (!usedIds.has(candidate.id)) {
+            question = candidate;
+            genPtrs[catId] = ptrVal + attempt + 1;
+            break;
+          }
+        }
+      }
     }
 
     return question;
@@ -419,6 +438,7 @@ export function generateMocksForExam(examId) {
 
   const eliteMocks = Array.from({ length: ELITE_COUNT }, (_, mockIdx) => {
     const qs = [];
+    const usedIds = new Set();
     if (adjustedWeights.length > 0) {
       const mockRng = mulberry32(seed ^ (mockIdx + 5000));
       const counts = allocateCategorySlots(adjustedWeights, ELITE_Q, mockRng);
@@ -428,24 +448,43 @@ export function generateMocksForExam(examId) {
         const take = counts[catId] || 0;
         for (let i = 0; i < take; i++) {
           const targetDiff = drawDiff(config.difficultyWeights, mockRng);
-          const q = drawNextQuestion(catId, targetDiff, eliteEasyPtrs, eliteMedPtrs, eliteHardPtrs, eliteUnmarkedPtrs, eliteGenPtrs);
-          if (q) qs.push(q);
+          const q = drawNextQuestion(catId, targetDiff, eliteEasyPtrs, eliteMedPtrs, eliteHardPtrs, eliteUnmarkedPtrs, eliteGenPtrs, usedIds);
+          if (q) {
+            qs.push(q);
+            usedIds.add(q.id);
+          }
         }
       });
+    }
+
+    // Pad Elite Mock with unique questions from fallback pool if category slots were depleted
+    if (qs.length < ELITE_Q) {
+      const padSeed = (seed ^ (mockIdx + 5000)) ^ 0xCAFEBABE;
+      const padPool = seededShuffle(examFallbackPool, mulberry32(padSeed));
+      for (const q of padPool) {
+        if (qs.length >= ELITE_Q) break;
+        if (!usedIds.has(q.id)) {
+          qs.push(q);
+          usedIds.add(q.id);
+        }
+      }
     }
 
     const isFree = mockIdx < 10;
     const displayName = isFree ? `Full Mock ${mockIdx + 1}` : `Elite Mock ${mockIdx - 9}`;
 
+    const shuffleSeed = seed ^ (mockIdx + 99999);
+    const shuffledQs = seededShuffle(qs, mulberry32(shuffleSeed));
+
     return {
       id: `${examId}-elite-${mockIdx + 1}`,
       index: mockIdx + 1,
       title: `${config.label} ${displayName}`,
-      questions: qs.length,
-      minutes: qs.length,
+      questions: shuffledQs.length,
+      minutes: shuffledQs.length,
       type: 'elite',
-      questionData: qs,
-      isEmpty: qs.length === 0,
+      questionData: shuffledQs,
+      isEmpty: shuffledQs.length === 0,
     };
   });
 
@@ -468,6 +507,7 @@ export function generateMocksForExam(examId) {
 
   const quickMocks = Array.from({ length: QUICK_COUNT }, (_, mockIdx) => {
     const qs = [];
+    const usedIds = new Set();
     if (adjustedWeights.length > 0) {
       const mockRng = mulberry32(seed ^ mockIdx);
       const counts = allocateCategorySlots(adjustedWeights, QUICK_Q, mockRng);
@@ -477,21 +517,40 @@ export function generateMocksForExam(examId) {
         const take = counts[catId] || 0;
         for (let i = 0; i < take; i++) {
           const targetDiff = drawDiff(config.difficultyWeights, mockRng);
-          const q = drawNextQuestion(catId, targetDiff, quickEasyPtrs, quickMedPtrs, quickHardPtrs, quickUnmarkedPtrs, quickGenPtrs);
-          if (q) qs.push(q);
+          const q = drawNextQuestion(catId, targetDiff, quickEasyPtrs, quickMedPtrs, quickHardPtrs, quickUnmarkedPtrs, quickGenPtrs, usedIds);
+          if (q) {
+            qs.push(q);
+            usedIds.add(q.id);
+          }
         }
       });
     }
+
+    // Pad Quick Mock with unique questions from fallback pool if category slots were depleted
+    if (qs.length < QUICK_Q) {
+      const padSeed = (seed ^ mockIdx) ^ 0xCAFEBABE;
+      const padPool = seededShuffle(examFallbackPool, mulberry32(padSeed));
+      for (const q of padPool) {
+        if (qs.length >= QUICK_Q) break;
+        if (!usedIds.has(q.id)) {
+          qs.push(q);
+          usedIds.add(q.id);
+        }
+      }
+    }
+
+    const shuffleSeed = seed ^ (mockIdx + 88888);
+    const shuffledQs = seededShuffle(qs, mulberry32(shuffleSeed));
 
     return {
       id: `${examId}-quick-${mockIdx + 1}`,
       index: mockIdx + 1,
       title: `${config.label} Quick Mock ${mockIdx + 1}`,
-      questions: qs.length,
-      minutes: qs.length,
+      questions: shuffledQs.length,
+      minutes: shuffledQs.length,
       type: 'quick',
-      questionData: qs,
-      isEmpty: qs.length === 0,
+      questionData: shuffledQs,
+      isEmpty: shuffledQs.length === 0,
     };
   });
 
@@ -513,11 +572,6 @@ export function generateMocksForExam(examId) {
   const SECT_COUNT = 90;
   const SECT_Q     = 10;
   const sectionalMocks = {};
-
-  // Flat fallback pool = every question across all categories of this exam.
-  // Used only when a category pool is smaller than SECT_Q.
-  const examFallbackPool = config.categories
-    .flatMap(cId => poolsByCatDiff[cId]?.all ?? []);
 
   config.categories.forEach(catId => {
     const catPool = poolsByCatDiff[catId].all;
@@ -547,16 +601,18 @@ export function generateMocksForExam(examId) {
         }
       }
 
+      const finalQs = seededShuffle(qs, mulberry32(mockSeed ^ 0xFEEDFACE));
+
       mocks.push({
         id:           `${examId}-sect-${catId}-${i + 1}`,
         index:        i + 1,
         title:        `${label} ${config.label} Mock ${i + 1}`,
-        questions:    qs.length,
+        questions:    finalQs.length,
         minutes:      10,
         type:         'sectional',
         categoryId:   catId,
-        questionData: qs,
-        isEmpty:      qs.length === 0,
+        questionData: finalQs,
+        isEmpty:      finalQs.length === 0,
       });
     }
     sectionalMocks[catId] = mocks;
@@ -611,18 +667,24 @@ export function generateMocksForExam(examId) {
  * Number of mocks strictly depends on available MCQs.
  * Elite mocks: 100 questions. Mini mocks: 10 questions.
  */
-export function generateSubjectMocks(categoryId) {
+export function generateSubjectMocks(categoryId, targetExamId = null) {
   const catPool = ALL_STATIC_BANKS_SYNC.filter(q => q.category_id === categoryId);
 
   // Extract unique topics (tags)
   const topicSet = new Set();
   catPool.forEach(q => {
-    (q.tags || []).forEach(t => topicSet.add(t));
+    (q.tags || []).forEach(t => {
+      if (t && t.toLowerCase() !== '#pro') topicSet.add(t);
+    });
   });
   const topics = ['All', ...Array.from(topicSet).sort()];
 
   const mocksByTopic = {};
+  topics.forEach(topic => {
+    mocksByTopic[topic] = { elite: [], mini: [] };
+  });
 
+  // 1. Generate Elite Mocks for each topic (and All)
   topics.forEach(topic => {
     let qs = catPool;
     if (topic !== 'All') {
@@ -630,79 +692,284 @@ export function generateSubjectMocks(categoryId) {
       qs = catPool.filter(q => (q.tags || []).some(t => t.toLowerCase() === lowerTopic));
     }
 
-    // Stable shuffle for this topic
     const seed = examIdToSeed(`subject-${categoryId}-${topic}`);
     const shuffled = seededShuffle(qs, mulberry32(seed));
-
     const eliteMocks = [];
-    const miniMocks = [];
 
-    // Generate Elite Mocks (Target: 100 qs, Overlap: 10%, Step: 90)
-    // If we have 12 questions, we get 1 mock of 12 qs.
     for (let i = 0; i < shuffled.length; i += 90) {
       const chunk = shuffled.slice(i, i + 100);
       if (chunk.length === 0) break;
-      // We don't want a mock of 1 question if we can avoid it, but let's follow the strict remainder rule.
-      // Actually, to prevent tiny mocks if overlap causes it:
-      // If a chunk is less than 5 questions and it's not the only mock, maybe skip?
-      // User said "even if only 12 Questions available, user can have 1 Elite Mock with 12 Questions"
       eliteMocks.push({
         id: `subj-${categoryId}-${topic}-elite-${eliteMocks.length + 1}`,
         index: eliteMocks.length + 1,
         title: `${topic === 'All' ? 'Full Subject' : topic} Elite Mock ${eliteMocks.length + 1}`,
         questions: chunk.length,
-        minutes: chunk.length, // 1 min per q
+        minutes: chunk.length,
         type: 'elite',
         categoryId,
         topic,
         questionData: chunk,
       });
-      // If we've reached the end of the array, stop
       if (i + 100 >= shuffled.length) break;
     }
 
-    // Generate Mini Mocks (Target: 10 qs, Overlap: 10%, Step: 9)
-    const miniShuffled = seededShuffle(qs, mulberry32(seed ^ 0x12345678));
-    for (let i = 0; i < miniShuffled.length; i += 9) {
-      const chunk = miniShuffled.slice(i, i + 10);
+    mocksByTopic[topic].elite = eliteMocks;
+  });
+
+  // 2. Generate Mini Mocks via Unified Clustering
+  const allMiniMocks = [];
+  const globalShuffled = seededShuffle(catPool, mulberry32(examIdToSeed(`subject-${categoryId}-all-mini`)));
+  let remaining = [...globalShuffled];
+
+  const getTagCounts = (qs) => {
+    const counts = {};
+    qs.forEach(q => {
+      if (Array.isArray(q.tags)) {
+        q.tags.forEach(t => {
+          if (!t || t.toLowerCase() === '#pro') return;
+          counts[t] = (counts[t] || 0) + 1;
+        });
+      }
+    });
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  };
+
+  let sortedTags = getTagCounts(remaining);
+
+  while (sortedTags.length > 0 && sortedTags[0][1] >= 3) {
+    const [tagName, tagCount] = sortedTags[0];
+    const matchingQs = remaining.filter(q => Array.isArray(q.tags) && q.tags.some(t => t === tagName));
+
+    for (let i = 0; i < matchingQs.length; i += 10) {
+      const chunk = matchingQs.slice(i, i + 10);
       if (chunk.length === 0) break;
-      miniMocks.push({
-        id: `subj-${categoryId}-${topic}-mini-${miniMocks.length + 1}`,
-        index: miniMocks.length + 1,
-        title: `${topic === 'All' ? 'Subject' : topic} Mini Mock ${miniMocks.length + 1}`,
-        questions: chunk.length,
-        minutes: chunk.length,
+
+      const chunkIds = new Set(chunk.map(c => c.id));
+      remaining = remaining.filter(q => !chunkIds.has(q.id));
+
+      let finalQuestionData = [...chunk];
+
+      if (finalQuestionData.length < 10) {
+        const extra = remaining.slice(0, 10 - finalQuestionData.length);
+        finalQuestionData.push(...extra);
+        const extraIds = new Set(extra.map(e => e.id));
+        remaining = remaining.filter(q => !extraIds.has(q.id));
+      }
+
+      if (finalQuestionData.length < 10) {
+        const needed = 10 - finalQuestionData.length;
+        const excluded = new Set(finalQuestionData.map(q => q.id));
+        const pads = globalShuffled.filter(q => !excluded.has(q.id)).slice(0, needed);
+        finalQuestionData.push(...pads);
+      }
+
+      const cleanTagName = tagName.replace(/^#/, '');
+      const mockTitle = cleanTagName.toLowerCase().endsWith('mock')
+        ? cleanTagName.replace(/mock/i, '').trim() + ' Mock'
+        : cleanTagName + ' Mock';
+
+      const localCount = allMiniMocks.filter(m => m.topic === tagName).length + 1;
+
+      allMiniMocks.push({
+        id: `subj-${categoryId}-${cleanTagName.toLowerCase().replace(/\s+/g, '-')}-mini-${localCount}`,
+        index: allMiniMocks.length + 1,
+        title: `${mockTitle} ${localCount}`,
+        questions: 10,
+        minutes: 10,
         type: 'quick',
         categoryId,
-        topic,
-        questionData: chunk,
+        topic: tagName,
+        questionData: finalQuestionData,
       });
-      if (i + 10 >= miniShuffled.length) break;
     }
 
-    mocksByTopic[topic] = { elite: eliteMocks, mini: miniMocks };
+    sortedTags = getTagCounts(remaining);
+  }
+
+  let mixedMockCount = 1;
+  for (let i = 0; i < remaining.length; i += 10) {
+    const chunk = remaining.slice(i, i + 10);
+    if (chunk.length === 0) break;
+
+    let finalQuestionData = [...chunk];
+    if (finalQuestionData.length < 10 && globalShuffled.length >= 10) {
+      const needed = 10 - finalQuestionData.length;
+      const excluded = new Set(finalQuestionData.map(q => q.id));
+      const pads = globalShuffled.filter(q => !excluded.has(q.id)).slice(0, needed);
+      finalQuestionData.push(...pads);
+    }
+
+    allMiniMocks.push({
+      id: `subj-${categoryId}-mixed-mini-${mixedMockCount}`,
+      index: allMiniMocks.length + 1,
+      title: `Mixed Mock ${mixedMockCount}`,
+      questions: finalQuestionData.length,
+      minutes: finalQuestionData.length,
+      type: 'quick',
+      categoryId,
+      topic: 'Mixed',
+      questionData: finalQuestionData,
+    });
+    mixedMockCount++;
+  }
+
+  // Populate mocksByTopic['All']
+  mocksByTopic['All'].mini = allMiniMocks;
+
+  // Distribute mini mocks to their specific topic tabs
+  allMiniMocks.forEach(mock => {
+    if (mock.topic && mocksByTopic[mock.topic]) {
+      const localIdx = mocksByTopic[mock.topic].mini.length + 1;
+      mocksByTopic[mock.topic].mini.push({
+        ...mock,
+        index: localIdx,
+      });
+    }
   });
 
   // ── Subject PYQ Masterclass ──────────
   const subjectPyqPool = catPool.filter(q => getQuestionPyq(q) !== null);
   const pyqMocks = [];
-  const pyqShuffled = seededShuffle(subjectPyqPool, mulberry32(examIdToSeed(`subject-${categoryId}-pyq`)));
-  for (let i = 0; i < pyqShuffled.length; i += 10) {
-    const chunk = pyqShuffled.slice(i, i + 10);
+
+  let pyqShuffled;
+  if (targetExamId) {
+    const terms = [targetExamId.toLowerCase(), targetExamId.replace(/-/g, ' ').toLowerCase()];
+    const matchesTarget = (q) => {
+      const pyq = getQuestionPyq(q);
+      if (pyq) {
+        const lowerPyq = pyq.toLowerCase();
+        if (terms.some(t => lowerPyq.includes(t))) return true;
+      }
+      if (Array.isArray(q.tags)) {
+        if (q.tags.some(t => typeof t === 'string' && terms.some(term => t.toLowerCase().includes(term)))) return true;
+      }
+      return false;
+    };
+    const matching = subjectPyqPool.filter(matchesTarget);
+    const nonMatching = subjectPyqPool.filter(q => !matchesTarget(q));
+
+    const shuffledMatching = seededShuffle(matching, mulberry32(examIdToSeed(`subject-${categoryId}-pyq-match`)));
+    const shuffledNonMatching = seededShuffle(nonMatching, mulberry32(examIdToSeed(`subject-${categoryId}-pyq-nonmatch`)));
+
+    pyqShuffled = [...shuffledMatching, ...shuffledNonMatching];
+  } else {
+    pyqShuffled = seededShuffle(subjectPyqPool, mulberry32(examIdToSeed(`subject-${categoryId}-pyq`)));
+  }
+
+  const getExamName = (q) => {
+    const pyqText = getQuestionPyq(q);
+    if (!pyqText) return null;
+    return pyqText.replace(/\b\d{4}\b/g, '').replace(/\s+/g, ' ').trim();
+  };
+
+  const getExamCounts = (qs) => {
+    const counts = {};
+    qs.forEach(q => {
+      const name = getExamName(q);
+      if (name) {
+        counts[name] = (counts[name] || 0) + 1;
+      }
+    });
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  };
+
+  let remainingPyqs = [...pyqShuffled];
+  let sortedExams = getExamCounts(remainingPyqs);
+
+  if (targetExamId && sortedExams.length > 0) {
+    const terms = [targetExamId.toLowerCase(), targetExamId.replace(/-/g, ' ').toLowerCase()];
+    const targetIdx = sortedExams.findIndex(([examName]) => terms.some(t => examName.toLowerCase().includes(t)));
+    if (targetIdx !== -1) {
+      const [target] = sortedExams.splice(targetIdx, 1);
+      sortedExams.unshift(target);
+    }
+  }
+
+  while (sortedExams.length > 0 && sortedExams[0][1] >= 2) {
+    const [examName, count] = sortedExams[0];
+    const matching = remainingPyqs.filter(q => getExamName(q) === examName);
+
+    for (let i = 0; i < matching.length; i += 10) {
+      const chunk = matching.slice(i, i + 10);
+      if (chunk.length === 0) break;
+
+      const chunkIds = new Set(chunk.map(c => c.id));
+      remainingPyqs = remainingPyqs.filter(q => !chunkIds.has(q.id));
+
+      let finalQuestionData = [...chunk];
+
+      if (finalQuestionData.length < 10) {
+        const extra = remainingPyqs.slice(0, 10 - finalQuestionData.length);
+        finalQuestionData.push(...extra);
+        const extraIds = new Set(extra.map(e => e.id));
+        remainingPyqs = remainingPyqs.filter(q => !extraIds.has(q.id));
+      }
+
+      if (finalQuestionData.length < 10) {
+        const needed = 10 - finalQuestionData.length;
+        const excluded = new Set(finalQuestionData.map(q => q.id));
+        const pads = pyqShuffled.filter(q => !excluded.has(q.id)).slice(0, needed);
+        finalQuestionData.push(...pads);
+      }
+
+      const examSprintCount = pyqMocks.filter(m => m.title.startsWith(examName)).length + 1;
+
+      pyqMocks.push({
+        id: `subj-${categoryId}-pyq-${pyqMocks.length + 1}`,
+        index: pyqMocks.length + 1,
+        title: `${examName} PYQ Sprint ${examSprintCount}`,
+        questions: 10,
+        minutes: 10,
+        type: 'quick',
+        categoryId,
+        questionData: finalQuestionData,
+      });
+    }
+
+    sortedExams = getExamCounts(remainingPyqs);
+    if (targetExamId && sortedExams.length > 0) {
+      const terms = [targetExamId.toLowerCase(), targetExamId.replace(/-/g, ' ').toLowerCase()];
+      const targetIdx = sortedExams.findIndex(([examName]) => terms.some(t => examName.toLowerCase().includes(t)));
+      if (targetIdx !== -1) {
+        const [target] = sortedExams.splice(targetIdx, 1);
+        sortedExams.unshift(target);
+      }
+    }
+  }
+
+  let mixedCount = 1;
+  for (let i = 0; i < remainingPyqs.length; i += 10) {
+    const chunk = remainingPyqs.slice(i, i + 10);
     if (chunk.length === 0) break;
+
+    let finalQuestionData = [...chunk];
+    if (finalQuestionData.length < 10 && pyqShuffled.length >= 10) {
+      const needed = 10 - finalQuestionData.length;
+      const excluded = new Set(finalQuestionData.map(q => q.id));
+      const pads = pyqShuffled.filter(q => !excluded.has(q.id)).slice(0, needed);
+      finalQuestionData.push(...pads);
+    }
+
     pyqMocks.push({
       id: `subj-${categoryId}-pyq-${pyqMocks.length + 1}`,
       index: pyqMocks.length + 1,
-      title: `Mixed PYQ Sprint ${pyqMocks.length + 1}`,
-      questions: chunk.length,
-      minutes: chunk.length,
+      title: `Mixed PYQ Sprint ${mixedCount++}`,
+      questions: finalQuestionData.length,
+      minutes: finalQuestionData.length,
       type: 'quick',
       categoryId,
-      questionData: chunk,
+      questionData: finalQuestionData,
     });
   }
 
-  return { topics, mocksByTopic, pyqMocks };
+  const activeTopics = topics.filter(topic => {
+    if (topic === 'All') return true;
+    const miniCount = mocksByTopic[topic]?.mini?.length || 0;
+    const eliteCount = mocksByTopic[topic]?.elite?.length || 0;
+    return miniCount > 0 || eliteCount > 0;
+  });
+
+  return { topics: activeTopics, mocksByTopic, pyqMocks };
 }
 
 /**

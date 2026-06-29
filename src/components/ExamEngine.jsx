@@ -6,6 +6,7 @@ import ResultDashboard from './ResultDashboard';
 import { MCQKashLogo } from './Header';
 import { useEconomy } from '../context/EconomyContext';
 import UniversalModal from './UniversalModal';
+import { useToast } from '../context/ToastContext';
 
 export default function ExamEngine() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function ExamEngine() {
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const { economy } = useEconomy();
+  const { showToast } = useToast();
   const [palette, setPalette] = useState([]);
   const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -155,8 +157,8 @@ export default function ExamEngine() {
           <button onClick={() => navigate(location.state?.from || '/', { state: { selectedExamId: location.state?.examId } })} className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors">
             <ArrowLeft size={20} />
           </button>
-          <div className="scale-75 origin-left hidden sm:block">
-            <MCQKashLogo />
+          <div className="scale-75 origin-left">
+            <MCQKashLogo onlyIcon={true} />
           </div>
         </div>
         
@@ -210,7 +212,7 @@ export default function ExamEngine() {
             <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
               <button 
                 onClick={() => handleNext('marked')} 
-                className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-purple-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap"
+                className={`flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-theme-surface border border-theme-border rounded-full text-theme-text hover:bg-theme-surface-hover hover:border-purple-500/50 transition-all font-bold text-sm shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap`}
               >
                 <span className="hidden sm:inline">Mark for Review</span>
                 <span className="sm:hidden">Review</span>

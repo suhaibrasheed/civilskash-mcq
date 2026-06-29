@@ -8,6 +8,7 @@ import { getHybridContentHub, getAllQuestions } from '../lib/dataHub';
 import { getPracticePreferences, savePracticePreferences, getResurrectionQuestions } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { getQuestionPyq } from '../lib/mockEngine';
+import { EXAM_SERIES } from '../lib/exams';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -49,7 +50,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [allQuestions, setAllQuestions] = useState([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [isLoading, setIsLoading] = useState(true);
-  const { economy } = useEconomy();
+  const { economy, openProUpsell } = useEconomy();
   const { user } = useAuth();
   const [mistakeIds, setMistakeIds] = useState(new Set());
   const [randomSeed, setRandomSeed] = useState(Date.now());
@@ -243,7 +244,13 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       if (examId === 'upsc-pre') terms = ['upsc', 'civil services'];
       else if (examId === 'ssc-cgl') terms = ['ssc', 'cgl'];
       else if (examId === 'state-pcs') terms = ['pcs', 'state psc', 'psc'];
-      else terms = [examId.toLowerCase()];
+      else {
+        terms = [examId.toLowerCase(), examId.replace(/-/g, ' ').toLowerCase()];
+        const matchedSeries = EXAM_SERIES.find(e => e.id === examId);
+        if (matchedSeries) {
+          terms.push(matchedSeries.name.toLowerCase());
+        }
+      }
 
       const pyq = getQuestionPyq(question);
       if (pyq) {
@@ -385,7 +392,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
 
   const handleSmartMock = () => {
     if (economy?.user_tier !== 'Pro') {
-      showToast("Smart Mock is Elite feature for Pro Users to Elevate their learning to Next level", "error");
+      openProUpsell('Smart Mock');
       return;
     }
 
