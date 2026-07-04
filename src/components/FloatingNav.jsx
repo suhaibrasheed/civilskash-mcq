@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Home, User, Bookmark, X, Search, Zap, AlertCircle, Play, Compass, Award } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,6 +9,7 @@ import { renderMathInHtmlString } from '../lib/ai';
 import { StreakModal, CoinsVaultModal } from './EconomyUI';
 import { EXAM_SERIES } from '../lib/exams';
 import { useAuth } from '../context/AuthContext';
+import { getAllCategoryCounts, ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
 import { 
   getFilteredResults, 
   formatCategoryName, 
@@ -156,14 +157,38 @@ function NavTrigger({ isOpen, onClick }) {
 function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen }) {
   const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
+  const { economy, openProUpsell } = useEconomy();
   
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [previewQuestion, setPreviewQuestion] = useState(null);
   const [recentSearches, setRecentSearches] = useState([]);
+  const drawerRef = useRef(null);
+  const resultsContainerRef = useRef(null);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showAllRecents, setShowAllRecents] = useState(false);
+  
+  const sortedCategories = useMemo(() => {
+    const counts = getAllCategoryCounts();
+    return [...CATEGORIES].sort((a, b) => {
+      const countA = counts[a.slug] || 0;
+      const countB = counts[b.slug] || 0;
+      return countB - countA;
+    });
+  }, [ALL_STATIC_BANKS_SYNC.length]);
+
+  useEffect(() => {
+    if (resultsContainerRef.current) {
+      const activeEl = resultsContainerRef.current.querySelector('.search-active-item');
+      if (activeEl) {
+        activeEl.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }
+    }
+  }, [selectedIndex]);
   
   // Body scroll locking to resolve the double scrollbar bug
   useEffect(() => {
@@ -241,6 +266,19 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
 
   const handleTriggerItem = (item) => {
     if (item.type === 'command') {
+      if (item.isElite) {
+        if (economy?.is_pro) {
+          saveSearchQuery(item.code);
+          onClose();
+          if (item.to) {
+            navigate(item.to);
+          }
+        } else {
+          openProUpsell(item.title);
+          onClose();
+        }
+        return;
+      }
       saveSearchQuery(item.code);
       onClose();
       if (item.to) {
@@ -256,7 +294,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
     } else if (item.type === 'exam') {
       saveSearchQuery(item.name);
       onClose();
-      navigate('/', { state: { selectedExamId: item.id } });
+      navigate(`/exam/${item.id}`);
     } else if (item.type === 'subject') {
       saveSearchQuery(item.name);
       onClose();
@@ -275,10 +313,27 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
   useEffect(() => {
     const handleOverlayKeyDown = (e) => {
       if (!isOpen) return;
-      if (previewQuestion) {
-        if (e.key === 'Escape') {
+      
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        if (previewQuestion) {
           setPreviewQuestion(null);
+        } else if (query) {
+          setQuery('');
+        } else {
+          onClose();
+        }
+        return;
+      }
+      
+      if (previewQuestion) {
+        if (e.key === 'ArrowDown') {
           e.preventDefault();
+          drawerRef.current?.scrollBy({ top: 50, behavior: 'auto' });
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          drawerRef.current?.scrollBy({ top: -50, behavior: 'auto' });
         }
         return;
       }
@@ -297,9 +352,9 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
       }
     };
     
-    window.addEventListener('keydown', handleOverlayKeyDown);
-    return () => window.removeEventListener('keydown', handleOverlayKeyDown);
-  }, [isOpen, flatResults, selectedIndex, previewQuestion]);
+    window.addEventListener('keydown', handleOverlayKeyDown, true);
+    return () => window.removeEventListener('keydown', handleOverlayKeyDown, true);
+  }, [isOpen, flatResults, selectedIndex, previewQuestion, query]);
 
   const handleToggleBookmark = async () => {
     if (!previewQuestion) return;
@@ -335,7 +390,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
           <div className="absolute top-[-10%] left-[20%] w-[350px] h-[350px] bg-theme-primary/10 rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute bottom-[-10%] right-[20%] w-[350px] h-[350px] bg-theme-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="w-full max-w-4xl flex flex-col h-full relative z-10 max-h-[85vh]">
+          <div className="w-full max-w-6xl flex flex-col h-full relative z-10 max-h-[85vh]">
             
             {/* Sleek Glassmorphic Search Bar & Close buttons */}
             <div className="flex items-center gap-4 mb-6 shrink-0">
@@ -461,7 +516,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                 <div>
                   <h4 className="text-[10px] font-black uppercase tracking-widest text-theme-muted opacity-50 mb-3">Practice Subjects</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {CATEGORIES.slice(0, 8).map((sub) => {
+                    {sortedCategories.slice(0, 8).map((sub) => {
                       const Icon = SUBJECT_ICONS[sub.slug] || BookOpen;
                       const color = SUBJECT_COLORS[sub.slug] || '#4361ee';
                       return (
@@ -487,25 +542,39 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
 
                 {/* Navigation Commands */}
                 <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-theme-muted opacity-50 mb-3">Quick Navigation Commands</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-theme-muted opacity-50 mb-3">Navigation Commands</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {COMMANDS.map((cmd) => {
                       const Icon = cmd.icon || Terminal;
                       return (
                         <div
                           key={cmd.code}
-                          onClick={() => handleTriggerItem({ ...cmd, type: 'command' })}
-                          className="p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-theme-primary/35 cursor-pointer transition-all duration-300 flex items-start gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)]"
+                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleTriggerItem({ ...cmd, type: 'command' }); }}
+                          className={`p-4 rounded-2xl border bg-white/[0.02] hover:bg-white/[0.05] cursor-pointer transition-all duration-300 flex items-start gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)] ${
+                            cmd.isElite 
+                              ? 'border-amber-500/15 hover:border-amber-500/40 hover:shadow-[0_0_20px_-3px_rgba(245,158,11,0.15)]' 
+                              : 'border-white/5 hover:border-theme-primary/35'
+                          }`}
                         >
                           <div 
                             className="w-10 h-10 rounded-xl flex items-center justify-center relative z-10 shrink-0 border border-white/5"
-                            style={{ background: `${cmd.color}12`, color: cmd.color }}
+                            style={{ 
+                              background: cmd.isElite ? 'rgba(245,158,11,0.08)' : `${cmd.color}12`, 
+                              color: cmd.isElite ? '#fbbf24' : cmd.color 
+                            }}
                           >
                             <Icon size={18} strokeWidth={2} />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-2">
-                              <span className="font-extrabold text-sm text-theme-text leading-tight group-hover:text-theme-primary transition-colors">{cmd.title}</span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-extrabold text-sm text-theme-text leading-tight group-hover:text-theme-primary transition-colors">{cmd.title}</span>
+                                {cmd.isElite && (
+                                  <span className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/35 text-[8px] font-black text-amber-500 uppercase tracking-widest leading-none">
+                                    Elite
+                                  </span>
+                                )}
+                              </div>
                               <span className="px-2 py-0.5 rounded-lg bg-white/5 border border-white/5 text-[9px] font-black text-theme-muted uppercase tracking-wider">{cmd.code}</span>
                             </div>
                             <p className="text-[11px] text-theme-muted font-medium mt-1 leading-snug">{cmd.description}</p>
@@ -521,7 +590,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
 
             {/* Matching results */}
             {query && (
-              <div className="flex-1 overflow-y-auto pr-1 pb-8 space-y-8 custom-scrollbar">
+              <div ref={resultsContainerRef} className="flex-1 overflow-y-auto pr-1 pb-8 space-y-8 custom-scrollbar">
                 {flatResults.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-16 text-center">
                     <AlertCircle size={32} className="text-theme-muted opacity-50 mb-3" />
@@ -541,23 +610,41 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                             return (
                               <div
                                 key={cmd.code}
-                                onClick={() => handleTriggerItem(cmd)}
-                                className="p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-start gap-4 relative overflow-hidden group"
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleTriggerItem(cmd); }}
+                                className={`p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-start gap-4 relative overflow-hidden group ${
+                                  cmd.isElite ? 'border-amber-500/15' : ''
+                                } ${isSelected ? 'search-active-item' : ''}`}
                                 style={{
-                                  borderColor: isSelected ? 'rgba(var(--color-primary), 0.5)' : 'rgba(255,255,255,0.05)',
-                                  background: isSelected ? 'rgba(var(--color-primary), 0.08)' : 'rgba(255,255,255,0.02)',
-                                  boxShadow: isSelected ? '0 8px 24px rgba(var(--color-primary), 0.15)' : 'none',
+                                  borderColor: isSelected 
+                                    ? (cmd.isElite ? 'rgba(245,158,11,0.5)' : 'rgba(var(--color-primary), 0.5)') 
+                                    : (cmd.isElite ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)'),
+                                  background: isSelected 
+                                    ? (cmd.isElite ? 'rgba(245,158,11,0.1)' : 'rgba(var(--color-primary), 0.08)') 
+                                    : 'rgba(255,255,255,0.02)',
+                                  boxShadow: isSelected 
+                                    ? (cmd.isElite ? '0 8px 24px rgba(245,158,11,0.2)' : '0 8px 24px rgba(var(--color-primary), 0.15)') 
+                                    : 'none',
                                 }}
                               >
                                 <div 
                                   className="w-10 h-10 rounded-xl flex items-center justify-center relative z-10 shrink-0 border border-white/5"
-                                  style={{ background: `${cmd.color}12`, color: cmd.color }}
+                                  style={{ 
+                                    background: cmd.isElite ? 'rgba(245,158,11,0.08)' : `${cmd.color}12`, 
+                                    color: cmd.isElite ? '#fbbf24' : cmd.color 
+                                  }}
                                 >
                                   <Icon size={18} strokeWidth={2} />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between gap-2">
-                                    <span className="font-extrabold text-sm text-theme-text leading-tight group-hover:text-theme-primary transition-colors">{cmd.title}</span>
+                                    <div className="flex items-center gap-2">
+                                      <span className="font-extrabold text-sm text-theme-text leading-tight group-hover:text-theme-primary transition-colors">{cmd.title}</span>
+                                      {cmd.isElite && (
+                                        <span className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/35 text-[8px] font-black text-amber-500 uppercase tracking-widest leading-none">
+                                          Elite
+                                        </span>
+                                      )}
+                                    </div>
                                     <span className="px-2 py-0.5 rounded-lg bg-white/5 border border-white/5 text-[9px] font-black text-theme-muted uppercase tracking-wider">{cmd.code}</span>
                                   </div>
                                   <p className="text-[11px] text-theme-muted font-medium mt-1 leading-snug">{cmd.description}</p>
@@ -581,7 +668,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                               <div
                                 key={exam.id}
                                 onClick={() => handleTriggerItem(exam)}
-                                className="p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-center gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)]"
+                                className={`p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-center gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)] ${isSelected ? 'search-active-item' : ''}`}
                                 style={{
                                   borderColor: isSelected ? 'rgba(var(--color-primary), 0.5)' : 'rgba(255,255,255,0.05)',
                                   background: isSelected ? 'rgba(var(--color-primary), 0.08)' : 'rgba(255,255,255,0.02)',
@@ -621,7 +708,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                               <div
                                 key={sub.slug}
                                 onClick={() => handleTriggerItem(sub)}
-                                className="p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-center gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)]"
+                                className={`p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex items-center gap-4 relative overflow-hidden group shadow-[inset_0_1px_1px_rgba(255,255,255,0.03)] ${isSelected ? 'search-active-item' : ''}`}
                                 style={{
                                   borderColor: isSelected ? 'rgba(var(--color-primary), 0.5)' : 'rgba(255,255,255,0.05)',
                                   background: isSelected ? 'rgba(var(--color-primary), 0.08)' : 'rgba(255,255,255,0.02)',
@@ -658,7 +745,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                                 onClick={() => handleTriggerItem(tag)}
                                 className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all flex items-center gap-2 ${
                                   isSelected
-                                    ? 'bg-theme-primary text-white border-theme-primary/40 shadow-md shadow-theme-primary/20 scale-105'
+                                    ? 'bg-theme-primary text-white border-theme-primary/40 shadow-md shadow-theme-primary/20 scale-105 search-active-item'
                                     : 'bg-white/[0.02] border-white/5 text-theme-text hover:border-white/20 hover:bg-white/[0.06]'
                                 }`}
                               >
@@ -686,7 +773,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                               <div
                                 key={q.id}
                                 onClick={() => handleTriggerItem(q)}
-                                className="p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 group animate-fadeIn"
+                                className={`p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 group animate-fadeIn ${isSelected ? 'search-active-item' : ''}`}
                                 style={{
                                   borderColor: isSelected ? 'rgba(var(--color-primary), 0.5)' : 'rgba(255,255,255,0.05)',
                                   background: isSelected ? 'rgba(var(--color-primary), 0.08)' : 'rgba(255,255,255,0.02)',
@@ -694,9 +781,10 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                                 }}
                               >
                                 <div className="flex-1 min-w-0 pr-2">
-                                  <p className="font-extrabold text-sm text-theme-text leading-snug group-hover:text-theme-primary transition-colors truncate sm:whitespace-normal">
-                                    {q.question}
-                                  </p>
+                                  <p 
+                                    className="font-extrabold text-sm text-theme-text leading-snug group-hover:text-theme-primary transition-colors truncate sm:whitespace-normal"
+                                    dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(q.question) }}
+                                  />
                                   <div className="flex flex-wrap items-center gap-2 mt-2">
                                     <span className="text-[9px] font-black uppercase tracking-widest text-theme-muted bg-white/5 px-2 py-0.5 rounded-lg border border-white/5">
                                       {formatCategoryName(q.category_id)}
@@ -738,22 +826,23 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                   onClick={() => setPreviewQuestion(null)} 
                 />
                 <motion.div
+                  ref={drawerRef}
                   initial={{ x: '100%' }}
                   animate={{ x: 0 }}
                   exit={{ x: '100%' }}
                   transition={{ type: 'spring', damping: 26, stiffness: 220 }}
-                  className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-theme-surface/90 border-l border-white/10 z-[110] p-6 shadow-2xl overflow-y-auto flex flex-col justify-between backdrop-blur-2xl"
+                  className="fixed right-0 top-0 bottom-0 w-full md:max-w-xl bg-theme-surface/90 border-l border-white/10 z-[110] pt-4 pb-4 px-6 shadow-2xl overflow-y-auto flex flex-col justify-between backdrop-blur-2xl"
                   style={{ background: 'var(--color-surface)' }}
                 >
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {/* Header */}
-                    <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                    <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
                       <span className="text-[10px] font-black uppercase tracking-widest text-theme-muted opacity-80">MCQ Live Preview</span>
                       <button 
                         onClick={() => setPreviewQuestion(null)}
-                        className="p-2 rounded-xl bg-white/[0.02] border border-white/5 text-theme-muted hover:text-theme-text transition-all"
+                        className="p-1.5 rounded-xl bg-white/[0.02] border border-white/5 text-theme-muted hover:text-theme-text transition-all"
                       >
-                        <X size={16} />
+                        <X size={15} />
                       </button>
                     </div>
 
@@ -819,7 +908,7 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
                   </div>
 
                   {/* Actions footer */}
-                  <div className="flex items-center gap-3 border-t border-white/5 pt-5 mt-8 shrink-0">
+                  <div className="flex items-center gap-3 border-t border-white/5 pt-4 mt-4 shrink-0">
                     <button
                       onClick={handleToggleBookmark}
                       className={`flex-1 py-3 px-4 rounded-xl border font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 active:scale-95 ${

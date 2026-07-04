@@ -11,6 +11,7 @@ import UniversalModal from './UniversalModal';
 import confetti from 'canvas-confetti';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend } from 'chart.js';
+import { getCoinHistory } from '../lib/db';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
@@ -875,7 +876,6 @@ export function CoinsVaultModal({ isOpen, onClose }) {
   const loadHistory = async () => {
     setLoading(true);
     try {
-      const { getCoinHistory } = await import('../lib/db');
       const days = viewMode === 'week' ? 7 : 30;
       const data = await getCoinHistory(days);
       setHistory(data);

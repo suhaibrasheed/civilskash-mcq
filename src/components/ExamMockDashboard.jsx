@@ -66,7 +66,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, display
       <motion.div
         whileHover={{ y: -6, scale: 1.02 }}
         whileTap={{ scale: 0.97 }}
-        onClick={() => navigate('/mock-test', { state: { mock, from: '/', examId } })}
+        onClick={() => navigate('/mock-test', { state: { mock, from: `/exam/${examId}`, examId } })}
         className={`group relative rounded-2xl p-5 cursor-pointer overflow-hidden transition-all duration-500
           ${band ? `${band.className} mock-score-card border` : 'mock-tile-3d'}`}
       >
@@ -131,7 +131,7 @@ function QuickMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
     <motion.div
       layout
       whileHover={{ x: 4 }}
-      onClick={() => navigate('/mock-test', { state: { mock, from: '/', examId } })}
+      onClick={() => navigate('/mock-test', { state: { mock, from: `/exam/${examId}`, examId } })}
       className={`group flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all duration-300
         ${band ? `${band.className} mock-score-card border` : 'mock-tile-3d'}`}
     >
@@ -198,7 +198,7 @@ function SectionalMockRow({ mock, examId, solvedMap, isLocked, proTitle }) {
     <motion.div
       layout
       whileHover={{ x: 4 }}
-      onClick={() => navigate('/mock-test', { state: { mock, from: '/', examId } })}
+      onClick={() => navigate('/mock-test', { state: { mock, from: `/exam/${examId}`, examId } })}
       className={`group flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all duration-300
         ${band ? `${band.className} mock-score-card border` : 'mock-tile-3d'}`}
     >

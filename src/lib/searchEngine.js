@@ -2,7 +2,9 @@ import {
   User, Bookmark, Zap, Terminal, Sparkles, Flame, Coins,
   Briefcase, Landmark, Cpu, Globe, BookOpen, Target, Activity,
   Database, Map as MapIcon, Gavel, Calculator, Shield, Book,
-  Layers, FileText, Compass
+  Layers, FileText, Compass, Search,
+  BarChart2, GraduationCap, MessageCircle, Brain, FlaskConical, 
+  Crosshair, Eye, Swords, Wand2, Award
 } from 'lucide-react';
 import { EXAM_SERIES } from './exams';
 import { ALL_STATIC_BANKS_SYNC } from './dataHub';
@@ -118,6 +120,140 @@ export const COMMANDS = [
     icon: Coins,
     color: '#fbbf24',
     action: 'coins'
+  },
+  {
+    code: '/battle',
+    title: 'Battle Arena',
+    description: 'Compete live with other aspirants in real-time MCQ battles.',
+    icon: Swords,
+    color: '#ec4899',
+    to: '/battle-arena'
+  },
+  {
+    code: '/leaderboard',
+    title: 'Leaderboard',
+    description: 'View global player rankings and top scorers.',
+    icon: Award,
+    color: '#fbbf24',
+    to: '/leaderboard'
+  },
+  // Elite Features
+  {
+    code: '/detector',
+    title: 'Rank Detector',
+    description: 'Predict readiness, spot blindspots, and prevent exam day surprises.',
+    icon: Target,
+    color: '#f59e0b',
+    isElite: true,
+    to: '/profile'
+  },
+  {
+    code: '/xray',
+    title: 'X-Ray Analysis',
+    description: 'Deep diagnostics beyond ordinary performance reports.',
+    icon: Search,
+    color: '#22d3ee',
+    isElite: true,
+    to: '/profile'
+  },
+  {
+    code: '/intel',
+    title: 'Exam Intel',
+    description: 'Turn every attempt into actionable exam intelligence.',
+    icon: BarChart2,
+    color: '#818cf8',
+    isElite: true,
+    to: '/profile'
+  },
+  {
+    code: '/coach',
+    title: 'Personal Study Mentor',
+    description: 'Get strategy, plans, mocks, and instant roadblock resolutions.',
+    icon: GraduationCap,
+    color: '#34d399',
+    isElite: true,
+    to: '/profile'
+  },
+  {
+    code: '/tutor',
+    title: 'AI Tutor',
+    description: 'Master any MCQ instantly with crisp options breakdown.',
+    icon: MessageCircle,
+    color: '#fb7185',
+    isElite: true,
+    to: '/resurrection'
+  },
+  {
+    code: '/explain',
+    title: 'Smart Explainer',
+    description: 'Grasp complex subjects with tailored explanations.',
+    icon: Brain,
+    color: '#fb923c',
+    isElite: true,
+    to: '/resurrection'
+  },
+  {
+    code: '/forge',
+    title: 'Mock Forge',
+    description: 'Instantly assemble mocks from any combination of filters.',
+    icon: Zap,
+    color: '#c084fc',
+    isElite: true,
+    to: '/subject-mock/computer-awareness'
+  },
+  {
+    code: '/smartmock',
+    title: 'Smart Mock',
+    description: 'Build AI-powered mocks from any topic or weak area.',
+    icon: FlaskConical,
+    color: '#2dd4bf',
+    isElite: true,
+    to: '/subject-mock/computer-awareness'
+  },
+  {
+    code: '/notes',
+    title: 'Smart Notes',
+    description: 'Distill all misjudged MCQs into one revision cheat sheet.',
+    icon: FileText,
+    color: '#facc15',
+    isElite: true,
+    to: '/bookmarks'
+  },
+  {
+    code: '/hunter',
+    title: 'Gap Hunter',
+    description: 'Redemption practice mocks automatically generated for low scores.',
+    icon: Crosshair,
+    color: '#fbbf24',
+    isElite: true,
+    to: '/resurrection'
+  },
+  {
+    code: '/trap',
+    title: 'Trap Finder',
+    description: 'Simulation mocks that clone real test patterns to expose traps.',
+    icon: Eye,
+    color: '#a78bfa',
+    isElite: true,
+    to: '/resurrection'
+  },
+  {
+    code: '/insights',
+    title: 'Battle Insights',
+    description: 'Expose tactical mistakes made during head-to-head live battles.',
+    icon: Swords,
+    color: '#f472b6',
+    isElite: true,
+    to: '/battle-arena'
+  },
+  {
+    code: '/elitesuite',
+    title: 'Elite AI Suite',
+    description: 'Unlock the full power of your personalized AI study suite.',
+    icon: Wand2,
+    color: '#f59e0b',
+    isElite: true,
+    to: '/profile'
   }
 ];
 

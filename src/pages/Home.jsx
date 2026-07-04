@@ -845,14 +845,11 @@ export default function Home() {
     // we should reset to the main dashboard. This handles clicking "Home" or the Logo.
     if (location.pathname === '/') {
       if (location.state?.selectedExamId) {
-        const exam = EXAM_SERIES.find(e => e.id === location.state.selectedExamId);
-        if (exam) setSelectedExam(exam);
-      } else {
-        // Clear sub-dashboard if no state is present
-        setSelectedExam(null);
+        navigate(`/exam/${location.state.selectedExamId}`, { replace: true });
       }
+      setSelectedExam(null);
     }
-  }, [location]); // Depend on the whole location object (including key) to catch all navigations
+  }, [location, navigate]); // Depend on the whole location object (including key) to catch all navigations
 
   useEffect(() => {
     setCategoryCounts(getAllCategoryCounts());
@@ -926,7 +923,7 @@ export default function Home() {
                         key={exam.id}
                         exam={exam}
                         idx={idx}
-                        onClick={() => setSelectedExam(exam)}
+                        onClick={() => navigate(`/exam/${exam.id}`)}
                       />
                     ))}
                   </AnimatePresence>

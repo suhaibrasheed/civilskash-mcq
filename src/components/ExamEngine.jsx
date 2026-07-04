@@ -11,21 +11,72 @@ import { useToast } from '../context/ToastContext';
 export default function ExamEngine() {
   const navigate = useNavigate();
   const location = useLocation();
-  const mock = location.state?.mock;
 
-  const initialTime = mock?.minutes ? mock.minutes * 60 : 600;
-  const [timeLeft, setTimeLeft] = useState(initialTime);
+  const [mock, setMock] = useState(() => {
+    if (location.state?.mock) {
+      return location.state.mock;
+    }
+    try {
+      const cached = localStorage.getItem('mcqkash_active_mock');
+      return cached ? JSON.parse(cached) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const fromPath = location.state?.from || localStorage.getItem('mcqkash_active_mock_from') || '/';
+  const examId = location.state?.examId || localStorage.getItem('mcqkash_active_mock_examId') || '';
+
+  const [answers, setAnswers] = useState(() => {
+    if (!mock) return {};
+    try {
+      const cached = localStorage.getItem(`mcqkash_mock_answers_${mock.id}`);
+      return cached ? JSON.parse(cached) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const [timeLeft, setTimeLeft] = useState(() => {
+    if (!mock) return 600;
+    try {
+      const cached = localStorage.getItem(`mcqkash_mock_time_${mock.id}`);
+      if (cached) return Number(cached);
+    } catch {}
+    return mock.minutes ? mock.minutes * 60 : 600;
+  });
+
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const { economy } = useEconomy();
   const { showToast } = useToast();
   const [palette, setPalette] = useState([]);
-  const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeSpent, setTimeSpent] = useState({});
   const currentIdxRef = React.useRef(0);
   const [used5050, setUsed5050] = useState({});
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (location.state?.mock) {
+      localStorage.setItem('mcqkash_active_mock', JSON.stringify(location.state.mock));
+      localStorage.setItem('mcqkash_active_mock_from', location.state.from || '/');
+      localStorage.setItem('mcqkash_active_mock_examId', location.state.examId || '');
+      setMock(location.state.mock);
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    if (mock) {
+      localStorage.setItem(`mcqkash_mock_answers_${mock.id}`, JSON.stringify(answers));
+    }
+  }, [answers, mock]);
+
+  useEffect(() => {
+    if (mock) {
+      localStorage.setItem(`mcqkash_mock_time_${mock.id}`, timeLeft.toString());
+    }
+  }, [timeLeft, mock]);
   
   useEffect(() => {
     if (!mock || !mock.questionData) {
@@ -137,6 +188,13 @@ export default function ExamEngine() {
 
   const handleSubmit = () => {
     setIsSubmitted(true);
+    if (mock) {
+      localStorage.removeItem(`mcqkash_mock_answers_${mock.id}`);
+      localStorage.removeItem(`mcqkash_mock_time_${mock.id}`);
+      localStorage.removeItem('mcqkash_active_mock');
+      localStorage.removeItem('mcqkash_active_mock_from');
+      localStorage.removeItem('mcqkash_active_mock_examId');
+    }
   };
 
   if (questions.length === 0) {
@@ -154,7 +212,16 @@ export default function ExamEngine() {
       {/* Exam Header */}
       <header className="h-14 bg-theme-surface border-b border-theme-border flex items-center justify-between px-4 shrink-0">
         <div className="flex items-center gap-4">
-          <button onClick={() => navigate(location.state?.from || '/', { state: { selectedExamId: location.state?.examId } })} className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors">
+          <button onClick={() => {
+            if (mock) {
+              localStorage.removeItem(`mcqkash_mock_answers_${mock.id}`);
+              localStorage.removeItem(`mcqkash_mock_time_${mock.id}`);
+              localStorage.removeItem('mcqkash_active_mock');
+              localStorage.removeItem('mcqkash_active_mock_from');
+              localStorage.removeItem('mcqkash_active_mock_examId');
+            }
+            navigate(fromPath, { state: { selectedExamId: examId } });
+          }} className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors">
             <ArrowLeft size={20} />
           </button>
           <div className="scale-75 origin-left">

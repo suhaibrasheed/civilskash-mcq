@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 export default function LeaderboardPage() {
   const { user } = useAuth();
-  const { economy, toggleProTier, setAiSettingsOpen, refreshEconomy } = useEconomy();
+  const { economy, toggleProTier, setAiSettingsOpen, refreshEconomy, manualRefreshEconomy } = useEconomy();
   const { showToast } = useToast();
 
   const [leaderboardType, setLeaderboardType] = useState('coins'); // 'coins' | 'streaks'
@@ -44,7 +44,7 @@ export default function LeaderboardPage() {
       const cached = localStorage.getItem(cacheKey);
       if (cached) {
         const { timestamp, data } = JSON.parse(cached);
-        if (Date.now() - timestamp < 5 * 60 * 1000) {
+        if (Date.now() - timestamp < 24 * 60 * 60 * 1000) {
           setLeaderboardData(data);
           setLeaderboardLoading(false);
           return;
@@ -254,43 +254,20 @@ export default function LeaderboardPage() {
                     <button
                       onClick={async (e) => {
                         const btn = e.currentTarget;
-                        const syncCooldownKey = `mcqkash_last_sync_${user.id}`;
-                        const lastSync = localStorage.getItem(syncCooldownKey);
-                        const now = Date.now();
-                        const COOLDOWN_MS = 5 * 60 * 1000;
-                        if (lastSync && now - Number(lastSync) < COOLDOWN_MS) {
-                          const msLeft = COOLDOWN_MS - (now - Number(lastSync));
-                          const minsLeft = Math.floor(msLeft / 60000);
-                          const secsLeft = Math.ceil((msLeft % 60000) / 1000);
-                          showToast(`Standings updated! Wait ${minsLeft > 0 ? `${minsLeft}m ${secsLeft}s` : `${secsLeft}s`} to sync again. ⏳`, 'info');
-                          return;
-                        }
                         btn.disabled = true;
                         const icon = btn.querySelector('svg');
                         if (icon) icon.classList.add('animate-spin');
                         try {
-                          const activePledges = economy?.active_pledges || [];
-                          const localStaked = activePledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
-                          const { error } = await supabase.from('profiles').update({
-                            liquid_coins: economy?.kash_coins_balance || 100,
-                            staked_coins: localStaked,
-                            streak_days: economy?.current_streak_days || 0
-                          }).eq('id', user.id);
-                          if (error) throw error;
-                          localStorage.setItem(syncCooldownKey, String(Date.now()));
-                          localStorage.removeItem('mcqkash_lb_cache_coins');
-                          localStorage.removeItem('mcqkash_lb_cache_streaks');
-                          localStorage.removeItem('mcqkash_lb_cache_shoutout');
+                          await manualRefreshEconomy();
                           await fetchLeaderboard(leaderboardType);
                           if (leaderboardType !== 'shoutout') {
                             await fetchLeaderboard('shoutout');
                           }
                           await fetchUserRank(leaderboardType);
-                          if (refreshEconomy) await refreshEconomy();
-                          showToast('Global standings synced! Your rank has been updated. 🔄', 'success');
+                          showToast('Global standings synced! Standings and stats updated. 🔄', 'success');
                         } catch (err) {
-                          console.error('Failed to sync profile status:', err);
-                          showToast('Unable to update standings. Please check connection.', 'error');
+                          console.error('Failed to sync standings:', err);
+                          showToast(err.message || 'Unable to update standings. Please try again.', 'error');
                         } finally {
                           btn.disabled = false;
                           if (icon) icon.classList.remove('animate-spin');

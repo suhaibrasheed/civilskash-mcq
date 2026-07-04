@@ -378,7 +378,7 @@ export default function BattleArena() {
   const { user, loading } = useAuth();
   const { economy, transactKC, refreshEconomy, openProUpsell } = useEconomy();
   const { showToast } = useToast();
-  const { playVictory, playShatter, playCorrect, playWrong } = useSound();
+  const { playVictory, playShatter, playCorrect, playWrong, playTick } = useSound();
 
 
   // Screen state
@@ -454,6 +454,7 @@ export default function BattleArena() {
   const [battleHistory, setBattleHistory] = useState([]);
   const [selectedHistoryCard, setSelectedHistoryCard] = useState(null);
   const [isCardUnboxed, setIsCardUnboxed] = useState(true);
+  const [reviewFilter, setReviewFilter] = useState('all');
 
   const handleSelectHistoryCard = (card) => {
     setSelectedHistoryCard(card);
@@ -770,7 +771,31 @@ export default function BattleArena() {
         return;
       }
 
-      setQuestions(pulledQuestions);
+      // Inject exactly 2 Pro locked MCQs if user is not Pro
+      let finalQuestions = [...pulledQuestions];
+      if (economy?.user_tier !== 'Pro') {
+        const lockCount = 2;
+        const availableIndices = [];
+        for (let i = 1; i < finalQuestions.length; i++) availableIndices.push(i);
+        
+        // Shuffle indices
+        for (let i = availableIndices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [availableIndices[i], availableIndices[j]] = [availableIndices[j], availableIndices[i]];
+        }
+        
+        const indicesToLock = availableIndices.slice(0, lockCount);
+        for (const idx of indicesToLock) {
+          finalQuestions[idx] = {
+            ...finalQuestions[idx],
+            id: `locked-exam-${finalQuestions[idx]?.id || idx}`,
+            isLockedDummy: true,
+            lockedQuestion: finalQuestions[idx],
+          };
+        }
+      }
+
+      setQuestions(finalQuestions);
       setCurrentIdx(0);
       setAnswers({});
       setMockTimeLeft(1200);
@@ -821,21 +846,29 @@ export default function BattleArena() {
     runGateChecks();
   }, [economy]);
 
-  // Load user's real Kash Rank from leaderboard
+  // Load user's rank from cached leaderboard in localStorage to prevent query egress
   useEffect(() => {
-    async function loadUserRank() {
-      if (!economy || !isSupabaseConfigured()) return;
+    function loadUserRankFromCache() {
+      if (!economy) return;
       try {
-        const { data, error } = await supabase.rpc('get_logged_in_user_coins_rank');
-        if (!error && data) {
-          setUserKashRank(data);
+        const cached = localStorage.getItem('mcqkash_lb_cache_coins');
+        if (cached) {
+          const { data } = JSON.parse(cached);
+          if (Array.isArray(data)) {
+            const userRow = data.find(row => row.id === economy.id || row.username === economy.username);
+            if (userRow && userRow.rank) {
+              setUserKashRank(userRow.rank);
+              return;
+            }
+          }
         }
       } catch (err) {
-        console.warn('Failed to load user rank:', err);
+        console.warn('Failed to load user rank from cache:', err);
       }
+      setUserKashRank(15); // Fallback default rank
     }
-    loadUserRank();
-  }, [economy]);
+    loadUserRankFromCache();
+  }, [economy?.id]);
 
   const runGateChecks = () => {
     if (!economy) return;
@@ -1245,7 +1278,7 @@ export default function BattleArena() {
     setAnswers(prev => ({ ...prev, [q.id]: optionId }));
     
     // Play neutral option chime for exam selection to prevent cheats/loopholes
-    if (playCorrect) playCorrect();
+    if (playTick) playTick();
   };
 
   const handleNextQuestion = () => {
@@ -4481,41 +4514,88 @@ Generate exactly 10 new questions.`;
                     return getPriorityScore(b) - getPriorityScore(a);
                   });
 
+                  const filteredQuestions = sortedReviewQuestions.filter(q => {
+                    const ans = answers[q.id];
+                    if (reviewFilter === 'all')       return true;
+                    if (reviewFilter === 'correct')   return ans === q.correctId;
+                    if (reviewFilter === 'incorrect') return ans && ans !== q.correctId;
+                    if (reviewFilter === 'skipped')   return !ans;
+                    return true;
+                  });
+
+                  const totalCount = questions.length;
+                  const correctCountVal = questions.filter(q => answers[q.id] === q.correctId).length;
+                  const incorrectCountVal = questions.filter(q => answers[q.id] && answers[q.id] !== q.correctId).length;
+                  const skippedCountVal = questions.filter(q => !answers[q.id]).length;
+
                   return (
                     <section className="max-w-4xl mx-auto w-full mt-10 bg-theme-surface rounded-2xl border border-theme-border shadow-sm overflow-hidden relative z-10 text-left">
-                      <div className="p-4 md:p-5 border-b border-theme-border flex items-center gap-3 bg-theme-surface">
-                        <div className="w-9 h-9 rounded-xl bg-theme-primary/10 text-theme-primary flex items-center justify-center">
-                          <Eye size={18} />
+                      <div className="p-4 md:p-5 border-b border-theme-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-theme-surface">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-xl bg-theme-primary/10 text-theme-primary flex items-center justify-center">
+                            <Eye size={18} />
+                          </div>
+                          <h2 className="text-lg font-black text-theme-text">Detailed Review</h2>
                         </div>
-                        <h2 className="text-lg font-black text-theme-text">Detailed Review</h2>
+
+                        <div className="flex bg-theme-bg p-1 rounded-lg border border-theme-border text-[10px] sm:text-xs">
+                          {[
+                            { key: 'all',       label: `All (${totalCount})` },
+                            { key: 'correct',   label: `Correct (${correctCountVal})` },
+                            { key: 'incorrect', label: `Incorrect (${incorrectCountVal})` },
+                            { key: 'skipped',   label: `Skipped (${skippedCountVal})` },
+                          ].map(({ key, label }) => (
+                            <button
+                              key={key}
+                              onClick={() => setReviewFilter(key)}
+                              className={`px-2.5 py-1 rounded-md font-bold transition-all whitespace-nowrap
+                                ${reviewFilter === key
+                                  ? key === 'correct'   ? 'bg-emerald-500/10 text-emerald-600'
+                                  : key === 'incorrect' ? 'bg-rose-500/10 text-rose-600'
+                                  : key === 'skipped'   ? 'bg-slate-500/10 text-slate-600'
+                                  : 'bg-theme-surface shadow-sm text-theme-text'
+                                  : 'text-theme-muted hover:text-theme-text'
+                                }`}
+                            >
+                              {label}
+                            </button>
+                          ))}
+                        </div>
                       </div>
+
                       <div className="p-4 md:p-8 space-y-12 bg-theme-bg/50">
-                        {sortedReviewQuestions.map((q, idx) => {
-                          const userAnswer = answers[q.id];
-                          const isCorrect = userAnswer === q.correctId;
-                          const isSkipped = !userAnswer;
-                          const originalIdx = questions.findIndex(origQ => origQ.id === q.id);
-                          return (
-                            <div key={q.id} className="relative">
-                              <div
-                                className="absolute -top-3 left-6 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border shadow-sm"
-                                style={{
-                                  backgroundColor: isCorrect ? 'rgba(16,185,129,0.1)' : isSkipped ? 'rgba(100,116,139,0.1)' : 'rgba(244,63,94,0.1)',
-                                  borderColor:     isCorrect ? 'rgba(16,185,129,0.2)' : isSkipped ? 'rgba(100,116,139,0.2)' : 'rgba(244,63,94,0.2)',
-                                  color:           isCorrect ? '#10b981'               : isSkipped ? '#64748b'               : '#f43f5e',
-                                }}
-                              >
-                                {isCorrect && <CheckCircle2 size={12} />}
-                                {!isCorrect && !isSkipped && <XCircle size={12} />}
-                                {isSkipped && <MinusCircle size={12} />}
-                                <span className="ml-1">
-                                  Question {originalIdx + 1}: {isCorrect ? 'Correct' : isSkipped ? 'Skipped' : 'Incorrect'}
-                                </span>
+                        {filteredQuestions.length === 0 ? (
+                          <p className="text-center text-theme-muted py-8 font-medium">
+                            No questions for this filter.
+                          </p>
+                        ) : (
+                          filteredQuestions.map((q, idx) => {
+                            const userAnswer = answers[q.id];
+                            const isCorrect = userAnswer === q.correctId;
+                            const isSkipped = !userAnswer;
+                            const originalIdx = questions.findIndex(origQ => origQ.id === q.id);
+                            return (
+                              <div key={q.id} className="relative">
+                                <div
+                                  className="absolute -top-3 left-6 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border shadow-sm animate-fade-in"
+                                  style={{
+                                    backgroundColor: isCorrect ? 'rgba(16,185,129,0.1)' : isSkipped ? 'rgba(100,116,139,0.1)' : 'rgba(244,63,94,0.1)',
+                                    borderColor:     isCorrect ? 'rgba(16,185,129,0.2)' : isSkipped ? 'rgba(100,116,139,0.2)' : 'rgba(244,63,94,0.2)',
+                                    color:           isCorrect ? '#10b981'               : isSkipped ? '#64748b'               : '#f43f5e',
+                                  }}
+                                >
+                                  {isCorrect && <CheckCircle2 size={12} />}
+                                  {!isCorrect && !isSkipped && <XCircle size={12} />}
+                                  {isSkipped && <MinusCircle size={12} />}
+                                  <span className="ml-1">
+                                    Question {originalIdx + 1}: {isCorrect ? 'Correct' : isSkipped ? 'Skipped' : 'Incorrect'}
+                                  </span>
+                                </div>
+                                <McqCard questionData={q} mode="result" externalSelection={userAnswer || null} />
                               </div>
-                              <McqCard questionData={q} mode="result" externalSelection={userAnswer || null} />
-                            </div>
-                          );
-                        })}
+                            );
+                          })
+                        )}
                       </div>
                     </section>
                   );

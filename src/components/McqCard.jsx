@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import 'katex/dist/katex.min.css';
-import Latex from 'react-latex-next';
 import { Bookmark, CheckCircle2, XCircle, Lightbulb, Lock, Zap, Wand2, Sparkles, Loader2, ArrowRight, Split } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { toggleBookmarkDB, isBookmarkedDB, markQuestionForResurrection } from '../lib/db';
+import { toggleBookmarkDB, isBookmarkedDB, markQuestionForResurrection, saveOutput } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { useSound } from '../context/SoundContext';
 import { queryGenerativeAI, renderMathInHtmlString, applyHighlightsToText, formatExplanationLayout } from '../lib/ai';
@@ -698,7 +697,6 @@ export default function McqCard({
                                onClick={async (e) => {
                                  e.stopPropagation();
                                  try {
-                                   const { saveOutput } = await import('../lib/db');
                                    const outputId = hashString(`ai-explanation-${questionData.id}`);
                                    const record = {
                                      id: outputId,

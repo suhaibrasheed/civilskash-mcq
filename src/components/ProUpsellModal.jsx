@@ -38,8 +38,8 @@ const FEATURES = [
   },
   {
     id: 'personal-coach',
-    name: 'Personal Coach',
-    tagline: '24/7 AI learning coach.',
+    name: 'Personal Study Mentor',
+    tagline: '24/7 AI study mentor.',
     desc: 'Get strategy, plans, mocks, and instant roadblock resolutions.',
     icon: GraduationCap,
     accent: { bg: 'rgba(16,185,129,0.06)', border: 'rgba(16,185,129,0.18)', text: '#34d399', glow: 'rgba(16,185,129,0.1)' },

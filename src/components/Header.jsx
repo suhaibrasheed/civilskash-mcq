@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User } from 'lucide-react';
+import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User, RefreshCw } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
@@ -131,9 +131,26 @@ const TEXT_SIZE_STEPS = [
 function SettingsPanel({ onClose, onOpenAiSettings }) {
   const navigate = useNavigate();
   const { theme, setTheme, textSize, setTextSize } = useTheme();
-  const { economy, openProUpsell } = useEconomy();
+  const { economy, openProUpsell, manualRefreshEconomy } = useEconomy();
   const { user, signOut } = useAuth();
   const { showToast } = useToast();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleManualRefresh = async () => {
+    if (isRefreshing) return;
+    setIsRefreshing(true);
+    try {
+      if (manualRefreshEconomy) {
+        showToast("Syncing stats with server...", "info");
+        await manualRefreshEconomy();
+        showToast("Stats synced successfully!", "success");
+      }
+    } catch (err) {
+      showToast(err.message || "Failed to refresh stats", "warning");
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const isGuest = !economy || economy.id === 'default_user';
 
@@ -354,6 +371,16 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
                 <div className="text-[10px] text-theme-muted font-bold px-1 text-center w-full truncate max-w-full" title={user.email}>
                   Email: <span className="font-extrabold text-theme-text">{user.email}</span>
                 </div>
+                {/* Refresh Stats */}
+                <button
+                  onClick={handleManualRefresh}
+                  disabled={isRefreshing}
+                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass} ${isRefreshing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  <RefreshCw size={12} className={`text-theme-primary ${isRefreshing ? 'animate-spin' : ''}`} />
+                  {isRefreshing ? 'Refreshing...' : 'Refresh Stats'}
+                </button>
+
                 <button
                   onClick={async () => {
                     onClose();
@@ -685,11 +712,32 @@ export default function Header() {
   const { playVictory, playShatter } = useSound();
   const { user } = useAuth();
 
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [isPageVisible, setIsPageVisible] = useState(document.visibilityState === 'visible');
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+    const handleVisibilityChange = () => {
+      setIsPageVisible(document.visibilityState === 'visible');
+    };
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   useEffect(() => {
     if (!user) return;
-    let isDisabled = false;
+    
     const fetchDbNotifications = async () => {
-      if (isDisabled) return;
+      if (!navigator.onLine || document.visibilityState !== 'visible') return;
       try {
         const { data, error } = await supabase
           .from('notifications')
@@ -697,21 +745,65 @@ export default function Header() {
           .eq('user_id', user.id)
           .eq('read', false)
           .order('created_at', { ascending: false });
-        if (error) {
-          isDisabled = true;
-          return;
-        }
-        if (data) {
+        if (!error && data) {
           setDbNotifications(data);
         }
       } catch (err) {
-        isDisabled = true;
+        console.warn('Failed to fetch notifications:', err);
       }
     };
-    fetchDbNotifications();
-    const interval = setInterval(fetchDbNotifications, 8000);
-    return () => clearInterval(interval);
-  }, [user]);
+
+    // Initial fetch when coming online, mounting, or tab becomes visible
+    if (isOnline && isPageVisible) {
+      fetchDbNotifications();
+    }
+
+    // 1. Supabase Realtime Subscription (only when online and tab is active)
+    let channel = null;
+    if (isOnline && isPageVisible) {
+      channel = supabase
+        .channel(`public:notifications:user_id=eq.${user.id}`)
+        .on(
+          'postgres_changes',
+          {
+            event: '*', // Listen to INSERT, UPDATE, DELETE
+            schema: 'public',
+            table: 'notifications',
+            filter: `user_id=eq.${user.id}`
+          },
+          (payload) => {
+            if (payload.eventType === 'INSERT') {
+              const newNotif = payload.new;
+              if (newNotif && !newNotif.read) {
+                setDbNotifications(prev => [newNotif, ...prev.filter(x => x.id !== newNotif.id)]);
+                showToast(`⚔️ New Alert: ${newNotif.message || 'Notification received'}`, "info");
+              }
+            } else if (payload.eventType === 'UPDATE') {
+              const updatedNotif = payload.new;
+              if (updatedNotif) {
+                if (updatedNotif.read) {
+                  setDbNotifications(prev => prev.filter(x => x.id !== updatedNotif.id));
+                } else {
+                  setDbNotifications(prev => [updatedNotif, ...prev.filter(x => x.id !== updatedNotif.id)]);
+                }
+              }
+            } else if (payload.eventType === 'DELETE') {
+              const oldNotif = payload.old;
+              if (oldNotif) {
+                setDbNotifications(prev => prev.filter(x => x.id !== oldNotif.id));
+              }
+            }
+          }
+        )
+        .subscribe();
+    }
+
+    return () => {
+      if (channel) {
+        supabase.removeChannel(channel);
+      }
+    };
+  }, [user, isOnline, isPageVisible]);
 
 
   // Scratch Card pending calculation
@@ -728,14 +820,14 @@ export default function Header() {
   const prevReferralCount = useRef(null);
   const prevUserId = useRef(null);
 
-  // 15-second background polling to sync rewards
+  // Sync rewards on mount or when coming online
   useEffect(() => {
     if (!user || !refreshEconomy) return;
-    const interval = setInterval(() => {
+    
+    if (isOnline) {
       refreshEconomy().catch(err => console.warn('Failed to sync economy:', err));
-    }, 15000);
-    return () => clearInterval(interval);
-  }, [user, refreshEconomy]);
+    }
+  }, [user, refreshEconomy, isOnline]);
 
   // Real-time toast alert when a new friend joins
   useEffect(() => {
@@ -939,7 +1031,7 @@ export default function Header() {
             <button
               onClick={() => setStreakModalOpen(true)}
               aria-label="View streak"
-              className="relative flex items-center justify-center w-[38px] h-[38px] rounded-full group transition-all duration-200 active:scale-90"
+              className="relative flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90"
               style={{ overflow: 'visible' }}
             >
               {/* Hover ring — appears only on hover */}
@@ -969,7 +1061,7 @@ export default function Header() {
             <button
               onClick={() => setCoinsVaultOpen(true)}
               aria-label="View coin vault"
-              className="group flex items-center gap-1.5 h-[38px] px-2.5 sm:px-3 rounded-full transition-all duration-200 active:scale-95"
+              className="group flex items-center gap-1.5 h-11 md:h-[38px] px-2.5 sm:px-3 rounded-full transition-all duration-200 active:scale-95"
               style={{
                 background: 'rgba(var(--color-surface-rgb), 0.55)',
                 border: '1px solid rgba(var(--color-border-rgb, 255,255,255), 0.12)',
@@ -990,7 +1082,7 @@ export default function Header() {
               <button
                 onClick={() => setNotificationsOpen(n => !n)}
                 aria-label="Notifications"
-                className={`relative flex items-center justify-center w-[38px] h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
+                className={`relative flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
                   notificationsOpen
                     ? 'text-theme-primary'
                     : 'text-theme-muted hover:text-theme-primary'
@@ -1048,12 +1140,11 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Settings — standalone */}
             <div className="relative" ref={settingsRef}>
               <button
                 onClick={() => setSettingsOpen(s => !s)}
                 aria-label="Settings"
-                className={`flex items-center justify-center w-[38px] h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
+                className={`flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
                   settingsOpen
                     ? 'text-theme-primary'
                     : 'text-theme-muted hover:text-theme-primary'

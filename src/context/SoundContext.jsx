@@ -73,6 +73,11 @@ export function SoundProvider({ children }) {
     vibrate([50, 50, 50]);
   }, [playOscillator, vibrate]);
 
+  const playTick = useCallback(() => {
+    playOscillator('sine', 600, 0.05, 0.1);
+    vibrate(15);
+  }, [playOscillator, vibrate]);
+
   const playVictory = useCallback(() => {
     if (!soundEnabled) { vibrate([100, 50, 100, 50, 200]); return; }
     initAudio();
@@ -129,7 +134,7 @@ export function SoundProvider({ children }) {
     <SoundContext.Provider value={{
       soundEnabled, setSoundEnabled,
       hapticEnabled, setHapticEnabled,
-      playCorrect, playWrong, playVictory, playShatter
+      playCorrect, playWrong, playVictory, playShatter, playTick
     }}>
       {children}
     </SoundContext.Provider>

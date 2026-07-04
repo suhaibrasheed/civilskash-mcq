@@ -16,6 +16,9 @@ import BattleArena from './pages/BattleArena';
 import SignInPage from './pages/SignInPage';
 import ProUpsellModal from './components/ProUpsellModal';
 import { useEconomy } from './context/EconomyContext';
+import { Sparkles } from 'lucide-react';
+import NotFoundPage from './pages/NotFoundPage';
+import ExamMockDashboardPage from './pages/ExamMockDashboardPage';
 
 
 import { useAuth } from './context/AuthContext';
@@ -69,7 +72,7 @@ function AppLoadingSplash({ isFadingOut }) {
   return (
     <div className={`mcqkash-splash ${isFadingOut ? 'fade-out' : ''}`} role="status" aria-live="polite" aria-label="Loading MCQ Kash">
       <div className="mcqkash-splash-card">
-        <h1>MCQ Kash</h1>
+        <h1 className="tracking-widest font-black">MCQ Kash</h1>
         <div className="mcqkash-splash-bar" aria-hidden="true"><span /></div>
       </div>
     </div>
@@ -86,6 +89,7 @@ function AppContent() {
   const { economy } = useEconomy();
   const [contentReady, setContentReady] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
+  const [safetyTimeoutTriggered, setSafetyTimeoutTriggered] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -96,11 +100,22 @@ function AppContent() {
       }
     };
     loadQuestionSources();
-    return () => { mounted = false; };
+
+    // Safety guard: force load after 5 seconds to prevent indefinite hang
+    const timer = setTimeout(() => {
+      if (mounted) {
+        setSafetyTimeoutTriggered(true);
+      }
+    }, 5000);
+
+    return () => {
+      mounted = false;
+      clearTimeout(timer);
+    };
   }, []);
 
   // Ensure questions, Auth, and Economy are fully resolved before hiding the splash screen
-  const isFullyLoaded = contentReady && !authLoading && (!user || (economy && economy.id === user.id));
+  const isFullyLoaded = safetyTimeoutTriggered || (contentReady && !authLoading && economy !== null && (!user || economy.id === user.id));
 
   useEffect(() => {
     if (isFullyLoaded) {
@@ -178,11 +193,13 @@ function AppContent() {
           <Route path="/profile" element={<ProfileDashboard />} />
           <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
           <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
+          <Route path="/exam/:examId" element={<OnboardingGuard><ExamMockDashboardPage /></OnboardingGuard>} />
           <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
           <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
           <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
           <Route path="/arena/challenge" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
           <Route path="/signin" element={<SignInPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <NavigationWrapper />
         {/* 🔒 UNIFIED PRO UPSELL MODAL — globally mounted so it is active even on custom router/header unmounted views */}

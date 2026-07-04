@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Trophy, Zap, ChevronRight, ChevronDown, Lock, AlertCircle, Target, CheckCircle2, TrendingUp, BookOpen } from 'lucide-react';
 import { generateSubjectMocks } from '../lib/mockEngine';
+import { ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
 import { getSolvedMocks } from '../lib/db';
 import { getScoreBand, normalizeSolvedMocks } from '../lib/mockDashboardUi';
 import { useEconomy } from '../context/EconomyContext';
@@ -250,7 +251,7 @@ export default function SubjectMockDashboard() {
 
   const { topics, mocksByTopic, pyqMocks = [] } = useMemo(
     () => generateSubjectMocks(category, economy?.target_exam),
-    [category, economy?.target_exam]
+    [category, economy?.target_exam, ALL_STATIC_BANKS_SYNC.length]
   );
 
   const formatCategoryName = (slug) => {
@@ -372,7 +373,7 @@ export default function SubjectMockDashboard() {
               </div>
             )}
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
               {allEliteEmpty ? (
                 <EmptyState label={`${activeTab} Elite Mocks`} />
               ) : (

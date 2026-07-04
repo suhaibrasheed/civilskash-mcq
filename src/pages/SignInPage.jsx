@@ -7,6 +7,7 @@ import { useToast } from '../context/ToastContext';
 import { useEconomy } from '../context/EconomyContext';
 import { supabase } from '../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
+import { updateUserEconomy, getUserEconomy } from '../lib/db';
 
 export default function SignInPage() {
   const { user, signIn, signUp, signInWithGoogle, loading } = useAuth();
@@ -92,7 +93,6 @@ export default function SignInPage() {
         
         // Also save to IndexedDB
         try {
-          const { updateUserEconomy } = await import('../lib/db');
           await updateUserEconomy({ pending_referral_code: refCode });
         } catch (dbErr) {
           console.error('Failed to save referral to IndexedDB:', dbErr);
@@ -105,7 +105,6 @@ export default function SignInPage() {
         } else {
           // If not in localStorage, try IndexedDB
           try {
-            const { getUserEconomy } = await import('../lib/db');
             const econ = await getUserEconomy();
             if (econ && econ.pending_referral_code) {
               setReferredBy(econ.pending_referral_code);
@@ -392,7 +391,13 @@ export default function SignInPage() {
 
                     <form onSubmit={handleAuthSubmit} className="space-y-5 relative z-10">
                       <div className="space-y-1">
+                        <label htmlFor="authEmail" className="sr-only">
+                          {isLogin ? "Email or Username" : "Email Address"}
+                        </label>
                         <input
+                          id="authEmail"
+                          name="authEmail"
+                          autoComplete={isLogin ? "username" : "email"}
                           type="text"
                           required
                           value={authEmail}
@@ -404,7 +409,13 @@ export default function SignInPage() {
                       </div>
 
                       <div className="space-y-1">
+                        <label htmlFor="authPassword" className="sr-only">
+                          Password
+                        </label>
                         <input
+                          id="authPassword"
+                          name="authPassword"
+                          autoComplete={isLogin ? "current-password" : "new-password"}
                           type="password"
                           required
                           value={authPassword}
@@ -469,14 +480,16 @@ export default function SignInPage() {
                     transition={{ duration: 0.2 }}
                   >
                     <form onSubmit={handleOnboardingSubmit} className="space-y-6 relative z-10">
-                      {/* Full Name */}
                       <div className="space-y-2 mb-4">
-                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Full Name</label>
+                        <label htmlFor="fullName" className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Full Name</label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
                             <User size={16} />
                           </div>
                           <input
+                            id="fullName"
+                            name="name"
+                            autoComplete="name"
                             type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
@@ -490,12 +503,15 @@ export default function SignInPage() {
 
                       {/* Choose Unique Username */}
                       <div className="space-y-2 mb-4">
-                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Choose Unique Username *</label>
+                        <label htmlFor="username" className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Choose Unique Username *</label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted font-bold text-xs md:text-sm select-none">
                             @
                           </div>
                           <input
+                            id="username"
+                            name="username"
+                            autoComplete="username"
                             type="text"
                             required
                             value={username}
@@ -525,7 +541,7 @@ export default function SignInPage() {
                       {/* Set Password (Google signups only) */}
                       {!tempUser && (
                         <div className="space-y-2 mb-4">
-                          <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">
+                          <label htmlFor="onboardingPassword" className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">
                             Set Password *
                           </label>
                           <div className="relative">
@@ -533,6 +549,9 @@ export default function SignInPage() {
                               <Lock size={16} />
                             </div>
                             <input
+                              id="onboardingPassword"
+                              name="password"
+                              autoComplete="new-password"
                               type="password"
                               required
                               value={onboardingPassword}
@@ -550,12 +569,14 @@ export default function SignInPage() {
 
                       {/* Referred By */}
                       <div className="space-y-2 mb-5">
-                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Referred By (Optional)</label>
+                        <label htmlFor="referredBy" className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Referred By (Optional)</label>
                         <div className="relative">
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
                             <Gift size={16} />
                           </div>
                           <input
+                            id="referredBy"
+                            name="referredBy"
                             type="text"
                             value={referredBy}
                             onChange={(e) => setReferredBy(e.target.value.trim())}

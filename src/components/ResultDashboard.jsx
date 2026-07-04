@@ -7,7 +7,7 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import McqCard from './McqCard';
-import { saveMockStats, getSolvedMocks, updateBackgroundIntelligence, applyRevisionOutcomes, getRevisionStats, getWarRoomStats, getUserEconomy, updateUserEconomy, getAggregatedStats } from '../lib/db';
+import { saveMockStats, getSolvedMocks, updateBackgroundIntelligence, applyRevisionOutcomes, getRevisionStats, getWarRoomStats, getUserEconomy, updateUserEconomy, getAggregatedStats, logCoinEarnedFromMocks } from '../lib/db';
 import { getNextUnsolvedMiniMock } from '../lib/mockEngine';
 import { useEconomy } from '../context/EconomyContext';
 import { useSound } from '../context/SoundContext';
@@ -461,7 +461,7 @@ const buildGhostMessage = ({
   ]);
 };
 
-export default function ResultDashboard({ questions, answers, mock, timeSpent = {}, used5050 = {} }) {
+export default function ResultDashboard({ questions: rawQuestions, answers: rawAnswers, mock, timeSpent: rawTimeSpent = {}, used5050: rawUsed5050 = {} }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [filter, setFilter] = useState('all');
@@ -477,6 +477,49 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
   const [revisionSummary, setRevisionSummary] = useState(null);
   const [isAiLoading, setIsAiLoading] = useState(false);
   const [aiLoadingText, setAiLoadingText] = useState('');
+
+  // Unpack / restore dynamically locked questions if user is Pro
+  const isProUser = economy?.user_tier === 'Pro';
+  const { questions, answers, timeSpent, used5050 } = React.useMemo(() => {
+    if (!isProUser) {
+      return { 
+        questions: rawQuestions, 
+        answers: rawAnswers,
+        timeSpent: rawTimeSpent,
+        used5050: rawUsed5050
+      };
+    }
+    
+    const unpacked = [];
+    const normAnswers = { ...rawAnswers };
+    const normTimeSpent = { ...rawTimeSpent };
+    const normUsed5050 = { ...rawUsed5050 };
+    
+    rawQuestions.forEach(q => {
+      if (q && q.isLockedDummy && q.lockedQuestion) {
+        const original = q.lockedQuestion;
+        unpacked.push(original);
+        if (rawAnswers[q.id] !== undefined) {
+          normAnswers[original.id] = rawAnswers[q.id];
+        }
+        if (rawTimeSpent[q.id] !== undefined) {
+          normTimeSpent[original.id] = rawTimeSpent[q.id];
+        }
+        if (rawUsed5050[q.id] !== undefined) {
+          normUsed5050[original.id] = rawUsed5050[q.id];
+        }
+      } else {
+        unpacked.push(q);
+      }
+    });
+    
+    return { 
+      questions: unpacked, 
+      answers: normAnswers,
+      timeSpent: normTimeSpent,
+      used5050: normUsed5050
+    };
+  }, [rawQuestions, rawAnswers, rawTimeSpent, rawUsed5050, isProUser]);
  
   // ── Score Calculations ───────────────────────────────────────────
   const total = questions.length;
@@ -548,16 +591,11 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
         try {
           const aggregated = await getAggregatedStats();
           if (economy?.id && economy.id !== 'default_user') {
-            const { error } = await supabase
-              .from('profiles')
-              .update({ users_accuracy: aggregated.accuracyRate })
-              .eq('id', economy.id);
-            if (error) {
-              console.error('Failed to sync users_accuracy to Supabase profiles:', error);
-            }
+            // Defer accuracy sync to local storage queue
+            localStorage.setItem(`mcqkash_pending_accuracy_${economy.id}`, String(aggregated.accuracyRate));
           }
         } catch (err) {
-          console.error('Failed to recalculate/sync overall accuracy:', err);
+          console.error('Failed to recalculate/defer overall accuracy:', err);
         }
 
         const revisionMode = mock?.type === 'resurrection'
@@ -636,7 +674,6 @@ export default function ResultDashboard({ questions, answers, mock, timeSpent = 
           
           if (totalEarned > 0) {
             await transactKC(totalEarned);
-            const { logCoinEarnedFromMocks } = await import('../lib/db');
             await logCoinEarnedFromMocks(totalEarned);
           }
           

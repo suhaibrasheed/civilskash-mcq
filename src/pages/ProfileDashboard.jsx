@@ -1110,11 +1110,11 @@ export default function ProfileDashboard() {
                       {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                     </div>
                     <h2 className={`text-lg font-black text-theme-text tracking-tight ${aiHoverClass} transition-colors duration-200`}>
-                      Personal AI Study Coach
+                      Personal Study Mentor
                     </h2>
                     <div className={`flex items-center gap-1 ${aiBadgeClass} px-2 py-0.5 rounded-full border shrink-0`}>
                       <Sparkles size={11} className={`${aiSparkleClass} animate-pulse`} />
-                      <span className="text-[9px] font-black uppercase tracking-widest">Pro AI Feature</span>
+                      <span className="text-[9px] font-black uppercase tracking-widest">Elite AI</span>
                     </div>
                   </div>
 
@@ -1126,7 +1126,7 @@ export default function ProfileDashboard() {
                       {economy?.user_tier === 'Pro' ? (
                         <><Wand2 size={13} /> Start Coaching</>
                       ) : (
-                        <><Lock size={13} /> Unlock AI Coach</>
+                        <><Lock size={13} /> Unlock Mentor</>
                       )}
                     </button>
                   </div>
@@ -1143,7 +1143,7 @@ export default function ProfileDashboard() {
                     >
                       <div className="border-t border-theme-border/40 w-full mb-4" />
                       <p className="text-xs text-theme-muted font-medium max-w-3xl leading-relaxed text-center mx-auto pb-1">
-                        Your competitors have access to the same books — not the same intelligence. Powered by your complete preparation history, this innovative Personal AI Study Coach feature reveals Hidden Weaknesses, Generates Smart Mocks around your Mastery Index, giving you Personalized Guidance. This is a serious unfair edge over competition that our Pro Aspirants deserve.
+                        Your competitors have access to the same books — not the same intelligence. Powered by your complete preparation history, this innovative Personal Study Mentor feature reveals Hidden Weaknesses, Generates Smart Mocks around your Mastery Index, giving you Personalized Guidance. This is a serious unfair edge over competition that our Pro Aspirants deserve.
                       </p>
                     </motion.div>
                   )}

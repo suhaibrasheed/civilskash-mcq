@@ -188,12 +188,42 @@ export const saveMockStats = async (stats) => {
 export const getAllMockStats = async () => {
   return withDBErrorHandler(async () => {
     const db = await initDB();
+    
+    let isPro = false;
+    try {
+      const econTx = db.transaction([USER_ECONOMY_STORE], 'readonly');
+      const econStore = econTx.objectStore(USER_ECONOMY_STORE);
+      const econReq = econStore.get('default_user');
+      const econResult = await new Promise((resolve) => {
+        econReq.onsuccess = () => resolve(econReq.result);
+        econReq.onerror = () => resolve(null);
+      });
+      if (econResult && (econResult.user_tier === 'Pro' || econResult.is_pro)) {
+        isPro = true;
+      }
+    } catch (e) {
+      console.warn("Could not read user tier in getAllMockStats:", e);
+    }
+
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([STORE_NAME], 'readonly');
       const store = transaction.objectStore(STORE_NAME);
       const request = store.getAll();
 
-      request.onsuccess = () => resolve(request.result);
+      request.onsuccess = () => {
+        const stats = request.result || [];
+        if (isPro) {
+          stats.forEach(s => {
+            if (Array.isArray(s.questions)) {
+              s.questions = s.questions.map(q => (q && q.isLockedDummy && q.lockedQuestion) ? q.lockedQuestion : q);
+            }
+            if (Array.isArray(s.failedQuestions)) {
+              s.failedQuestions = s.failedQuestions.map(q => (q && q.isLockedDummy && q.lockedQuestion) ? q.lockedQuestion : q);
+            }
+          });
+        }
+        resolve(stats);
+      };
       request.onerror = () => reject(request.error);
     });
   });
