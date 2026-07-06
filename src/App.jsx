@@ -82,6 +82,7 @@ function AppLoadingSplash({ isFadingOut }) {
 import { EconomyProvider } from './context/EconomyContext';
 import { SoundProvider } from './context/SoundContext';
 import { ToastProvider } from './context/ToastContext';
+import { NotificationProvider } from './context/NotificationContext';
 import { loadOfflineQuestionsIntoSyncBank } from './lib/dataHub';
 
 function AppContent() {
@@ -215,7 +216,9 @@ function App() {
       <SoundProvider>
         <EconomyProvider>
           <ToastProvider>
-            <AppContent />
+            <NotificationProvider>
+              <AppContent />
+            </NotificationProvider>
           </ToastProvider>
         </EconomyProvider>
       </SoundProvider>

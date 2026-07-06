@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User, RefreshCw } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,6 +7,7 @@ import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import { useSound } from '../context/SoundContext';
+import { useNotifications } from '../context/NotificationContext';
 import { KashCoinDisplay, StreakModal, CoinsVaultModal } from './EconomyUI';
 import BYOKSettingsModal from './BYOKSettingsModal';
 import { getRevisionStats } from '../lib/db';
@@ -519,11 +520,40 @@ function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, b
                 }
                 // Navigate to battle arena with reconstructed result card data
                 if (meta) {
-                  // Fetch challenger's own live rank
+                  // Fetch challenger's own rank — read from 24h cache first
                   let challengerRank = 15;
                   try {
-                    const { data: rankData } = await supabase.rpc('get_logged_in_user_coins_rank');
-                    if (rankData) challengerRank = rankData;
+                    const rankCacheKey = user ? `mcqkash_ranks_cache_${user.id}` : null;
+                    const rankCached = rankCacheKey ? localStorage.getItem(rankCacheKey) : null;
+                    if (rankCached) {
+                      const { timestamp, coinsRank } = JSON.parse(rankCached);
+                      if (Date.now() - timestamp < 24 * 60 * 60 * 1000 && coinsRank) {
+                        challengerRank = coinsRank;
+                      } else {
+                        const { data: rankData } = await supabase.rpc('get_logged_in_user_coins_rank');
+                        if (rankData) {
+                          challengerRank = rankData;
+                          let cacheObj = { timestamp: Date.now(), coinsRank: rankData, streakRank: null, totalAspirants: null };
+                          try { cacheObj = { ...cacheObj, ...JSON.parse(rankCached) }; } catch (e) {}
+                          cacheObj.timestamp = Date.now();
+                          cacheObj.coinsRank = rankData;
+                          localStorage.setItem(rankCacheKey, JSON.stringify(cacheObj));
+                        }
+                      }
+                    } else {
+                      const { data: rankData } = await supabase.rpc('get_logged_in_user_coins_rank');
+                      if (rankData) {
+                        challengerRank = rankData;
+                        if (rankCacheKey) {
+                          localStorage.setItem(rankCacheKey, JSON.stringify({
+                            timestamp: Date.now(),
+                            coinsRank: rankData,
+                            streakRank: null,
+                            totalAspirants: null
+                          }));
+                        }
+                      }
+                    }
                   } catch (e) {}
 
                   const challengerWon = (meta.cs || 0) > (meta.fs || 0);
@@ -704,7 +734,6 @@ export default function Header() {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const notificationsRef = useRef(null);
   const [revisionStats, setRevisionStats] = useState(null);
-  const [dbNotifications, setDbNotifications] = useState([]);
 
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const { economy, toggleProTier, aiSettingsOpen, setAiSettingsOpen, refreshEconomy, transactKC } = useEconomy();
@@ -712,98 +741,23 @@ export default function Header() {
   const { playVictory, playShatter } = useSound();
   const { user } = useAuth();
 
+  // isOnline tracks network connectivity for offline→online economy sync
   const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [isPageVisible, setIsPageVisible] = useState(document.visibilityState === 'visible');
-
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
-    const handleVisibilityChange = () => {
-      setIsPageVisible(document.visibilityState === 'visible');
-    };
-
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
-  useEffect(() => {
-    if (!user) return;
-    
-    const fetchDbNotifications = async () => {
-      if (!navigator.onLine || document.visibilityState !== 'visible') return;
-      try {
-        const { data, error } = await supabase
-          .from('notifications')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('read', false)
-          .order('created_at', { ascending: false });
-        if (!error && data) {
-          setDbNotifications(data);
-        }
-      } catch (err) {
-        console.warn('Failed to fetch notifications:', err);
-      }
-    };
-
-    // Initial fetch when coming online, mounting, or tab becomes visible
-    if (isOnline && isPageVisible) {
-      fetchDbNotifications();
-    }
-
-    // 1. Supabase Realtime Subscription (only when online and tab is active)
-    let channel = null;
-    if (isOnline && isPageVisible) {
-      channel = supabase
-        .channel(`public:notifications:user_id=eq.${user.id}`)
-        .on(
-          'postgres_changes',
-          {
-            event: '*', // Listen to INSERT, UPDATE, DELETE
-            schema: 'public',
-            table: 'notifications',
-            filter: `user_id=eq.${user.id}`
-          },
-          (payload) => {
-            if (payload.eventType === 'INSERT') {
-              const newNotif = payload.new;
-              if (newNotif && !newNotif.read) {
-                setDbNotifications(prev => [newNotif, ...prev.filter(x => x.id !== newNotif.id)]);
-                showToast(`⚔️ New Alert: ${newNotif.message || 'Notification received'}`, "info");
-              }
-            } else if (payload.eventType === 'UPDATE') {
-              const updatedNotif = payload.new;
-              if (updatedNotif) {
-                if (updatedNotif.read) {
-                  setDbNotifications(prev => prev.filter(x => x.id !== updatedNotif.id));
-                } else {
-                  setDbNotifications(prev => [updatedNotif, ...prev.filter(x => x.id !== updatedNotif.id)]);
-                }
-              }
-            } else if (payload.eventType === 'DELETE') {
-              const oldNotif = payload.old;
-              if (oldNotif) {
-                setDbNotifications(prev => prev.filter(x => x.id !== oldNotif.id));
-              }
-            }
-          }
-        )
-        .subscribe();
-    }
-
-    return () => {
-      if (channel) {
-        supabase.removeChannel(channel);
-      }
-    };
-  }, [user, isOnline, isPageVisible]);
+  // Pull notification state from the singleton NotificationContext.
+  // This context lives at App root and never unmounts on page navigation,
+  // so the startup fetch and WebSocket channel fire exactly once per session.
+  const { dbNotifications, setDbNotifications } = useNotifications();
 
 
   // Scratch Card pending calculation
@@ -820,12 +774,19 @@ export default function Header() {
   const prevReferralCount = useRef(null);
   const prevUserId = useRef(null);
 
-  // Sync rewards on mount or when coming online
+  // Sync economy only when recovering from offline → online transition
+  // On mount, EconomyContext already handles the 24-hour profile cache internally
+  const wasOfflineRef = useRef(false);
   useEffect(() => {
     if (!user || !refreshEconomy) return;
-    
-    if (isOnline) {
-      refreshEconomy().catch(err => console.warn('Failed to sync economy:', err));
+    if (!isOnline) {
+      wasOfflineRef.current = true; // track that we went offline
+      return;
+    }
+    if (wasOfflineRef.current) {
+      // Only refetch if we were previously offline (real reconnection)
+      wasOfflineRef.current = false;
+      refreshEconomy().catch(err => console.warn('Failed to sync economy on reconnect:', err));
     }
   }, [user, refreshEconomy, isOnline]);
 

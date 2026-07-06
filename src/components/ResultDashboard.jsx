@@ -153,8 +153,32 @@ export function useRealtimeIntelligence(score, totalQuestions, timeTakenSeconds,
 
       try {
         if (isSupabaseConfigured()) {
-          const { data: count, error } = await supabase.rpc('get_total_aspirants_count');
-          if (!error && typeof count === 'number' && count > 1) {
+          // Cache total aspirants count for 24 hours — it barely changes per hour
+          const countCacheKey = 'mcqkash_total_aspirants_cache';
+          const countCached = localStorage.getItem(countCacheKey);
+          let count = null;
+
+          if (countCached) {
+            try {
+              const { timestamp, value } = JSON.parse(countCached);
+              if (Date.now() - timestamp < 24 * 60 * 60 * 1000) {
+                count = value;
+              }
+            } catch (e) { /* fall through */ }
+          }
+
+          if (count === null) {
+            const { data: fetchedCount, error } = await supabase.rpc('get_total_aspirants_count');
+            if (!error && typeof fetchedCount === 'number' && fetchedCount > 1) {
+              count = fetchedCount;
+              localStorage.setItem(countCacheKey, JSON.stringify({
+                timestamp: Date.now(),
+                value: count
+              }));
+            }
+          }
+
+          if (count !== null && count > 1) {
             totalLiveAspirants = count + Math.floor(Math.random() * 10);
           }
         }
@@ -568,6 +592,19 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
         playShatter();
       }
 
+      let hasBeenSolvedBefore = false;
+      let previousBestPct = 0;
+      try {
+        const previousMocks = await getSolvedMocks();
+        const previousAttempts = (previousMocks || []).filter(r => r.mockId === mock?.id || r.id === mock?.id);
+        hasBeenSolvedBefore = previousAttempts.length > 0;
+        if (hasBeenSolvedBefore) {
+          previousBestPct = Math.max(...previousAttempts.map(r => Number(r.percentage || 0)));
+        }
+      } catch (err) {
+        console.warn('Failed to retrieve mock history:', err);
+      }
+
       try {
         const failedQuestions = questions.filter(q => {
           const ans = answers[q.id];
@@ -670,6 +707,29 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
             const standardSubtotal = Math.round(subtotal * proFactor);
             totalEarned = Math.round(standardSubtotal * powerSurgeMultiplier);
             powerSurgeBonus = totalEarned - standardSubtotal;
+          }
+          
+          // Apply coin leakage protection for repeating solved mocks
+          let repeatMessage = "";
+          if (hasBeenSolvedBefore && totalEarned > 0) {
+            let reductionMultiplier = 1.0;
+            if (previousBestPct >= 80) {
+              reductionMultiplier = 0.25; // 75% reduction
+              repeatMessage = `⚠️ Mastered mock repeat: earned coins reduced by 75% (${totalEarned} ➔ ${Math.round(totalEarned * 0.25)})`;
+            } else if (previousBestPct < 40) {
+              reductionMultiplier = 0.50; // 50% reduction
+              repeatMessage = `⚠️ Under Review mock repeat: earned coins reduced by 50% (${totalEarned} ➔ ${Math.round(totalEarned * 0.50)})`;
+            } else {
+              reductionMultiplier = 0.50; // 50% reduction
+              repeatMessage = `⚠️ Solved mock repeat: earned coins reduced by 50% (${totalEarned} ➔ ${Math.round(totalEarned * 0.50)})`;
+            }
+            totalEarned = Math.round(totalEarned * reductionMultiplier);
+          }
+          
+          if (repeatMessage && totalEarned > 0) {
+            setTimeout(() => {
+              showToast(repeatMessage, "warning");
+            }, 1000);
           }
           
           if (totalEarned > 0) {

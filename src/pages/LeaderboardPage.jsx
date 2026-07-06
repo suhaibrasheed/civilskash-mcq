@@ -144,21 +144,48 @@ export default function LeaderboardPage() {
       setUserRank(null);
       return;
     }
+
+    const now = Date.now();
+    const cacheKey = `mcqkash_ranks_cache_${user.id}`;
+    const cached = localStorage.getItem(cacheKey);
+
+    // SWR: Load from cache first for instant load
+    if (cached) {
+      try {
+        const { coinsRank, streakRank } = JSON.parse(cached);
+        setUserRank(type === 'coins' ? coinsRank : streakRank);
+      } catch (e) { /* fall through */ }
+    }
+
+    // Always fetch from Supabase to refresh state and update cache
     try {
       const rpcName = type === 'coins' ? 'get_logged_in_user_coins_rank' : 'get_logged_in_user_streak_rank';
       const { data, error } = await supabase.rpc(rpcName);
       if (error) throw error;
       setUserRank(data);
+
+      // Write-back to unified cache
+      let cacheObj = { timestamp: now, coinsRank: null, streakRank: null, totalAspirants: null };
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          cacheObj = { ...cacheObj, ...parsed };
+        } catch (e) {}
+      }
+      cacheObj.timestamp = now;
+      if (type === 'coins') {
+        cacheObj.coinsRank = data;
+      } else {
+        cacheObj.streakRank = data;
+      }
+      localStorage.setItem(cacheKey, JSON.stringify(cacheObj));
     } catch (err) {
       console.error('Failed to fetch user rank:', err);
       setUserRank(null);
     }
   };
 
-  useEffect(() => {
-    localStorage.removeItem('mcqkash_lb_cache_coins');
-    localStorage.removeItem('mcqkash_lb_cache_streaks');
-  }, []);
+
 
   useEffect(() => {
     fetchLeaderboard(leaderboardType);
@@ -259,12 +286,10 @@ export default function LeaderboardPage() {
                         if (icon) icon.classList.add('animate-spin');
                         try {
                           await manualRefreshEconomy();
-                          await fetchLeaderboard(leaderboardType);
-                          if (leaderboardType !== 'shoutout') {
-                            await fetchLeaderboard('shoutout');
-                          }
-                          await fetchUserRank(leaderboardType);
                           showToast('Global standings synced! Standings and stats updated. 🔄', 'success');
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 500);
                         } catch (err) {
                           console.error('Failed to sync standings:', err);
                           showToast(err.message || 'Unable to update standings. Please try again.', 'error');

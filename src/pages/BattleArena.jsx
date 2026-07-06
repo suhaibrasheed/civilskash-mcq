@@ -6,7 +6,7 @@ import {
   Swords, ArrowLeft, Clock, ShieldCheck, Sparkles, Trophy, Lock, 
   AlertTriangle, AlertCircle, Share2, Info, CheckCircle2, XCircle, 
   RefreshCw, Star, Coins, Zap, HelpCircle, User, ChevronRight, Eye, Trash2, X, Quote,
-  MinusCircle, Activity
+  MinusCircle, Activity, Maximize2, Minimize2
 } from 'lucide-react';
 import Header, { MCQKashLogo } from '../components/Header';
 import Avatar from '../components/Avatars';
@@ -380,9 +380,38 @@ export default function BattleArena() {
   const { showToast } = useToast();
   const { playVictory, playShatter, playCorrect, playWrong, playTick } = useSound();
 
-
-  // Screen state
+  // Force Refresh Economy on Mount to get live wagering coins and streak status
+  useEffect(() => {
+    if (refreshEconomy) {
+      refreshEconomy(true);
+    }
+  }, []);
   const [step, setStep] = useState('gate'); // 'gate', 'matchmaking', 'pre-start', 'mock', 'reveal', 'genius-trap', 'finished'
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => {
+        setIsFullscreen(true);
+      }).catch(err => {
+        console.error('Error enabling fullscreen:', err);
+      });
+    } else {
+      document.exitFullscreen().then(() => {
+        setIsFullscreen(false);
+      }).catch(err => {
+        console.error('Error exiting fullscreen:', err);
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
   
   // Gate check results
   const [isLockedBySleep, setIsLockedBySleep] = useState(false);
@@ -1562,34 +1591,57 @@ export default function BattleArena() {
         dt: getISTDetails().dateStr        // date
       });
 
+      const notifPayload = {
+        id: `challenge_${challengeData.challengerId}_${Date.now()}`,
+        user_id: challengeData.challengerId,
+        message: suspenseMessage,
+        metadata: resultMeta,
+        created_at: new Date().toISOString(),
+        read: false,
+        type: 'challenge_resolved'
+      };
+
       try {
+        // Path A: DB INSERT — guarantees delivery even if challenger is currently offline
         const { error: notifError } = await supabase
           .from('notifications')
-          .insert({
-            user_id: challengeData.challengerId,
-            message: suspenseMessage,
-            metadata: resultMeta,
-            created_at: new Date().toISOString(),
-            read: false,
-            type: 'challenge_resolved'
-          });
+          .insert(notifPayload);
+
         if (notifError) {
           console.error('[Challenge Notif] Supabase insert failed:', notifError.code, notifError.message, notifError.details);
         } else {
-          console.log('[Challenge Notif] Notification sent to challenger:', challengeData.challengerId);
-          // Mark seed as attempted locally
-          try {
-            const attemptedStr = localStorage.getItem(`mcqkash_attempted_challenges_${userId}`);
-            const attemptedList = attemptedStr ? JSON.parse(attemptedStr) : [];
-            if (!attemptedList.includes(challengeData.seed)) {
-              attemptedList.push(challengeData.seed);
-              localStorage.setItem(`mcqkash_attempted_challenges_${userId}`, JSON.stringify(attemptedList));
-            }
-          } catch (e) {}
+          console.log('[Challenge Notif] DB notification sent to challenger:', challengeData.challengerId);
         }
       } catch (err) {
-        console.error('[Challenge Notif] Network error:', err);
+        console.error('[Challenge Notif] DB insert network error:', err);
       }
+
+      try {
+        // Path B: WebSocket broadcast — instant delivery at 0 bytes of DB egress if challenger is online
+        const broadcastChannel = supabase.channel(`notif_broadcast_${challengeData.challengerId}`, {
+          config: { broadcast: { self: false } }
+        });
+        await broadcastChannel.subscribe();
+        await broadcastChannel.send({
+          type: 'broadcast',
+          event: 'new_notification',
+          payload: notifPayload
+        });
+        supabase.removeChannel(broadcastChannel);
+        console.log('[Challenge Notif] Broadcast sent to challenger channel:', challengeData.challengerId);
+      } catch (broadcastErr) {
+        console.warn('[Challenge Notif] Broadcast failed (non-critical, DB delivery is the fallback):', broadcastErr);
+      }
+
+      // Mark seed as attempted locally
+      try {
+        const attemptedStr = localStorage.getItem(`mcqkash_attempted_challenges_${userId}`);
+        const attemptedList = attemptedStr ? JSON.parse(attemptedStr) : [];
+        if (!attemptedList.includes(challengeData.seed)) {
+          attemptedList.push(challengeData.seed);
+          localStorage.setItem(`mcqkash_attempted_challenges_${userId}`, JSON.stringify(attemptedList));
+        }
+      } catch (e) {}
     }
 
     // Open reveal page
@@ -2571,6 +2623,13 @@ Generate exactly 10 new questions.`;
           </div>
 
           <div className="flex items-center gap-3">
+            <button 
+              onClick={toggleFullscreen} 
+              title={isFullscreen ? "Exit Full Screen" : "Full Screen Mode"}
+              className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50 shrink-0"
+            >
+              {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+            </button>
             <div className="flex items-center gap-2 bg-theme-surface-hover px-3 py-1 rounded-full border border-theme-border shadow-inner shrink-0">
               <Clock size={15} className={mockTimeLeft < 120 ? 'text-rose-500 animate-pulse' : 'text-theme-primary'} />
               <span className={`font-mono font-bold text-xs ${mockTimeLeft < 120 ? 'text-rose-500' : 'text-theme-text'}`}>

@@ -188,6 +188,22 @@ BEGIN
       premium_discount_earned = LEAST(125, premium_discount_earned + 25)
   WHERE id = ref_row.id;
 
+  -- 3. Insert notification for the referrer (notifies about scratch card)
+  INSERT INTO public.notifications (user_id, message, type)
+  VALUES (
+    ref_row.id,
+    '🎉 ' || user_row.username || ' signed up using your referral code! You received 1 Scratch Card.',
+    'referral_success'
+  );
+
+  -- 4. Insert notification for the referee
+  INSERT INTO public.notifications (user_id, message, type)
+  VALUES (
+    auth.uid(),
+    '🎁 Referral applied successfully! You earned +1 Streak Freeze and 7 days Power Surge.',
+    'referral_applied'
+  );
+
   RETURN json_build_object(
     'success', true,
     'message', 'Referral applied successfully!',

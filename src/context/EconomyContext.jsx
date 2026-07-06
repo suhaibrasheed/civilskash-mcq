@@ -15,6 +15,7 @@ const EconomyContext = createContext(null);
 export function EconomyProvider({ children }) {
   const [economy, setEconomy] = useState(null);
   const lastSyncedDataRef = useRef(null);
+  const lastProfileFetchRef = useRef(0);
   const isSyncingRef = useRef(false);
   const [aiSettingsOpen, setAiSettingsOpen] = useState(false);
   const [proUpsellOpen, setProUpsellOpen] = useState(false);
@@ -27,31 +28,68 @@ export function EconomyProvider({ children }) {
     localStorage.removeItem('mcqkash_lb_cache_streaks');
   };
 
-  const syncLeaderboards = async (userId) => {
+  const syncLeaderboards = async (userId, force = false) => {
     if (!userId || !navigator.onLine) return;
-    try {
-      // Fetch coins leaderboard
-      const { data: coinsData } = await supabase.rpc('get_leaderboard_with_radar', {
-        leaderboard_type: 'coins',
-        viewer_id: userId
-      });
-      if (coinsData) {
-        localStorage.setItem('mcqkash_lb_cache_coins', JSON.stringify({
-          timestamp: Date.now(),
-          data: coinsData
-        }));
+    const now = Date.now();
+    const oneDayMs = 24 * 60 * 60 * 1000;
+
+    const cachedCoins = localStorage.getItem('mcqkash_lb_cache_coins');
+    const cachedStreaks = localStorage.getItem('mcqkash_lb_cache_streaks');
+
+    let needsCoins = force;
+    let needsStreaks = force;
+
+    if (!force) {
+      if (cachedCoins) {
+        try {
+          const { timestamp } = JSON.parse(cachedCoins);
+          if (now - timestamp > oneDayMs) needsCoins = true;
+        } catch (e) {
+          needsCoins = true;
+        }
+      } else {
+        needsCoins = true;
       }
 
-      // Fetch streaks leaderboard
-      const { data: streaksData } = await supabase.rpc('get_leaderboard_with_radar', {
-        leaderboard_type: 'streaks',
-        viewer_id: userId
-      });
-      if (streaksData) {
-        localStorage.setItem('mcqkash_lb_cache_streaks', JSON.stringify({
-          timestamp: Date.now(),
-          data: streaksData
-        }));
+      if (cachedStreaks) {
+        try {
+          const { timestamp } = JSON.parse(cachedStreaks);
+          if (now - timestamp > oneDayMs) needsStreaks = true;
+        } catch (e) {
+          needsStreaks = true;
+        }
+      } else {
+        needsStreaks = true;
+      }
+    }
+
+    try {
+      if (needsCoins) {
+        // Fetch coins leaderboard
+        const { data: coinsData } = await supabase.rpc('get_leaderboard_with_radar', {
+          leaderboard_type: 'coins',
+          viewer_id: userId
+        });
+        if (coinsData) {
+          localStorage.setItem('mcqkash_lb_cache_coins', JSON.stringify({
+            timestamp: now,
+            data: coinsData
+          }));
+        }
+      }
+
+      if (needsStreaks) {
+        // Fetch streaks leaderboard
+        const { data: streaksData } = await supabase.rpc('get_leaderboard_with_radar', {
+          leaderboard_type: 'streaks',
+          viewer_id: userId
+        });
+        if (streaksData) {
+          localStorage.setItem('mcqkash_lb_cache_streaks', JSON.stringify({
+            timestamp: now,
+            data: streaksData
+          }));
+        }
       }
     } catch (err) {
       console.warn('Failed to pre-cache leaderboards:', err);
@@ -120,7 +158,7 @@ export function EconomyProvider({ children }) {
       }
 
       // Pre-cache leaderboards during the boot/manual sync
-      await syncLeaderboards(user.id);
+      await syncLeaderboards(user.id, force);
 
       // Record successful sync timestamp
       if (coinsSynced || accuracySynced || force) {
@@ -134,13 +172,34 @@ export function EconomyProvider({ children }) {
   };
 
   // Helper to load economy (merging live Supabase data if logged in)
-  const loadEconomy = async () => {
+  const loadEconomy = async (force = false) => {
     try {
       const localData = await getUserEconomy();
       let updatedData = { ...localData };
 
       if (user) {
-        if (navigator.onLine) {
+        let profile = null;
+        let error = null;
+
+        const now = Date.now();
+        const oneDayMs = 24 * 60 * 60 * 1000;
+
+        // Check the localStorage cache timestamp FIRST — this survives page refreshes.
+        // lastProfileFetchRef is kept as a secondary in-session guard against rapid calls.
+        const cachedProfileStr = localStorage.getItem(`mcqkash_profile_cache_${user.id}`);
+        let cacheAge = Infinity;
+        if (cachedProfileStr) {
+          try {
+            const parsed = JSON.parse(cachedProfileStr);
+            // Cache entry has a _ts timestamp field we write below
+            if (parsed._ts) cacheAge = now - parsed._ts;
+          } catch (e) { /* fall through */ }
+        }
+
+        const shouldFetchFromDb = force ||
+          (cacheAge > oneDayMs && now - lastProfileFetchRef.current > oneDayMs);
+
+        if (navigator.onLine && shouldFetchFromDb) {
           // Lazy Sync Threshold Guard for Automatic Startup Loads:
           // Sync only if:
           // 1. Accumulated pending coins >= 200 or <= -200
@@ -149,24 +208,18 @@ export function EconomyProvider({ children }) {
           const pendingCoins = Math.abs(Number(localStorage.getItem(coinsKey) || 0));
           
           const lastSync = Number(localStorage.getItem(`mcqkash_last_successful_sync_${user.id}`) || 0);
-          const timeElapsed = Date.now() - lastSync;
-          const oneDayMs = 24 * 60 * 60 * 1000;
+          const timeElapsed = now - lastSync;
 
           const shouldSync = pendingCoins >= 200 || timeElapsed > oneDayMs;
 
           if (shouldSync) {
             await syncPendingData(false);
           }
-        }
         
-        let profile = null;
-        let error = null;
-
-        if (navigator.onLine) {
           // Fetch Supabase Profile
           const response = await supabase
             .from('profiles')
-            .select('*')
+            .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier,pro_expiration')
             .eq('id', user.id)
             .single();
           profile = response.data;
@@ -207,6 +260,38 @@ export function EconomyProvider({ children }) {
               profile = newProfile;
             }
           }
+
+          if (!error && profile) {
+            lastProfileFetchRef.current = now;
+            // Store profile with _ts timestamp so cache age check survives page refreshes
+            localStorage.setItem(`mcqkash_profile_cache_${user.id}`, JSON.stringify({ ...profile, _ts: now }));
+          }
+        } else if (navigator.onLine) {
+          // Use cached profile from localStorage when skipping database fetch
+          const cachedProfileStr2 = localStorage.getItem(`mcqkash_profile_cache_${user.id}`);
+          if (cachedProfileStr2) {
+            try {
+              const parsed = JSON.parse(cachedProfileStr2);
+              const { _ts, ...profileData } = parsed; // strip the internal timestamp
+              profile = profileData;
+            } catch (e) {
+              console.warn('Failed to parse cached profile:', e);
+            }
+          }
+          if (!profile) {
+            profile = {
+              id: user.id,
+              email: user.email,
+              full_name: localData.full_name || 'Aspirant',
+              avatar_id: localData.avatar_id || 1,
+              liquid_coins: localData.kash_coins_balance || 100,
+              staked_coins: localData.staked_coins_balance || 0,
+              streak_days: localData.current_streak_days || 0,
+              status_message: localData.status_message || null,
+              target_exam: localData.target_exam || null,
+              user_tier: localData.user_tier || 'Free'
+            };
+          }
         } else {
           // Use cached local data when offline to prevent console error spam
           profile = {
@@ -245,7 +330,7 @@ export function EconomyProvider({ children }) {
               // Re-fetch profile to get updated values
               let { data: updatedProfile } = await supabase
                 .from('profiles')
-                .select('*')
+                .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier,pro_expiration')
                 .eq('id', user.id)
                 .single();
               if (updatedProfile) {
@@ -523,7 +608,7 @@ export function EconomyProvider({ children }) {
       const updated = await dbSpendRevisionKC(amount);
       if (!updated) return false;
     }
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
     return true;
   };
@@ -540,7 +625,7 @@ export function EconomyProvider({ children }) {
       // Guest local DB
       await dbToggleProTier(isPro);
     }
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
   };
 
@@ -578,7 +663,7 @@ export function EconomyProvider({ children }) {
       active_pledges: updatedPledges
     });
 
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
   };
 
@@ -611,7 +696,7 @@ export function EconomyProvider({ children }) {
       active_pledges: updatedPledges
     });
 
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
     return true;
   };
@@ -645,7 +730,7 @@ export function EconomyProvider({ children }) {
       available_streak_freezes: (economy.available_streak_freezes || 0) + 1
     });
 
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
     return true;
   };
@@ -668,7 +753,7 @@ export function EconomyProvider({ children }) {
 
     if (changed) {
       await updateUserEconomy({ active_pledges: updatedPledges });
-      await loadEconomy();
+      await loadEconomy(true);
     }
   };
 
@@ -706,7 +791,7 @@ export function EconomyProvider({ children }) {
 
     const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
     await updateUserEconomy({ active_pledges: updatedPledges });
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
 
     return reward;
@@ -736,7 +821,7 @@ export function EconomyProvider({ children }) {
 
     const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
     await updateUserEconomy({ active_pledges: updatedPledges });
-    await loadEconomy();
+    await loadEconomy(true);
     clearLeaderboardCache();
     return refund;
   };
@@ -745,7 +830,7 @@ export function EconomyProvider({ children }) {
     if (!economy) return false;
     const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
     await updateUserEconomy({ active_pledges: updatedPledges });
-    await loadEconomy();
+    await loadEconomy(true);
     return true;
   };
 
@@ -754,18 +839,24 @@ export function EconomyProvider({ children }) {
     const cooldownKey = `mcqkash_refresh_cooldown_${user.id}`;
     const lastRefresh = localStorage.getItem(cooldownKey);
     const now = Date.now();
-    const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
+    const COOLDOWN_MS = 30 * 1000; // 30 seconds (Reduced from 30 min for testing)
 
     if (lastRefresh && (now - Number(lastRefresh) < COOLDOWN_MS)) {
-      const remainingMin = Math.ceil((COOLDOWN_MS - (now - Number(lastRefresh))) / 60000);
-      throw new Error(`Please wait ${remainingMin} minute${remainingMin > 1 ? 's' : ''} before refreshing stats manually.`);
+      const remainingSec = Math.ceil((COOLDOWN_MS - (now - Number(lastRefresh))) / 1000);
+      throw new Error(`Please wait ${remainingSec} second${remainingSec > 1 ? 's' : ''} before refreshing stats manually.`);
     }
 
     localStorage.setItem(cooldownKey, String(now));
     
+    // Clear ranks and leaderboard caches to force fresh queries on next renders
+    localStorage.removeItem(`mcqkash_ranks_cache_${user.id}`);
+    localStorage.removeItem('mcqkash_lb_cache_coins');
+    localStorage.removeItem('mcqkash_lb_cache_streaks');
+    localStorage.removeItem('mcqkash_lb_cache_shoutout');
+    
     // Force sync pending data and pre-cache leaderboards
     await syncPendingData(true);
-    await loadEconomy();
+    await loadEconomy(true);
     return true;
   };
 

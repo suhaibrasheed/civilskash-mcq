@@ -43,24 +43,46 @@ export function useHomepageIntelligence() {
   const { user } = useAuth();
   const { economy } = useEconomy();
   const [loading, setLoading] = useState(true);
-  const [ranks, setRanks] = useState({ coinsRank: null, streakRank: null });
+  const [ranks, setRanks] = useState({ coinsRank: null, streakRank: null, totalUsers: null });
   const [telemetry, setTelemetry] = useState(null);
 
-  // 1. Fetch Supabase Leaderboard Ranks
+  // 1. Fetch Supabase Leaderboard Ranks (cached for 24 hours)
   useEffect(() => {
     let active = true;
     async function fetchRanks() {
       if (!user || !isSupabaseConfigured()) return;
+
+      const now = Date.now();
+      const cacheKey = `mcqkash_ranks_cache_${user.id}`;
+      const cached = localStorage.getItem(cacheKey);
+
+      // SWR: Load from cache first for instant load
+      if (cached) {
+        try {
+          const { coinsRank, streakRank, totalAspirants } = JSON.parse(cached);
+          setRanks({ coinsRank, streakRank, totalUsers: totalAspirants });
+        } catch (e) { /* fall through */ }
+      }
+
+      // Always fetch from Supabase to refresh state and update cache
       try {
-        const [coinsRes, streakRes] = await Promise.all([
+        const [coinsRes, streakRes, countRes] = await Promise.all([
           supabase.rpc('get_logged_in_user_coins_rank'),
-          supabase.rpc('get_logged_in_user_streak_rank')
+          supabase.rpc('get_logged_in_user_streak_rank'),
+          supabase.rpc('get_total_aspirants_count')
         ]);
+        const coinsRank = !coinsRes.error ? coinsRes.data : null;
+        const streakRank = !streakRes.error ? streakRes.data : null;
+        const totalUsers = !countRes.error ? countRes.data : null;
+
         if (active) {
-          setRanks({
-            coinsRank: !coinsRes.error ? coinsRes.data : null,
-            streakRank: !streakRes.error ? streakRes.data : null
-          });
+          setRanks({ coinsRank, streakRank, totalUsers });
+          localStorage.setItem(cacheKey, JSON.stringify({
+            timestamp: now,
+            coinsRank,
+            streakRank,
+            totalAspirants: totalUsers
+          }));
         }
       } catch (err) {
         console.warn('Failed to fetch user ranks:', err);

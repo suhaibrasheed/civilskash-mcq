@@ -255,8 +255,8 @@ export default function PremiumProfileCard({
 
   const rankVal   = userRank   ?? 37;
   const totalVal  = totalAspirants ?? 1490;
-  const pctVal    = (userRank && totalAspirants)
-    ? ((userRank / totalAspirants) * 100).toFixed(1)
+  const pctVal    = (userRank && totalVal)
+    ? ((userRank / totalVal) * 100).toFixed(1)
     : '2.5';
   const streakVal = economy?.current_streak_days ?? 12;
   const isDark    = theme === 'dark';

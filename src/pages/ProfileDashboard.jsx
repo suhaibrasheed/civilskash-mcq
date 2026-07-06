@@ -366,10 +366,11 @@ export default function ProfileDashboard() {
     }
   }, [showRewardCenterModal, economy?.referred_by]);
 
-  // Body scroll locking when Reward Center is open
+  // Body scroll locking when Reward Center is open & Force Refresh Economy
   useEffect(() => {
     if (showRewardCenterModal) {
       document.body.style.overflow = 'hidden';
+      if (refreshEconomy) refreshEconomy(true);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -421,15 +422,42 @@ export default function ProfileDashboard() {
         setTotalAspirants(null);
         return;
       }
+
+      const now = Date.now();
+      const cacheKey = `mcqkash_ranks_cache_${user.id}`;
+      const cached = localStorage.getItem(cacheKey);
+
+      // SWR: Load from cache first for instant load
+      if (cached) {
+        try {
+          const { coinsRank, totalAspirants } = JSON.parse(cached);
+          setUserRank(coinsRank);
+          if (typeof totalAspirants === 'number') setTotalAspirants(totalAspirants);
+        } catch (e) { /* fall through on corrupt cache */ }
+      }
+
+      // Always fetch from Supabase to refresh state and update cache
       try {
         const { data: rankData, error: rankError } = await supabase.rpc('get_logged_in_user_coins_rank');
         if (rankError) throw rankError;
         setUserRank(rankData);
 
         const { data: countData, error: countError } = await supabase.rpc('get_total_aspirants_count');
+        let count = null;
         if (!countError && typeof countData === 'number') {
           setTotalAspirants(countData);
+          count = countData;
         }
+
+        // Write-back to unified cache, preserving other ranks
+        let cacheObj = { timestamp: now, coinsRank: rankData, streakRank: null, totalAspirants: count };
+        if (cached) {
+          try { cacheObj = { ...cacheObj, ...JSON.parse(cached) }; } catch (e) {}
+        }
+        cacheObj.timestamp = now;
+        cacheObj.coinsRank = rankData;
+        cacheObj.totalAspirants = count;
+        localStorage.setItem(cacheKey, JSON.stringify(cacheObj));
       } catch (err) {
         console.error('Failed to fetch user rank/count:', err);
         setUserRank(null);

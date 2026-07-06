@@ -295,44 +295,24 @@ RETURNS TABLE (
   status_message varchar(50),
   last_status_update_at timestamp with time zone
 ) AS $$
-BEGIN
-  IF leaderboard_type = 'coins' THEN
-    RETURN QUERY
-    SELECT 
-      p.id, 
-      p.full_name, 
-      p.avatar_id, 
-      p.liquid_coins, 
-      p.staked_coins, 
-      p.total_coins, 
-      p.streak_days, 
-      CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
-      p.status_message, 
-      p.last_status_update_at
-    FROM public.profiles p
-    ORDER BY p.total_coins DESC
-    LIMIT 50;
-  ELSIF leaderboard_type = 'streaks' THEN
-    RETURN QUERY
-    SELECT 
-      p.id, 
-      p.full_name, 
-      p.avatar_id, 
-      p.liquid_coins, 
-      p.staked_coins, 
-      p.total_coins, 
-      p.streak_days, 
-      CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
-      p.status_message, 
-      p.last_status_update_at
-    FROM public.profiles p
-    ORDER BY p.streak_days DESC
-    LIMIT 50;
-  ELSE
-    RAISE EXCEPTION 'Invalid leaderboard type';
-  END IF;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+  SELECT 
+    p.id, 
+    p.full_name, 
+    p.avatar_id, 
+    p.liquid_coins, 
+    p.staked_coins, 
+    p.total_coins, 
+    p.streak_days, 
+    CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+    p.status_message, 
+    p.last_status_update_at
+  FROM public.profiles p
+  ORDER BY 
+    CASE WHEN leaderboard_type = 'coins' THEN p.total_coins ELSE NULL END DESC,
+    CASE WHEN leaderboard_type = 'streaks' THEN p.streak_days ELSE NULL END DESC,
+    p.id ASC
+  LIMIT 50;
+$$ LANGUAGE sql SECURITY DEFINER;
 
 -- K. Migrate Guest Data (Syncs local guest coins & streaks to Supabase upon sign up)
 CREATE OR REPLACE FUNCTION public.migrate_guest_data_rpc(guest_coins integer, guest_streak integer)
@@ -370,81 +350,100 @@ RETURNS TABLE (
   last_status_update_at timestamp with time zone,
   rank integer
 ) AS $$
-DECLARE
-  viewer_rank integer := NULL;
-BEGIN
-  -- Find the viewer's absolute rank first if they are logged in
-  IF viewer_id IS NOT NULL THEN
-    IF leaderboard_type = 'coins' THEN
-      SELECT r.rank INTO viewer_rank
-      FROM (
-        SELECT p.id, row_number() OVER (ORDER BY p.total_coins DESC, p.id ASC) as rank
-        FROM public.profiles p
-      ) r
-      WHERE r.id = viewer_id;
-    ELSIF leaderboard_type = 'streaks' THEN
-      SELECT r.rank INTO viewer_rank
-      FROM (
-        SELECT p.id, row_number() OVER (ORDER BY p.streak_days DESC, p.id ASC) as rank
-        FROM public.profiles p
-      ) r
-      WHERE r.id = viewer_id;
-    END IF;
-  END IF;
- 
-  -- Query and filter leaderboard rows
-  IF leaderboard_type = 'coins' THEN
-    RETURN QUERY
-    WITH ranked_profiles AS (
-      SELECT 
-        p.id, 
-        p.full_name, 
-        p.avatar_id, 
-        p.liquid_coins, 
-        p.staked_coins, 
-        p.total_coins, 
-        p.streak_days, 
+  SELECT 
+    mr.id, mr.full_name, mr.avatar_id, mr.liquid_coins, mr.staked_coins, mr.total_coins, mr.streak_days,
+    mr.pro_expires_at, mr.status_message, mr.last_status_update_at,
+    CASE 
+      WHEN leaderboard_type = 'coins' THEN
+        (SELECT COUNT(*)::integer + 1 FROM public.profiles pr WHERE pr.total_coins > mr.total_coins OR (pr.total_coins = mr.total_coins AND pr.id < mr.id))::integer
+      ELSE
+        (SELECT COUNT(*)::integer + 1 FROM public.profiles pr WHERE pr.streak_days > mr.streak_days OR (pr.streak_days = mr.streak_days AND pr.id < mr.id))::integer
+    END as rank
+  FROM (
+    -- Coins Leaderboard
+    SELECT * FROM (
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
         CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
-        p.status_message, 
-        p.last_status_update_at,
-        row_number() OVER (ORDER BY p.total_coins DESC, p.id ASC)::integer as rnk
+        p.status_message, p.last_status_update_at
       FROM public.profiles p
-    )
-    SELECT * 
-    FROM ranked_profiles rp
-    WHERE rp.rnk <= 10
-       OR (viewer_rank IS NOT NULL AND rp.rnk BETWEEN (viewer_rank - 5) AND (viewer_rank + 5))
-       OR (viewer_id IS NULL AND rp.rnk <= 20)
-    ORDER BY rp.rnk ASC;
- 
-  ELSIF leaderboard_type = 'streaks' THEN
-    RETURN QUERY
-    WITH ranked_profiles AS (
-      SELECT 
-        p.id, 
-        p.full_name, 
-        p.avatar_id, 
-        p.liquid_coins, 
-        p.staked_coins, 
-        p.total_coins, 
-        p.streak_days, 
+      WHERE leaderboard_type = 'coins'
+      ORDER BY p.total_coins DESC, p.id ASC
+      LIMIT 10)
+      
+      UNION
+      
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
         CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
-        p.status_message, 
-        p.last_status_update_at,
-        row_number() OVER (ORDER BY p.streak_days DESC, p.id ASC)::integer as rnk
+        p.status_message, p.last_status_update_at
       FROM public.profiles p
-    )
-    SELECT * 
-    FROM ranked_profiles rp
-    WHERE rp.rnk <= 10
-       OR (viewer_rank IS NOT NULL AND rp.rnk BETWEEN (viewer_rank - 5) AND (viewer_rank + 5))
-       OR (viewer_id IS NULL AND rp.rnk <= 20)
-    ORDER BY rp.rnk ASC;
-  ELSE
-    RAISE EXCEPTION 'Invalid leaderboard type';
-  END IF;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+      WHERE leaderboard_type = 'coins' AND viewer_id IS NOT NULL 
+        AND (p.total_coins > (SELECT pr.total_coins FROM public.profiles pr WHERE pr.id = viewer_id) 
+             OR (p.total_coins = (SELECT pr.total_coins FROM public.profiles pr WHERE pr.id = viewer_id) AND p.id <= viewer_id))
+      ORDER BY p.total_coins ASC, p.id DESC
+      LIMIT 6)
+      
+      UNION
+      
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        p.status_message, p.last_status_update_at
+      FROM public.profiles p
+      WHERE leaderboard_type = 'coins' AND viewer_id IS NOT NULL 
+        AND (p.total_coins < (SELECT pr.total_coins FROM public.profiles pr WHERE pr.id = viewer_id) 
+             OR (p.total_coins = (SELECT pr.total_coins FROM public.profiles pr WHERE pr.id = viewer_id) AND p.id > viewer_id))
+      ORDER BY p.total_coins DESC, p.id ASC
+      LIMIT 5)
+    ) coins_lb
+    WHERE leaderboard_type = 'coins'
+
+    UNION ALL
+
+    -- Streaks Leaderboard
+    SELECT * FROM (
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        p.status_message, p.last_status_update_at
+      FROM public.profiles p
+      WHERE leaderboard_type = 'streaks'
+      ORDER BY p.streak_days DESC, p.id ASC
+      LIMIT 10)
+      
+      UNION
+      
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        p.status_message, p.last_status_update_at
+      FROM public.profiles p
+      WHERE leaderboard_type = 'streaks' AND viewer_id IS NOT NULL 
+        AND (p.streak_days > (SELECT pr.streak_days FROM public.profiles pr WHERE pr.id = viewer_id) 
+             OR (p.streak_days = (SELECT pr.streak_days FROM public.profiles pr WHERE pr.id = viewer_id) AND p.id <= viewer_id))
+      ORDER BY p.streak_days ASC, p.id DESC
+      LIMIT 6)
+      
+      UNION
+      
+      (SELECT 
+        p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        p.status_message, p.last_status_update_at
+      FROM public.profiles p
+      WHERE leaderboard_type = 'streaks' AND viewer_id IS NOT NULL 
+        AND (p.streak_days < (SELECT pr.streak_days FROM public.profiles pr WHERE pr.id = viewer_id) 
+             OR (p.streak_days = (SELECT pr.streak_days FROM public.profiles pr WHERE pr.id = viewer_id) AND p.id > viewer_id))
+      ORDER BY p.streak_days DESC, p.id ASC
+      LIMIT 5)
+    ) streaks_lb
+    WHERE leaderboard_type = 'streaks'
+  ) mr
+  ORDER BY 
+    CASE WHEN leaderboard_type = 'coins' THEN mr.total_coins ELSE mr.streak_days END DESC, 
+    mr.id ASC;
+$$ LANGUAGE sql SECURITY DEFINER;
  
  
 -- M. Get Shoutout Feed
@@ -660,46 +659,50 @@ RETURNS TABLE (
   rank integer,
   target_exam text
 ) AS $$
+#variable_conflict use_column
+DECLARE
+  total_available integer;
+  random_offset integer;
 BEGIN
+  -- 1. Find count of matching rows (fast count)
+  SELECT COUNT(*)::integer INTO total_available
+  FROM public.profiles p
+  WHERE p.username IS NOT NULL AND p.username <> ''
+    AND p.full_name IS NOT NULL AND p.full_name <> ''
+    AND (p.id <> viewer_id OR viewer_id IS NULL)
+    AND (exclude_usernames IS NULL OR cardinality(exclude_usernames) = 0 OR NOT (p.username = ANY(exclude_usernames)))
+    AND (viewer_referred_by IS NULL OR p.username IS NULL OR lower(p.username) <> lower(viewer_referred_by))
+    AND (viewer_username IS NULL OR p.referred_by IS NULL OR lower(p.referred_by) <> lower(viewer_username));
+
+  IF total_available = 0 THEN
+    RETURN;
+  END IF;
+
+  -- 2. Pick a random row offset
+  random_offset := floor(random() * total_available);
+
+  -- 3. Retrieve the random single record (index seek + offset, no random sort)
   RETURN QUERY
-  WITH ranked_profiles AS (
-    SELECT 
-      p.id,
-      p.full_name,
-      p.avatar_id,
-      p.username,
-      p.referred_by,
-      CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at,
-      p.status_message,
-      round(coalesce(p.users_accuracy, 0))::integer as users_accuracy,
-      p.streak_days,
-      row_number() OVER (ORDER BY p.total_coins DESC, p.id ASC)::integer as rank,
-      p.target_exam
+  WITH selected_opponent AS (
+    SELECT p.id as opp_id, p.full_name as opp_name, p.avatar_id as opp_avatar, p.username as opp_username, p.referred_by as opp_referred,
+           CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as opp_pro,
+           p.status_message as opp_status, round(coalesce(p.users_accuracy, 0))::integer as opp_accuracy,
+           p.streak_days as opp_streak, p.target_exam as opp_exam, p.total_coins as opp_coins
     FROM public.profiles p
-    WHERE p.username IS NOT NULL 
-      AND p.username <> '' 
-      AND p.full_name IS NOT NULL 
-      AND p.full_name <> ''
+    WHERE p.username IS NOT NULL AND p.username <> ''
+      AND p.full_name IS NOT NULL AND p.full_name <> ''
+      AND (p.id <> viewer_id OR viewer_id IS NULL)
+      AND (exclude_usernames IS NULL OR cardinality(exclude_usernames) = 0 OR NOT (p.username = ANY(exclude_usernames)))
+      AND (viewer_referred_by IS NULL OR p.username IS NULL OR lower(p.username) <> lower(viewer_referred_by))
+      AND (viewer_username IS NULL OR p.referred_by IS NULL OR lower(p.referred_by) <> lower(viewer_username))
+    LIMIT 1 OFFSET random_offset
   )
   SELECT 
-    rp.id,
-    rp.full_name,
-    rp.avatar_id,
-    rp.username,
-    rp.referred_by,
-    rp.pro_expires_at,
-    rp.status_message,
-    rp.users_accuracy,
-    rp.streak_days,
-    rp.rank,
-    rp.target_exam
-  FROM ranked_profiles rp
-  WHERE (rp.id <> viewer_id OR viewer_id IS NULL)
-    AND (exclude_usernames IS NULL OR cardinality(exclude_usernames) = 0 OR NOT (rp.username = ANY(exclude_usernames)))
-    AND (viewer_referred_by IS NULL OR rp.username IS NULL OR lower(rp.username) <> lower(viewer_referred_by))
-    AND (viewer_username IS NULL OR rp.referred_by IS NULL OR lower(rp.referred_by) <> lower(viewer_username))
-  ORDER BY random()
-  LIMIT 1;
+    so.opp_id, so.opp_name, so.opp_avatar, so.opp_username, so.opp_referred,
+    so.opp_pro, so.opp_status, so.opp_accuracy, so.opp_streak,
+    (SELECT COUNT(*)::integer + 1 FROM public.profiles pr WHERE pr.total_coins > so.opp_coins)::integer as rank,
+    so.opp_exam
+  FROM selected_opponent so;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 

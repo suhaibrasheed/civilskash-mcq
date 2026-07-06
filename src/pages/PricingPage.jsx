@@ -234,10 +234,11 @@ export default function PricingPage() {
     }
   }, [showRewardCenterModal, economy?.referred_by]);
 
-  // Body scroll locking when Reward Center is open
+  // Body scroll locking when Reward Center is open & Force Refresh Economy
   useEffect(() => {
     if (showRewardCenterModal) {
       document.body.style.overflow = 'hidden';
+      if (refreshEconomy) refreshEconomy(true);
     } else {
       document.body.style.overflow = 'unset';
     }

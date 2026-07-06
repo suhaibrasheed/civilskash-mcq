@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Clock, Info } from 'lucide-react';
+import { ArrowLeft, Clock, Info, Maximize2, Minimize2 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import McqCard from './McqCard';
 import ResultDashboard from './ResultDashboard';
@@ -56,6 +56,31 @@ export default function ExamEngine() {
   const currentIdxRef = React.useRef(0);
   const [used5050, setUsed5050] = useState({});
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => {
+        setIsFullscreen(true);
+      }).catch(err => {
+        console.error('Error enabling fullscreen:', err);
+      });
+    } else {
+      document.exitFullscreen().then(() => {
+        setIsFullscreen(false);
+      }).catch(err => {
+        console.error('Error exiting fullscreen:', err);
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   useEffect(() => {
     if (location.state?.mock) {
@@ -73,7 +98,7 @@ export default function ExamEngine() {
   }, [answers, mock]);
 
   useEffect(() => {
-    if (mock) {
+    if (mock && timeLeft % 10 === 0) {
       localStorage.setItem(`mcqkash_mock_time_${mock.id}`, timeLeft.toString());
     }
   }, [timeLeft, mock]);
@@ -230,6 +255,13 @@ export default function ExamEngine() {
         </div>
         
         <div className="flex items-center gap-6">
+          <button 
+            onClick={toggleFullscreen} 
+            title={isFullscreen ? "Exit Full Screen" : "Full Screen Mode"}
+            className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
+          >
+            {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+          </button>
           <div className="flex items-center gap-2 bg-theme-surface-hover px-4 py-1.5 rounded-full border border-theme-border shadow-inner">
             <Clock size={16} className={timeLeft < 120 ? 'text-rose-500 animate-pulse' : 'text-theme-primary'} />
             <span className={`font-mono font-bold ${timeLeft < 120 ? 'text-rose-500' : 'text-theme-text'}`}>
