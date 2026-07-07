@@ -37,12 +37,12 @@ export default function LeaderboardPage() {
   }, [showToast]);
 
   // Ghost Profile Caching Fetch
-  const fetchLeaderboard = async (type) => {
+  const fetchLeaderboard = async (type, force = false) => {
     setLeaderboardLoading(true);
     try {
       const cacheKey = `mcqkash_lb_cache_${type}`;
       const cached = localStorage.getItem(cacheKey);
-      if (cached) {
+      if (cached && !force) {
         const { timestamp, data } = JSON.parse(cached);
         if (Date.now() - timestamp < 24 * 60 * 60 * 1000) {
           setLeaderboardData(data);
@@ -131,6 +131,7 @@ export default function LeaderboardPage() {
         timestamp: Date.now(),
         data: finalRows
       }));
+      window.dispatchEvent(new Event('sync-notifications'));
     } catch (err) {
       console.error('Failed to fetch leaderboard:', err);
       setLeaderboardData([]);
@@ -139,7 +140,7 @@ export default function LeaderboardPage() {
     }
   };
 
-  const fetchUserRank = async (type) => {
+  const fetchUserRank = async (type, force = false) => {
     if (!user) {
       setUserRank(null);
       return;
@@ -149,15 +150,22 @@ export default function LeaderboardPage() {
     const cacheKey = `mcqkash_ranks_cache_${user.id}`;
     const cached = localStorage.getItem(cacheKey);
 
-    // SWR: Load from cache first for instant load
+    let cacheFresh = false;
     if (cached) {
       try {
-        const { coinsRank, streakRank } = JSON.parse(cached);
-        setUserRank(type === 'coins' ? coinsRank : streakRank);
+        const { timestamp, coinsRank, streakRank } = JSON.parse(cached);
+        const rank = type === 'coins' ? coinsRank : streakRank;
+        setUserRank(rank);
+        
+        // 24 hour cache cooldown for user rank
+        if (typeof rank === 'number' && now - timestamp < 24 * 60 * 60 * 1000) {
+          cacheFresh = true;
+        }
       } catch (e) { /* fall through */ }
     }
 
-    // Always fetch from Supabase to refresh state and update cache
+    if (cacheFresh && !force) return;
+
     try {
       const rpcName = type === 'coins' ? 'get_logged_in_user_coins_rank' : 'get_logged_in_user_streak_rank';
       const { data, error } = await supabase.rpc(rpcName);
@@ -188,8 +196,17 @@ export default function LeaderboardPage() {
 
 
   useEffect(() => {
-    fetchLeaderboard(leaderboardType);
-    fetchUserRank(leaderboardType);
+    fetchLeaderboard(leaderboardType, false);
+    fetchUserRank(leaderboardType, false);
+
+    const handleSync = () => {
+      fetchLeaderboard(leaderboardType, true);
+      fetchUserRank(leaderboardType, true);
+    };
+    window.addEventListener('sync-profile-stats', handleSync);
+    return () => {
+      window.removeEventListener('sync-profile-stats', handleSync);
+    };
   }, [leaderboardType, user]);
 
   useEffect(() => {

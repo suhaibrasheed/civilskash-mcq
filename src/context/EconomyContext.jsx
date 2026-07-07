@@ -163,6 +163,7 @@ export function EconomyProvider({ children }) {
       // Record successful sync timestamp
       if (coinsSynced || accuracySynced || force) {
         localStorage.setItem(`mcqkash_last_successful_sync_${user.id}`, String(now));
+        window.dispatchEvent(new Event('sync-notifications'));
       }
     } catch (err) {
       console.warn('Failed to sync pending offline stats:', err);
@@ -839,11 +840,20 @@ export function EconomyProvider({ children }) {
     const cooldownKey = `mcqkash_refresh_cooldown_${user.id}`;
     const lastRefresh = localStorage.getItem(cooldownKey);
     const now = Date.now();
-    const COOLDOWN_MS = 30 * 1000; // 30 seconds (Reduced from 30 min for testing)
+    const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
 
     if (lastRefresh && (now - Number(lastRefresh) < COOLDOWN_MS)) {
-      const remainingSec = Math.ceil((COOLDOWN_MS - (now - Number(lastRefresh))) / 1000);
-      throw new Error(`Please wait ${remainingSec} second${remainingSec > 1 ? 's' : ''} before refreshing stats manually.`);
+      const remainingMs = COOLDOWN_MS - (now - Number(lastRefresh));
+      const remainingMin = Math.floor(remainingMs / 60000);
+      const remainingSec = Math.ceil((remainingMs % 60000) / 1000);
+      
+      let timeString = '';
+      if (remainingMin > 0) {
+        timeString = `${remainingMin} minute${remainingMin > 1 ? 's' : ''} and ${remainingSec} second${remainingSec > 1 ? 's' : ''}`;
+      } else {
+        timeString = `${remainingSec} second${remainingSec > 1 ? 's' : ''}`;
+      }
+      throw new Error(`Please wait ${timeString} before refreshing stats manually.`);
     }
 
     localStorage.setItem(cooldownKey, String(now));
@@ -857,6 +867,9 @@ export function EconomyProvider({ children }) {
     // Force sync pending data and pre-cache leaderboards
     await syncPendingData(true);
     await loadEconomy(true);
+    
+    // Force refresh active UI ranking components
+    window.dispatchEvent(new Event('sync-profile-stats'));
     return true;
   };
 

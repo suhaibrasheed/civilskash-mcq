@@ -158,7 +158,21 @@ export function useRealtimeIntelligence(score, totalQuestions, timeTakenSeconds,
           const countCached = localStorage.getItem(countCacheKey);
           let count = null;
 
-          if (countCached) {
+          // Check unified ranks cache first
+          if (economy && economy.id && economy.id !== 'default_user') {
+            const ranksCacheKey = `mcqkash_ranks_cache_${economy.id}`;
+            const ranksCached = localStorage.getItem(ranksCacheKey);
+            if (ranksCached) {
+              try {
+                const { totalAspirants } = JSON.parse(ranksCached);
+                if (typeof totalAspirants === 'number' && totalAspirants > 0) {
+                  count = totalAspirants;
+                }
+              } catch (e) {}
+            }
+          }
+
+          if (count === null && countCached) {
             try {
               const { timestamp, value } = JSON.parse(countCached);
               if (Date.now() - timestamp < 24 * 60 * 60 * 1000) {

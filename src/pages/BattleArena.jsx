@@ -676,6 +676,9 @@ export default function BattleArena() {
     const scoreParam = query.get('score');
 
     if (challengerId && examParam && seedParam && scoreParam) {
+      if (user?.id) {
+        localStorage.setItem(`mcqkash_has_used_challenges_${user.id}`, 'true');
+      }
       const parsedScore = decodeScore(scoreParam);
       setChallengeData({
         challengerId,
@@ -840,6 +843,7 @@ export default function BattleArena() {
 
   const handleChallengeShare = async () => {
     if (!economy) return;
+    localStorage.setItem(`mcqkash_has_used_challenges_${economy.id}`, 'true');
     const shareSeed = currentSeed || Math.floor(Math.random() * 1000000) + 1;
     const challengeUrl = buildChallengeUrl(economy.id, economy.full_name || 'Aspirant', economy.username || 'challenger', economy.target_exam || 'upsc-pre', shareSeed, userScore);
     const formattedMessage = `⚡ Think you've got superior prep? I just set a challenge deck in ${getExamLabel(economy.target_exam)} Battle Arena. Accept my MCQ challenge and let's see who wins this! ⚔️ Enter the duel here: ${challengeUrl}`;

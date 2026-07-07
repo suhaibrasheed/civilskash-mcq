@@ -416,7 +416,8 @@ export default function ProfileDashboard() {
   }, [location.search, location.pathname, navigate]);
 
   useEffect(() => {
-    const fetchUserRankAndCount = async () => {
+    let active = true;
+    const fetchUserRankAndCount = async (force = false) => {
       if (!user) {
         setUserRank(null);
         setTotalAspirants(null);
@@ -427,25 +428,36 @@ export default function ProfileDashboard() {
       const cacheKey = `mcqkash_ranks_cache_${user.id}`;
       const cached = localStorage.getItem(cacheKey);
 
-      // SWR: Load from cache first for instant load
+      let cacheFresh = false;
       if (cached) {
         try {
-          const { coinsRank, totalAspirants } = JSON.parse(cached);
-          setUserRank(coinsRank);
-          if (typeof totalAspirants === 'number') setTotalAspirants(totalAspirants);
+          const { timestamp, coinsRank, totalAspirants } = JSON.parse(cached);
+          if (active) {
+            setUserRank(coinsRank);
+            if (typeof totalAspirants === 'number') setTotalAspirants(totalAspirants);
+          }
+          // 24 hour cache cooldown for ranks and total aspirants count
+          if (now - timestamp < 24 * 60 * 60 * 1000) {
+            cacheFresh = true;
+          }
         } catch (e) { /* fall through on corrupt cache */ }
       }
 
-      // Always fetch from Supabase to refresh state and update cache
+      if (cacheFresh && !force) return;
+
       try {
         const { data: rankData, error: rankError } = await supabase.rpc('get_logged_in_user_coins_rank');
         if (rankError) throw rankError;
-        setUserRank(rankData);
+        if (active) {
+          setUserRank(rankData);
+        }
 
         const { data: countData, error: countError } = await supabase.rpc('get_total_aspirants_count');
         let count = null;
         if (!countError && typeof countData === 'number') {
-          setTotalAspirants(countData);
+          if (active) {
+            setTotalAspirants(countData);
+          }
           count = countData;
         }
 
@@ -460,11 +472,24 @@ export default function ProfileDashboard() {
         localStorage.setItem(cacheKey, JSON.stringify(cacheObj));
       } catch (err) {
         console.error('Failed to fetch user rank/count:', err);
-        setUserRank(null);
-        setTotalAspirants(null);
+        if (active) {
+          setUserRank(null);
+          setTotalAspirants(null);
+        }
       }
     };
-    fetchUserRankAndCount();
+
+    fetchUserRankAndCount(false);
+
+    const handleSync = () => {
+      fetchUserRankAndCount(true);
+    };
+    window.addEventListener('sync-profile-stats', handleSync);
+
+    return () => {
+      active = false;
+      window.removeEventListener('sync-profile-stats', handleSync);
+    };
   }, [user]);
 
   // Streak countdown banner state

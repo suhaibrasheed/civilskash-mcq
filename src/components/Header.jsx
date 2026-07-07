@@ -135,15 +135,40 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
   const { economy, openProUpsell, manualRefreshEconomy } = useEconomy();
   const { user, signOut } = useAuth();
   const { showToast } = useToast();
+  const { fetchDbNotifications } = useNotifications();
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleManualRefresh = async () => {
     if (isRefreshing) return;
+
+    if (user) {
+      const cooldownKey = `mcqkash_refresh_cooldown_${user.id}`;
+      const lastRefresh = localStorage.getItem(cooldownKey);
+      const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
+      const now = Date.now();
+      if (lastRefresh && (now - Number(lastRefresh) < COOLDOWN_MS)) {
+        const remainingMs = COOLDOWN_MS - (now - Number(lastRefresh));
+        const remainingMin = Math.floor(remainingMs / 60000);
+        const remainingSec = Math.ceil((remainingMs % 60000) / 1000);
+        let timeString = '';
+        if (remainingMin > 0) {
+          timeString = `${remainingMin} minute${remainingMin > 1 ? 's' : ''} and ${remainingSec} second${remainingSec > 1 ? 's' : ''}`;
+        } else {
+          timeString = `${remainingSec} second${remainingSec > 1 ? 's' : ''}`;
+        }
+        showToast(`Please wait ${timeString} before refreshing stats manually.`, "warning");
+        return;
+      }
+    }
+
     setIsRefreshing(true);
     try {
       if (manualRefreshEconomy) {
         showToast("Syncing stats with server...", "info");
         await manualRefreshEconomy();
+        if (fetchDbNotifications) {
+          await fetchDbNotifications(true).catch(() => {});
+        }
         showToast("Stats synced successfully!", "success");
       }
     } catch (err) {
@@ -754,10 +779,7 @@ export default function Header() {
     };
   }, []);
 
-  // Pull notification state from the singleton NotificationContext.
-  // This context lives at App root and never unmounts on page navigation,
-  // so the startup fetch and WebSocket channel fire exactly once per session.
-  const { dbNotifications, setDbNotifications } = useNotifications();
+  const { dbNotifications, setDbNotifications, fetchDbNotifications } = useNotifications();
 
 
   // Scratch Card pending calculation

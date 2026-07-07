@@ -49,22 +49,29 @@ export function useHomepageIntelligence() {
   // 1. Fetch Supabase Leaderboard Ranks (cached for 24 hours)
   useEffect(() => {
     let active = true;
-    async function fetchRanks() {
+    async function fetchRanks(force = false) {
       if (!user || !isSupabaseConfigured()) return;
 
       const now = Date.now();
       const cacheKey = `mcqkash_ranks_cache_${user.id}`;
       const cached = localStorage.getItem(cacheKey);
 
-      // SWR: Load from cache first for instant load
+      let cacheFresh = false;
       if (cached) {
         try {
-          const { coinsRank, streakRank, totalAspirants } = JSON.parse(cached);
-          setRanks({ coinsRank, streakRank, totalUsers: totalAspirants });
+          const { timestamp, coinsRank, streakRank, totalAspirants } = JSON.parse(cached);
+          if (active) {
+            setRanks({ coinsRank, streakRank, totalUsers: totalAspirants });
+          }
+          // 24 hour cache cooldown for ranks and total aspirants count
+          if (now - timestamp < 24 * 60 * 60 * 1000) {
+            cacheFresh = true;
+          }
         } catch (e) { /* fall through */ }
       }
 
-      // Always fetch from Supabase to refresh state and update cache
+      if (cacheFresh && !force) return;
+
       try {
         const [coinsRes, streakRes, countRes] = await Promise.all([
           supabase.rpc('get_logged_in_user_coins_rank'),
@@ -88,8 +95,18 @@ export function useHomepageIntelligence() {
         console.warn('Failed to fetch user ranks:', err);
       }
     }
-    fetchRanks();
-    return () => { active = false; };
+    
+    fetchRanks(false);
+
+    const handleSync = () => {
+      fetchRanks(true);
+    };
+    window.addEventListener('sync-profile-stats', handleSync);
+
+    return () => {
+      active = false;
+      window.removeEventListener('sync-profile-stats', handleSync);
+    };
   }, [user]);
 
   // 2. Fetch IndexedDB Data

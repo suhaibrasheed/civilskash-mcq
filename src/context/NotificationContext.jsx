@@ -14,14 +14,28 @@ export function NotificationProvider({ children }) {
   const { user } = useAuth();
   const { showToast } = useToast();
   const [dbNotifications, setDbNotifications] = useState([]);
-  const notifFetchedRef = useRef(false);
+  const lastFetchTimeRef = useRef(0);
 
-  const fetchDbNotifications = useCallback(async () => {
+  const fetchDbNotifications = useCallback(async (force = false) => {
     if (!user || !navigator.onLine) return;
+    
+    // Skip if user has never used/received a friend challenge to save egress
+    const hasUsedChallenges = localStorage.getItem(`mcqkash_has_used_challenges_${user.id}`) === 'true';
+    if (!hasUsedChallenges && !force) {
+      return;
+    }
+
+    const now = Date.now();
+    // 10 minutes cooldown (600,000 ms) unless forced (e.g., manual settings refresh)
+    if (!force && now - lastFetchTimeRef.current < 600000) {
+      return;
+    }
+
+    lastFetchTimeRef.current = now;
     try {
       const { data, error } = await supabase
         .from('notifications')
-        .select('*')
+        .select('id, type, message, metadata, read')
         .eq('user_id', user.id)
         .eq('read', false)
         .order('created_at', { ascending: false });
@@ -33,41 +47,24 @@ export function NotificationProvider({ children }) {
     }
   }, [user]);
 
-  // Fetch ONCE per login session — the ref persists because this provider never unmounts
+  // Clear state on logout
   useEffect(() => {
     if (!user) {
-      // Reset on logout so next login gets a fresh fetch
-      notifFetchedRef.current = false;
       setDbNotifications([]);
-      return;
     }
-    if (notifFetchedRef.current) return;
-    notifFetchedRef.current = true;
-    fetchDbNotifications();
-  }, [user, fetchDbNotifications]);
+  }, [user]);
 
-  // Pure WebSocket broadcast channel — ZERO hidden HTTP fetches
-  // Stays open for the entire session (provider never unmounts)
+  // Listen to a custom window event to trigger notification synchronization on demand
   useEffect(() => {
     if (!user) return;
-
-    const channel = supabase
-      .channel(`notif_broadcast_${user.id}`, {
-        config: { broadcast: { self: false } }
-      })
-      .on('broadcast', { event: 'new_notification' }, ({ payload }) => {
-        if (!payload) return;
-        if (!payload.read) {
-          setDbNotifications(prev => [payload, ...prev.filter(x => x.id !== payload.id)]);
-          showToast(`⚔️ New Alert: ${payload.message || 'Notification received'}`, 'info');
-        }
-      })
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
+    const handleSync = () => {
+      fetchDbNotifications().catch(() => {});
     };
-  }, [user, showToast]);
+    window.addEventListener('sync-notifications', handleSync);
+    return () => {
+      window.removeEventListener('sync-notifications', handleSync);
+    };
+  }, [user, fetchDbNotifications]);
 
   return (
     <NotificationContext.Provider value={{ dbNotifications, setDbNotifications, fetchDbNotifications }}>
