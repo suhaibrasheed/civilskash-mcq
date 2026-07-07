@@ -13,11 +13,12 @@ import { queryGenerativeAI, buildMcqCreatorPrompt, stripCodeFences } from '../li
 const CATEGORY_NAMES = {
   'accountancy': 'Accountancy',
   'ancient-history': 'Ancient History',
+  'art-culture': 'Art & Culture',
   'computer-awareness': 'Computer Awareness',
   'current-affairs': 'Current Affairs',
   'english': 'English',
   'environment': 'Environment',
-  'general-science': 'Science',
+  'general-science': 'Science & Tech',
   'indian-economy': 'Indian Economy',
   'indian-geography': 'Indian Geography',
   'indian-polity': 'Polity',

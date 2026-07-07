@@ -9,11 +9,12 @@ import { EXAM_SERIES } from '../lib/exams';
 const CATEGORY_MAP = {
   'accountancy': 'Accountancy',
   'ancient-history': 'Ancient History',
+  'art-culture': 'Art & Culture',
   'computer-awareness': 'Computer Awareness',
   'current-affairs': 'Current Affairs',
   'english': 'English',
   'environment': 'Environment',
-  'general-science': 'General Science',
+  'general-science': 'Science & Tech',
   'indian-economy': 'Indian Economy',
   'indian-geography': 'Indian Geography',
   'indian-polity': 'Indian Polity',

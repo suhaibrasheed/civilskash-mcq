@@ -18,11 +18,12 @@ import { EXAM_SERIES } from '../lib/exams';
 const CATEGORY_LIST = [
   { name: 'Accountancy', slug: 'accountancy' },
   { name: 'Ancient History', slug: 'ancient-history' },
+  { name: 'Art & Culture', slug: 'art-culture' },
   { name: 'Computer Awareness', slug: 'computer-awareness' },
   { name: 'Current Affairs', slug: 'current-affairs' },
   { name: 'English', slug: 'english' },
   { name: 'Environment', slug: 'environment' },
-  { name: 'General Science', slug: 'general-science' },
+  { name: 'Science & Tech', slug: 'general-science' },
   { name: 'Indian Economy', slug: 'indian-economy' },
   { name: 'Indian Geography', slug: 'indian-geography' },
   { name: 'Indian Polity', slug: 'indian-polity' },

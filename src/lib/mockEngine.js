@@ -69,20 +69,22 @@ export const EXAM_CONFIG = {
       'indian-geography',
       'physical-geography',
       'world-geography',
-      'medieval-history'
+      'medieval-history',
+      'art-culture'
     ],
     weights: [
-      { categoryId: 'indian-polity', fraction: 0.15 },
-      { categoryId: 'indian-economy', fraction: 0.15 },
-      { categoryId: 'environment', fraction: 0.14 },
+      { categoryId: 'indian-polity', fraction: 0.14 },
+      { categoryId: 'indian-economy', fraction: 0.14 },
+      { categoryId: 'environment', fraction: 0.12 },
       { categoryId: 'current-affairs', fraction: 0.10 },
-      { categoryId: 'modern-history', fraction: 0.10 },
-      { categoryId: 'ancient-history', fraction: 0.09 },
-      { categoryId: 'general-science', fraction: 0.08 },
+      { categoryId: 'modern-history', fraction: 0.08 },
+      { categoryId: 'ancient-history', fraction: 0.06 },
+      { categoryId: 'general-science', fraction: 0.11 },
       { categoryId: 'indian-geography', fraction: 0.07 },
-      { categoryId: 'physical-geography', fraction: 0.05 },
+      { categoryId: 'physical-geography', fraction: 0.07 },
       { categoryId: 'world-geography', fraction: 0.04 },
-      { categoryId: 'medieval-history', fraction: 0.03 }
+      { categoryId: 'medieval-history', fraction: 0.03 },
+      { categoryId: 'art-culture', fraction: 0.04 }
     ],
     categoryLabels: {
       'indian-polity': 'Polity',
@@ -91,11 +93,12 @@ export const EXAM_CONFIG = {
       'current-affairs': 'Current Affairs',
       'modern-history': 'Modern History',
       'ancient-history': 'Ancient History',
-      'general-science': 'Science',
+      'general-science': 'Science & Tech',
       'indian-geography': 'Indian Geography',
       'physical-geography': 'Physical Geography',
       'world-geography': 'World Geography',
-      'medieval-history': 'Medieval History'
+      'medieval-history': 'Medieval History',
+      'art-culture': 'Art & Culture'
     },
     difficultyWeights: { easy: 0.15, medium: 0.35, hard: 0.50 }
   },
@@ -132,7 +135,7 @@ export const EXAM_CONFIG = {
       'reasoning': 'Reasoning',
       'current-affairs': 'Current Affairs',
       'static-gk': 'Static GK',
-      'general-science': 'Science',
+      'general-science': 'Science & Tech',
       'modern-history': 'Modern History',
       'indian-polity': 'Polity',
       'indian-geography': 'Indian Geography',
@@ -176,7 +179,7 @@ export const EXAM_CONFIG = {
       'current-affairs': 'Current Affairs',
       'ancient-history': 'Ancient History',
       'environment': 'Environment',
-      'general-science': 'Science',
+      'general-science': 'Science & Tech',
       'indian-geography': 'Indian Geography',
       'physical-geography': 'Physical Geography',
       'world-geography': 'World Geography',

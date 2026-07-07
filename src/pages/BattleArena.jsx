@@ -4789,7 +4789,7 @@ Generate exactly 10 new questions.`;
                     {/* Blurred block */}
                     <div className="filter blur-[5px] opacity-35 space-y-3 text-left text-xs font-bold leading-normal">
                       <p>• {opponent.full_name} dominated you in Indian Geography with a 92% speed ratio.</p>
-                      <p>• You were completely untouchable in General Science with a +15 accuracy index.</p>
+                      <p>• You were completely untouchable in Science & Tech with a +15 accuracy index.</p>
                     </div>
                     
                     {/* Overlay prompt */}

@@ -1,0 +1,3436 @@
+const e=[{id:"15a0ace5-a1de-4089-8ea5-ea9d540980dd",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following Rivers flows through Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Teesta river",label:"A"},{id:"b",text:"Haldi river",label:"B"},{id:"c",text:"Rupnarayan river",label:"C"},{id:"d",text:"Tawi river",label:"D"}],explanation:`The <span class="text-red font-bold">Tawi River</span>, which orignates from <span class="text-green" style="font-weight: 800;">Doda district's</span> one of <span class="text-magenta" style="font-weight: 800;">Kali Kund Glacier,</span> it's  known as the <span class="text-green font-bold">lifeline of Jammu</span>, is a major <span class="text-blue font-bold">left-bank tributary of the Chenab River</span> flowing through the <span class="text-orange font-bold">Jammu region</span>. The other rivers listed flow through eastern India (West Bengal/Sikkim). <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/MFkcxR3vh-4?si=7gBn6RHqCIVF69S1" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/MFkcxR3vh-4/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JSA 2021",created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"4326cb85-632f-4326-8bec-7eaa751556dc",category_id:"jk-affairs",tags:["Jk Geography","Horticulture"],difficulty:"easy",question:"Golden Delicious is a variety of ___________ fruits which is cultivated in Jammu and Kashmir.",correctId:"d",options:[{id:"a",text:"Pear",label:"A"},{id:"b",text:"Peach",label:"B"},{id:"c",text:"Plum",label:"C"},{id:"d",text:"Apple",label:"D"}],explanation:`<span class="text-red font-bold">Golden Delicious</span> is a premium, widely cultivated, and highly commercialized variety of <span class="text-green font-bold">Apple</span> in the <span class="text-blue font-bold">Kashmir Valley</span>, recognizable by its distinct <span class="text-orange font-bold">yellow-green skin</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/5w2nlTgFJOM?si=LDwLJ3Ph0ZI3vWxu" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/5w2nlTgFJOM/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JSA 2021",created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"f954eff5-af25-40c1-869f-58285beb9945",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Hygam wetland reserve is located in _____________ District of Jammu &amp; Kashmir.",correctId:"d",options:[{id:"a",text:"Pulwama",label:"A"},{id:"b",text:"Shopian",label:"B"},{id:"c",text:"Anantnag",label:"C"},{id:"d",text:"Baramulla",label:"D"}],explanation:`<span class="text-red font-bold"></span><span class="text-green" style="font-weight: 800;">Hygam (or Haigam) Wetland Conservation Reserve</span> is a recognized <span class="text-blue font-bold">Ramsar site</span> located in the <span class="text-orange font-bold">Baramulla district</span> on the floodplains of the <span class="text-magenta font-bold">Jhelum River</span>. It is a vital <span class="text-teal font-bold">wintering ground for migratory waterbirds</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/6Ld5dBlgSsA?si=kKrJPkWMC_HWZIRA" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/6Ld5dBlgSsA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JSA 2021",created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"b548db2e-689e-453a-9264-1ba9ee2ffb5a",category_id:"jk-affairs",tags:["Jk Geography","Mountain Ranges"],difficulty:"easy",question:"What is the other name of the Himadri mountain range?",correctId:"a",options:[{id:"a",text:"Greater Himalayas",label:"A"},{id:"b",text:"Lesser Himalayas",label:"B"},{id:"c",text:"Purvanchal Himalayas",label:"C"},{id:"d",text:"Outer Himalayas",label:"D"}],explanation:'The Himalayas are longitudinally divided into three parallel ranges. The northernmost, highest, and most continuous range is the <span class="text-red font-bold">Greater Himalayas</span>, traditionally known as the <span class="text-green font-bold">Himadri</span>.<div><img src="https://th.bing.com/th/id/R.84139156ec0d02a7e6a66100c054e21b?rik=gPR163GeicWElQ&amp;riu=http%3a%2f%2flh6.ggpht.com%2f-93HyCYLHcHo%2fU_XYDH58YFI%2fAAAAAAAAAG4%2fi00yhgiDYU0%2fs1600%2fIMG_20140821_165700.JPG&amp;ehk=cVADsG8ipdXpbhUqOLfHFiSt7SqrVh9Hm29tJoWVHwc%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JSA 2021",created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"db9a5214-3a7b-46a2-ae5e-b22abede7f1b",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"Which of the following is one of the divisions of Dal lake?",correctId:"a",options:[{id:"a",text:"Nageen lake",label:"A"},{id:"b",text:"Hanle Tsho lake",label:"B"},{id:"c",text:"Marsar lake",label:"C"},{id:"d",text:"Tsho-Kar lake",label:"D"}],explanation:'<span class="text-red font-bold"></span><span class="text-orange" style="font-weight: 800;">Nigeen Lake</span> is <span class="text-blue" style="font-weight: 800;">mildly eutrophic</span> and is often considered a separate lake for tourism purposes, but it is geographically and hydrologically a division of the <span class="text-blue font-bold">Dal Lake system</span> in <span class="text-orange font-bold">Srinagar</span>.<div><img src="https://cliffhangersindia.com/wp-content/uploads/2024/04/22888465172_45ed9c0cef_b.jpg.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>   </div>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"94cb08d1-e775-4f18-a293-093dfd774b0c",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"hard",question:"In which of the following Districts, Sangral - Asa Chak Wetland Reserve is located?",correctId:"d",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Ganderbal",label:"B"},{id:"c",text:"Baramullah",label:"C"},{id:"d",text:"Jammu",label:"D"}],explanation:'The <span class="text-red font-bold">Sangral-Asa Chak Wetland Conservation Reserve</span> is situated in the <span class="text-green font-bold">R.S. Pura sector</span> of the <span class="text-blue font-bold">Jammu district</span>. It plays a crucial ecological role in supporting diverse <span class="text-orange font-bold">winter migratory bird populations</span>.<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"32f6cfe2-4ea9-4c28-98ba-06a1faaa1898",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which among the following rivers in Jammu and Kashmir is one of the tributaries of the Indus river?",correctId:"b",options:[{id:"a",text:"Rambiara",label:"A"},{id:"b",text:"Shyok",label:"B"},{id:"c",text:"Vishav",label:"C"},{id:"d",text:"Dudhganga",label:"D"}],explanation:'The <span class="text-red font-bold">Shyok River</span>, known as the "<span class="text-green font-bold">River of Death</span>," flows through <span class="text-orange" style="font-weight: 800;">northern Ladakh</span> and is a major <span class="text-blue font-bold">right-bank tributary of the Indus River</span>.<div><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>River</th><th>Tributary of</th></tr></thead><tbody><tr><td>Rambiara</td><td>Jhelum</td></tr><tr><td>Vishav</td><td>Jhelum</td></tr><tr><td>Dudhganga</td><td>Jhelum</td></tr><tr><td>Shyok</td><td>Indus</td></tr><tr><td>Zanskar</td><td>Indus</td></tr><tr><td>Gilgit</td><td>Indus</td></tr></tbody></table></div>   </div>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"77935925-dab6-41b0-a034-141d28d4fa8d",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"hard",question:"Which of the following is called Autumn Season in Kashmiri Nomenclature?",correctId:"b",options:[{id:"a",text:"Sonth",label:"A"},{id:"b",text:"Harud",label:"B"},{id:"c",text:"Grishm",label:"C"},{id:"d",text:"Wandah",label:"D"}],explanation:`In the traditional Kashmiri ecological calendar,<span class="text-magenta" style="font-weight: 800;"> 'Harud'</span> refers to the <span class="text-green font-bold">Autumn (harvest) season</span>. The other terms map to <span class="text-blue" style="font-weight: 800;">Spring (Sonth)</span><span class="text-blue font-bold"></span>,<span class="text-orange" style="font-weight: 800;"> Summer (Grishm)</span><span class="text-orange font-bold"></span>, and <span class="text-teal" style="font-weight: 800;">Winter (Wandah)</span><span class="text-magenta font-bold"></span>.<br> <span class="text-rose-500 font-bold"> </span>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"5ea58110-2193-4379-81dd-4613dbc9d183",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:'The famous waterfall, "Noori Chamb" is located in __________ district of Union Territory of Jammu and Kashmir.',correctId:"d",options:[{id:"a",text:"Srinagar District",label:"A"},{id:"b",text:"Pulwama District",label:"B"},{id:"c",text:"Gulmarg District",label:"C"},{id:"d",text:"Poonch District",label:"D"}],explanation:`<span class="text-red font-bold">Noori Chamb</span> is a highly scenic waterfall located in the <span class="text-green font-bold">Surankote tehsil</span> of the <span class="text-blue font-bold">Poonch district</span>, near the <span class="text-orange font-bold">Mughal Road</span>. It was historically favored by and named after Mughal Empress <span class="text-magenta font-bold">Nur Jahan</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/U9Y0XpAgFnM?si=c581qcGV2VnwDbFm" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/U9Y0XpAgFnM/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"494fbd00-858c-4ca8-8316-f036dcfc0438",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"In which of the following districts is the Gulmarg Wildlife Sanctuary located?",correctId:"b",options:[{id:"a",text:"Bandipora District",label:"A"},{id:"b",text:"Baramulla District",label:"B"},{id:"c",text:"Srinagar District",label:"C"},{id:"d",text:"Ganderbal District",label:"D"}],explanation:`The <span class="text-red font-bold">Gulmarg Wildlife Sanctuary</span> encompasses the alpine forests of the <span class="text-green font-bold">Pir Panjal range</span> in the <span class="text-blue font-bold">Baramulla district</span>. It is crucial for protecting species like the <span class="text-orange font-bold">Musk Deer and Himalayan Brown Bear</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/lyVuEb2LNpM?si=9w93D29Wa-LJx2ID" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;"><iframe src="https://www.youtube.com/embed/lyVuEb2LNpM?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>   </div>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"24689963-dd6e-4c9c-884a-3f1146ecb127",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Which of the following roads connects the Poonch and Rajouri districts of the Jammu region with the Kashmir Valley?",correctId:"c",options:[{id:"a",text:"The Explorers Windway",label:"A"},{id:"b",text:"Jammu Bridge",label:"B"},{id:"c",text:"The Mughal Road",label:"C"},{id:"d",text:"Jehangir's Bridge",label:"D"}],explanation:`The historic <span class="text-red font-bold">Mughal Road</span> traverses the <span class="text-green font-bold">Pir Panjal range</span> at the <span class="text-blue font-bold">Pir Ki Gali pass</span>. It provides a vital alternate route connecting <span class="text-orange font-bold">Poonch and Rajouri</span> (in Jammu) to the <span class="text-magenta font-bold">Shopian district</span> (in Kashmir).<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/ifQTQ81OIN0?si=4W2tUFpqEgjMJARC" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/ifQTQ81OIN0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>  </div>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"4b4a28f1-03db-4ac9-ae60-c3330551f475",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"Which among the following is an oxbow type of lake in J &amp; K and has probably originated by the meandering of alluvial deposits?",correctId:"b",options:[{id:"a",text:"Dal Lake",label:"A"},{id:"b",text:"Ahansar Lake",label:"B"},{id:"c",text:"Nilnag Lake",label:"C"},{id:"d",text:"Sheikhsar Lake",label:"D"}],explanation:'<span class="text-red font-bold">Ahansar Lake</span>, located in the <span class="text-orange" style="font-weight: 800;">Ganderbal/Bandipora region</span>, is a classic example of an <span class="text-green font-bold"></span><span class="text-green" style="font-weight: 800;">oxbow lake (fluvial origin)</span>. It was formed when the <span class="text-blue font-bold">Jhelum River</span> meandered and eventually cut off a U-shaped water body on its floodplains.<div> <span class="text-rose-500 font-bold"> </span>  </div>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"0891834e-12d2-4060-a0c8-621fbb3526d4",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"hard",question:"The Shrine of four lords Gon-Khang is located in which district of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Kathua",label:"A"},{id:"b",text:"Kashmir",label:"B"},{id:"c",text:"Leh",label:"C"},{id:"d",text:"Pulwama",label:"D"}],explanation:'<span class="text-red font-bold">Gon-Khang</span> <span style="font-style: italic;">(Shrine of the Guardian Deities/Four Lords)</span> is a culturally significant architectural feature found <span style="font-style: italic;">within Tibetan Buddhist monasteries</span>, prominently located in the <span class="text-green font-bold">Leh district</span> of <span class="text-blue font-bold">Ladakh</span>.<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"a294cd63-1259-4c10-91b8-242f21503ad4",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Which of the following activities in Indian agriculture is known as Golden Zest?",correctId:"c",options:[{id:"a",text:"Maize cultivation",label:"A"},{id:"b",text:"Rice cultivation",label:"B"},{id:"c",text:"Saffron cultivation",label:"C"},{id:"d",text:"Mustard Oil cultivation",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">"Golden Zest"</span> refers to the cultivation of <span class="text-green font-bold">Saffron</span> <span class="text-blue font-bold">(Crocus sativus)</span>. <span class="text-green font-bold">Saffron</span>, locally called <span class="text-orange font-bold">Zafran or Kong</span>, is the world's most expensive spice, primarily grown on the <span class="text-magenta font-bold">Karewa lands of Pampore</span> in Kashmir.<br>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"4deb0f1c-1a36-49f3-a3a7-52ab26fea655",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"hard",question:"What is known as harvest inspection and is conducted twice in a year (kharif and rabi crops), carried out by the patwaris after spot inspection of each field for recording the condition of the standing crop including kharaba?",correctId:"b",options:[{id:"a",text:"Jamabandi",label:"A"},{id:"b",text:"Girdawari",label:"B"},{id:"c",text:"Parat-Patwar",label:"C"},{id:"d",text:"Misalhquat",label:"D"}],explanation:`'<span class="text-red font-bold">Girdawari</span>' is the official term in the J&amp;K revenue system for the <span class="text-green font-bold">bi-annual harvest inspection</span>. It is meticulously conducted by <span class="text-blue font-bold">Patwaris</span> to update land records regarding crop conditions, cultivation, and crop failures <span class="text-orange font-bold">(Kharaba)</span>.<br> <span class="text-rose-500 font-bold"> </span>`,pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"b0a78ade-4921-4e16-acd5-6bd53a825416",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Jammu and Kashmir state is capitalizing its potential of hydroelectricity with new hydro power projects installed by NHPC. One such project, Chutak hydroelectric project is on the river:",correctId:"c",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Zanskar",label:"B"},{id:"c",text:"Suru",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:'The <span class="text-red font-bold">Chutak Hydroelectric Project</span> is a <span class="text-green font-bold">44 MW</span> <span class="text-blue font-bold">run-of-the-river</span> power plant located on the <span class="text-orange font-bold">Suru River</span> (a major tributary of the Indus) in the <span class="text-magenta font-bold">Kargil district</span> of <span class="text-teal font-bold">Ladakh</span>.<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"450574c8-b822-40b8-b646-2adeb3799ce5",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Which of the following regions is the major producer of saffron in the state of Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Leh district",label:"A"},{id:"b",text:"Kashmir valley",label:"B"},{id:"c",text:"Jammu district",label:"C"},{id:"d",text:"Suru valley",label:"D"}],explanation:'The <span class="text-red font-bold">Kashmir Valley</span> is the epicenter of premium <span class="text-green font-bold">Saffron production</span> in the Indian subcontinent. It is primarily cultivated on the elevated, well-drained glacio-fluvial deposits known as <span class="text-blue font-bold">Karewas</span> in the <span class="text-orange font-bold">Pulwama (Pampore) and Budgam districts</span>.<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"ff760449-0e9c-4628-be73-efb25143dc60",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which wildlife sanctuary is bounded to the north by Gumsar lake, east by Rupri, south by Saransar and to the west by the Pir Panjal pass and is located in Shopian district of Kashmir?",correctId:"d",options:[{id:"a",text:"Lachipora wildlife sanctuary",label:"A"},{id:"b",text:"Karakoram wildlife sanctuary",label:"B"},{id:"c",text:"Changthang Wildlife Sanctuary",label:"C"},{id:"d",text:"Hirpora wildlife sanctuary",label:"D"}],explanation:'The <span class="text-red font-bold">Hirpora Wildlife Sanctuary</span> is located in the <span class="text-green font-bold">Shopian district</span> along the historical <span class="text-blue font-bold">Mughal Road</span>. It is strategically bounded by <span class="text-orange font-bold">Lake Gumsar and the Pir Panjal pass</span>, acting as a crucial sanctuary for the <span class="text-orange" style="font-weight: 800;">endangered Markhor goat</span>.<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"2b6f452d-3763-4d79-805a-1fa439566436",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"hard",question:"Lacha and Guchi are the forms of which of the following spices that is a prominent ingredient of the Kashmiri cuisine?",correctId:"b",options:[{id:"a",text:"Cardamom",label:"A"},{id:"b",text:"Saffron",label:"B"},{id:"c",text:"Cinnamon",label:"C"},{id:"d",text:"Turmeric",label:"D"}],explanation:'<span class="text-red font-bold">Lacha, Mongra, and Guchi</span> are standard market grades of Kashmiri Saffron. <span class="text-green font-bold">Mongra</span> represents the highest quality (only <span class="text-blue font-bold">dark red stigmas)</span>, while <span class="text-orange font-bold">Guchi</span> involves <span class="text-magenta font-bold">stigmas tied together in small bundles</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"da426ec7-5316-4caa-a3d0-887b7af96b9a",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"easy",question:"In 2015, the Government of India approved which National Highway Project in the region of Ramban and Banihal that will provide all-weather connectivity from Jammu to Kashmir Valley?",correctId:"b",options:[{id:"a",text:"NH-42",label:"A"},{id:"b",text:"NH-44",label:"B"},{id:"c",text:"NH-46",label:"C"},{id:"d",text:"NH-45",label:"D"}],explanation:'<span class="text-red font-bold">NH-44</span> is the critical <span class="text-green font-bold">North-South corridor</span>. The Government of India heavily invested in four-laning and tunneling projects (like the <span class="text-blue font-bold">Chenani-Nashri and Qazigund-Banihal tunnels)</span> along <span class="text-red font-bold">NH-44</span> to ensure uninterrupted <span class="text-orange font-bold">all-weather connectivity</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"544d5197-54f9-4014-ad7f-2123e872b924",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Which of the following options is the longest all-weather road tunnel that has enabled an increase in trade and tourism in the Union Territory of Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Banihal Qazigund Road Tunnel",label:"A"},{id:"b",text:"Sangaldan Tunnel",label:"B"},{id:"c",text:"Jawahar Tunnel",label:"C"},{id:"d",text:"Dr. Syama Prasad Mookerjee Tunnel",label:"D"}],explanation:'The <span class="text-red font-bold">Dr. Syama Prasad Mookerjee Tunnel</span> (formerly the <span class="text-green font-bold">Chenani-Nashri Tunnel)</span> is a <span class="text-blue font-bold">9.28 km</span> long twin-tube road tunnel on NH-44. It is the <span class="text-orange font-bold">longest road tunnel in India</span>, completely bypassing the snow-bound <span class="text-magenta font-bold">Patnitop</span> area.<br> <span class="text-blue-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"74286e55-7215-4a90-80ed-6d213ab5381f",category_id:"jk-affairs",tags:["Jk Geography","Minerals"],difficulty:"hard",question:"According to the department of geology and mining, magnesite is used as refractory bricks for furnaces and has a wide range of usage in pharmaceuticals. The magnesite reserves have their prominence in:",correctId:"a",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Puga Valley",label:"B"},{id:"c",text:"Rajouri",label:"C"},{id:"d",text:"Baramulla",label:"D"}],explanation:'Significant reserves of high-grade <span class="text-red font-bold">Magnesite</span> are found in the <span class="text-green font-bold">Panthal area</span> of the <span class="text-blue font-bold">Udhampur district</span> (bordering <span class="text-orange font-bold">Reasi)</span>. The mineral is heavily exploited for <span class="text-magenta font-bold">metallurgical applications</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"0139d46b-791b-4915-adb0-56aeecc86343",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Which of the following two high-quality crops are extensively cultivated in the Jammu region of Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Mushrooms and Soybeans",label:"A"},{id:"b",text:"Saffron and Zeera",label:"B"},{id:"c",text:"Mustard and Peas",label:"C"},{id:"d",text:"Basmati and Rajmash",label:"D"}],explanation:'The <span class="text-red font-bold">Jammu region</span> is globally recognized for two highly prized <span class="text-green font-bold">geographical indicator (GI) crops</span>: <span class="text-blue font-bold">R.S. Pura Basmati rice</span> (grown in the sub-tropical plains) and <span class="text-orange font-bold">Bhaderwah Rajmash</span> (grown in the temperate hills of Doda).<br>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"8970f64a-8634-40d3-9f12-c6839bd58ce4",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"hard",question:"Which of the following options is a variety of rice grown in Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Starkrimson",label:"A"},{id:"b",text:"K 332",label:"B"},{id:"c",text:"Gold Spur",label:"C"},{id:"d",text:"MM III",label:"D"}],explanation:'<span class="text-red font-bold">K 332</span> is a famous high-yielding and cold-tolerant variety of <span class="text-green font-bold">Rice</span> specially developed for the temperate climatic zones of the <span class="text-blue font-bold">Kashmir Valley</span>. <div><span class="text-orange font-bold">Starkrimson and Gold Spur</span> are well-known varieties of <span class="text-magenta font-bold">Apple</span>.<br>   </div>',pyq:null,created_at:"2026-07-03T15:14:14.951336+00:00"},{id:"292f5a5e-9d83-4c73-a797-4793c8f2215f",category_id:"jk-affairs",tags:["Jk Geography","Horticulture"],difficulty:"hard",question:"Beurre Hardy is a variety of __________ fruit cultivated in Jammu and Kashmir.",correctId:"b",options:[{id:"a",text:"Apple",label:"A"},{id:"b",text:"Pear",label:"B"},{id:"c",text:"Apricot",label:"C"},{id:"d",text:"Cherry",label:"D"}],explanation:'<span class="text-red font-bold">Beurre Hardy</span> is a high-quality French variety of <span class="text-green font-bold">Pear</span> (locally called <span class="text-blue font-bold">Nakh)</span>. It thrives in the <span class="text-orange font-bold">temperate horticultural zones of Jammu and Kashmir</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"74cb900d-7170-43a4-a795-1e29bbda24d5",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:'In which year was the Surinsar-Mansar Lakes declared as a "Ramsar Site"?',correctId:"a",options:[{id:"a",text:"2005",label:"A"},{id:"b",text:"1999",label:"B"},{id:"c",text:"1985",label:"C"},{id:"d",text:"1965",label:"D"}],explanation:`<span class="text-red font-bold">Surinsar and Mansar lakes</span>, situated in the <span class="text-green font-bold">Jammu region</span>, were officially designated as a <span class="text-blue font-bold">Ramsar Wetland of International Importance</span> in <span class="text-orange font-bold">November 2005</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/N8Hp-qMankI?si=fLu98e2-MiN82NtD" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/N8Hp-qMankI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"9b91eb3a-a87f-4636-b96f-7a61d2c02d51",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"_____________ Wild Life Sanctuary is located in Kathua district of Jammu &amp; Kashmir.",correctId:"c",options:[{id:"a",text:"Dachigam",label:"A"},{id:"b",text:"Trikuta",label:"B"},{id:"c",text:"Jasrota",label:"C"},{id:"d",text:"Thajwas",label:"D"}],explanation:'The <span class="text-red font-bold">Jasrota Wildlife Sanctuary</span> is situated on the banks of the <span class="text-green font-bold">Ujh River</span> in the <span class="text-blue font-bold">Kathua district</span>. It is famous for protecting the <span class="text-orange font-bold">Cheetal (Axis deer)</span> population and is dominated by <span class="text-magenta font-bold">bamboo plantations</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"230c1806-060a-4315-8ecb-9c5c2bb0b068",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"easy",question:"Which of the following seasons is referred to as 'Vahrath' in Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Summer season",label:"A"},{id:"b",text:"Rainy season",label:"B"},{id:"c",text:"Cold season",label:"C"},{id:"d",text:"Autumn season",label:"D"}],explanation:`In the traditional Kashmiri ecological calendar, the year is divided into six seasons. '<span class="text-red font-bold"></span><span class="text-red" style="font-weight: 800;">Vahrath'</span> refers to the <span class="text-green font-bold">rainy (monsoon) season</span>, typically falling between <span class="text-blue font-bold">mid-July and mid-September</span>.<br> <span class="text-emerald-500 font-bold"> </span>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"6d76ab07-d1bd-44fd-b4ab-55a00ebdb71e",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following Hydroelectric Projects is built on the Jhelum river?",correctId:"b",options:[{id:"a",text:"Nimoo Bazgo",label:"A"},{id:"b",text:"Uri-II",label:"B"},{id:"c",text:"Salal",label:"C"},{id:"d",text:"Dulhasti",label:"D"}],explanation:'<span class="text-red font-bold">Uri-II</span> is a <span class="text-green font-bold">240 MW</span> <span class="text-blue font-bold">run-of-the-river</span> hydroelectric project built directly on the <span class="text-orange font-bold">Jhelum River</span> in <span class="text-magenta font-bold">Baramulla</span>. <div><span class="text-teal font-bold">Salal and Dulhasti</span> are on the <span class="text-red font-bold">Chenab</span>, while </div><div><span class="text-green font-bold">Nimoo Bazgo</span> is on the <span class="text-blue font-bold">Indus River</span> in Ladakh.<br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"60696141-b820-4dba-8dd1-ea55b5680be5",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Lake Gangabal is located at the foothills of which of the following mountains?",correctId:"d",options:[{id:"a",text:"Kolahoi",label:"A"},{id:"b",text:"Brammah",label:"B"},{id:"c",text:"Zoji La",label:"C"},{id:"d",text:"Harmukh",label:"D"}],explanation:`<span class="text-red font-bold">Lake Gangabal</span> is a stunning alpine high-altitude oligotrophic lake located in the <span class="text-green font-bold">Ganderbal district</span>. It sits at the base of <span class="text-blue font-bold">Mount Harmukh</span> and holds great religious significance.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/kUA0h8f3dtg?si=Wz0sP62TA7kWJOtM" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/kUA0h8f3dtg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"18feedea-f3b9-437d-bcaa-5ea42a387400",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"hard",question:"Ajas Conservation Reserve is in which of the following districts of Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Reasi",label:"A"},{id:"b",text:"Bandipora",label:"B"},{id:"c",text:"Poonch",label:"C"},{id:"d",text:"Doda",label:"D"}],explanation:'The <span class="text-red font-bold">Ajas Conservation Reserve</span> is located in the <span class="text-green font-bold">Bandipora district</span>. It forms a crucial ecological buffer zone near <span class="text-blue font-bold">Wular Lake</span>, protecting local flora and vital <span class="text-orange font-bold">wetland avifauna</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"f863805a-882a-40e3-943b-177ef73b71ba",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The river Lidder in Jammu and Kashmir originates from __________.",correctId:"b",options:[{id:"a",text:"Kailash Kund glacier",label:"A"},{id:"b",text:"Kolahoi glacier",label:"B"},{id:"c",text:"Kaunsarnag lake",label:"C"},{id:"d",text:"Verinag spring",label:"D"}],explanation:`The <span class="text-red font-bold">Lidder River</span>, flowing through <span class="text-green font-bold">Pahalgam</span>, originates from the <span class="text-blue font-bold">Kolahoi Glacier</span> in the <span class="text-orange font-bold">Anantnag district</span>. It is the <span class="text-magenta font-bold">second most important tributary of the Jhelum River</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/cgrqUQWLIxE?si=RRCYxvg9Rf6xj9R1" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/cgrqUQWLIxE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"6a396925-859f-44b5-9618-90c884d81e4b",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The Rup Lank island is in which lake of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Manasbal Lake",label:"A"},{id:"b",text:"Wular Lake",label:"B"},{id:"c",text:"Dal Lake",label:"C"},{id:"d",text:"Anchar Lake",label:"D"}],explanation:`<span class="text-red font-bold">Rup Lank</span>, famously known as <span class="text-green font-bold">Char Chinar</span>, is an artificial island built by <span class="text-blue font-bold">Murad Bakhsh</span> (brother of Aurangzeb). It is located in the <span class="text-orange font-bold">Bod Dal basin</span> of the <span class="text-magenta font-bold">Dal Lake</span> in Srinagar.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/GyIUaaI6Ioc?si=asUdsFxbIUFYxkpa" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/GyIUaaI6Ioc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"31bddcca-5f4e-4b96-b17d-cfb7e36aa8ff",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"The Himalayan Tahr found in the region of Jammu &amp; Kashmir is in _____________ Status as per the IUCN Red List of Threatened Species.",correctId:"c",options:[{id:"a",text:"Least Concern",label:"A"},{id:"b",text:"Endangered",label:"B"},{id:"c",text:"Near Threatened",label:"C"},{id:"d",text:"Vulnerable",label:"D"}],explanation:`The <span class="text-red font-bold">Himalayan Tahr</span>, a wild goat native to the rugged Himalayan terrain, is currently classified as <span class="text-green" style="font-weight: 800;">"Near Threatened"</span> by the <span class="text-blue font-bold">IUCN</span> due to ongoing threats from <span class="text-orange font-bold">habitat fragmentation and illegal hunting</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/FFCj2XQIXII?si=YQ6fd4Wk_y0Tkq_9" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/FFCj2XQIXII/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"b5e29129-013e-4379-8f44-affec5f43a4e",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"The Golden Eagle, which is one of the bird species of Jammu &amp; Kashmir, is in _____________ status as per the IUCN Red Data Book.",correctId:"d",options:[{id:"a",text:"Near Threatened",label:"A"},{id:"b",text:"Endangered",label:"B"},{id:"c",text:"Vulnerable",label:"C"},{id:"d",text:"Least Concern",label:"D"}],explanation:`Despite facing local threats such as habitat loss in specific regions, the <span class="text-red font-bold">Golden Eagle</span> has an incredibly large global range across the Northern Hemisphere, earning it a <span class="text-teal" style="font-weight: 800;">"Least Concern"</span> status on the <span class="text-blue font-bold">IUCN Red List</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Ai6av2FE-aA?si=Msj9xaZQMgWKUE75" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Ai6av2FE-aA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"8014605b-bc04-4751-bc10-fc654fdb130b",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"medium",question:"In which of the following Forts is the “Bawe Wali Mata temple” located in Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Akhnoor Fort",label:"A"},{id:"b",text:"Bhimgarh Fort",label:"B"},{id:"c",text:"Hari Parbat Fort",label:"C"},{id:"d",text:"Bahu Fort",label:"D"}],explanation:'The highly revered <span class="text-red font-bold">Bawe Wali Mata temple</span>, dedicated to <span class="text-green font-bold">Goddess Kali</span>, is situated inside the historic <span class="text-blue font-bold">Bahu Fort</span>. The fort is built on a rock face on the left bank of the <span class="text-orange font-bold">Tawi River</span> in Jammu.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"9195859d-664b-4777-83af-e6948493b033",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Salal Hydro Electric project on the Chenab river is located in which district?",correctId:"b",options:[{id:"a",text:"Ramban",label:"A"},{id:"b",text:"Reasi",label:"B"},{id:"c",text:"Kathua",label:"C"},{id:"d",text:"Udhampur",label:"D"}],explanation:`The <span class="text-red font-bold">Salal Hydroelectric Power Station</span> is a major <span class="text-green font-bold">690 MW</span> <span class="text-blue font-bold">run-of-the-river</span> project built on the <span class="text-orange font-bold">Chenab River</span> in the <span class="text-magenta font-bold">Reasi district</span>. It was the first project built by India under the <span class="text-teal font-bold">Indus Waters Treaty</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/gEChKsXZyrA?si=tqPKGbjSo1ErtSGS" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/gEChKsXZyrA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Compiler 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"e72301d5-ceb9-4d31-a056-41f8aef94e36",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"After passing through Srinagar, the river Jhelum flows into which of the following lakes?",correctId:"d",options:[{id:"a",text:"Yarab Tso Lake",label:"A"},{id:"b",text:"Tso Kar Lake",label:"B"},{id:"c",text:"Dal Lake",label:"C"},{id:"d",text:"Wular Lake",label:"D"}],explanation:'After navigating through the Kashmir Valley and Srinagar, the meandering <span class="text-red font-bold">Jhelum River</span> empties into <span class="text-green font-bold">Wular Lake</span> in <span class="text-blue font-bold">Bandipora</span>. The lake acts as a massive <span class="text-orange font-bold">natural flood basin</span> for the river before it exits towards <span class="text-magenta font-bold">Baramulla</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"296dd442-7f11-4d64-94c3-d0cce285184c",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"Which is the second largest Mughal Garden in the Kashmir Valley?",correctId:"c",options:[{id:"a",text:"Abdullah Garden",label:"A"},{id:"b",text:"Lodhi Garden",label:"B"},{id:"c",text:"Nishat Garden",label:"C"},{id:"d",text:"Hanging Garden",label:"D"}],explanation:'Built by <span class="text-red font-bold">Asif Khan</span> (brother of <span class="text-green font-bold">Nur Jahan)</span> in <span class="text-blue font-bold">1633</span>, <span class="text-orange font-bold">Nishat Bagh</span> ("<span class="text-magenta font-bold">Garden of Joy</span>") is the second largest Mughal garden in the Kashmir Valley, trailing only behind <span class="text-teal font-bold">Shalimar Bagh</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"d1d5f3fd-53d2-4975-8fb5-4551d075c5ab",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following lakes is situated in the Pir Panjal range at a height of 4000 meters above sea level to the south of Shopian District?",correctId:"b",options:[{id:"a",text:"Vihar",label:"A"},{id:"b",text:"Kousarnag",label:"B"},{id:"c",text:"Lonar",label:"C"},{id:"d",text:"Tansa",label:"D"}],explanation:`<span class="text-red font-bold">Kousarnag</span> (or <span class="text-green font-bold">Konsarnag)</span> is a pristine<span class="text-blue" style="font-weight: 800;"> high-altitude oligotrophic lake</span> located in the <span class="text-blue font-bold">Pir Panjal Range</span>. It serves as the primary source of the <span class="text-orange font-bold">Veshaw River</span>, a major tributary of the <span class="text-magenta font-bold">Jhelum</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/vhWONizvN0Q?si=GWtHFDbACLUnjSOz" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/vhWONizvN0Q/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"a152e22a-72b6-48fe-afa2-227706ea3531",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"easy",question:"When is the South West Monsoon season in the Jammu &amp; Kashmir region?",correctId:"a",options:[{id:"a",text:"June to September",label:"A"},{id:"b",text:"October to December",label:"B"},{id:"c",text:"January to March",label:"C"},{id:"d",text:"October to March",label:"D"}],explanation:'The <span class="text-red font-bold">South-West monsoon</span> heavily impacts the sub-tropical <span class="text-green font-bold">Jammu region</span> between <span class="text-blue font-bold">June and September</span>. Conversely, the <span class="text-orange font-bold">Kashmir Valley</span> remains largely shielded from monsoons by the <span class="text-magenta font-bold">Pir Panjal</span>, receiving most of its precipitation from winter <span class="text-teal font-bold">Western Disturbances</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"147e03f7-9e72-4468-b0a8-0b86f565d688",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Which of the following crops is referred to as 'Nikku Muth' in Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Soya bean",label:"A"},{id:"b",text:"Jowar",label:"B"},{id:"c",text:"Peas",label:"C"},{id:"d",text:"Green gram",label:"D"}],explanation:'In the local agricultural terminology of Jammu and Kashmir, <span class="text-green" style="font-weight: 800;">Soya Bean</span> is frequently referred to by farmers as "<span class="text-red font-bold">Nikku Muth</span>."<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"9a2002a4-440f-47e1-9029-ca1e62494e73",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"What is the Binomial name of the Kashmir Musk Deer?",correctId:"c",options:[{id:"a",text:"Vulpes vulpes",label:"A"},{id:"b",text:"Cervus canadensis",label:"B"},{id:"c",text:"Moschus cupreus",label:"C"},{id:"d",text:"Ursus arctos",label:"D"}],explanation:'The <span class="text-red font-bold">Kashmir Musk Deer</span> is a highly endangered species native to the Himalayas, targeted heavily for its musk glands. Its scientific binomial name is <span class="text-green font-bold">Moschus cupreus</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"0208dcd3-a527-4f07-bfa7-0381b67dc327",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Daksum (Rajparian) Wildlife Sanctuary is located in _____________ district of Jammu &amp; Kashmir.",correctId:"b",options:[{id:"a",text:"Budgam",label:"A"},{id:"b",text:"Anantnag",label:"B"},{id:"c",text:"Doda",label:"C"},{id:"d",text:"Shopian",label:"D"}],explanation:'<span class="text-red font-bold">Rajparian Wildlife Sanctuary</span>, famously known as <span class="text-green font-bold">Daksum</span>, is situated in the <span class="text-blue font-bold">Anantnag district</span> near the <span class="text-orange font-bold">Sinthan Pass</span>. It is a critical habitat for the <span class="text-magenta font-bold">Himalayan Black Bear and Musk Deer</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"4cbd0dad-7048-4329-93b2-eeb47197b7bf",category_id:"jk-affairs",tags:["Jk Geography","Economic Geography"],difficulty:"easy",question:"Which of the following woods found in the regions of Jammu &amp; Kashmir is suitable for Wood Carving?",correctId:"d",options:[{id:"a",text:"Deodar wood",label:"A"},{id:"b",text:"Chinar wood",label:"B"},{id:"c",text:"Kail wood",label:"C"},{id:"d",text:"Walnut Wood",label:"D"}],explanation:'<span class="text-red font-bold">Walnut wood</span> <span class="text-green font-bold">(Juglans regia)</span> is world-renowned and highly prized in <span class="text-blue font-bold">Kashmir</span> for <span class="text-orange font-bold">intricate wood carving</span>. Its <span style="font-style: italic;">dark color, tight grain, and durability</span> make it the premier choice for premium handicraft furniture.<br>',pyq:null,created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"ab74eeed-ab22-47f1-a350-9c23ab154bfe",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following Wetland Reserves is in the Jammu district of Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Gharana",label:"A"},{id:"b",text:"Pampur",label:"B"},{id:"c",text:"Shallabugh",label:"C"},{id:"d",text:"Norrichain",label:"D"}],explanation:'<span class="text-red font-bold">Gharana Wetland Conservation Reserve</span> is located in the <span class="text-green font-bold">R.S. Pura sector</span> of the <span class="text-blue font-bold">Jammu district</span>. It is an internationally recognized wintering site for thousands of migratory birds, including the <span class="text-orange font-bold">Bar-headed Goose</span>.<br>',pyq:null,created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"6ce5c802-1a8b-4c68-9a27-65007050f8f9",category_id:"jk-affairs",tags:["Jk Geography","Soils"],difficulty:"hard",question:"________ soil looks yellow in colour when it occurs in a hydrated form.",correctId:"c",options:[{id:"a",text:"Laterite Soil",label:"A"},{id:"b",text:"Black Soil",label:"B"},{id:"c",text:"Red Soil",label:"C"},{id:"d",text:"Alluvial Soil",label:"D"}],explanation:'<span class="text-red font-bold">Red soil</span> develops a reddish color due to the wide diffusion of <span class="text-green font-bold">iron</span> in crystalline and metamorphic rocks. However, when it retains moisture and occurs in a hydrated form, it visually appears <span class="text-blue font-bold">yellow</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"f374b7d2-c969-44c5-bb33-c1940d6f33f3",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following National Parks is famous for Markhor (Capra falconeri)?",correctId:"d",options:[{id:"a",text:"Anshi National Park",label:"A"},{id:"b",text:"Rann of Kutch",label:"B"},{id:"c",text:"Anamudi Shola National Park",label:"C"},{id:"d",text:"Kazinag National Park",label:"D"}],explanation:`<span class="text-red font-bold">Kazinag National Park</span>, located in the <span class="text-green font-bold">Uri region</span> of the <span class="text-blue font-bold">Baramulla district</span> near the <span class="text-orange font-bold">Line of Control</span>, was specifically upgraded to a National Park to protect the <span class="text-magenta font-bold">Markhor</span>, the world's largest species of wild goat.<br>`,pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"7f15b7ae-f7b6-4112-bfbe-585ee0352ec2",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"The Baglihar Dam is built on which of the following rivers in Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Ravi",label:"A"},{id:"b",text:"Jhelum",label:"B"},{id:"c",text:"Chenab",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:`The <span class="text-red font-bold">Baglihar Hydroelectric Power Project</span> is a <span class="text-green font-bold">900 MW</span> <span class="text-blue font-bold">run-of-the-river</span> dam built on the <span class="text-orange font-bold">Chenab River</span> in the <span class="text-magenta font-bold">Ramban district</span> of Jammu and Kashmir.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/l5CnImADKls?si=yfWyRMrCxoxdF1co" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/l5CnImADKls/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"57961da2-8f02-45b9-be47-06f4089de1c5",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Which of the following National Highways passes through Jammu and Kashmir in east to west?",correctId:"a",options:[{id:"a",text:"501",label:"A"},{id:"b",text:"202",label:"B"},{id:"c",text:"102",label:"C"},{id:"d",text:"903",label:"D"}],explanation:'<span class="text-red font-bold">NH 501</span> (formerly NH 1B) passes through <span class="text-green font-bold">Anantnag and Pahalgam</span> in J&amp;K.<br><span style="text-decoration-line: underline; font-weight: bold;">Elimination Trick:</span> Indian highways follow a grid pattern. <span class="text-blue font-bold">North-South highways have EVEN numbers</span>, and <span class="text-orange font-bold">East-West have ODD numbers</span>. <span class="text-magenta font-bold">3-digit highways are secondary spurs</span>. Branches starting with 1, 3, 5, or 7 (e.g., 501) are typically in <span class="text-teal font-bold">Northern/Western India</span> branching off single-digit primary routes, whereas 102 and 202 are localized in Northeast India.<div><img src="https://www.vedantu.com/seo/content-images/144af0a1-6b4a-4dea-9ba7-78b3d24d1e73_National_Highways_in_India.png" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"8d382732-49fc-42dc-9487-ef61c36e447b",category_id:"jk-affairs",tags:["Jk Geography","Economic Geography"],difficulty:"hard",question:"Who among the following wrote that Poonch was famous for graphics, fine tea (Musloom), and good horses?",correctId:"c",options:[{id:"a",text:"Ibn Battuta",label:"A"},{id:"b",text:"Al-Masudi",label:"B"},{id:"c",text:"Huien Tsang",label:"C"},{id:"d",text:"Al Biruni",label:"D"}],explanation:'The famed Chinese traveler and scholar <span class="text-red font-bold">Xuanzang</span> <span class="text-green font-bold">(Hiuen Tsang)</span> visited the region in the <span class="text-blue font-bold">7th century</span>. He extensively documented that <span class="text-orange font-bold">Poonch</span> (then known as <span class="text-magenta font-bold">Puan-ts)</span> was renowned for its <span class="text-teal font-bold">graphics, Musloom tea, and exceptional horses</span>.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"ccb72ea5-f617-4d3e-a44e-ba937f526ed5",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"hard",question:"__________ is a meadow in Khag tehsil of Budgam district of Jammu and Kashmir.",correctId:"c",options:[{id:"a",text:"Yusmarg",label:"A"},{id:"b",text:"Bugyals",label:"B"},{id:"c",text:"Tosamaidan",label:"C"},{id:"d",text:"Aru Valley",label:"D"}],explanation:'<span class="text-red font-bold">Tosamaidan</span> is a vast, picturesque alpine meadow located in the <span class="text-green font-bold">Khag tehsil</span> of the <span class="text-blue font-bold">Budgam district</span>. Once leased to the army as an artillery firing range, it has now been cleared and opened for <span class="text-orange font-bold">eco-tourism</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"4ede322a-8442-4e8b-ba65-1969b48e4ca2",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"Sindh Nallah (Nallah Sindh) is one of the tributaries of which river?",correctId:"a",options:[{id:"a",text:"Jhelum",label:"A"},{id:"b",text:"Chenab",label:"B"},{id:"c",text:"Ravi",label:"C"},{id:"d",text:"Tons",label:"D"}],explanation:'Originating near the<span class="text-orange" style="font-weight: 800;"> Machoi Glacier </span>and flowing through Sonamarg and Ganderbal, the <span class="text-red font-bold">Sind River</span> <span class="text-green font-bold">(Nallah Sindh)</span> is a major <span class="text-orange font-bold"><span class="text-blue" style="font-style: italic; font-weight: normal;">right-bank tributary of the Jhelum River</span></span>, merging with it at <span class="text-magenta font-bold">Shadipora</span>.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"ee898f61-4cd7-411a-99dd-ff261cf2c267",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"hard",question:"The Jammu region comprises how many major agro-climatic zones?",correctId:"d",options:[{id:"a",text:"Three",label:"A"},{id:"b",text:"Four",label:"B"},{id:"c",text:"Only one",label:"C"},{id:"d",text:"Two",label:"D"}],explanation:'While J&amp;K as a whole has four, the <span class="text-red font-bold">Jammu division</span> itself is broadly categorized into <span class="text-orange" style="font-weight: 800;">two primary agro-climatic zones:</span> the <span class="text-green font-bold">Sub-tropical plains</span> (covering <span class="text-blue font-bold">Jammu, Kathua, Samba)</span> and the <span class="text-orange font-bold">Temperate/Intermediate hilly regions</span> (covering <span class="text-magenta font-bold">Doda, Poonch, Rajouri)</span>.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"c8142bc0-df5c-4b9b-8051-4885b67428b1",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"hard",question:"Which of the following Conservation Reserves is located in the Anantnag district of Jammu &amp; Kashmir?",correctId:"d",options:[{id:"a",text:"Panyar",label:"A"},{id:"b",text:"Khanagund",label:"B"},{id:"c",text:"Brain-Nishat",label:"C"},{id:"d",text:"Khiram",label:"D"}],explanation:'The <span class="text-red font-bold">Khiram Conservation Reserve</span> is located in the <span class="text-green font-bold">Anantnag district</span>. It was established as a protected area to conserve the local flora and vulnerable fauna species in south Kashmir.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"701d1ebf-5e49-4598-a5c2-b7ddd523bfb8",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"______ is the Zoological name of the Red Fox found in Jammu &amp; Kashmir.",correctId:"b",options:[{id:"a",text:"Nesokia indica",label:"A"},{id:"b",text:"Vulpes vulpes",label:"B"},{id:"c",text:"Rattus rattus",label:"C"},{id:"d",text:"Felis chaus",label:"D"}],explanation:'The <span class="text-red font-bold">Red Fox</span>, highly adaptable and found across multiple altitudinal zones in Jammu &amp; Kashmir, is scientifically classified as <span class="text-green font-bold">Vulpes vulpes</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"1acc4b25-4fc8-4760-8fb8-6b9263360efa",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Baltal Wildlife Sanctuary is also known as ______________.",correctId:"b",options:[{id:"a",text:"Daksum Wildlife Sanctuary",label:"A"},{id:"b",text:"Thajwas Wildlife Sanctuary",label:"B"},{id:"c",text:"Kaziranga Wildlife Sanctuary",label:"C"},{id:"d",text:"Nandini Wildlife Sanctuary",label:"D"}],explanation:'The <span class="text-red font-bold">Baltal Wildlife Sanctuary</span> is commonly and formally referred to as the <span class="text-green font-bold">Thajwas Wildlife Sanctuary</span>. Located near <span class="text-blue font-bold">Sonamarg</span>, it protects crucial <span class="text-orange font-bold">high-altitude glaciers and Himalayan alpine fauna</span>.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"cde1698f-e533-41d5-8e95-0cc9254d7512",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following hydroelectric power projects is constructed on the River Tawi, a tributary of the Chenab?",correctId:"b",options:[{id:"a",text:"Stakna Hydroelectric Project",label:"A"},{id:"b",text:"Chenani Hydroelectric Project",label:"B"},{id:"c",text:"Uri-II Hydroelectric Project",label:"C"},{id:"d",text:"Ganderbal Hydroelectric Project",label:"D"}],explanation:'The <span class="text-red font-bold">Chenani Hydroelectric Project</span> is located in the <span class="text-green font-bold">Udhampur district</span> and is built on the <span class="text-blue font-bold">Tawi River</span> (the lifeline of Jammu). The Tawi is a major <span class="text-orange font-bold">left-bank tributary of the Chenab</span>.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"d5873fff-0c69-492e-85e3-d8bc53799619",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"Which of the following Wildlife Sanctuaries is located in the Kathua district of Jammu &amp; Kashmir?",correctId:"d",options:[{id:"a",text:"Nandini Wildlife Sanctuary",label:"A"},{id:"b",text:"Karakoram Wildlife Sanctuary",label:"B"},{id:"c",text:"Changthang Wildlife Sanctuary",label:"C"},{id:"d",text:"Jasrota Wildlife Sanctuary",label:"D"}],explanation:'The <span class="text-red font-bold">Jasrota Wildlife Sanctuary</span> is located in the <span class="text-green font-bold">Kathua district</span> on the banks of the <span class="text-blue font-bold">Ujh River</span>. It is especially famous for its significant population of <span class="text-orange font-bold">Cheetal (Axis deer)</span> and rich bamboo forests.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"37eea92c-4736-478a-a23d-dd889012f1e6",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"Which of the following rivers originates from Mount Harmukh and has true headwaters emerging near Zojila and Amarnath peaks?",correctId:"d",options:[{id:"a",text:"Pohru",label:"A"},{id:"b",text:"Sukhnag",label:"B"},{id:"c",text:"Dudhganga",label:"C"},{id:"d",text:"Nallah Sindh",label:"D"}],explanation:'- <span class="text-red font-bold">Nallah Sindh</span> originates from the <span class="text-green font-bold">Machoi Glacier</span> (near Zojila) with tributaries from <span class="text-blue font-bold">Mount Harmukh</span>, merging into the <span class="text-orange font-bold">Jhelum</span>.<br>- <span class="text-magenta font-bold">Pohru</span> originates from the <span class="text-teal font-bold">Lolab Valley</span> and joins the <span class="text-orange font-bold">Jhelum</span>.<br>- <span class="text-red font-bold">Sukhnag</span> originates from <span class="text-green font-bold">Tosamaidan</span> <span class="text-magenta font-bold">(Pir Panjal)</span> and feeds the <span class="text-orange font-bold">Jhelum</span>.<br>- <span class="text-blue font-bold">Dudhganga</span> originates from the <span class="text-orange font-bold">Ludur Marg</span> area of the <span class="text-magenta font-bold">Pir Panjal</span> and is also a <span class="text-orange font-bold">Jhelum</span> tributary.<br>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"7c5fb5d2-618b-4bfb-8da2-585d13ace7ec",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following lakes is the world's highest saltwater lake?",correctId:"c",options:[{id:"a",text:"Tso Moriri Lake",label:"A"},{id:"b",text:"Nagin Lake",label:"B"},{id:"c",text:"Pangong Lake",label:"C"},{id:"d",text:"Dal Lake",label:"D"}],explanation:`<span class="text-red font-bold">Pangong Tso</span> is an <span class="text-green font-bold">endorheic lake</span> in the Himalayas situated at an elevation of about <span class="text-blue font-bold">4,350 m</span>. It is recognized as the <span class="text-teal" style="font-weight: 800;">world's highest saltwater (brackish) lake</span>, geographically shared between <span class="text-magenta font-bold">Ladakh (India) and Tibet (China)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/pwDUVEyaPpQ?si=KhZTaG8ZwZjxIsQl" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/pwDUVEyaPpQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"fd83c949-e833-489d-aee6-c345f401f324",category_id:"jk-affairs",tags:["Jk Geography","Horticulture"],difficulty:"hard",question:"Halman is a variety of ___________ fruit grown in the areas of Jammu and Kashmir.",correctId:"a",options:[{id:"a",text:"Apricot",label:"A"},{id:"b",text:"Apple",label:"B"},{id:"c",text:"Grapes",label:"C"},{id:"d",text:"Cherry",label:"D"}],explanation:'<span class="text-red font-bold">Halman</span> is an extremely popular, highly sweet, and premium variety of <span class="text-green font-bold">Apricot</span> <span class="text-blue font-bold">(Khubani)</span>. It is extensively cultivated in the cold arid region of <span class="text-orange font-bold">Ladakh</span> as well as parts of Kashmir.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-07-03T13:46:06.414735+00:00"},{id:"bffcc687-a262-4836-85f4-e29eee9c3274",category_id:"jk-affairs",tags:["Jk Geography","Soils"],difficulty:"medium",question:"The hills of Jammu and Kashmir are:",correctId:"a",options:[{id:"a",text:"Rich in iron and humus but deficient in lime",label:"A"},{id:"b",text:"Rich in soluble salts but deficient in organic matter",label:"B"},{id:"c",text:"Rich in potash and lime but deficient in nitrogen and phosphorus",label:"C"},{id:"d",text:"Rich in salts such as sodium, magnesium and calcium",label:"D"}],explanation:`<span class="text-red font-bold">Forest and mountain soils</span> in the hilly regions of <span class="text-green font-bold">Jammu and Kashmir</span> are typically characterized by a high accumulation of <span class="text-blue font-bold">organic matter (humus) and iron</span>, but they are inherently deficient in <span class="text-orange font-bold">lime, phosphorus, and potash</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/SFhfggN68ko?si=S2L13KVakfVtxWQa" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/SFhfggN68ko/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div><div>   </div>`,pyq:"Data Entry Operator 2023",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"c11847ad-9020-4192-b028-f7e81b6c7f15",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"With reference to the lakes of Jammu &amp; Kashmir, which of the following matches are NOT correct?",correctId:"d",options:[{id:"a",text:"Dal Lake – Located in Srinagar and known for its houseboats and floating gardens",label:"A"},{id:"b",text:"Pangong Lake – A saltwater lake that lies partially in India and partially in China",label:"B"},{id:"c",text:"Wular Lake – The largest freshwater lake in India, located in Bandipora, Jammu &amp; Kashmir",label:"C"},{id:"d",text:'Manasbal Lake – Located in Srinagar, Jammu &amp; Kashmir, is called the "Jewel in the crown of Kashmir"',label:"D"}],explanation:`<span class="text-red font-bold">Manasbal Lake</span> is located in the <span class="text-green font-bold">Ganderbal district</span>, not Srinagar, and holds the sobriquet "<span class="text-blue font-bold">supreme gem of all Kashmir Lakes</span>."  Mughal garden on banks of Mansbal lake is called<span class="text-orange" style="font-weight: 800;"> Jarokha Bagh </span>build by <span class="text-orange" style="font-weight: 800;">Empress Nur Jahan</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/ZkWPt5NxdlQ?si=hUIjlw9BONArU9rg" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/ZkWPt5NxdlQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br><div>The title "<span class="text-orange font-bold">Jewel in the crown of Kashmir</span>" is exclusively used for the <span class="text-magenta font-bold">Dal Lake</span>.<br>   </div></div>`,pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"c3bb0e56-e39a-47d5-a515-4ba59d45306c",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Chenab Rail Bridge in Jammu &amp; Kashmir is built between which railway stations?",correctId:"a",options:[{id:"a",text:"Bakkal and Kauri",label:"A"},{id:"b",text:"Bakkal and Katra",label:"B"},{id:"c",text:"Udhampur and Srinagar",label:"C"},{id:"d",text:"Banihal and Katra",label:"D"}],explanation:`The <span class="text-red font-bold">Chenab Rail Bridge</span>, the <span class="text-green font-bold">highest railway arch bridge in the world</span>, spans the deep gorge of the <span class="text-blue font-bold">Chenab River</span> connecting the <span class="text-orange font-bold">Bakkal and Kauri</span> railway stations in <span class="text-magenta font-bold">Reasi district</span>. It is a critical link in the <span class="text-teal font-bold">USBRL project</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/iYkh9UG-WW8?si=t3SMIvlDG4Bzaom2" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/iYkh9UG-WW8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Panchayat 2025",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"d397b7e4-9f1e-4a35-ac08-62d11624f9c3",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Which of the following statements about Shyama Prasad Mukherjee Tunnel in Jammu &amp; Kashmir is/are correct?<br>1- It is India’s longest road tunnel with a length of 9.28 km<br>2- The tunnel is located on the lower Himalayan range at an altitude of 1,200 m (3,937 ft)<br>3- The tunnel connects Udhampur and Ramban in Jammu &amp; Kashmir",correctId:"d",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 3 only",label:"B"},{id:"c",text:"2 and 3 only",label:"C"},{id:"d",text:"1, 2, and 3",label:"D"}],explanation:'All statements are correct. The <span class="text-red font-bold">Dr. Syama Prasad Mookerjee Tunnel</span> (formerly <span class="text-green font-bold">Chenani-Nashri Tunnel)</span> is a <span class="text-blue font-bold">9.28 km</span> all-weather road tunnel bypassing <span class="text-orange font-bold">Patnitop</span> in the Lower Himalayas, cutting travel time between <span class="text-magenta font-bold">Udhampur and Ramban</span>.<br>',pyq:"JKSSB Panchayat 2025",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"20172ccb-e1c7-43af-a311-b711977dd23f",category_id:"jk-affairs",tags:["Jk Geography","Mountain Ranges"],difficulty:"medium",question:"Which of the following statements about Indira Col, the northernmost point of India, is correct?",correctId:"b",options:[{id:"a",text:"Indira Col is located in the Zanskar Range and was named in 1947 after India's independence",label:"A"},{id:"b",text:"Indira Col is a mountain pass in the Siachen Muztagh, in the Karakoram Range",label:"B"},{id:"c",text:"Indira Col is a mountain pass in Himachal Pradesh",label:"C"},{id:"d",text:"Indira Col lies at an altitude of 6,000 meters and is the highest peak in Jammu and Kashmir",label:"D"}],explanation:`<span class="text-red font-bold">Indira Col</span> is a high-altitude mountain pass located on the <span class="text-green font-bold">Indira Ridge</span> in the <span class="text-blue font-bold">Siachen Muztagh</span> of the <span class="text-orange font-bold">Karakoram Range</span>. It marks the <span class="text-magenta font-bold">northernmost extremity of Indian territory</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/WxjNZ9Nfogs?si=mStDuwK9uyvGz5pR" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/WxjNZ9Nfogs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Panchayat 2025",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"fedace92-28a6-42f1-82d3-547c11d7268e",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"hard",question:"Consider the following statements:<br>1- The Banihal Qazigund Tunnel was renamed as Shyama Prasad Mukherjee Tunnel<br>2- The Pir Panjal Railway Tunnel (Banihal-Qazigund) is one of India's longest transportation railway tunnels, measuring 11.2 km long<br>Choose the correct option:",correctId:"b",options:[{id:"a",text:"Only 1 is correct",label:"A"},{id:"b",text:"Only 2 is correct",label:"B"},{id:"c",text:"Both 1 and 2 are correct",label:"C"},{id:"d",text:"Neither 1 nor 2 is correct",label:"D"}],explanation:'The <span class="text-red font-bold">Chenani-Nashri Tunnel</span> was renamed the <span class="text-green font-bold">Dr. Syama Prasad Mookerjee Tunnel</span>. The <span class="text-blue font-bold">Pir Panjal Railway Tunnel</span> connecting <span class="text-orange font-bold">Banihal to Qazigund</span> is <span class="text-magenta font-bold">11.2 km</span> long.<br>',pyq:"JKSSB Police 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"9e19d7af-bce5-4a58-9e90-7999b5e485d6",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"What is the local Kashmiri term for saffron, a cash crop?",correctId:"c",options:[{id:"a",text:"Kapus/Kaapus",label:"A"},{id:"b",text:"Tael/Taal",label:"B"},{id:"c",text:"Koung/Kong",label:"C"},{id:"d",text:"Dhan/Dhaan",label:"D"}],explanation:`In the local Kashmiri language, high-quality saffron cultivated on the <span class="text-red font-bold">Karewas of Pampore</span> is traditionally called <span class="text-orange" style="font-weight: 800;">"Kong" or "Koung"</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/fP2WUnBjmkk?si=Fj5nPIFqu_7V-qXx" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/fP2WUnBjmkk/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Police 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"018bf40e-adcc-4f01-9ea5-8fb7589d1b43",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"hard",question:"In which months is Jhiri Mela celebrated each year?",correctId:"c",options:[{id:"a",text:"January - February",label:"A"},{id:"b",text:"March - April",label:"B"},{id:"c",text:"October - November",label:"C"},{id:"d",text:"December - January",label:"D"}],explanation:'The <span class="text-red font-bold">Jhiri Mela</span> is an annual agricultural festival celebrated in <span class="text-green font-bold">November</span> (often coinciding with <span class="text-blue font-bold">Kartik Purnima)</span> in the village of Jhiri near Jammu. It honors <span class="text-orange font-bold">Baba Jitto</span>, a legendary farmer who fought against feudal oppression. <br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"5c86fb73-3acf-4501-a888-ef9c244c2a26",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"Which is the State animal of Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Kashmir Stag",label:"A"},{id:"b",text:"Musk Deer",label:"B"},{id:"c",text:"Markhor",label:"C"},{id:"d",text:"Himalayan Black Bear",label:"D"}],explanation:`The <span class="text-red font-bold">Kashmir Stag</span>, locally known as <span class="text-green font-bold">Hangul</span>, is the <span class="text-blue font-bold">official UT animal of Jammu and Kashmir</span>. It is a <span class="text-orange font-bold">critically endangered</span> species of red deer found primarily in <span class="text-magenta font-bold">Dachigam National Park</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/NEKRdQtcuJk?si=zVGGE4drVPe9blgC" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/NEKRdQtcuJk/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"75843f6f-b7b4-4f4b-83aa-322e309607b5",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Pampore uplands, locally called wudars in J&amp;K, are a great source of revenue from which of the following?",correctId:"b",options:[{id:"a",text:"Apples",label:"A"},{id:"b",text:"Saffron",label:"B"},{id:"c",text:"Tourism",label:"C"},{id:"d",text:"Honey",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">"Wudars"</span> is the local term for <span class="text-green font-bold">Karewas - </span>thick glacio-fluvial deposits found in the Kashmir Valley. The <span class="text-blue font-bold">Pampore Wudars</span> are world-renowned for the cultivation of premium <span class="text-orange font-bold">Saffron</span> <span class="text-magenta font-bold">(Zafran)</span>.<br>',pyq:"Stock Assistant 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"7b253487-401b-44d5-aa4f-d38cc6c1c1ff",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The Uri Dam is located on which river in J&amp;K?",correctId:"d",options:[{id:"a",text:"Beas",label:"A"},{id:"b",text:"Chenab",label:"B"},{id:"c",text:"Ravi",label:"C"},{id:"d",text:"Jhelum",label:"D"}],explanation:`The <span class="text-red font-bold">Uri Dam</span> is a <span class="text-green font-bold">480 MW</span> <span class="text-blue font-bold">run-of-the-river</span> hydroelectric power station located on the <span class="text-orange font-bold">Jhelum River</span> in the <span class="text-magenta font-bold">Baramulla district</span> of the Kashmir Valley.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/-tyZga6pnQs?si=hedjUxbSdA496bb_" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/-tyZga6pnQs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"bdf7585d-06ea-49e8-be88-62e8239e1f9f",category_id:"jk-affairs",tags:["Jk Geography","Economic Geography"],difficulty:"medium",question:"Pashmina Shawl is a world-famous shawl and its fabric is extracted from?",correctId:"a",options:[{id:"a",text:"Goat",label:"A"},{id:"b",text:"Sheep",label:"B"},{id:"c",text:"Yak",label:"C"},{id:"d",text:"Both A and B",label:"D"}],explanation:`The raw material for the famous <span class="text-red font-bold">Pashmina shawls</span> is obtained from the fine undercoat of the <span class="text-green font-bold">Changthangi goat</span> <span class="text-blue font-bold">(Pashmina goat)</span>, which is native to the high altitudes of the <span class="text-orange font-bold">Ladakh region</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/bDGQPDKe6fE?si=-g-nsvJsfK_U8ub4" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/bDGQPDKe6fE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"8839f487-db18-41ba-822d-c46c86c37bd5",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"medium",question:"The Purple Revolution in J&amp;K is associated with?",correctId:"d",options:[{id:"a",text:"Maize",label:"A"},{id:"b",text:"Saffron",label:"B"},{id:"c",text:"Brinjal",label:"C"},{id:"d",text:"Lavender",label:"D"}],explanation:`The "<span class="text-red font-bold">Purple Revolution</span>" refers to the massive push by the <span class="text-green font-bold">CSIR-IIIM</span> to promote <span class="text-blue font-bold">Lavender cultivation</span> in Jammu &amp; Kashmir, particularly transforming the economy of the <span class="text-orange font-bold">Bhaderwah region</span> <span class="text-magenta font-bold">(Doda district)</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/8GN-4CYFdkE?si=OtscoUJtT846cGrB" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/8GN-4CYFdkE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"c0c18adb-ce47-4be3-b0c0-032106c5f9c4",category_id:"jk-affairs",tags:["Jk Geography","Mountain Ranges"],difficulty:"easy",question:"Which mountain range separates the Kashmir Valley from the Jammu region?",correctId:"d",options:[{id:"a",text:"Zanskar",label:"A"},{id:"b",text:"Karakoram",label:"B"},{id:"c",text:"Dhauladhar",label:"C"},{id:"d",text:"Pir Panjal",label:"D"}],explanation:`The <span class="text-red font-bold">Pir Panjal Range</span> forms the <span class="text-green font-bold">southwestern border of the Kashmir Valley</span>, acting as a massive natural barrier that separates the temperate valley from the <span class="text-blue font-bold">subtropical Jammu plains</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/4DyQLpwtNOw?si=F3HJLxvS9MxygjF5" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/4DyQLpwtNOw/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Finance 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"2de13c48-1616-4895-bb43-aef44522f256",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"North India's largest zoo, 'Jamboo Zoo', is situated in?",correctId:"d",options:[{id:"a",text:"Ghandi Nagar",label:"A"},{id:"b",text:"Raesi",label:"B"},{id:"c",text:"Pahalgam",label:"C"},{id:"d",text:"Nagrota",label:"D"}],explanation:'<span class="text-red font-bold">Jamboo Zoo</span>, one of the largest in North India, is situated in the <span class="text-green font-bold">Khanpur-Nagrota</span> area along the <span class="text-blue font-bold">Jammu-Srinagar National Highway</span> <span class="text-orange font-bold">(NH-44)</span>.<br>',pyq:"Supervisor 2024",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"500e31c5-1bae-4a2b-b760-c7b318477c51",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:"Which valley is situated between the Pir Panjal and the Great Himalayas range?",correctId:"b",options:[{id:"a",text:"Kangra and Kulu valley",label:"A"},{id:"b",text:"Kashmir valley",label:"B"},{id:"c",text:"Dun valley",label:"C"},{id:"d",text:"Chenab valley",label:"D"}],explanation:'The <span class="text-red font-bold">Kashmir Valley</span> is an <span class="text-green font-bold">elliptical, bowl-shaped depression</span> geographically enclosed by the <span class="text-blue font-bold">Pir Panjal Range</span> to the southwest and the <span class="text-orange font-bold">Great Himalayan Range</span> to the northeast.<br>',pyq:"JKSSB Police 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"388acb43-3358-488b-97ba-39ad1bca238f",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"Which of the following is one of the Desert Rivers in India which flow for some distance and are lost in the desert?",correctId:"c",options:[{id:"a",text:"Sonai",label:"A"},{id:"b",text:"Gandak",label:"B"},{id:"c",text:"Macchu",label:"C"},{id:"d",text:"Losai",label:"D"}],explanation:`The <span class="text-red font-bold">Macchu River</span> is a desert/ephemeral river in Gujarat that disappears into the <span class="text-green font-bold">Rann of Kutch</span> (often classified similarly to the <span class="text-blue font-bold">Luni River</span> in Rajasthan as an <span class="text-orange font-bold">inland drainage river)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/zPZjFnOyT6I?si=3myWhw2qqWctSrXh" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/zPZjFnOyT6I/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"953cf637-71a4-4187-a984-d7abf9c470db",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"medium",question:"Which of the following is an example of a Kharif crop in Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Mustard",label:"A"},{id:"b",text:"Groundnut",label:"B"},{id:"c",text:"Linseed",label:"C"},{id:"d",text:"Pea",label:"D"}],explanation:'<div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Feature</th><th><strong>Rabi crops</strong></th><th><strong>Kharif crops</strong></th><th><strong>Zaid crops</strong></th></tr></thead><tbody><tr><td><strong>Season</strong></td><td>Winter</td><td>Monsoon</td><td>Summer <br>(inbetween)</td></tr><tr><td><strong>Sowing</strong></td><td>Oct–Dec</td><td>Jun–Jul</td><td>Mar–Apr</td></tr><tr><td><strong>Harvesting</strong></td><td>Apr–Jun</td><td>Sep–Oct</td><td>May–Jun</td></tr><tr><td><strong>Rainfall Need</strong></td><td>Low (Irrigation preferred)</td><td>High (Monsoon dependent)</td><td>Moderate (Mostly irrigated)</td></tr><tr><td><strong>Climate</strong></td><td>Cool &amp; dry</td><td>Warm &amp; wet</td><td>Hot &amp; dry</td></tr><tr><td><strong>Major Crops</strong></td><td>Wheat, Barley, Gram, Mustard, Pea</td><td>Rice, Maize, Cotton, Jowar, Bajra, Soybean, Groundnut</td><td>Watermelon, Muskmelon, Cucumber, Pumpkin, Fodder crops, Summer vegetables</td></tr><tr><td><strong>Main Water Source</strong></td><td>Irrigation</td><td>Southwest Monsoon</td><td>Irrigation</td></tr></tbody></table></div><div><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170715/Rabi-and-Kharif-crops.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB JA 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"e115673c-eeed-4b65-81b9-df5f9f82f57c",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"medium",question:"In which of the following districts of Jammu and Kashmir is the Bhaderwah meteorological observatory located?",correctId:"a",options:[{id:"a",text:"Doda",label:"A"},{id:"b",text:"Kulgam",label:"B"},{id:"c",text:"Poonch",label:"C"},{id:"d",text:"Reasi",label:"D"}],explanation:`<span class="text-red font-bold">Bhaderwah</span>, famously known as "<span class="text-green font-bold"></span><span class="text-green" style="font-weight: 800;">Mini Kashmir"</span> due to its scenic beauty and distinct microclimate, is a valley located in the <span class="text-blue font-bold">Doda district</span> of the <span class="text-orange font-bold">Jammu division</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/HUTBe1K3Xnk?si=yAzOFQOL4cnjIrVF" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/HUTBe1K3Xnk/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"8c181e63-97da-4a50-b5cd-6a990b40b528",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"easy",question:"Which is the hottest month in the Jammu region?",correctId:"b",options:[{id:"a",text:"July",label:"A"},{id:"b",text:"June",label:"B"},{id:"c",text:"August",label:"C"},{id:"d",text:"May",label:"D"}],explanation:'The <span class="text-red font-bold">Jammu region</span> experiences a <span class="text-green font-bold">sub-tropical climate</span> where temperatures peak in <span class="text-blue font-bold">June</span>, often soaring above <span class="text-orange font-bold">40°C</span> just before the arrival of the <span class="text-magenta font-bold">southwest monsoon</span> in <span class="text-teal font-bold">July</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"d558ed0d-47aa-41a4-9bb9-e05ce20141fe",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"easy",question:"Which is the coldest month in the Jammu region?",correctId:"d",options:[{id:"a",text:"Febuary",label:"A"},{id:"b",text:"November",label:"B"},{id:"c",text:"December",label:"C"},{id:"d",text:"January",label:"D"}],explanation:'<span class="text-red font-bold">January</span> is statistically the <span class="text-green font-bold">coldest month in the Jammu region</span>, characterized by <span style="font-style: italic;">dense fog, cold waves</span>, and significantly lower temperatures caused by <span class="text-blue font-bold">western disturbances</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"40d2e8d1-db3a-4d1a-aad0-e6bf482c966a",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"easy",question:"Which of the following Highways runs from Kashmir to Kanyakumari?",correctId:"c",options:[{id:"a",text:"NH 52",label:"A"},{id:"b",text:"NH 30",label:"B"},{id:"c",text:"NH 44",label:"C"},{id:"d",text:"NH 27",label:"D"}],explanation:`<span class="text-red font-bold">National Highway 44</span> <span class="text-green font-bold">(NH-44)</span> is the <span class="text-blue font-bold">longest highway in India</span>, acting as the primary <span class="text-orange font-bold">North-South corridor</span>. It originates in <span class="text-magenta font-bold">Srinagar</span> (J&amp;K) and terminates at <span class="text-teal font-bold">Kanyakumari</span> in Tamil Nadu.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Ii-NBP2g5rQ?si=zvO8pS0lizORrd5R" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Ii-NBP2g5rQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"5ab86c1e-7227-49ad-bb4e-3b3c2f603a2e",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following was the largest National Park in the erstwhile Jammu and Kashmir state?",correctId:"d",options:[{id:"a",text:"Kishtwar High Altitude National Park",label:"A"},{id:"b",text:"Kazinag National Park",label:"B"},{id:"c",text:"Salim Ali National Park",label:"C"},{id:"d",text:"Hemis National Park",label:"D"}],explanation:`Prior to the 2019 reorganization, <span class="text-red font-bold">Hemis National Park</span> was the largest national park in J&amp;K. Covering <span class="text-green font-bold">4,400 sq km</span>, it is now part of the <span class="text-blue font-bold">UT of Ladakh</span> and holds the record for the <span class="text-orange font-bold">largest national park in India</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/y4nkFowLONQ?si=IqXG_7-1t3OKfMDX" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/y4nkFowLONQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"01b23cc4-a759-47f3-8941-60a0398512ba",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"medium",question:"Which of the following festivals is celebrated at Purmandal/Utterbehni of the Jammu Region?",correctId:"d",options:[{id:"a",text:"Baisakhi",label:"A"},{id:"b",text:"Jhiri Mela",label:"B"},{id:"c",text:"Bahu Mela",label:"C"},{id:"d",text:"Chaitre Chaudash",label:"D"}],explanation:'The <span class="text-red font-bold">Chaitre Chaudash</span> mela is prominently held in the spring at <span class="text-green font-bold">Purmandal and Utterbehni</span> (located on the banks of the <span class="text-blue font-bold">Devak river</span> in <span class="text-orange font-bold">Samba district)</span>, drawing massive crowds of devotees.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"a791f626-0302-49d7-83e8-f868ff3426db",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"medium",question:"Which part of the Union Territory of Jammu &amp; Kashmir has a typical monsoon tropical climate?",correctId:"a",options:[{id:"a",text:"Southern",label:"A"},{id:"b",text:"Northern",label:"B"},{id:"c",text:"Eastern",label:"C"},{id:"d",text:"Western",label:"D"}],explanation:'The southern part of J&amp;K, encompassing the low-lying plains of the <span class="text-red font-bold">Jammu division</span> <span class="text-green font-bold">(Kathua, Samba, Jammu)</span>, experiences a <span class="text-blue font-bold">sub-tropical monsoon climate</span> similar to the neighboring plains of <span class="text-orange font-bold">Punjab</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"59c4c03c-2d11-4f27-be82-0c0f44ea8150",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The meanders of the river Jhelum enter which of the following lakes?",correctId:"a",options:[{id:"a",text:"Wular lake",label:"A"},{id:"b",text:"Mansar lake",label:"B"},{id:"c",text:"Pangong lake",label:"C"},{id:"d",text:"Dal lake",label:"D"}],explanation:'The <span class="text-red font-bold">Jhelum River</span> becomes highly navigable and meandering as it flows through the Kashmir Valley before entering and naturally draining <span class="text-green font-bold">Wular Lake</span> (in <span class="text-blue font-bold">Bandipora)</span>, acting as its primary feeder.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"0536fd96-8c39-4fb8-87db-6c4bdcba22d3",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"What are Ahars, Bhundhis, and Khadins?",correctId:"c",options:[{id:"a",text:"Architectural styles",label:"A"},{id:"b",text:"Traditional food of Northeast India",label:"B"},{id:"c",text:"Water harvesting methods",label:"C"},{id:"d",text:"Traders in Kashmir valley",label:"D"}],explanation:'<span class="text-red font-bold">Ahars, Bhundhis, and Khadins</span> are ancient, traditional <span class="text-green font-bold">rainwater harvesting structures</span> used heavily in <span class="text-blue font-bold">arid and semi-arid regions of India</span> to capture surface runoff and recharge groundwater for agriculture.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"b4437cbf-e3b9-4e0b-ba86-244b66b4d8a7",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"_____________ near Sonamarg is where a mountain river, red in colour, meets the Sind River.",correctId:"a",options:[{id:"a",text:"Nilagrad",label:"A"},{id:"b",text:"Suru",label:"B"},{id:"c",text:"Nubra",label:"C"},{id:"d",text:"Stod",label:"D"}],explanation:'<span class="text-red font-bold">Nilagrad</span> is a highly revered mountain stream located near <span class="text-green font-bold">Sonamarg and Baltal</span>. Its reddish waters, believed by locals to possess curative properties, flow down to merge with the <span class="text-blue font-bold">Sind River</span> (a major tributary of the <span class="text-orange font-bold">Jhelum)</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"43a4b96f-15e1-4b25-a4c3-ccd9b511255e",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:"Which of the following Union Territories is prone to severe seismic activity and comes under Seismic Zone V?",correctId:"c",options:[{id:"a",text:"Union Territory of Delhi",label:"A"},{id:"b",text:"Union Territory of Daman and Diu",label:"B"},{id:"c",text:"Union Territory of Jammu &amp; Kashmir",label:"C"},{id:"d",text:"Union Territory of Chandigarh",label:"D"}],explanation:'The UT of Jammu &amp; Kashmir falls under <span class="text-green font-bold">Seismic Zones IV and V</span>, making it highly vulnerable to devastating earthquakes due to the active tectonic subduction of the <span class="text-blue font-bold">Indian plate beneath the Eurasian plate</span>.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"47a95eca-1be4-4081-bdee-e270d7191dd3",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:`Which of the following is considered a "Least Concern" species according to IUCN's Red Data Book among fauna found in Jammu &amp; Kashmir?`,correctId:"c",options:[{id:"a",text:"Cheer Pheasant",label:"A"},{id:"b",text:"Chiru (Tibetan Antelope)",label:"B"},{id:"c",text:"Golden Eagle",label:"C"},{id:"d",text:"Wild Yak",label:"D"}],explanation:'While the <span class="text-red font-bold">Cheer Pheasant, Chiru, and Wild Yak</span> face high threat levels <span class="text-green font-bold">(Vulnerable/Near Threatened)</span> due to poaching and habitat loss, the <span class="text-blue font-bold">Golden Eagle</span> boasts a wide, stable distribution globally and is classified as <span class="text-orange font-bold">Least Concern</span>.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"63625902-7ebe-452a-a9c1-72b3675b1602",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"medium",question:"What is the time period of Chillai-Bachha in the Kashmir Valley?",correctId:"c",options:[{id:"a",text:"48 days",label:"A"},{id:"b",text:"20 days",label:"B"},{id:"c",text:"10 days",label:"C"},{id:"d",text:"28 days",label:"D"}],explanation:'The harsh Kashmiri winter is traditionally divided into three phases: <span class="text-red font-bold">Chillai-Kalan</span> <span class="text-green font-bold">(40 days</span> of severe cold starting <span class="text-blue font-bold">Dec 21)</span>, <span class="text-orange font-bold">Chillai-Khurd</span> <span class="text-magenta font-bold">(20 days)</span>, and finally <span class="text-teal font-bold">Chillai-Bachha</span> ("baby cold") which lasts for the final <span class="text-red font-bold">10 days</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"3ec8b165-225b-4bf4-9239-5448f2629b01",category_id:"jk-affairs",tags:["Jk Geography","Horticulture"],difficulty:"hard",question:"Which of the following gardens in Jammu and Kashmir is the largest tulip garden in Asia?",correctId:"d",options:[{id:"a",text:"Jawaharlal Nehru Memorial Botanical Garden",label:"A"},{id:"b",text:"Harwan Garden",label:"B"},{id:"c",text:"Pari Mahal Garden",label:"C"},{id:"d",text:"Indira Gandhi Memorial Tulip Garden",label:"D"}],explanation:'The <span class="text-red font-bold">Indira Gandhi Memorial Tulip Garden</span>, situated at the foothills of the <span class="text-green font-bold">Zabarwan Range</span> overlooking <span class="text-blue font-bold">Dal Lake</span> in <span class="text-orange font-bold">Srinagar</span>, is officially the <span class="text-magenta font-bold">largest tulip garden in Asia</span>, blooming spectacularly every <span class="text-teal font-bold">April</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"697cbe1c-0540-41bb-8448-c280d44eff5c",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"The Brown Bear found in the region of Jammu &amp; Kashmir holds which status on the IUCN Red List globally?",correctId:"d",options:[{id:"a",text:"Endangered",label:"A"},{id:"b",text:"Near Threatened",label:"B"},{id:"c",text:"Vulnerable",label:"C"},{id:"d",text:"Least Concern",label:"D"}],explanation:`While the specific <span class="text-red font-bold">Himalayan Brown Bear</span> subspecies is critically threatened by habitat fragmentation locally, the <span class="text-green font-bold">Brown Bear (Ursus arctos)</span> as a global species is evaluated as "<span class="text-blue font-bold">Least Concern</span>" by the <span class="text-orange font-bold">IUCN</span> due to robust populations in <span class="text-magenta font-bold">North America and Russia</span>.<div><span style="font-style: italic;">Himalayan Brown Bear "Aja pass aa Dogesh Bhai🙄" </span></div><div><span style="font-style: italic;"><div class="nk-video-wrapper" data-video-url="https://youtu.be/GCz1ypkJPGc?si=QL8HgKYFXaD1w7Dm" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/GCz1ypkJPGc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </span><div>   </div></div>`,pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"c2743b9e-8273-4c9f-954a-aee58882848c",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"As per the Champion &amp; Seth classification of forests (1968), Himalayan sub-tropical scrub comes under which of the following forest type groups in Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Himalayan Dry Temperate Forests",label:"A"},{id:"b",text:"Tropical Dry Deciduous Forests",label:"B"},{id:"c",text:"Sub-Tropical Pine Forests",label:"C"},{id:"d",text:"Sub-Tropical Evergreen Forests",label:"D"}],explanation:'In the <span class="text-red" style="font-weight: 800;">Champion &amp; Seth classification system</span>, Himalayan sub-tropical scrub is categorized as a <span class="text-blue" style="font-weight: 800;">degradation stage (DS1)</span> falling strictly under the broader canopy of <span class="text-green font-bold">Sub-Tropical Pine Forests</span> <span class="text-blue font-bold">(Group 9)</span>, found predominantly in the lower <span class="text-orange font-bold">Shivaliks</span>.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"a47b6732-ea58-4ad0-8ba2-6f47fad9a65e",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"As per the Champion &amp; Seth classification of forests (1968), Pohu Scrub, Dry Deodar forest, and Neoza Pine come under which of the following forest type groups in Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Tropical Dry Deciduous Forests",label:"A"},{id:"b",text:"Tropical Dry Forests",label:"B"},{id:"c",text:"Subtropical Pine Forests",label:"C"},{id:"d",text:"Himalayan Dry Temperate Forests",label:"D"}],explanation:'<span class="text-red font-bold">Neoza Pine (Chilgoza)</span> and <span class="text-green font-bold">Dry Deodar</span> forests require cold climates with very little monsoon rain, strictly categorizing them under <span class="text-blue font-bold">Group 13</span>: <span class="text-orange font-bold">Himalayan Dry Temperate Forests</span>.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"f9d7393c-03ef-4f9a-8f90-6b1e3f041e99",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following national parks is situated on the north bank of the Jhelum close to the Line of Control in the Baramulla district?",correctId:"a",options:[{id:"a",text:"Kazinag National Park",label:"A"},{id:"b",text:"Kishtwar National Park",label:"B"},{id:"c",text:"Hemis National Park",label:"C"},{id:"d",text:"Dachigam National Park",label:"D"}],explanation:'<span class="text-red font-bold">Kazinag National Park</span> is located in the <span class="text-green font-bold">Uri region</span> of the <span class="text-blue font-bold">Baramulla district</span> near the LoC. It was primarily established after the <span class="text-orange font-bold">Kargil war</span> to protect the highly sensitive habitat of the <span class="text-magenta font-bold">Markhor</span> mountain goat.<br>',pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"14bec972-b9d8-48c5-a166-cb3e17df2fa0",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"Kishanganga is an important tributary of which of the following rivers?",correctId:"c",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Chandra",label:"B"},{id:"c",text:"Jhelum",label:"C"},{id:"d",text:"Bhaga",label:"D"}],explanation:`The <span class="text-red font-bold">Kishanganga River</span> (known as the <span class="text-green font-bold">Neelum River</span> in PoK) originates in the <span class="text-blue font-bold">Gurez Valley</span> and acts as a major <span class="text-orange font-bold">right-bank tributary of the Jhelum River</span>, merging with it near <span class="text-magenta font-bold">Muzaffarabad</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/xBI1BWyGVVY?si=VQosnPFqcNphy7aO" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/xBI1BWyGVVY/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-07-03T11:07:55.376115+00:00"},{id:"87574094-2907-4c8d-a195-e6bb4a0331ba",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which wildlife sanctuary is located in the Shopian district of J&amp;K near Gumsar Lake and the Pir Panjal range?",correctId:"d",options:[{id:"a",text:"Lachipora Wildlife Sanctuary",label:"A"},{id:"b",text:"Karakoram Wildlife Sanctuary",label:"B"},{id:"c",text:"Changthang Wildlife Sanctuary",label:"C"},{id:"d",text:"Hirpora Wildlife Sanctuary",label:"D"}],explanation:`The <span class="text-red font-bold">Hirpora Wildlife Sanctuary</span> is located in the <span class="text-green font-bold">Shopian district</span> along the historic <span class="text-blue font-bold">Mughal Road</span>. It is bounded by <span class="text-orange font-bold">Lake Gumsar</span> and the <span class="text-magenta font-bold">Pir Panjal pass</span>, and is critically important for protecting the <span class="text-teal font-bold">Markhor</span> population.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/mQfLD8xJUiw?si=vdTZiWYVNRCuvd31" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/mQfLD8xJUiw/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"9449f7c9-52f4-49ea-9bc7-7abafca6ea06",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"easy",question:"Which region is the major producer of saffron in J&amp;K?",correctId:"b",options:[{id:"a",text:"Leh district",label:"A"},{id:"b",text:"Kashmir valley",label:"B"},{id:"c",text:"Jammu district",label:"C"},{id:"d",text:"Suru valley",label:"D"}],explanation:`The <span class="text-red font-bold">Kashmir Valley</span>, particularly the <span class="text-green font-bold">Karewa lands</span> in<span class="text-blue" style="font-weight: 800;"> Pampore (Pulwama district),</span> is the major producer of high-quality<span class="text-orange" style="font-weight: 800;"> Saffron (Zafran) in India</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/-zVl6kosikU?si=s0v58RmMACM53q3V" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/-zVl6kosikU/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div><div>    </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"e6615c8b-2ba3-4882-bfaf-1c83333a1896",category_id:"jk-affairs",tags:["Jk Geography","Mountain Passes"],difficulty:"easy",question:"The Sadhna Pass is in which district of Jammu &amp; Kashmir?",correctId:"d",options:[{id:"a",text:"Baramulla",label:"A"},{id:"b",text:"Anantnag",label:"B"},{id:"c",text:"Kishtwar",label:"C"},{id:"d",text:"Kupwara",label:"D"}],explanation:`<span class="text-red font-bold">Sadhna Pass</span> (formerly <span class="text-green font-bold">Nastachun Pass)</span> is located in the <span class="text-blue font-bold">Kupwara district</span>. It is a<span class="text-blue" style="font-weight: 800; font-style: italic;"> critical high-altitude mountain pass</span> that connects the <span class="text-orange font-bold">Karnah tehsil</span> <span class="text-magenta font-bold">(Tangdhar)</span> with the rest of the Kashmir valley.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/796okAXQ_yA?si=eMBqV7g9IQxZm4cE" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/796okAXQ_yA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"f513bfca-ee57-4902-aa5b-825b79345ab8",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"The Kashmir valley is surrounded by the range of the Himalayas, bounded on the southwest by the ______ Range and on the northeast by the _______ Range.",correctId:"d",options:[{id:"a",text:"Great Himalayan range and Pir Panjal range, respectively",label:"A"},{id:"b",text:"Ladakh range and Pir Panjal range, respectively",label:"B"},{id:"c",text:"Great Himalayan range and Ladakh range, respectively",label:"C"},{id:"d",text:"Pir Panjal range and Great Himalayas range, respectively",label:"D"}],explanation:`The <span class="text-red font-bold">Kashmir Valley</span> is an <span class="text-green font-bold">elliptical bowl</span> geographically <span style="text-decoration-line: underline;">enclosed by</span> the <span class="text-blue font-bold">Pir Panjal Range</span> in the <span class="text-blue" style="font-weight: 800;">southwest</span> (separating it from the <span class="text-orange font-bold">Jammu region)</span> and the <span class="text-magenta font-bold">Great Himalayan Range</span> in the<span class="text-red" style="font-weight: 800;"> northeast</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/UHfnk3fYM70?si=yG2GSOS2w1rFmji7" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/UHfnk3fYM70/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"44e6aa56-99ab-48f4-bec2-db8e3e41f218",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"Which of the following species found in Jammu &amp; Kashmir are critically endangered?<br>1- Hangul<br>2- Snow Leopard<br>3- Himalayan Tahr<br>4- Markhor",correctId:"c",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"2 and 3 only",label:"B"},{id:"c",text:"1 only",label:"C"},{id:"d",text:"1, 2, 3, and 4",label:"D"}],explanation:'The <span class="text-red font-bold">Hangul</span> <span class="text-green font-bold">(Kashmir Stag)</span> is strictly classified as "<span class="text-blue font-bold">Critically Endangered</span>" and is mostly restricted to <span class="text-orange font-bold">Dachigam National Park</span>. The <span class="text-magenta font-bold">Snow Leopard</span> is "<span class="text-teal font-bold">Vulnerable</span>," while the <span class="text-red font-bold">Himalayan Tahr and Markhor</span> are currently listed as "<span class="text-green font-bold">Near Threatened</span>" on the <span class="text-blue font-bold">IUCN Red List</span>.<br>',pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"d2cb0382-9980-40b1-8589-2c6f6c25dc25",category_id:"jk-affairs",tags:["Jk Geography","Economic Geography"],difficulty:"medium",question:"Kashmir has been creating Kashan, Kirman, Tabriz, and Isfahan with super artistry. These are subtypes of?",correctId:"b",options:[{id:"a",text:"Basholi Paintings",label:"A"},{id:"b",text:"Persian Rugs",label:"B"},{id:"c",text:"Music forms",label:"C"},{id:"d",text:"None of the above",label:"D"}],explanation:`<span class="text-red font-bold">Kashan, Kirman, Tabriz, and Isfahan</span> are world-renowned subtypes of <span class="text-green font-bold">hand-knotted Persian Rugs</span>. The art of <span class="text-blue font-bold">carpet weaving</span> was introduced to Kashmir in the <span class="text-orange font-bold">15th century</span> by <span class="text-magenta font-bold">Sultan Zain-ul-Abidin</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/-ECqbfX0IUA?si=fXhZZiLy5qAVzv38" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/-ECqbfX0IUA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"e0ee45e3-7bd5-42bf-a1ee-1f4b0f15e84d",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"medium",question:"Consider the following statements about the fairs and festivals of Jammu &amp; Kashmir:<br>1- Purmandal Mela is organized on Shivaratri (February-March)<br>2- Jhiri Mela (October-November) is held around the legend of Baba Jitto<br>How many of the above statements are correct?",correctId:"c",options:[{id:"a",text:"Only 1",label:"A"},{id:"b",text:"Only 2",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:'Both statements are correct. The <span class="text-red font-bold">Purmandal Mela</span> in the <span class="text-green font-bold">Samba district</span> is a major <span class="text-blue font-bold">Shivaratri festival</span>. The <span class="text-orange font-bold">Jhiri Mela</span> is an <span class="text-teal" style="font-weight: 800;">annual agricultural festival</span> held near Jammu to <span class="text-orange" style="font-weight: 800;">honor Baba Jitto</span><span class="text-magenta font-bold"></span>, a legendary farmer who<span style="font-style: italic;"> sacrificed his life fighting oppressive landlords</span>.<br>',pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"2526c0f3-37c6-4cb5-afb8-83c7d08ef56e",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:'Consider the following pairs corresponding to the rivers and their ancient names:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>River</th><th>Ancient name</th></tr></thead><tbody><tr><td>1- Jhelum</td><td>a- Asikini</td></tr><tr><td>2- Chenab</td><td>b- Bipasa</td></tr><tr><td>3- Ravi</td><td>c- Parushni</td></tr><tr><td>4- Beas</td><td>d- Vitasta</td></tr></tbody></table></div>Which of the pairs given above are correctly matched?',correctId:"c",options:[{id:"a",text:"1-a, 2-b, 3-c, 4-d",label:"A"},{id:"b",text:"1-d, 2-b, 3-a, 4-c",label:"B"},{id:"c",text:"1-d, 2-a, 3-c, 4-b",label:"C"},{id:"d",text:"1-b, 2-d, 3-a, 4-c",label:"D"}],explanation:'The ancient Vedic names are highly tested. <span class="text-red font-bold">Jhelum is Vitasta</span>, <span class="text-green font-bold">Chenab is Asikini</span>, <span class="text-blue font-bold">Ravi is Parushni</span>, and <span class="text-orange font-bold">Beas is Bipasa</span> (or <span class="text-magenta font-bold">Vipasha)</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"2c8c3859-54d8-4115-8c3e-5be18f11d510",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:"In which district of Jammu and Kashmir is the famous hill station Doodhpathri, also known as the Valley of Milk, located?",correctId:"a",options:[{id:"a",text:"Budgam",label:"A"},{id:"b",text:"Leh",label:"B"},{id:"c",text:"Kupwara",label:"C"},{id:"d",text:"Anantnag",label:"D"}],explanation:`<span class="text-red font-bold">Doodhpathri</span>, famous as the "<span class="text-green font-bold">Valley of Milk</span>" due to the frothy appearance of its fast-flowing streams <span class="text-blue font-bold">(Shaliganga river)</span>, is a prominent alpine valley located in the <span class="text-orange font-bold">Budgam district</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/muCC8wp9D94?si=Ri79YDdXnye91kun" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/muCC8wp9D94/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"a67ff132-42fc-4eef-9178-f397a02ef34b",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:`Consider the following statements about the Hemis National Park:<br>1- It is located in eastern Ladakh, Leh district, and is the largest national park in India<br>2- Spanning 4,400 square kilometers, this park is renowned for high-altitude lakes and Snow Leopard safaris<br>3- The name 'Hemis National Park' stands for "ten villages" in memory of the villages relocated for its formation<br>Which of the above statements is/are correct?`,correctId:"b",options:[{id:"a",text:"1 and 3 only",label:"A"},{id:"b",text:"1 and 2 only",label:"B"},{id:"c",text:"2 and 3 only",label:"C"},{id:"d",text:"1, 2, and 3",label:"D"}],explanation:`Statements 1 and 2 are correct. <span class="text-red font-bold">Hemis</span> is India's largest National Park globally known for <span class="text-blue font-bold">Snow Leopards</span>. Statement 3 is incorrect; the term "<span class="text-orange font-bold">Ten Villages</span>" <span class="text-magenta font-bold">(Dachi-Gam)</span> refers to <span class="text-teal font-bold">Dachigam National Park</span> in Srinagar, not <span class="text-red font-bold">Hemis</span>, which is named after the <span class="text-blue" style="font-weight: 800;">famous Hemis Monastery</span><span class="text-red font-bold"></span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/15BornEAzT4?si=y1X-8giLQKQgbxJh" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/15BornEAzT4/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Matric Level Posts 2024",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"49179d5d-0bdb-4028-9ec2-6ff72ffbfca0",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"Which of the following statements is/are correct about the Tawi River?<br>1- The Tawi River flows through the Jammu region in the Indian-administered Jammu and Kashmir<br>2- The length of the Tawi River is 295 km<br>3- The Tawi is a major left-bank tributary of the Chenab River<br>4- It originates from the Kailash Kund glacier (also known as Kali Kund) in Bhaderwah, which lies in Doda district",correctId:"c",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 4 only",label:"B"},{id:"c",text:"1, 3, and 4 only",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'Statements 1, 3, and 4 are correct. <span class="text-red font-bold">Tawi</span> (the <span class="text-green font-bold">lifeline of Jammu)</span> is a left-bank tributary of the <span class="text-blue font-bold">Chenab</span> originating from <span class="text-orange font-bold">Kailash Kund</span>. Statement 2 is incorrect because the actual length of the <span class="text-red font-bold"></span><span class="text-blue" style="font-weight: 800;">Tawi River</span> is approximately <span class="text-magenta font-bold"></span><span class="text-blue" style="font-weight: 800;">141 km, not 295 km</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB SA 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"fb2eea14-4500-482b-bfb2-ad8fbb4c582b",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Chenani Nashri Tunnel is also known as:",correctId:"b",options:[{id:"a",text:"New Katra Tunnel",label:"A"},{id:"b",text:"Shyama Prasad Mukherjee Tunnel",label:"B"},{id:"c",text:"Panthal Tunnel",label:"C"},{id:"d",text:"Pir Panjal Tunnel",label:"D"}],explanation:'The <span class="text-red font-bold">Chenani-Nashri Tunnel</span> <span class="text-green font-bold">(9.28 km)</span> on NH-44 was officially renamed the <span class="text-blue font-bold">Dr. Syama Prasad Mookerjee Tunnel</span> in <span class="text-orange font-bold">2019</span>. It bypasses the snow-bound <span class="text-magenta font-bold">Patnitop</span> area, drastically reducing travel time between <span class="text-teal font-bold">Udhampur and Ramban</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Pharma 2024",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"9adba55c-96ed-43a0-b3ba-0c687b17cf12",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:'Match the following Wildlife Sanctuaries with their Locations &amp; Attractions:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Wildlife sanctuary</th><th>Location &amp; major attractions</th></tr></thead><tbody><tr><td>1- Nandini Wildlife Sanctuary</td><td>a- Near Jammu; known for its pheasant population</td></tr><tr><td>2- Rajparian (Daksum) Sanctuary</td><td>b- Anantnag district; Musk deer and common leopard</td></tr><tr><td>3- Gulmarg Wildlife Sanctuary</td><td>c- Baramulla district; Hangul (Kashmir Stag) and Musk deer</td></tr></tbody></table></div>Choose the correct option:',correctId:"a",options:[{id:"a",text:"1-a, 2-b, 3-c",label:"A"},{id:"b",text:"1-b, 2-a, 3-c",label:"B"},{id:"c",text:"1-c, 2-b, 3-a",label:"C"},{id:"d",text:"1-a, 2-c, 3-b",label:"D"}],explanation:'<span class="text-red font-bold">Nandini WLS</span> is located along the NH near <span class="text-green font-bold">Jammu</span>, famous for <span style="font-style: italic;">diverse birdlife (pheasants)</span>.<div><span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Rajparian (Daksum)</span> is situated in the <span class="text-orange font-bold">Anantnag district</span> towards the <span class="text-magenta font-bold"><span class="text-orange" style="font-weight: 800;">Sinthan pass</span></span>. <div><span class="text-teal font-bold">Gulmarg WLS</span> is in <span class="text-red font-bold">Baramulla</span>, protecting alpine flora and species like the <span class="text-green font-bold">Musk Deer</span>.<br>    </div></div>',pyq:"JKSSB SA 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"6300a3e9-3d35-4c37-9c4e-1471b2a08706",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"easy",question:"Which highway starts from its junction with NH-1 near Srinagar and connects Banihal, Jammu, and Kathua in Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"NH-1A",label:"A"},{id:"b",text:"NH-44",label:"B"},{id:"c",text:"NH-48",label:"C"},{id:"d",text:"NH-144",label:"D"}],explanation:`<span class="text-red font-bold">NH-44</span> (which replaced the old NH-1A designation) is<span class="text-teal" style="font-weight: 800;"> India's longest highway</span>. In J&amp;K, it serves as the vital <span class="text-blue font-bold">North-South corridor</span> linking <span class="text-orange font-bold">Srinagar, Banihal, Udhampur, Jammu, and Kathua</span> to the rest of India.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Ii-NBP2g5rQ?si=rXhHW89E6fCCvqaY" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Ii-NBP2g5rQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB SA 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"ad051ff7-1f60-4d8b-90e4-c9bc0d126726",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Jammu and Kashmir State is capitalizing its potential of hydroelectricity with new hydropower projects installed by NHPC. One such project, Chutak Hydroelectric Project is on the river:",correctId:"c",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Zanskar",label:"B"},{id:"c",text:"Suru",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:`The <span class="text-red font-bold">Chutak Hydroelectric Project</span> is a <span class="text-green font-bold"></span><span class="text-blue" style="font-weight: 800;">44 MW run-of-the-river power plant </span>located on the <span class="text-orange font-bold">Suru River</span> (a tributary of the Indus) in the <span class="text-magenta font-bold">Kargil district</span> of <span class="text-teal font-bold">Ladakh</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/i7n8EGzg9jQ?si=GRmpT7f98tAxKyO8" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/i7n8EGzg9jQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"334976b9-1e79-4482-8ca5-8222247854ae",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which river is a major tributary of the Ravi with its source in the Kailash Mountains near Bhaderwah?",correctId:"b",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Ujh",label:"B"},{id:"c",text:"Jhelum",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:'The <span class="text-red font-bold">Ujh River</span> originates in the <span class="text-green font-bold">Kailash Mountains</span> (near <span class="text-blue font-bold">Bhaderwah)</span> in the <span class="text-orange font-bold">Kathua district</span> and flows down to join the <span class="text-magenta font-bold">Ravi River</span>. The <span class="text-teal font-bold">Tawi</span>, by contrast, flows into the <span class="text-red font-bold">Chenab</span>.<br>',pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"a3a249ac-a762-4589-984a-d1c8e116320d",category_id:"jk-affairs",tags:["Jk Geography","Minerals"],difficulty:"easy",question:"Dolomite is found in Rajouri, Udhampur, and Reasi districts of J&amp;K. It is mainly used in the manufacture of?",correctId:"a",options:[{id:"a",text:"Refractory bricks",label:"A"},{id:"b",text:"Cement",label:"B"},{id:"c",text:"Crucibles",label:"C"},{id:"d",text:"Decorative stones",label:"D"}],explanation:'<span class="text-red font-bold">Dolomite deposits</span> in the <span class="text-green font-bold">Jammu region</span> <span class="text-blue font-bold">(Reasi, Udhampur, Rajouri)</span> have high <span class="text-orange font-bold">magnesium content</span>, making them highly suitable for metallurgical applications, primarily in the manufacture of <span class="text-magenta font-bold">refractory bricks</span> for furnaces.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"2798ebeb-3900-43b0-927c-10bab4e8642e",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"River Jhelum is also known by which of the following ancient names?",correctId:"b",options:[{id:"a",text:"Sagarmati",label:"A"},{id:"b",text:"Vyeth",label:"B"},{id:"c",text:"Morya",label:"C"},{id:"d",text:"Vipasa",label:"D"}],explanation:`The <span class="text-red font-bold">Jhelum River</span> is called '<span class="text-green font-bold">Vyeth</span>' in the local Kashmiri language. Additionally, it is known as '<span class="text-blue font-bold">Vitasta</span>' in ancient Sanskrit texts <span class="text-orange font-bold">(Rigveda)</span> and was referred to as '<span class="text-magenta font-bold">Hydaspes</span>' by the ancient Greeks (famous for the <span class="text-teal font-bold">Battle of Hydaspes</span> between <span class="text-red font-bold">Alexander and Porus)</span>.<div><span class="text-magenta" style="font-weight: 800;">Sagarmati</span> → Ancient name of the <span class="text-magenta" style="font-weight: 800;">Sabarmati River</span></div><div><span class="text-orange" style="font-weight: 800;">Morya</span> → Ancient name of the <span class="text-orange" style="font-weight: 800;">Mahanadi River</span></div><div><span class="text-teal" style="font-weight: 800;">Vipasa (Vipāśā)</span> → Ancient name of the <span class="text-teal" style="font-weight: 800;">Beas River</span><br><div> <span class="text-blue-500 font-bold"> </span>   </div></div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"8268cc45-b999-469b-8889-38313a581e50",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:`Which place in J&amp;K is also known as "Angler's Paradise"?`,correctId:"d",options:[{id:"a",text:"Baramulla",label:"A"},{id:"b",text:"Kupwara",label:"B"},{id:"c",text:"Anantnag",label:"C"},{id:"d",text:"Pahalgam",label:"D"}],explanation:`<span class="text-red font-bold">Pahalgam</span> is often termed <span class="text-green" style="font-weight: 800;">"Angler's Paradise"</span> because the fast-flowing, ice-cold waters of the <span class="text-blue font-bold">Lidder River</span> provide an ideal habitat for <span class="text-orange font-bold">Brown and Rainbow Trout</span>, making it a premier destination for <span class="text-magenta font-bold">trout fishing</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/50Hz83W2OxA?si=zpOpaaRf5KS19a_S" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/50Hz83W2OxA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"8498d411-7aac-4e33-a132-529408dfd2cf",category_id:"jk-affairs",tags:["Jk Geography","Minerals"],difficulty:"easy",question:"Prominent magnesite reserves in J&amp;K are located in:",correctId:"a",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Puga valley",label:"B"},{id:"c",text:"Rajouri",label:"C"},{id:"d",text:"Baramulla",label:"D"}],explanation:'Major reserves of <span class="text-red font-bold">Magnesite</span> are found in the <span class="text-green font-bold">Panthal area</span> of the <span class="text-blue font-bold">Udhampur district</span> (bordering Reasi). <span class="text-orange font-bold">Puga Valley</span>, on the other hand, is in <span class="text-magenta font-bold">Ladakh</span> and is famous for its <span class="text-teal font-bold">geothermal energy and borax deposits</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"Naib Tehsildar 2018",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"1db02d5c-f897-4048-abac-084c1b1da80b",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The largest fresh water lake in Jammu &amp; Kashmir is?",correctId:"c",options:[{id:"a",text:"Mansar Lake",label:"A"},{id:"b",text:"Dal Lake",label:"B"},{id:"c",text:"Wular Lake",label:"C"},{id:"d",text:"Aanchar lake",label:"D"}],explanation:`<span class="text-red font-bold">Wular Lake</span>, located in the <span class="text-green font-bold">Bandipora district</span>, is the largest freshwater lake in Jammu &amp; Kashmir and one of the largest in Asia. It is formed by <span class="text-orange font-bold">tectonic activity</span> and fed by the <span class="text-magenta font-bold">Jhelum River</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/SjsFvJmeZxs?si=ilPLj0odNzfzmGTJ" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/SjsFvJmeZxs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"021678f7-ae9c-4302-b982-4d294e9fb459",category_id:"jk-affairs",tags:["Jk Geography","Mountain Passes"],difficulty:"medium",question:"Which important mountain pass in Ladakh has strategic significance and serves as a trade route connecting India to Central Asia?",correctId:"c",options:[{id:"a",text:"Khardung La",label:"A"},{id:"b",text:"Zoji La",label:"B"},{id:"c",text:"Aghil Pass",label:"C"},{id:"d",text:"Nathu La",label:"D"}],explanation:`The <span class="text-red font-bold">Aghil Pass</span> is a strategic high-altitude pass situated in the <span class="text-green font-bold">Karakoram range</span>. Historically, it served as a vital trade route connecting the <span class="text-blue font-bold">Shaksgam Valley</span> <span class="text-orange font-bold">(Ladakh region)</span> with the <span class="text-magenta font-bold">Xinjiang province</span> in <span class="text-teal font-bold">Central Asia</span> (China).<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/90YN_i27VQc?si=60jqScIHD6jvSIOW" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;"><iframe src="https://www.youtube.com/embed/90YN_i27VQc?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"e89aa388-f1b1-4160-b4c8-5c0b6b7bb0fb",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:"In which State/Union Territory is the Chushul Valley located?",correctId:"c",options:[{id:"a",text:"Jammu and Kashmir",label:"A"},{id:"b",text:"Himachal Pradesh",label:"B"},{id:"c",text:"Ladakh",label:"C"},{id:"d",text:"Uttarakhand",label:"D"}],explanation:'<span class="text-red font-bold">Chushul</span> is a strategically critical valley located in the <span class="text-green font-bold">Leh district</span> of the <span class="text-blue font-bold">Union Territory of Ladakh</span>. It sits close to the <span class="text-orange font-bold">Line of Actual Control</span> (LAC) and <span class="text-magenta font-bold">Pangong Tso lake</span>.<br>',pyq:"JKSSB Operator 2025",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"bc73481c-d156-460b-b9bd-394a402ea5fe",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following fauna could be seen in Dachigam National Park?",correctId:"d",options:[{id:"a",text:"Kashmiri Stag",label:"A"},{id:"b",text:"Long-tailed Marmot",label:"B"},{id:"c",text:"Himalayan Serow",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'<span class="text-red font-bold">Dachigam National Park</span> has significant altitudinal variation. While it is famous for the <span class="text-green font-bold">Kashmiri Stag</span> <span class="text-blue font-bold">(Hangul)</span> in the lower/middle elevations, species like the <span class="text-orange font-bold">Himalayan Serow</span> and the <span class="text-magenta font-bold">Long-tailed Marmot</span> are found in the higher alpine elevations <span class="text-teal font-bold">(Upper Dachigam)</span>.<br>',pyq:"Data Entry Operator 2023",created_at:"2026-07-01T05:05:33.101272+00:00"},{id:"40221a2b-b6db-46fb-9f4b-49f877343978",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The Uri Dam is located on which river in Jammu &amp; Kashmir (J &amp; K)?",correctId:"d",options:[{id:"a",text:"Beas River",label:"A"},{id:"b",text:"Chenab River",label:"B"},{id:"c",text:"Ravi River",label:"C"},{id:"d",text:"Jhelum River",label:"D"}],explanation:`The <span class="text-red font-bold">Uri Dam</span> is a <span class="text-green font-bold">480 MW</span> <span class="text-blue font-bold">run-of-the-river</span> hydroelectric project located on the <span class="text-orange font-bold">Jhelum River</span> in the <span class="text-magenta font-bold">Baramulla district</span> of Jammu &amp; Kashmir. <div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/-tyZga6pnQs?si=6STknYsubHfDELCo" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/-tyZga6pnQs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"df3185ee-5108-431f-a668-f8b5f4dd50d0",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following rivers are tributaries of the river Chenab?<br>1- Ujh river<br>2- Tawi river<br>3- Poonch river<br>4- Neeru river",correctId:"b",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"2 and 4 only",label:"B"},{id:"c",text:"1, 2, and 3 only",label:"C"},{id:"d",text:"2, 3, and 4 only",label:"D"}],explanation:`<span class="text-red font-bold">Tawi and Neeru</span> are tributaries of the <span class="text-green font-bold">Chenab</span>. The <span class="text-blue font-bold">Ujh River</span> is a major tributary of the <span class="text-orange font-bold">Ravi</span>, while the <span class="text-magenta font-bold">Poonch River</span> is a tributary of the <span class="text-teal font-bold">Jhelum</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/9_KNaMk1dHA?si=LuQPxVS0papN8csw" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/9_KNaMk1dHA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"d606eee6-84a1-455b-b11b-e3a6981cf68e",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"A Census planned in J &amp; K in early 2026 is aimed at the conservation of which species?",correctId:"a",options:[{id:"a",text:"Markhor",label:"A"},{id:"b",text:"Hangul",label:"B"},{id:"c",text:"Snow Leopard",label:"C"},{id:"d",text:"Himalayan Brown Bear",label:"D"}],explanation:`A major census was planned in <span class="text-red font-bold">early 2026</span> by the <span class="text-green font-bold">Wildlife Trust of India (WTI)</span> to assess the population of the <span class="text-blue font-bold">Markhor</span> (Capra falconeri). Target areas included <span class="text-orange font-bold">Kazinag National Park</span> and <span class="text-magenta font-bold">Hirpora Wildlife Sanctuary</span>, which face <span class="text-teal font-bold">habitat fragmentation</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/mwu4vvxN0c0?si=ORAil30f_K4Ltr77" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/mwu4vvxN0c0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"3a9e5b79-0286-4688-a1ec-376757351bad",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"Dachigam National Park is located in which mountain range?",correctId:"d",options:[{id:"a",text:"Ladakh Range",label:"A"},{id:"b",text:"Zanskar Range",label:"B"},{id:"c",text:"Karakoram Range",label:"C"},{id:"d",text:"Zabarwan Range",label:"D"}],explanation:'<span class="text-red font-bold">Dachigam National Park</span> sits in the <span class="text-green font-bold">Zabarwan Range</span> of the <span class="text-blue font-bold">Western Himalayas</span>. It spans steep elevations <span class="text-orange font-bold">(Lower and Upper Dachigam)</span> and is famously the last viable habitat for the critically endangered <span class="text-magenta font-bold">Hangul</span> <span class="text-teal font-bold">(Kashmir Stag)</span>.<div><img src="https://images.squarespace-cdn.com/content/v1/5ab61c67ec4eb7ab7a2f40f2/1539264376826-G037S0EROZOF0F8FWCA3/Mt+Mahadev+the+highest+Peak+of+the+Zabarwan+Mountains+overlooks+the+Dachigam+National+Park" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB JA 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"3748b700-23cb-478f-9240-c7f8b82c9ce7",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"Which of the following statements about the geographic characteristics of the Jammu region are correct?<br>1- Jammu city is situated on a series of uneven ridges of low heights in the Shivalik Hills<br>2- It is surrounded by the Ladakh range to the north, east, and southeast, while the Trikuta Range borders it in the northwest",correctId:"a",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"2 only",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:`<span class="text-red font-bold">Jammu city</span> is situated in the <span class="text-green font-bold">Shivalik Hills</span> (Outer Himalayas). <div><span class="text-red" style="font-style: italic; text-decoration-line: underline;">Statement 2 is incorrect </span>because the <span class="text-blue font-bold">Ladakh Range</span> lies<span style="font-style: italic;"> far north in the Trans-Himalayan region,</span> not near Jammu. To the north of Jammu lies the <span class="text-orange font-bold">Pir Panjal range</span> <span class="text-magenta font-bold">(Middle Himalayas)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/jyypaA8FOZY?si=uGYO9r0QjWYnYMz1" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/jyypaA8FOZY/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div></div>`,pyq:"JKSSB JA 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"2e9db620-c2d7-4c43-8392-4f6884b5eed8",category_id:"jk-affairs",tags:["Jk Geography","Mountain Ranges"],difficulty:"hard",question:"Which of the following are the peaks of the Pir Panjal Range at its eastern end?<br>1- Deo-Tibba<br>2- Indrasan",correctId:"c",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"2 only",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:'<span class="text-red font-bold">Deo-Tibba and Indrasan</span> are prominent peaks that mark the eastern extension of the <span class="text-green font-bold">Pir Panjal Range</span> into the <span class="text-blue font-bold"></span><span class="text-blue" style="font-weight: 800;">Lahaul-Spiti region</span> of <span class="text-orange font-bold">Himachal Pradesh</span>, transitioning toward the <span class="text-magenta font-bold">Greater Himalayas</span>.<br>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"5a1af458-cb3a-4ac7-ae3a-26fc342f2540",category_id:"jk-affairs",tags:["Jk Geography","Mountain Passes"],difficulty:"hard",question:"Arrange the following passes from West to East:<br>1- Haji Pir Pass<br>2- Sach Pass<br>3- Banihal Pass",correctId:"c",options:[{id:"a",text:"1-2-3",label:"A"},{id:"b",text:"3-2-1",label:"B"},{id:"c",text:"1-3-2",label:"C"},{id:"d",text:"2-3-1",label:"D"}],explanation:'<span class="text-red font-bold">Haji Pir Pass</span> is furthest west (near the LoC). Moving east, you encounter the <span class="text-green font-bold">Banihal Pass</span> <span style="font-style: italic;">connecting Jammu to the Kashmir Valley</span>. Furthest <span class="text-blue" style="font-weight: 800;">east is Sach Pass</span><span class="text-blue font-bold"></span>, located in the<span class="text-orange" style="font-weight: 800;"> Chamba region</span> of <span class="text-magenta font-bold">Himachal Pradesh</span>.<br>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"31383582-7376-46a6-9c81-32fcef73d0d5",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Jhelum River originates from?",correctId:"c",options:[{id:"a",text:"Dal Lake",label:"A"},{id:"b",text:"Wular Lake",label:"B"},{id:"c",text:"Verinag Spring",label:"C"},{id:"d",text:"Mapchachungo Glacier",label:"D"}],explanation:`The <span class="text-red font-bold">Jhelum River</span> originates from the <span class="text-green font-bold">Verinag Spring</span> situated at the foot of the <span class="text-blue font-bold">Pir Panjal range</span> in the <span class="text-orange font-bold">Anantnag district</span>. It is the <span class="text-magenta font-bold">primary waterway of the Kashmir Valley</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/iN_1_FdgwXg?si=d0wYoUrVgutSGLra" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/iN_1_FdgwXg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"e8e6209b-88c4-4166-9f53-b92d99332f5b",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Identify the incorrect statements about tunnels in Jammu and Kashmir:<br>1- Dr. Syama Prasad Mookerjee Tunnel is a 9 km long, twin-tube, all-weather road tunnel connecting Udhampur and Ramban<br>2- Tunnel T-49, a 12.77 km engineering feat connecting Sumber and Arpinchala in J&amp;K, stands as one of India's longest transportation tunnels constructed under the USBRL project",correctId:"d",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"2 only",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:'Both statements are factually correct, hence neither is incorrect. The <span class="text-red font-bold">Dr. Syama Prasad Mookerjee Tunnel</span> <span class="text-green font-bold">(Chenani-Nashri)</span> connects <span class="text-blue font-bold">Udhampur and Ramban</span>. <span class="text-orange font-bold">Tunnel T-49</span> is the <span class="text-magenta font-bold">longest railway tunnel</span> <span class="text-teal font-bold">(12.77 km)</span> on the <span class="text-red font-bold">USBRL network</span>.<br>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"7fdd534c-6e9e-4d97-9984-7d12adfaa805",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:'Which of the following pairs are correctly matched?<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Hydroelectric project</th><th>River</th></tr></thead><tbody><tr><td>1- Uri-II</td><td>Jhelum</td></tr><tr><td>2- Salal Dam</td><td>Chenab</td></tr><tr><td>3- Pakal Dul Dam</td><td>Marusudar</td></tr><tr><td>4- Dulhasti Dam</td><td>Ravi</td></tr></tbody></table></div>',correctId:"c",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 4 only",label:"B"},{id:"c",text:"1, 2, and 3 only",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'Pairs 1, 2, and 3 are correctly matched. <span class="text-red font-bold">Dulhasti Dam</span> is incorrectly matched; it is a major hydroelectric project built on the <span class="text-green font-bold">Chenab River</span> in the <span class="text-blue font-bold">Kishtwar district</span>, not on the <span class="text-orange font-bold">Ravi</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"0cf1e73b-c1da-458a-bb76-35597e7a089e",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"hard",question:'Match the following Wildlife Sanctuaries with their respective districts:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Wildlife sanctuary</th><th>District</th></tr></thead><tbody><tr><td>1- Hirapora Sanctuary</td><td>a- Reasi</td></tr><tr><td>2- Rajparian (Daksum) Sanctuary</td><td>b- Shopian</td></tr><tr><td>3- Trikuta Sanctuary</td><td>c- Anantnag</td></tr></tbody></table></div>',correctId:"c",options:[{id:"a",text:"1-a, 2-c, 3-b",label:"A"},{id:"b",text:"1-b, 2-a, 3-c",label:"B"},{id:"c",text:"1-b, 2-c, 3-a",label:"C"},{id:"d",text:"1-a, 2-b, 3-c",label:"D"}],explanation:'<span class="text-red font-bold">Hirapora WLS</span> (known for <span class="text-green font-bold">Markhor)</span> is in <span class="text-blue font-bold">Shopian</span>. <span class="text-orange font-bold">Rajparian WLS</span> (Daksum) is located in <span class="text-magenta font-bold">Anantnag</span>. <span class="text-teal font-bold">Trikuta WLS</span>, surrounding the <span class="text-red font-bold">Vaishno Devi</span> shrine hills, is located in <span class="text-green font-bold">Reasi</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"7456e436-6e5a-4946-9bc4-4174ba379f65",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"medium",question:"As one ascends from the Jammu plains (300 m) to the Himalayas (4000 m), what would be the correct ecological sequence of the forest types?",correctId:"c",options:[{id:"a",text:"Tropical thorns - Himalayan moist temperate - Sub-tropical pine - Alpine meadows",label:"A"},{id:"b",text:"Sub-tropical pine - Tropical thorns - Alpine meadows - Himalayan moist temperate",label:"B"},{id:"c",text:"Tropical thorns - Sub-tropical pine - Himalayan moist temperate - Alpine meadows",label:"C"},{id:"d",text:"Alpine meadows - Himalayan moist temperate - Sub-tropical pine - Tropical thorns",label:"D"}],explanation:'Vegetation changes with altitude. The sequence begins with <span class="text-red font-bold">Tropical Thorns</span> in the lower <span class="text-green font-bold">Shivalik foothills</span>, shifts to <span class="text-blue font-bold">Sub-tropical Pine (Chir)</span> up to <span class="text-orange font-bold">1500m</span>, transitions into <span class="text-magenta font-bold">Himalayan Moist Temperate</span> <span class="text-teal font-bold">(Deodar/Fir)</span> up to <span class="text-red font-bold">3000m</span>, and finally opens into <span class="text-green font-bold">Alpine Meadows (Margs)</span> above the tree line.<br>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"f88a3cfb-8712-4b59-a4a9-59054836f6d6",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"medium",question:"Identify the correct statements about the Udhampur-Srinagar-Baramulla Rail Link (USBRL) project:<br>1- Indian Railway's first cable-stayed bridge has been constructed over the Anji Khad in this project<br>2- The iconic 1315 m long Chenab bridge is the World's highest railway arch bridge, standing 359 m above the river bed",correctId:"c",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"2 only",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:`Both statements are correct. The <span class="text-red font-bold">Anji Khad Bridge</span> near <span class="text-green font-bold">Reasi</span> is <span class="text-blue" style="font-weight: 800;">India's first cable-stayed railway bridge</span>. The <span class="text-orange font-bold">Chenab Bridge</span>, standing <span class="text-magenta font-bold">359 meters</span> above the riverbed, holds the record for the <span class="text-teal font-bold">highest railway arch bridge in the world</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/GYxGS3RYW04?si=hjy3C8KASOAOZf-8" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/GYxGS3RYW04/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"17101021-9b78-4907-9804-362d669c46c0",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"easy",question:"According to the India State of Forest Report (ISFR) 2023, what is the 'Total Forest Cover' of the Union Territory of Jammu and Kashmir as a percentage of its total geographic area?",correctId:"c",options:[{id:"a",text:"38.15%",label:"A"},{id:"b",text:"37.15%",label:"B"},{id:"c",text:"39.15%",label:"C"},{id:"d",text:"36.15%",label:"D"}],explanation:'According to the <span class="text-red font-bold">ISFR</span>, the total <span class="text-green font-bold">forest cover</span> in the UT of <span class="text-blue font-bold">Jammu and Kashmir</span> is roughly <span class="text-orange font-bold">21,346 sq km</span>, which accounts for <span class="text-magenta font-bold">39.15%</span> of its total geographical area. J&amp;K also boasts the <span class="text-teal font-bold">highest diversity of forest types in India</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"661c3faa-9e35-4bd8-ab37-65b663f9d5f6",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"Which of the following rivers are tributaries of the river Chenab?<br>1- Ujh river<br>2- Marusudar river<br>3- Neeru river<br>4- Ans river<br>5- Tawi river",correctId:"c",options:[{id:"a",text:"1, 2, 4, and 5 only",label:"A"},{id:"b",text:"2, 4, and 5 only",label:"B"},{id:"c",text:"2, 3, 4, and 5 only",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'<span class="text-red font-bold">Marusudar</span> (largest), <span class="text-green font-bold">Neeru</span>, <span class="text-blue font-bold">Ans</span>, and <span class="text-orange font-bold">Tawi</span> are all vital tributaries of the <span class="text-magenta font-bold">Chenab River</span> in the Jammu region. The <span class="text-teal font-bold">Ujh River</span> is a significant tributary of the <span class="text-red font-bold">Ravi River</span>, not the Chenab.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"196ca49b-b2ae-4f14-a9b6-779d36b3307a",category_id:"jk-affairs",tags:["Jk Geography","Agriculture"],difficulty:"medium",question:"As per Land Use Statistics (2022-23), published by the Ministry of Agriculture &amp; Farmers' Welfare, what is the percentage of 'Net Sown Area' to the 'Total Reported Area' in Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"19.1%",label:"A"},{id:"b",text:"18.4%",label:"B"},{id:"c",text:"More than 20%",label:"C"},{id:"d",text:"Less than 17%",label:"D"}],explanation:'As per the <span class="text-red font-bold">Land Use Statistics (2022-23)</span>, the <span class="text-green font-bold">Net Sown Area</span> in <span class="text-blue font-bold">Jammu and Kashmir</span> represents approximately <span class="text-orange font-bold">19.1%</span> of the <span class="text-magenta font-bold">Total Reported Area</span>. The <span class="text-teal font-bold">rugged mountainous terrain</span> heavily restricts the land available for agriculture.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"72080f81-1b3f-4282-bd59-80ff74a77c63",category_id:"jk-affairs",tags:["Jk Geography"],difficulty:"medium",question:"Consider the following statements about 'Dumhal' in the Union Territory of Jammu and Kashmir:<br>1- It is one of the folk dance forms of the Wattal tribe of the region<br>2- Only males can perform this dance on specific occasions and at set locations<br>3- The dance is performed wearing long, colourful robes and tall, conical caps studded with beads and shells<br>4- The performers move in a ritual manner and dig a banner (flag) into the ground before performing the dance<br>Which of the above statements are correct?",correctId:"d",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"2 and 3 only",label:"B"},{id:"c",text:"1, 3, and 4 only",label:"C"},{id:"d",text:"1, 2, 3, and 4",label:"D"}],explanation:`<span class="text-red font-bold">Dumhal</span> is a famous, traditional folk dance of the <span class="text-green font-bold">Wattal tribe</span> in Kashmir. It is <span class="text-blue font-bold">performed exclusively by men</span> donning vibrant attire and <span class="text-orange font-bold">tall conical caps</span>. The ritual involves <span class="text-magenta font-bold">carrying a specific banner</span>, which is planted into the ground before the dance begins around it.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/dqVU22zPKek?si=j4eHGVoDiShy8gnW" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/dqVU22zPKek/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"74b49096-c84c-4b93-a5db-40a7528ace74",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:'Consider the following statements about Manasbal Lake:<br>1- It is the deepest freshwater lake, located in the Poonch district of Jammu and Kashmir<br>2- The large growth of lotus (Nelumbo nucifera) at the periphery of the lake (blooms during July and August) adds to the beauty of the clear waters<br>3- It is a good site for aquatic birds and birdwatching and has the sobriquet of "supreme gem of all Kashmir Lakes"<br>Which of the above statements is/are INCORRECT?',correctId:"a",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"3 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"None of the above",label:"D"}],explanation:'Statement 1 is incorrect because <span class="text-red font-bold">Manasbal Lake</span> is located in the <span class="text-green font-bold">Ganderbal district</span>, not Poonch. It is famously known as the <span class="text-blue font-bold">deepest lake in the Kashmir valley</span> and is renowned as the "<span class="text-orange font-bold">supreme gem of all Kashmir Lakes</span>" with abundant <span class="text-magenta font-bold">lotus growth</span>.<br>',pyq:"JKSSB Wildlife 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"e3a1ee41-e02d-47f4-8693-f321e4831884",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"hard",question:'Consider the following statements regarding the glaciers of the Jammu and Kashmir region:<br>1- The Kolahoi Glacier, also known as the "Goddess of Light," is the largest in the Kashmir Valley and is the primary source of the Lidder River<br>2- The Thajwas Glacier, in the Sonamarg region, is a popular "hanging glacier" accessible to tourists<br>3- The Machoi Glacier, in the Sonamarg region, majorly feeds water to the Sind and Dras rivers<br>Which of the above statements is/are correct?',correctId:"d",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"1 and 2 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"1, 2, and 3",label:"D"}],explanation:'All statements are correct. <span class="text-red font-bold">Kolahoi</span> is the <span class="text-green font-bold">largest glacier in the Kashmir Valley</span>, heavily feeding the <span class="text-blue font-bold">Lidder River</span>. <span class="text-orange font-bold">Thajwas</span> is an iconic <span class="text-magenta font-bold">hanging glacier</span> near <span class="text-teal font-bold">Sonamarg</span>, and <span class="text-red font-bold">Machoi Glacier</span> acts as a critical water source for both the <span class="text-green font-bold">Sind and Dras river systems</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Wildlife 2026",created_at:"2026-06-30T18:18:00.042593+00:00"},{id:"f40e48be-4438-43bd-8c93-179631045bae",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"hard",question:"In which year a Botanical Garden was set up in memory of India's first prime minister in Jammu &amp; Kashmir?",correctId:"d",options:[{id:"a",text:"1979",label:"A"},{id:"b",text:"1988",label:"B"},{id:"c",text:"1999",label:"C"},{id:"d",text:"1969",label:"D"}],explanation:`The <span class="text-red font-bold">Jawaharlal Nehru Memorial Botanical Garden</span> was established in <span class="text-green font-bold">Srinagar</span> in <span class="text-blue font-bold">1969</span>. Situated at the foothills of the <span class="text-orange font-bold">Zabarwan Range</span> near <span class="text-magenta font-bold">Dal Lake</span>, it was created in memory of India's first Prime Minister.<br> <span class="text-rose-500 font-bold"> </span>`,pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"252757cf-19a5-48d4-8d8c-b8d70a98909e",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"medium",question:"Lachipora Wildlife Sanctuary is in which of the following districts of Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Shopian",label:"A"},{id:"b",text:"Anantnag",label:"B"},{id:"c",text:"Jammu",label:"C"},{id:"d",text:"Baramulla",label:"D"}],explanation:'<span class="text-red font-bold">Lachipora Wildlife Sanctuary</span> is located in the <span class="text-green font-bold">Baramulla district</span>. Established in <span class="text-blue font-bold">1987</span> along the northern banks of the <span class="text-orange font-bold">Jhelum River</span>, it is primarily known for protecting the endangered <span class="text-magenta font-bold">Markhor</span> (wild goat) and its <span class="text-teal font-bold">dense coniferous forests</span>. <div><img src="https://tse4.mm.bing.net/th/id/OIP.1g2yidIyqvDIG1RVo9GTEAHaEH?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"a9dd138e-8e8d-4044-891f-7943fd9119f8",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:'___________ is known as "Meadows of Jesus" in Union Territory of Jammu and Kashmir.',correctId:"c",options:[{id:"a",text:"Gulmarg",label:"A"},{id:"b",text:"Patnitop",label:"B"},{id:"c",text:"Yusmarg",label:"C"},{id:"d",text:"Sonamarg",label:"D"}],explanation:'<span class="text-red font-bold">Yusmarg</span>, located in the <span class="text-green font-bold">Budgam district</span>, literally translates to "<span class="text-blue font-bold">Meadow of Jesus</span>" <span class="text-orange font-bold">(Yus = Jesus, Marg = meadow)</span>. <span class="text-magenta font-bold">Ahmadiyya traditions</span> uniquely associate this serene valley with the belief that <span class="text-teal font-bold">Jesus once visited Kashmir</span>.<div><img src="https://www.india.com/wp-content/uploads/2024/07/Understanding-Yusmarg.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"4d378ef3-6268-4373-9ba7-1aa549caf2f6",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"Which of the following is a popular shrine of Baramulla, situated near the Alpather Lake?",correctId:"c",options:[{id:"a",text:"Killa Shrine",label:"A"},{id:"b",text:"Char Dham",label:"B"},{id:"c",text:"Ziarat of Baba Reshi",label:"C"},{id:"d",text:"Panch Prayag",label:"D"}],explanation:'The <span class="text-red font-bold"></span><span class="text-orange" style="font-weight: 800;">Ziarat of Baba Payam-ud-Din Reshi (Baba Reshi)</span> is a highly revered shrine located in <span class="text-green font-bold">Gulmarg</span> <span class="text-blue font-bold">(Baramulla district)</span> near <span class="text-orange font-bold">Alpather Lake</span>. He was a <span class="text-magenta font-bold">15th-century courtier</span> of <span class="text-teal font-bold">Sultan Zain-ul-Abidin</span> who renounced worldly life to become a prominent <span class="text-red font-bold">Rishi saint</span>.<div><img src="https://s7ap1.scene7.com/is/image/incredibleindia/1-ziarat-of-baba-reshi-gulmarg-jammu-kashmir-attr-hero-1?qlt=82&amp;ts=1726728573804" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"16afe380-b456-40ba-83f2-7273f402f11d",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"easy",question:"Bahulochan was succeeded by which of the following rulers?",correctId:"d",options:[{id:"a",text:"Maharaja Gulab singh",label:"A"},{id:"b",text:"Ranbir Singh",label:"B"},{id:"c",text:"Agnigarbha",label:"C"},{id:"d",text:"Jambu Lochan",label:"D"}],explanation:'According to local lore and the <span class="text-green" style="font-weight: 800;">historical chronicle Rajadarshani</span><span class="text-magenta font-bold"></span>, <span class="text-red font-bold">Raja Bahu Lochan</span> (the founder of the <span class="text-green font-bold">Bahu Fort)</span> died in battle and was succeeded by his brother <span class="text-blue font-bold">Raja Jambu Lochan</span>, who subsequently <span class="text-orange font-bold">founded the city of Jammu</span>.<br>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"92e8be6e-1e57-4a74-b600-1f96af554ea7",category_id:"jk-affairs",tags:["Jk History","Lohara Dynasty"],difficulty:"hard",question:"In the history of J &amp; K the ruler of Darvabhisara named Samgramaraja belonged to which of the following dynasties?",correctId:"b",options:[{id:"a",text:"Kutumbi",label:"A"},{id:"b",text:"Lohara",label:"B"},{id:"c",text:"Utpala",label:"C"},{id:"d",text:"Huna",label:"D"}],explanation:`<span class="text-red font-bold">King Sangramaraja</span> founded the <span class="text-green font-bold">First Lohara Dynasty</span> in Kashmir in <span class="text-blue font-bold">1003 CE</span>. He was the nephew of <span class="text-orange font-bold">Queen Didda</span> and inherited the throne, originally hailing from the <span class="text-magenta font-bold">Lohara</span> (Poonch/Darvabhisara) region.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/W7ytn5NCznA?si=VCXjIaLDNAuqYLAZ" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/W7ytn5NCznA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"8ed9cea2-d8dd-4110-8121-ac5042d304c0",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"easy",question:"Who among the following rulers adopted Compulsory Primary Education Regulation in Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Maharaja Pratap Singh",label:"A"},{id:"b",text:"Raja Amar Singh",label:"B"},{id:"c",text:"Maharaja Gulab Singh",label:"C"},{id:"d",text:"Maharaja Hari Singh",label:"D"}],explanation:'<span class="text-red font-bold">Maharaja Hari Singh</span> introduced the <span class="text-green font-bold">Compulsory Primary Education Act</span> in <span class="text-blue font-bold">1930</span> to combat rampant illiteracy in the state. This landmark regulation made primary education <span class="text-orange font-bold">free and compulsory</span>, initially <span class="text-magenta font-bold">targeting boys in municipal areas</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"d905be0d-b2b7-4d52-9643-627c7ed6a180",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"medium",question:"Chenani-Nashri Tunnel is also known as __________",correctId:"c",options:[{id:"a",text:"New Katraj Tunnel",label:"A"},{id:"b",text:"Pir Panjal Railway Tunnel",label:"B"},{id:"c",text:"Dr Syama Prasad Mookerjee Tunnel",label:"C"},{id:"d",text:"Atal Tunnel",label:"D"}],explanation:`The <span class="text-red font-bold">Chenani-Nashri Tunnel</span> <span class="text-teal" style="font-weight: 800;">on NH44 </span>was officially renamed the <span class="text-green font-bold">Dr. Syama Prasad Mookerjee Tunnel</span> in <span class="text-blue font-bold">2019</span>. Stretching over <span class="text-orange font-bold">9.28 km</span>, it is India's longest road tunnel, drastically reducing the travel time between <span class="text-teal font-bold">Udhampur and Ramban</span>.<div><img src="https://blogger.googleusercontent.com/img/a/AVvXsEi4UWf_LOMZ1AMWjvoPlKyqbq8Zwps7XrdH1PighK7znI0BdqPUTf_l5UlpOoAsHlrWqLTu3UmItADflIBufFPTXYpMldJ3tzRdJdLM-JHc3p3KvlBkmEn943N8e9vlp03dkMTT5-tN5PjStb5NzVc6htzsaY6C3Np-ZOfGKeiIaCp4e2omiPp8sZFw0A" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"784d949f-9068-495f-971e-fa2c419953aa",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"The tomb of Ziarat Baba Hyder Reshi is situated in which of the following districts of Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Ganderbal",label:"A"},{id:"b",text:"Ramban",label:"B"},{id:"c",text:"Shopian",label:"C"},{id:"d",text:"Anantnag",label:"D"}],explanation:'The revered shrine of <span class="text-red font-bold">Baba Hyder Reshi</span> (also widely known as Hardesh or Reshi Mol) is located in the <span class="text-green font-bold">Anantnag district</span>. He was a prominent <span class="text-blue font-bold">Sufi ascetic</span> whose teachings deeply influenced the <span class="text-orange font-bold">syncretic Rishi culture</span> of <span class="text-magenta font-bold">South Kashmir</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"43cb4f57-54bf-49ec-9431-f7c61ad7e495",category_id:"jk-affairs",tags:["Jk History","Karkota Dynasty"],difficulty:"easy",question:"Who was the builder of the Martand (Sun) Temple and founder of Kashmir Valley's canal irrigation system?",correctId:"b",options:[{id:"a",text:"Bhu Dev",label:"A"},{id:"b",text:"Lalitaditya Muktapida",label:"B"},{id:"c",text:"Zain-ul-adidin",label:"C"},{id:"d",text:"Bhim Chand",label:"D"}],explanation:'<span class="text-red font-bold">Lalitaditya Muktapida</span>, the greatest emperor of the <span class="text-green font-bold">Karkota Dynasty</span>, built the majestic <span class="text-blue font-bold">Martand Sun Temple</span> in the <span class="text-orange font-bold">8th century CE</span>. He also pioneered extensive <span class="text-magenta font-bold">canal irrigation systems</span> to boost agriculture, laying the groundwork for later <span class="text-teal font-bold">engineers like Suyya</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"f1fee464-ba63-4734-9048-04a85fcd8ff4",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"easy",question:"____________ Fort on the left bank of River Tawi, was originally constructed by Raja Bahulochan over 3000 years ago.",correctId:"c",options:[{id:"a",text:"Raval Fort",label:"A"},{id:"b",text:"Devalgarh Fort",label:"B"},{id:"c",text:"Bahu Fort",label:"C"},{id:"d",text:"Pithorgarh Fort",label:"D"}],explanation:'The <span class="text-red font-bold">Bahu Fort</span>, perched on a rocky plateau on the left bank of the <span class="text-green font-bold">Tawi River</span>, is the <span class="text-blue font-bold">oldest fortification in Jammu</span>. Originally built by <span class="text-orange font-bold">Raja Bahu Lochan</span> <span class="text-magenta font-bold">3,000 years ago</span>, it was later rebuilt and strengthened by the <span class="text-teal font-bold">Dogra rulers</span>.<br>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"067115b1-727d-4b0c-bbfb-92cb7ea1ac61",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"hard",question:"In which year, Samba region came under the supremacy of Jammu, during the period of Hari Dev?",correctId:"b",options:[{id:"a",text:"1899 A.D",label:"A"},{id:"b",text:"1816 A.D",label:"B"},{id:"c",text:"1876 A.D",label:"C"},{id:"d",text:"1929 A.D",label:"D"}],explanation:`The semi-independent principality of <span class="text-red font-bold">Samba</span> was<span style="font-style: italic;"> conclusively defeated, annexed, and brought</span> under <span class="text-teal" style="font-weight: 800;">Jammu's direct political supremacy in 1816 A.D.</span><span class="text-green font-bold"></span>, prior to the formal establishment of the <span class="text-orange font-bold">Dogra Kingdom</span>.<br>`,pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"050bdc7d-0b89-475e-8678-d3a26f02ef3b",category_id:"jk-affairs",tags:["Jk History","Utpala Dynasty"],difficulty:"medium",question:"Which of the following was the capital of Kashmir during the Shankervarman Regime?",correctId:"c",options:[{id:"a",text:"Newa",label:"A"},{id:"b",text:"Kakapora",label:"B"},{id:"c",text:"Parihaspora",label:"C"},{id:"d",text:"Srinagari",label:"D"}],explanation:`<span class="text-red font-bold">King Shankaravarman</span> <span class="text-green font-bold">(Utpala dynasty)</span> initially ruled from <span class="text-blue font-bold">Parihaspora</span> (the <span class="text-blue" style="font-weight: 800;">old Karkota capital</span>). However, he is infamous for plundering <span class="text-blue font-bold">Parihaspora</span>'s grand structures to harvest building materials for his newly founded city, <span class="text-orange font-bold">Shankarapura</span> (modern-day <span class="text-magenta font-bold">Pattan)</span>.<br> <span class="text-blue-500 font-bold"> </span>`,pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"a715b220-1dfa-4faf-9b2a-cf06a469e201",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:'______________, Place in the Union Territory of Jammu &amp; Kashmir is known as "Valley of Milk".',correctId:"d",options:[{id:"a",text:"Khanpora",label:"A"},{id:"b",text:"Drangbal",label:"B"},{id:"c",text:"Kupwara",label:"C"},{id:"d",text:"Doodhpathri",label:"D"}],explanation:`<span class="text-red font-bold">Doodhpathri</span>, located in the <span class="text-green font-bold">Budgam district</span>, translates to '<span class="text-blue font-bold">Valley of Milk</span>'. According to local folklore, the revered saint <span class="text-orange font-bold">Sheikh Noor-ud-din Noorani</span> pricked the ground with his staff in search of water, but <span class="text-magenta font-bold">milk flowed out</span> instead.<div><img src="https://kashmirtickets.com/wp-content/uploads/2023/04/doodhpathri-kashmir.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"c8ec2804-f476-4c42-af86-9300166365f4",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"hard",question:"In which year Siraj-ud-din of village Kahuta was nominated as Raja of Poonch?",correctId:"c",options:[{id:"a",text:"1532 A.D",label:"A"},{id:"b",text:"1550 A.D",label:"B"},{id:"c",text:"1596 A.D",label:"C"},{id:"d",text:"1520 A.D",label:"D"}],explanation:'In <span class="text-red font-bold">1596 A.D.</span>, <span class="text-green font-bold">Emperor Akbar</span> nominated <span class="text-blue font-bold">Siraj-ud-din</span> (a <span class="text-blue" style="font-weight: 800;">Rathore Rajput of Kahuta </span>who converted to Islam) as the <span class="text-orange font-bold">Raja of Poonch</span>.<span style="font-style: italic;"> </span><div><span style="font-style: italic;">(Note: Many <span class="text-magenta font-bold">JKSSB exams</span> erroneously attribute this to Jahangir, but <span class="text-teal font-bold">Jahangir did not ascend the throne until 1605)</span>.</span><br>    </div>',pyq:"JSA 2021",created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"45722ec8-bae9-4c49-a83e-b1aa33ea5371",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"medium",question:'Who introduced the "Art of Carpet Weaving" in Kashmir?',correctId:"d",options:[{id:"a",text:"Sultan Sher Shah",label:"A"},{id:"b",text:"Emperor Akbar",label:"B"},{id:"c",text:"Emperor Shahjahan",label:"C"},{id:"d",text:"Sultan Zainul Abidin",label:"D"}],explanation:'The intricate art of <span class="text-red font-bold">carpet weaving</span> <span class="text-green font-bold">(Kal Baffi)</span> was introduced to Kashmir in the <span class="text-blue font-bold">15th century</span> by <span class="text-orange font-bold">Sultan Zain-ul-Abidin</span> <span class="text-magenta font-bold">(Budshah)</span>. He brought highly skilled master weavers from <span class="text-teal font-bold">Persia and Central Asia</span> to train the local Kashmiri artisans.<div><img src="https://tse1.mm.bing.net/th/id/OIP.u36NtKiJ89AOZArmR_GEUgHaE8?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 80%; max-width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>  </div>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"b69b4b0c-eab4-4eb7-a223-b04ea905b5e0",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"When was the historical fort of Doda demolished on government instructions?",correctId:"b",options:[{id:"a",text:"1900 A.D",label:"A"},{id:"b",text:"1952 A.D",label:"B"},{id:"c",text:"1974 A.D",label:"C"},{id:"d",text:"1999 A.D",label:"D"}],explanation:'The historic <span class="text-red font-bold">Doda Fort</span>, which was originally built during the early <span class="text-blue font-bold">Dogra conquests</span> to house regional administration and a military garrison, was <span class="text-green font-bold">demolished in 1952 A.D.</span> on government instructions to<span class="text-orange" style="font-weight: 800;"> construct a high school on the site</span>. This was done to mark new beginning, with end of Dogra brutality and rise of Kashmir under new Indian Union.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"130e3cf7-fb28-4674-9c0b-8f30bba3da57",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"Among other things, excavations at Ambaran-pambaran sites near Akhnoor have proved that:",correctId:"d",options:[{id:"a",text:"It was a Neolithic settlement",label:"A"},{id:"b",text:"It was a Iron-age settlement",label:"B"},{id:"c",text:"It was Burial site",label:"C"},{id:"d",text:"It was associated with Buddhism",label:"D"}],explanation:`Archaeological excavations at the <span class="text-red font-bold">Ambaran</span> site in <span class="text-green font-bold">Akhnoor</span> (on the banks of the <span class="text-blue font-bold">Chenab River)</span> have unearthed ancient <span class="text-orange font-bold">Stupas, terracotta figures, and monastic structures</span>, proving it was a major <span class="text-magenta font-bold">early Buddhist center</span> in the region.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/u29jzpHQILc?si=yf9boSafMpaZ35dR" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/u29jzpHQILc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"90ffa605-2d53-4100-8a6d-0420c5b4589f",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"easy",question:"Sultan Zain-ul-Abedin, who ruled Kashmir during 15th century was also known as:",correctId:"a",options:[{id:"a",text:"Bod Shah",label:"A"},{id:"b",text:"Alamgeer",label:"B"},{id:"c",text:"Jahanpanah",label:"C"},{id:"d",text:"Jehangir",label:"D"}],explanation:`<span class="text-red font-bold">Sultan Zain-ul-Abidin</span> is reverently remembered as '<span class="text-green font-bold">Budshah</span>' (The Great King). His <span class="text-blue font-bold">50-year rule</span> during the <span class="text-orange font-bold">15th century</span> is celebrated as a <span class="text-magenta font-bold">golden age</span> of <span class="text-teal font-bold">religious tolerance, public works, and artistic renaissance</span> in Kashmir.<br>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"65b7198c-3629-4c81-b629-31001d5bec48",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"The kings named Toramana and Mihirakula belonged to which dynasty in the history of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Gonandiya",label:"A"},{id:"b",text:"Utpala",label:"B"},{id:"c",text:"Huna",label:"C"},{id:"d",text:"Kutumbi",label:"D"}],explanation:`<span class="text-red font-bold">Toramana</span> and his successor <span class="text-green font-bold">Mihirakula</span> were prominent rulers of the <span class="text-blue font-bold">Alchon Huna</span> <span class="text-orange font-bold">(White Hun)</span> dynasty. <span class="text-green font-bold">Mihirakula</span> is heavily criticized in Kalhana's Rajatarangini as a tyrannical king who ruthlessly <span class="text-teal font-bold">persecuted Buddhists</span> in Kashmir.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/IRCVCbCN5HQ?si=q0lTHEocYq2-CFkR" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;"><iframe src="https://www.youtube.com/embed/IRCVCbCN5HQ?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>   </div>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"20e4d52f-de1c-4069-a372-9947926dc600",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"hard",question:"The construction of Raghunath Temple in J &amp; K was started by which of the following rulers in the history of J &amp; K?",correctId:"d",options:[{id:"a",text:"Pratap Singh",label:"A"},{id:"b",text:"Hari Singh",label:"B"},{id:"c",text:"Ranjit Singh",label:"C"},{id:"d",text:"Gulab Singh",label:"D"}],explanation:'The foundation of the <span class="text-red font-bold">Raghunath Temple complex</span> in <span class="text-green font-bold">Jammu</span> was laid in <span class="text-blue font-bold">1835</span> by <span class="text-orange font-bold">Maharaja Gulab Singh</span>, the founder of the <span class="text-magenta font-bold">Dogra dynasty</span>. The massive architectural project was later completed by his son, <span class="text-teal font-bold">Maharaja Ranbir Singh</span>, in <span class="text-red font-bold">1860</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"e69387b8-4622-476c-9004-14797d2aff04",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"In the earliest recorded history Buddhism in Kashmir was introduced by emperor Ashoka in which century?",correctId:"c",options:[{id:"a",text:"6th century AD",label:"A"},{id:"b",text:"5th century BC",label:"B"},{id:"c",text:"3rd century BC",label:"C"},{id:"d",text:"7th century AD",label:"D"}],explanation:'<span class="text-red font-bold">Emperor Ashoka</span> of the <span class="text-green font-bold">Mauryan Empire</span> successfully introduced <span class="text-orange font-bold">Buddhism</span> to the Kashmir valley during the <span class="text-blue font-bold">3rd century BCE</span>. He is also credited with founding the ancient city of <span class="text-magenta font-bold">Srinagar</span> <span class="text-teal font-bold">(Srinagari)</span> and building numerous <span class="text-red font-bold">Buddhist Viharas</span>.<br>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"f36d07dd-ea27-47dd-ab4b-7fed818a45f8",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Who among the following invaded Kashmir on 24 October, 1947?",correctId:"b",options:[{id:"a",text:"Indian Rajputs",label:"A"},{id:"b",text:"Tribal Pathans",label:"B"},{id:"c",text:"Sherpas",label:"C"},{id:"d",text:"Sindh Brahmina",label:"D"}],explanation:'In <span class="text-red font-bold">October 1947</span>, <span class="text-green font-bold">tribal Pathan militias</span> (primarily <span class="text-blue font-bold">Afridis and Mahsuds)</span> backed by elements of the <span class="text-orange font-bold">Pakistani army</span> invaded the princely state of J&amp;K, pushing <span class="text-magenta font-bold">Maharaja Hari Singh</span> to sign the <span class="text-teal font-bold">Instrument of Accession</span> with <span class="text-red font-bold">India</span> to secure military support.<br>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"c441ae04-c3ed-4fbf-b536-f1137e6ca1ff",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"medium",question:"Which of the following valleys start at the base of Zoji La Pass?",correctId:"c",options:[{id:"a",text:"Araku",label:"A"},{id:"b",text:"Barak",label:"B"},{id:"c",text:"Drass",label:"C"},{id:"d",text:"Hirakund",label:"D"}],explanation:`The <span class="text-red font-bold">Drass Valley</span> starts immediately at the base of the <span class="text-green font-bold">Zoji La Pass</span>. Serving as the critical <span class="text-blue font-bold">gateway connecting the Kashmir Valley with Ladakh</span>, Drass is famously known as one of the <span class="text-orange font-bold">coldest inhabited places in the world</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/jL6Vb678X3U?si=xp-5iOqC7vLr5fK7" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/jL6Vb678X3U/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"c177f64c-6ef9-4ff0-b7cb-ece02559d6ff",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Mamleshwar temple in Pahalgam is devoted to the Hindu god:",correctId:"b",options:[{id:"a",text:"Kali",label:"A"},{id:"b",text:"Shiva",label:"B"},{id:"c",text:"Krishna",label:"C"},{id:"d",text:"Vishnu",label:"D"}],explanation:'The ancient <span class="text-red font-bold">Mamleshwar</span> (or Mamal) Temple in <span class="text-blue font-bold">Pahalgam</span> is an <span class="text-orange font-bold">11th-century</span> stone temple dedicated exclusively to <span class="text-magenta font-bold">Lord Shiva</span>. Constructed during the reign of <span class="text-teal font-bold">King Jayasimha</span>, it sits gracefully on the banks of the <span class="text-red font-bold">Lidder River</span>.<div><img src="https://drscdn.500px.org/photo/40441068/q%3D80_m%3D1500/v2?sig=9114ce48d9f542190d8c1a0b9b149fda9917b6c812fe3d9d76f4ee41a4f1ae14" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>   </div>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"b5beb816-0a84-41d5-96a2-a61a62ba31ec",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"hard",question:"Read the following statements and choose the CORRECT option:<br>1- Excavation by the Archaeological Survey of India have established the fact that the Akhnoor was one of the last Bastion of Harappan Civilization and Manda.<br>2- Akhnoor is believed to be the only early Buddhist site in Jammu, and the excavations have found remains of Stupas and Buddhist terracotta.",correctId:"b",options:[{id:"a",text:"only i",label:"A"},{id:"b",text:"only i and ii",label:"B"},{id:"c",text:"None",label:"C"},{id:"d",text:"Only ii",label:"D"}],explanation:'Both statements are factually correct. <span class="text-red font-bold">Manda</span> in <span class="text-green font-bold">Akhnoor</span> is historically recognized as the <span class="text-blue font-bold">northernmost settlement of the Indus Valley (Harappan) Civilization</span>. Additionally, the <span class="text-orange font-bold">Ambaran</span> site in <span class="text-green font-bold">Akhnoor</span> represents a major ancient <span class="text-magenta font-bold">Buddhist monastic complex</span> with <span class="text-teal font-bold">Stupas</span>.<div> <br> <span class="text-rose-500 font-bold"> </span>  </div>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"391a572c-f4fa-4b51-a165-f4c0020bce4f",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"This magnificent palace served as the royal residence of the rulers of the Dogra dynasty until 1925 and is one of the famous tourist attractions in Jammu. Identify the fort/palace from the following options.",correctId:"c",options:[{id:"a",text:"Hari Niwas Palace",label:"A"},{id:"b",text:"Bahu Fort",label:"B"},{id:"c",text:"Mubarak Mandi",label:"C"},{id:"d",text:"Akhnoor Fort",label:"D"}],explanation:`The sprawling <span class="text-red font-bold"></span><span class="text-orange" style="font-weight: 800;">Mubarak Mandi complex</span> served as the primary royal residence of the <span class="text-green font-bold">Dogra Maharajas</span> until <span class="text-blue font-bold">1925</span>, when <span class="text-orange font-bold">Maharaja Hari Singh</span> moved to the <span class="text-magenta font-bold">Hari Niwas Palace</span>. It features a stunning blend of <span class="text-teal font-bold">Rajasthani, Mughal, and European baroque</span> architecture.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/0fSmOJCSH-U?si=tL2cd5Bh8WP1IR7i" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/0fSmOJCSH-U/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>  </div>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"fad0e68e-b28a-4794-beaf-562560feb24c",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"From the options provided below, identify the Prime Minister of the state of Jammu and Kashmir during the reign of Maharaja Hari Singh.",correctId:"c",options:[{id:"a",text:"Prithvi Nath Dhar",label:"A"},{id:"b",text:"Sheikh Abdullah",label:"B"},{id:"c",text:"Mehr Chand Mahajan",label:"C"},{id:"d",text:"Mian Bashir Ahmed",label:"D"}],explanation:`<span class="text-red font-bold">Mehr Chand Mahajan</span>, a prominent jurist, was appointed as the <span class="text-green font-bold">Prime Minister</span> of the princely state of J&amp;K by <span class="text-orange font-bold">Maharaja Hari Singh</span> in <span class="text-blue font-bold">October 1947</span>. He played a crucial legal and administrative role during the state's turbulent <span class="text-magenta font-bold">accession to India</span>.<br> <span class="text-emerald-500 font-bold"> </span>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"0146a3a0-5ca4-47bf-9592-72c3426ad351",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Who among the following political leaders served as Sadr-e-Riyasat and also as the first Governor of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Braj Kumar Nehru",label:"A"},{id:"b",text:"Lakshmi Kant Jha",label:"B"},{id:"c",text:"Karan Singh",label:"C"},{id:"d",text:"Girish Chandra Saxena",label:"D"}],explanation:`<span class="text-red font-bold">Dr. Karan Singh</span>, the son of Maharaja Hari Singh, served as the '<span class="text-green font-bold">Sadr-i-Riyasat</span>' (Head of State) from <span class="text-blue font-bold">1952</span>. Following the <span class="text-orange font-bold">6th Constitutional Amendment</span> in <span class="text-magenta font-bold">1965</span> that changed the nomenclature, he became the <span class="text-teal font-bold">first Governor of Jammu and Kashmir</span>.<br> <span class="text-emerald-500 font-bold"> </span>`,pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"65dea841-88cd-4ad0-a826-a7e0c16249d5",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Which of the following options is a spring of the Kashmir valley?",correctId:"c",options:[{id:"a",text:"Gangabal",label:"A"},{id:"b",text:"Vishno Pad",label:"B"},{id:"c",text:"Martand",label:"C"},{id:"d",text:"Manasbal",label:"D"}],explanation:'<span class="text-red font-bold">Martand</span> (also known as <span class="text-green font-bold">Bawan)</span> is a sacred ancient spring located in the <span class="text-blue font-bold">Anantnag district</span>. It holds immense religious significance for <span class="text-orange font-bold">Kashmiri Pandits</span>, who traditionally visit the site to perform <span class="text-magenta font-bold">Shradh ceremonies</span>. <span class="text-teal font-bold">Gangabal and Manasbal are lakes</span>.<br>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"e34d65a5-11d1-43b9-8bd5-605a87e16fa2",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Dhanidhar fort, a historical monument is located in which of the following districts of Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Poonch",label:"A"},{id:"b",text:"Rajouri",label:"B"},{id:"c",text:"Anantnag",label:"C"},{id:"d",text:"Baramulla",label:"D"}],explanation:'The <span class="text-red font-bold">Dhanidhar Fort</span> is a historical fortification strategically located in the <span class="text-green font-bold">Rajouri district</span>. It was constructed in <span class="text-blue font-bold">1855</span> by <span class="text-orange font-bold">Mian Hathu</span>, the <span class="text-magenta font-bold">Dogra Governor</span> of Rajouri, primarily to store collected grain and serve as a secure <span class="text-teal font-bold">defense garrison</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:null,created_at:"2026-06-30T15:53:42.969226+00:00"},{id:"201e3ec1-2eaf-4c99-93bd-e598a55f4af8",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"The District Ganderbal was carved out from which of the following districts in Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Srinagar",label:"A"},{id:"b",text:"Bandipora",label:"B"},{id:"c",text:"Baramulla",label:"C"},{id:"d",text:"Anantnag",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">Ganderbal</span> was <span class="text-blue" style="font-weight: 800;">carved out ofSrinagar</span> district and officially formed as a separate district in <span class="text-blue font-bold">2007</span>. This was done to <span class="text-green font-bold">decentralize administration</span> and ensure <span class="text-teal font-bold">better governance</span> in the region. <br>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"bc0b195f-b610-434c-9a02-01086a5176ab",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"easy",question:"Who among the following rulers adopted Compulsory Primary Education Regulation in Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Maharaja Hari Singh",label:"A"},{id:"b",text:"Raja Amar Singh",label:"B"},{id:"c",text:"Maharaja Pratap Singh",label:"C"},{id:"d",text:"Maharaja Gulab Singh",label:"D"}],explanation:'<span class="text-red font-bold">Maharaja Hari Singh</span> introduced the <span class="text-blue font-bold">Compulsory Primary Education Act</span> in <span class="text-orange font-bold">1930</span>. This landmark regulation was aimed at promoting <span class="text-green font-bold">mass education</span> and <span class="text-teal" style="font-weight: 800;">improving literacy rates</span> across the princely state, specifically <span class="text-magenta font-bold">targeting young boys initially</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"a1095233-efab-4cd5-9511-25d90518df52",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"The famous Lohar Devta Temple is in ___________ District of Union Territory of Jammu &amp; Kashmir.",correctId:"b",options:[{id:"a",text:"Shopian",label:"A"},{id:"b",text:"Poonch",label:"B"},{id:"c",text:"Pulwama",label:"C"},{id:"d",text:"Anantnag",label:"D"}],explanation:`The famous <span class="text-red font-bold">Lohar Devta Temple</span> is situated in the <span class="text-blue font-bold">Poonch district</span>. Historically, the Poonch region is closely associated with the ancient and powerful <span class="text-green font-bold">Lohara dynasty</span> that <span class="text-teal font-bold">once ruled Kashmir</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/ns41eGl0Fzk?si=i1IOLppYFKvXlzeD" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/ns41eGl0Fzk/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"2e589bc3-160e-4f17-8a73-3d982014f992",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"medium",question:"In which year the district Pulwama in Jammu and Kashmir was formed?",correctId:"a",options:[{id:"a",text:"1979",label:"A"},{id:"b",text:"1965",label:"B"},{id:"c",text:"1985",label:"C"},{id:"d",text:"1990",label:"D"}],explanation:`Pulwama was <span class="text-red font-bold">carved out of Anantnag district</span> and officially established as a separate administrative district in <span class="text-blue font-bold">1979</span>. It is widely known as the '<span class="text-orange font-bold">Anand of Kashmir</span>' or the <span class="text-green font-bold">milk bowl of the valley</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/ORoCaOjsjKY?si=RrUBw4tZozshr3vA" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/ORoCaOjsjKY/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"d023aba3-1537-4504-9f24-8b3feeeee784",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:'Which among the following places in Jammu &amp; Kashmir was called as "The Land of Kings"?',correctId:"b",options:[{id:"a",text:"Ramban",label:"A"},{id:"b",text:"Rajouri",label:"B"},{id:"c",text:"Reasi",label:"C"},{id:"d",text:"Shopian",label:"D"}],explanation:`<span class="text-red font-bold">Rajouri</span> was historically known as <span class="text-green" style="font-weight: 800;">'Rajapuri',</span> which translates from Sanskrit to<span class="text-green" style="font-weight: 800;"> 'The Land of Kings'.</span> It finds extensive mention<span class="text-blue" style="font-weight: 800;"> in Kalhana's Rajatarangini</span> as a<span class="text-blue" style="font-weight: 800;"> powerful semi-independent kingdom</span><span class="text-teal font-bold"></span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/V73E1b1iK6k?si=Nvt8JxWBn67jNMwR" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/V73E1b1iK6k/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"b7625c18-b550-4b8f-b82e-93428d3755cd",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"easy",question:"Who was the first muslim ruler of Kashmir and Founder of the Shah Mir Dynasty?",correctId:"c",options:[{id:"a",text:"Alau'd-Din Shah Mir",label:"A"},{id:"b",text:"Sultan Jamshid",label:"B"},{id:"c",text:"Shams-ud-Din Shah Mir",label:"C"},{id:"d",text:"Sikander Shah Mir",label:"D"}],explanation:'<span class="text-red font-bold">Shams-ud-Din Shah Mir</span> founded the <span class="text-blue font-bold">Shah Mir dynasty</span> in <span class="text-orange font-bold">1339 CE</span>. Following the death of <span class="text-magenta font-bold">Queen Kota Rani</span>, he became the <span class="text-green font-bold">first Muslim ruler of Kashmir</span>, marking the beginning of the <span class="text-teal font-bold">Kashmir Sultanate</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"a06a8dc9-22fd-4692-baf7-0946e85db4f9",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"medium",question:"Who among the following travelers visited Doda in 1829?",correctId:"d",options:[{id:"a",text:"Al Beruni",label:"A"},{id:"b",text:"Hiuen Tsang",label:"B"},{id:"c",text:"Ibn Battuta",label:"C"},{id:"d",text:"G.T. Vigne",label:"D"}],explanation:`<span class="text-red font-bold">Godfrey Thomas Vigne</span>, an English traveler and geographer, extensively explored the Kashmir, Ladakh, and Doda regions between <span class="text-blue font-bold">1835 and 1839</span> (often cited around 1829-1830s in state exams). He left behind <span class="text-teal font-bold">valuable records</span> of the <span class="text-green font-bold">early Dogra and Sikh eras</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/_gTPhykO8x0?si=f5BYXnmJui9Aq90e" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/_gTPhykO8x0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"5c3ce5a0-dc8d-417e-8a26-00edd1bd7d97",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"medium",question:"In which of the following districts of Jammu and Kashmir is the Batote meteorological observatory located?",correctId:"b",options:[{id:"a",text:"Doda",label:"A"},{id:"b",text:"Ramban",label:"B"},{id:"c",text:"Poonch",label:"C"},{id:"d",text:"Reasi",label:"D"}],explanation:'The <span class="text-red font-bold">Batote meteorological observatory</span> is a critical weather station situated in the <span class="text-blue font-bold">Ramban district</span>, located strategically along the <span class="text-orange font-bold">Jammu-Srinagar National Highway</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"3757f397-5099-4ce6-b8d7-0c956a1b7995",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"medium",question:"Which of the following Mughal Kings nominated Siraj-ud-din of village Kahuta as Raja of Poonch?",correctId:"c",options:[{id:"a",text:"Humayun",label:"A"},{id:"b",text:"Aurangzeb",label:"B"},{id:"c",text:"Jehangir",label:"C"},{id:"d",text:"Akbar",label:"D"}],explanation:'<span class="text-red font-bold">Emperor Jahangir</span> nominated <span class="text-blue font-bold">Siraj-ud-din</span> of the village Kahuta as the <span class="text-green font-bold">Raja of Poonch</span>. This move successfully rewarded local loyalty and brought the Poonch principality firmly under <span class="text-teal font-bold">Mughal administrative influence</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"50611fcb-8d67-429b-a81f-f70ce7755e69",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"easy",question:"When did the famous Mughal emperor Akbar conquer Kashmir?",correctId:"a",options:[{id:"a",text:"1586",label:"A"},{id:"b",text:"1501",label:"B"},{id:"c",text:"1553",label:"C"},{id:"d",text:"1528",label:"D"}],explanation:'Mughal <span class="text-red font-bold">Emperor Akbar</span> <span class="text-blue font-bold">conquered Kashmir in 1586 CE</span>. His forces, led by <span class="text-orange font-bold">Qasim Khan</span>, defeated the last Chak rulers <span class="text-magenta font-bold">(Yusuf Shah Chak and Yaqub Shah)</span>, formally annexing Kashmir into the sprawling <span class="text-green font-bold">Mughal Empire</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"1f5968e6-bd07-404f-9c47-b236bed118e6",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:'________ valley was named after "Maharaja LOLO".',correctId:"c",options:[{id:"a",text:"Nubra",label:"A"},{id:"b",text:"Lidder",label:"B"},{id:"c",text:"Lolab",label:"C"},{id:"d",text:"Spiti",label:"D"}],explanation:`The <span class="text-red font-bold">Lolab Valley</span>, a stunning oval-shaped valley located in the <span class="text-blue font-bold">Kupwara district</span>, derives its name from <span class="text-magenta font-bold">Maharaja Lolo</span>. It is renowned for its <span class="text-green font-bold">lush green forests, apple orchards, and natural springs</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/9fmX9p5D2-s?si=DUr_lvjNjIcveqkm" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/9fmX9p5D2-s/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"8018170f-563c-4f59-86c1-1bf6dce43884",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"In which year the Samba District was annexed to J&amp;K by Maharaja Gulab Singh making it an integral part of the state?",correctId:"c",options:[{id:"a",text:"1900 A.D.",label:"A"},{id:"b",text:"1886 A.D.",label:"B"},{id:"c",text:"1846 A.D",label:"C"},{id:"d",text:"1910 A.D.",label:"D"}],explanation:`While Samba had interactions with Jammu earlier, it was definitively annexed and integrated into the newly formed Jammu &amp; Kashmir princely state by <span class="text-red font-bold">Maharaja Gulab Singh</span> in <span class="text-blue font-bold">1846</span>, following the <span class="text-orange font-bold">Treaty of Amritsar</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Kfn_Ul8GQlI?si=diMH1xwtRQkiHfPj" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Kfn_Ul8GQlI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Sub Auditor 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"9272cde5-a53f-4028-b29b-26b11e7f1e32",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Which of the following is a traditional dance performed at weddings in Kashmir?",correctId:"d",options:[{id:"a",text:"Bacha Nagma",label:"A"},{id:"b",text:"Rouf Dance",label:"B"},{id:"c",text:"Bhand Jashan",label:"C"},{id:"d",text:"Hafiza Dance",label:"D"}],explanation:`The <span class="text-red font-bold">Hafiza dance</span> was a <span class="text-blue font-bold">traditional Kashmiri dance</span> heavily popular at weddings and riverboat festivals. It was performed by <span class="text-teal" style="font-weight: 800;">skilled female dancers (Hafizas) </span>to the accompaniment of classical <span class="text-green font-bold">Sufiana Mausiqi</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/Sj3DrBmEAzE?si=3vpwnIwuhbALKuEm" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Sj3DrBmEAzE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Sub Auditor 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"4cfb0a1c-f9c4-48a4-92ba-45ddef85cd3c",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"medium",question:"Which of the following Kings entered the Valley via Pakhil spent a few days at Baramulla and according to “Tarikh-e-Hassan”, the city had been decorated like a bride?",correctId:"c",options:[{id:"a",text:"Jahangir",label:"A"},{id:"b",text:"Ali Adil Shah I",label:"B"},{id:"c",text:"Akbar",label:"C"},{id:"d",text:"Ratan Singh",label:"D"}],explanation:`According to the historical chronicle '<span class="text-red font-bold">Tarikh-e-Hassan</span>', when <span class="text-blue font-bold">Emperor Akbar</span> made his first grand royal visit to Kashmir in <span class="text-orange font-bold">1589</span> via the <span class="text-green font-bold">Pakhli-Baramulla route</span>, the entire city was <span class="text-magenta font-bold">adorned like a bride</span> to welcome him.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/jqalmlvS_jI?si=Gu4jO8Ijk46Tsi0N" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/jqalmlvS_jI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Sub Auditor 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"d7f41999-0c13-4c0f-b2cf-aabd4a5babd3",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"The name Reasi which is a district in Jammu and Kashmir is derived from the town's old name _________.",correctId:"c",options:[{id:"a",text:"Rayal",label:"A"},{id:"b",text:"Resyali",label:"B"},{id:"c",text:"Rasyal",label:"C"},{id:"d",text:"Rayyal",label:"D"}],explanation:`The name of the present-day <span class="text-red font-bold">Reasi district</span> is derived from its ancient name '<span class="text-blue font-bold">Rasyal</span>'. The original town was founded by <span class="text-green font-bold">Raja Bhim Dev</span> in the <span class="text-orange font-bold">8th century</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/gEChKsXZyrA?si=gBewc66H2lqN75MQ" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/gEChKsXZyrA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Compiler",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"279eb236-be70-4409-acf0-d7088873cc36",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"The ancient Greeks had referred which of the following river in Jammu and Kashmir as the Hydaspes?",correctId:"a",options:[{id:"a",text:"Jhelum",label:"A"},{id:"b",text:"Indus",label:"B"},{id:"c",text:"Tawi",label:"C"},{id:"d",text:"Chenab",label:"D"}],explanation:`The ancient Greeks, during Alexander the Great's campaigns, called the <span class="text-red font-bold">Jhelum River</span> the <span class="text-green" style="font-weight: 800;">'Hydaspes'</span>. It was the site of the legendary <span class="text-green font-bold">Battle of the Hydaspes</span> <span class="text-orange font-bold">(326 BCE)</span> between <span class="text-magenta font-bold">Alexander and King Porus</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/jrmgas_MDzc?si=XocJGYo9tG1CMZV0" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/jrmgas_MDzc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Compiler",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"98079879-19b3-4513-a15b-86ca2f57b465",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"medium",question:"Mughal King Jehangir nominated who among the following as Raja of Poonch?",correctId:"c",options:[{id:"a",text:"Zorawar Singh Kahluria",label:"A"},{id:"b",text:"Rai Saidu",label:"B"},{id:"c",text:"Siraj-ud-din",label:"C"},{id:"d",text:"Mian Hathu",label:"D"}],explanation:'<span class="text-red font-bold">Emperor Jahangir</span> appointed <span class="text-blue font-bold">Siraj-ud-din</span> as the <span class="text-green font-bold">Raja of Poonch</span>. This strategic appointment was a reward for his local assistance and helped <span class="text-teal font-bold">consolidate Mughal power</span> in the border regions.<br>',pyq:"JKSSB Compiler 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"42b04e0b-e55c-4cd2-88c0-7561a1b391cd",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"In 1850 A.D. Dogra Raja Moti Singh laid foundation of Dogra Raj in which place?",correctId:"d",options:[{id:"a",text:"Budgam",label:"A"},{id:"b",text:"Ganderbal",label:"B"},{id:"c",text:"Samba",label:"C"},{id:"d",text:"Poonch",label:"D"}],explanation:'<span class="text-red font-bold">Raja Moti Singh</span>, the son of the powerful Dogra Prime Minister <span class="text-blue font-bold">Dhian Singh</span>, was formally granted the <span class="text-orange" style="font-weight: 800;">principality of Poonch</span> by <span class="text-orange font-bold">Maharaja Gulab Singh</span> in <span class="text-green font-bold">1850 A.D.</span>, effectively establishing <span class="text-teal font-bold">Dogra rule</span> there.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Compiler 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"9ee99514-3f9b-4708-862e-677f1877db2f",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"In which year the Dachigam National Park in Jammu and Kashmir was established?",correctId:"d",options:[{id:"a",text:"1972",label:"A"},{id:"b",text:"2002",label:"B"},{id:"c",text:"1990",label:"C"},{id:"d",text:"1981",label:"D"}],explanation:`<span class="text-red font-bold">Dachigam</span> (literally '<span class="text-blue font-bold">Ten Villages</span>') served as the exclusive game reserve for the Maharaja of J&amp;K. It was officially upgraded and declared a <span class="text-orange font-bold">National Park in 1981</span> to strictly protect the endangered <span class="text-magenta font-bold">Hangul</span> <span class="text-green font-bold">(Kashmiri Stag)</span>.<br>`,pyq:"JKSSB Compiler 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"7938adaa-d706-41c3-a582-1f9e99a33d3c",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"In which year the district Kupwara was carved out from the District Baramulla?",correctId:"b",options:[{id:"a",text:"1965",label:"A"},{id:"b",text:"1979",label:"B"},{id:"c",text:"1990",label:"C"},{id:"d",text:"1950",label:"D"}],explanation:`The <span class="text-red font-bold">Kupwara district</span> was separated from the <span class="text-blue font-bold">Baramulla district</span> and established as an independent administrative district in <span class="text-orange font-bold">1979</span>. This was done to improve <span class="text-green font-bold">decentralized governance</span> in the border areas.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/jYf8GsjVEPM?si=oQpNnZ7Bo5N_pqTA" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;"><iframe src="https://www.youtube.com/embed/jYf8GsjVEPM?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>    </div>`,pyq:"Sub Auditor 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"b6000ef4-59c1-401f-a00e-81d18087b334",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"medium",question:"Which of the following travelers from China visited the town Rajapuri in 632 A.D?",correctId:"a",options:[{id:"a",text:"Hiuen Tsang",label:"A"},{id:"b",text:"Megasthenes",label:"B"},{id:"c",text:"Fa Hien",label:"C"},{id:"d",text:"Yijing",label:"D"}],explanation:'The famous Chinese Buddhist scholar and traveler <span class="text-red font-bold">Hiuen Tsang</span> <span class="text-blue font-bold">(Xuanzang)</span> visited the <span class="text-magenta font-bold">Rajapuri</span> (Rajouri) kingdom in <span class="text-orange font-bold">632 A.D.</span> He documented it as a territory under the political influence of the <span class="text-green font-bold">Kashmiri Karkota empire</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-06-30T07:39:44.340579+00:00"},{id:"b04f525e-af06-4a7c-a513-b8997254fb64",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"medium",question:"District Kishtwar was carved out from which of the following districts during the year 2007-08?",correctId:"d",options:[{id:"a",text:"Poonch",label:"A"},{id:"b",text:"Ramban",label:"B"},{id:"c",text:"Anantnag",label:"C"},{id:"d",text:"Doda",label:"D"}],explanation:`<span class="text-red font-bold">Kishtwar</span> was originally a <span class="text-green font-bold">tehsil of the Doda district</span>. For better administrative efficiency, it was <span class="text-blue font-bold">carved out</span> and officially established as an <span class="text-orange font-bold">independent district</span> on <span class="text-magenta font-bold">April 1, 2007</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/MnKr3FWZGr0?si=jO8wpDSGw3ap5xyw" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/MnKr3FWZGr0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"08713e60-d0cd-4f5a-a27a-213eecda269e",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"hard",question:"Raja Raheem Ullah Khan ruled Rajouri principality up to _________.",correctId:"b",options:[{id:"a",text:"January, 1845",label:"A"},{id:"b",text:"October, 1846",label:"B"},{id:"c",text:"February, 1844",label:"C"},{id:"d",text:"January, 1846",label:"D"}],explanation:'<span class="text-red font-bold">Raja Raheem Ullah Khan</span> was the last Muslim ruler of the <span class="text-green font-bold">Rajouri principality</span>. His rule came to an end in <span class="text-blue font-bold">October 1846</span> when <span class="text-orange font-bold">Maharaja Gulab Singh</span>, backed by the <span class="text-magenta font-bold">Treaty of Amritsar</span>, dispatched a military force to successfully <span class="text-teal font-bold">annex Rajouri</span>. <br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"f7aed95a-e446-48ca-9eda-f3f4f2242ad9",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"hard",question:"The Gadadhar temple in Jammu District of Jammu and Kashmir was built by Maharaja Gulab Singh in ____________.",correctId:"d",options:[{id:"a",text:"1800 A.D.",label:"A"},{id:"b",text:"1812 A.D",label:"B"},{id:"c",text:"1777 A.D.",label:"C"},{id:"d",text:"1850 A.D.",label:"D"}],explanation:'The <span class="text-red font-bold">Gadadhar Temple</span>, located outside the historic <span class="text-green font-bold">Mubarak Mandi Palace</span> complex in Jammu, was built by <span class="text-blue font-bold">Maharaja Gulab Singh</span> in <span class="text-orange font-bold">1850 AD</span>. The temple is dedicated to <span class="text-magenta font-bold">Lord Vishnu</span> and is a fine example of <span class="text-teal font-bold">Dogra architecture</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"994ea719-d070-4b03-8778-16ac8ea43a2d",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"hard",question:'Which of the following places in Jammu &amp; Kashmir is known as "Pargana Deesu" in the old records?',correctId:"b",options:[{id:"a",text:"Samba",label:"A"},{id:"b",text:"Budgam",label:"B"},{id:"c",text:"Ramban",label:"C"},{id:"d",text:"Reasi",label:"D"}],explanation:`In old historical records and chronicles, <span class="text-red font-bold">Budgam</span> was historically referred to as '<span class="text-green font-bold">Pargana Deesu</span>'. Today, the district is famous for its <span class="text-teal font-bold">dense Chinar plantations</span> (like at <span class="text-blue font-bold">Chattergam)</span> and the shrine of <span class="text-orange font-bold">Sheikh Noor-ud-din Wali</span> at <span class="text-magenta font-bold">Charar-e-Sharief</span>.<br>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"786a0396-ac9b-42e1-9207-c7f2c5adad99",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"Who appointed Mian Hathu as the Governor of Rajouri?",correctId:"b",options:[{id:"a",text:"Raja Raheem Ullah Khan",label:"A"},{id:"b",text:"Maharaja Gulab Singh",label:"B"},{id:"c",text:"Raja Aggar Ullah Khan",label:"C"},{id:"d",text:"Maharaja Ranjit Singh",label:"D"}],explanation:'After annexing <span class="text-teal font-bold">Rajouri</span> in 1846, Maharaja Gulab Singh appointed <span class="text-red font-bold">Mian Hathu</span> as its <span class="text-green font-bold">first Dogra Governor</span> (serving from <span class="text-blue font-bold">1846 to 1856)</span>. <span class="text-red font-bold">Mian Hathu</span> was an <span class="text-orange font-bold">efficient administrator</span> who famously <span class="text-magenta font-bold">constructed the Dhanidhar Fort</span> in <span class="text-teal font-bold">Rajouri</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"c38b9452-7efb-474f-aa14-c9b73869df2b",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Which among the following forts was built by Gen. Zorawar Singh, the famous Dogra General?",correctId:"b",options:[{id:"a",text:"Pithoragarh",label:"A"},{id:"b",text:"Bhim Garh",label:"B"},{id:"c",text:"Devalgarh",label:"C"},{id:"d",text:"Banasur Garh",label:"D"}],explanation:`<span class="text-red font-bold">Bhimgarh Fort</span> <span class="text-green font-bold">(also known as Reasi Fort)</span> is situated on a <span class="text-blue font-bold">hillock in Reasi</span>. Originally built of mud, it was <span class="text-orange font-bold">reconstructed with stone masonry</span> by the legendary <span class="text-magenta font-bold">Dogra General Zorawar Singh</span> during his tenure as the region's <span class="text-teal font-bold">governor</span>.<div><img src="https://preview.redd.it/z6an5zflzfg81.jpg?width=640&amp;crop=smart&amp;auto=webp&amp;s=ebcbd4ac2a5ed47f2dd2b32701fb41a8b62fdc6c" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"d54d0d70-47dd-455d-abf2-1a8f2ca8df29",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"hard",question:"Who was the Governor of Kashmir during the Mughal rule in 1663 A.D?",correctId:"b",options:[{id:"a",text:"Muhammad bin Qasim",label:"A"},{id:"b",text:"Islam Khan",label:"B"},{id:"c",text:"Muhi-ud-Din Muhammad",label:"C"},{id:"d",text:"Mian Hathu",label:"D"}],explanation:'<span class="text-red font-bold">Islam Khan</span> served as the <span class="text-green font-bold">Mughal Governor</span> <span class="text-blue font-bold">(Subedar)</span> of Kashmir around <span class="text-orange font-bold">1663 AD</span>, appointed during the reign of <span class="text-magenta font-bold">Emperor Aurangzeb</span>. During this era, Kashmir was heavily patronized as a <span class="text-teal font-bold">summer retreat for Mughal royalty</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"a8d8c9f3-a74b-4352-9078-e3e1a643d21a",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"easy",question:"__________ Island was constructed by King Zainul-Abi-Din in the Wular Lake of Union Territory of Jammu &amp; Kashmir.",correctId:"b",options:[{id:"a",text:"Roopa Lank",label:"A"},{id:"b",text:"Zaina Lank",label:"B"},{id:"c",text:"SagarLank",label:"C"},{id:"d",text:"Majuli",label:"D"}],explanation:`<span class="text-red font-bold">Zaina Lank</span> is an <span class="text-green font-bold">artificial island</span> constructed by the great Kashmiri <span class="text-blue font-bold">Sultan Zain-ul-Abidin</span> <span class="text-orange font-bold">(Budshah)</span> in the middle of <span class="text-magenta font-bold">Wular Lake</span>. He built it as a safe refuge and constructed a mosque and a palace on it. (Note: <span class="text-teal font-bold">Rupa Lank, or Char Chinar, is in Dal Lake)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Pd0vtykSb9o?si=6Up7gwbQY94m9suf" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Pd0vtykSb9o/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"f07e3738-1146-45b6-a16b-ea10ad3e8a65",category_id:"jk-affairs",tags:["Jk History","Mughal Rule"],difficulty:"medium",question:"Emperor Jahangir, wished to be buried at ______________, in Anantnag District of Jammu &amp; Kashmir.",correctId:"d",options:[{id:"a",text:"Thattapani",label:"A"},{id:"b",text:"Chamuthang",label:"B"},{id:"c",text:"Kokernag",label:"C"},{id:"d",text:"Verinag",label:"D"}],explanation:`<span class="text-red font-bold">Emperor Jahangir</span> was deeply captivated by the breathtaking beauty and cool waters of the <span class="text-green font-bold">Verinag spring</span> (the traditional <span class="text-blue font-bold">source of the Jhelum River)</span>. He expressed his <span class="text-orange font-bold">dying wish</span> to be <span class="text-magenta font-bold">buried there</span>, though he was ultimately interred in <span class="text-teal font-bold">Shahdara, Lahore</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/iwhfW93HJ8E?si=ax8Wvnl-vxOgsNG0" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/iwhfW93HJ8E/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div><div>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"683b811e-2686-47ef-9eef-e5e0a12ac6c5",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"When did Maharaja Gulab Singh, the Dogra ruler of Jammu annex the Kishtwar region?",correctId:"b",options:[{id:"a",text:"1845 AD",label:"A"},{id:"b",text:"1821 AD",label:"B"},{id:"c",text:"1721 AD",label:"C"},{id:"d",text:"1790 AD",label:"D"}],explanation:`<span class="text-red font-bold">Maharaja Gulab Singh</span> annexed the <span class="text-green font-bold">Kishtwar principality</span> in <span class="text-blue font-bold">1821 AD</span>. Its local ruler, <span class="text-orange font-bold">Raja Tegh Singh</span>, <span class="text-magenta font-bold">surrendered without a major battle</span>. This strategic annexation was crucial as it cleared the route for Zorawar Singh's later campaigns into Ladakh.<div> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"8e4209ec-9e8c-4436-b3c8-39be4ee40cc4",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"Pulwama district in J&amp;K is famous for Archaeological monuments especially for those left by _____________.",correctId:"b",options:[{id:"a",text:"Maharaja Hari Singh",label:"A"},{id:"b",text:"Raja Avantivarman &amp; Lalta Ditya",label:"B"},{id:"c",text:"Raja Suchet Singh &amp; Hari Dev",label:"C"},{id:"d",text:"Raja Aggar Ullah Khan &amp; Noor-Ud-Din",label:"D"}],explanation:'<span class="text-red font-bold"></span><span class="text-red" style="font-weight: 800;">Pulwama district,</span> specifically the <span class="text-green font-bold">Awantipora</span> region, is celebrated for its majestic <span class="text-blue font-bold">archaeological ruins</span>. The most prominent are the <span class="text-orange font-bold">Awantiswami</span> and <span class="text-magenta font-bold">Awantishvara</span> temples built by the <span class="text-teal font-bold">Utpala dynasty</span> founder, King Avantivarman.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"eb8b9002-ff16-48ec-a0a0-c4849dd04b3a",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"In which year the construction of Dhannidhar Fort in Rajouri was completed?",correctId:"a",options:[{id:"a",text:"1855 A.D",label:"A"},{id:"b",text:"1858 A.D",label:"B"},{id:"c",text:"1850 A.D",label:"C"},{id:"d",text:"1848 A.D",label:"D"}],explanation:`The <span class="text-red font-bold">Dhanidhar Fort</span> in <span class="text-green font-bold">Rajouri</span> was constructed by the <span class="text-blue font-bold">Dogra Governor Mian Hathu</span>. Its construction began in <span class="text-orange font-bold">1846</span> to <span class="text-magenta font-bold">consolidate Dogra power</span> in the region and was successfully completed in <span class="text-teal font-bold">1855 AD</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/UBf8TrVX9Po?si=GXHIkHGMZk1HZDt2" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/UBf8TrVX9Po/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"83c18154-9ac2-48ec-adb2-92a58daa078a",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:`___________ Town in Jammu &amp; Kashmir has derived it's name from a famous spring named "Ganderbhavan".`,correctId:"d",options:[{id:"a",text:"Reasi",label:"A"},{id:"b",text:"Srinagar",label:"B"},{id:"c",text:"Jammu",label:"C"},{id:"d",text:"Ganderbal",label:"D"}],explanation:`<span class="text-red font-bold">Ganderbal</span> town derives its name from a famous local spring called '<span class="text-green font-bold">Ganderbhavan</span>'. The district is highly significant geographically and culturally, known for the <span class="text-blue font-bold">Sindh nullah</span>, <span class="text-orange font-bold">Kheer Bhawani temple</span>, and as the <span class="text-magenta font-bold">gateway to Sonamarg</span>.<br>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"6f8895d8-e2a4-43ad-b603-31c0a707c730",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"The ancient Devi Maha Lakshmi Temple, situated at Pacca Danga of Jammu District, was built by:",correctId:"c",options:[{id:"a",text:"Maharaja Vir Dev",label:"A"},{id:"b",text:"Maharaja Bhim Dev",label:"B"},{id:"c",text:"Maharaja Ranbir Singh",label:"C"},{id:"d",text:"Maharaja Dhanpal Singh",label:"D"}],explanation:'The ancient <span class="text-red font-bold">Devi Maha Lakshmi Temple</span> located at <span class="text-green font-bold">Pacca Danga</span> in <span class="text-blue font-bold">Jammu</span> was constructed by <span class="text-orange font-bold">Maharaja Ranbir Singh</span>. He was a great <span class="text-magenta font-bold">patron of Hinduism</span> and built several prominent temples, including the <span class="text-teal font-bold">Ranbireshwar Temple</span>.<div><img src="https://www.kashmirhills.com/wp-content/uploads/2016/09/Lakshmi-Narayan-Temple-kashmirhills.png" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"3cad570e-3ae7-41ab-9af1-b6ffec0deb9d",category_id:"jk-affairs",tags:["Jk History","Afghan Rule"],difficulty:"hard",question:"During which year, Kashmir passed on from the feeble control of the Mughal emperor of the time to Ahmed Shah Abdali of Afghanistan?",correctId:"b",options:[{id:"a",text:"1682 A.D.",label:"A"},{id:"b",text:"1752 A.D.",label:"B"},{id:"c",text:"1772 A.D",label:"C"},{id:"d",text:"1812 A.D.",label:"D"}],explanation:'In <span class="text-red font-bold">1752 AD</span>, taking advantage of a weakened Mughal Empire, the <span class="text-teal font-bold">Durrani</span> king <span class="text-green font-bold">Ahmad Shah Abdali</span> dispatched his forces to <span class="text-blue font-bold">conquer Kashmir</span>. This marked the <span class="text-orange font-bold">end of Mughal rule</span> and the beginning of the harsh <span class="text-magenta font-bold">67-year-long Afghan</span> <span class="text-teal font-bold">(Durrani)</span> rule.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"0d6c8ab1-bf54-4c9f-8767-bdeec6045df7",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"Which of the following districts in Jammu &amp; Kashmir is the birthplace of Basohli Art Paintings?",correctId:"d",options:[{id:"a",text:"Ramban",label:"A"},{id:"b",text:"Samba",label:"B"},{id:"c",text:"Reasi",label:"C"},{id:"d",text:"Kathua",label:"D"}],explanation:`<span class="text-red font-bold">Basohli</span>, a historic town situated in the <span class="text-green font-bold">Kathua district</span> on the banks of the <span class="text-blue font-bold">Ravi River</span>, is the birthplace of the world-renowned <span class="text-orange font-bold">Basohli school of miniature Pahari paintings</span>, famous for its <span class="text-magenta font-bold">vivid colors</span> and <span class="text-teal font-bold">bold facial features</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/GBo3X_olRPA?si=Mzga_7JsTSR8fMZj" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/GBo3X_olRPA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"d6b73d31-9d5b-467d-8bd8-eacc3683fe6a",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"hard",question:"In which year, Samba region came under the supremacy of Jammu, during the period of Hari Dev?",correctId:"a",options:[{id:"a",text:"1816 A.D.",label:"A"},{id:"b",text:"1899 A.D.",label:"B"},{id:"c",text:"1876 A.D.",label:"C"},{id:"d",text:"1929 A.D.",label:"D"}],explanation:'Historically, <span class="text-red font-bold">Samba</span> functioned as a <span class="text-green font-bold">semi-independent principality</span>. It was definitively <span class="text-blue font-bold">annexed and brought under the full supremacy of Jammu</span> in <span class="text-orange font-bold">1816 AD</span> during the expansionist era of the <span class="text-magenta font-bold">Sikh Empire</span> before <span class="text-teal font-bold">Dogra rule</span> stabilized.<br>',pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"56b6f6e3-5591-4be3-8dc2-f872b15f04ce",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"hard",question:"Who among the following is the first ruler of Rajouri Kingdom?",correctId:"a",options:[{id:"a",text:"Raja Prithvi Paul",label:"A"},{id:"b",text:"Bahu Paul",label:"B"},{id:"c",text:"Sangram Paul",label:"C"},{id:"d",text:"Sultan Masud",label:"D"}],explanation:`According to historical records and<span class="text-orange" style="font-weight: 800;"> Kalhana's Rajatarangini</span>, <span class="text-green font-bold">Raja Prithvi Paul</span> is considered the <span class="text-blue font-bold">founder and first great ruler</span> of the ancient <span class="text-orange font-bold">Rajapuri</span> <span class="text-magenta font-bold">(Rajouri)</span> Kingdom. He famously defended the kingdom against the <span class="text-teal font-bold">invasions of Mahmud of Ghazni</span>.<br>`,pyq:"JKSSB JA 2022",created_at:"2026-06-29T18:28:21.605691+00:00"},{id:"9626cd69-8a78-4ffd-bc3c-ba0290e76d9e",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"Which clause/section of the J&amp;K Reorganisation Act 2019 outlines the power to adapt laws?",correctId:"d",options:[{id:"a",text:"90",label:"A"},{id:"b",text:"91",label:"B"},{id:"c",text:"95",label:"C"},{id:"d",text:"96",label:"D"}],explanation:'<span class="text-orange font-bold">Section 96</span> of the Act grants the <span class="text-magenta font-bold">Central Government</span> the power to adapt and modify laws (by repeal or amendment) within a period of <span class="text-teal font-bold">one year</span> from the appointed day, facilitating the transition to UT status.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"de1c3c32-edee-49bb-a0d7-7d82363833a0",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"Which clause/section of the J&amp;K Reorganisation Act 2019 outlines the provisions relating to All India Services?",correctId:"a",options:[{id:"a",text:"88",label:"A"},{id:"b",text:"94",label:"B"},{id:"c",text:"95",label:"C"},{id:"d",text:"91",label:"D"}],explanation:'<span class="text-red font-bold">Section 88</span> of the <span class="text-red" style="font-weight: 800;">J&amp;K Reorganisation Act</span> deals with the provisions relating to <span class="text-blue font-bold"></span><span class="text-teal" style="font-weight: 800;">All India Services (IAS, IPS, IFS)</span><span class="text-orange font-bold"></span>, ensuring that members of these cadres continue to serve in the newly formed UTs of J&amp;K and Ladakh. <br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"ecfc4bb9-4a94-4bdf-a48a-3ab4f2977ee7",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"medium",question:"According to Section 53 of the J&amp;K Reorganisation Act 2019, the Council of Ministers should not consist of more than ____ percent of the total members in the Legislative Assembly.",correctId:"c",options:[{id:"a",text:"Five",label:"A"},{id:"b",text:"Seven",label:"B"},{id:"c",text:"Ten",label:"C"},{id:"d",text:"Thirteen",label:"D"}],explanation:'<span class="text-teal font-bold">Section 53</span> states that the <span class="text-red font-bold">Council of Ministers</span> (including the Chief Minister) appointed by the <span class="text-green font-bold">Lieutenant Governor</span> shall not exceed <span class="text-blue font-bold">10%</span> of the total number of members in the Legislative Assembly.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"5005bd8a-4fe3-4d7f-9d4d-ddc67d73a24c",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"medium",question:"Which of these schedules of the Constitution of India had to be amended with the passing of the Jammu and Kashmir Reorganization Act, 2019?",correctId:"c",options:[{id:"a",text:"First Schedule only",label:"A"},{id:"b",text:"Fourth Schedule only",label:"B"},{id:"c",text:"Both First and Fourth Schedules",label:"C"},{id:"d",text:"Second and Third Schedules",label:"D"}],explanation:'The <span class="text-red" style="font-weight: 800;">J&amp;K Reorganisation Act 2019 amended</span> both the <span class="text-green font-bold">First Schedule</span> (which lists the States and Union Territories of India) and the <span class="text-blue font-bold">Fourth Schedule</span> (which allocates <span class="text-orange font-bold">Rajya Sabha seats</span> among States and UTs).<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"7fabddc5-7d3a-41ae-b11d-9a75a5ef853e",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"Which clause/section of the J&amp;K Reorganization Act 2019 clarifies the Power of the Election Commission to maintain Delimitation orders up to date?",correctId:"d",options:[{id:"a",text:"55",label:"A"},{id:"b",text:"58",label:"B"},{id:"c",text:"60",label:"C"},{id:"d",text:"61",label:"D"}],explanation:'<span class="text-magenta font-bold">Section 61</span> empowers the <span class="text-teal font-bold">Election Commission of India</span> to maintain <span class="text-red font-bold">delimitation orders</span> up to date, allowing them t<span style="font-style: italic;">o correct printing mistakes, errors, or anomalies in the boundaries of electoral constituencies</span>.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"9cca5fb2-efe2-4d5f-ba09-893c274c17ce",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"easy",question:"How many members can the Lieutenant Governor of the UT of J&amp;K nominate to the Legislative Assembly if women are not adequately represented?",correctId:"b",options:[{id:"a",text:"1",label:"A"},{id:"b",text:"2",label:"B"},{id:"c",text:"3",label:"C"},{id:"d",text:"4",label:"D"}],explanation:'Under <span class="text-green font-bold">Section 15</span> of the J&amp;K Reorganisation Act, the <span class="text-blue font-bold">Lieutenant Governor</span> may nominate up to <span class="text-orange font-bold">two members</span> to the Legislative Assembly to ensure the<span class="text-blue" style="font-weight: 800;"> adequate representation of women</span><span class="text-magenta font-bold"></span>.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"ff97ab05-9fee-4c44-9f84-31c57e547862",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"easy",question:"According to Section 52 of the J&amp;K Reorganization Act 2019, who has the power to promulgate Ordinances during the recess of the Legislative Assembly?",correctId:"a",options:[{id:"a",text:"The Lieutenant Governor",label:"A"},{id:"b",text:"The President of India",label:"B"},{id:"c",text:"Prime Minister of India",label:"C"},{id:"d",text:"Chief Justice of India",label:"D"}],explanation:'<span class="text-teal font-bold">Section 52</span> grants the <span class="text-red font-bold">Lieutenant Governor</span> the power to <span class="text-green font-bold">promulgate ordinances</span> when the <span class="text-blue" style="font-weight: 800;">Legislative Assembly is not in session</span>, provided the subject matter falls within the legislative competence of the UT Assembly.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"0c8cab9c-a359-4247-b834-9c3386614819",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"easy",question:"As per the J&amp;K Reorganization Act, the authoritative texts of all orders, rules, regulations, and bye-laws issued under any law made by the Legislative Assembly will be in ____.",correctId:"a",options:[{id:"a",text:"English",label:"A"},{id:"b",text:"Kashmiri",label:"B"},{id:"c",text:"Hindi",label:"C"},{id:"d",text:"Kannada",label:"D"}],explanation:'According to <span class="text-blue font-bold">Section 48</span> of the Act, the authoritative texts of all bills, acts passed by the assembly, orders, rules, and regulations must be published in the <span class="text-orange font-bold">English language</span> in the <span class="text-magenta font-bold">Official Gazette</span>.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"8cb05b15-939b-407f-8b6c-64508f795e06",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"The provisions of which of the following articles of the Constitution of India shall apply in relation to the UT of J&amp;K, the Legislative Assembly and the members thereof?",correctId:"a",options:[{id:"a",text:"Articles 324, 325, 326, 327 and 329",label:"A"},{id:"b",text:"Articles 314, 315, 316, 317 and 319",label:"B"},{id:"c",text:"Articles 334, 335, 336, 337 and 338",label:"C"},{id:"d",text:"Articles 224, 225, 226, 227 and 229",label:"D"}],explanation:'<span class="text-teal font-bold">Section 14(3)</span> of the Act applies <span class="text-red font-bold">Articles 324 to 329</span> of the Indian Constitution<span class="text-teal" style="font-weight: 800;"> to UT of J&amp;K</span>. These articles specifically deal with the<span class="text-green" style="font-weight: 800;"> powers of Election Commission </span>and the conduct of democratic elections.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"8de08a0a-31ce-41fe-aca9-b541ae26be7d",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"Which section of the J&amp;K Reorganization Act 2019 deals with the Secretariat of the Legislative Assembly?",correctId:"a",options:[{id:"a",text:"Section 31",label:"A"},{id:"b",text:"Section 45",label:"B"},{id:"c",text:"Section 50",label:"C"},{id:"d",text:"Section 51",label:"D"}],explanation:'<span class="text-blue font-bold">Section 31</span> of the Act mandates that the <span class="text-orange font-bold">Legislative Assembly</span> of the Union Territory of Jammu and Kashmir shall have a <span class="text-red" style="font-weight: 800;">separate secretarial staff</span><span class="text-magenta font-bold"></span>. <span style="font-style: italic;">(Note: Previous exam keys incorrectly marked 51, which actually deals with financial bills).</span><br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"7840a153-5641-432a-b873-63fb744da22c",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"medium",question:"How many seats in the Legislative Assembly of J&amp;K will remain vacant until the time the area of J&amp;K under the occupation of Pakistan ceases to be so?",correctId:"d",options:[{id:"a",text:"40",label:"A"},{id:"b",text:"29",label:"B"},{id:"c",text:"32",label:"C"},{id:"d",text:"24",label:"D"}],explanation:'<span class="text-teal font-bold">Section 14(4)</span> explicitly states that <span class="text-red font-bold">24 seats</span> in the Legislative Assembly shall <span class="text-green" style="font-weight: 800;">remain vacant</span> for the territory under <span class="text-green font-bold">Pakistani occupation</span> <span class="text-blue font-bold">(PoJK)</span>. These seats are not taken into account for reckoning the total active membership.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"bd5c1db8-efac-4a51-9309-f655536a5fdf",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"easy",question:"According to section 47 of the J&amp;K Reorganisation Act, 2019, in which language will the business of the Legislative Assembly of the UT NOT be conducted?",correctId:"d",options:[{id:"a",text:"Kashmiri",label:"A"},{id:"b",text:"English",label:"B"},{id:"c",text:"Hindi",label:"C"},{id:"d",text:"Kannada",label:"D"}],explanation:'<span class="text-orange font-bold">Section 47</span> states that the business of the Legislative Assembly shall be transacted in the <span class="text-magenta font-bold">official language(s)</span> of the UT, or in <span class="text-teal font-bold">Hindi or English</span>. Kannada has no administrative jurisdiction here.<br>',pyq:"JKSSB Police 2022",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"a4aa79ba-4b5e-4418-8750-1db199328015",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"hard",question:"Duration of the Legislative Assembly of J&amp;K is given under which section of the Jammu and Kashmir Reorganization Act, 2019?",correctId:"d",options:[{id:"a",text:"Section 9",label:"A"},{id:"b",text:"Section 11",label:"B"},{id:"c",text:"Section 12",label:"C"},{id:"d",text:"Section 17",label:"D"}],explanation:'<span class="text-red font-bold">Section 17</span> specifies that the <span class="text-green font-bold">Legislative Assembly</span>, unless dissolved sooner, shall continue for <span class="text-blue font-bold">five years</span> from the date appointed for its first meeting. The expiration of this period operates as a dissolution.<br>',pyq:"JKSSB JA 2021",created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"7829579a-9882-4336-9336-0010e24350e6",category_id:"jk-affairs",tags:["Jk Polity","Jk Reorganisation Act"],difficulty:"easy",question:"Who shall not vote in the first instance in the Legislative Assembly, but shall have and exercise a casting vote in the case of an equality of votes, under the J&amp;K Reorganisation Act, 2019?",correctId:"b",options:[{id:"a",text:"Deputy Speaker or person acting as such",label:"A"},{id:"b",text:"Speaker or person acting as such",label:"B"},{id:"c",text:"Chief Minister",label:"C"},{id:"d",text:"Lieutenant Governor",label:"D"}],explanation:'As per <span class="text-orange font-bold">Section 25</span> (Voting in Assembly), the <span class="text-magenta font-bold">Speaker</span> (or the person acting in that capacity) must remain impartial and cannot vote in the first instance. They only exercise a <span class="text-teal font-bold">casting vote</span> to resolve a tie.<br> <span class="text-emerald-500 font-bold"> </span>',pyq:null,created_at:"2026-06-29T18:06:13.692031+00:00"},{id:"2cf15152-6d1c-4bc2-a7f3-5e1d64e53fd7",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"In 1897, the first railway line was built in Jammu and Kashmir to connect Jammu with:",correctId:"c",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Delhi",label:"B"},{id:"c",text:"Sialkot",label:"C"},{id:"d",text:"Rawalpindi",label:"D"}],explanation:'The<span class="text-green" style="font-weight: 800;"> first railway line</span> in the princely state was the <span class="text-orange font-bold">Jammu-Sialkot Railway</span>, constructed in <span class="text-magenta font-bold">1897</span> during Dogra rule. It connected Jammu to Sialkot (now in Pakistan) on the North-Western Railway network.<br>',pyq:"Data Entry Operator 2023",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"e6490499-aca4-49c3-8fb8-ae0a240ba0d2",category_id:"jk-affairs",tags:["Jk History","Important Personalities"],difficulty:"easy",question:"Who is known as the `Nightingale of Kashmir`?",correctId:"b",options:[{id:"a",text:"Arimal",label:"A"},{id:"b",text:"Habba Khatoon",label:"B"},{id:"c",text:"Kotta Rani",label:"C"},{id:"d",text:"Kralkoor",label:"D"}],explanation:`<span class="text-teal font-bold">Habba Khatoon</span>, a 16th-century mystic poet and the wife of <span class="text-green" style="font-weight: 800;">Chak ruler Yusuf Shah Chak</span>, is reverently known as<span class="text-red" style="font-weight: 800;"> 'Zoon' </span>or the<span class="text-red" style="font-weight: 800;"> 'Nightingale of Kashmir'</span> for her profound and melancholic romantic poetry.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/pkZ5w7F9J4A?si=_uOhLep8TEoZ7B4z" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/pkZ5w7F9J4A/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Data Entry Operator 2023",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"48439d14-83fe-4568-a5a3-f1247de9f2ba",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Article 35A of the Indian Constitution, which was applicable only to Jammu and Kashmir, was concerned with:",correctId:"a",options:[{id:"a",text:"Prohibition of land sale to non-residents",label:"A"},{id:"b",text:"Protection of religious rights",label:"B"},{id:"c",text:"The rights of Indian citizens in Jammu and Kashmir",label:"C"},{id:"d",text:"Representation of Jammu and Kashmir in Parliament",label:"D"}],explanation:`Added via a <span class="text-green font-bold">1954 Presidential Order</span>, <span class="text-red font-bold">Article 35A</span> empowered the J&amp;K legislature to define <span class="text-blue" style="font-weight: 800;">'permanent residents'</span> and restrict outsiders from acquiring land, securing government jobs, and settling in the state. <br> <span class="text-emerald-500 font-bold"> </span>`,pyq:"JKSSB Operator 2025",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"0aa234ba-00bb-4617-ad5a-c26006c08d16",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"medium",question:"The 1952 Agreement between Jammu and Kashmir and India was signed by:",correctId:"a",options:[{id:"a",text:"Jawaharlal Nehru and Sheikh Abdullah",label:"A"},{id:"b",text:"Sheikh Abdullah and Ghulam Mohammad Sadiq",label:"B"},{id:"c",text:"Maharaja Hari Singh and Jawaharlal Nehru",label:"C"},{id:"d",text:"Jawaharlal Nehru and Bakshi Ghulam Mohammad",label:"D"}],explanation:'The historic <span class="text-orange font-bold">Delhi Agreement</span> of <span class="text-magenta font-bold">1952</span> was signed between Prime Minister <span class="text-teal font-bold">Jawaharlal Nehru</span> and J&amp;K Prime Minister <span class="text-red font-bold">Sheikh Mohammad Abdullah</span>. It defined the constitutional relationship of the state with the Union of India.<div><img src="https://www.scobserver.in/wp-content/uploads/2023/09/Jawaharlal-Nehru-and-Sheikh-Abdullah.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Operator 2025",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"1d0625bc-80cb-490e-8cf3-3bd7100892fa",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Which of the following provisions was repealed by the Jammu &amp; Kashmir Reorganisation Act, 2019?",correctId:"d",options:[{id:"a",text:"Article 370",label:"A"},{id:"b",text:"Article 35A",label:"B"},{id:"c",text:"Jammu &amp; Kashmir Constitution",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'The <span class="text-teal" style="font-weight: 800;">J&amp;K Reorganisation Act of 2019</span><span class="text-blue font-bold"></span>, coupled with Presidential Orders, effectively <span class="text-orange" style="font-weight: 800;">abrogated Article 370</span><span class="text-orange font-bold"></span>, <span class="text-red" style="font-weight: 800;">scrapped Article 35A</span><span class="text-magenta font-bold"></span>, and nullified the separate Constitution of Jammu and Kashmir, fully integrating the region with India.<br>',pyq:"JKSSB Operator 2025",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"8f6b9bca-a59f-4359-bab6-056c03a80042",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"easy",question:"Which of the following is the literal meaning of the name Kashmir?",correctId:"d",options:[{id:"a",text:"Valley of Flowers",label:"A"},{id:"b",text:"Land of Lakes",label:"B"},{id:"c",text:"Land of Kashyap Rishi",label:"C"},{id:"d",text:"Land desiccated from water",label:"D"}],explanation:`Etymologically, '<span class="text-teal font-bold">Kashmir</span>' is derived from Sanskrit where '<span class="text-red font-bold">Ka</span>' means water and '<span class="text-green font-bold">Shimeera</span>' means desiccated or dried up. This aligns with the <span class="text-blue font-bold">Nilamata Purana</span> legend that the valley was a vast lake (Satisar)<span style="font-style: italic;"> drained by Kashyapa Rishi</span>.<br>`,pyq:"JKSSB Operator 2025",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"df321566-8198-4cc6-b7ef-1c4de3329eca",category_id:"jk-affairs",tags:["Jk History","Karkota Dynasty"],difficulty:"easy",question:"Who is known as the `Samudragupta of Kashmir`?",correctId:"c",options:[{id:"a",text:"Gunavarman",label:"A"},{id:"b",text:"Durlabhavardhana",label:"B"},{id:"c",text:"Lalitaditya",label:"C"},{id:"d",text:"Sangbhuti",label:"D"}],explanation:`<span class="text-blue font-bold">Lalitaditya Muktapida</span> of the <span class="text-orange font-bold">Karkota Dynasty</span> is known as the<span class="text-red" style="font-weight: 800;"> 'Samudragupta of Kashmir' </span>due to his vast military campaigns that expanded the Kashmiri empire across northern India and Central Asia.<div><img src="https://kashmiriat.com/wp-content/uploads/2025/05/Lalitaditya-Muktapida-1024x683.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"Data Entry Operator 2023",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"310a1fcf-aab8-40d1-96f9-0638c1815dfd",category_id:"jk-affairs",tags:["Jk History","Lohara Dynasty"],difficulty:"medium",question:"Queen Didda who ruled Kashmir from 980-1003 AD belonged to which dynasty [By Birth]?",correctId:"a",options:[{id:"a",text:"Lohara Dynasty",label:"A"},{id:"b",text:"Deva Dynasty",label:"B"},{id:"c",text:"Shah Mir Dynasty",label:"C"},{id:"d",text:"Gupta Dynasty",label:"D"}],explanation:`By birth, <span class="text-teal font-bold">Queen Didda</span> belonged to the <span class="text-red font-bold">Lohara Dynasty</span> (daughter of <span class="text-orange" style="font-weight: 800;">King Simharaja of Lohara</span>). She married <span class="text-teal" style="font-weight: 800;">King Kshemagupta</span> of the <span class="text-teal" style="font-weight: 800;">Yashaskara/Gupta dynasty</span> and eventually passed the throne to her Lohara nephew, <span class="text-green font-bold">Sangramaraja</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/xb7UhVnDuX4?si=VuSXokNU9fKDa8TG" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/xb7UhVnDuX4/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Data Entry Operator 2023",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"82f0069f-7db2-4166-b422-4bd9f3a9d954",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"easy",question:"Consider the following Assertion and Reason:<br>1- Assertion (A): Rajataringini presents a written account of history of Jammu.<br>2- Reason (R): Historians seek lots of relevant information from Rajtarangni as it is the valuable source of information on the history of Kashmir.",correctId:"b",options:[{id:"a",text:"A is true but R is false",label:"A"},{id:"b",text:"A is false but R is true",label:"B"},{id:"c",text:"Both are true and R explains A",label:"C"},{id:"d",text:"Both are true but R does not explain A",label:"D"}],explanation:`The assertion is false because <span class="text-orange font-bold">Kalhana</span>'s <span class="text-blue font-bold">Rajatarangini</span> primarily records the history of Kashmir, not Jammu (Jammu's history is recorded in <span class="text-magenta font-bold">Rajadarshani)</span>. The reason is true, as it is the most vital historical source for early Kashmir.<br> <span class="text-emerald-500 font-bold"> </span>`,pyq:null,created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"a0cf9a87-0da8-457b-a923-95a585cc3cf0",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"Which was the First Neolithic site discovered in Kashmir?",correctId:"a",options:[{id:"a",text:"Burzahom",label:"A"},{id:"b",text:"Mehargarh",label:"B"},{id:"c",text:"Nunar",label:"C"},{id:"d",text:"Chirand",label:"D"}],explanation:'Discovered in <span class="text-red font-bold">1939</span>, <span class="text-teal font-bold">Burzahom</span> is the most prominent early <span class="text-green font-bold">Neolithic site</span> in Kashmir. It is famous for its subterranean pit dwellings, bone tools, and evidence of burying pet dogs with their masters.<div><img src="https://assets.architecturaldigest.in/photos/63d0d3ec5961e0244c2a7c0b/16:9/w_1280,c_limit/burzoham.png" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JKSSB Panchayat 2025",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"fcb873c1-f7ae-4817-980c-12de10bc234e",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"medium",question:"Who became the first Chief Minister of Jammu and Kashmir after the title change from Prime Minister?",correctId:"a",options:[{id:"a",text:"Ghulam Mohammad Sadiq",label:"A"},{id:"b",text:"Sheikh Mohammad Abdullah",label:"B"},{id:"c",text:"Bakshi Ghulam Mohamamd",label:"C"},{id:"d",text:"Karan Singh",label:"D"}],explanation:`Through the <span class="text-blue font-bold">6th Amendment</span> to the J&amp;K Constitution in <span class="text-orange font-bold">1965</span>, the title of<span style="font-style: italic;"> '<span class="text-orange" style="font-weight: 800;">Prime Minister' (Wazir-e-Azam) </span>was changed to '<span class="text-magenta font-bold">Chief Minister</span>'</span>. The incumbent Prime Minister, <span class="text-teal font-bold">Ghulam Mohammad Sadiq</span>, thus became the <span class="text-teal" style="font-weight: 800;">first CM</span>.<div><img src="https://2.bp.blogspot.com/-_-GusDIRhME/VpyAXHyrtCI/AAAAAAAASRM/TyuDSFSTY1o/w1200-h630-p-k-no-nu/1949.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Police 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"16925b9f-d12a-4483-bce9-d35f08f50479",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Consider the following statements:<br>1- Shri Raghunathji Mandir, Jammu is one of the largest temple complexes in Northern India.<br>2- The ragunath temple was founded by Maharaja Ranbir Singh in 1860.<br>Choose the correct option:",correctId:"a",options:[{id:"a",text:"Only I is correct",label:"A"},{id:"b",text:"Only II is correct",label:"B"},{id:"c",text:"Both I and II are correct",label:"C"},{id:"d",text:"Neither I nor II is correct",label:"D"}],explanation:'<span style="font-style: italic; text-decoration-line: underline;">Tricky question:</span> The<span class="text-red" style="font-weight: 800;"> foundation of  Raghunath Temple</span><span class="text-red font-bold"></span> was laid by <span class="text-green font-bold">Maharaja Gulab Singh</span> in <span class="text-blue font-bold">1835</span>, and the massive complex was <span class="text-orange" style="font-weight: 800;">completed by Maharaja Ranbir Singh</span><span class="text-orange font-bold"></span> in 1860.<div><img src="https://temple.yatradham.org/public/Product/temple/temple_XOgnZfIX_202408111236090.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Police 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"588f56c7-a41f-414e-aad8-bc94b790b8ff",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"hard",question:"Arrange the following events in chronological order:<br>1- Jammu and Kashmir Reorganisation Act 2019.<br>2- Sadar-i-Riyasat re-designated as Governor.<br>3- Constitution of Jammu and Kashmir adopted.<br>4- Article 370 grants special status to Jammu and Kashmir.",correctId:"a",options:[{id:"a",text:"iv, iii, ii, i",label:"A"},{id:"b",text:"iii, ii, iv, i",label:"B"},{id:"c",text:"iii, iv, ii, i",label:"C"},{id:"d",text:"ii, iii, iv, i",label:"D"}],explanation:'<span class="text-magenta font-bold">Article 370</span> came into effect in <span class="text-teal font-bold"><span class="text-red" style="font-weight: 800;">1949</span></span>. The <span class="text-teal" style="font-weight: 800;">J&amp;K Constitution</span> was <span class="text-teal" style="font-weight: 800;">adopted in 1956</span><span class="text-green font-bold"></span>. <span class="text-orange" style="font-weight: 800;">Sadar-i-Riyasat</span> was <span class="text-orange" style="font-weight: 800;">redesignated as Governor in 1965</span>. The <span style="font-style: italic;">J&amp;K Reorganisation Act was passed </span>in 2019. Correct sequence: 4-3-2-1.<br>',pyq:"JKSSB Police 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"747a8995-a2d4-4e58-9788-9f236f7d8901",category_id:"jk-affairs",tags:["Jk History","Important Personalities"],difficulty:"easy",question:'Tarachand Bhat also known as "Kashyap Bandhu" is well known in India as _____',correctId:"a",options:[{id:"a",text:"Social reformer",label:"A"},{id:"b",text:"Tribal Leader",label:"B"},{id:"c",text:"Dogra Ruler",label:"C"},{id:"d",text:"Agriculturalist",label:"D"}],explanation:'<span class="text-blue font-bold">Pandit Tarachand Bhat</span> (often remembered as <span class="text-orange font-bold">Comrade Tara Chand)</span> was a<span style="font-style: italic;"> prominent social reformer and freedom fighter</span> born in<span class="text-teal" style="font-weight: 800;"> Gerru village of Kashmir</span>, he actively<span style="font-style: italic;"> <span class="text-magenta" style="font-weight: 800;">challenged autocratic dogra rule</span> in the region</span>. Kashyap Bandhu raised his <span class="text-teal" style="font-weight: 800;">voice against various social evils</span> by writing articles in<span class="text-orange" style="font-weight: 800;"> ‘Martand’ and ‘Desh’ newspapers</span>. His famous<span class="text-teal" style="font-weight: 800;"> slogan ‘Kashmir for Kashmiris’</span> still finds voice in Kashmir valley today. He formed<span class="text-magenta" style="font-weight: 800;"> Yuvak sabha for Kashmiri Pandits</span>, while doing <span class="text-magenta" style="font-weight: 800;">Roti Agitation </span>against Dogras, he was sent jail in 1933-34. After his release he formed hindu-muslim alliance with Sheikh abdullah, together in <span class="text-red" style="font-weight: 800;">1946, slogan of "Quit Kashmir"</span> was raised against Maharaja forming start of Tehreekh. He was sent to Kathua Jail,and only to be released by Sheikh abdullah after 1947 to be made "Director General of State Reforms" in PM Sheikhs new led NC Govt. <span style="font-style: italic;">(in 1965 Indira Ghandhi changed the Status of PM of State of JK to CM)</span>.<div><div><span class="text-emerald-500 font-bold"> </span>   </div></div>',pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"d46ea0d5-072f-4407-b074-e2793f7f7112",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"With respect to the erstwhile state of J&amp;K, the Article 370 of the Constitution of India contained?",correctId:"c",options:[{id:"a",text:"Special provisions",label:"A"},{id:"b",text:"Transitional Provisions",label:"B"},{id:"c",text:"Temporary Provisions",label:"C"},{id:"d",text:"Emergency Provisions",label:"D"}],explanation:'Within <span class="text-teal font-bold">Part XXI</span> of the Indian Constitution, <span class="text-magenta font-bold">Article 370</span> was explicitly listed under the marginal heading:<span style="font-style: italic;"> "Temporary provisions with respect to the State of Jammu and Kashmir"</span>.<br>',pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"b7dfeda5-cde1-4d82-83b4-d4a99ab562a4",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"In 1965, the head of J&amp;K was redesignated as Governor, previously called as _____?",correctId:"c",options:[{id:"a",text:"Premier",label:"A"},{id:"b",text:"Vajeer-i-aalam",label:"B"},{id:"c",text:"Sadr-i-riyasat",label:"C"},{id:"d",text:"Wazir",label:"D"}],explanation:`The <span class="text-red font-bold">6th Amendment</span> of the J&amp;K Constitution in <span class="text-green font-bold">1965</span> redesignated the '<span class="text-blue font-bold">Sadar-i-Riyasat</span>' (Head of State) as the '<span class="text-orange font-bold">Governor</span>', aligning the nomenclature with other Indian states.<br>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"ba7ee460-1a37-4a4d-8d97-a2082a2190a9",category_id:"jk-affairs",tags:["Jk History","Important Personalities"],difficulty:"medium",question:"Who was first Muslim saint of Kashmir who assumed the title of Rishi?",correctId:"c",options:[{id:"a",text:"Bulbul Shah",label:"A"},{id:"b",text:"Sultan ul Arfeen",label:"B"},{id:"c",text:"Sheikh Nuruddin",label:"C"},{id:"d",text:"None of the above",label:"D"}],explanation:`<span class="text-magenta font-bold">Sheikh Noor-ud-din Noorani</span> (Nund Rishi) founded the <span class="text-teal font-bold">Rishi order</span> of <span class="text-red font-bold">Sufism</span> in Kashmir. He was the first Muslim saint to adopt the title 'Rishi', blending Islamic teachings with Kashmiri ascetic traditions.<div><img src="https://sacredsites.com/images/asia/india/gallery/kashmir/Sheikh-Nooruddin-Nooranis-Dargah-Charisharief-1.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"729a8bb5-ee03-4078-ad40-8e33e509fd0a",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"In the Kashmir Valley Shivaratri is also known as:",correctId:"c",options:[{id:"a",text:"Tila Ashtmi",label:"A"},{id:"b",text:"Naw Warih",label:"B"},{id:"c",text:"Herath",label:"C"},{id:"d",text:"Acchen Trai",label:"D"}],explanation:`<span class="text-green font-bold">Maha Shivaratri</span> is the most significant festival for <span class="text-orange font-bold">Kashmiri Pandits</span>, who celebrate it locally as '<span class="text-blue font-bold">Herath</span>'. The multiday festival is unique as it commemorates the marriage of Lord Shiva and Goddess Parvati.<br> <span class="text-blue-500 font-bold"> </span>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"74764ecf-e5ba-4547-9c09-162de4bc69e5",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Who was the ruler of J&amp;K to sign the Instrument of Accession with India?",correctId:"a",options:[{id:"a",text:"Maharaja Hari Singh",label:"A"},{id:"b",text:"Raja Gulab Singh",label:"B"},{id:"c",text:"Maharaja Ranjit Singh",label:"C"},{id:"d",text:"None of the above",label:"D"}],explanation:'In the face of a massive tribal invasion, <span class="text-red font-bold">Maharaja Hari Singh</span>, the last Dogra ruler, signed the <span class="text-magenta font-bold">Instrument of Accession</span> on <span class="text-teal font-bold">October 26, 1947</span>, effectively integrating J&amp;K with the Dominion of India.<div><img src="https://tse2.mm.bing.net/th/id/OIP.S_21hDRSF_Bjzjp2bSV8FgHaDw?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> </div><div>   </div>',pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"977de2eb-8393-46ab-b385-8d694104b0eb",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Which temple is known as Chota Kashi?",correctId:"c",options:[{id:"a",text:"Peer Kho Temple",label:"A"},{id:"b",text:"Ranibireshwar Temple",label:"B"},{id:"c",text:"Purmandaal Temple",label:"C"},{id:"d",text:"Panchvaktar Temple",label:"D"}],explanation:`Located on the banks of the <span class="text-green" style="font-weight: 800;">sacred Devika river</span> near Jammu, the <span class="text-green font-bold">Purmandal Temple</span> complex is historically renowned as '<span class="text-blue font-bold">Chhota Kashi</span>' due to its immense religious significance and high concentration of <span style="text-decoration-line: underline;">Shiva temples</span>.<div><img src="https://tripxl.com/blog/wp-content/uploads/2025/06/Purmandal-Temple-Town.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"594e8dfd-e2b8-491b-9907-bfba3999234a",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"medium",question:"Who built the Rajouri Fort at Dhandidhar Village?",correctId:"d",options:[{id:"a",text:"Raja Prithvi Paul",label:"A"},{id:"b",text:"Noor ud din",label:"B"},{id:"c",text:"Raja Jambu Lochan",label:"C"},{id:"d",text:"Mian Hathu",label:"D"}],explanation:'The <span class="text-orange font-bold">Dhanidhar Fort</span> in Rajouri was built in <span class="text-magenta font-bold">1855</span> by <span class="text-teal font-bold">Mian Hathu</span>, the <span class="text-green" style="font-weight: 800;">Governor of Rajouri </span>under Dogra rule. It served both as a strategic defense structure and a safe storage for collected revenue.<br>',pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"202b84be-4d2f-4675-a0ed-286571aae9df",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"Which district is known as the City of Temples in Jammu &amp; Kashmir?",correctId:"d",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Reasi",label:"B"},{id:"c",text:"Kathua",label:"C"},{id:"d",text:"Jammu",label:"D"}],explanation:`<span class="text-green font-bold">Jammu</span> is celebrated as the '<span class="text-red font-bold">City of Temples</span>' due to its rich heritage of historical shrines, most prominently the <span class="text-blue font-bold">Raghunath Temple</span>, <span class="text-blue" style="font-weight: 800;">Ranbireshwar Temple</span>, and <span class="text-blue" style="font-weight: 800;">Bawe Wali Mata</span>.<br>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"2932e172-62f8-4ff1-af0b-768be4a5eb75",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Who built Shalimar Bagh and Nishat Bagh in Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Akbar",label:"A"},{id:"b",text:"Jahangir",label:"B"},{id:"c",text:"Aurangzeb",label:"C"},{id:"d",text:"Shahjahan",label:"D"}],explanation:`<span class="text-orange" style="font-weight: 800;">Emperor Jahangir</span> directly commissioned <span class="text-orange font-bold">Shalimar Bagh</span> in <span class="text-magenta font-bold">1619</span> for his wife <span class="text-teal font-bold">Nur Jahan</span>. While <span class="text-red font-bold">Nishat Bagh</span> was actually built by <span class="text-teal font-bold"></span><span class="text-teal" style="font-weight: 800;">Nur Jahan's brother Asif Khan in 1633</span>, questions grouping the two often attribute the era's broader architectural boom to Jahangir.<div><img src="https://www.trawell.in/admin/images/upload/309708688Nishat_Bagh_Main.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"Stock Assistant 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"275bc1a9-1aa4-4914-aeea-bc840dc0158b",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"easy",question:"Which Mughal emperor built the Shalimar Bagh in Srinagar?",correctId:"b",options:[{id:"a",text:"Akbar",label:"A"},{id:"b",text:"Jahangir",label:"B"},{id:"c",text:"Shah Jahan",label:"C"},{id:"d",text:"Aurangzeb",label:"D"}],explanation:`Emperor <span class="text-orange font-bold">Jahangir</span> built the majestic <span class="text-green font-bold">Shalimar Bagh</span> in <span class="text-blue font-bold">1619</span>. Known as the <span class="text-green" style="font-weight: 800;">'Abode of Love'</span>, it was constructed as a royal retreat for his beloved wife, Empress <span class="text-magenta font-bold">Nur Jahan</span>.<div><img src="https://countrysidekashmir.com/img/Gardens-Shalimar-.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"JKSSB Finance 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"14bd1161-677e-4549-ae52-cb71d2f11857",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"Which district of Jammu and Kashmir is home to the famous Vishno Devi Shrine?",correctId:"a",options:[{id:"a",text:"Reasi",label:"A"},{id:"b",text:"Anantnag",label:"B"},{id:"c",text:"Kistwar",label:"C"},{id:"d",text:"Pulwama",label:"D"}],explanation:'The revered cave shrine of <span class="text-teal font-bold">Shri Mata Vaishno Devi</span> is nestled in the <span class="text-red font-bold">Trikuta Mountains</span> of <span class="text-green font-bold">Katra</span>, which falls administratively <span class="text-blue" style="font-weight: 800;">within Reasi district </span>of Jammu and Kashmir.<div><img src="https://images.mid-day.com/images/images/2022/aug/vaishnodevi-PTI-file_d.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Finance 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"4e556b7a-2824-477c-8092-7542a61b60d1",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"What is Gulmarg famously known as?",correctId:"b",options:[{id:"a",text:"Mountain Queen",label:"A"},{id:"b",text:"Meadow of Flowers",label:"B"},{id:"c",text:"The crown of Kashmir",label:"C"},{id:"d",text:"Gods own country",label:"D"}],explanation:`<span class="text-blue font-bold">Gulmarg</span> literally translates to '<span class="text-orange font-bold">Meadow of Flowers</span>'. Originally known as <span class="text-magenta font-bold">Gaurimarg</span> (meadow of Goddess Gauri), it was renamed by the Chak ruler <span class="text-teal font-bold">Yusuf Shah Chak</span> in the 16th century.<div><img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2024/01/11201526/Gulmarg-Deepanshu-Nayak.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"Supervisor 2024",created_at:"2026-06-29T17:08:30.030284+00:00"},{id:"d6ad0729-9894-495b-845b-bf1757858ad9",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Which structure is also called `Lhachen Palkhar`?",correctId:"d",options:[{id:"a",text:"Thiksey Monastery",label:"A"},{id:"b",text:"Kathi Darwaza",label:"B"},{id:"c",text:"Jama Masjid",label:"C"},{id:"d",text:"Leh Palace",label:"D"}],explanation:`<span class="text-magenta font-bold">Leh Palace</span>, a former <span class="text-orange" style="font-weight: 800;">royal palace</span> overlooking the <span class="text-teal" style="font-weight: 800;">town of Leh in Ladakh</span>, is traditionally known as '<span class="text-teal font-bold">Lhachen Palkhar</span>'. It was built<span class="text-orange" style="font-weight: 800;"> by King Sengge Namgyal</span><span class="text-red font-bold"></span> in the <span class="text-orange" style="font-weight: 800;">17th century</span>.<div><img src="https://imgcld.yatra.com/ytimages/image/upload/v1462517217/Leh-Leh_Palace2.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"d27e897f-84fc-4df4-ba4a-2da178ed38a2",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"easy",question:"Jammu was historically the seat of which dynasty?",correctId:"b",options:[{id:"a",text:"Morya",label:"A"},{id:"b",text:"Dogra",label:"B"},{id:"c",text:"Aryan",label:"C"},{id:"d",text:"Agadha",label:"D"}],explanation:`<span class="text-green font-bold">Jammu</span> served as the historic capital and the seat of power for the <span class="text-blue font-bold">Dogra Dynasty</span>, established by <span class="text-orange font-bold">Maharaja Gulab Singh</span> in <span class="text-magenta font-bold">1846</span>, which ruled the princely state of <span class="text-green font-bold">Jammu</span> and Kashmir.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/EwC0NXQC_Gg?si=wYRs4bjLF8VmUQwr" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/EwC0NXQC_Gg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"d05954fa-5e81-48c4-9651-377b7f77baae",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"medium",question:'Match the following:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Kashmir sultans</th><th>Major contribution/title</th></tr></thead><tbody><tr><td>i. Shams-ud-din Shah Mir</td><td>a. Establishment of the Sultanate in Kashmir in 1339 CE</td></tr><tr><td>ii. Sikandar Butshikan</td><td>b. Construction of the magnificent Jama Masjid in Srinagar in 1394 AD</td></tr><tr><td>iii. Yusuf Shah Chak</td><td>c. The last Independent ruler of Kashmir</td></tr></tbody></table></div>',correctId:"c",options:[{id:"a",text:"i-a, ii-c, iii-b",label:"A"},{id:"b",text:"i-b, ii-c, iii-a",label:"B"},{id:"c",text:"i-a, ii-b, iii-c",label:"C"},{id:"d",text:"i-b, ii-a, iii-c",label:"D"}],explanation:`<span class="text-red font-bold">Shams-ud-din Shah Mir</span> founded the <span class="text-green font-bold">Shah Mir dynasty</span> <span class="text-blue font-bold">(1339)</span>. <div><span class="text-orange font-bold">Sikandar Butshikan</span> commissioned the <span class="text-magenta font-bold"></span><span class="text-blue" style="font-weight: 800;">Jama Masjid </span>in <span class="text-blue" style="font-weight: 800;">Srinagar (1394)</span>. </div><div><span class="text-teal font-bold">Yusuf Shah Chak</span> was the<span class="text-green" style="font-weight: 800;"> last independent ruler</span> before Akbar's conquest (1586). </div><div>    </div>`,pyq:"Forest Inspector 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"294b5c16-30cb-4218-b3a5-dff140656d35",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"hard",question:"Arrange the following foreign travellers to Kashmir in the order of their visit to the region:<br>1- Ou-Kong<br>2- Marco Polo<br>3- Francois Bernier<br>4- Godfrey Vigne",correctId:"c",options:[{id:"a",text:"I-III-II-IV",label:"A"},{id:"b",text:"III-I-IV-II",label:"B"},{id:"c",text:"I-II-III-IV",label:"C"},{id:"d",text:"II-I-III-IV",label:"D"}],explanation:`<span class="text-red font-bold">Ou-Kong</span> visited in the 8th century (759–763 CE). <span class="text-green font-bold">Marco Polo</span>'s accounts date to the 13th century. <span class="text-blue font-bold">Francois Bernier</span> visited during the Mughal period (1660s). <span class="text-orange font-bold">Godfrey Vigne</span> travelled during the Dogra/Sikh period in the 1830s. The correct chronological sequence is I-II-III-IV. <br>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"c95aa033-ccae-4286-aa55-95a1467d21f3",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"hard",question:'Match the following Authors with their Books:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Authors</th><th>Books</th></tr></thead><tbody><tr><td>i. Diwan Kirpa Ram</td><td>a. Rajtarangini</td></tr><tr><td>ii. Abhinavgupta</td><td>b. Gulabnama</td></tr><tr><td>iii. Jonaraja</td><td>c. Dvitiya Rajtarangini</td></tr><tr><td>iv. Kalhana</td><td>d. Tantraloka</td></tr></tbody></table></div>',correctId:"c",options:[{id:"a",text:"i-d, ii-b, iii-c, iv-a",label:"A"},{id:"b",text:"i-c, ii-d, iii-b, iv-a",label:"B"},{id:"c",text:"i-b, ii-d, iii-c, iv-a",label:"C"},{id:"d",text:"i-d, ii-c, iii-b, iv-a",label:"D"}],explanation:`<span class="text-teal" style="font-weight: 800;">Diwan Kirpa Ram</span> authored the <span class="text-magenta font-bold"><span class="text-teal" style="font-weight: 800;">Gulabnama</span></span> <span style="font-style: italic;">(biography of Gulab Singh)</span>. <div><span class="text-teal font-bold">Abhinavgupta</span> was a<span style="font-style: italic;"> great Kashmiri Shaivism scholar</span> who wrote <span class="text-red font-bold">Tantraloka</span>. </div><div><span class="text-green font-bold">Jonaraja</span> authored the <span class="text-green" style="font-weight: 800;">Dvitiya Rajtarangini </span>(continuation of Kalhana's work). </div><div><span class="text-orange" style="font-weight: 800;">Kalhana </span>wrote the <span class="text-orange" style="font-weight: 800;">original Rajtarangini</span><span class="text-blue font-bold"></span>.<br> <span class="text-rose-500 font-bold"> </span>   </div>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"a8dd3998-f781-4128-bf03-3f6616e47400",category_id:"jk-affairs",tags:["Jk History","Dogra Rule"],difficulty:"hard",question:"Arrange the following events in the history of Jammu &amp; Kashmir in chronological order:<br>1- Treaty of Lahore<br>2- Treaty of Amritsar<br>3- Accession of Maharaja Pratap Singh<br>4- Coronation of Gulab Singh as Raja of Jammu by Maharaja Ranjit Singh",correctId:"c",options:[{id:"a",text:"I-II-III-IV",label:"A"},{id:"b",text:"I-III-II-IV",label:"B"},{id:"c",text:"IV-I-II-III",label:"C"},{id:"d",text:"IV-II-I-III",label:"D"}],explanation:'<span class="text-orange font-bold">Gulab Singh</span> was<span style="font-style: italic;"> crowned Raja of Jammu</span> in <span class="text-magenta font-bold">1822</span>. The <span class="text-teal font-bold">Treaty of Lahore</span> was signed on <span class="text-green" style="font-weight: 800;">March 9, 1846</span><span class="text-red font-bold"></span>, followed immediately by the <span class="text-green font-bold"><span class="text-teal" style="font-weight: 800;">Treaty of Amritsar</span></span> on <span class="text-teal" style="font-weight: 800;">March 16, 1846</span><span class="text-red font-bold"></span>. <span class="text-orange" style="font-weight: 800;">Maharaja Pratap Singh</span> acceded to the throne later<span class="text-orange" style="font-weight: 800;"> in 1885</span>.<br>',pyq:"JKSSB Wildlife 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"c7fac734-a27e-40b7-bb0e-5628b41d89fa",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Which of the following statements about the Peer Kho Cave Temple is/are correct?<br>1- A historic cave temple located near Jammu city was constructed by the first Dogra ruler, Maharaja Gulab Singh.<br>2- The lingam is located inside a small cave embellished with a white marble rectangular platform.<br>3- The cave is also known as the Jamavant Guffa, as the bear hero of Ramayana is believed to have meditated in Guffa.",correctId:"c",options:[{id:"a",text:"I Only",label:"A"},{id:"b",text:"I and II Only",label:"B"},{id:"c",text:"II and III Only",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:`<span class="text-blue font-bold">Peer Kho Cave Temple</span> <span class="text-orange font-bold">(Jamavant Guffa)</span> features a <span class="text-orange" style="font-weight: 800;">Shiva Lingam</span> on a <span style="font-style: italic;">white marble platform</span> where<span class="text-teal" style="font-weight: 800;"> Ramayana's Jamavant</span> is said to have meditated. However, Statement 1 is false because it was built by <span class="text-magenta font-bold">Raja Ajaib Dev</span> in the <span class="text-magenta" style="font-weight: 800;">15th century</span>, not Maharaja Gulab Singh.<div><img src="https://media.tripinvites.com/places/jammu/peer-kho-cave/peer-kho-cave-in-jammu-featured.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%; max-width: 100%;"> <br>    </div>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"eb6f5bc0-f733-4689-89ef-2dfda9daa93e",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"medium",question:"Which famous Persian chronicle records the medieval history of Kashmir?",correctId:"c",options:[{id:"a",text:"Rajtarangini",label:"A"},{id:"b",text:"Nilmat Purana",label:"B"},{id:"c",text:"Baharistan-i-shahi",label:"C"},{id:"d",text:"Rajadarshani",label:"D"}],explanation:'<span class="text-teal font-bold">Baharistan-i-Shahi</span> is an<span class="text-teal" style="font-weight: 800;"> anonymous Persian chronicle</span> detailing the history of Kashmir from ancient times to the Mughal conquest (especially 15th-17th centuries). <span class="text-red font-bold">Rajtarangini</span> and <span class="text-green font-bold">Nilmata Purana</span> are Sanskrit texts, and<span class="text-orange" style="font-weight: 800;"> Rajadarshani </span>records the <span class="text-orange" style="font-weight: 800;">history of Jammu</span>.<div><img src="https://preview.redd.it/from-the-baharistan-i-shahi-15-41-v0-u0sqybjxcrla1.jpg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=50a442585be2e47d96c04a6c6733d79d02474984" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Wildlife 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"49a5456a-4138-4894-a7d4-834c174786f3",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Which of the following statements correctly explains the historical-cultural significance of Kashmir's Rangrez and Namda traditions?",correctId:"b",options:[{id:"a",text:"Rangrez refers to Buddhist mural painting of the Kushan period, while Namda is a silk-based carpet introduced during Afghan rule.",label:"A"},{id:"b",text:"Rangrez was a hereditary dyeing community patronised during the Mughal period, and Namda is a felted wool floor covering associated with Sufi symbolism.",label:"B"},{id:"c",text:"Rangrez denotes miniature painting influenced by Persian Safavid art, while Namda represents papier-mache craft developed under Dogra rulers.",label:"C"},{id:"d",text:"Rangrez is a form of folk theatre linked to the Bhand Pather tradition, while Namda is a temple wall-painting style from early Shaivism.",label:"D"}],explanation:'In traditional Kashmiri culture, the <span class="text-blue font-bold">Rangrez</span> are <span style="font-style: italic;">a hereditary community of textile dyers</span>. <span class="text-orange font-bold">Namda</span> is a traditional<span class="text-red" style="font-weight: 800;"> felted wool rug (not woven)</span>, often <span style="font-style: italic;">embroidered with chain-stitch patterns</span> and deeply rooted in Kashmiri cultural life and Sufi traditions.<br>',pyq:"JKSSB Operator 2026",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"18bc97c8-3388-41b0-9819-2eb79e98d1b0",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"The Raghunath Temple in Jammu was completed during the reign of which Dogra ruler?",correctId:"c",options:[{id:"a",text:"Maharaja Hari Singh",label:"A"},{id:"b",text:"Maharaja Gulab Singh",label:"B"},{id:"c",text:"Maharaja Ranbir Singh",label:"C"},{id:"d",text:"Raja Ranjit Dev",label:"D"}],explanation:'<span style="text-decoration-line: underline; font-style: italic;">Tricky question:</span> The foundation of the <span class="text-teal font-bold">Raghunath Temple</span> complex in Jammu was laid by <span class="text-red font-bold">Maharaja Gulab Singh</span> in <span class="text-green font-bold">1835</span>, but the <span class="text-orange" style="font-weight: 800;">massive main structure</span> was finally completed by his son, <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Maharaja Ranbir Singh, in 1860</span>.<div><img src="https://1.bp.blogspot.com/-vWyCNNCFVBo/VMZe_wFpT3I/AAAAAAAAjpM/PV2pAC2wGJg/s0/Maharaja-of-Jammu-and-Kashmir-Ranbir-Singh---1877.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br> <span class="text-blue-500 font-bold"> </span>   </div>',pyq:"JKSSB SA 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"e741a5e8-b129-4fe2-8975-435fd400a54f",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"easy",question:"Hari parbat was built by ______",correctId:"d",options:[{id:"a",text:"Emperor Humayun",label:"A"},{id:"b",text:"Chandragupta Maurya",label:"B"},{id:"c",text:"Chattrapati Shivaji Maharaj",label:"C"},{id:"d",text:"Atta Mohammed Khan",label:"D"}],explanation:'<span style="font-style: italic; text-decoration-line: underline;">Tricky question:</span> While the <span class="text-orange" style="font-weight: 800;">massive outer wall (Kathi Darwaza)</span> of <span class="text-orange font-bold">Hari Parbat</span> was constructed by <span class="text-orange" style="font-weight: 800;">Mughal Emperor Akbar in 1590</span><span class="text-teal font-bold"></span>, the<span class="text-teal" style="font-weight: 800;"> present fort structure</span> sitting atop the hill was built by the <span class="text-green" style="font-weight: 800;">Afghan governor Atta Mohammed Khan in 1808</span>.<div><img src="https://wanderon-images.gumlet.io/blogs/new/2024/10/how-to-reach-hari-parbat-fort-srinagar.jpeg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Steno 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"9d6df4db-570c-4208-9a83-bb92c6e01a18",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"hard",question:"Who probably invented the Dogri script?",correctId:"b",options:[{id:"a",text:"Puran Karan",label:"A"},{id:"b",text:"Shakti Karan",label:"B"},{id:"c",text:"Agni Garbha",label:"C"},{id:"d",text:"Shiv Prakash",label:"D"}],explanation:'According to historical traditions, <span class="text-green font-bold">Raja Shakti Karan</span>, an ancient ruler of the region, is credited with inventing the original <span class="text-blue font-bold">Dogri script</span>, which later evolved into the <span class="text-orange font-bold"></span><span class="text-orange" style="font-weight: 800;">Namgarbha or Takri script</span>.<br>',pyq:"JKSSB Pharma 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"94a1f7f5-fc10-457f-a990-9c7ba2f8077f",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"easy",question:"A fort built by Raja Bahulochan ~3000 years ago, oldest in Jammu, is known as?",correctId:"a",options:[{id:"a",text:"Bag-e-Bahu Fort",label:"A"},{id:"b",text:"Dhanidhar Fort",label:"B"},{id:"c",text:"Hari Parbat Fort",label:"C"},{id:"d",text:"Pari Mahal",label:"D"}],explanation:'The <span class="text-teal font-bold"></span><span class="text-green" style="font-weight: 800;">Bahu Fort (Bag-e-Bahu)</span> is the <span class="text-orange" style="font-weight: 800;">oldest fort in Jammu</span>. According to local lore, it was originally built <span class="text-orange" style="font-weight: 800;">by Raja Bahu Lochan</span><span class="text-red font-bold"></span> around 3,000 years ago on the banks of the <span class="text-green font-bold">Tawi River</span> and later strengthened by Dogra rulers.<div><img src="https://i1.wp.com/www.inditrip.in/wp-content/uploads/2023/04/bahu-fort.png?resize=1200%2C800&amp;ssl=1" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"Naib Tehsildar 2018",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"6763472e-dd92-4907-814e-a582269d4476",category_id:"jk-affairs",tags:["Jk History","Administrative History"],difficulty:"easy",question:"The first full-fledged High Court of Judicature for J&amp;K was established in the year?",correctId:"a",options:[{id:"a",text:"1928",label:"A"},{id:"b",text:"1929",label:"B"},{id:"c",text:"1935",label:"C"},{id:"d",text:"1947",label:"D"}],explanation:'The first full-fledged <span class="text-blue font-bold">High Court of Judicature</span> for the Princely State of Jammu and Kashmir was established on <span class="text-orange" style="font-weight: 800;">March 26, 1928,</span> by <span class="text-magenta font-bold">Maharaja Hari Singh</span>.<div><img src="https://images.moneycontrol.com/static-mcnews/2025/04/20250412140343_JK-High-Court.jpg?impolicy=website&amp;width=770&amp;height=431" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 90%; max-width: 100%;"> <br> <span class="text-emerald-500 font-bold"> </span>   </div>',pyq:"Naib Tehsildar 2018",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"05a4bbfc-1ac5-44f2-9699-6c48e9c8df88",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Who is known as father of Kashmiri Gazal?",correctId:"d",options:[{id:"a",text:"Mahjoor",label:"A"},{id:"b",text:"Abdul Ahad Azad",label:"B"},{id:"c",text:"Mahmood Gami",label:"C"},{id:"d",text:"Rasul Mir",label:"D"}],explanation:`<span class="text-teal font-bold"></span><span class="text-orange" style="font-weight: 800;">Rasul Mir </span>(also known as the <span class="text-orange" style="font-weight: 800;">John Keats of Kashmir</span>) is widely regarded as the <span class="text-green" style="font-weight: 800;">father of the Kashmiri Ghazal.</span> He revolutionized Kashmiri poetry by <span style="font-style: italic;">breaking away from heavy mystical themes to introduce vibrant romanticism</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/TDKbWUmlGGg?si=vNeRn4h3RjiTR5jP" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/TDKbWUmlGGg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"1fd00501-c843-44c9-9c20-286ffe7c4024",category_id:"jk-affairs",tags:["Jk History","Karkota Dynasty"],difficulty:"easy",question:"Martand temple at Anantnag was built by?",correctId:"b",options:[{id:"a",text:"Awantivarman",label:"A"},{id:"b",text:"Lalitaditya",label:"B"},{id:"c",text:"Ashoka",label:"C"},{id:"d",text:"Jaishima",label:"D"}],explanation:'The majestic<span class="text-teal" style="font-weight: 800;"> Martand Sun Temple in Anantnag</span> was built by <span class="text-orange font-bold">Lalitaditya Muktapida</span>, the most powerful and expansionist ruler of the <span class="text-magenta font-bold">Karkota dynasty</span>, in the <span class="text-magenta" style="font-weight: 800;">8th century CE</span>.<div><img src="https://s7ap1.scene7.com/is/image/incredibleindia/martand-sun-temple-anantnag-jammu-&amp;-kashmir-2-attr-hero?qlt=82&amp;ts=1726816042591" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>',pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"a4f4c6a9-f70d-4216-8904-6b50026f1a88",category_id:"jk-affairs",tags:["Jk History","Kashmir Sultanate"],difficulty:"easy",question:"Gulmarg was originally named Gourimarg, and was renamed Gulmarg by whom?",correctId:"d",options:[{id:"a",text:"Atta Mohammad Khan",label:"A"},{id:"b",text:"Gulab Singh",label:"B"},{id:"c",text:"Jahangir",label:"C"},{id:"d",text:"Yousuf Shah Chak",label:"D"}],explanation:`Originally called <span class="text-green" style="font-weight: 800;">'Gaurimarg' (the meadow of Goddess Gauri)</span>, it was famously renamed '<span class="text-red font-bold">Gulmarg</span>' (meadow of flowers) in the <span class="text-orange" style="font-weight: 800;">16th century by Yousuf Shah Chak</span><span class="text-green font-bold"></span>, the <span class="text-magenta" style="font-weight: 800;">Chak dynasty</span> ruler of Kashmir.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/dfB5wUF4txA?si=0FEmmR1NM_G3xahx" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;"><iframe src="https://www.youtube.com/embed/dfB5wUF4txA?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>    </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"307a28ef-2ab1-4588-bc7e-7e5f923cc9b8",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Who is known as `Father of Dogri`?",correctId:"b",options:[{id:"a",text:"Dinu Bhai Pant",label:"A"},{id:"b",text:"Ram Nath Shastri",label:"B"},{id:"c",text:"Deen Bhandu Sharma",label:"C"},{id:"d",text:"Padma Sachdeva",label:"D"}],explanation:'<span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Professor Ram Nath Shastri </span>is celebrated as the <span class="text-green" style="font-weight: 800;">"Father of Dogri"</span> for his <span style="font-style: italic;">pivotal role in the revival, standardisation, and promotion of the Dogri language, literature, and cultural identity</span>.<br>',pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"7cb4f05d-d37d-41ca-bad0-930c85cda2c9",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Maharaja Hari Singh signed the instrument of accession on?",correctId:"a",options:[{id:"a",text:"Oct 26, 1947",label:"A"},{id:"b",text:"Oct 30, 1947",label:"B"},{id:"c",text:"Oct 18, 1947",label:"C"},{id:"d",text:"Aug 15, 1947",label:"D"}],explanation:'Facing a massive tribal invasion backed by Pakistan, <span class="text-red font-bold">Maharaja Hari Singh</span> signed the <span class="text-magenta font-bold">Instrument of Accession</span> on <span class="text-teal font-bold">October 26, 1947</span>, legally integrating the Princely State of J&amp;K with the Dominion of India.<div><img src="https://delhipostnews.com/wp-content/uploads/2019/10/Kashmir-Slider.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%; max-width: 100%;"> <br>    </div>',pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"bff4c60a-0e82-480b-a32d-5fae755483d9",category_id:"jk-affairs",tags:["Jk History","Historical Sources"],difficulty:"easy",question:"The meaning of Rajatarangini is?",correctId:"c",options:[{id:"a",text:"Kings of Kashmir",label:"A"},{id:"b",text:"Wars in Kashmir",label:"B"},{id:"c",text:"River of Kings",label:"C"},{id:"d",text:"Rivers of Kashmir",label:"D"}],explanation:`The<span class="text-green" style="font-weight: 800;"> title 'Rajatarangini',</span> authored by the Kashmiri historian <span class="text-blue font-bold"></span><span class="text-blue" style="font-weight: 800;">Kalhana in 12th century</span>, translates to <span class="text-magenta" style="font-weight: 800;">"The River of Kings"</span>. It serves as the primary historical chronicle for early Kashmir.<div><img src="https://cdn.exoticindia.com/images/products/thumbnails/t800x600/books-2017/nab839.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>    </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"5de2c877-e5d0-434f-9627-0d8fbcfd078b",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"The traditional festival of Ladakh, celebrated by both Buddhists and Muslims, is called:",correctId:"a",options:[{id:"a",text:"Losar",label:"A"},{id:"b",text:"Hemis",label:"B"},{id:"c",text:"Eid",label:"C"},{id:"d",text:"Diwali",label:"D"}],explanation:`<span class="text-magenta font-bold">Losar</span> marks the traditional <span class="text-teal font-bold">Ladakhi New Year</span>. Unique to the region, it is culturally celebrated by various communities across Ladakh, <span style="font-style: italic; text-decoration-line: underline;">fostering strong communal harmony between Buddhists and Muslims</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/WQwBes-4wbc?si=UYVrztQX5jw8Ble2" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/WQwBes-4wbc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"dec3bb98-b131-4c8f-a0c0-aa14dffcbed0",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Who became the first woman Chief Minister of the State of Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Mehbooba Mufti",label:"A"},{id:"b",text:"Sarojini Naidu",label:"B"},{id:"c",text:"Sushma Swaraj",label:"C"},{id:"d",text:"Rajkumari Amrit Kaur",label:"D"}],explanation:'<span class="text-red font-bold">Mehbooba Mufti</span>, president of the <span class="text-green font-bold">PDP</span>, made history by becoming the<span class="text-blue" style="font-weight: 800;"> first female Chief Minister of Jammu &amp; Kashmir in 2016</span><span class="text-blue font-bold"></span>, following a coalition alliance with the BJP.<br>',pyq:"JKSSB Operator 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"4b14f349-b80e-4fc1-9a5b-8fb2ba108d99",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"easy",question:"Which is a traditional Kashmiri musical instrument, often used in the classical music of the region?",correctId:"b",options:[{id:"a",text:"Veena",label:"A"},{id:"b",text:"Santoor",label:"B"},{id:"c",text:"Guitar",label:"C"},{id:"d",text:"Shehnai",label:"D"}],explanation:`The <span class="text-orange font-bold">Santoor</span> is a<span style="font-style: italic;"> classical 100-stringed instrument</span> indigenous to Kashmir. Traditionally played in the <span class="text-magenta font-bold"></span><span class="text-green" style="font-weight: 800;">Sufiana Mausiqi (Sufi music) of Kashmir</span>, it was popularised globally by <span class="text-teal font-bold">Pandit Shivkumar Sharma</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/Pb2FpMQwbf8?si=JYB8SkbbqEhBsp-J" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Pb2FpMQwbf8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"ee4d977c-87ca-42e4-b151-ade8c24bc58a",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"medium",question:"Assertion (A): The Jammu &amp; Kashmir Reorganisation Act, 2019, fully integrated Jammu &amp; Kashmir into the Indian Union.<br>Reason (R): The Act dissolved the special status granted to Jammu &amp; Kashmir and brought it under the provisions of the Indian Constitution.<br>Choose the correct statement:",correctId:"a",options:[{id:"a",text:"Both A and R are true, and R is the correct explanation of A",label:"A"},{id:"b",text:"Both A and R are true, but R is not the correct explanation of A",label:"B"},{id:"c",text:"A is true, but R is false",label:"C"},{id:"d",text:"A is false, but R is true",label:"D"}],explanation:`Both statements are factually correct. The abrogation of <span class="text-red font-bold">Article 370</span> and the implementation of the J&amp;K Reorganisation Act of <span class="text-blue font-bold">2019</span> dissolved the state's special status, fundamentally integrating it with the Indian Constitution, thus validating the Reason as the correct explanation.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/25g886DxxtI?si=H0HnloDk1Ji_58bW" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/25g886DxxtI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Operator 2025",created_at:"2026-06-29T15:26:24.315556+00:00"},{id:"013bf08b-649f-4368-b8ab-a6ff3189ec85",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"hard",question:"Which of the following statements about Mughal Gardens in Kashmir are correct?<br>1- Nishat Bagh Laid out in the 17th century, is located directly along the eastern bank of the Dal Lake.<br>2- The two most important structures within the Shalimar Bagh are the Pink Pavilion, in the Diwan-i-Aam zone of the garden, and the Black Pavilion, located in the Diwan-i-Khas.<br>3- Achabal Bagh was also known as Sahebabad during the Mughal period, in memory of the Mughal Emperor Jahangir.",correctId:"b",options:[{id:"a",text:"I, II, and III",label:"A"},{id:"b",text:"I and II only",label:"B"},{id:"c",text:"I and III only",label:"C"},{id:"d",text:"II and III only",label:"D"}],explanation:'<span class="text-red font-bold">Nishat Bagh</span> was built by <span class="text-green font-bold">Asif Khan</span> in <span class="text-blue font-bold">1633</span>. <div><span class="text-orange font-bold">Shalimar Bagh</span> features the<span class="text-teal" style="font-weight: 800;"> Pink Pavilion (Diwan-i-Aam)</span> and <span class="text-teal" style="font-weight: 800;">Black Pavilion (Diwan-i-Khas)</span>. <span class="text-teal font-bold">Achabal Bagh</span> was historically known as <span class="text-blue" style="font-weight: bold;">Begumabad (built by Nur Jahan)</span><span class="text-red font-bold"></span>. </div><div>The name <span style="font-style: italic;"><span class="text-orange" style="">Sahebabad belongs to Chashme Shahi (dedicated to Dara Shikoh)</span></span>. <br>    </div>',pyq:"JKSSB JA 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"ee807544-7164-4ea6-9f7f-ecd0fb64273b",category_id:"jk-affairs",tags:["Jk History","Culture Heritage"],difficulty:"medium",question:"Which Kashmiri art form is described by the following lines?<br>1- It is a traditional folk theatre style combination of play and dance.<br>2- It differs from other forms as it features a performer who performs, dances, and plays music.<br>3- It was mentioned by Kashmiri Sufi Saint, Sheikh Noor-ud-din Noorani (RA) in his verses and travel book of English writer, Sir Walter Lawrence.",correctId:"c",options:[{id:"a",text:"Rouf",label:"A"},{id:"b",text:"Chakri",label:"B"},{id:"c",text:"Bhand Pather",label:"C"},{id:"d",text:"Hafiza Dance",label:"D"}],explanation:`<span class="text-green font-bold">Bhand Pather</span> is the traditional <span class="text-orange" style="font-weight: 800;">folk theatre of Kashmir</span><span class="text-blue font-bold"></span> combining drama, dance, and music. The performers <span class="text-orange font-bold">(Bhands)</span> were heavily documented by <span class="text-magenta font-bold">Sir Walter Lawrence</span> in '<span class="text-teal font-bold">The Valley of Kashmir</span>' and <span class="text-blue" style="font-style: italic;">praised in the Shruks of Sheikh Noor-ud-din Noorani</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/6hQ8RzkBp-c?si=noC2eXNcgl3Mr7KX" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/6hQ8RzkBp-c/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"1fb25b80-3271-409a-b102-f3303f9f6a42",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Consider the following statements about Bahu Fort in Jammu:<br>1- The ancient Bahu Fort in Jammu is believed to have been originally built by Raja Bahu Lochan about 3,000 years ago.<br>2- It was refurbished by the Dogra rulers in the 19th century.<br>3- Just beneath the fort is the terraced Bagh-e-Bahu Garden laid in the style of Mughal gardens.",correctId:"d",options:[{id:"a",text:"I only",label:"A"},{id:"b",text:"I and II only",label:"B"},{id:"c",text:"II and III only",label:"C"},{id:"d",text:"I, II, and III",label:"D"}],explanation:`<span class="text-green font-bold">Raja Bahu Lochan</span> built the original <span class="text-red font-bold"></span><span class="text-blue" style="font-weight: 800;">Bahu Fort 3,000 years ago</span>. The <span class="text-blue font-bold">Dogra rulers</span> reconstructed and strengthened its defenses in the 19th century. The <span class="text-orange" style="font-weight: 800;">terraced Bagh-e-Bahu garden</span> is located right below it on the banks of the <span class="text-magenta font-bold">Tawi River</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/bIEq4wrDHC8?si=lFeW58ZjFEavFgZR" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/bIEq4wrDHC8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB JA 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"4427b60d-f165-4f9e-8158-ec2b7078e0e6",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"hard",question:"According to Kalhana's Rajtarangini, identify the correct sequential order of the following dynasties in the Jammu and Kashmir region.<br>1- Gonanda dynasty<br>2- Utpala dynasty<br>3- Karkota Dynasty<br>4- Lohara dynasty",correctId:"d",options:[{id:"a",text:"I-II-III-IV",label:"A"},{id:"b",text:"I-II-IV-III",label:"B"},{id:"c",text:"I-IV-III-II",label:"C"},{id:"d",text:"I-III-II-IV",label:"D"}],explanation:'The correct chronological sequence of major dynasties in Kashmir is the legendary <span class="text-teal font-bold">Gonanda Dynasty</span>, followed by the <span class="text-red font-bold">Karkota Dynasty</span> (7th century), <span class="text-green font-bold">Utpala Dynasty</span> (9th century), and finally the <span class="text-blue font-bold">Lohara Dynasty</span> (11th century).<br>',pyq:"JKSSB JA 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"c43e2017-8d0f-424c-9d2c-b2dc307d6ca0",category_id:"jk-affairs",tags:["Jk History","Medieval History"],difficulty:"hard",question:"According to the historical chronicle Rajatarangini, arrange the following rulers of Kashmir in chronological order.<br>1- Durlabhvardhan<br>2- Harsha of Kashmir<br>3- Lalitaditya Muktapida<br>4- Avantivarman",correctId:"b",options:[{id:"a",text:"I-II-III-IV",label:"A"},{id:"b",text:"I-III-IV-II",label:"B"},{id:"c",text:"I-IV-III-II",label:"C"},{id:"d",text:"III-I-IV-II",label:"D"}],explanation:'<span class="text-orange font-bold">Durlabhvardhan</span> founded the <span class="text-magenta font-bold">Karkota dynasty</span> (early 7th C). <span class="text-teal font-bold">Lalitaditya Muktapida</span> was the greatest Karkota ruler (8th C). <span class="text-red font-bold">Avantivarman</span> founded the <span class="text-green font-bold">Utpala dynasty</span> (9th C). <span class="text-orange" style="font-weight: 800;">King Harsha </span>of the First <span class="text-orange" style="font-weight: 800;">Lohara dynasty</span> ruled much later<span class="text-orange" style="font-weight: 800;"> (11th C)</span>.<br>',pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"d5a97f39-e4bd-48fa-916a-ef0f3df12a02",category_id:"jk-affairs",tags:["Jk History","Modern History"],difficulty:"easy",question:"Who was one of the founders of the political organisation 'All Jammu and Kashmir Muslim Conference' in 1932?",correctId:"c",options:[{id:"a",text:"Mohammad Ali Jinnah",label:"A"},{id:"b",text:"Liaqat Ali Khan",label:"B"},{id:"c",text:"Sheikh Abdullah",label:"C"},{id:"d",text:"Sikandar Hayat Khan",label:"D"}],explanation:`The <span class="text-blue font-bold">All Jammu and Kashmir Muslim Conference</span> was founded in <span class="text-orange font-bold">1932</span> by <span class="text-magenta font-bold">Sheikh Mohammad Abdullah</span> and<span style="font-style: italic;"> Chaudhry Ghulam Abbas</span> to protect the political rights of Kashmiri Muslims. It was later rechristened as the <span class="text-teal font-bold">National Conference</span> in <span class="text-red font-bold">1939</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/pW4PJM59l-g?si=7SxSzFW_cGRqeDWv" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/pW4PJM59l-g/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-emerald-500 font-bold"> </span>   </div>`,pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"6c898b39-fd6a-4667-816d-4057da1f17e0",category_id:"jk-affairs",tags:["Jk History","Sikh Rule"],difficulty:"medium",question:"The Battle of Shopian (1819) was fought between which two powers?",correctId:"d",options:[{id:"a",text:"Sikhs and Britishers",label:"A"},{id:"b",text:"Mughals and Afghans",label:"B"},{id:"c",text:"Sikhs and Mughals",label:"C"},{id:"d",text:"Sikhs and Afghans",label:"D"}],explanation:`The <span class="text-green font-bold">Battle of Shopian</span> <span class="text-blue font-bold">(1819)</span> was fought between the Sikh Empire forces of <span class="text-orange font-bold">Maharaja Ranjit Singh</span> (led by Misr Diwan Chand) and the Durrani Afghan rulers (led by Jabbar Khan). This victory ended Afghan rule and established <span class="text-magenta font-bold">Sikh rule</span> in Kashmir.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/7FSVMIVtkbg?si=ICC15MvPeqGemZi6" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/7FSVMIVtkbg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"d04cc637-6672-4348-968c-a6c63d11d355",category_id:"jk-affairs",tags:["Jk History","Important Personalities"],difficulty:"medium",question:"Which Sufi saint is believed to have visited Kashmir during the period of King Suhadeva (1301-1320) and was the first saint to introduce Islam in Kashmir?",correctId:"a",options:[{id:"a",text:"Hazrat Bulbul Shah",label:"A"},{id:"b",text:"Lal Ded",label:"B"},{id:"c",text:"Mir Syed Ali Hamadani",label:"C"},{id:"d",text:"Muinuddin Chisti",label:"D"}],explanation:`<span class="text-teal font-bold">Hazrat Bulbul Shah</span> (Syed Sharaf-ud-Din) was the first <span class="text-red font-bold">Sufi saint</span> to bring <span class="text-green font-bold">Islam to Kashmir</span> during <span class="text-orange" style="font-weight: 800;">King Suhadeva's reign</span>. He famously influenced the <span class="text-teal" style="font-weight: 800;">Buddhist prince Rinchana</span><span class="text-blue font-bold"></span> to embrace Islam. <span style="text-decoration-line: underline;">(Note: Mir Syed Ali Hamadani arrived later during the Shah Mir dynasty).</span><br>`,pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"daf69ee5-b527-4fad-a160-612aad9ead65",category_id:"jk-affairs",tags:["Jk History","Ancient History"],difficulty:"medium",question:"Who presided over the Fourth Buddhist Council, which was held during the rule of Kanishka in Kashmir?",correctId:"c",options:[{id:"a",text:"Mogali Putta Tissa",label:"A"},{id:"b",text:"Mahakasyapa",label:"B"},{id:"c",text:"Vasumitra",label:"C"},{id:"d",text:"Nagarjuna",label:"D"}],explanation:`The <span class="text-orange font-bold">Fourth Buddhist Council</span> was convened by <span class="text-magenta font-bold">Kushan Emperor Kanishka</span> at <span class="text-teal font-bold">Kundalvana</span>, Kashmir. It was presided over by <span class="text-red font-bold">Vasumitra</span>, with <span class="text-green font-bold">Ashvaghosha</span> acting as the deputy. Mogali Putta Tissa presided over the Third Council under Ashoka.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/LHkxNSo1_ZI?si=cdziYQDIu5207l_j" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/LHkxNSo1_ZI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"889da996-88fe-48d1-9c4c-96b0b0ba73d8",category_id:"jk-affairs",tags:["Jk History","Architecture"],difficulty:"medium",question:"Which of the following statements about the Hazratbal Shrine in Srinagar, famous for housing a holy relic, are correct?<br>1- Sadiq Khan, a subedar during the reign of Shah Jahan, constructed Ishrat Mahal as a notable architectural structure in the Mughal period.<br>2- The shrine's sanctity is primarily due to the Moi-e-Muqqadas, believed to be a hair of Prophet Muhammad.<br>3- The current white marble structure was constructed between 1968 and 1979 under the supervision of the Jammu &amp; Kashmir Muslim Auqaf Trust.",correctId:"d",options:[{id:"a",text:"I and II only",label:"A"},{id:"b",text:"II and III only",label:"B"},{id:"c",text:"I and III only",label:"C"},{id:"d",text:"I, II and III",label:"D"}],explanation:'Originally built as <span class="text-blue font-bold">Ishrat Mahal</span> by <span class="text-orange font-bold">Sadiq Khan</span> in <span class="text-magenta font-bold">1623</span>, <span class="text-teal font-bold">Shah Jahan</span> converted it into a prayer house. It is highly revered for housing the <span class="text-red font-bold">Moi-e-Muqqadas</span>. The present white marble structure was built under the Auqaf Trust spearheaded by <span class="text-green font-bold">Sheikh Abdullah</span>.<br>',pyq:"FPF Guard 2026",created_at:"2026-06-28T12:40:34.859725+00:00"},{id:"acc4ba16-fe94-4c06-8bc3-e14aceaf8c17",category_id:"jk-affairs",tags:["Jk History"],difficulty:null,question:"Which ruler is credited with introducing Buddhism to Kashmir on a large scale?",correctId:"b",options:[{id:"a",text:"Lalitaditya Muktapida",label:"A"},{id:"b",text:"Ashoka",label:"B"},{id:"c",text:"Avantivarman",label:"C"},{id:"d",text:"Harsha",label:"D"}],explanation:'Ashoka of the<span style="font-weight: bold;"> Mauryan Empire</span> is traditionally credited with introducing and promoting <span style="font-weight: bold;">Buddhism in Kashmir</span> during the<span style="font-weight: bold;"> 3rd century BCE</span>. He is also associated with the founding of <span style="font-style: italic;">Srinagari, an ancient settlement in Kashmir.</span>&nbsp;<br>',pyq:null,created_at:"2026-05-30T15:52:28.390001+00:00"},{id:"36bf9317-6a0d-4e18-a84f-06cf2c70e9af",category_id:"jk-affairs",tags:["Jk History"],difficulty:null,question:'Who among the following rulers is known as the "Akbar of Kashmir" due to his policy of religious tolerance and administrative reforms?',correctId:"c",options:[{id:"a",text:"Sultan Sikandar",label:"A"},{id:"b",text:"Sultan Ali Shah",label:"B"},{id:"c",text:"Zain-ul-Abidin",label:"C"},{id:"d",text:"Yusuf Shah Chak",label:"D"}],explanation:'Sultan<span class="text-teal" style="font-weight: 800;"> Zain-ul-Abidin (Budshah)</span> ruled Kashmir in the 15th century and is remembered for promoting religious harmony, reviving arts and crafts, encouraging learning, and reducing oppressive measures. His reign is considered a <span style="font-style: italic;">golden period in medieval Kashmiri history</span>. /<br>',pyq:null,created_at:"2026-05-30T15:52:28.390001+00:00"},{id:"5b8d5658-5b03-42c4-90fa-c4513f1067b6",category_id:"jk-affairs",tags:["modern-indian-history","anglo-sikh-wars","Modern","Anglo"],difficulty:"medium",question:"The Treaty of Amritsar (1846), through which Gulab Singh acquired Kashmir, was signed between:",correctId:"c",options:[{id:"a",text:"British East India Company and Sikh Empire",label:"A"},{id:"b",text:"British Government and Maharaja Ranjit Singh",label:"B"},{id:"c",text:"British East India Company and Gulab Singh",label:"C"},{id:"d",text:"Sikh Empire and Gulab Singh",label:"D"}],explanation:'Following the <span class="text-blue font-bold">First Anglo-Sikh War</span>, the Treaty of Lahore was signed with the Sikh Empire. Subsequently, the <span class="text-blue font-bold">Treaty of Amritsar</span> (<span class="text-blue font-bold">16 March 1846</span>) was concluded between the British East India Company and <span class="text-blue font-bold">Gulab Singh</span>, recognizing him as the Maharaja of Jammu and Kashmir in return for payment of 75 lakh Nanakshahi rupees. This marked the beginning of <span class="text-green font-bold">Dogra rule</span> in Jammu and Kashmir.  -indian-history -sikh-wars /',pyq:null,created_at:"2026-05-30T15:52:28.390001+00:00"}];export{e as default};

@@ -85,9 +85,16 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showAllTags, setShowAllTags] = useState(false);
 
+  const getCategoryDisplayName = (cat) => {
+    if (!cat) return 'Science & Tech';
+    const normalized = cat.toLowerCase().replace(/-/g, ' ').trim();
+    if (normalized === 'general science') return 'Science & Tech';
+    return normalized.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  };
+
   const categoryLabel = isPyqArchive 
     ? `${examName?.replace(/-/g, ' ')} PYQ Archive` 
-    : category?.replace(/-/g, ' ') || 'General Science';
+    : getCategoryDisplayName(category);
   const isTagMode = Boolean(tag); // true when browsing /mcq/:category/tag/:tag
   const preferenceId = `practice:${category || 'general-science'}:${tag || 'all'}:${examName || 'none'}`;
 

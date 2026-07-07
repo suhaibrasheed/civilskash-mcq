@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 const SUBJECT_ICONS = {
   'accountancy':         Briefcase,
   'ancient-history':     Landmark,
+  'art-culture':         Landmark,
   'computer-awareness':  Cpu,
   'current-affairs':     Globe,
   'english':             BookOpen,
@@ -30,6 +31,7 @@ const SUBJECT_COLORS = {
   'ancient-history':     '#eab308',
   'medieval-history':    '#eab308',
   'modern-history':      '#eab308',
+  'art-culture':         '#eab308',
 
   // Group 2 (Geography - Emerald Green)
   'indian-geography':    '#10b981',

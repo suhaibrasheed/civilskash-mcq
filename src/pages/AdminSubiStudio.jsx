@@ -25,11 +25,12 @@ const TEXT_COLORS = [
 const DEFAULT_CATEGORIES = [
   { id: 'accountancy', name: 'Accountancy' },
   { id: 'ancient-history', name: 'Ancient History' },
+  { id: 'art-culture', name: 'Art & Culture' },
   { id: 'computer-awareness', name: 'Computer Awareness' },
   { id: 'current-affairs', name: 'Current Affairs' },
   { id: 'english', name: 'English' },
   { id: 'environment', name: 'Environment' },
-  { id: 'general-science', name: 'General Science' },
+  { id: 'general-science', name: 'Science & Tech' },
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
   { id: 'indian-polity', name: 'Indian Polity' },
@@ -383,7 +384,8 @@ export default function AdminSubiStudio() {
           throw error;
         }
         if (data && data.length > 0) {
-          const sorted = [...data].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+          const mapped = data.map(c => c.id === 'general-science' ? { ...c, name: 'Science & Tech' } : c);
+          const sorted = [...mapped].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
           setCategories(sorted);
           localStorage.setItem('civilsKash_categories', JSON.stringify(sorted));
         }

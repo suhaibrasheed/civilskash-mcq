@@ -26,13 +26,14 @@ ChartJS.register(
 // Abbreviate category slug or mock title for compact X-axis labels
 const abbreviate = (str = '') => {
   const map = {
-    'general-science': 'Science',
+    'general-science': 'Sci & Tech',
     'indian-polity': 'Polity',
     'indian-economy': 'Economy',
     'indian-geography': 'Ind. Geo',
     'physical-geography': 'Phy. Geo',
     'world-geography': 'World Geo',
     'ancient-history': 'Ancient',
+    'art-culture': 'Art & Cult',
     'medieval-history': 'Medieval',
     'modern-history': 'Modern',
     'current-affairs': 'Curr. Aff.',

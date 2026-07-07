@@ -12,6 +12,7 @@ import { ALL_STATIC_BANKS_SYNC } from './dataHub';
 export const SUBJECT_ICONS = {
   'accountancy':         Briefcase,
   'ancient-history':     Landmark,
+  'art-culture':         Landmark,
   'computer-awareness':  Cpu,
   'current-affairs':     Globe,
   'english':             BookOpen,
@@ -33,6 +34,7 @@ export const SUBJECT_ICONS = {
 export const SUBJECT_COLORS = {
   'accountancy':         '#f97316',
   'ancient-history':     '#eab308',
+  'art-culture':         '#eab308',
   'computer-awareness':  '#dc2626',
   'current-affairs':     '#7c3aed',
   'english':             '#dc2626',
@@ -54,11 +56,12 @@ export const SUBJECT_COLORS = {
 export const CATEGORIES = [
   { name: 'Accountancy', slug: 'accountancy' },
   { name: 'Ancient History', slug: 'ancient-history' },
+  { name: 'Art & Culture', slug: 'art-culture' },
   { name: 'Computer Awareness', slug: 'computer-awareness' },
   { name: 'Current Affairs', slug: 'current-affairs' },
   { name: 'English', slug: 'english' },
   { name: 'Environment', slug: 'environment' },
-  { name: 'General Science', slug: 'general-science' },
+  { name: 'Science & Tech', slug: 'general-science' },
   { name: 'Indian Economy', slug: 'indian-economy' },
   { name: 'Indian Geography', slug: 'indian-geography' },
   { name: 'Indian Polity', slug: 'indian-polity' },

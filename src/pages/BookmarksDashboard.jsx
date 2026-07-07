@@ -17,11 +17,12 @@ const DIFFICULTY_OPTIONS = ['Easy', 'Medium', 'Hard'];
 const DEFAULT_CATEGORIES = [
   { id: 'accountancy', name: 'Accountancy' },
   { id: 'ancient-history', name: 'Ancient History' },
+  { id: 'art-culture', name: 'Art & Culture' },
   { id: 'computer-awareness', name: 'Computer Awareness' },
   { id: 'current-affairs', name: 'Current Affairs' },
   { id: 'english', name: 'English' },
   { id: 'environment', name: 'Environment' },
-  { id: 'general-science', name: 'General Science' },
+  { id: 'general-science', name: 'Science & Tech' },
   { id: 'indian-economy', name: 'Indian Economy' },
   { id: 'indian-geography', name: 'Indian Geography' },
   { id: 'indian-polity', name: 'Indian Polity' },

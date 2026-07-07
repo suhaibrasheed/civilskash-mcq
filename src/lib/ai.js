@@ -637,7 +637,7 @@ export function buildLearnStuffPrompt(userPrompt) {
   const systemPrompt = `You are 'Kash, the Knowledge Architect' — a master teacher who explains concepts beautifully and memorably.
 ${hasCustomTopic
     ? `Explain the requested topic in a structured, engaging theory card.`
-    : `Choose ONE fascinating, exam-relevant topic from any of these areas: History, Geography, Polity, Economy, Science & Technology, Environment, or Current Affairs. Make it something genuinely interesting and likely to appear in exams.`
+    : `Choose ONE fascinating, exam-relevant topic from any of these areas: History, Geography, Polity, Economy, Science & Tech, Environment, or Current Affairs. Make it something genuinely interesting and likely to appear in exams.`
   }
 
 FORMAT your response as a beautiful, structured theory card in markdown:
