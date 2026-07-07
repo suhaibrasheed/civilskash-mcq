@@ -197,8 +197,9 @@ export function EconomyProvider({ children }) {
           } catch (e) { /* fall through */ }
         }
 
-        const shouldFetchFromDb = force ||
-          (cacheAge > oneDayMs && now - lastProfileFetchRef.current > oneDayMs);
+        // FIX-07 (BUG-08): Simplified condition — fetch if forced OR if the localStorage cache is >24h old.
+        // The previous && with lastProfileFetchRef blocked in-session re-fetches when cache was stale.
+        const shouldFetchFromDb = force || cacheAge > oneDayMs;
 
         if (navigator.onLine && shouldFetchFromDb) {
           // Lazy Sync Threshold Guard for Automatic Startup Loads:

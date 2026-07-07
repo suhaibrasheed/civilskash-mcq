@@ -28,7 +28,14 @@ function OnboardingGuard({ children }) {
   const { user } = useAuth();
   const { economy } = useEconomy();
 
-  if (user && economy && economy.id === user.id && economy.onboarded === false) {
+  // FIX-02 (BUG-02): Secondary signal — written immediately after DB onboarding write succeeds.
+  // Prevents a redirect loop when economy context still holds the stale cached profile
+  // (onboarded: false) before the forced refresh has propagated.
+  const isLocallyOnboarded = user
+    ? localStorage.getItem(`mcqkash_onboarded_${user.id}`) === 'true'
+    : false;
+
+  if (user && economy && economy.id === user.id && economy.onboarded === false && !isLocallyOnboarded) {
     return <Navigate to="/signin" replace />;
   }
   return children;
@@ -38,10 +45,13 @@ function NavigationWrapper() {
   const location = useLocation();
   const { user } = useAuth();
   const { economy } = useEconomy();
-  
-  const isNotOnboarded = user && economy && economy.id === user.id && economy.onboarded === false;
-  const hideNav = location.pathname === '/mock-test' || 
-                  location.pathname.startsWith('/admin/') || 
+
+  const isLocallyOnboarded = user
+    ? localStorage.getItem(`mcqkash_onboarded_${user.id}`) === 'true'
+    : false;
+  const isNotOnboarded = user && economy && economy.id === user.id && economy.onboarded === false && !isLocallyOnboarded;
+  const hideNav = location.pathname === '/mock-test' ||
+                  location.pathname.startsWith('/admin/') ||
                   location.pathname === '/battle-arena' ||
                   location.pathname === '/signin' ||
                   isNotOnboarded;

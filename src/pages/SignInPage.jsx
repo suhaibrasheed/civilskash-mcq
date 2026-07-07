@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
-import { AlertTriangle, User, Mail, Lock, Sparkles, CheckCircle, Check, Gift } from 'lucide-react';
+import { AlertTriangle, User, Mail, Lock, Sparkles, Check, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
@@ -8,6 +8,7 @@ import { useEconomy } from '../context/EconomyContext';
 import { supabase } from '../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 import { updateUserEconomy, getUserEconomy } from '../lib/db';
+import Avatar, { avatarsList } from '../components/Avatars';
 
 export default function SignInPage() {
   const { user, signIn, signUp, signInWithGoogle, loading } = useAuth();
@@ -23,11 +24,12 @@ export default function SignInPage() {
   const [isAuthSubmitting, setIsAuthSubmitting] = useState(false);
   const [authError, setAuthError] = useState('');
 
-  // Step state: 
+  // Step state:
   // 'credentials': Enter Email & Password
   // 'onboarding': Complete profile settings (username, full name, referral) after initial registration
-  const [activeStep, setActiveStep] = useState('credentials'); 
+  const [activeStep, setActiveStep] = useState('credentials');
   const [tempUser, setTempUser] = useState(null); // stores user instance temporarily during onboarding transition
+  const [signupProvider, setSignupProvider] = useState('email'); // 'email' | 'google'
 
   // Profile Onboarding State
   const [username, setUsername] = useState('');
@@ -36,39 +38,55 @@ export default function SignInPage() {
   const [onboardingPassword, setOnboardingPassword] = useState('');
   const [usernameStatus, setUsernameStatus] = useState(null); // 'checking' | 'valid' | 'invalid' | null
   const [usernameError, setUsernameError] = useState('');
-  const [checkingTimeout, setCheckingTimeout] = useState(null);
+  // FIX-01 (BUG-07): useRef avoids re-render cascade on every keystroke
+  const checkingTimeoutRef = useRef(null);
+  const [selectedAvatarId, setSelectedAvatarId] = useState(1);
+  const [selectedGender, setSelectedGender] = useState('male');
+
+  // FIX-04 (BUG-04): Single-fire guard — prevents double Supabase fetch when both user + loading change
+  const hasHandledAuthRef = useRef(false);
 
   const fromPath = location.state?.from || '/';
   const customMessage = location.state?.message || '';
 
-  // Listen to Auth state change: if user is signed in through Google OAuth, check if onboarded
+  // FIX-04 (BUG-04): Single-fire guard prevents double Supabase call when user + loading both change
   useEffect(() => {
-    if (user && !loading) {
+    // Reset guard on logout so re-login in same session still works
+    if (!user) {
+      hasHandledAuthRef.current = false;
+      return;
+    }
+    if (!loading && !hasHandledAuthRef.current) {
+      hasHandledAuthRef.current = true;
       const checkOnboardingStatus = async () => {
         const { data, error } = await supabase
           .from('profiles')
           .select('onboarded, username, full_name')
           .eq('id', user.id)
           .single();
-        
+
         if (!error && data) {
           if (data.onboarded) {
             navigate(fromPath, { replace: true });
           } else {
-            // Google user needs to configure profile onboarding
+            // OAuth or un-onboarded user needs to configure profile onboarding
             setTempUser(user);
-            // Pre-suggest username
+            // FIX-03 (BUG-03) + REGRESSION-01: Use Supabase app_metadata to correctly detect provider.
+            // This avoids overwriting 'email' signupProvider when auth state fires after email signup.
+            // Supabase sets app_metadata.provider = 'email' for email signups, 'google' for OAuth.
+            const provider = user.app_metadata?.provider || 'email';
+            setSignupProvider(provider === 'email' ? 'email' : 'google');
             const suggested = (user.user_metadata?.username || user.email.split('@')[0])
               .replace(/[^a-zA-Z0-9_]/g, '')
               .toLowerCase();
             setUsername(suggested);
             setFullName(user.user_metadata?.full_name || '');
-            setOnboardingPassword(''); // empty for google users so they can set it
+            setOnboardingPassword('');
             setIsLogin(false);
             setActiveStep('onboarding');
           }
         } else {
-          // Default fallback
+          // Default fallback: already onboarded, redirect
           navigate(fromPath, { replace: true });
         }
       };
@@ -121,14 +139,26 @@ export default function SignInPage() {
     parseAndSaveReferral();
   }, [customMessage, location.search, showToast]);
 
-  // Debounced uniqueness check in database
+  // Adjust default avatar selection when onboarding gender toggles
+  useEffect(() => {
+    const currentAvatar = avatarsList.find(av => av.id === selectedAvatarId);
+    if (currentAvatar && currentAvatar.gender !== selectedGender) {
+      if (selectedGender === 'male') {
+        setSelectedAvatarId(1);
+      } else {
+        setSelectedAvatarId(6);
+      }
+    }
+  }, [selectedGender]);
+
+  // FIX-01 (BUG-07): Debounced uniqueness check — timer in useRef, not useState
   useEffect(() => {
     if (isLogin || activeStep !== 'onboarding' || !username.trim()) {
       setUsernameStatus(null);
       return;
     }
 
-    if (checkingTimeout) clearTimeout(checkingTimeout);
+    if (checkingTimeoutRef.current) clearTimeout(checkingTimeoutRef.current);
 
     const isLocalValid = validateUsernameLocal(username);
     if (!isLocalValid) return;
@@ -156,8 +186,8 @@ export default function SignInPage() {
       }
     }, 400);
 
-    setCheckingTimeout(timeout);
-    return () => clearTimeout(timeout);
+    checkingTimeoutRef.current = timeout;
+    return () => clearTimeout(checkingTimeoutRef.current);
   }, [username, isLogin, activeStep]);
 
   const validateUsernameLocal = (val) => {
@@ -216,12 +246,13 @@ export default function SignInPage() {
         }
 
         setTempUser(signedUpUser);
+        setSignupProvider('email'); // FIX-03 (BUG-03): mark as email signup so password field stays hidden in step 2
         // Pre-fill suggested username
         const suggest = authEmail.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '').toLowerCase();
         setUsername(suggest);
         setFullName(suggest.charAt(0).toUpperCase() + suggest.slice(1));
         setOnboardingPassword(authPassword); // prefill with registration password
-        
+
         // Advance to step 2: Onboarding Setup
         showToast('Account registered! Now let\'s set up your profile.', 'success');
         setActiveStep('onboarding');
@@ -246,7 +277,8 @@ export default function SignInPage() {
       return;
     }
 
-    if (!tempUser && (!onboardingPassword || onboardingPassword.trim().length < 6)) {
+    // FIX-03 (BUG-03): Only validate optional password for Google users if they typed something
+    if (signupProvider === 'google' && onboardingPassword && onboardingPassword.trim().length < 6) {
       setAuthError('Password must be at least 6 characters.');
       return;
     }
@@ -279,22 +311,48 @@ export default function SignInPage() {
       }
 
       // 2. Complete Profile Onboarding
+      const getDeviceInfo = () => {
+        try {
+          return {
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            screenWidth: window.screen.width,
+            screenHeight: window.screen.height,
+            windowWidth: window.innerWidth,
+            windowHeight: window.innerHeight,
+            devicePixelRatio: window.devicePixelRatio,
+            platform: navigator.platform,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            deviceMemory: navigator.deviceMemory || null,
+            cpuCores: navigator.hardwareConcurrency || null,
+            touchSupport: ('maxTouchPoints' in navigator) ? navigator.maxTouchPoints > 0 : false,
+            prefersDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches
+          };
+        } catch (e) {
+          return { error: 'Failed to capture device info: ' + e.message };
+        }
+      };
+
       const { error: profileError } = await supabase
         .from('profiles')
         .update({
           username: username.trim(),
           full_name: fullName.trim() || username.trim(),
-          onboarded: true
+          avatar_id: selectedAvatarId,
+          onboarded: true,
+          device_info: getDeviceInfo()
         })
         .eq('id', targetUser.id);
 
       if (profileError) throw profileError;
 
-      // Mark onboarding as complete in localStorage
+      // FIX-02 (BUG-02): Bust the stale profile cache immediately so OnboardingGuard reads fresh data
       localStorage.setItem(`mcqkash_onboarded_${targetUser.id}`, 'true');
+      localStorage.removeItem(`mcqkash_profile_cache_${targetUser.id}`);
 
-      showToast('Profile configured successfully! Welcome aboard 🚀', 'success');
-      await refreshEconomy().catch(() => {});
+      showToast('Profile configured successfully! Welcome aboard \uD83D\uDE80', 'success');
+      // Await refresh without swallowing errors — navigate only after context is fresh
+      try { await refreshEconomy(true); } catch (_) { /* non-fatal; navigate anyway */ }
       navigate(fromPath, { replace: true });
     } catch (err) {
       console.error('Onboarding failed:', err);
@@ -306,15 +364,7 @@ export default function SignInPage() {
 
   return (
     <div className="min-h-screen bg-theme-bg text-theme-text flex flex-col font-sans">
-      {activeStep === 'onboarding' ? (
-        <header className="w-full py-5 px-6 border-b border-theme-border/30 bg-theme-surface/10 backdrop-blur-md flex items-center justify-center relative z-20">
-          <span className="text-sm md:text-base font-black tracking-wider text-theme-primary uppercase">
-            Setup your Amazing Profile
-          </span>
-        </header>
-      ) : (
-        <Header />
-      )}
+      {activeStep !== 'onboarding' && <Header />}
       
       <main className="flex-1 flex items-center justify-center p-4 md:p-8 relative overflow-hidden">
         {/* Decorative background glow */}
@@ -326,7 +376,7 @@ export default function SignInPage() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="w-full bg-theme-surface/50 backdrop-blur-xl rounded-[2.2rem] border border-theme-border p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between"
+            className="w-full bg-theme-surface/50 backdrop-blur-xl rounded-[2.2rem] border border-theme-border p-6 md:p-12 shadow-2xl relative overflow-y-auto flex flex-col justify-between max-h-[90dvh] md:max-h-none"
           >
             <div className="absolute bottom-0 right-0 w-48 h-48 bg-theme-accent/5 rounded-full blur-[60px] pointer-events-none" />
             
@@ -538,11 +588,77 @@ export default function SignInPage() {
                         <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">Username is permanent & can't be changed later</p>
                       </div>
 
-                      {/* Set Password (Google signups only) */}
-                      {!tempUser && (
+                      {/* Choose Avatar Character */}
+                      <div className="space-y-2 mb-4">
+                        <label className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">Choose Avatar Character *</label>
+                        
+                        {/* Gender tabs */}
+                        <div className="grid grid-cols-2 gap-2 p-1 bg-theme-bg/60 border border-theme-border/50 rounded-xl">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedGender('male');
+                              setSelectedAvatarId(1);
+                            }}
+                            className={`py-1.5 rounded-lg text-[10px] md:text-xs font-black uppercase tracking-wider transition-all ${
+                              selectedGender === 'male' 
+                                ? 'bg-theme-primary/10 border border-theme-primary/20 text-theme-primary' 
+                                : 'text-theme-muted hover:text-theme-text'
+                            }`}
+                          >
+                            Male
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedGender('female');
+                              setSelectedAvatarId(6);
+                            }}
+                            className={`py-1.5 rounded-lg text-[10px] md:text-xs font-black uppercase tracking-wider transition-all ${
+                              selectedGender === 'female' 
+                                ? 'bg-theme-primary/10 border border-theme-primary/20 text-theme-primary' 
+                                : 'text-theme-muted hover:text-theme-text'
+                            }`}
+                          >
+                            Female
+                          </button>
+                        </div>
+
+                        {/* Avatar Icons Grid */}
+                        <div className="grid grid-cols-5 gap-2 p-2 bg-theme-bg/30 border border-theme-border/50 rounded-2xl">
+                          {avatarsList
+                            .filter((av) => av.gender === selectedGender)
+                            .map((av) => {
+                              const isSelected = selectedAvatarId === av.id;
+                              return (
+                                <button
+                                  key={av.id}
+                                  type="button"
+                                  onClick={() => setSelectedAvatarId(av.id)}
+                                  className={`aspect-square rounded-xl overflow-hidden p-0.5 transition-all relative group ${
+                                    isSelected 
+                                      ? 'border-2 border-theme-primary ring-2 ring-theme-primary/10 scale-105' 
+                                      : 'border border-theme-border/50 hover:border-theme-primary/30 hover:scale-[1.02]'
+                                  }`}
+                                  title={av.name}
+                                >
+                                  <Avatar id={av.id} className="w-full h-full rounded-lg" />
+                                  {isSelected && (
+                                    <div className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-theme-primary text-white rounded-full flex items-center justify-center border border-theme-surface shadow-md">
+                                      <Check size={8} strokeWidth={4} />
+                                    </div>
+                                  )}
+                                </button>
+                              );
+                            })}
+                        </div>
+                      </div>
+
+                      {/* Set Password — shown only for Google/OAuth signups (optional) */}
+                      {signupProvider === 'google' && (
                         <div className="space-y-2 mb-4">
                           <label htmlFor="onboardingPassword" className="text-[10px] md:text-[11px] font-bold text-theme-muted uppercase tracking-wider block pl-1">
-                            Set Password *
+                            Set Password <span className="font-normal normal-case">(Optional)</span>
                           </label>
                           <div className="relative">
                             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-muted/70">
@@ -553,16 +669,15 @@ export default function SignInPage() {
                               name="password"
                               autoComplete="new-password"
                               type="password"
-                              required
                               value={onboardingPassword}
                               onChange={(e) => setOnboardingPassword(e.target.value)}
-                              placeholder="Enter secure password"
+                              placeholder="Set a password for email login"
                               style={{ color: 'var(--color-text)' }}
                               className="w-full bg-theme-bg border border-theme-border rounded-xl pl-11 pr-5 py-4 text-xs md:text-sm font-semibold focus:outline-none focus:border-theme-primary placeholder:text-theme-muted/50 transition-all"
                             />
                           </div>
                           <p className="text-[9px] md:text-[10px] text-theme-muted/60 pl-1 mt-0.5">
-                            Set a password for manual email login later
+                            Optional — allows you to sign in with email & password later
                           </p>
                         </div>
                       )}
@@ -578,6 +693,7 @@ export default function SignInPage() {
                             id="referredBy"
                             name="referredBy"
                             type="text"
+                            autoComplete="off"
                             value={referredBy}
                             onChange={(e) => setReferredBy(e.target.value.trim())}
                             placeholder="Referrer's username"
@@ -599,6 +715,14 @@ export default function SignInPage() {
                           'Complete Onboarding'
                         )}
                       </button>
+                      {/* FIX-05 (BUG-05): Contextual hint so users understand why button is disabled */}
+                      {!isAuthSubmitting && usernameStatus !== 'valid' && username.trim().length > 0 && (
+                        <p className="text-center text-[10px] text-theme-muted/60 mt-2">
+                          {usernameStatus === 'checking'
+                            ? '⏳ Checking username availability...'
+                            : 'Choose a valid username to continue'}
+                        </p>
+                      )}
                     </form>
                   </motion.div>
                 )}

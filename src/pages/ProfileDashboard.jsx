@@ -1562,7 +1562,7 @@ export default function ProfileDashboard() {
         onClose={() => setShowCustomizer(false)}
         onComplete={({ fullName, avatarId }) => {
           setShowCustomizer(false);
-          if (refreshEconomy) refreshEconomy();
+          if (refreshEconomy) refreshEconomy(true);
         }}
       />
 
@@ -1779,7 +1779,7 @@ export default function ProfileDashboard() {
                     {/* Friends Joined */}
                     <div className="bg-blue-500/[0.03] border border-blue-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-blue-400">Friends Joined</span>
-                      <div className="text-2xl font-black text-theme-text mt-1">
+                      <div className="text-2xl font-black text-blue-500 mt-1">
                         {!economy || economy.id === 'default_user' ? getScratchedReferralCount() : (economy.referral_count || 0)}
                       </div>
                     </div>
@@ -1799,16 +1799,16 @@ export default function ProfileDashboard() {
                     {/* Streak Freeze */}
                     <div className="bg-cyan-500/[0.03] border border-cyan-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-cyan-400">Streak Freeze</span>
-                      <div className="text-2xl font-black text-theme-text mt-1 flex items-baseline gap-1">
-                        +{getScratchedReferralCount() + getScratchedWelcomeCount()} <span className="text-[10px] text-theme-muted font-bold tracking-wide">Shield</span>
+                      <div className="text-2xl font-black text-cyan-500 mt-1 flex items-baseline gap-1">
+                        +{getScratchedReferralCount() + getScratchedWelcomeCount()} <span className="text-[10px] text-cyan-600/70 dark:text-cyan-400/70 font-bold tracking-wide">Shield</span>
                       </div>
                     </div>
 
                     {/* Power Surge */}
                     <div className="bg-rose-500/[0.03] border border-rose-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-rose-400">Power Surge</span>
-                      <div className="text-2xl font-black text-theme-text mt-1 flex items-baseline gap-1">
-                        +{(getScratchedReferralCount() * 3) + (getScratchedWelcomeCount() * 7)} <span className="text-[10px] text-theme-muted font-bold tracking-wide">Days</span>
+                      <div className="text-2xl font-black text-rose-500 mt-1 flex items-baseline gap-1">
+                        +{(getScratchedReferralCount() * 3) + (getScratchedWelcomeCount() * 7)} <span className="text-[10px] text-rose-600/70 dark:text-rose-400/70 font-bold tracking-wide">Days</span>
                       </div>
                     </div>
 

@@ -301,7 +301,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
       {activeCard ? (
         <div className="flex flex-col items-center justify-center py-2">
           {/* Scratch Card Canvas Container */}
-          <div className="relative w-80 h-44 rounded-2xl overflow-hidden border border-theme-border/80 shadow-lg bg-theme-surface flex items-center justify-center select-none">
+          <div className="relative w-80 h-44 rounded-2xl overflow-hidden border shadow-lg bg-theme-surface flex items-center justify-center select-none" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.08)' }}>
             
             {/* Revealed rewards display */}
             <div className="absolute inset-0 p-4 flex flex-col justify-center items-center">
@@ -322,7 +322,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-left">
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border border-theme-border flex items-center gap-2">
+                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
                       <div className="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
                         <Gift size={12} />
                       </div>
@@ -334,7 +334,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                       </div>
                     </div>
 
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border border-theme-border flex items-center gap-2">
+                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
                       <div className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
                         <Gift size={12} />
                       </div>
@@ -346,7 +346,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                       </div>
                     </div>
 
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border border-theme-border flex items-center gap-2">
+                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
                       <div className="w-6 h-6 rounded-lg bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0">
                         <Snowflake size={12} />
                       </div>
@@ -356,7 +356,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                       </div>
                     </div>
 
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border border-theme-border flex items-center gap-2">
+                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
                       <div className="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-500 flex items-center justify-center shrink-0">
                         <Flame size={12} fill="currentColor" />
                       </div>
@@ -457,7 +457,8 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                 {scratchHistory.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-3 bg-theme-surface/40 dark:bg-theme-surface/20 border border-theme-border/50 hover:border-theme-primary/20 rounded-2xl text-left backdrop-blur-md shadow-sm hover:scale-[1.01] hover:bg-theme-surface/50 transition-all duration-300"
+                    className="flex items-center justify-between p-3 bg-theme-surface/40 dark:bg-theme-surface/20 border hover:border-theme-primary/20 rounded-2xl text-left backdrop-blur-md shadow-sm hover:scale-[1.01] hover:bg-theme-surface/50 transition-all duration-300"
+                    style={{ borderColor: 'rgba(var(--color-text-rgb), 0.08)' }}
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-xl bg-theme-primary/10 text-theme-primary flex items-center justify-center border border-theme-primary/15 shrink-0">

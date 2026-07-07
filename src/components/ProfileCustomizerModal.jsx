@@ -88,6 +88,7 @@ export default function ProfileCustomizerModal({
 
       // Mark onboarding as complete in localStorage
       localStorage.setItem(`mcqkash_onboarded_${user.id}`, 'true');
+      localStorage.removeItem(`mcqkash_profile_cache_${user.id}`);
       onComplete({ fullName: fullName.trim(), avatarId: selectedAvatarId });
     } catch (err) {
       console.error('Failed to complete onboarding:', err);

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User, RefreshCw } from 'lucide-react';
+import { Settings, Sun, Moon, BookOpen, X, Hexagon, Type, Flame, Sparkles, Eye, EyeOff, Wand2, Zap, Award, Bell, BellOff, LogOut, User, RefreshCw, LayoutGrid, MessageSquare } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
@@ -10,6 +10,8 @@ import { useSound } from '../context/SoundContext';
 import { useNotifications } from '../context/NotificationContext';
 import { KashCoinDisplay, StreakModal, CoinsVaultModal } from './EconomyUI';
 import BYOKSettingsModal from './BYOKSettingsModal';
+import FeedbackModal from './FeedbackModal';
+import MoreAppsModal from './MoreAppsModal';
 import { getRevisionStats } from '../lib/db';
 import { supabase } from '../lib/supabase';
 
@@ -129,7 +131,7 @@ const TEXT_SIZE_STEPS = [
   { id: 'xxl', title: 'Largest', scale: 2.00 }
 ];
 
-function SettingsPanel({ onClose, onOpenAiSettings }) {
+function SettingsPanel({ onClose, onOpenAiSettings, onOpenFeedback, onOpenMoreApps }) {
   const navigate = useNavigate();
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const { economy, openProUpsell, manualRefreshEconomy } = useEconomy();
@@ -219,7 +221,10 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
         maxWidth: 'calc(100vw - 24px)',
       }}
     >
-      <div className="px-4 py-3 flex items-center justify-center shrink-0 relative">
+      <div 
+        className="px-4 py-3 flex items-center justify-center shrink-0 relative border-b"
+        style={{ borderColor: 'rgba(var(--color-text-rgb), 0.05)' }}
+      >
         <span className="text-[11px] font-black uppercase tracking-widest opacity-60 text-center flex-1" style={{ color: 'var(--color-text)' }}>
           Settings
         </span>
@@ -230,131 +235,134 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
 
       <div className="p-3 flex flex-col gap-3 overflow-y-auto">
         {/* Themes section */}
-        <div className="flex flex-col gap-1.5">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Themes</span>
-          <div className="grid grid-cols-3 gap-2 pb-0.5">
-            {themes.map(t => {
-              const isActive = theme === t.id;
-              const Icon = t.icon;
-              return (
-                <button
-                  key={t.id}
-                  onClick={() => setTheme(t.id)}
-                  title={t.desc}
-                  className="flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all duration-300 relative group backdrop-blur-md"
-                  style={{
-                    background: isActive 
-                      ? 'rgba(var(--color-primary-rgb, 67, 97, 238), 0.22)' 
-                      : 'rgba(var(--color-text-rgb), 0.02)',
-                    borderColor: isActive 
-                      ? 'rgb(var(--color-primary))' 
-                      : 'rgba(var(--color-text-rgb), 0.07)',
-                    color: isActive ? 'rgb(var(--color-primary))' : 'var(--color-text-muted)',
-                    boxShadow: isActive 
-                      ? '0 4px 12px rgba(var(--color-primary-rgb, 67, 97, 238), 0.15), inset 0 1px 1px rgba(255,255,255,0.12)' 
-                      : 'inset 0 1px 1px rgba(255,255,255,0.05)'
-                  }}
-                >
-                  <Icon size={18} className={`mb-1 transition-transform group-hover:scale-110 ${isActive ? 'text-theme-primary' : 'text-theme-muted'}`} />
-                  <span className="text-[10px] font-black uppercase tracking-wider">{t.label}</span>
-                </button>
-              );
-            })}
-          </div>
+        <div className="grid grid-cols-3 gap-2 pb-0.5">
+          {themes.map(t => {
+            const isActive = theme === t.id;
+            const Icon = t.icon;
+            return (
+              <button
+                key={t.id}
+                onClick={() => setTheme(t.id)}
+                title={t.desc}
+                className="flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all duration-300 relative group backdrop-blur-md"
+                style={{
+                  background: isActive 
+                    ? 'rgba(var(--color-primary-rgb, 67, 97, 238), 0.22)' 
+                    : 'rgba(var(--color-text-rgb), 0.02)',
+                  borderColor: isActive 
+                    ? 'rgb(var(--color-primary))' 
+                    : 'rgba(var(--color-text-rgb), 0.07)',
+                  color: isActive ? 'rgb(var(--color-primary))' : 'var(--color-text-muted)',
+                  boxShadow: isActive 
+                    ? '0 4px 12px rgba(var(--color-primary-rgb, 67, 97, 238), 0.15), inset 0 1px 1px rgba(255,255,255,0.12)' 
+                    : 'inset 0 1px 1px rgba(255,255,255,0.05)'
+                }}
+              >
+                <Icon size={18} className={`mb-1 transition-transform group-hover:scale-110 ${isActive ? 'text-theme-primary' : 'text-theme-muted'}`} />
+                <span className="text-[10px] font-black uppercase tracking-wider">{t.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Text Size section */}
-        <div className="flex flex-col gap-1">
-          <div className="flex flex-col items-center justify-center">
-            <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full mb-0.5" style={{ color: 'var(--color-text)' }}>Text Size</span>
-            <span className="text-[10px] font-extrabold uppercase tracking-wider text-center" style={{ color: 'rgb(var(--color-primary))' }}>
+        <div 
+          className="px-1 py-1 flex flex-col gap-1.5 border-b pb-3"
+          style={{ borderColor: 'rgba(var(--color-text-rgb), 0.05)' }}
+        >
+          <div className="flex justify-between items-center px-1">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-50" style={{ color: 'var(--color-text)' }}>Text Size</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-wider" style={{ color: 'rgb(var(--color-primary))' }}>
               {TEXT_SIZE_STEPS[safeIndex]?.title}
             </span>
           </div>
-          
-          <div className="px-1 py-1 flex flex-col gap-1.5">
-            <div className="flex items-center gap-3">
-              <span className="text-xs opacity-50 select-none font-normal" style={{ color: 'var(--color-text)' }}>A</span>
-              <div className="relative flex-1 flex items-center">
-                <input
-                  type="range"
-                  min="0"
-                  max={TEXT_SIZE_STEPS.length - 1}
-                  value={safeIndex}
-                  onChange={handleSliderChange}
-                  className="w-full h-1.5 rounded-lg appearance-none cursor-pointer bg-theme-border/30 accent-theme-primary focus:outline-none custom-range-slider"
-                  style={{
-                    background: `linear-gradient(to right, rgb(var(--color-primary)) 0%, rgb(var(--color-primary)) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) 100%)`
-                  }}
-                />
+          <div className="flex items-center gap-3">
+            <span className="text-xs opacity-50 select-none font-normal" style={{ color: 'var(--color-text)' }}>A</span>
+            <div className="relative flex-1 flex items-center">
+              <input
+                type="range"
+                min="0"
+                max={TEXT_SIZE_STEPS.length - 1}
+                value={safeIndex}
+                onChange={handleSliderChange}
+                className="w-full h-1.5 rounded-lg appearance-none cursor-pointer bg-theme-border/30 accent-theme-primary focus:outline-none custom-range-slider"
+                style={{
+                  background: `linear-gradient(to right, rgb(var(--color-primary)) 0%, rgb(var(--color-primary)) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) ${(safeIndex / (TEXT_SIZE_STEPS.length - 1)) * 100}%, rgba(var(--color-text-rgb, 255, 255, 255), 0.1) 100%)`
+                }}
+              />
+            </div>
+            <span className="text-lg opacity-85 select-none font-bold" style={{ color: 'var(--color-text)' }}>A</span>
+          </div>
+        </div>
+
+        {/* Study Config & AI */}
+        <div 
+          className="flex flex-col gap-1.5 pb-2 border-b"
+          style={{ borderColor: 'rgba(var(--color-text-rgb), 0.05)' }}
+        >
+          <button
+            onClick={() => {
+              onClose();
+              navigate('/profile', { state: { openStudyGoals: true } });
+            }}
+            className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+          >
+            <Award size={12} className="text-theme-primary" />
+            Set Study Goals
+          </button>
+
+          <button
+            onClick={() => {
+              onClose();
+              navigate('/profile', { state: { openRewards: true } });
+            }}
+            className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+          >
+            <Sparkles size={12} className="text-theme-primary animate-pulse" />
+            Earn Rewards
+          </button>
+
+          <button
+            onClick={() => {
+              onClose();
+              if (economy?.user_tier !== 'Pro') {
+                openProUpsell('Elite AI Suite');
+              } else {
+                onOpenAiSettings();
+              }
+            }}
+            className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+          >
+            <Wand2 size={12} className="text-theme-primary" />
+            Elite AI Suite
+          </button>
+        </div>
+
+        {/* Account Section */}
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Account</span>
+          <div className="flex flex-col gap-2 pb-1">
+            
+            {/* User Email Info if logged in */}
+            {user && !isGuest && (
+              <div className="text-[10px] text-theme-muted font-bold px-1 text-center w-full truncate max-w-full mb-1" title={user.email}>
+                Email: <span className="font-extrabold text-theme-text">{user.email}</span>
               </div>
-              <span className="text-lg opacity-85 select-none font-bold" style={{ color: 'var(--color-text)' }}>A</span>
-            </div>
-            {/* Discrete Dot Ticks */}
-            <div className="flex justify-between px-[10px] text-[8px] opacity-35 select-none" style={{ color: 'var(--color-text)' }}>
-              {TEXT_SIZE_STEPS.map((step, idx) => (
-                <span
-                  key={step.id}
-                  className={`transition-all duration-300 ${idx === safeIndex ? 'scale-150 font-bold' : 'scale-90 opacity-40'}`}
-                  style={{ color: idx === safeIndex ? 'rgb(var(--color-primary))' : 'inherit' }}
-                >
-                  •
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+            )}
 
-        {/* Preferences & Goals Section */}
-        <div className="flex flex-col gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Study Config & AI</span>
-          <div className="flex flex-col gap-1.5">
-            {/* Set Study Goals */}
-            <button
-              onClick={() => {
-                onClose();
-                navigate('/profile', { state: { openStudyGoals: true } });
-              }}
-              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
-            >
-              <Award size={12} className="text-theme-primary" />
-              Set Study Goals
-            </button>
+            {/* Sync Stats Button */}
+            {user && !isGuest && (
+              <button
+                onClick={handleManualRefresh}
+                disabled={isRefreshing}
+                className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass} ${isRefreshing ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+                <RefreshCw size={12} className={`text-theme-primary ${isRefreshing ? 'animate-spin' : ''}`} />
+                {isRefreshing ? 'Syncing...' : 'Sync Stats'}
+              </button>
+            )}
 
-            {/* Earn Rewards */}
-            <button
-              onClick={() => {
-                onClose();
-                navigate('/profile', { state: { openRewards: true } });
-              }}
-              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
-            >
-              <Sparkles size={12} className="text-amber-500 animate-pulse" />
-              Earn Rewards
-            </button>
-
-            {/* AI Settings */}
-            <button
-              onClick={() => {
-                onClose();
-                if (economy?.user_tier !== 'Pro') {
-                  openProUpsell('Elite AI Suite');
-                } else {
-                  onOpenAiSettings();
-                }
-              }}
-              className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
-            >
-              <Wand2 size={12} className="text-purple-400" />
-              Elite AI Suite
-            </button>
-          </div>
-        </div>
-
-        {/* Membership Section */}
-        <div className="flex flex-col gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Membership</span>
-          <div className="pb-0.5">
+            {/* Manage Plan / Upgrade to Pro */}
             {economy && (
               <button
                 onClick={() => {
@@ -365,21 +373,17 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
                   }
                   onClose();
                 }}
-                className={economy.user_tier === 'Pro' 
-                  ? 'w-full py-2 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 border-amber-400/50 shadow-[0_2px_8px_rgba(245,158,11,0.2)] animate-pro-glow'
-                  : 'w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20 hover:border-amber-500/30'
-                }
+                className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border cursor-pointer ${
+                  economy.user_tier === 'Pro' 
+                    ? 'bg-amber-500/5 text-amber-500 border-amber-500/20 hover:bg-amber-500/10 hover:border-amber-500/30'
+                    : glassBtnClass
+                }`}
               >
                 {economy.user_tier === 'Pro' ? '★ Manage Plan' : 'Upgrade to Pro'}
               </button>
             )}
-          </div>
-        </div>
 
-        {/* Account Section */}
-        <div className="flex flex-col gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 text-center block w-full" style={{ color: 'var(--color-text)' }}>Account</span>
-          <div className="pb-1">
+            {/* Session Control */}
             {!user || isGuest ? (
               <button
                 onClick={() => {
@@ -389,47 +393,63 @@ function SettingsPanel({ onClose, onOpenAiSettings }) {
                 }}
                 className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
               >
-                <User size={12} />
+                <User size={12} className="text-theme-primary" />
                 Sign In
               </button>
             ) : (
-              <div className="flex flex-col gap-2">
-                <div className="text-[10px] text-theme-muted font-bold px-1 text-center w-full truncate max-w-full" title={user.email}>
-                  Email: <span className="font-extrabold text-theme-text">{user.email}</span>
-                </div>
-                {/* Refresh Stats */}
-                <button
-                  onClick={handleManualRefresh}
-                  disabled={isRefreshing}
-                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass} ${isRefreshing ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  <RefreshCw size={12} className={`text-theme-primary ${isRefreshing ? 'animate-spin' : ''}`} />
-                  {isRefreshing ? 'Refreshing...' : 'Refresh Stats'}
-                </button>
-
-                <button
-                  onClick={async () => {
-                    onClose();
-                    try {
-                      await signOut();
-                      showToast("Signed out successfully.", "info");
-                      navigate('/profile');
-                    } catch (err) {
-                      showToast(err.message, "error");
-                    }
-                  }}
-                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${
-                    theme === 'dark'
-                      ? 'bg-rose-500/10 border-rose-500/20 hover:bg-rose-500/20 hover:border-rose-500/30 text-rose-400'
-                      : 'bg-rose-500/8 border-rose-500/15 hover:bg-rose-500/18 hover:border-rose-500/25 text-rose-600'
-                  }`}
-                >
-                  <LogOut size={12} />
-                  Sign Out
-                </button>
-              </div>
+              <button
+                onClick={async () => {
+                  onClose();
+                  try {
+                    await signOut();
+                    showToast("Signed out successfully.", "info");
+                    navigate('/profile');
+                  } catch (err) {
+                    showToast(err.message, "error");
+                  }
+                }}
+                className={`w-full py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${
+                  theme === 'dark'
+                    ? 'bg-rose-500/10 border-rose-500/20 hover:bg-rose-500/20 hover:border-rose-500/30 text-rose-400'
+                    : 'bg-rose-500/8 border-rose-500/15 hover:bg-rose-500/18 hover:border-rose-500/25 text-rose-600'
+                }`}
+              >
+                <LogOut size={12} />
+                Sign Out
+              </button>
             )}
           </div>
+        </div>
+
+        {/* Footer Actions: Feedback & App Hub */}
+        <div 
+          className="flex gap-2 mt-2 pt-2 border-t"
+          style={{ borderColor: 'rgba(var(--color-text-rgb), 0.05)' }}
+        >
+          <button
+            onClick={() => {
+              onClose();
+              if (!user || isGuest) {
+                showToast("Please sign in to submit feedback.", "warning");
+              } else {
+                onOpenFeedback();
+              }
+            }}
+            className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+          >
+            <MessageSquare size={12} className="text-theme-primary" />
+            Feedback
+          </button>
+          <button
+            onClick={() => {
+              onClose();
+              onOpenMoreApps();
+            }}
+            className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 backdrop-blur-md border ${glassBtnClass}`}
+          >
+            <LayoutGrid size={12} className="text-theme-primary" />
+            App Hub
+          </button>
         </div>
       </div>
     </motion.div>
@@ -753,6 +773,8 @@ export default function Header() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [streakModalOpen, setStreakModalOpen] = useState(false);
   const [coinsVaultOpen, setCoinsVaultOpen] = useState(false);
+  const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+  const [moreAppsModalOpen, setMoreAppsModalOpen] = useState(false);
   const settingsRef = useRef(null);
 
   const location = useLocation();
@@ -1154,6 +1176,8 @@ export default function Header() {
                   <SettingsPanel
                     onClose={() => setSettingsOpen(false)}
                     onOpenAiSettings={handleOpenAiSettings}
+                    onOpenFeedback={() => setFeedbackModalOpen(true)}
+                    onOpenMoreApps={() => setMoreAppsModalOpen(true)}
                   />
                 )}
               </AnimatePresence>
@@ -1170,6 +1194,16 @@ export default function Header() {
       <BYOKSettingsModal 
         isOpen={aiSettingsOpen} 
         onClose={() => setAiSettingsOpen(false)} 
+      />
+
+      <FeedbackModal 
+        isOpen={feedbackModalOpen} 
+        onClose={() => setFeedbackModalOpen(false)} 
+      />
+
+      <MoreAppsModal 
+        isOpen={moreAppsModalOpen} 
+        onClose={() => setMoreAppsModalOpen(false)} 
       />
     </>
   );
