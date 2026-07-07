@@ -16,7 +16,9 @@ export function parseVideoUrl(url) {
       id,
       isShort: true,
       embedUrl: `https://www.youtube.com/embed/${id}?autoplay=1&modestbranding=1&rel=0`,
-      thumbnail: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+      // Shorts never have maxresdefault.jpg — YouTube only generates it for landscape videos.
+      // hqdefault.jpg (480×360) is always available for all YouTube content.
+      thumbnail: `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
       aspect: '9/16',
       maxWidth: '340px',
     };

@@ -144,6 +144,8 @@ export function useRealtimeIntelligence(score, totalQuestions, timeTakenSeconds,
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState("📡 Crunching global leaderboard data...");
+  // economy is needed to check the ranks cache — must be called at hook level (Rules of Hooks)
+  const { economy } = useEconomy();
 
   useEffect(() => {
     let active = true;
