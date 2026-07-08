@@ -227,14 +227,27 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
     try {
       const { data, error } = await supabase.rpc('scratch_referral_card_rpc');
       if (error) throw error;
+
       if (data && data.success) {
+        // RPC applied rewards to DB — show the reveal
         setRewardData(data);
         if (playVictory) playVictory();
         confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
+      } else if (data && data.success === false) {
+        // RPC ran but said no pending cards (already scratched / count mismatch)
+        if (showToast) showToast('No pending referral rewards found. Balance is up to date.', 'info');
+        setIsScratched(false);
+        setActiveCard(null);
+        // Remove from local pending list & force fresh data
+        setCards(prev => prev.filter(c => c.id !== activeCard.id));
+        if (refreshEconomy) await refreshEconomy(true);
+      } else {
+        // Null or unexpected response — treat as transient failure, let user retry
+        throw new Error('Unexpected RPC response. Please try again.');
       }
     } catch (e) {
       console.error('Scratch claim failed:', e);
-      if (showToast) showToast('Failed to claim referral reward. Please try again.', 'error');
+      if (showToast) showToast(e.message || 'Failed to claim referral reward. Please try again.', 'error');
       setIsScratched(false);
     } finally {
       setIsClaiming(false);
@@ -247,9 +260,6 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
     const coinsWon = activeCard.isWelcome ? activeCard.coins : (rewardData.coins_rewarded || 0);
     setIsClaiming(true);
 
-    // The database has already created and fully funded the rewards (Coins, freezes, surges) when 'apply_referral_code' was called during signup.
-    // Therefore, we just need to locally clear the welcome pending card flag, save the entry to local history, and refresh the economy context to reflect the balance changes.
-
     // Save to history
     try {
       const history = JSON.parse(localStorage.getItem(historyKey) || '[]');
@@ -257,7 +267,9 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
         id: activeCard.id,
         type: activeCard.isWelcome ? 'Welcome Card' : 'Referral Card',
         coins: coinsWon,
-        wallet: activeCard.isWelcome ? 0 : 25,
+        wallet: activeCard.isWelcome ? 0 : (rewardData.wallet_credited || 25),
+        freezes: rewardData.freezes_added || 0,
+        surge_days: rewardData.surge_days_added || 0,
         date: new Date().toLocaleDateString(undefined, { day: 'numeric', month: 'short' })
       };
       const updatedHistory = [newEntry, ...history];
@@ -267,23 +279,27 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
       console.error('Failed to save scratch history:', e);
     }
 
-    // Update scratched counters
+    // Clear welcome flag
     if (activeCard.isWelcome) {
       localStorage.removeItem('mcqkash_welcome_coins_pending');
-    } else {
-      const isGuest = !economy || economy.id === 'default_user';
-      if (isGuest) {
-        const scratchedCount = Number(localStorage.getItem(scratchedKey) || 0);
-        localStorage.setItem(scratchedKey, (scratchedCount + 1).toString());
-      }
     }
 
-    // Refresh layout state
+    // BUG-SC-01 FIX: Optimistically remove this card from the pending list immediately.
+    // Don't wait for refreshEconomy — the list is derived from economy.referral_count - economy.scratched_cards_count,
+    // but economy may be cached. Removing from local state prevents the card from re-appearing.
+    setCards(prev => prev.filter(c => c.id !== activeCard.id));
+
+    // Reset scratch UI state
     setActiveCard(null);
     setIsScratched(false);
     setRewardData(null);
     setIsClaiming(false);
-    if (refreshEconomy) await refreshEconomy();
+
+    // BUG-SC-03 FIX: Force-bust the 24h cache so refreshed economy reflects
+    // the updated liquid_coins, scratched_cards_count, streak_freezes, power_surge
+    // that scratch_referral_card_rpc wrote to the DB.
+    if (refreshEconomy) await refreshEconomy(true);
+
     if (showToast) showToast(`Claimed +${coinsWon} KashCoins & Rewards! 🚀`, 'success');
   };
 
