@@ -60,8 +60,13 @@ export default function PerformanceChart({ history }) {
     const recentHistory = [...history].slice(0, 15).reverse();
 
     const labels = recentHistory.map((h, i) => {
-      const cat = h.category || h.categoryId || '';
-      return abbreviate(cat) || `Mock ${i + 1}`;
+      if (h.date) {
+        const d = new Date(h.date);
+        if (!isNaN(d.getTime())) {
+          return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        }
+      }
+      return `Mock ${i + 1}`;
     });
 
     const scores = recentHistory.map(h => h.percentage ?? 0);
@@ -118,6 +123,7 @@ export default function PerformanceChart({ history }) {
         pointHoverRadius: 8,
         pointBorderWidth: 2,
         pointHoverBorderWidth: 2,
+        clip: false,
       },
       {
         fill: false,
@@ -132,6 +138,7 @@ export default function PerformanceChart({ history }) {
         pointHoverBackgroundColor: 'rgb(99, 102, 241)',
         pointHoverBorderColor: '#fff',
         borderWidth: 2,
+        clip: false,
       },
     ],
   };
@@ -139,6 +146,12 @@ export default function PerformanceChart({ history }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+      padding: {
+        top: 12,
+        right: 8,
+      },
+    },
     interaction: {
       mode: 'index',
       intersect: false,
@@ -203,8 +216,8 @@ export default function PerformanceChart({ history }) {
         ticks: {
           color: '#888888',
           font: { size: 10, weight: 'bold' },
+          stepSize: 25,
           callback: val => `${val}%`,
-          maxTicksLimit: 6,
         },
       },
       x: {

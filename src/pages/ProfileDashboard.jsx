@@ -1261,7 +1261,7 @@ export default function ProfileDashboard() {
               ) : (
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5">
-                    {userStats.history.slice(0, showAllMocks ? 12 : 4).map((stat, i) => {
+                    {userStats.history.slice(0, showAllMocks ? 20 : 4).map((stat, i) => {
                       const isPassed = stat.percentage >= 50;
                       return (
                         <div 
@@ -1323,7 +1323,7 @@ export default function ProfileDashboard() {
                         onClick={() => setShowAllMocks(!showAllMocks)}
                         className="px-6 py-2.5 bg-theme-surface-hover hover:bg-theme-border border border-theme-border rounded-xl text-xs font-black uppercase tracking-wider text-theme-text hover:text-theme-primary transition-all flex items-center gap-1.5 shadow-sm"
                       >
-                        {showAllMocks ? "Show Less Mocks" : `View More Mocks (${Math.min(12, userStats.history.length) - 4} More)`}
+                        {showAllMocks ? "Show Less Mocks" : `View More Mocks (${Math.min(20, userStats.history.length) - 4} More)`}
                       </button>
                     </div>
                   )}
