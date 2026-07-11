@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { Award, Sparkles, MessageSquare, Send, Zap, ChevronUp, Lock, AlertTriangle } from 'lucide-react';
 import Avatar from '../components/Avatars';
@@ -11,6 +12,7 @@ import { motion } from 'framer-motion';
 // Mock users have been moved directly to the Supabase database. No hardcoded arrays needed.
 
 export default function LeaderboardPage() {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const { economy, toggleProTier, setAiSettingsOpen, refreshEconomy, manualRefreshEconomy } = useEconomy();
   const { showToast } = useToast();

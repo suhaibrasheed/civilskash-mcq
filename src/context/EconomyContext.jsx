@@ -212,10 +212,10 @@ export function EconomyProvider({ children }) {
           const lastSync = Number(localStorage.getItem(`mcqkash_last_successful_sync_${user.id}`) || 0);
           const timeElapsed = now - lastSync;
 
-          const shouldSync = pendingCoins >= 200 || timeElapsed > oneDayMs;
+          const shouldSync = force || pendingCoins >= 200 || timeElapsed > oneDayMs;
 
           if (shouldSync) {
-            await syncPendingData(false);
+            await syncPendingData(force);
           }
         
           // Fetch Supabase Profile
@@ -405,7 +405,7 @@ export function EconomyProvider({ children }) {
           updatedData = {
             ...updatedData,
             id: profile.id,
-            kash_coins_balance: profile.liquid_coins,
+            kash_coins_balance: Math.max(0, profile.liquid_coins - Number(localStorage.getItem('mcqkash_welcome_coins_pending') || 0)),
             staked_coins_balance: profile.staked_coins, // database total
             current_streak_days: profile.streak_days,
             user_tier: expectedTier,
@@ -580,11 +580,15 @@ export function EconomyProvider({ children }) {
       const queueKey = `mcqkash_pending_coins_${user.id}`;
       const pending = Number(localStorage.getItem(queueKey) || 0);
       localStorage.setItem(queueKey, String(pending + amount));
+      if (navigator.onLine) {
+        await syncPendingData(true);
+      }
     } else {
       // Guest local DB
       await dbTransactKC(amount);
     }
     
+    await loadEconomy(true);
     clearLeaderboardCache();
     return true;
   };

@@ -720,3 +720,18 @@ export function formatExplanationLayout(html) {
   }
   return html;
 }
+
+export function sanitizeHtml(htmlString) {
+  if (!htmlString) return '';
+  // Remove script tags and their content
+  let sanitized = htmlString.replace(/<script[^>]*>([\s\S]*?)<\/script>/gi, '');
+  // Remove event handlers like onmouseover, onclick, onload, etc.
+  sanitized = sanitized.replace(/\s+on[a-z]+\s*=\s*(['"])([\s\S]*?)\1/gi, '');
+  sanitized = sanitized.replace(/\s+on[a-z]+\s*=\s*([^\s>]+)/gi, '');
+  // Remove javascript: pseudo-protocol links
+  sanitized = sanitized.replace(/href\s*=\s*(['"])javascript:([\s\S]*?)\1/gi, 'href="#"');
+  // Remove iframe/object/embed/form elements
+  sanitized = sanitized.replace(/<(iframe|object|embed|form|meta|link)[^>]*>([\s\S]*?)<\/\1>/gi, '');
+  sanitized = sanitized.replace(/<(iframe|object|embed|form|meta|link)[^>]*\/?>/gi, '');
+  return sanitized;
+}

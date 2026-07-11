@@ -721,9 +721,7 @@ export default function BattleArena() {
   const handleStartChallengeSetup = async () => {
     if (!economy) return;
     if (!economy.target_exam) {
-      showToast('You must select your Target Exam to start a challenge', 'warning');
-      navigate('/profile', { state: { openStudyGoals: true, message: 'You must select your Target Exam to start a challenge' } });
-      return;
+      showToast('No Target Exam selected in Study Goals. Defaulting to UPSC Prelims.', 'info');
     }
 
     const randomSeed = Math.floor(Math.random() * 1000000) + 1;
@@ -734,7 +732,7 @@ export default function BattleArena() {
     setIsAiLoading(true);
     setAiLoadingText('Generating challenge questions...');
 
-    const pulledQuestions = generateBattleMockQuestions(economy.target_exam, randomSeed);
+    const pulledQuestions = generateBattleMockQuestions(economy.target_exam || 'upsc-pre', randomSeed);
     if (pulledQuestions.length === 0) {
       showToast('Failed to generate challenge questions.', 'error');
       setIsAiLoading(false);
@@ -1148,9 +1146,7 @@ export default function BattleArena() {
     
     // Target Exam check
     if (!economy.target_exam) {
-      showToast('You must select your Target Exam to Battle', 'warning');
-      navigate('/profile', { state: { openStudyGoals: true, message: 'You must select your Target Exam to Battle' } });
-      return;
+      showToast('No Target Exam selected in Study Goals. Matching using UPSC Prelims.', 'info');
     }
 
     if (isLockedBySleep) return;
@@ -1192,7 +1188,7 @@ export default function BattleArena() {
     }
 
     // Pull 20 Questions based on target exam
-    const pulledQuestions = generateBattleMockQuestions(economy.target_exam, activeSeed);
+    const pulledQuestions = generateBattleMockQuestions(economy.target_exam || 'upsc-pre', activeSeed);
     if (pulledQuestions.length === 0) {
       showToast('Failed to pull questions for your target exam.', 'error');
       return;

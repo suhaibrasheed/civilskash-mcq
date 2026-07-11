@@ -515,6 +515,7 @@ const getBacklogLevel = (count) => {
 // ── Notifications Command Center Panel ──────────────────────────────
 function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, battleNotifications, setBattleNotifications, dbNotifications, setDbNotifications, economy }) {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const backlogCount = stats?.totalResurrection || 0;
   const backlogLevel = getBacklogLevel(backlogCount);
   const hasBacklog = backlogLevel.active;

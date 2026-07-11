@@ -810,7 +810,6 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
       }
     };
     run();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const hasMedia = (q) => {

@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Home from './pages/Home';
 import ExamEngine from './components/ExamEngine';
 import PracticeEngine from './pages/PracticeEngine';
-import AdminSubiStudio from './pages/AdminSubiStudio';
 import FloatingNav from './components/FloatingNav';
-import BookmarksDashboard from './pages/BookmarksDashboard';
-import ProfileDashboard from './pages/ProfileDashboard';
-import SubjectMockDashboard from './pages/SubjectMockDashboard';
-import ResurrectionMockDashboard from './pages/ResurrectionMockDashboard';
-import LeaderboardPage from './pages/LeaderboardPage';
-import PricingPage from './pages/PricingPage';
-import BattleArena from './pages/BattleArena';
 import SignInPage from './pages/SignInPage';
 import ProUpsellModal from './components/ProUpsellModal';
 import { useEconomy } from './context/EconomyContext';
 import { Sparkles } from 'lucide-react';
 import NotFoundPage from './pages/NotFoundPage';
-import ExamMockDashboardPage from './pages/ExamMockDashboardPage';
+
+const AdminSubiStudio = React.lazy(() => import('./pages/AdminSubiStudio'));
+const BookmarksDashboard = React.lazy(() => import('./pages/BookmarksDashboard'));
+const ProfileDashboard = React.lazy(() => import('./pages/ProfileDashboard'));
+const SubjectMockDashboard = React.lazy(() => import('./pages/SubjectMockDashboard'));
+const ResurrectionMockDashboard = React.lazy(() => import('./pages/ResurrectionMockDashboard'));
+const LeaderboardPage = React.lazy(() => import('./pages/LeaderboardPage'));
+const PricingPage = React.lazy(() => import('./pages/PricingPage'));
+const BattleArena = React.lazy(() => import('./pages/BattleArena'));
+const ExamMockDashboardPage = React.lazy(() => import('./pages/ExamMockDashboardPage'));
+
 
 
 import { useAuth } from './context/AuthContext';
@@ -71,10 +73,32 @@ function ExamEngineWrapper() {
   if (loading) return null; // Wait for initial session loading to complete
 
   if (!user) {
+    if (location.state?.mock) {
+      try {
+        localStorage.setItem('mcqkash_active_mock', JSON.stringify(location.state.mock));
+        if (location.state.from) {
+          localStorage.setItem('mcqkash_active_mock_from', location.state.from);
+        }
+        if (location.state.examId) {
+          localStorage.setItem('mcqkash_active_mock_examId', location.state.examId);
+        }
+      } catch (e) {}
+    }
     return <Navigate to="/signin" state={{ message: "Sign up to solve FREE Mock Tests and MCQs, and start analyzing your performance!" }} replace />;
   }
 
-  const mockId = location.state?.mock?.id ?? 'no-mock';
+  let mockId = location.state?.mock?.id;
+  if (!mockId) {
+    try {
+      const cached = localStorage.getItem('mcqkash_active_mock');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        mockId = parsed.id;
+      }
+    } catch (e) {}
+  }
+  mockId = mockId ?? 'no-mock';
+
   return <ExamEngine key={mockId} />;
 }
 
@@ -105,9 +129,14 @@ function AppContent() {
   useEffect(() => {
     let mounted = true;
     const loadQuestionSources = async () => {
-      await loadOfflineQuestionsIntoSyncBank();
-      if (mounted) {
-        setContentReady(true);
+      try {
+        await loadOfflineQuestionsIntoSyncBank();
+      } catch (err) {
+        console.warn("Failed to load question sources:", err);
+      } finally {
+        if (mounted) {
+          setContentReady(true);
+        }
       }
     };
     loadQuestionSources();
@@ -191,31 +220,39 @@ function AppContent() {
       {showSplash && (
         <AppLoadingSplash isFadingOut={isFullyLoaded} />
       )}
-      <BrowserRouter basename={window.location.pathname.startsWith('/mcq') ? '/mcq' : '/'}>
-        <Routes>
-          <Route path="/" element={<OnboardingGuard><Home key={isFullyLoaded ? "ready" : "loading"} /></OnboardingGuard>} />
-          <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
-          <Route path="/mcq/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-          <Route path="/mcq/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-          <Route path="/pyq-archive/:examName" element={<OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard>} />
-          <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
-          <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
-          <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
-          <Route path="/profile" element={<ProfileDashboard />} />
-          <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
-          <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
-          <Route path="/exam/:examId" element={<OnboardingGuard><ExamMockDashboardPage /></OnboardingGuard>} />
-          <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
-          <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
-          <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-          <Route path="/arena/challenge" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+      <HashRouter>
+        <React.Suspense fallback={
+          <div className="flex items-center justify-center min-h-screen" style={{ background: 'var(--color-bg)' }}>
+            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-theme-primary" style={{ borderTopColor: 'rgb(var(--color-primary))' }}></div>
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<OnboardingGuard><Home key={isFullyLoaded ? "ready" : "loading"} /></OnboardingGuard>} />
+            <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
+            <Route path="/mcq/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+            <Route path="/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+            <Route path="/mcq/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+            <Route path="/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
+            <Route path="/pyq-archive/:examName" element={<OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard>} />
+            <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
+            <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
+            <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
+            <Route path="/profile" element={<ProfileDashboard />} />
+            <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
+            <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
+            <Route path="/exam/:examId" element={<OnboardingGuard><ExamMockDashboardPage /></OnboardingGuard>} />
+            <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
+            <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
+            <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
+            <Route path="/arena/challenge" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </React.Suspense>
         <NavigationWrapper />
         {/* 🔒 UNIFIED PRO UPSELL MODAL — globally mounted so it is active even on custom router/header unmounted views */}
         <ProUpsellModal />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

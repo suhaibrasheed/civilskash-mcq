@@ -42,14 +42,34 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
       });
 
       if (economy?.id && economy.id !== 'default_user') {
-        await supabase
-          .from('profiles')
-          .update({ target_exam: targetExam })
-          .eq('id', economy.id);
+        try {
+          const { error } = await supabase
+            .from('profiles')
+            .update({ target_exam: targetExam })
+            .eq('id', economy.id);
+          if (error) throw error;
+        } catch (supabaseErr) {
+          console.warn("Failed to sync study goals to Supabase, saved locally:", supabaseErr);
+          showToast('Saved locally. Cloud sync pending.', 'warning');
+        }
+      }
+
+      if (economy?.id && economy.id !== 'default_user') {
+        const cacheKey = `mcqkash_profile_cache_${economy.id}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached);
+            parsed.target_exam = targetExam;
+            localStorage.setItem(cacheKey, JSON.stringify(parsed));
+          } catch (e) {
+            console.warn("Failed to update profile cache locally:", e);
+          }
+        }
       }
 
       localStorage.setItem('civilsKash_aiLanguage', aiLanguage);
-      await refreshEconomy();
+      await refreshEconomy(true);
       showToast('Study goals saved!', 'success');
       onClose();
     } catch (err) {

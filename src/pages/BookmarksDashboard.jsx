@@ -9,7 +9,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { getAllBookmarksDB, getAllSavedOutputs, deleteSavedOutput, saveOfflineQuestions } from '../lib/db';
 import { useToast } from '../context/ToastContext';
-import { renderMathInHtmlString, formatMentorResponse } from '../lib/ai';
+import { renderMathInHtmlString, formatMentorResponse, sanitizeHtml } from '../lib/ai';
 import { ALL_STATIC_BANKS_SYNC } from '../lib/dataHub';
 
 const DIFFICULTY_OPTIONS = ['Easy', 'Medium', 'Hard'];
@@ -281,7 +281,7 @@ function SavedOutputCard({ output, onDelete, onImportClick }) {
             ) : (
               <div
                 className="mentor-response prose max-w-none text-theme-text leading-relaxed text-sm pt-1"
-                dangerouslySetInnerHTML={{ __html: output.html }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(output.html) }}
               />
             )}
           </motion.div>

@@ -2450,3 +2450,26 @@ textarea.text-theme-text {
 .nk-video-wrapper iframe::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover) !important;
 }
+
+/* Mobile-first Safe Area Inset Support & Tap Enhancements */
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain; /* Prevents bounce stretch triggers inside Android containers */
+}
+
+header {
+  padding-top: env(safe-area-inset-top, 0px) !important;
+}
+
+.fixed.bottom-6.right-5 {
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  right: calc(1.25rem + env(safe-area-inset-right, 0px)) !important;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+}

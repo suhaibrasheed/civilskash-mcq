@@ -31,7 +31,8 @@ import {
   buildReportCardPrompt, 
   buildLearnStuffPrompt, 
   queryColorHighlightsForExplanations, 
-  applyHighlightsToText 
+  applyHighlightsToText,
+  sanitizeHtml
 } from '../lib/ai';
 import { useToast } from '../context/ToastContext';
 import { useSound } from '../context/SoundContext';
@@ -220,7 +221,7 @@ const OutputCard = ({ output, onSave, onDelete, onAnswerMCQ }) => {
       ) : (
         <div
           className="mentor-response prose max-w-none text-theme-text leading-relaxed text-sm pt-1"
-          dangerouslySetInnerHTML={{ __html: output.html }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(output.html) }}
         />
       )}
     </motion.div>

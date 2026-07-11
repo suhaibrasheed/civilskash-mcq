@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Home, User, Bookmark, X, Search, Zap, AlertCircle, Play, Compass, Award } from 'lucide-react';
+import { Home, User, Bookmark, X, Search, Zap, AlertCircle, Play, Compass, Award, BookOpen, Terminal } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
