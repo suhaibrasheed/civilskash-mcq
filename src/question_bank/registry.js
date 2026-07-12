@@ -5,7 +5,10 @@ export const CATEGORY_LOADERS = {
   "environment": () => import('./environment.json'),
   "general-science": () => import('./general-science.json'),
   "indian-economy": () => import('./indian-economy.json'),
+  "indian-geography": () => import('./indian-geography.json'),
   "indian-polity": () => import('./indian-polity.json'),
   "jk-affairs": () => import('./jk-affairs.json'),
-  "modern-history": () => import('./modern-history.json')
+  "modern-history": () => import('./modern-history.json'),
+  "physical-geography": () => import('./physical-geography.json'),
+  "static-gk": () => import('./static-gk.json')
 };
