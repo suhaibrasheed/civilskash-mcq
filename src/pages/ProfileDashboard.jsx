@@ -128,7 +128,7 @@ const OutputCard = ({ output, onSave, onDelete, onAnswerMCQ }) => {
           <button
             onClick={() => onDelete(output.id)}
             title="Remove from feed"
-            className="p-2 rounded-xl bg-theme-bg/60 border border-theme-border/80 hover:border-rose-500/30 hover:bg-rose-500/10 text-theme-muted hover:text-rose-500 transition-all"
+            className="p-2 rounded-xl bg-theme-bg/60 border border-theme-border-soft hover:border-rose-500/30 hover:bg-rose-500/10 text-theme-muted hover:text-rose-500 transition-all"
           >
             <X size={14} />
           </button>
@@ -914,7 +914,7 @@ export default function ProfileDashboard() {
           /* ── GUEST / LOGGED-OUT: SIDE-BY-SIDE GUEST PREVIEW & SYNC CARD ── */
           <div className="max-w-md mx-auto mb-8">
             {/* GUEST INFO CARD (Redesigned, Spacious, Premium) */}
-            <div className="bg-gradient-to-br from-theme-surface via-theme-surface to-theme-primary/5 rounded-3xl p-6 md:p-8 border border-theme-border shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[340px] hover:border-theme-primary/30 transition-all duration-300">
+            <div className="bg-gradient-to-br from-theme-surface via-theme-surface to-theme-primary/5 rounded-3xl p-6 md:p-8 border border-theme-border-soft shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[340px] hover:border-theme-primary/30 transition-all duration-300">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-theme-primary/10 rounded-full blur-[50px] pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/5 rounded-full blur-[50px] pointer-events-none" />
               
@@ -1213,14 +1213,14 @@ export default function ProfileDashboard() {
           
           {/* A. PERFORMANCE SECTION */}
           <div id="performance-analytics" className="scroll-mt-6 space-y-6">
-            <div className="flex items-center gap-2.5 border-b border-theme-border pb-3">
+            <div className="flex items-center gap-2.5 border-b border-theme-border-soft pb-3">
               <BarChart2 className="text-theme-primary" size={20} />
               <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">Performance Diagnostics</h2>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((stat, i) => (
-                <div key={i} className="bg-theme-surface p-5 rounded-2xl border border-theme-border flex flex-col hover:border-theme-primary/30 transition-colors">
+                <div key={i} className="bg-theme-surface/50 backdrop-blur-md p-5 rounded-2xl border border-theme-border-soft flex flex-col hover:border-theme-primary/30 hover:-translate-y-[2px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth">
                   <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center mb-4`}>
                     <stat.icon size={20} />
                   </div>
@@ -1231,7 +1231,7 @@ export default function ProfileDashboard() {
             </div>
 
             {/* Accuracy Trend chart */}
-            <div className="bg-theme-surface rounded-3xl p-6 border border-theme-border shadow-sm">
+            <div className="bg-theme-surface/50 backdrop-blur-md rounded-3xl p-6 border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:border-theme-primary/20 transition-all duration-300">
               <h3 className="text-xs font-black uppercase tracking-widest text-theme-muted mb-4 px-2">Accuracy Trend Line</h3>
               <PerformanceChart history={userStats.history} />
             </div>
@@ -1239,7 +1239,7 @@ export default function ProfileDashboard() {
 
           {/* B. WAR ROOM SECTION */}
           <div id="war-room-analytics" className="scroll-mt-6 space-y-6">
-            <div className="flex items-center gap-2.5 border-b border-theme-border pb-3">
+            <div className="flex items-center gap-2.5 border-b border-theme-border-soft pb-3">
               <Zap className="text-theme-primary" size={20} />
               <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">Competitive War Room</h2>
             </div>
@@ -1248,12 +1248,12 @@ export default function ProfileDashboard() {
 
           {/* C. MOCKS ANALYSIS SECTION */}
           <div id="mocks-analytics" className="scroll-mt-6 space-y-6">
-            <div className="flex items-center gap-2.5 border-b border-theme-border pb-3">
+            <div className="flex items-center gap-2.5 border-b border-theme-border-soft pb-3">
               <CheckCircle className="text-theme-primary" size={20} />
               <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">Recent Mock Tests Analysis</h2>
             </div>
             
-            <div className="bg-theme-surface rounded-2xl border border-theme-border overflow-hidden">
+            <div className="bg-theme-surface rounded-2xl border border-theme-border-soft overflow-hidden">
               {userStats.history.length === 0 ? (
                 <div className="p-8 text-center text-theme-muted font-medium">
                   No mock tests attempted yet.
@@ -1266,10 +1266,10 @@ export default function ProfileDashboard() {
                       return (
                         <div 
                           key={i} 
-                          className={`group relative rounded-2xl border p-5 flex flex-col justify-between gap-4 transition-all duration-300 ${
+                          className={`group relative rounded-2xl border p-5 flex flex-col justify-between gap-4 transition-all duration-300 hover:-translate-y-[2px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] ${
                             isPassed 
-                              ? 'bg-emerald-500/[0.02] border-emerald-500/10 hover:border-emerald-500/35 hover:shadow-[0_12px_24px_rgba(16,185,129,0.04)]' 
-                              : 'bg-rose-500/[0.02] border-rose-500/10 hover:border-rose-500/35 hover:shadow-[0_12px_24px_rgba(244,63,94,0.04)]'
+                              ? 'bg-emerald-500/[0.01] hover:bg-emerald-500/[0.02] border-emerald-500/10 hover:border-emerald-500/30' 
+                              : 'bg-rose-500/[0.01] hover:bg-rose-500/[0.02] border-rose-500/10 hover:border-rose-500/30'
                           }`}
                         >
                           {/* Meta */}
@@ -1334,12 +1334,12 @@ export default function ProfileDashboard() {
 
           {/* D. SETTINGS SECTION */}
           <div id="settings-analytics" className="scroll-mt-6 space-y-6">
-            <div className="flex items-center gap-2.5 border-b border-theme-border pb-3">
+            <div className="flex items-center gap-2.5 border-b border-theme-border-soft pb-3">
               <Settings className="text-theme-primary" size={20} />
               <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">Profile Settings & Configuration</h2>
             </div>
             
-            <div className="bg-theme-surface rounded-2xl border border-theme-border overflow-hidden">
+            <div className="bg-theme-surface rounded-2xl border border-theme-border-soft overflow-hidden">
               {[
                 { id: 'personal', title: 'Personal Information', desc: 'Update your name and contact details' },
                 { id: 'billing', title: 'Subscription & Billing', desc: 'Manage your Pro plan' },
@@ -1379,7 +1379,7 @@ export default function ProfileDashboard() {
           className="fixed inset-0 bg-black/70 backdrop-blur-md z-[9999] flex items-end sm:items-center justify-center sm:p-4 animate-in fade-in"
           onClick={(e) => { if (e.target === e.currentTarget) setShowAiCoachModal(false); }}
         >
-          <div className="bg-theme-surface border border-theme-border rounded-t-3xl sm:rounded-3xl w-full sm:max-w-5xl lg:max-w-7xl shadow-2xl overflow-hidden flex flex-col h-[92vh] sm:h-[90vh] lg:h-[92vh] animate-in slide-in-from-bottom sm:zoom-in-95 duration-200">
+          <div className="bg-theme-surface border border-theme-border-soft rounded-t-3xl sm:rounded-3xl w-full sm:max-w-5xl lg:max-w-7xl shadow-2xl overflow-hidden flex flex-col h-[92vh] sm:h-[90vh] lg:h-[92vh] animate-in slide-in-from-bottom sm:zoom-in-95 duration-200">
 
             {/* SLIM HEADER */}
             <div className="px-4 py-3 border-b border-theme-border bg-theme-bg/60 backdrop-blur-sm flex items-center gap-2 shrink-0 justify-between">

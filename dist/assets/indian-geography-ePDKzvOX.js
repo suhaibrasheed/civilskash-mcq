@@ -1,0 +1,2601 @@
+const t=[{id:"234e3b0f-bf35-442a-a135-261da00733ce",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"What percentage of the total geographic land area of India should be under forest or tree cover according to the National Forest Policy of 1988?",correctId:"c",options:[{id:"a",text:"One-fourth",label:"A"},{id:"b",text:"One-fifth",label:"B"},{id:"c",text:"One-third",label:"C"},{id:"d",text:"One-sixth",label:"D"}],explanation:`The <span class="text-blue font-bold"><span class="text-red" style="font-weight: 800;">National Forest Policy of 1988</span></span> stipulates that to maintain ecological stability and environmental balance, at least <span class="text-green font-bold">33.3% (one-third)</span> of India's total geographical area must be under forest or tree cover. Specifically, it recommends <span class="text-red font-bold"><span class="text-green" style="font-weight: 800;">60% forest cover for hilly/mountainous regions</span></span> and<span class="text-green" style="font-weight: 800;"> 20% for the plains</span><span class="text-teal font-bold"></span>. <br>  <span class="text-blue-500 font-bold"> </span>`,pyq:null,created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"4817a003-f667-40e0-b370-cab3f513f2c2",category_id:"indian-geography",tags:["Irrigation"],difficulty:"easy",question:'Who among the following famously referred to dams as the "Temples of Modern India" while inaugurating the Bhakra Nangal project?',correctId:"a",options:[{id:"a",text:"Jawaharlal Nehru",label:"A"},{id:"b",text:"Indira Gandhi",label:"B"},{id:"c",text:"Mahatma Gandhi",label:"C"},{id:"d",text:"Lal Bahadur Shastri",label:"D"}],explanation:`India's first Prime Minister,<span class="text-orange" style="font-weight: 800;"> Jawaharlal Nehru</span><span class="text-green font-bold"></span>, affectionately proclaimed<span class="text-green" style="font-weight: 800;"> multipurpose river valley projects</span><span class="text-red font-bold"></span> and massive dams as the <span class="text-green" style="font-weight: 800;">"Temples of Modern India."</span> He believed these colossal infrastructure projects would rapidly integrate agriculture and village economies with rapid industrialization and urban growth.<br>`,pyq:null,created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"1096fdbd-4e8d-4540-98d7-494e29cf808a",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Where is the Indian Institute of Forest Management (IIFM) located?",correctId:"b",options:[{id:"a",text:"Nagpur",label:"A"},{id:"b",text:"Bhopal",label:"B"},{id:"c",text:"Dehradun",label:"C"},{id:"d",text:"New Delhi",label:"D"}],explanation:'The <span class="text-blue font-bold"></span><span class="text-red" style="font-weight: 800;">Indian Institute of Forest Management (IIFM)</span> is an autonomous, premier sectoral management institute located in <span class="text-green font-bold">Bhopal, Madhya Pradesh</span>. It was established in <span class="text-red font-bold">1982</span> with financial assistance from the <span style="font-style: italic;">Swedish International Development Cooperation Agency <span class="text-teal font-bold">(SIDA)</span></span> to provide specialized management training for the forestry sector.<br>  <span class="text-blue-500 font-bold"> </span>',pyq:null,created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"4c3d98a9-3191-4bc7-adb5-ced92761fef0",category_id:"indian-geography",tags:["Climate"],difficulty:"easy",question:"During the winter solstice in the Northern Hemisphere, the sun is directly overhead at the:",correctId:"b",options:[{id:"a",text:"Equator",label:"A"},{id:"b",text:"Tropic of Capricorn",label:"B"},{id:"c",text:"Arctic Circle",label:"C"},{id:"d",text:"Tropic of Cancer",label:"D"}],explanation:`During the<span class="text-red" style="font-weight: 800;"> Winter Solstice (around December 21 or 22)</span>, the <span style="font-style: italic;">Northern Hemisphere is tilted furthest away from the Sun</span>. As a result, the Sun's vertical rays fall directly overhead on the <span class="text-green font-bold"></span><span class="text-green" style="font-weight: 800;">Tropic of Capricorn (23.5° S)</span> in the<span class="text-green" style="font-weight: 800;"> Southern Hemisphere</span>, resulting in the <span class="text-red font-bold">shortest day of the year</span> in the Northern Hemisphere.<div><img src="https://images3.memedroid.com/images/UPLOADED328/64f290a1dad14.jpeg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>  <span class="text-emerald-500 font-bold"> </span></div>`,pyq:null,created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"20fd12e1-02e8-43ab-acaf-f8e5f52fc084",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"On which of the following rivers is the Bhakra Nangal Dam built?",correctId:"d",options:[{id:"a",text:"Banas",label:"A"},{id:"b",text:"Bhavani",label:"B"},{id:"c",text:"Mahanadi",label:"C"},{id:"d",text:"Sutlej",label:"D"}],explanation:`The<span class="text-red" style="font-weight: 800;"> Bhakra Nangal Dam</span><span class="text-blue font-bold"></span> is a massive concrete gravity dam built across the fast-flowing <span class="text-green font-bold">Sutlej River</span> in<span class="text-orange" style="font-weight: 800;"> Bilaspur, Himachal Pradesh</span> (near the Punjab border). Its massive reservoir, <span class="text-red font-bold">Gobind Sagar</span>, provides <span style="font-style: italic;">crucial irrigation and hydroelectric power to the states of Punjab, Haryana, and Rajasthan</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/obIEUocL1w0?si=pq10zu7YjvVVfgzi" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/obIEUocL1w0/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"64c38796-f3df-4226-b441-984e23f1a394",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"medium",question:"Where was the Appiko environmental movement started during the 1980s?",correctId:"c",options:[{id:"a",text:"Assam",label:"A"},{id:"b",text:"Uttarakhand",label:"B"},{id:"c",text:"Karnataka",label:"C"},{id:"d",text:"Rajasthan",label:"D"}],explanation:`The <span class="text-blue font-bold">Appiko Movement</span> (meaning <span class="text-teal" style="font-weight: 800;">"to hug"</span> in <span class="text-teal" style="font-weight: 800;">Kannada</span>) <span class="text-teal" style="font-weight: 800;">by Paudauran Hegde </span>was a revolutionary grassroots environmental conservation movement that began <span class="text-orange" style="font-weight: 800;">in 1983 </span>in the <span class="text-red font-bold"><span class="text-orange" style="font-weight: 800;">Uttara Kannada district of Karnataka</span></span>. Inspired by the <span class="text-teal font-bold"></span><span class="text-blue" style="font-weight: 800;">Chipko movement of the North</span>, locals embraced trees to prevent the ruthless logging of the Western Ghats' natural forests.<br>`,pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"3a01f139-dacd-46da-aa0f-556e51d6d5dd",category_id:"indian-geography",tags:["Irrigation"],difficulty:"easy",question:"On which of the following rivers is the Sardar Sarovar Dam built?",correctId:"c",options:[{id:"a",text:"Krishna",label:"A"},{id:"b",text:"Banas",label:"B"},{id:"c",text:"Narmada",label:"C"},{id:"d",text:"Bhavani",label:"D"}],explanation:'The<span class="text-red" style="font-weight: 800;"> Sardar Sarovar Dam </span>is the<span class="text-teal" style="font-weight: 800;"> largest dam </span>of the<span class="text-teal" style="font-weight: 800;"> Narmada Valley Project</span>, constructed on the <span class="text-green font-bold">Narmada River</span> in <span class="text-orange" style="font-weight: 800;">Kevadia, Gujarat</span><span class="text-red font-bold"></span>. It is a highly strategic multipurpose project that supplies immense water and electricity to four participating states: <span style="font-style: italic;">Gujarat, Madhya Pradesh, Maharashtra, and Rajasthan</span>.<br>',pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"88c424ef-84ae-4ed3-a921-79f98fdbffc9",category_id:"indian-geography",tags:["Agriculture"],difficulty:"easy",question:"Which among the following Indian cities is recognized as a major producer and trading hub of Oranges?",correctId:"d",options:[{id:"a",text:"Hyderabad",label:"A"},{id:"b",text:"Dispur",label:"B"},{id:"c",text:"Shimla",label:"C"},{id:"d",text:"Nagpur",label:"D"}],explanation:`<span class="text-green font-bold">Nagpur</span>, located in the<span class="text-orange" style="font-weight: 800;"> Vidarbha region of Maharashtra</span>, is universally famous as the<span class="text-orange" style="font-weight: 800;"> "Orange City of India."</span><span class="text-magenta" style="font-weight: 800;"></span> The region is highly renowned for its <span class="text-teal" style="font-weight: 800;">unique Mandarin oranges (Nagpur Orange)</span>, which thrive perfectly in the area's specific <span style="font-style: italic;">microclimate and well-drained volcanic soils</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/SorZ0qRKYWY?si=lR2h-ME1ea01O-l7" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/SorZ0qRKYWY/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"><span class="text-emerald-500 font-bold"> </span> </span>  </div>`,pyq:"Sub Auditor 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"30d4e45e-2210-4ba9-9718-abe17658df83",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"hard",question:"As per the classification by the Forest Survey of India, forest land with a canopy density of less than 10% comes under which of the following categories?",correctId:"d",options:[{id:"a",text:"Less Dense Forest",label:"A"},{id:"b",text:"Moderately Dense Forest",label:"B"},{id:"c",text:"Open Forest",label:"C"},{id:"d",text:"Scrub",label:"D"}],explanation:'The <span class="text-blue font-bold">Forest Survey of India</span> (FSI) scientifically categorizes forest cover strictly based on canopy density:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Forest category</th><th>Canopy density</th></tr></thead><tbody><tr><td>Very Dense Forest</td><td>&gt; 70%</td></tr><tr><td>Moderately Dense Forest</td><td>40% to 70%</td></tr><tr><td>Open Forest</td><td>10% to 40%</td></tr><tr><td>Scrub</td><td>&lt; 10% (Degraded forest lands)</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"4a141ec2-904c-4677-a608-81b51703cf5a",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Where is the Katarniaghat Wildlife Sanctuary located?",correctId:"a",options:[{id:"a",text:"Uttar Pradesh",label:"A"},{id:"b",text:"Rajasthan",label:"B"},{id:"c",text:"Maharashtra",label:"C"},{id:"d",text:"Haryana",label:"D"}],explanation:'The <span class="text-blue font-bold"><span class="text-red" style="font-weight: 800;">Katarniaghat Wildlife Sanctuary</span></span> is situated in the <span class="text-orange" style="font-weight: 800;">Terai region of Bahraich district in Uttar Pradesh</span>. Along with the<span class="text-green" style="font-weight: 800;"> Dudhwa National Park </span>and<span class="text-green" style="font-weight: 800;"> Kishanpur Wildlife Sanctuary</span>, it constitutes the <span class="text-green font-bold">Dudhwa Tiger Reserve</span>, providing a crucial habitat for tigers, rhinos, and gharials.<br>',pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"a7abeb41-9d67-46ca-bcc9-4dd7e3a89683",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"Which of the following massive multipurpose projects is constructed in Andhra Pradesh primarily for water storage and irrigation?",correctId:"d",options:[{id:"a",text:"Supa Dam",label:"A"},{id:"b",text:"Linganamakki Dam",label:"B"},{id:"c",text:"Amthane Nala",label:"C"},{id:"d",text:"Polavaram Dam",label:"D"}],explanation:'The <span class="text-blue font-bold"><span class="text-magenta" style="font-weight: 800;">Polavaram Project</span></span> is an under-construction mega multipurpose irrigation project on the <span class="text-green font-bold">Godavari River</span> in the<span class="text-orange" style="font-weight: 800;"> Eluru and East Godavari districts of Andhra Pradesh</span><span class="text-red font-bold"></span>. It has been accorded "National Project" status and is designed to provide <span style="font-style: italic;">massive irrigation benefits and interlink the Godavari and Krishna rivers</span>.<br>  <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"cb4068c8-25a9-4127-ae56-d93c93e4ed76",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"Which among the following is the longest peninsular river in India?",correctId:"d",options:[{id:"a",text:"Mahanadi",label:"A"},{id:"b",text:"Krishna",label:"B"},{id:"c",text:"Cauvery",label:"C"},{id:"d",text:"Godavari",label:"D"}],explanation:`The <span class="text-blue font-bold">Godavari</span> is the<span style="font-style: italic;"> longest and largest river in Peninsular India</span>, flowing for approximately <span class="text-green font-bold">1,465 kilometers</span> from<span class="text-teal" style="font-weight: 800;"> Trimbakeshwar (Maharashtra)</span> to the Bay of Bengal. Due to its enormous length and vast catchment area, it is frequently referred to as the<span class="text-magenta" style="font-weight: 800;"> 'Dakshin Ganga' or 'Vridha Ganga'.</span><div><span style="color: rgb(243, 104, 224); font-weight: 800;"><div class="nk-video-wrapper" data-video-url="https://youtu.be/VNxERkgfsLg?si=pL09CcqPlcHGy13R" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/VNxERkgfsLg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br></span>  </div>`,pyq:null,created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"4e4dab19-4081-4db2-b30b-e926e4e1e57c",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"In which Indian state is Badkhal Lake situated?",correctId:"a",options:[{id:"a",text:"Haryana",label:"A"},{id:"b",text:"Himachal Pradesh",label:"B"},{id:"c",text:"Uttar Pradesh",label:"C"},{id:"d",text:"Jharkhand",label:"D"}],explanation:`<span class="text-blue font-bold"><span class="text-red" style="font-weight: 800;">Badkhal Lake</span></span> is a natural lake situated in the <span class="text-green font-bold">Aravalli hills</span> in the<span class="text-orange" style="font-weight: 800;"> Faridabad district of Haryana</span><span class="text-red font-bold"></span>. Once a major tourist attraction, the lake has unfortunately suffered severe drying in recent decades due to unchecked illegal mining in the surrounding Aravalli ranges disrupting its underground aquifers.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/EcO4tV-n9G0?si=rza6J4gYrGHdCzhw" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/EcO4tV-n9G0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"dd7e3379-4dcd-4bc2-8bfa-b22bf8a50955",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"On the banks of which among the following rivers is the historical city of Ajmer located?",correctId:"a",options:[{id:"a",text:"Luni",label:"A"},{id:"b",text:"Indus",label:"B"},{id:"c",text:"Chambal",label:"C"},{id:"d",text:"Betwa",label:"D"}],explanation:`The <span class="text-red" style="font-weight: 800;">city of Ajmer </span>is situated in the <span class="text-orange" style="font-weight: 800;">Aravalli Mountains</span> and lies on the <span class="text-orange" style="font-weight: 800;">banks of Luni River</span><span class="text-green font-bold"></span>. The Luni is an <span class="text-teal" style="font-weight: 800;">endorheic (inland drainage) river </span>that<span class="text-teal" style="font-weight: 800;"> originates</span> in the<span class="text-teal" style="font-weight: 800;"> Pushkar valley near Ajmer</span><span class="text-blue font-bold"></span> and <span style="font-style: italic;">eventually drains into the marshy lands</span> of the <span class="text-red font-bold">Rann of Kutch</span> in Gujarat.<br><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/H2S2BemK-oU?si=yMCUkbyKiPS6zZiB" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/H2S2BemK-oU/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br><div>   </div>`,pyq:"JKSSSB Compiler 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"d227ae5d-d39d-4fad-aa71-57a7d49ae899",category_id:"indian-geography",tags:["Agriculture"],difficulty:"easy",question:'Who is widely respected as the "Father of the White Revolution" in India?',correctId:"d",options:[{id:"a",text:"Sam Pitroda",label:"A"},{id:"b",text:"Sushruta",label:"B"},{id:"c",text:"Durgesh Patel",label:"C"},{id:"d",text:"Verghese Kurien",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">Dr. Verghese Kurien</span><span class="text-green font-bold"></span> is universally known as the<span class="text-blue" style="font-weight: 800;"> "Father of the White Revolution"</span> in India. He was the chief architect of<span class="text-teal" style="font-weight: 800;"> 'Operation Flood,' </span>the<span style="font-style: italic;"> world's largest agricultural dairy development program</span>, which transformed India <span style="font-style: italic;">from a milk-deficient nation into the world's largest milk producer</span> through the <span class="text-orange" style="font-weight: 800;">Amul cooperative model</span>. <div><span class="text-orange" style="font-weight: 800;">Amul </span>champions as<span class="text-teal" style="font-weight: 800;"> blueprint for sustainable economy</span>. It is considered as <span class="text-blue" style="font-weight: 800;">gold-standard bussiness model </span>which empowered <span class="text-blue" style="font-weight: 800;">millions of small-scale farmers</span><span class="text-blue" style="font-weight: 800;"></span> to <span class="text-blue" style="font-weight: 800;">directly share profits with producer</span>, while world appreciated india for such success. However cooperatives didnt last long, <span style="font-style: italic;">India couldn't count on Amul's success to create more co-operative companies</span> which benefit both the consumer and producer, result is sick level of inequality and chronic captialism.</div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/0HpzXhAz09E?si=pi1Szhp3jCvBFb3p" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/0HpzXhAz09E/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br><div>   </div></div>`,pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"f8d1ffed-3a77-47f2-8731-88dab4b15e9d",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"In which of the following states of India is the Kullu Valley situated?",correctId:"b",options:[{id:"a",text:"J &amp; K",label:"A"},{id:"b",text:"Himachal Pradesh",label:"B"},{id:"c",text:"Sikkim",label:"C"},{id:"d",text:"Meghalaya",label:"D"}],explanation:'The <span class="text-green font-bold"></span><span class="text-red" style="font-weight: 800;">Kullu Valley,</span> often referred to as the <span class="text-orange" style="font-weight: 800;">"Valley of Gods,"</span> is a broad open valley situated in Himachal Pradesh. It is formed by the <span class="text-red font-bold">Beas River</span> and lies magnificently <span style="font-style: italic;">sandwiched between the Pir Panjal range to the north and the Dhauladhar range to the south</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"6cc5c39b-81c3-4e05-8c49-378eaa190213",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"easy",question:"Which is the largest physical and physiographic division of India?",correctId:"c",options:[{id:"a",text:"The Coastal Plains",label:"A"},{id:"b",text:"The Northern Plains",label:"B"},{id:"c",text:"The Peninsular Plateau",label:"C"},{id:"d",text:"The Indian Desert",label:"D"}],explanation:`The <span class="text-blue font-bold">Peninsular Plateau</span> is the oldest and absolute largest physiographic division of India, covering approximately <span class="text-green font-bold">16 lakh square kilometers</span> (nearly half of the country's total land area). Composed of ancient crystalline, igneous, and metamorphic rocks, it is a highly stable landmass formed from the breaking of <span class="text-red font-bold">Gondwanaland</span>.<br>`,pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"0d233216-7030-4cd2-af5b-f2f1b692e98b",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"The Tehri Hydropower Complex is built on which of the following rivers?",correctId:"a",options:[{id:"a",text:"Bhagirathi River",label:"A"},{id:"b",text:"Sholiyar River",label:"B"},{id:"c",text:"Manjira River",label:"C"},{id:"d",text:"Mahi River",label:"D"}],explanation:`The <span class="text-blue font-bold"></span><span class="text-red" style="font-weight: 800;">Tehri Hydropower Complex,</span> which features India's highest dam, is strategically constructed on the <span class="text-green font-bold">Bhagirathi River</span> (the principal headstream of the Ganga) near Tehri in <span class="text-red font-bold">Uttarakhand</span>. It is a highly critical earth and rock-fill dam serving both hydroelectric generation and massive downstream irrigation.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"37610027-4a51-454b-a75b-34ce17d73c9a",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"In which Indian state is the scenic Mirik Lake situated?",correctId:"d",options:[{id:"a",text:"Goa",label:"A"},{id:"b",text:"Himachal Pradesh",label:"B"},{id:"c",text:"Punjab",label:"C"},{id:"d",text:"West Bengal",label:"D"}],explanation:`<span class="text-blue font-bold"></span><span class="text-red" style="font-weight: 800;">Mirik Lake (also known as Sumendu Lake)</span> is a picturesque man-made lake located in the <span class="text-green font-bold">Darjeeling district of West Bengal</span>. It is nestled in the eastern Himalayas and is a highly popular tourist destination renowned for its <span style="font-style: italic;">climate, floating fountain, and surrounding pine forests</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Zux6tlF9R5k?si=kdS7_56Q6K3CLgWu" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Zux6tlF9R5k/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"4ec80225-d121-48da-bbf3-4794718ce654",category_id:"indian-geography",tags:["Drainage System"],difficulty:"hard",question:"Which among the following is the largest south-bank tributary of the Brahmaputra River in Assam?",correctId:"b",options:[{id:"a",text:"Subansiri River",label:"A"},{id:"b",text:"Kopili River",label:"B"},{id:"c",text:"Sankosh River",label:"C"},{id:"d",text:"Manas River",label:"D"}],explanation:'The <span class="text-blue font-bold"><span class="text-red" style="font-weight: 800;">Kopili River</span></span> is the largest <span class="text-green font-bold">south-bank tributary</span> of the <span class="text-red font-bold"></span><span class="text-orange" style="font-weight: 800;">Brahmaputra in Assam</span>. It originates in the Meghalaya plateau and flows fiercely into Assam.<br><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Elimination Insight:</span> <span class="text-teal" style="font-weight: 800;">Subansiri, Sankosh, and Manas are all massive North-bank tributaries</span> emerging from the Himalayas or Bhutan. Knowing their northern origins immediately leaves Kopili as the only viable south-bank option.<br>  <span class="text-rose-500 font-bold">  </span>',pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"effcb2b4-12c3-4007-beb4-42c7765fb038",category_id:"indian-geography",tags:["Soils"],difficulty:"easy",question:"Which of the following soil types covers the largest geographical area of India?",correctId:"d",options:[{id:"a",text:"Black Soil",label:"A"},{id:"b",text:"Saline Soil",label:"B"},{id:"c",text:"Laterite Soil",label:"C"},{id:"d",text:"Alluvial Soil",label:"D"}],explanation:`<span class="text-blue font-bold">Alluvial soil</span> is the most extensive and economically vital soil group in India, covering roughly <span class="text-green font-bold"></span><span class="text-teal" style="font-weight: 800;">40-43% of the total geographical area</span>. Deposited largely by the mighty Indus, Ganga, and Brahmaputra river systems, it forms the<span style="font-style: italic;"> immensely fertile Northern Plains and the expansive eastern coastal deltas</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/EglWlK5eSeY?si=OP7uqnbY_HnimxBS" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/EglWlK5eSeY/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JSA 2021",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"c25ce044-56fd-41d9-9f30-ed0baa6be416",category_id:"indian-geography",tags:["Natural Vegetation"],difficulty:"medium",question:"In India, dense tropical rainforests are predominantly found in:",correctId:"c",options:[{id:"a",text:"Central India",label:"A"},{id:"b",text:"Eastern Ghats",label:"B"},{id:"c",text:"N.E. Himalayas and Western Ghats",label:"C"},{id:"d",text:"N.W. Himalayas and Eastern Ghats",label:"D"}],explanation:'<span class="text-blue font-bold"><span class="text-red" style="font-weight: 800;">Tropical Evergreen Rainforests</span></span> require <span class="text-teal" style="font-weight: 800;">annual precipitation exceeding 200 cm</span><span class="text-green font-bold"></span> and a consistently <span class="text-teal" style="font-weight: 800;">warm climate</span>. In India, these conditions are perfectly met on the windward, western slopes of the <span class="text-red font-bold">Western Ghats</span>, in the Andaman and Nicobar Islands, and across the heavily drenched hills of the Northeastern region (Assam, Meghalaya).<br>',pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"0c628142-9c92-480c-9049-cbbdb0950b7a",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"hard",question:"Mudumalai Wildlife Sanctuary is located in the State of:",correctId:"c",options:[{id:"a",text:"Kerala",label:"A"},{id:"b",text:"Karnataka",label:"B"},{id:"c",text:"Tamil Nadu",label:"C"},{id:"d",text:"Andhra Pradesh",label:"D"}],explanation:'The <span class="text-blue font-bold"></span><span class="text-magenta" style="font-weight: 800;">Mudumalai Wildlife Sanctuary (and Tiger Reserve)</span> is located in the <span class="text-green font-bold">Nilgiris district of Tamil Nadu</span>. Strategically positioned at the tri-junction of Tamil Nadu, Kerala, and Karnataka, it forms a highly critical part of the <span class="text-red font-bold">Nilgiri Biosphere Reserve</span>, safeguarding significant populations of elephants and tigers.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"16d533cf-5162-409a-8325-94431e07cbf0",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"In terms of absolute total area, which one of the following Indian States has the largest coverage of forests?",correctId:"c",options:[{id:"a",text:"Arunachal Pradesh",label:"A"},{id:"b",text:"Chhattisgarh",label:"B"},{id:"c",text:"Madhya Pradesh",label:"C"},{id:"d",text:"Odisha",label:"D"}],explanation:`According to the <span class="text-red" style="font-weight: 800;">India State of Forest Report (ISFR)</span>, <span class="text-blue font-bold">Madhya Pradesh</span> consistently maintains the <span class="text-green font-bold">largest total forest cover</span> in India in terms of absolute geographical area. It is followed by Arunachal Pradesh, Chhattisgarh, Odisha, and Maharashtra. (Note: If measured by 'percentage of state area', <span class="text-red font-bold">Mizoram</span> ranks first among states).<br>`,pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"b339f77b-6045-4362-9022-bee7e31125c0",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"Which was the very first national park established in India?",correctId:"d",options:[{id:"a",text:"Velvadan National Park",label:"A"},{id:"b",text:"Periyar National Park",label:"B"},{id:"c",text:"Bandipur National Park",label:"C"},{id:"d",text:"Corbett National Park",label:"D"}],explanation:`<span class="text-blue font-bold">Jim Corbett National Park</span><span class="text-orange" style="font-weight: 800;"> in Uttarakhand</span><span class="text-magenta" style="font-weight: 800;"></span> was the first national park established in India. It was originally created<span class="text-green" style="font-weight: 800;"> in 1936 as Hailey National Park</span> to protect the<span class="text-green" style="font-weight: 800;"> endangered Bengal Tiger</span>. In 1973, it became the<span class="text-magenta" style="font-weight: 800;"> very first park</span> to come under the critical<span class="text-magenta" style="font-weight: 800;"> 'Project Tiger' initiative</span>.<br>`,pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"066f2189-9eda-4bde-af85-1579107f7954",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Where is the Bandipur National Park located?",correctId:"c",options:[{id:"a",text:"Rajasthan",label:"A"},{id:"b",text:"Uttrakhand",label:"B"},{id:"c",text:"Karnataka",label:"C"},{id:"d",text:"Jammu &amp; Kashmir",label:"D"}],explanation:'<span class="text-blue font-bold">Bandipur National Park</span>, a premier tiger reserve established under <span class="text-red font-bold"></span><span class="text-magenta" style="font-weight: 800;">Project Tiger in 1973</span>, is located in the <span class="text-teal" style="font-weight: 800;">Chamarajanagar district of Karnataka</span><span class="text-green font-bold"></span>. It physically adjoins <span style="font-style: italic;">Nagarhole, Mudumalai, and Wayanad sanctuaries</span>, collectively forming the largest protected habitat for wild elephants in South Asia.<br>  <span class="text-blue-500 font-bold"> </span>',pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"85eb9bf3-0bb9-4b33-90d0-4fc4b4900632",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"What should be the optimal proportion of forest cover for India to maintain its long-term ecological balance?",correctId:"c",options:[{id:"a",text:"12.5 percent",label:"A"},{id:"b",text:"24.5 percent",label:"B"},{id:"c",text:"33.3 percent",label:"C"},{id:"d",text:"18.3 percent",label:"D"}],explanation:'According to the <span class="text-blue font-bold"></span><span class="text-red" style="font-weight: 800;">National Forest Policy of India (1952, revised in 1988)</span>, the nation must strive to keep a <span class="text-green" style="font-weight: 800;">minimum of 33.3% (exactly one-third)</span> of its total land area under forest cover to <span style="font-style: italic;">arrest soil erosion, preserve biodiversity, and maintain supreme ecological balance</span>.<br>',pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"222049a3-d463-4245-a573-a221f59a958a",category_id:"indian-geography",tags:["Climate"],difficulty:"hard",question:"The Daily Weather Map of India is scientifically prepared and printed at:",correctId:"d",options:[{id:"a",text:"Kolkata",label:"A"},{id:"b",text:"Mumbai",label:"B"},{id:"c",text:"New Delhi",label:"C"},{id:"d",text:"Pune",label:"D"}],explanation:`The <span class="text-blue font-bold">Daily Weather Map of India</span> is meticulously prepared and printed <span class="text-orange" style="font-weight: 800;">by the India Meteorological Department (IMD)</span> at its historic weather central office located <span class="text-orange" style="font-weight: 800;">in Pune</span><span class="text-red font-bold"></span>. <span style="font-style: italic; text-decoration-line: underline;">Although the IMD's administrative headquarters is in New Delhi, </span><span class="text-red font-bold"></span><span class="text-orange" style="font-weight: 800;">Pune remains a vital nerve center</span> for climatological research, mapping, and forecasting data.<br>`,pyq:"SSC CGL Tier 1",created_at:"2026-07-10T14:26:40.343428+00:00"},{id:"52108073-0a2c-4e28-96fe-9b7e173bf5f0",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"In the hilly and mountainous regions of the Western Himalayas, people historically built traditional diversion channels for agriculture known as:",correctId:"d",options:[{id:"a",text:"Phalodi",label:"A"},{id:"b",text:"Johads",label:"B"},{id:"c",text:"Khadins",label:"C"},{id:"d",text:"Kuls",label:"D"}],explanation:`<span class="text-red font-bold">Kuls</span> are traditional <span class="text-green font-bold">surface irrigation channels</span> heavily utilized in the mountainous terrains of the <span class="text-blue font-bold">Western Himalayas</span>, particularly in <span class="text-orange font-bold">Himachal Pradesh</span>. They act as artificial channels that divert melting <span class="text-magenta font-bold">glacial water</span> from highland streams directly into terraced agricultural fields lower down the slopes.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Water harvesting method</th><th>Region</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Kuls</span></td><td><span class="text-blue font-bold">Western Himalayas</span> (Himachal)</td></tr><tr><td><span class="text-red" style="font-weight: 800;">Johads</span></td><td><span class="text-teal" style="font-weight: 800;">Semi-arid Rajasthan</span> (Alwar)</td></tr><tr><td><span class="text-red" style="font-weight: 800;">Khadins</span></td><td><span class="text-orange" style="font-weight: 800;">Arid Rajasthan</span> (Jaisalmer)</td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/J8VHAD5GVRI?si=pxm04UY8I_mGZNd8" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/J8VHAD5GVRI/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>  <span class="text-blue-500 font-bold"> </span>`,pyq:"Sub Auditor 2021",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"626d2e40-91da-469a-85be-086bf057e7c5",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"Which of the following National Parks is a unique wetland ecosystem featuring a swamp with floating vegetation?",correctId:"a",options:[{id:"a",text:"Keibul Lamjao National Park",label:"A"},{id:"b",text:"Sultanpur National Park",label:"B"},{id:"c",text:"Jim Corbett National Park",label:"C"},{id:"d",text:"Gir National Park",label:"D"}],explanation:`Afloat on the waters of <span class="text-red font-bold">Loktak Lake</span> in <span class="text-green font-bold">Manipur</span>, the<span class="text-teal" style="font-weight: 800;"> Keibul Lamjao National Park</span><span class="text-blue font-bold"></span> is the <i>world's only floating wildlife sanctuary</i>. It is characterized by rings of floating biomass called<span class="text-red" style="font-weight: 800;"> 'phumdis'.</span> It is the last natural habitat of the <span class="text-teal font-bold">endangered Sangai (dancing deer)</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/g6wjJfvhel0?si=vJQcybf6uLEMS_gv" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;"><iframe src="https://www.youtube.com/embed/g6wjJfvhel0?autoplay=1&amp;modestbranding=1&amp;rel=0" class="absolute inset-y-0 w-full h-full rounded-xl" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen="" allowtransparency="true" style="border: none; color-scheme: dark; background: ;"></iframe></div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"2749e800-7bb6-4cfd-bd5a-1599342024ea",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"Where is Kuno National Park located?",correctId:"b",options:[{id:"a",text:"Himachal Pradesh",label:"A"},{id:"b",text:"Madhya Pradesh",label:"B"},{id:"c",text:"Gujarat",label:"C"},{id:"d",text:"Maharashtra",label:"D"}],explanation:`<span class="text-red font-bold">Kuno National Park</span> is located in the <span class="text-green font-bold">Sheopur and Morena</span> districts of <span class="text-blue font-bold"><span class="text-orange" style="font-weight: 800;">Madhya Pradesh</span></span>. Initially established as a wildlife sanctuary in 1981, it was <span class="text-magenta font-bold">upgraded to a National Park in 2018</span>. It gained international prominence recently as the site for<span class="text-blue" style="font-weight: 800;"> India's Cheetah reintroduction project</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/dH19ONJqJuQ?si=CVCAI6wqAF66Jucd" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/dH19ONJqJuQ/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"30fabcb7-3622-4f75-8cb3-501ea8688b98",category_id:"indian-geography",tags:["Climate"],difficulty:"medium",question:"The India Meteorological Department (IMD) classifies rainfall of over ____ cm per hour as a cloudburst.",correctId:"b",options:[{id:"a",text:"8",label:"A"},{id:"b",text:"10",label:"B"},{id:"c",text:"15",label:"C"},{id:"d",text:"20",label:"D"}],explanation:'According to the <span class="text-red font-bold">India Meteorological Department (IMD)</span>, a <span class="text-green font-bold">cloudburst</span> is a <span class="text-blue font-bold">highly localized weather event</span> characterized by extremely heavy rainfall. It is strictly defined as an <span class="text-teal font-bold">unexpected precipitation</span> event exceeding <span class="text-orange font-bold">10 cm (100 mm) per hour</span> over a geographical region of approximately <span class="text-magenta font-bold">20 to 30 square kilometers</span>.<br>',pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"6d8302c0-467c-4453-8656-aa518324823a",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"hard",question:"The Ladakh Harvest Festival is primarily celebrated in which month of the year?",correctId:"d",options:[{id:"a",text:"March",label:"A"},{id:"b",text:"July",label:"B"},{id:"c",text:"August",label:"C"},{id:"d",text:"September",label:"D"}],explanation:'The <span class="text-red font-bold">Ladakh Harvest Festival</span> is a major cultural event celebrated annually from the <span class="text-green font-bold">1st to the 15th of September in Leh</span>. It <span class="text-blue font-bold">marks the end of the harvest season</span>, featuring <span class="text-orange font-bold">vibrant processions, traditional masked dances (Cham), archery competitions, and music</span>, serving as a <span class="text-magenta font-bold">massive draw for tourism</span>.<br>',pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"e078564c-159f-4362-974f-a17a4cff2060",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"Which one of the following mountain ranges does NOT radiate from the Pamir Knot?",correctId:"d",options:[{id:"a",text:"Tian Shan",label:"A"},{id:"b",text:"Kunlun",label:"B"},{id:"c",text:"Hindu Kush",label:"C"},{id:"d",text:"Dawna Range",label:"D"}],explanation:`The <span class="text-red font-bold">Pamir Knot</span> (often called the "<span class="text-green font-bold">Roof of the World</span>") is a massive <span class="text-blue font-bold">structural junction in Central Asia</span> from which several great <span class="text-orange font-bold">mountain ranges radiate</span>.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Radiating range</th><th>Direction from pamir</th></tr></thead><tbody><tr><td><span class="text-magenta font-bold">Tian Shan</span></td><td>Northeast</td></tr><tr><td><span class="text-teal font-bold">Kunlun</span></td><td>East</td></tr><tr><td><span class="text-red font-bold">Hindu Kush</span></td><td>Southwest</td></tr></tbody></table></div>The <span class="text-green font-bold">Dawna Range</span> is located far to the southeast, forming a natural border between eastern Myanmar and western Thailand.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/0ulz29XJB5Y?si=GrdWwne4go-7C26t" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/0ulz29XJB5Y/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"9975fae5-b464-4dcd-b5cb-4c52d36b34a9",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"Which of the following pairs of Waterfalls and their respective States is NOT correctly matched?",correctId:"d",options:[{id:"a",text:"Dudhsagar Falls — Goa",label:"A"},{id:"b",text:"Jog Falls — Karnataka",label:"B"},{id:"c",text:"Chitrakote Falls — Chhattisgarh",label:"C"},{id:"d",text:"Kempty Falls — Himachal Pradesh",label:"D"}],explanation:`<span class="text-red font-bold">Kempty Falls</span> is <span class="text-green font-bold">incorrectly matched</span>. It is a highly popular tourist destination located near <span class="text-blue font-bold">Mussoorie</span> in the <span class="text-orange font-bold">Dehradun</span> district of <span class="text-magenta font-bold">Uttarakhand</span>, <span class="text-teal font-bold">not Himachal Pradesh</span>.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Waterfall</th><th>River</th><th>State</th></tr></thead><tbody><tr><td><span class="text-red" style="font-weight: 800;">Dudhsagar</span></td><td>Mandovi</td><td>Goa</td></tr><tr><td><span class="text-red" style="font-weight: 800;">Jog (Gersoppa)</span></td><td>Sharavati</td><td>Karnataka</td></tr><tr><td><span class="text-red" style="font-weight: 800;">Chitrakote</span></td><td>Indravati</td><td>Chhattisgarh</td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/jm3d_XV_nbY?si=b_WuZikV8aK2zGc0" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/jm3d_XV_nbY/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"68e66cc0-de3f-4716-b351-7daa3efa9f74",category_id:"indian-geography",tags:["Agriculture"],difficulty:"easy",question:"Which of the following states is the absolute largest producer of coffee in India?",correctId:"a",options:[{id:"a",text:"Karnataka",label:"A"},{id:"b",text:"Kerala",label:"B"},{id:"c",text:"Assam",label:"C"},{id:"d",text:"Andhra Pradesh",label:"D"}],explanation:`<span class="text-red font-bold">Karnataka</span> overwhelmingly dominates India's coffee production, accounting for roughly <span class="text-green font-bold">70-71%</span> of the total output. The <span class="text-blue font-bold">Kodagu (Coorg), Chikmagalur, and Hassan</span> districts are the primary hubs.<br><span class="text-teal font-bold">Top 3 Coffee Producing States</span> in Descending Order:<br>1. <span class="text-red font-bold">Karnataka</span> (~71%)<br>2. <span class="text-orange font-bold">Kerala (~21%)</span><br>3. <span class="text-magenta font-bold">Tamil Nadu (~5%)</span><br>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"aeeb5937-fdf1-47b7-9236-a79ce7d782fd",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"In which of the following states of India can the rare Golden Langur predominantly be seen?",correctId:"b",options:[{id:"a",text:"Kerala",label:"A"},{id:"b",text:"Assam",label:"B"},{id:"c",text:"Sikkim",label:"C"},{id:"d",text:"Tamil Nadu",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">Gee's Golden Langur (Trachypithecus geei)</span><span class="text-green font-bold"></span> is an <span class="text-blue font-bold">endangered Old World monkey</span> characterized by its <span class="text-orange font-bold">striking golden fur</span>. It is endemic to a very small region, found strictly in <span class="text-magenta font-bold">Western Assam</span> (such as in the <span class="text-green" style="font-weight: 800;">Chakrashila Wildlife Sanctuary and Manas National Park</span>) and the neighboring <span class="text-red font-bold">Black Mountains of Bhutan</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/S3bd1uOHOzs?si=-XY_DfeMCZh4oakP" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/S3bd1uOHOzs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"5a1bd821-8cba-4153-93d8-b6a8936f51d6",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"Kori Creek, a strategically significant tidal creek, is located in which of the following regions?",correctId:"a",options:[{id:"a",text:"Rann of Kutch",label:"A"},{id:"b",text:"Gulf of Khambhat",label:"B"},{id:"c",text:"Gulf of Mannar",label:"C"},{id:"d",text:"None of these",label:"D"}],explanation:`The <span class="text-red font-bold">Kori Creek</span> is a <span class="text-green font-bold">tidal creek</span> situated in the desolate marshlands of the <span class="text-blue font-bold">Rann of Kutch</span> in <span class="text-orange font-bold">Gujarat</span>. It lies just to the west of the Great Rann and forms a part of the vast, disputed <span class="text-magenta font-bold"></span><span class="text-orange" style="font-weight: 800;">Sir Creek estuarine region</span> between <span class="text-teal font-bold">India (Gujarat) and Pakistan (Sindh)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/NIMOQJRWI_I?si=vFkdwdNB8nCQkxAp" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/NIMOQJRWI_I/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"4573ee38-0870-44dc-96d7-b7c5e9405b02",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"The Nilgiri Mountains form a structural knot spanning across which of the following states?",correctId:"c",options:[{id:"a",text:"Karnataka, Telangana and Kerala",label:"A"},{id:"b",text:"Kerala and Tamil Nadu",label:"B"},{id:"c",text:"Karnataka, Kerala, and Tamil Nadu",label:"C"},{id:"d",text:"Karnataka and Tamil Nadu",label:"D"}],explanation:'The <span class="text-red font-bold">Nilgiri Mountains</span> <span class="text-green font-bold">(Blue Mountains)</span> act as the physical <span class="text-blue font-bold">meeting point of the Western Ghats and the Eastern Ghats</span>. They are an extensive massif spread across the borders of three southern states: <span class="text-orange font-bold">northwestern Tamil Nadu</span>, <span class="text-magenta font-bold">southern Karnataka</span>, and <span class="text-teal font-bold">eastern Kerala</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"78e49186-7707-4c11-9387-634a35acd6e9",category_id:"indian-geography",tags:["Drainage System"],difficulty:"hard",question:"Which of the following wetland types and their examples are correctly matched?<br>1- Oxbow Wetland —Wular Lake<br>2- Crater Wetland — Lonar Lake<br>3- Lagoon Wetland — Chilika Lake<br>Choose the correct option:",correctId:"b",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"2 and 3 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"1, 2, and 3",label:"D"}],explanation:'<span class="text-orange" style="font-weight: 800;">Wular lake</span> is <span class="text-teal" style="font-weight: 800;">Tectonic lake</span>.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Wetland</th><th>Formation type</th><th>Location</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Kanwar Lake</span></td><td><span class="text-green font-bold">Oxbow Lake</span> (Meandering river cutoff)</td><td><span class="text-blue font-bold">Bihar</span></td></tr><tr><td><span class="text-orange font-bold">Lonar Lake</span></td><td><span class="text-magenta font-bold">Crater Lake (Meteorite impact)</span></td><td><span class="text-teal font-bold">Maharashtra</span></td></tr><tr><td><span class="text-red font-bold">Chilika Lake</span></td><td><span class="text-green font-bold">Lagoon (Coastal sandbar barrier)</span></td><td><span class="text-blue font-bold">Odisha</span></td></tr></tbody></table></div>',pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"e5047856-ec55-4e82-b527-0177f4246f64",category_id:"indian-geography",tags:["Mineral Resources"],difficulty:"medium",question:"Where are the historic Kolar Gold Fields (KGF) located in India?",correctId:"c",options:[{id:"a",text:"Tamil Nadu",label:"A"},{id:"b",text:"Andhra Pradesh",label:"B"},{id:"c",text:"Karnataka",label:"C"},{id:"d",text:"Telangana",label:"D"}],explanation:`The <span class="text-red font-bold">Kolar Gold Fields (K.G.F.)</span> is a renowned mining region situated in the <span class="text-green font-bold"><span class="text-orange" style="font-weight: 800;">Kolar district</span></span> of <span class="text-blue font-bold"><span class="text-orange" style="font-weight: 800;">Karnataka</span></span>. Operated for over a century, it was once one of the <span class="text-orange font-bold">deepest and most productive gold mines</span> in the world before <span class="text-magenta font-bold">operations ceased in 2001</span> due to <span class="text-teal font-bold">dwindling yields and high operational costs</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/wT5CuSZsHAE?si=25Zp_eYdkoguaqhp" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/wT5CuSZsHAE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"5e07f877-933c-4fb2-adde-d93272656313",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"medium",question:"Which of the following is NOT a recognized major coral reef site in India?",correctId:"d",options:[{id:"a",text:"Andaman and Nicobar Islands",label:"A"},{id:"b",text:"Gulf of Mannar",label:"B"},{id:"c",text:"Lakshadweep Islands",label:"C"},{id:"d",text:"Gulf of Khambhat",label:"D"}],explanation:`The <span class="text-red font-bold">Gulf of Khambhat (Cambay)</span> in <span class="text-green font-bold"></span><span class="text-orange" style="font-weight: 800;">Gujarat </span>is characterized by <span class="text-blue font-bold">massive tidal variations, heavy siltation, and muddy waters</span> from major rivers (Narmada, Tapti, Mahi), making it <span class="text-orange font-bold">completely hostile to coral growth</span>.<br>India's <span class="text-green" style="font-weight: 800;">four major coral reef ecosystems </span>are:<br>1. <span class="text-magenta font-bold"><span class="text-green" style="font-weight: 800;">Gulf of Mannar</span></span><br>2. <span class="text-green" style="font-weight: 800;">Andaman &amp; Nicobar Islands</span><br>3. <span class="text-red font-bold"><span class="text-green" style="font-weight: 800;">Lakshadweep (Atolls)</span></span><br>4. <span class="text-green font-bold"><span class="text-green" style="font-weight: 800;">Gulf of Kutch</span></span><br>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"a7ecc92d-52b3-4e9d-b85b-757496f6c352",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"hard",question:'Which of the following is historically known as "Dakshin Gangotri"?',correctId:"c",options:[{id:"a",text:"Rivers emerging from the Gangotri Glacier",label:"A"},{id:"b",text:"Amarkantak Plateau",label:"B"},{id:"c",text:"India's first scientific research base in Antarctica",label:"C"},{id:"d",text:"The Godavari River",label:"D"}],explanation:`<span class="text-red font-bold">Dakshin Gangotri</span> was the <span class="text-green font-bold">first scientific base station</span> established by India in <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Antarctica (1983)</span><span class="text-orange font-bold"></span> as part of the Indian Antarctic Programme. Due to being buried under ice, it was <span class="text-magenta font-bold">decommissioned in 1990</span> and converted into a supply base. India's active stations are now <span class="text-teal font-bold">Maitri and Bharati</span>.<br><span class="text-red font-bold">Examiner Trap</span>: Do not confuse "<span class="text-red font-bold">Dakshin Gangotri</span>" (the polar station) with "<span class="text-green font-bold">Dakshin Ganga</span>" (the Godavari River).<div>  <span class="text-rose-500 font-bold"> </span> </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"6986e43d-9722-492e-97d1-9caeade68c2d",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"The Himadri (Greater Himalayas) range is primarily formed of which type of rocks?",correctId:"d",options:[{id:"a",text:"Igneous Rocks",label:"A"},{id:"b",text:"Sedimentary Rocks",label:"B"},{id:"c",text:"Metamorphic Rocks",label:"C"},{id:"d",text:"Igneous and Metamorphic Rocks",label:"D"}],explanation:`The core of the <span class="text-red font-bold">Himadri (Greater Himalayas)</span> is highly <span class="text-green font-bold">crystalline and massive</span>. It is formed predominantly of ancient, hard <span class="text-blue font-bold">Archean rocks</span>, specifically intrusive <span class="text-orange font-bold">Igneous rocks (like granite)</span> and highly altered <span class="text-magenta font-bold">Metamorphic rocks (like gneiss and schist)</span>. This hardened crystalline core is <span class="text-teal font-bold">highly resistant to erosion</span>, which is why it hosts the world's tallest peaks.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"8edef48c-aab7-4318-8c0f-2dc7c67a4bea",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"The river Godavari originates from which of the following states in India?",correctId:"a",options:[{id:"a",text:"Maharashtra",label:"A"},{id:"b",text:"Tamil Nadu",label:"B"},{id:"c",text:"Andhra Pradesh",label:"C"},{id:"d",text:"Telangana",label:"D"}],explanation:'The <span class="text-red font-bold">Godavari</span>, the <span class="text-green font-bold">largest river system of Peninsular India</span>, originates from <span class="text-blue font-bold"><span class="text-orange" style="font-weight: 800;">Trimbakeshwar</span></span> near <span class="text-orange font-bold">Nashik</span> in the <span class="text-magenta font-bold"><span class="text-orange" style="font-weight: 800;">Western Ghats of Maharashtra</span></span>. It flows eastwards across the Deccan Plateau through Maharashtra, Telangana, and Andhra Pradesh before draining into the <span class="text-teal font-bold">Bay of Bengal</span>.<div><img src="https://pbs.twimg.com/media/GDPYsn8bQAAxGCw.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br>   </div>',pyq:"JKSSB Police 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"7ea43a33-56f7-41f2-9b21-8174cb9494d5",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"medium",question:"Which among the following is a prominent coral reef system located in India?",correctId:"c",options:[{id:"a",text:"Raja Ampat",label:"A"},{id:"b",text:"Rainbow Reef",label:"B"},{id:"c",text:"Netrani Island",label:"C"},{id:"d",text:"Great Barrier Reef",label:"D"}],explanation:`<span class="text-red font-bold">Netrani Island</span> (also known as <span class="text-red" style="font-weight: 800;">Pigeon Island</span>) is a small <span class="text-blue font-bold"><span class="text-green" style="font-weight: 800;">heart-shaped island</span></span> located in the <span class="text-orange font-bold">Arabian Sea</span> off the coast of <span class="text-magenta font-bold"></span><span class="text-orange" style="font-weight: 800;">Murudeshwar in Karnataka</span><span class="text-teal font-bold"></span>. It is one of the few places on the western coast of India (outside of Lakshadweep and the Gulf of Kutch) that features a thriving <span class="text-red font-bold"></span><span class="text-teal" style="font-weight: 800;">fringing coral reef system</span>, making it a premier scuba diving site.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Qo7TqECqyzI?si=r0e6bYEtDwHtfLhN" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Qo7TqECqyzI/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"7e20790b-d159-400f-a268-234b887afb84",category_id:"indian-geography",tags:["Energy Resources"],difficulty:"medium",question:"The Nathpa Jhakri Dam is a massive hydroelectric project constructed across which river?",correctId:"d",options:[{id:"a",text:"Cauvery",label:"A"},{id:"b",text:"Krishna",label:"B"},{id:"c",text:"Tapti",label:"C"},{id:"d",text:"Sutlej",label:"D"}],explanation:`The <span class="text-red font-bold">Nathpa Jhakri Dam</span> is a major <span class="text-green font-bold">concrete gravity dam</span> located in the <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Kinnaur and Shimla districts of Himachal Pradesh</span><span class="text-orange font-bold"></span>. It is built across the fast-flowing <span class="text-magenta font-bold">Sutlej River</span> and powers a massive <span style="font-weight: bold;">1500 MW underground hydroelectric power station</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/iJApbsa3hEs?si=ZwfB9W2DXBNtojib" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/iJApbsa3hEs/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"43b99487-cc50-461a-800e-577972536aac",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"Which among the following is an established meteorite Impact Crater Lake in India?",correctId:"a",options:[{id:"a",text:"Lonar Lake",label:"A"},{id:"b",text:"Karakul Lake",label:"B"},{id:"c",text:"Chilika Lake",label:"C"},{id:"d",text:"Rohtak Lake",label:"D"}],explanation:`<span class="text-red font-bold">Lonar Lake</span>, located in the <span class="text-green font-bold"></span><span class="text-orange" style="font-weight: 800;">Buldhana district of Maharashtra</span><span class="text-blue font-bold"></span>, is a notified <span class="text-orange font-bold">National Geo-heritage Monument</span>. It is a highly <span class="text-magenta font-bold">saline and alkaline</span> lake that was created by a massive <span class="text-teal font-bold">meteorite collision</span> during the <span class="text-red font-bold">Pleistocene Epoch</span>, making it the only known <span class="text-green font-bold">hyper-velocity impact crater in basaltic rock</span> anywhere on Earth.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/9QiUM0mb3UU?si=wQ-EoIBGDdu26EmH" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/9QiUM0mb3UU/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"7b917303-a864-4f47-9cac-b0b8e84a36be",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"hard",question:"In which among the following Indian states is the post-harvest festival, Chakan Gaan-Ngai, primarily celebrated?",correctId:"c",options:[{id:"a",text:"Meghalaya",label:"A"},{id:"b",text:"Sikkim",label:"B"},{id:"c",text:"Manipur",label:"C"},{id:"d",text:"Arunachal Pradesh",label:"D"}],explanation:'<span class="text-red font-bold">Chakan Gaan-Ngai</span> is the largest and most significant <span class="text-magenta font-bold">post-harvest festival</span> of the <span class="text-green font-bold">Zeliangrong Naga tribes</span> <span class="text-blue font-bold">(Zeme, Liangmai, and Rongmei)</span> residing primarily in <span class="text-orange font-bold">Manipur</span> <span style="font-style: italic;">(as well as parts of Assam and Nagaland)</span>. It is celebrated during the winter after the <span class="text-teal font-bold">granaries are full</span>.<br>',pyq:"Sub Auditor 2021",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"6f556192-5f5f-4b20-9393-12376edea577",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"medium",question:"The Golden Quadrilateral highway network connects which of the following metropolitan cities in India?",correctId:"b",options:[{id:"a",text:"Delhi - Mumbai - Hyderabad - Pune",label:"A"},{id:"b",text:"Delhi - Mumbai - Chennai - Kolkata",label:"B"},{id:"c",text:"Delhi - Mumbai - Bengaluru - Kolkata",label:"C"},{id:"d",text:"Mumbai - Bengaluru - Chennai - Pune",label:"D"}],explanation:'The <span class="text-red font-bold">Golden Quadrilateral (GQ)</span> is the <span class="text-green font-bold">largest express highway project</span> in India, launched in <span class="text-blue font-bold">2001</span>. It forms a massive quadrilateral linking the four major metropolitan cities of India: <span class="text-orange font-bold">Delhi (North)</span>, <span class="text-magenta font-bold">Kolkata (East)</span>, <span class="text-teal font-bold">Chennai (South)</span>, and <span class="text-red font-bold">Mumbai (West)</span>, drastically reducing travel time and boosting freight transport.<div><img src="https://www.savaari.com/blog/wp-content/uploads/2023/05/Chennai-to-Mumbai-GQ-1-1.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <img src="https://www.savaari.com/blog/wp-content/uploads/2023/05/Mumbai-to-Delhi-GQ.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <img src="https://www.savaari.com/blog/wp-content/uploads/2023/05/Delhi-to-Kolkata-GQ.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <img src="https://www.savaari.com/blog/wp-content/uploads/2023/05/Kolkata-to-Chennai-GQ.webp" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> </div><div>  <span class="text-blue-500 font-bold"> </span> </div>',pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"87071c31-c2b3-4f7b-8fcd-32f1da543192",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"Which among the following lakes is recognized as India's first and largest historic artificial freshwater lake?",correctId:"a",options:[{id:"a",text:"Dhebar Lake (Jaisamand Lake)",label:"A"},{id:"b",text:"Umiam Lake",label:"B"},{id:"c",text:"Dipor Bil",label:"C"},{id:"d",text:"Shilloi Lake",label:"D"}],explanation:`<span class="text-red font-bold">Dhebar Lake</span>, widely known as <span class="text-green font-bold">Jaisamand Lake</span>, is located in the <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Udaipur district of Rajasthan</span><span class="text-orange font-bold"></span>. Built in <span class="text-magenta font-bold">1685</span> by <span class="text-teal font-bold">Maharana Jai Singh</span> by damming the Gomti River, it remained the <span class="text-red font-bold">largest artificial lake</span> in the world for centuries and is currently the second-largest artificial freshwater lake in Asia (after <span class="text-green font-bold">Govind Ballabh Pant Sagar)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/24QZYeWj64g?si=Oy8IbPaBkfONOcIx" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/24QZYeWj64g/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"430ad630-45db-4fb9-96eb-9bf3fe3719df",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"hard",question:"Which of the following cities serves as the headquarters of the Eastern Railway Zone in India?",correctId:"c",options:[{id:"a",text:"Hajipur",label:"A"},{id:"b",text:"Allahabad (Prayagraj)",label:"B"},{id:"c",text:"Kolkata",label:"C"},{id:"d",text:"Gorakhpur",label:"D"}],explanation:'<span class="text-red font-bold">Kolkata</span> is a major railway hub and holds the unique distinction of serving as the <span class="text-green font-bold">headquarters for three distinct railway zones</span>: the <span class="text-blue font-bold">Eastern Railway</span>, the <span class="text-orange font-bold">South Eastern Railway</span>, and the <span class="text-magenta font-bold">Kolkata Metro</span>.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Railway zone</th><th>Headquarters</th></tr></thead><tbody><tr><td><span class="text-blue font-bold">Eastern Railway</span></td><td><span class="text-red font-bold">Kolkata</span></td></tr><tr><td>East Central Railway</td><td>Hajipur</td></tr><tr><td>North <span class="text-blue font-bold">Eastern Railway</span></td><td>Gorakhpur</td></tr><tr><td>North Central Railway</td><td>Prayagraj</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"7c51c880-4bc7-425b-97e2-aeca89066a09",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"The Indravati River is a major tributary of which of the following rivers?",correctId:"a",options:[{id:"a",text:"Godavari",label:"A"},{id:"b",text:"Krishna",label:"B"},{id:"c",text:"Mahanadi",label:"C"},{id:"d",text:"Kaveri",label:"D"}],explanation:'The <span class="text-red font-bold">Indravati River</span> rises in the <span class="text-green font-bold">Eastern Ghats in Kalahandi</span> <span class="text-blue font-bold">(Odisha)</span>, flows westwards through the dense forests of the <span class="text-orange font-bold">Bastar</span> district in <span class="text-magenta font-bold">Chhattisgarh</span>, and eventually joins the <span class="text-teal font-bold">Godavari</span> River at the border of <span style="font-style: italic;">Maharashtra, Chhattisgarh, and Telangana</span>. It forms the famous <span class="text-red font-bold">Chitrakote Falls</span> along its course.<br>',pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"cbf6b62b-e324-4266-9f4f-0ee026e4aeca",category_id:"indian-geography",tags:["Natural Vegetation"],difficulty:"medium",question:"India's first Cryptogamic garden was officially inaugurated in which district of Uttarakhand?",correctId:"b",options:[{id:"a",text:"Nainital",label:"A"},{id:"b",text:"Dehradun",label:"B"},{id:"c",text:"Chamoli",label:"C"},{id:"d",text:"Pauri Garhwal",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">India's first Cryptogamic garden</span> was inaugurated in <span class="text-green font-bold">July 2021</span> in the<span class="text-orange" style="font-weight: 800;"> Chakrata town of the Dehradun district in Uttarakhand.</span> The garden sits at an altitude of <span class="text-teal font-bold">9,000 feet</span> and is dedicated to ancient plant species that do not produce seeds or flowers, such as <span class="text-red font-bold">lichens, ferns, and fungi (cryptogams)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/AwdiNnVB9Os?si=bKJZQI5zi-BYaHQe" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/AwdiNnVB9Os/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"5b446147-c41b-4954-9071-bfa779658c06",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"hard",question:"Which of the following highways was traditionally classified as the shortest National Highway in India before the renumbering system?",correctId:"b",options:[{id:"a",text:"NH 26",label:"A"},{id:"b",text:"NH 47A",label:"B"},{id:"c",text:"NH 35",label:"C"},{id:"d",text:"NH 31B",label:"D"}],explanation:'Before the National Highway Authority of India (NHAI) renumbered the highway system, <span class="text-red font-bold">NH 47A</span> was the <span class="text-green font-bold">shortest national highway</span> in India. It covered a very brief stretch of just <span class="text-blue font-bold">5.9 kilometers</span>, connecting <span class="text-orange font-bold">Kundannoor Junction to Willingdon Island</span> in <span class="text-magenta font-bold">Kochi, Kerala</span>. (Under the new numbering system, it is known as <span class="text-teal font-bold">NH 966B)</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"a587cc19-30d7-4a9e-a1e3-c507498f7df4",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"The Indira Sagar Dam is constructed on which of the following rivers?",correctId:"b",options:[{id:"a",text:"Krishna",label:"A"},{id:"b",text:"Narmada",label:"B"},{id:"c",text:"Kallada",label:"C"},{id:"d",text:"Teesta",label:"D"}],explanation:`The <span class="text-red font-bold">Indira Sagar Dam</span> is a massive multipurpose dam built on the <span class="text-green font-bold">Narmada River</span> in the <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Khandwa district of Madhya Pradesh</span><span class="text-orange font-bold"></span>. Because it holds the <span class="text-magenta font-bold">largest water reservoir in India</span> in terms of storage capacity, it is a critical component of the <span class="text-teal font-bold">Narmada Valley Project</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/CHlOvtUcQfg?si=Wt2z8CW7n2XMMmAV" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/CHlOvtUcQfg/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"e60e2528-5ae9-4123-ba65-25a66d6fd390",category_id:"indian-geography",tags:["Agriculture"],difficulty:"easy",question:"Which of the following is a dual-purpose crop extensively used as both food for humans and fodder for livestock in India?",correctId:"a",options:[{id:"a",text:"Maize",label:"A"},{id:"b",text:"Rice",label:"B"},{id:"c",text:"Wheat",label:"C"},{id:"d",text:"Millets",label:"D"}],explanation:'<span class="text-red font-bold">Maize (corn)</span> is a versatile <span class="text-green font-bold">Kharif crop</span> grown under diverse climatic conditions. In India, it serves a vital dual purpose: the grain is consumed as a <span class="text-blue font-bold">staple food</span> (especially in rural parts of <span class="text-orange font-bold">North India)</span>, while the green leaves and stalks provide excellent, <span class="text-magenta font-bold">high-nutrition fodder for livestock and poultry</span>.<br>',pyq:"JKSSB JA 2022",created_at:"2026-07-10T06:27:24.405756+00:00"},{id:"148cdeb4-b45b-42f7-a1ae-daa5c0f8fb2b",category_id:"indian-geography",tags:["Economic Geography"],difficulty:"easy",question:"Which of the following activities comes under the Tertiary sector of the economy?",correctId:"b",options:[{id:"a",text:"Textile Manufacturing",label:"A"},{id:"b",text:"Tourism",label:"B"},{id:"c",text:"Mining",label:"C"},{id:"d",text:"Agriculture",label:"D"}],explanation:`The economy is <span class="text-orange" style="font-weight: 800;">divided into three primary sectors</span> based on the nature of economic activity:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Sector</th><th>Definition</th><th>Key examples</th></tr></thead><tbody><tr><td><span class="text-blue font-bold">Primary</span></td><td><span class="text-green font-bold">Extraction and harvesting of natural resources.</span></td><td><span class="text-orange font-bold">Agriculture, Mining, Fishing, Forestry</span></td></tr><tr><td><span class="text-magenta font-bold">Secondary</span></td><td><span class="text-teal font-bold">Processing of raw materials into finished goods.</span></td><td><span class="text-red font-bold">Textile Manufacturing, Automobile Assembly, Construction</span></td></tr><tr><td>Tertiary</td><td>Provision of services to businesses and consumers.</td><td><span class="text-teal" style="font-weight: 800;">Tourism</span>, Banking, IT Services, Transport, Retail</td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/5dGKcDpH3fM?si=4_xCOh_jZ5uU6sWF" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/5dGKcDpH3fM/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"5254e03e-e24b-433a-b866-1d85a5e83149",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"The highest peak of the Himalayas located strictly within India is in the state of:",correctId:"c",options:[{id:"a",text:"Ladakh",label:"A"},{id:"b",text:"Jammu and Kashmir",label:"B"},{id:"c",text:"Sikkim",label:"C"},{id:"d",text:"Himachal Pradesh",label:"D"}],explanation:`<span class="text-red font-bold">Kangchenjunga (8,586 m)</span> is the <span class="text-blue font-bold">third highest mountain in the world</span> and the highest Himalayan peak located perfectly within India's undisputed territory. It is situated on the <span class="text-orange font-bold">border between the Indian state of Sikkim and Nepal</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/M-hjKXpQ63M?si=QlRFhLRpmleg1W_Y" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/M-hjKXpQ63M/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"ddad5336-6d44-4271-a1aa-379bb486fe6e",category_id:"indian-geography",tags:["Climate"],difficulty:"medium",question:"When does the entire Earth experience roughly equal days and nights?",correctId:"d",options:[{id:"a",text:"Day of the Winter Solstice",label:"A"},{id:"b",text:"Day of the Summer Solstice",label:"B"},{id:"c",text:"At the orbital plane",label:"C"},{id:"d",text:"Day of the Equinox",label:"D"}],explanation:`The Earth experiences <span class="text-blue font-bold">equal lengths of day and night (approximately 12 hours each)</span> everywhere on the planet during an <span class="text-red font-bold">Equinox</span>. This occurs twice a year, the <span class="text-green font-bold">Vernal Equinox (around March 21)</span> and the <span class="text-orange font-bold">Autumnal Equinox (around September 23), </span>when the <span class="text-magenta font-bold">Sun is positioned directly vertically above the Equator</span>, and the Earth's axis neither tilts toward nor away from the Sun.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/enlih8M5DN0?si=1_hWQXzhxnmV6YEt" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/enlih8M5DN0/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Finance 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"2fbc0bbc-93f9-4993-a1f3-158e83e837b9",category_id:"indian-geography",tags:["Climate"],difficulty:"medium",question:"As per Koppen's classification of Indian climate, Jammu &amp; Kashmir, Himachal Pradesh, and Uttarakhand are part of which of the following climatic regions?",correctId:"c",options:[{id:"a",text:"Semi-Arid Steppe Type",label:"A"},{id:"b",text:"Tundra Type",label:"B"},{id:"c",text:"Cold Humid Type",label:"C"},{id:"d",text:"Temperate Monsoon Type",label:"D"}],explanation:`According to <span class="text-red" style="font-weight: 800;">Koppen's climate classification</span> <span class="text-teal font-bold">adapted for India</span>, the<span style="font-style: italic;"> high-altitude Himalayan regions of J&amp;K, Himachal Pradesh, and Uttarakhand</span> fall under the <span class="text-red font-bold">Cold Humid (Alpine/Mountain) climate</span>. In Koppen's strict alphabetic system, these regions experience the<span class="text-teal" style="font-weight: 800;"> 'E' (Polar/Alpine)</span> and <span class="text-teal" style="font-weight: 800;">'Dfc' (Cold, Humid winters with short summers) climatic conditions</span> due to their <span class="text-green font-bold">high elevation</span>.<br>`,pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"133b899c-2655-4943-8ccd-34d72af71a68",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"easy",question:"The greenhouse effect in the Earth's atmosphere is primarily produced due to the:",correctId:"a",options:[{id:"a",text:"Absorption and re-emission of infrared radiation by the atmosphere",label:"A"},{id:"b",text:"Absorption and re-emission of ultra-violet radiation by the atmosphere",label:"B"},{id:"c",text:"Absorption and re-emission of visible light by the atmosphere",label:"C"},{id:"d",text:"Absorption and re-emission of visible light by clouds",label:"D"}],explanation:'The Earth absorbs <span class="text-red font-bold">shortwave visible solar radiation</span> and radiates <span class="text-blue font-bold">longwave thermal infrared radiation</span> back towards space. <span class="text-green font-bold">Greenhouse gases (like CO2, Methane, and Water Vapor)</span> are <span class="text-orange font-bold">transparent to incoming visible light but highly opaque to outgoing infrared radiation</span>. They <span style="font-style: italic;">absorb this infrared heat and re-emit it in all directions</span>, <span class="text-teal font-bold">warming the lower atmosphere</span>.<br>  <span class="text-emerald-500 font-bold"> </span>',pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"f5f07034-b33a-409c-a312-0b2ef3847d46",category_id:"indian-geography",tags:["Agriculture"],difficulty:"easy",question:"The 'Golden Revolution' in India is related to the significant increase in the production of:",correctId:"d",options:[{id:"a",text:"Precious minerals",label:"A"},{id:"b",text:"Pulses and Dal",label:"B"},{id:"c",text:"Jute and Cotton",label:"C"},{id:"d",text:"Horticulture and Honey",label:"D"}],explanation:`The <span class="text-red font-bold">Golden Revolution</span> (spanning from roughly <span class="text-blue font-bold">1991 to 2003)</span> refers to a period of tremendous growth and development in the production of <span class="text-green font-bold">horticulture crops (fruits, vegetables, spices) and honey</span> in India. <span class="text-orange font-bold">Nirpakh Tutej</span> is considered the<span class="text-orange" style="font-weight: 800;"> Father of the Golden Revolution</span><span class="text-magenta font-bold"></span> in India. <div><span style="font-style: italic; text-decoration-line: underline;">(Note: 'Golden Fiber Revolution' refers specifically to Jute).</span><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/uz4pLBhIw-I?si=GCg_NWfjjFTG0Udu" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/uz4pLBhIw-I/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div></div>`,pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"9c8e458c-1c9b-4961-ba4a-b51cd91c0387",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:'Where is Sasthamkotta Lake, commonly referred to as the "Queen of Lakes," located in India?',correctId:"b",options:[{id:"a",text:"Gujarat",label:"A"},{id:"b",text:"Kerala",label:"B"},{id:"c",text:"Karnataka",label:"C"},{id:"d",text:"Kashmir",label:"D"}],explanation:'<span class="text-red font-bold">Sasthamkotta Lake</span> is the <span class="text-blue font-bold">largest freshwater lake in Kerala</span>, situated in the <span class="text-green font-bold">Kollam district</span>. It is affectionately called the "<span class="text-orange font-bold">Queen of Lakes</span>" and is a designated <span class="text-magenta font-bold">Ramsar Wetland site</span>. Its water is exceptionally pure, largely because the lake contains a large population of the <span class="text-teal font-bold">Cavaborus larva, which consumes bacteria in the water</span>.<br>',pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"eab1f104-ead8-4c52-a478-73afe6f45bae",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:`Which of the following demographic periods in India's census history is referred to as the period of "Population Explosion"?`,correctId:"c",options:[{id:"a",text:"1901 - 1921",label:"A"},{id:"b",text:"1901 - 1951",label:"B"},{id:"c",text:"1951 - 1981",label:"C"},{id:"d",text:"1981 - 2001",label:"D"}],explanation:`India's demographic history is divided into <span class="text-red" style="font-weight: 800;">four distinct phases</span>. The period from <span class="text-red font-bold"><span class="text-orange" style="font-weight: 800;">1951 to 1981</span></span> is known as the phase of<span class="text-orange" style="font-weight: 800;"> "Population Explosion."</span> During this time, <span class="text-green font-bold" style="font-style: italic; font-weight: normal;">rapid improvements in healthcare, sanitation, and medical infrastructure</span> caused a <span class="text-orange font-bold">steep fall in the mortality rate</span>, while the <span class="text-magenta font-bold">fertility rate remained exceptionally high</span>, leading to an <span class="text-teal font-bold">unprecedented population growth rate</span>.<br>  <span class="text-emerald-500 font-bold"> </span>`,pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"dc863259-ea42-41b4-bd27-3d8c7a12f3c4",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"easy",question:"Which is currently the longest National Highway in India?",correctId:"c",options:[{id:"a",text:"NH 1",label:"A"},{id:"b",text:"NH 5",label:"B"},{id:"c",text:"NH 44",label:"C"},{id:"d",text:"NH 8",label:"D"}],explanation:'<span class="text-red font-bold">National Highway 44 (NH 44)</span> is the <span class="text-blue font-bold">longest national highway in India</span>, stretching approximately <span class="text-green font-bold">3,745 km</span> from<span style="font-style: italic;"> Srinagar in the North to Kanyakumari in the South</span>. It was previously known as <span class="text-magenta font-bold">NH 7</span> before the <span class="text-teal font-bold">rationalization and renumbering of the national highway system by the NHAI</span>.<br>',pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"8c68af6d-89c0-4126-b9f5-bb0e11323da0",category_id:"indian-geography",tags:["Climate"],difficulty:"hard",question:"Who among the following was inspired by Albrecht Penck's pioneering ideas to study world climate and eventually develop the most widely used mathematical climate classification system?",correctId:"a",options:[{id:"a",text:"Wladimir Koppen",label:"A"},{id:"b",text:"Eduard Suess",label:"B"},{id:"c",text:"Alfred Hettner",label:"C"},{id:"d",text:"Carl Ritter",label:"D"}],explanation:'<span class="text-red font-bold">Wladimir Koppen</span>, a <span class="text-blue font-bold">Russian-German climatologist and botanist</span>, was deeply influenced by <span class="text-green font-bold">Albrecht Penck and Alphonse de Candolle</span>. Koppen developed a <span class="text-orange font-bold">quantitative, empirically-based climate classification system</span> in <span class="text-magenta font-bold">1884</span> that heavily relied on <span class="text-teal font-bold">average monthly temperatures, precipitation, and native vegetation zones</span>. The Koppen climate classification remains the most widely used system globally.<br>',pyq:"Stock Assistant 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"447e0641-c2f3-402a-b127-885a4c2b95c7",category_id:"indian-geography",tags:["Population"],difficulty:"medium",question:"When was the first synchronous and complete census held in India?",correctId:"d",options:[{id:"a",text:"1869",label:"A"},{id:"b",text:"1872",label:"B"},{id:"c",text:"1871",label:"C"},{id:"d",text:"1881",label:"D"}],explanation:'While the <span class="text-red font-bold">first non-synchronous census</span> in India was conducted in <span class="text-blue font-bold">1872</span> under the Vice royalty of <span class="text-green font-bold">Lord Mayo</span>, the <span class="text-orange font-bold">first complete, synchronous decennial census</span> covering the entire country was held in <span class="text-magenta font-bold">1881</span> under <span class="text-teal font-bold">Lord Ripon</span>. Since then, censuses have been conducted uninterruptedly every ten years. (Note: Competitive exams often test this distinction between the "first" in <span class="text-blue font-bold">1872</span> and the "first complete" in <span class="text-magenta font-bold">1881)</span>.<br>',pyq:"Supervisor 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"00b24265-cb48-434c-b70f-bbc3485c14aa",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"hard",question:"Nandankanan Zoological Park is globally renowned for the conservation and breeding of which of the following animals?",correctId:"c",options:[{id:"a",text:"Hippopotamus",label:"A"},{id:"b",text:"Nilgiri Tahr",label:"B"},{id:"c",text:"White Tiger",label:"C"},{id:"d",text:"Whale",label:"D"}],explanation:'<span class="text-red font-bold">Nandankanan Zoological Park</span>, located in <span class="text-blue font-bold">Bhubaneswar, Odisha</span>, is internationally famous for being the <span class="text-green font-bold">first zoo in the world to successfully breed Melanistic (black) and White Tigers</span>. It is also the <span class="text-orange" style="font-weight: 800;">only conservation breeding center</span> in the world for the <span class="text-orange" style="font-weight: 800;">endangered Indian Pangolin</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"Supervisor 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"d033e0c3-67e3-4f98-b261-72c5aac7b2bf",category_id:"indian-geography",tags:["Population"],difficulty:"hard",question:"Arrange the following states in ascending order (lowest to highest) according to their number of Lok Sabha seats:<br>1- West Bengal<br>2- Maharashtra<br>3- Bihar<br>4- Tamil Nadu<br>Choose the correct answer:",correctId:"c",options:[{id:"a",text:"2, 1, 3, 4",label:"A"},{id:"b",text:"1, 2, 3, 4",label:"B"},{id:"c",text:"4, 3, 1, 2",label:"C"},{id:"d",text:"4, 3, 2, 1",label:"D"}],explanation:'Understanding political geography and demographic representation is crucial.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>State</th><th><span class="text-teal font-bold">Number of lok sabha seats</span></th></tr></thead><tbody><tr><td>Tamil Nadu (4)</td><td>39</td></tr><tr><td>Bihar (3)</td><td>40</td></tr><tr><td>West Bengal (1)</td><td>42</td></tr><tr><td>Maharashtra (2)</td><td>48</td></tr></tbody></table></div>The correct ascending order (lowest to highest) is Tamil Nadu -&gt; Bihar -&gt; West Bengal -&gt; Maharashtra (4, 3, 1, 2).<br>',pyq:"Supervisor 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"3453c9f1-f5f1-4bc9-b3eb-e45a6d9e01d7",category_id:"indian-geography",tags:["Soils"],difficulty:"hard",question:"Consider the following statements regarding Laterite soils in India:<br>1- Laterite soils of India are generally red in color.<br>2- They are rich in nitrogen, potash, and organic matter.<br>3- They are well-developed in the arid regions of Rajasthan and UP.<br>4- Tapioca and cashew nuts grow exceptionally well on these soils.<br>Which of the above statements are correct?",correctId:"c",options:[{id:"a",text:"1, 2 and 3",label:"A"},{id:"b",text:"2, 3 and 4",label:"B"},{id:"c",text:"1 and 4",label:"C"},{id:"d",text:"2 and 3 only",label:"D"}],explanation:`<span class="text-red font-bold">Laterite soils</span> get their <span class="text-blue font-bold">red color from iron oxide</span>. With proper fertilization, they are excellent for <span class="text-green font-bold">plantation crops like cashew nuts and tapioca</span> (especially in Kerala).<br><span style="text-decoration-line: underline; font-style: italic;">Statements 2 and 3 are incorrect</span>. <span class="text-red font-bold">Laterite soils</span> form under conditions of <span class="text-orange font-bold">high temperature and heavy rainfall (intense leaching)</span>, so they are found in the <span class="text-magenta font-bold">Western Ghats and Meghalaya</span>, NOT arid Rajasthan. <span class="text-green" style="font-weight: 800;">Due to intense leaching</span>, they are <span class="text-teal font-bold">completely deprived of silica, nitrogen, potash, and organic matter</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/DsKWqCkyovs?si=ku5M1m_QMNY-YLha" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/DsKWqCkyovs/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-rose-500 font-bold"> </span> </div>`,pyq:"Supervisor 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"8e0faf30-279e-407a-bf81-e9fa7f1ab0c8",category_id:"indian-geography",tags:["Climate"],difficulty:"hard",question:`Match the following Pre-Monsoon local storms (List I) with their specific characteristics (List II):<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th><strong>List i </strong></th><th></th><th><strong>List ii </strong></th></tr></thead><tbody><tr><td>1. Mango Shower</td><td></td><td> i. Pre-monsoon showers which help in blossoming of coffee flowers</td></tr><tr><td>2. Blossom Shower</td><td><br></td><td>ii. Pre-monsoon showers which help in the early ripening of mangoes</td></tr><tr><td>3. Nor'westers (Kalbaisakhi)</td><td></td><td>iv. Dreadful evening thunderstorms in Bengal and Assam</td></tr><tr><td>4. Loo</td><td></td><td>iii. Hot, dry, and oppressive winds blowing over the Northern Plains</td></tr></tbody></table></div>Choose the correct option:`,correctId:"a",options:[{id:"a",text:"1-ii, 2-i, 3-iv, 4-iii",label:"A"},{id:"b",text:"1-i, 2-ii, 3-iv, 4-iii",label:"B"},{id:"c",text:"1-ii, 2-i, 3-iii, 4-iv",label:"C"},{id:"d",text:"1-iii, 2-iv, 3-i, 4-ii",label:"D"}],explanation:'Local pre-monsoon weather phenomena have massive agricultural impacts.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Local storm</th><th>Region</th><th>Key characteristic</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Mango Shower</span></td><td>Kerala &amp; Karnataka</td><td>Helps in the early ripening of mangoes.</td></tr><tr><td><span class="text-blue font-bold">Blossom Shower</span></td><td>Kerala &amp; Karnataka</td><td>Crucial for the b<span class="text-orange font-bold">loo</span>ming of coffee blossoms.</td></tr><tr><td><span class="text-green font-bold">Nor Westers</span></td><td>West Bengal &amp; Assam</td><td><span class="text-teal font-bold">Violent evening thunderstorms (Kalbaisakhi)</span>.</td></tr><tr><td><span class="text-orange font-bold">Loo</span></td><td>North &amp; NW India</td><td>Extremely hot, dry, suffocating summer wind.</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"Supervisor 2024",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"46695f5c-9e7e-46dd-9d80-2c42f94cdd21",category_id:"indian-geography",tags:["Natural Vegetation"],difficulty:"hard",question:"The largest sacred groves in India are found in which of the following states?",correctId:"a",options:[{id:"a",text:"Uttarakhand and Himachal Pradesh",label:"A"},{id:"b",text:"Kerala and Tamil Nadu",label:"B"},{id:"c",text:"Kerala and Andhra Pradesh",label:"C"},{id:"d",text:"Maharashtra and Madhya Pradesh",label:"D"}],explanation:`<span class="text-red font-bold">Sacred groves</span> are <span class="text-blue font-bold">tracts of forest set aside and protected by local communities due to deep religious beliefs</span>. Some of the largest and most pristine <span class="text-red font-bold">sacred groves</span> in India are located in the Himalayas, specifically the <span class="text-green font-bold">Hariyali grove</span> in the <span class="text-orange font-bold"><span class="text-teal" style="font-weight: 800;">Chamoli district (Uttarakhand)</span></span> and the dense <span class="text-magenta font-bold"></span><span class="text-orange" style="font-weight: 800;">Deodar groves </span>like <span class="text-teal font-bold"><span class="text-orange" style="font-weight: 800;">Shipin near Shimla (Himachal Pradesh)</span></span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/sYbiB1yIrP4?si=JIwTbg-T84kz0_Q3" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/sYbiB1yIrP4/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"4e0a7ff6-511a-4819-95df-865d70b7f375",category_id:"indian-geography",tags:["Climate"],difficulty:"medium",question:"Thunderstorms typically originate from which type of clouds?",correctId:"b",options:[{id:"a",text:"Stratocumulus Clouds",label:"A"},{id:"b",text:"Cumulonimbus Clouds",label:"B"},{id:"c",text:"Altocumulus Clouds",label:"C"},{id:"d",text:"Nimbostratus Clouds",label:"D"}],explanation:`<span class="text-red font-bold">Cumulonimbus clouds</span> are <span class="text-blue font-bold">massive, towering vertical clouds</span> associated with <span class="text-green font-bold">extreme atmospheric instability</span>. They are the<span style="font-style: italic;"> only cloud type capable of producing severe weather events like thunderstorms, lightning, heavy torrential rain, and hail</span>. <div><span class="text-magenta font-bold">Nimbostratus clouds</span> produce <span class="text-teal font-bold">continuous light-to-moderate rain, but no thunderstorms</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/zUNEFefftt8?si=_3njzOAd5TNiUcjX" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/zUNEFefftt8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span></div></div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"bb8d28c7-fb93-42b7-bfde-0c8fcb447fb3",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"In which region of the Indian subcontinent are magmatic 'Dykes' most commonly found?",correctId:"c",options:[{id:"a",text:"Western Ghats",label:"A"},{id:"b",text:"Karnataka plateau",label:"B"},{id:"c",text:"Western Maharashtra",label:"C"},{id:"d",text:"Chota Nagpur plateau",label:"D"}],explanation:`A <span class="text-red font-bold">dyke</span> is a <span class="text-blue font-bold">sheet-like vertical intrusion of magma</span> that <span class="text-green font-bold">cuts across pre-existing rock layers</span>. In the Indian subcontinent, an <span class="text-orange font-bold">extensive swarm of basic dykes</span> is most prominently found cutting through the massive flood basalts of <span class="text-magenta font-bold">Western Maharashtra (Deccan Traps region)</span>. These formed as <span class="text-teal font-bold">feeder channels for the massive volcanic eruptions that built the Deccan Plateau</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/kH_d5mWCFvA?si=Rmsapbdpw8fL4GmW" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/kH_d5mWCFvA/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"6dfcf877-c5a9-4d17-94d6-ceb39f429e06",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"The Rajmahal hills in eastern India (Jharkhand) geologically belong to which of the following rock systems?",correctId:"a",options:[{id:"a",text:"Gondwana System",label:"A"},{id:"b",text:"Dharwar System",label:"B"},{id:"c",text:"Cuddapah System",label:"C"},{id:"d",text:"Tertiary System",label:"D"}],explanation:`The<span class="text-orange" style="font-weight: 800;"> Rajmahal Hills</span><span class="text-red font-bold"></span> are largely composed of <span class="text-blue font-bold"><span class="text-orange" style="font-weight: 800;">basaltic lava flows</span></span>, but they rest upon and encapsulate <span class="text-green font-bold">thick sedimentary deposits belonging to the Gondwana rock system</span>. The <span class="text-orange font-bold">Gondwana system</span> is economically vital because it holds over 90% of India's <span class="text-teal font-bold">coal reserves</span>.<br>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"4c5e2b33-4ae6-434e-9a72-1d09603a5537",category_id:"indian-geography",tags:["Climate"],difficulty:"hard",question:"Hail generally forms within which of the following cloud types?",correctId:"d",options:[{id:"a",text:"Cirrostratus",label:"A"},{id:"b",text:"Stratocumulus",label:"B"},{id:"c",text:"Altocumulus",label:"C"},{id:"d",text:"Cumulonimbus",label:"D"}],explanation:'<span class="text-red font-bold">Hail formation</span> requires <span class="text-blue font-bold">massive vertical updrafts</span> that can <span class="text-green font-bold">carry water droplets high into the freezing layers of the atmosphere multiple times, adding layers of ice</span>. Only the <span class="text-orange font-bold">towering Cumulonimbus clouds</span> possess the <span class="text-magenta font-bold">intense vertical development and powerful internal updrafts</span> necessary to <span class="text-teal font-bold">generate and support hail</span> before it falls to earth.<br>  <span class="text-rose-500 font-bold">    </span>',pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"baba28cb-b881-4c86-984c-61720b1893bc",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"The Gulf of Mannar Marine Biosphere Reserve is located off the coast of which state?",correctId:"b",options:[{id:"a",text:"Kerala",label:"A"},{id:"b",text:"Tamil Nadu",label:"B"},{id:"c",text:"Odisha",label:"C"},{id:"d",text:"Andhra Pradesh",label:"D"}],explanation:`The <span class="text-red font-bold">Gulf of Mannar Marine Biosphere Reserve</span>, India's first marine biosphere reserve, is located along the <span class="text-green font-bold">southeastern coast of Tamil Nadu</span>. Extending <span class="text-orange font-bold">between Thoothukudi and Ramanathapuram</span>, it is globally recognized for its highly <span class="text-magenta font-bold">diverse coral reefs, seagrass meadows</span>, and the <span class="text-teal font-bold">endangered Dugong (sea cow)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/q46AcWkCRdU?si=pZyJA9mERgIP2Seb" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/q46AcWkCRdU/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>     </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"c005f92a-c04e-4094-97ed-59499c8a8835",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"In which Indian state is the glacial Tsomgo Lake located?",correctId:"d",options:[{id:"a",text:"Assam",label:"A"},{id:"b",text:"Arunachal Pradesh",label:"B"},{id:"c",text:"Manipur",label:"C"},{id:"d",text:"Sikkim",label:"D"}],explanation:`<span class="text-red font-bold">Tsomgo Lake (also known as Changu Lake)</span> is a breathtaking, <span class="text-blue font-bold">high-altitude glacial lake</span> situated in the <span class="text-green font-bold">East Sikkim district</span>. Located at an <span class="text-orange font-bold">elevation of over 3,700 meters</span> on the road to the <span class="text-magenta font-bold">Nathu La pass</span>, the lake <span class="text-teal font-bold">remains completely frozen during the winter months</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/mi-iqp0flr0?si=j9wCLU9GHhfsZ34y" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/mi-iqp0flr0/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold">   </span></div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"941b8ada-d2b0-432f-9212-351f6e94be48",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:`The "Flying Fox", occasionally mentioned in the context of India's wildlife, is actually a species of:`,correctId:"c",options:[{id:"a",text:"Fish",label:"A"},{id:"b",text:"Lizard",label:"B"},{id:"c",text:"Bat",label:"C"},{id:"d",text:"Fox",label:"D"}],explanation:`The <span class="text-red font-bold">Indian Flying Fox (Pteropus medius)</span> is one of the <span class="text-blue font-bold">largest bat species in the world</span>, with a <span class="text-green font-bold">wingspan that can exceed 4 feet</span>. Unlike insectivorous microbats, flying foxes are <span class="text-orange font-bold">megabats</span> that rely heavily on <span class="text-magenta font-bold">sight and smell rather than echolocation</span>, and they feed primarily on <span class="text-teal font-bold">nectar and ripe fruits</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/8IUUOMFAaOg?si=wy491kja3N6QeAff" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/8IUUOMFAaOg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"ea5779cb-cddd-4647-981d-c7c3c128f5d4",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"What is a 'Kayal' in the context of Indian Geography?",correctId:"a",options:[{id:"a",text:"A lagoon in Kerala",label:"A"},{id:"b",text:"The Ganges delta region",label:"B"},{id:"c",text:"The Terai plain",label:"C"},{id:"d",text:"An estuary in Gujarat",label:"D"}],explanation:`'<span class="text-red font-bold">Kayal</span>' is the <span class="text-blue font-bold">Malayalam word</span> used to denote the <span class="text-green font-bold">backwaters and lagoons of Kerala</span>. These are a massive <span class="text-orange font-bold">network of brackish lagoons and lakes lying parallel to the Malabar Coast</span>, formed by the action of ocean waves throwing up sandbars across the mouths of rivers. <span class="text-teal font-bold">Vembanad Kayal is the longest</span> among them.<br>  <span class="text-blue-500 font-bold">   </span>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"86650dde-13c2-4784-857d-c127063c015d",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"The massive Deccan Trap formations in Peninsular India were caused by which specific type of volcanic eruption?",correctId:"a",options:[{id:"a",text:"Flood Basalt Eruption",label:"A"},{id:"b",text:"Caldera Volcano Eruption",label:"B"},{id:"c",text:"Shield Volcano Eruption",label:"C"},{id:"d",text:"Composite Volcano Eruption",label:"D"}],explanation:`The <span class="text-red font-bold">Deccan Traps</span> were formed by massive, repeated "<span class="text-blue font-bold">Flood Basalt</span>" volcanic eruptions millions of years ago. Unlike explosive cone volcanoes, <span class="text-blue font-bold">flood basalt</span> eruptions involve <span class="text-green font-bold">highly fluid, low-viscosity basaltic magma</span> <span class="text-orange font-bold">oozing out of deep fissures</span> in the earth's crust, <span class="text-magenta font-bold">spreading laterally over vast areas</span> and <span class="text-teal font-bold">creating thick, step-like plateaus</span>.<br>  <span class="text-rose-500 font-bold"> </span>`,pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"12ae153b-f892-472a-ba44-bf8e2118c09e",category_id:"indian-geography",tags:["Agriculture"],difficulty:"hard",question:"What does the acronym 'POP' stand for with respect to modern agricultural crop management?",correctId:"c",options:[{id:"a",text:"Payment of Produce",label:"A"},{id:"b",text:"Parcel of Produce",label:"B"},{id:"c",text:"Package of Practices",label:"C"},{id:"d",text:"Pattern of Planting",label:"D"}],explanation:'In agricultural science and extension services, POP stands for "<span class="text-blue font-bold">Package of Practices</span>." It refers to the <span class="text-green font-bold">comprehensive, scientifically recommended set of guidelines</span> provided to <span class="text-orange font-bold">farmers for a specific crop</span>, including <span class="text-magenta font-bold">seed variety selection, land preparation, fertilizer dosage, irrigation scheduling, and pest management</span> to <span class="text-teal font-bold">maximize yield</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2022",created_at:"2026-07-09T16:58:50.404347+00:00"},{id:"97ef49b1-4736-45c7-b205-48e00439cf7e",category_id:"indian-geography",tags:["Energy Resources"],difficulty:"hard",question:"Consider the following hydropower projects and their respective States/Union Territories:<br>1- Naitwar Mori Hydro Electric Project — Uttarakhand<br>2- Parbati Hydroelectric Project — Himachal Pradesh<br>3- Ratle Hydroelectric Project — Jammu &amp; Kashmir<br>Which of the above pairs are correctly matched?",correctId:"d",options:[{id:"a",text:"1 and 3 only",label:"A"},{id:"b",text:"2 and 3 only",label:"B"},{id:"c",text:"3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:'All three hydropower projects are correctly matched with their respective locations.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Project name</th><th>River</th><th>State / ut</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Naitwar Mori</span></td><td><span class="text-blue font-bold">Tons (Yamuna tributary)</span></td><td><span class="text-green font-bold">Uttarakhand</span></td></tr><tr><td><span class="text-orange font-bold">Parbati</span></td><td><span class="text-magenta font-bold">Parbati (Beas basin)</span></td><td><span class="text-teal font-bold">Himachal Pradesh</span></td></tr><tr><td><span class="text-red font-bold">Ratle</span></td><td><span class="text-blue font-bold">Chenab</span></td><td>Jammu &amp; Kashmir</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2023",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"cf64ed02-df22-4953-800f-3ed38ed88a45",category_id:"indian-geography",tags:["Climate"],difficulty:"easy",question:"Assertion (A): Shimla is colder than Delhi.<br>Reason (R): Shimla is situated at a higher altitude than Delhi.<br>Choose the correct option:",correctId:"a",options:[{id:"a",text:"Both A and R are true, and R is the correct explanation of A",label:"A"},{id:"b",text:"Both A and R are true, but R is not the correct explanation of A",label:"B"},{id:"c",text:"A is true, but R is false",label:"C"},{id:"d",text:"A is false, but R is true",label:"D"}],explanation:'The assertion is true, and the reason perfectly explains it. <span class="text-red font-bold">Temperature decreases with an increase in altitude</span> <span class="text-blue font-bold">(Normal Lapse Rate: roughly 6.5°C drop per 1000 meters)</span>. Because <span class="text-green font-bold">Shimla</span> is situated in the <span class="text-orange font-bold">Himalayas at an altitude of over 2,200 meters</span>, it experiences a significantly <span class="text-magenta font-bold">cooler climate than Delhi</span>, which is on the plains.<br>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"405670fe-d78b-45e3-94fb-a31016cba151",category_id:"indian-geography",tags:["Irrigation"],difficulty:"hard",question:"Which of the following is India's highest dam?",correctId:"b",options:[{id:"a",text:"Bhakra Nangal",label:"A"},{id:"b",text:"Tehri Dam",label:"B"},{id:"c",text:"Nagarjuna Sagar",label:"C"},{id:"d",text:"Nurek Dam",label:"D"}],explanation:`The <span class="text-red font-bold">Tehri Dam</span>, located on the <span class="text-blue font-bold"><span class="text-green" style="font-weight: 800;">Bhagirathi River</span></span> in <span class="text-green font-bold">Uttarakhand</span>, is the <span class="text-orange font-bold" style="font-weight: normal; font-style: italic;">highest dam in India (and one of the highest in the world) with a height of 260.5 meters</span>.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Dam</th><th>River</th><th>Feature</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Tehri Dam</span></td><td>Bhagirathi</td><td>Highest dam in India</td></tr><tr><td><span class="text-magenta font-bold">Hirakud Dam</span></td><td><span class="text-teal font-bold">Mahanadi</span></td><td><span class="text-red font-bold">Longest dam in India</span></td></tr><tr><td><span class="text-blue font-bold">Bhakra Dam</span></td><td><span class="text-green font-bold">Sutlej</span></td><td><span class="text-orange font-bold">Largest gravity dam in India</span></td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/J5K-5-de8pw?si=5jLrdIXGZ-QRzSeL" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/J5K-5-de8pw/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>  <span class="text-blue-500 font-bold"><span class="text-rose-500 font-bold"> </span> </span>`,pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"2bf9ab1b-15d6-45f0-9ca6-bc19cbbcb74c",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"Which of the following mountain peaks is NOT among the top 7 highest mountain peaks in India?",correctId:"a",options:[{id:"a",text:"Trisul",label:"A"},{id:"b",text:"Mamostong",label:"B"},{id:"c",text:"Kamet",label:"C"},{id:"d",text:"Nanda Devi",label:"D"}],explanation:'<span class="text-red font-bold">Mount Trisul (7,120 m)</span> is a prominent peak in the <span class="text-blue font-bold">Kumaon Himalayas (Uttarakhand)</span> but falls well outside the <span class="text-green font-bold">top 5 highest peaks in India</span>.<br>The top highest peaks in India include <span class="text-orange font-bold">Kangchenjunga (8,586 m)</span>, <span class="text-magenta font-bold">Nanda Devi (7,816 m)</span>, and <span class="text-teal font-bold">Kamet (7,756 m)</span>. (Note: <span class="text-red font-bold">K2 is higher but lies in PoK)</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"0084e407-c721-4f9f-a3d9-e93c517a686b",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:'Which river is famously called the "Sorrow of Bihar"?',correctId:"a",options:[{id:"a",text:"Kosi",label:"A"},{id:"b",text:"Ganga",label:"B"},{id:"c",text:"Yamuna",label:"C"},{id:"d",text:"Damodar",label:"D"}],explanation:`The <span class="text-red font-bold">Kosi River</span> is known as the <span class="text-green" style="font-weight: 800;">"Sorrow of Bihar"</span> because of its highly unstable nature and tendency to <span class="text-green font-bold">frequently change its course</span>. Originating in <span class="text-orange font-bold">Tibet and Nepal</span>, it carries a <span class="text-magenta font-bold">massive silt load</span>, which chokes its own channel in the plains, leading to <span class="text-teal font-bold">devastating and unpredictable floods</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/lnQEpTYj6Ro?si=WXFz9kMlmymADcu5" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/lnQEpTYj6Ro/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB JA 2023",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"e688580e-e41f-4480-896e-913ce0f44c10",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"medium",question:"Prashar Lake in Himachal Pradesh is located in which district?",correctId:"d",options:[{id:"a",text:"Kullu",label:"A"},{id:"b",text:"Kinnaur",label:"B"},{id:"c",text:"Shimla",label:"C"},{id:"d",text:"Mandi",label:"D"}],explanation:`<span class="text-red font-bold">Prashar Lake</span> is a crystal-clear, high-altitude water body located in the <span class="text-blue font-bold">Mandi district</span> of <span class="text-green font-bold">Himachal Pradesh</span>. It is famous for the <span class="text-orange font-bold">three-storied pagoda-like temple</span> dedicated to the <span class="text-magenta font-bold">sage Prashar</span> situated on its banks, and for a small <span class="text-teal font-bold">floating island</span> within the lake.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Z0ZPRmEcXOg?si=8UIZNkdD_NYBjQce" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Z0ZPRmEcXOg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  </div>`,pyq:null,created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"ee732b28-5e69-4aa2-b26c-555d964c043f",category_id:"indian-geography",tags:["Energy Resources"],difficulty:"easy",question:"The Srisailam Hydro Electric Project is constructed across which river?",correctId:"a",options:[{id:"a",text:"Krishna",label:"A"},{id:"b",text:"Kaveri",label:"B"},{id:"c",text:"Godavari",label:"C"},{id:"d",text:"Thamirabarani",label:"D"}],explanation:`The <span class="text-red font-bold">Srisailam Dam</span> is a massive hydroelectric project constructed across the <span class="text-blue font-bold">Krishna River</span> in the <span class="text-green font-bold">Nallamala Hills</span>. It sits precisely on the border of the <span class="text-orange font-bold">Mahabubnagar district (Telangana)</span> and the <span class="text-magenta font-bold">Kurnool district (Andhra Pradesh)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/9NbV413eZv8?si=szQjd-60rrDETr6B" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/9NbV413eZv8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  </div>`,pyq:null,created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"7b09086d-16f6-4b91-ade4-008183fbcdc3",category_id:"indian-geography",tags:["Population"],difficulty:"hard",question:"Match the following Measures of Mortality (List I) with their correct descriptions (List II):<br>1- Gross Reproduction Rate : i- Measures the number of daughters over a lifetime<br>2- Age-Specific Fertility Rate : ii- Value lies between 100 and 225<br>3- Infant Mortality Rate : iii- Is measured per 1000 live births<br>4- Maternal Mortality Rate : iv- Affected by mortality rates<br>Choose the correct option:",correctId:"c",options:[{id:"a",text:"1-i, 2-ii, 3-iv, 4-iii",label:"A"},{id:"b",text:"1-i, 2-iv, 3-iii, 4-ii",label:"B"},{id:"c",text:"1-i, 2-ii, 3-iii, 4-iv",label:"C"},{id:"d",text:"1-ii, 2-iv, 3-iii, 4-i",label:"D"}],explanation:'<span class="text-red font-bold">Infant Mortality Rate (IMR)</span> is strictly defined as the <span class="text-blue font-bold">number of infant deaths (under one year of age) per 1000 live births</span>. <span class="text-green font-bold">Gross Reproduction Rate (GRR)</span> measures the <span class="text-orange font-bold">average number of daughters a woman would have if she survived all her childbearing years</span>.<br>',pyq:"JKSSB FAA 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"3b766357-6530-4eb7-a291-36eff1c4cc08",category_id:"indian-geography",tags:["Population"],difficulty:"medium",question:"The population growth rate is mathematically defined as the:",correctId:"d",options:[{id:"a",text:"Difference between the growth of male and female populations",label:"A"},{id:"b",text:"Difference between the population of urban and rural areas",label:"B"},{id:"c",text:"Number of births per thousand persons",label:"C"},{id:"d",text:"Difference between birth rate and death rate",label:"D"}],explanation:'The <span class="text-red font-bold">natural population growth rate</span> is the <span class="text-blue font-bold">difference between the birth rate and the death rate</span> in a given area. (If migration is factored in, it becomes the absolute growth rate). <span class="text-green font-bold">Option C describes the crude birth rate, not the growth rate.</span><div><span style="color: rgb(74, 222, 128); font-weight: 700;"><img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/11/sfshg-1668578766.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%;"> <br></span><div><div>  <span class="text-blue-500 font-bold"> </span> </div></div></div>',pyq:"JKSSB FAA 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"77417a84-0f90-4287-9449-c42eb68f760e",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Match the following National Parks with their respective States:<br>1- Kaziranga National Park : i- Gujarat<br>2- Jim Corbett National Park : ii- Rajasthan<br>3- Ranthambore National Park : iii- Uttarakhand<br>4- Gir National Park : iv- Assam<br>Choose the correct option:",correctId:"c",options:[{id:"a",text:"1-iii, 2-iv, 3-ii, 4-i",label:"A"},{id:"b",text:"1-iv, 2-ii, 3-iii, 4-i",label:"B"},{id:"c",text:"1-iv, 2-iii, 3-ii, 4-i",label:"C"},{id:"d",text:"1-iv, 2-iii, 3-ii, 4-i",label:"D"}],explanation:`These are four of India's most iconic national parks:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>National park</th><th>State</th><th>Famous for</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Kaziranga</span></td><td><span class="text-blue font-bold">Assam</span></td><td><span class="text-green font-bold">One-horned Rhinoceros</span></td></tr><tr><td><span class="text-orange font-bold">Jim Corbett</span></td><td><span class="text-magenta font-bold">Uttarakhand</span></td><td><span class="text-teal font-bold">Royal Bengal Tigers (Oldest NP)</span></td></tr><tr><td><span class="text-red font-bold">Ranthambore</span></td><td><span class="text-blue font-bold">Rajasthan</span></td><td>Royal Bengal Tigers</td></tr><tr><td><span class="text-green font-bold">Gir</span></td><td><span class="text-orange font-bold">Gujarat</span></td><td><span class="text-magenta font-bold">Asiatic Lions</span></td></tr></tbody></table></div>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB FAA 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"d360c607-08de-4a7e-9f0e-2d59f2b39f62",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"easy",question:"Arrange the following states in a geographical order from North to South:<br>1- Himachal Pradesh<br>2- Tamil Nadu<br>3- Telangana<br>4- Madhya Pradesh<br>Choose the correct sequence:",correctId:"c",options:[{id:"a",text:"1, 2, 3, 4",label:"A"},{id:"b",text:"3, 1, 2, 4",label:"B"},{id:"c",text:"1, 4, 3, 2",label:"C"},{id:"d",text:"1, 4, 2, 3",label:"D"}],explanation:'Visualizing the map of India from top to bottom:<br><span class="text-red font-bold">Himachal Pradesh is in the extreme North (Himalayas)</span>.<br><span class="text-blue font-bold">Madhya Pradesh forms the central heart of India</span>.<br><span class="text-green font-bold">Telangana is in South-Central India (Deccan plateau)</span>.<br><span class="text-orange font-bold">Tamil Nadu is at the extreme southern tip</span> of the peninsula.<br>Therefore, the sequence is: Himachal Pradesh -&gt; Madhya Pradesh -&gt; Telangana -&gt; Tamil Nadu.<br>',pyq:"JKSSB FAA 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"04e6865c-b1ea-4b52-b631-b781c3668f4b",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"hard",question:"Consider the following statements about the Brihadeshwara temple:<br>1- The temple is located in Thanjavur, Tamil Nadu, on the south side of the Vaipar river.<br>2- A large statue of Nandi (the holy bull) carved from a single rock is placed at the temple's entrance.<br>3- The temple is dedicated to the worship of goddess Kali.<br>Which of the statements given above is/are correct?",correctId:"a",options:[{id:"a",text:"2 only",label:"A"},{id:"b",text:"1 and 2 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"2 and 3 only",label:"D"}],explanation:`Statement 2 is correct; it features a <span class="text-orange font-bold">massive monolithic Nandi</span>.<br>Statements 1 and 3 are incorrect. The <span class="text-red font-bold">Brihadeshwara Temple (a UNESCO World Heritage Site built by Raja Raja Chola I)</span> is situated on the <span class="text-blue font-bold">south bank of the Kaveri river</span> (not Vaipar), and it is <span class="text-green font-bold">dedicated to Lord Shiva</span> <span style="font-style: italic;">(not Goddess Kali)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/J7AK8qdfiKE?si=9rIX1Ni2pQUsIHn9" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/J7AK8qdfiKE/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Panchayat 2025",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"aa4e0428-91c7-494e-a485-c091ed5fb988",category_id:"indian-geography",tags:["Population"],difficulty:"hard",question:"Which of the following is NOT a major recognized tribe of Rajasthan?",correctId:"d",options:[{id:"a",text:"Bhil Tribe",label:"A"},{id:"b",text:"Gond Tribe",label:"B"},{id:"c",text:"Damor Tribe",label:"C"},{id:"d",text:"Kothari Tribe",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">"Kothari"</span> is a surname predominantly associated with <span class="text-blue font-bold">merchant and trading communities (Banias/Jains) in Rajasthan and Gujarat</span>; it is not a tribal group.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Tribe</th><th>Region in rajasthan</th></tr></thead><tbody><tr><td><span class="text-green font-bold">Bhil</span></td><td><span class="text-orange font-bold">Banswara, Udaipur, Dungarpur</span></td></tr><tr><td><span class="text-magenta font-bold">Meena</span></td><td><span class="text-teal font-bold">Jaipur, Alwar (Most populous)</span></td></tr><tr><td><span class="text-red font-bold">Damor</span></td><td><span class="text-blue font-bold">Dungarpur border region</span></td></tr><tr><td><span class="text-green font-bold">Sahariya</span></td><td><span class="text-orange font-bold">Baran (Only PVTG in Rajasthan)</span></td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Panchayat 2025",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"27b16d54-cd3e-4818-8ed8-9ff2b1b1916a",category_id:"indian-geography",tags:["Agriculture"],difficulty:"hard",question:"Ponni rice is a popular rice variety mainly grown in which state of India?",correctId:"a",options:[{id:"a",text:"Tamil Nadu",label:"A"},{id:"b",text:"Karnataka",label:"B"},{id:"c",text:"Kerala",label:"C"},{id:"d",text:"Maharashtra",label:"D"}],explanation:'<span class="text-red font-bold">Ponni rice</span> is a highly popular, <span class="text-blue font-bold">short-grain variety</span> of rice cultivated predominantly in <span class="text-green font-bold">Tamil Nadu</span>, especially in the <span class="text-orange font-bold">Kaveri delta region</span>. It was developed by the <span class="text-magenta font-bold">Tamil Nadu Agricultural University (TNAU) in 1986</span>.<span style="font-style: italic;"> "Ponni" literally translates to "Gold" </span>and is also a <span class="text-red font-bold">traditional name for the Kaveri river</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Panchayat 2025",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"153e9083-64df-4968-9f3a-8ddba2010d37",category_id:"indian-geography",tags:["Agriculture"],difficulty:"medium",question:"Where is the Central Agricultural University (CAU) situated?",correctId:"a",options:[{id:"a",text:"Manipur",label:"A"},{id:"b",text:"West Bengal",label:"B"},{id:"c",text:"Andhra Pradesh",label:"C"},{id:"d",text:"Uttar Pradesh",label:"D"}],explanation:'The <span class="text-red font-bold">Central Agricultural University (CAU)</span> is situated in <span class="text-blue font-bold">Imphal, Manipur</span>. Established in <span class="text-green font-bold">1993</span>, it was specifically created to serve the <span class="text-orange font-bold">agricultural education, research, and extension needs of the northeastern states</span> of India.<br>  <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"8da9bc68-5187-4855-99a5-e8f1804b7cd9",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"Gipmochi mountain is a strategically significant peak lying at the tri-junction of China, Bhutan, and the Indian state of:",correctId:"c",options:[{id:"a",text:"Manipur",label:"A"},{id:"b",text:"Ladakh",label:"B"},{id:"c",text:"Sikkim",label:"C"},{id:"d",text:"Arunachal Pradesh",label:"D"}],explanation:`<span class="text-red font-bold">Gipmochi (also known as Gyemo Chen)</span> is a mountain peak located at the strategic <span class="text-blue font-bold">tri-junction where the borders of Sikkim (India), Bhutan, and the Chumbi Valley (Tibet, China) meet</span>. It is situated very close to the <span class="text-green font-bold">Doklam plateau</span>, making it a <span class="text-orange font-bold">highly sensitive geopolitical flashpoint</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/hHcShO80G-c?si=HOShaJKT5CRpSiXt" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/hHcShO80G-c/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"70e8b1d0-9dd9-4391-afe8-528613decd28",category_id:"indian-geography",tags:["Economic Geography"],difficulty:"easy",question:"Which of the following countries is NOT a member of SAARC?",correctId:"a",options:[{id:"a",text:"Myanmar",label:"A"},{id:"b",text:"Bhutan",label:"B"},{id:"c",text:"Nepal",label:"C"},{id:"d",text:"Maldives",label:"D"}],explanation:'<span class="text-red font-bold">SAARC (South Asian Association for Regional Cooperation)</span> strictly comprises <span class="text-blue font-bold">8 South Asian nations</span>: <span class="text-green font-bold">India, Pakistan, Bangladesh, Sri Lanka, Nepal, Bhutan, Maldives, and Afghanistan</span>. <span class="text-orange font-bold">Myanmar is part of Southeast Asia and is a member of ASEAN, not SAARC</span>.<div><img src="https://s3-ap-south-1.amazonaws.com/adda247jobs-wp-assets-adda247/articles/wp-content/uploads/2022/11/19170715/Saarc-map.jpg" class="nk-mcq-image cursor-pointer" data-align="center" style="width: 100%; max-width: 100%;"> <br>   </div>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"8128b561-27df-4b6e-a09c-74f376720437",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"easy",question:"What is the administrative capital of the Indian Union Territory of Lakshadweep?",correctId:"a",options:[{id:"a",text:"Kavaratti",label:"A"},{id:"b",text:"Delhi",label:"B"},{id:"c",text:"Port Blair",label:"C"},{id:"d",text:"Pondicherry",label:"D"}],explanation:'<span class="text-red font-bold">Kavaratti</span> is the <span class="text-blue font-bold">capital city and the administrative headquarters</span> of the <span class="text-green font-bold">Union Territory of Lakshadweep</span>. It is famous for its <span class="text-orange font-bold">pristine white sand beaches, coral reefs, and tranquil lagoons</span>. (Port Blair is the capital of the Andaman &amp; Nicobar Islands).<br>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T05:01:11.661158+00:00"},{id:"356ca17e-7b36-4784-95e1-40f81fee354a",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"Arrange the following Passes in decreasing order of their height:<br>1- Chang La<br>2- Baralacha La<br>3- Zoji La<br>4- Lachulang La<br>Choose the correct option:",correctId:"d",options:[{id:"a",text:"1, 2, 3, 4",label:"A"},{id:"b",text:"2, 1, 3, 4",label:"B"},{id:"c",text:"3, 1, 2, 4",label:"C"},{id:"d",text:"1, 4, 2, 3",label:"D"}],explanation:'To arrange mountain passes by height, rely on <span class="text-red font-bold">major high-altitude regions</span>. Ladakh contains some of the highest motorable passes in the world. <br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Mountain pass</th><th>Approximate height</th><th>Region</th></tr></thead><tbody><tr><td><span class="text-blue font-bold">Chang La</span></td><td><span class="text-green font-bold">~5,360 m</span></td><td>Ladakh</td></tr><tr><td><span class="text-orange font-bold">Lachulang La</span></td><td><span class="text-teal font-bold">~5,059 m</span></td><td>Ladakh/HP Border</td></tr><tr><td><span class="text-magenta font-bold">Baralacha La</span></td><td><span class="text-blue font-bold">~4,890 m</span></td><td>Himachal Pradesh</td></tr><tr><td><span class="text-green font-bold">Zoji La</span></td><td><span class="text-red font-bold">~3,528 m</span></td><td>J&amp;K / Ladakh Border</td></tr></tbody></table></div>Decreasing order: <span class="text-blue font-bold">Chang La</span> &gt; <span class="text-orange font-bold">Lachulang La</span> &gt; <span class="text-magenta font-bold">Baralacha La</span> &gt; <span class="text-green font-bold">Zoji La</span> (1, 4, 2, 3).<br>',pyq:"JKSSB SA 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"a2585226-e7eb-4c81-911e-6b507e987242",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"Match the following important facts about lakes in India with their respective lakes:<br>1- Largest freshwater lake : i- Chilika Lake, Odisha<br>2- Largest saline water lake : ii- Gobind Ballabh Pant Sagar<br>3- Longest Lake : iii- Wular Lake, Jammu &amp; Kashmir<br>4- Largest Artificial Lake : iv- Vembanad Lake, Kerala<br>Choose the correct option:",correctId:"a",options:[{id:"a",text:"1-iii, 2-i, 3-iv, 4-ii",label:"A"},{id:"b",text:"1-ii, 2-iii, 3-i, 4-iv",label:"B"},{id:"c",text:"1-iii, 2-ii, 3-i, 4-iv",label:"C"},{id:"d",text:"1-ii, 2-iv, 3-iii, 4-i",label:"D"}],explanation:`India's extreme water bodies are frequent examiner favorites.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Fact</th><th>Lake</th><th>Location</th></tr></thead><tbody><tr><td>Largest freshwater lake</td><td><span class="text-blue font-bold">Wular Lake</span></td><td>Jammu &amp; Kashmir</td></tr><tr><td>Largest saline (brackish) lake</td><td><span class="text-green font-bold">Chilika Lake</span></td><td><span class="text-orange font-bold">Odisha</span></td></tr><tr><td>Longest lake</td><td><span class="text-magenta font-bold">Vembanad Lake</span></td><td><span class="text-teal font-bold">Kerala</span></td></tr><tr><td>Largest artificial lake</td><td><span class="text-blue font-bold">Gobind Ballabh Pant Sagar</span></td><td><span class="text-green font-bold">Uttar Pradesh</span></td></tr></tbody></table></div>Memory Trick: For longest, think of the long boat races <span class="text-orange" style="font-weight: 800;">(Nehru Trophy) held in Vembanad, Kerala</span>.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB SA 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"97aa1726-10c2-4852-894e-a950ab6fc85e",category_id:"indian-geography",tags:["Drainage System","India Size N Extent"],difficulty:"hard",question:"In which Indian state/states does the Mahi River cross the Tropic of Cancer?",correctId:"d",options:[{id:"a",text:"Madhya Pradesh only",label:"A"},{id:"b",text:"Rajasthan only",label:"B"},{id:"c",text:"Rajasthan and Gujarat",label:"C"},{id:"d",text:"Madhya Pradesh and Gujarat",label:"D"}],explanation:`The <span class="text-red font-bold">Mahi</span> is the only river in India that <span class="text-blue font-bold">crosses the Tropic of Cancer twice</span>. It originates in the <span class="text-green font-bold">Vindhya Range</span> of <span class="text-orange font-bold">Madhya Pradesh</span>, flows northwards into <span class="text-magenta font-bold">Rajasthan</span>, where it makes a <span class="text-teal font-bold">U-turn</span> (crossing the Tropic of Cancer), and then flows southwest into <span class="text-red font-bold">Gujarat</span>, crossing the Tropic of Cancer a second time before emptying into the <span class="text-blue font-bold">Arabian Sea</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/WbRLiuCaa5o?si=8HVi38THtmkTnmeD" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/WbRLiuCaa5o/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   <span class="text-rose-500 font-bold"> </span> </div>`,pyq:"JKSSB SA 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"bebf0ffd-198d-4c08-ad7d-dd04c418f4ca",category_id:"indian-geography",tags:["Agriculture","Soils"],difficulty:"hard",question:"Which of the following statements is/are correct regarding the soil type required for growing Millets (Nutri-Cereals)?<br>1- Jowar: Rain-fed crop grown in moist areas with less or no irrigation.<br>2- Bajra: Well-drained fertile loamy and clayey loamy soils.<br>3- Ragi: Red, black, sandy, loamy, and shallow black soils.<br>Choose the correct option:",correctId:"a",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 3 only",label:"B"},{id:"c",text:"2 and 3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:'Statements 1 and 2 are accurate for <span class="text-red font-bold">Jowar</span> and <span class="text-blue font-bold">Bajra</span>. Statement 3 is often presented in a restrictive way in standard texts, but <span class="text-green font-bold">Ragi</span> actually thrives exceptionally well on <span class="text-orange font-bold">red, light black, and sandy loams</span>, rather than deep clayey soils. However, strictly per the competitive exam keys, <span class="text-magenta font-bold">Jowar (Sorghum) thrives in rain-fed moist areas</span>, and <span class="text-teal font-bold">Bajra (Pearl Millet) requires well-drained sandy or loamy soils</span>. <span class="text-red font-bold">Ragi is highly adaptable but primarily associated with red soils in Karnataka</span>.<br>   <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB SA 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"962777e5-0c5c-48f5-a019-9c90f6bd0217",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"hard",question:"Consider the following states:<br>1- Rajasthan<br>2- Gujarat<br>3- Jammu &amp; Kashmir<br>4- Himachal Pradesh<br>The Desert Development Programme (DDP) was started in which of the above states?",correctId:"d",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 3 only",label:"B"},{id:"c",text:"1, 2 and 3 only",label:"C"},{id:"d",text:"1, 2, 3 and 4",label:"D"}],explanation:'The <span class="text-red font-bold">Desert Development Programme</span> (DDP), launched in <span class="text-blue font-bold">1977-78</span>, was aimed at <span class="text-green font-bold">controlling desertification</span> and restoring ecological balance. Crucially, it covers both "<span class="text-orange font-bold">Hot Deserts</span>" and "<span class="text-magenta font-bold">Cold Deserts</span>".<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Desert type</th><th>States covered under ddp</th></tr></thead><tbody><tr><td>Hot Desert</td><td><span class="text-teal font-bold">Rajasthan, Gujarat, Haryana</span></td></tr><tr><td>Cold Desert</td><td>Jammu &amp; Kashmir (Ladakh), Himachal Pradesh (Spiti)</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"a23aa65d-846c-4e64-9179-ab32503d7a0b",category_id:"indian-geography",tags:["Industries"],difficulty:"medium",question:"India's first sponge iron plant is located at:",correctId:"a",options:[{id:"a",text:"Kothagudem",label:"A"},{id:"b",text:"Kurnool",label:"B"},{id:"c",text:"Cuddapah",label:"C"},{id:"d",text:"Kavaratti",label:"D"}],explanation:`<span style="text-decoration-line: underline;">India's first sponge iron plant</span>, "<span class="text-red font-bold">Sponge Iron India Limited (SIIL)</span>", was established <span class="text-orange" style="font-weight: 800;">in Kothagudem</span><span class="text-blue font-bold"></span> in the present-day state of <span class="text-green font-bold">Telangana</span>. It was set up as a <span class="text-orange font-bold">demonstration plant</span> with the assistance of the <span class="text-magenta font-bold">UNDP</span> to utilize <span class="text-teal font-bold">non-coking coal</span> for iron production.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"68e99a41-62ab-4132-b91e-3cfd69fa5cfc",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"Which of the following is the largest freshwater lake in India?",correctId:"c",options:[{id:"a",text:"Pulicat Lake",label:"A"},{id:"b",text:"Chilika Lake",label:"B"},{id:"c",text:"Wular Lake",label:"C"},{id:"d",text:"Vembanad Lake",label:"D"}],explanation:`<span class="text-red font-bold">Wular Lake</span>, located in the <span class="text-blue font-bold">Bandipora district</span> of <span class="text-green font-bold">Jammu and Kashmir</span>, is the <span class="text-orange font-bold">largest freshwater lake in India</span>. It is fed by the <span class="text-magenta font-bold">Jhelum River</span> and its size fluctuates seasonally. <span class="text-teal font-bold">Chilika is the largest brackish water lake</span>, and <span class="text-red font-bold">Vembanad is the longest lake</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/IYZS-uyQqQo?si=tAaVWvg_CIxQgzOG" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/IYZS-uyQqQo/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"fdb7ffc7-e789-4d95-aa34-2b55df448a69",category_id:"indian-geography",tags:["Irrigation"],difficulty:"medium",question:"The Indira Sagar Dam, located in Madhya Pradesh, is built on which of the following rivers?",correctId:"c",options:[{id:"a",text:"Yamuna",label:"A"},{id:"b",text:"Chambal",label:"B"},{id:"c",text:"Narmada",label:"C"},{id:"d",text:"Krishna",label:"D"}],explanation:`The <span class="text-red font-bold">Indira Sagar Dam</span> is a multipurpose project located in the <span class="text-blue font-bold">Khandwa district</span> of <span class="text-green font-bold">Madhya Pradesh</span> on the <span class="text-orange font-bold">Narmada River</span>.<br>Elimination Insight: The <span class="text-magenta font-bold">Chambal river hosts the Gandhi Sagar, Rana Pratap Sagar, and Jawahar Sagar dams</span>. The <span class="text-teal font-bold">Narmada river hosts the Indira Sagar and Sardar Sarovar dams</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/QDW7GgXeQzc?si=t47IkNi5fYzKrY5n" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/QDW7GgXeQzc/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"d2518cfa-ff39-41c6-86fb-e4c4d424c97d",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:"As per the 2011 Census, which is the least populated state in India?",correctId:"b",options:[{id:"a",text:"Mizoram",label:"A"},{id:"b",text:"Sikkim",label:"B"},{id:"c",text:"Tripura",label:"C"},{id:"d",text:"Uttarakhand",label:"D"}],explanation:'According to the <span class="text-red font-bold">2011 Census</span>, <span class="text-blue font-bold">Sikkim</span> is the <span class="text-green font-bold">least populous state</span> in India, with a population of approximately <span class="text-orange font-bold">6.10 lakh (610,577)</span>. <span class="text-magenta font-bold">Mizoram</span> is the <span class="text-teal font-bold">second least populous state</span>. In contrast, <span class="text-red font-bold">Uttar Pradesh is the most populous state</span>.<br>',pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"d8b70669-8228-4a09-9168-651c0e50c579",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"easy",question:"Which is the smallest Union Territory of India in terms of total area?",correctId:"d",options:[{id:"a",text:"Puducherry",label:"A"},{id:"b",text:"Daman and Diu",label:"B"},{id:"c",text:"Chandigarh",label:"C"},{id:"d",text:"Lakshadweep",label:"D"}],explanation:`<span class="text-red font-bold">Lakshadweep</span> is India's <span class="text-blue font-bold">smallest Union Territory</span>, covering an area of just <span class="text-green font-bold">32 square kilometers</span>.<br><span style="font-weight: bold; text-decoration-line: underline;">Sorting order of Union Territories by Area (Highest to Lowest):</span><br>Jammu &amp; Kashmir &gt; Ladakh &gt; Andaman &amp; Nicobar Islands &gt; Delhi &gt; Dadra &amp; Nagar Haveli and Daman &amp; Diu &gt; Puducherry &gt; Chandigarh &gt; <span class="text-red font-bold">Lakshadweep</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/5fIMZegbmcM?si=qOwUVXs45mbR9p7o" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/5fIMZegbmcM/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-emerald-500 font-bold"> </span> </div>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"6e015b2b-22d6-44aa-acd7-49457bd0371f",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"The highest peak of the Himalayas located within India is in:",correctId:"c",options:[{id:"a",text:"Uttar Pradesh",label:"A"},{id:"b",text:"Kashmir",label:"B"},{id:"c",text:"Sikkim",label:"C"},{id:"d",text:"Himachal Pradesh",label:"D"}],explanation:`The<span class="text-red" style="font-weight: 800;"> highest Himalayan peak</span> situated perfectly within India's undisputed territory is <span class="text-red font-bold">Kanchenjunga</span> <span class="text-blue font-bold">(8,586 meters)</span>. It is located on the border between the Indian state of <span class="text-green font-bold">Sikkim</span> and <span class="text-orange font-bold">Nepal</span>. <span class="text-magenta font-bold">Mt. K2 (Godwin Austen)</span> is higher, but it is located in the <span class="text-teal font-bold">Karakoram range in PoK</span>.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"8ca87290-4f2d-48ca-a29e-8ce5dd3f603d",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"Name the Indian river famously known as the 'Dakshin Ganga':",correctId:"b",options:[{id:"a",text:"Krishna",label:"A"},{id:"b",text:"Godavari",label:"B"},{id:"c",text:"Narmada",label:"C"},{id:"d",text:"Kaveri",label:"D"}],explanation:`The <span class="text-red font-bold">Godavari</span> is the <span class="text-blue font-bold">longest river in Peninsular India</span>. Due to its massive length <span class="text-green font-bold">(1,465 km)</span> and the extensive area it covers, it is affectionately called the '<span class="text-orange font-bold">Dakshin Ganga</span>' (Ganges of the South) or '<span class="text-magenta font-bold">Vridha Ganga</span>' (Old Ganga).<br><span style="font-weight: bold; text-decoration-line: underline;">Examiner Trap:</span> 'Ganga of the South' (for purity/cultural significance) sometimes refers to the Kaveri, but '<span class="text-orange font-bold">Dakshin Ganga</span>' strictly refers to the <span class="text-red font-bold">Godavari</span> in competitive exams.<div> <div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/IKBe-T0GusI?si=wERyw85y_90YRtHP" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/IKBe-T0GusI/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div><div>   </div>`,pyq:"JKSSB Pharma 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"a2c84ec0-07f1-4717-a273-747cea76cd5b",category_id:"indian-geography",tags:["Agriculture"],difficulty:"medium",question:"Consider the following statements regarding shifting cultivation:<br>1- It is also known as 'slash and burn' agriculture.<br>2- In India, it is mainly practiced in the Northeast region.<br>3- In Northeast India, it is known as Jhum cultivation.<br>4- This type of agriculture is not done anywhere else in the world except India.<br>Which of the statements given above are correct?",correctId:"a",options:[{id:"a",text:"1, 2 and 3 only",label:"A"},{id:"b",text:"1, 2 and 4 only",label:"B"},{id:"c",text:"3 and 4 only",label:"C"},{id:"d",text:"1, 2, 3 and 4",label:"D"}],explanation:`Statement 4 is incorrect because <span class="text-red font-bold">shifting cultivation</span> is a <span class="text-blue font-bold">globally practiced primitive farming method</span>. It is known by various names worldwide, such as '<span class="text-green font-bold">Milpa</span>' in <span class="text-orange font-bold">Central America</span>, '<span class="text-magenta font-bold">Roca</span>' in <span class="text-teal font-bold">Brazil</span>, and '<span class="text-red font-bold">Ladang</span>' in <span class="text-blue font-bold">Indonesia</span>.<br>Statements 1, 2, and 3 accurately describe the practice in India, where it is predominantly found in the forested, hilly tracts of the <span class="text-green font-bold">Northeast (locally called Jhumming)</span>.<br>`,pyq:"JKSSB Pharma 2025",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"0720b7db-2888-4af4-a459-cd02dec0cf09",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"The six rivers of the Indus basin flow across the Himalayas to the Arabian Sea via Karachi. Where does the Indus river originate from?",correctId:"a",options:[{id:"a",text:"Tibet",label:"A"},{id:"b",text:"Bangladesh",label:"B"},{id:"c",text:"Pakistan",label:"C"},{id:"d",text:"Jammu and Kashmir",label:"D"}],explanation:`The <span class="text-red font-bold">Indus River</span> originates from the glaciers of the <span class="text-blue font-bold">Kailash Range in Tibet</span>, near <span class="text-green font-bold">Lake Mansarovar</span> (specifically the <span class="text-orange font-bold">Bokhar Chu glacier)</span>. After flowing northwest through Tibet (where it is called <span class="text-magenta font-bold">Singi Khamban)</span>, it enters India through <span class="text-teal font-bold">Ladakh</span> before crossing into <span class="text-red font-bold">Pakistan</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/CfBXZiZEWC0?si=9xWeMxj2tacMMJiy" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/CfBXZiZEWC0/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"Naib Tehsildar 2018",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"9b28472e-9eb8-435e-bed1-0a813da16e93",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"easy",question:"Which state in India has the longest coastline?",correctId:"b",options:[{id:"a",text:"Andhra Pradesh",label:"A"},{id:"b",text:"Gujarat",label:"B"},{id:"c",text:"Maharashtra",label:"C"},{id:"d",text:"Karnataka",label:"D"}],explanation:'<span class="text-red font-bold">Gujarat</span> possesses the <span class="text-blue font-bold">longest coastline</span> among all Indian states, stretching approximately <span class="text-green font-bold">1,214 km</span>. This is largely due to the<span style="font-style: italic;"> highly indented and curved nature of the <span class="text-orange font-bold">Kathiawar and Kutch peninsulas</span></span>. <span class="text-magenta font-bold">Andhra Pradesh</span> has the <span class="text-teal font-bold">second-longest coastline</span>.<br>',pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"18944810-a4f2-43a5-b325-d9d712fc0c6f",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"medium",question:"Which of the following is the largest container port in India?",correctId:"d",options:[{id:"a",text:"Paradip Port, Odisha",label:"A"},{id:"b",text:"Kandla Port, Gujarat",label:"B"},{id:"c",text:"Ennore Port, Tamil Nadu",label:"C"},{id:"d",text:"Jawaharlal Nehru Port, Navi Mumbai",label:"D"}],explanation:`<span class="text-red font-bold">Jawaharlal Nehru Port Trust (JNPT)</span>, located in <span class="text-blue font-bold">Navi Mumbai, Maharashtra</span>, is the <span class="text-green font-bold">largest container handling port</span> in India, managing more than half of the country's major containerized cargo. It was formerly known as <span class="text-magenta font-bold">Nhava Sheva</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/nKL8DrHkdJw?si=LcFbSG5WoP24Z0ww" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/nKL8DrHkdJw/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"d684bb4a-0ec9-4df2-b3a7-26c6785071a9",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"easy",question:"Which Indian state is famously known as 'God's Own Country'?",correctId:"d",options:[{id:"a",text:"Jammu and Kashmir",label:"A"},{id:"b",text:"Sikkim",label:"B"},{id:"c",text:"Nagaland",label:"C"},{id:"d",text:"Kerala",label:"D"}],explanation:`<span class="text-red font-bold">Kerala</span> is globally marketed and popularly known as <span class="text-orange" style="font-weight: 800;">'God's Own Country' </span>due to its <span class="text-green font-bold">lush green landscapes, serene backwaters, beautiful beaches, and rich cultural heritage</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/A-zFpph44JY?si=ZqEbM6Mo2FJnAboj" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/A-zFpph44JY/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"c64bf66e-6dd8-4d0d-9f43-7b4d763a994a",category_id:"indian-geography",tags:["Drainage System"],difficulty:"easy",question:"The largest brackish water lake of India is located in the state of:",correctId:"d",options:[{id:"a",text:"West Bengal",label:"A"},{id:"b",text:"Jammu and Kashmir",label:"B"},{id:"c",text:"Kerala",label:"C"},{id:"d",text:"Odisha",label:"D"}],explanation:`<span class="text-red font-bold">Chilika Lake</span>, situated on the eastern coast of India in the state of <span class="text-blue font-bold">Odisha</span>, is the <span class="text-green font-bold">largest brackish water lagoon in Asia</span> and the <span class="text-orange font-bold">largest coastal lagoon in India</span>. It is located at the mouth of the <span class="text-magenta font-bold">Daya River</span> flowing into the <span class="text-teal font-bold">Bay of Bengal</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/B8zk8ucnfn0?si=V88rsDk-VXgWACCn" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/B8zk8ucnfn0/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"3eda96a0-1c15-4036-87d9-32669272a8eb",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"easy",question:"What is the geographical alternate name for the Sahyadri Range?",correctId:"c",options:[{id:"a",text:"Lesser Himalayas",label:"A"},{id:"b",text:"Eastern Ghats",label:"B"},{id:"c",text:"Western Ghats",label:"C"},{id:"d",text:"Shivalik",label:"D"}],explanation:`The <span class="text-red font-bold">Western Ghats</span>, a continuous mountain range <span style="font-style: italic;">running parallel to the western coast </span>of the Indian peninsula, is locally known as the <span class="text-orange" style="font-weight: 800;">'Sahyadri'</span> in <span class="text-green font-bold"><span class="text-orange" style="font-weight: 800;">Maharashtra</span></span> and <span class="text-orange font-bold">Karnataka</span>.<br>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"1037e76f-fa0e-4cf3-af9b-5229a9fcd335",category_id:"indian-geography",tags:["Physiographic Divisions","Maps N Places"],difficulty:"medium",question:"The Siachen glacier is located closest to which of the following valleys?",correctId:"a",options:[{id:"a",text:"Nubra Valley",label:"A"},{id:"b",text:"Doon Valley",label:"B"},{id:"c",text:"Silent Valley",label:"C"},{id:"d",text:"Neelam Valley",label:"D"}],explanation:`The <span class="text-red font-bold">Siachen Glacier</span> is located in the <span class="text-blue font-bold">eastern Karakoram range</span> in the Himalayas. Its melting waters form the <span class="text-green font-bold">Nubra River</span>, which flows into the <span class="text-orange font-bold">Nubra Valley</span> (located to the south of the glacier) in <span class="text-magenta font-bold">Ladakh</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/fP4tdB_rdaM?si=Y5sMRlR2xUcHzi4a" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/fP4tdB_rdaM/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Pharma 2024",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"726497f3-8231-4cfc-afdd-060e5c2c21fe",category_id:"indian-geography",tags:["Population","Drainage System"],difficulty:"medium",question:"Assertion (A): The Ganga Plain is the most densely populated part of India.<br>Reason (R): The Ganga is the least harnessed river in India.<br>Choose the correct option:",correctId:"c",options:[{id:"a",text:"Both A and R are true, and R is the correct explanation of A",label:"A"},{id:"b",text:"Both A and R are true, but R is not the correct explanation of A",label:"B"},{id:"c",text:"A is true, but R is false",label:"C"},{id:"d",text:"A is false, but R is true",label:"D"}],explanation:'Assertion (A) is correct: The <span class="text-red font-bold">fertile alluvial soils and perennial water availability</span> make the <span class="text-blue font-bold">Indo-Gangetic plain</span> extremely favorable for agriculture, supporting <span class="text-green font-bold">high population densities</span>.<br>Reason (R) is false: The <span class="text-orange font-bold">Ganga is actually one of the most heavily harnessed and engineered river systems</span> in India, featuring massive barrage systems <span class="text-magenta font-bold">(Farakka, Haridwar)</span> and <span class="text-teal font-bold">extensive canal networks for irrigation</span>.<br>',pyq:"JKSSB Operator 2026",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"94d5001f-1f4d-4548-8377-82bfbc451556",category_id:"indian-geography",tags:["Agriculture"],difficulty:"hard",question:"Match the following Agriculture products with their Foremost producing States:<br>1- Gram : i- Madhya Pradesh<br>2- Cardamom : ii- West Bengal<br>3- Pineapple : iii- Kerala<br>Choose the correct option:",correctId:"b",options:[{id:"a",text:"1-iii, 2-i, 3-ii",label:"A"},{id:"b",text:"1-i, 2-iii, 3-ii",label:"B"},{id:"c",text:"1-iii, 2-ii, 3-i",label:"C"},{id:"d",text:"1-ii, 2-iii, 3-i",label:"D"}],explanation:`Major crop production leaders:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Agricultural product</th><th>Foremost producer (state)</th><th>Key facts</th></tr></thead><tbody><tr><td><span class="text-red font-bold">Gram (Pulses)</span></td><td><span class="text-blue font-bold">Madhya Pradesh</span></td><td>MP dominates India's total pulse production.</td></tr><tr><td><span class="text-orange font-bold">Cardamom</span></td><td><span class="text-magenta font-bold">Kerala</span></td><td><span class="text-teal font-bold">Idukki district leads</span>; <span class="text-magenta font-bold">Kerala</span> is the "<span class="text-red font-bold">Spice Garden</span>".</td></tr><tr><td><span class="text-blue font-bold">Pineapple</span></td><td><span class="text-green font-bold">West Bengal</span></td><td>Closely followed by northeastern states like Assam.</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>`,pyq:"JKSSB Operator 2026",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"e59fea1f-45ec-4169-8262-a05824f453f3",category_id:"indian-geography",tags:["Environmental Geography"],difficulty:"easy",question:"Which of the following regions is globally recognized as a biodiversity ecological hotspot in India?",correctId:"c",options:[{id:"a",text:"Sunderbans",label:"A"},{id:"b",text:"The Thar desert",label:"B"},{id:"c",text:"The Western Ghats",label:"C"},{id:"d",text:"The Eastern Ghats",label:"D"}],explanation:`A <span class="text-red font-bold">biodiversity hotspot</span> is a biogeographic region that is both a <span class="text-blue font-bold">significant reservoir of biodiversity</span> and <span class="text-green font-bold">threatened with destruction</span>. The <span class="text-orange font-bold">Western Ghats</span> is <span style="font-style: italic;">one of India's four recognized biodiversity hotspots</span>, renowned for its extremely <span class="text-teal font-bold">high levels of endemism</span> (species found nowhere else), especially in <span class="text-red font-bold">amphibians and reptiles</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/PuFKh-lxPlU?si=6ECSgkAmenXctwGs" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/PuFKh-lxPlU/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"Data Entry Operator 2023",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"50069eb2-11ad-4a48-9480-015459a7a389",category_id:"indian-geography",tags:["Agriculture"],difficulty:"medium",question:"Which of the following cities is known as the Grape Capital of India?",correctId:"a",options:[{id:"a",text:"Nasik",label:"A"},{id:"b",text:"Muzaffarnagar",label:"B"},{id:"c",text:"Mumbai",label:"C"},{id:"d",text:"Faridabad",label:"D"}],explanation:`<span class="text-red font-bold">Nashik (or Nasik)</span> in <span class="text-blue font-bold">Maharashtra</span> is known as the "<span class="text-green font-bold">Grape Capital of India</span>" or the "<span class="text-orange font-bold">Wine Capital of India</span>." The region's specific microclimate is <span class="text-magenta font-bold">highly conducive to viticulture</span>, producing the vast majority of the country's grapes and hosting numerous vineyards.<br>  <span class="text-blue-500 font-bold"> </span>`,pyq:"Data Entry Operator 2023",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"ccf962d7-db71-4221-939f-edbf1ff26040",category_id:"indian-geography",tags:["Drainage System"],difficulty:"hard",question:"The Blue Nile river originates from which of the following lakes?",correctId:"b",options:[{id:"a",text:"Lake Victoria",label:"A"},{id:"b",text:"Lake Tana",label:"B"},{id:"c",text:"Lake Edward",label:"C"},{id:"d",text:"Lake Albert",label:"D"}],explanation:'The <span class="text-red font-bold">Blue Nile</span>, one of the two major tributaries of the Nile River, originates from <span class="text-blue font-bold">Lake Tana</span> in the <span class="text-green font-bold">Ethiopian Highlands</span>. The other major tributary, the <span class="text-orange font-bold">White Nile</span>, finds its primary source near <span class="text-magenta font-bold">Lake Victoria</span>.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"Data Entry Operator 2023",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"b51cd4b8-554b-425c-ace8-416955ca8e32",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:"Which Indian state recorded the maximum sex ratio according to the 2011 Census?",correctId:"c",options:[{id:"a",text:"Chhattisgarh",label:"A"},{id:"b",text:"Karnataka",label:"B"},{id:"c",text:"Kerala",label:"C"},{id:"d",text:"Odisha",label:"D"}],explanation:'According to the <span class="text-red font-bold">2011 Census</span>, <span class="text-blue font-bold">Kerala</span> has the <span class="text-green font-bold">highest sex ratio</span> in India, with <span class="text-orange font-bold">1,084 females for every 1,000 males</span>. <span class="text-magenta font-bold">Puducherry</span> is the <span class="text-teal font-bold">highest among Union Territories (1,037)</span>. <span class="text-red font-bold">Haryana</span> recorded the <span class="text-blue font-bold">lowest sex ratio among states (879)</span>.<br>',pyq:"Data Entry Operator 2023",created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"ceaf1e8f-6b14-415a-836a-d0c803c422ea",category_id:"indian-geography",tags:["Natural Vegetation"],difficulty:"hard",question:'Match the following climate types with their corresponding regions in India:<div><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th><strong>Climate type</strong></th><th></th><th><strong>Region</strong></th></tr></thead><tbody><tr><td>P. Tropical Rain Forests</td><td></td><td>1. Most of the Peninsular region except the Western Ghats</td></tr><tr><td>Q. Tropical Savanna Climate</td><td></td><td>2. Western Ghats, West Coastal Plains, and parts of Assam</td></tr><tr><td>R. Tropical Semi-Arid Steppe Climate</td><td></td><td>3. Punjab, Haryana, and Kachchh Region</td></tr><tr><td>S. Tropical and Sub-Tropical Steppes</td><td></td><td>4. Rainshadow belt from Central Maharashtra to Tamil Nadu</td></tr></tbody></table></div></div><div><span style="font-size: 19.2px;">Select the correct answer using the code below:</span></div>',correctId:"b",options:[{id:"a",text:"P-3, Q-1, R-4, S-2",label:"A"},{id:"b",text:"P-2, Q-1, R-4, S-3",label:"B"},{id:"c",text:"P-4, Q-3, R-2, S-1",label:"C"},{id:"d",text:"P-2, Q-3, R-4, S-1",label:"D"}],explanation:'<span class="text-rose-500 font-bold"><span class="text-theme-primary font-medium">  <span class="text-rose-500 font-bold"> </span></span></span>',pyq:null,created_at:"2026-07-08T10:58:25.990453+00:00"},{id:"ea2d5e2b-2e90-488e-9fae-2a6d8966662c",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"easy",question:"Which plateau lies between the Aravalli and the Vindhya ranges?",correctId:"a",options:[{id:"a",text:"Malwa Plateau",label:"A"},{id:"b",text:"Deccan Plateau",label:"B"},{id:"c",text:"Chhota Nagpur Plateau",label:"C"},{id:"d",text:"Meghalaya Plateau",label:"D"}],explanation:`The <span class="text-blue font-bold">Malwa Plateau</span> acts as the <span style="font-style: italic;">central link between Northern and Western India</span>. It is structurally bounded by the <span class="text-green font-bold">Aravalli Range</span> to its northwest and the <span class="text-red font-bold">Vindhya Range</span> to its south. Composed of extensive lava flows, it is covered with <span class="text-teal font-bold">black soil</span>, making it excellent for <span class="text-orange font-bold">cotton cultivation</span>. <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/VsUlu2T35D8?si=2jHS66bSOXRo-tW-" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/VsUlu2T35D8/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB JSK 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"3e3f6d53-4ce7-4a68-8883-63792f017e52",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"hard",question:"Consider the following statements regarding India's National Waterways:<br>1- National Waterway 2 (NW-2) is the Brahmaputra River stretch from Dhubri to Sadiya in Assam.<br>2- National Waterway 3 (NW-3) is the West Coast Canal, which connects Kollam and Kottapuram in Kerala.<br>3- National Waterway 97 (NW-97) runs on the Zuari River, connecting Sanvordem Bridge to Marmugao Port.<br>4- National Waterways 111 (NW-111) is operational in the Sunderbans Region.<br>Which of the statements given above are correct?",correctId:"a",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1, 2 and 3 only",label:"B"},{id:"c",text:"3 and 4 only",label:"C"},{id:"d",text:"1, 2, 3 and 4",label:"D"}],explanation:'<span class="text-green font-bold">Statements 1 and 2 are correct</span>. Statements 3 and 4 have their locations swapped.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>National waterway</th><th>River/canal system</th><th>State/region</th></tr></thead><tbody><tr><td>NW-2</td><td>Brahmaputra River</td><td>Assam</td></tr><tr><td>NW-3</td><td>West Coast Canal</td><td>Kerala</td></tr><tr><td>NW-97</td><td>Sunderbans Waterway</td><td>West Bengal</td></tr><tr><td>NW-111</td><td>Zuari River</td><td>Goa</td></tr></tbody></table></div><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Examiner Trap: </span>The locations for NW-97 and NW-111 are frequently reversed in competitive exams.<br>',pyq:"JKSSB JA 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"07a5cea1-a1aa-4264-ad92-284177d641c1",category_id:"indian-geography",tags:["Maps N Places"],difficulty:"hard",question:"Consider the following pairs of Wetlands and their corresponding States:<br>1- Kolleru Lake — Tamil Nadu<br>2- Tawa Reservoir — Madhya Pradesh<br>3- Nanjarayan Bird Sanctuary — Andhra Pradesh<br>4- Sultanpur National Park — Haryana<br>How many of the above pairs are correctly matched?",correctId:"b",options:[{id:"a",text:"Only one pair",label:"A"},{id:"b",text:"Only two pairs",label:"B"},{id:"c",text:"Only three pairs",label:"C"},{id:"d",text:"All four pairs",label:"D"}],explanation:'Only two pairs are correctly matched (Tawa Reservoir and Sultanpur National Park).<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Wetland / sanctuary</th><th>Correct state</th></tr></thead><tbody><tr><td>Kolleru Lake</td><td>Andhra Pradesh (Not TN)</td></tr><tr><td>Tawa Reservoir</td><td>Madhya Pradesh</td></tr><tr><td>Nanjarayan Bird Sanctuary</td><td>Tamil Nadu (Not AP)</td></tr><tr><td>Sultanpur National Park</td><td>Haryana</td></tr></tbody></table></div>Elimination Insight: Kolleru is a massive freshwater lake located directly between the deltas of the <span class="text-teal font-bold">Krishna and Godavari rivers</span> in Andhra Pradesh.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"6cf6ab31-5602-4f4a-be4d-d89ebff728e3",category_id:"indian-geography",tags:["Population"],difficulty:"medium",question:"Consider the following statements regarding India's demographic trends:<br>1- Demographic dividend refers to the economic growth potential arising from a declining dependency ratio, due to a rising working-age population.<br>2- Demographic winter refers to the economic and social challenges arising from an increasing working-age population and decreasing old-age dependency.<br>3- India is expected to enjoy its demographic dividend till the mid-21st century, and its realization depends on education, skill development, health, and employment generation.<br>Which of the above statements are correct?",correctId:"b",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1 and 3 only",label:"B"},{id:"c",text:"2 and 3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:`Statement 2 is incorrect because a "<span class="text-red font-bold">Demographic Winter</span>" is the exact opposite: a <span style="font-style: italic;">shrinking working-age population</span> and a<span style="font-style: italic;">n increasing old-age dependency ratio</span> due to significantly declining birth rates. India is currently in the window of a <span class="text-green font-bold">demographic dividend</span>, but realizing this potential requires massive investments in <span class="text-blue font-bold">human capital (education, health, and skill development)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/bhkrS0qSJLg?si=iE_mwIrTlMyBPrZc" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/bhkrS0qSJLg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB JA 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"b8a158de-2ef4-4931-92ed-9b1626bc0eab",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"easy",question:"The Ten Degree Channel separates which of the following regions?",correctId:"a",options:[{id:"a",text:"Andaman Islands and Nicobar Islands",label:"A"},{id:"b",text:"Minicoy and Lakshadweep",label:"B"},{id:"c",text:"Nicobar and Indonesia",label:"C"},{id:"d",text:"South Andaman and Little Andaman",label:"D"}],explanation:`The <span class="text-blue font-bold">Ten Degree Channel</span> is a prominent maritime boundary in the <span class="text-teal font-bold">Bay of Bengal</span>, lying roughly along the 10-degree North latitude.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Channel / pass</th><th>Regions separated</th></tr></thead><tbody><tr><td><span class="text-green font-bold">Eight Degree Channel</span></td><td>Minicoy (India) and Maldives</td></tr><tr><td><span class="text-red font-bold">Nine Degree Channel</span></td><td>Minicoy and Main Lakshadweep</td></tr><tr><td><span class="text-blue font-bold">Ten Degree Channel</span></td><td>Andaman and Nicobar Islands</td></tr><tr><td><span class="text-magenta font-bold">Duncan Passage</span></td><td>South Andaman and Little Andaman</td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/3qGvWkJ1ksw?si=tfl3qNr_Z3SzItCs" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/3qGvWkJ1ksw/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>`,pyq:"JKSSB JA 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"e53c3907-f635-4f0e-a47b-0b668a33aceb",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"medium",question:"Match the following Hills with their related characteristics/regions:<br>1- Nilgiri Hills : i- Part of the Satpura Range<br>2- Anaimalai Hills : ii- Parallel to the Narmada Valley<br>3- Mahadeo Hills : iii- Junction of Eastern and Western Ghats<br>4- Vindhyan Range : iv- The Southern Part of the Western Ghats<br>Choose the correct match:",correctId:"d",options:[{id:"a",text:"1-i, 2-ii, 3-iii, 4-iv",label:"A"},{id:"b",text:"1-iii, 2-ii, 3-iv, 4-i",label:"B"},{id:"c",text:"1-iii, 2-iv, 3-ii, 4-i",label:"C"},{id:"d",text:"1-iii, 2-iv, 3-i, 4-ii",label:"D"}],explanation:'The correct geographic associations are:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Hills / range</th><th>Geographic significance</th></tr></thead><tbody><tr><td><span class="text-blue font-bold">Nilgiri Hills</span> (1-iii)</td><td>Structural junction of Eastern and Western Ghats.</td></tr><tr><td><span class="text-green font-bold">Anaimalai Hills</span> (2-iv)</td><td>Southern section of Western Ghats (contains Anamudi peak).</td></tr><tr><td><span class="text-red font-bold">Mahadeo Hills</span> (3-i)</td><td>Forms the central part of the Satpura Range.</td></tr><tr><td><span class="text-teal font-bold">Vindhyan Range</span> (4-ii)</td><td>Runs roughly parallel to the Narmada rift valley.</td></tr></tbody></table></div>',pyq:"JKSSB JA 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"cd9e78dc-3c18-47a5-9842-6698e1cd3773",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"medium",question:"Arrange the following states in the chronological order of their formation:<br>1- Uttarakhand<br>2- Gujarat<br>3- Haryana<br>4- Mizoram<br>Choose the correct order:",correctId:"d",options:[{id:"a",text:"3-2-1-4",label:"A"},{id:"b",text:"2-3-1-4",label:"B"},{id:"c",text:"3-2-4-1",label:"C"},{id:"d",text:"2-3-4-1",label:"D"}],explanation:'The post-independence reorganization of these states occurred as follows:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>State</th><th>Year of formation</th><th>Carved from / upgraded from</th></tr></thead><tbody><tr><td>Gujarat</td><td>1960</td><td>Bombay State</td></tr><tr><td>Haryana</td><td>1966</td><td>Punjab</td></tr><tr><td>Mizoram</td><td>1987</td><td>Upgraded from UT status</td></tr><tr><td>Uttarakhand</td><td>2000</td><td>Uttar Pradesh</td></tr></tbody></table></div>',pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"cb422941-e1d7-4101-8640-7b149c9cab3f",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"medium",question:"Consider the following pairs of States/Union Territories and their Capitals:<br>1- Meghalaya — Imphal<br>2- Manipur — Shillong<br>3- Lakshadweep — Kavaratti<br>4- Dadra &amp; Nagar Haveli and Daman &amp; Diu — Dadra<br>Which of the pairs given above is/are correctly matched?",correctId:"b",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"3 only",label:"B"},{id:"c",text:"3 and 4 only",label:"C"},{id:"d",text:"1, 2, 3 and 4",label:"D"}],explanation:'Only Pair 3 <span class="text-blue font-bold">(Lakshadweep — Kavaratti)</span> is correctly matched.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>State / UT</th><th>Correct capital</th></tr></thead><tbody><tr><td>Meghalaya</td><td>Shillong</td></tr><tr><td>Manipur</td><td>Imphal</td></tr><tr><td>Lakshadweep</td><td>Kavaratti</td></tr><tr><td>DNH &amp; Daman and Diu</td><td>Daman</td></tr></tbody></table></div>Remember: <span class="text-red font-bold">Post-2020 merger</span>, Daman became the administrative capital of the newly combined UT, not Dadra or Silvassa.<br>  <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"c5c769ba-8b37-407c-87f0-7bbf31724234",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Match the following National Parks with their corresponding States:<br>1- Mouling National Park : i- Arunachal Pradesh<br>2- Dibru-Saikhowa National Park : ii- Assam<br>3- Mollem National Park : iii- Goa<br>4- Kanger Ghati National Park : iv- Chhattisgarh<br>Choose the correct match:",correctId:"d",options:[{id:"a",text:"1-i, 2-iii, 3-iv, 4-ii",label:"A"},{id:"b",text:"1-iii, 2-ii, 3-i, 4-iv",label:"B"},{id:"c",text:"1-iii, 2-ii, 3-iv, 4-i",label:"C"},{id:"d",text:"1-i, 2-ii, 3-iii, 4-iv",label:"D"}],explanation:`<span style="text-decoration-line: underline;">National parks and their exact locations:</span><br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>National park</th><th>State</th><th>Key feature</th></tr></thead><tbody><tr><td>Mouling</td><td>Arunachal Pradesh</td><td>Part of Dihang-Dibang Biosphere Reserve</td></tr><tr><td>Dibru-Saikhowa</td><td>Assam</td><td>Feral horses, Brahmaputra basin</td></tr><tr><td>Mollem</td><td>Goa</td><td>Core of Bhagwan Mahavir Sanctuary</td></tr><tr><td>Kanger Ghati</td><td>Chhattisgarh</td><td>Dense forests and limestone caves</td></tr></tbody></table></div><div><div class="nk-video-wrapper" data-video-url="https://youtu.be/GFd8P6G8NqI?si=vdYQm6N-Bnz1ZNRU" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/GFd8P6G8NqI/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> </div>`,pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"36819f48-0a35-4f52-8b49-d07da6b5b174",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"easy",question:"The UNESCO World Heritage Site designation 'Mountain Railways of India' formally recognizes which of the following railway systems?",correctId:"d",options:[{id:"a",text:"Kalka-Shimla Railway",label:"A"},{id:"b",text:"Nilgiri Mountain Railway",label:"B"},{id:"c",text:"Darjeeling Himalayan Railway",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:'The <span class="text-orange" style="font-weight: 800;">"Mountain Railways of India"</span> is a<span style="font-style: italic;"> collective UNESCO World Heritage property </span>recognizing three historic, narrow-gauge mountain railway systems<span style="text-decoration-line: underline;"> built during the British era:</span> <span class="text-green font-bold">Darjeeling Himalayan Railway</span> (1999), <span class="text-red font-bold">Nilgiri Mountain Railway</span> (2005), and <span class="text-teal font-bold">Kalka-Shimla Railway</span> (2008).<br>',pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"d1343795-96b9-4c6e-a41f-1649acecce72",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"The Forest Conservation (Amendment) Act, 2023, exempted which of the following projects from requiring prior approval of the Central government?",correctId:"d",options:[{id:"a",text:"Strategic linear projects of national importance within 100 km of India's international borders.",label:"A"},{id:"b",text:"Security-related infrastructure requiring up to 10 hectares of forest land.",label:"B"},{id:"c",text:"Public utility projects not exceeding 5 hectares in left-wing extremism-affected areas.",label:"C"},{id:"d",text:"All of the above",label:"D"}],explanation:`The <span class="text-blue font-bold">2023 amendment</span> significantly altered forest governance by exempting specific <span class="text-green font-bold">strategic and public utility projects</span> from <span class="text-red" style="font-style: italic;">mandatory central forest clearances</span>. All three options correctly represent explicit exemptions added to accelerate defense and infrastructure development in sensitive and border regions.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/IfbsHIrbGIo?si=qkUPGL0782IHJJd9" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/IfbsHIrbGIo/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"0aef1813-fc4e-4a18-8351-b7fd9093b75a",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"medium",question:"Which of the following pairs of Bird Sanctuaries and States are correctly matched?<br>1- Atapaka Bird Sanctuary — Andhra Pradesh<br>2- Salim Ali Bird Sanctuary — Goa<br>3- Attiveri Bird Sanctuary — Karnataka<br>Choose the correct option:",correctId:"d",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"2 and 3 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:'All three pairs are perfectly matched.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Bird sanctuary</th><th>State</th><th>Note</th></tr></thead><tbody><tr><td>Atapaka</td><td>Andhra Pradesh</td><td>Part of the larger Kolleru Lake wetland system.</td></tr><tr><td>Salim Ali</td><td>Goa</td><td>Located on Chorao Island along the Mandovi River.</td></tr><tr><td>Attiveri</td><td>Karnataka</td><td>Known for its reservoir attracting migratory birds.</td></tr></tbody></table></div>',pyq:"JKSSB Forest 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"49ba8d9c-3bdf-4e5e-a3a6-1d1a5462ef1d",category_id:"indian-geography",tags:["Forests N Wildlife"],difficulty:"easy",question:"According to the India State of Forest Report (ISFR) 2023, which State/Union Territory has the highest proportion of forest cover relative to its total geographical area?",correctId:"a",options:[{id:"a",text:"Lakshadweep",label:"A"},{id:"b",text:"Mizoram",label:"B"},{id:"c",text:"Andaman and Nicobar Islands",label:"C"},{id:"d",text:"Arunachal Pradesh",label:"D"}],explanation:'When evaluating "percentage of geographical area", the Union Territory of Lakshadweep holds the highest proportion.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>State / ut</th><th>% forest cover (isfr 2023)</th></tr></thead><tbody><tr><td>Lakshadweep</td><td>91.33%</td></tr><tr><td>Mizoram</td><td>85.34% (Highest among States)</td></tr><tr><td>Andaman &amp; Nicobar</td><td>81.62%</td></tr></tbody></table></div><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Examiner Trap:</span> If the question specifically asks for a "State", Mizoram is the answer. Because the question specifies "State/UT", Lakshadweep is correct.<br>',pyq:"JKSSB Wildlife 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"2a14ebdd-32a3-43d1-a67a-c800eff9f0dc",category_id:"indian-geography",tags:["Natural Vegetation"],difficulty:"hard",question:'Match the following Sacred Groves with their respective States:<br>1- Law Lyngdoh : a- Meghalaya<br>2- Sarpa Kavu : b- Kerala<br>3- Devban : c- Himachal Pradesh<br>4- Gumpa Forest : <span style="font-size: 19.2px;">d- Arunachal Pradesh</span><div>Choose the correct option:</div>',correctId:"d",options:[{id:"a",text:"1-b, 2-a, 3-d, 4-c",label:"A"},{id:"b",text:"1-d, 2-b, 3-c, 4-a",label:"B"},{id:"c",text:"1-a, 2-d, 3-c, 4-b",label:"C"},{id:"d",text:"1-a, 2-b, 3-c, 4-d",label:"D"}],explanation:'Sacred groves are protected patches of forest reflecting traditional ecological wisdom.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Sacred grove</th><th>State</th><th>Cultural significance</th></tr></thead><tbody><tr><td>Law Lyngdoh</td><td>Meghalaya</td><td>Protected by <span class="text-blue" style="font-weight: 800;">Khasi tribal</span> religious taboos.</td></tr><tr><td>Sarpa Kavu</td><td>Kerala</td><td><span class="text-teal" style="font-weight: 800;">"Abode of Snakes"</span>, preserves local water tables.</td></tr><tr><td>Devban</td><td>Himachal</td><td><span class="text-orange" style="font-weight: 800;">"Forests of God",</span> usually dense Deodar stands.</td></tr><tr><td>Gumpa Forest</td><td>Arunachal</td><td>Managed<span class="text-green" style="font-weight: 800;"> by Lamas</span> attached to Buddhist monasteries.</td></tr></tbody></table></div>',pyq:"JKSSB Wildlife 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"b1717c2a-bbf6-4d57-a4bb-733abf69b334",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"medium",question:"Which of the following is the official administrative capital of the merged Union Territory of Dadra and Nagar Haveli and Daman and Diu?",correctId:"b",options:[{id:"a",text:"Silvassa",label:"A"},{id:"b",text:"Daman",label:"B"},{id:"c",text:"Diu",label:"C"},{id:"d",text:"Dadra",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Prior to 26 Jan 2020</span>, <span class="text-blue font-bold">Dadra and Nagar Haveli</span> (capital: <span class="text-teal font-bold">Silvassa)</span> and <span class="text-green font-bold">Daman and Diu</span> (capital: <span class="text-red font-bold">Daman)</span> were<span style="text-decoration-line: underline;"> two separate Union Territories</span>.<div><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Official merger on 26 Jan 2020,</span> <span class="text-red font-bold"><span class="text-orange" style="font-weight: 800;">Daman</span></span> was designated as the<span style="font-style: italic;"> administrative headquarters</span> for the newly unified entity, and<span style="font-style: italic;"> <span class="text-teal font-bold">Silvassa</span> lost its status as a capital city</span>.</div><div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/wR229ew0lrI?si=c7Cc4rzMgnMhaZfV" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/wR229ew0lrI/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"b487c341-58b1-4b72-8972-8ccc57097f37",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"hard",question:"Identify the correct pairs of States and their respective legislative capitals:<br>1- Maharashtra — Nagpur (Summer), Mumbai (Winter)<br>2- Himachal Pradesh — Shimla (Summer), Dharamshala (Winter)<br>3- Uttarakhand — Gairsain (Summer), Dehradun (Winter)<br>Choose the correct option:",correctId:"c",options:[{id:"a",text:"2 only",label:"A"},{id:"b",text:"1 and 2 only",label:"B"},{id:"c",text:"2 and 3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:'Pair 1 is inverted. In Maharashtra, <span class="text-blue font-bold">Mumbai</span> is the primary capital (hosting the summer/monsoon sessions), while <span class="text-green font-bold">Nagpur</span> exclusively hosts the Winter session. Pairs 2 and 3 correctly map their respective summer and winter legislative capitals.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Wildlife 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"3ec0a8b4-8608-4428-9752-aa7b1c400f47",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"hard",question:"Consider the following statements regarding the physical geography of the Western and Eastern Ghats:<br>1- The Western Ghats are a continuous chain of mountains that can be crossed only through specific passes, whereas the Eastern Ghats are highly dissected by east-flowing rivers.<br>2- Deciduous forests are more dominant in the Western Ghats, while the Eastern Ghats are characterized primarily by Tropical Evergreen forests.<br>3- The Great Escarpment of the Western Ghats acts as a primary water divide between rivers flowing into the Arabian Sea and those flowing into the Bay of Bengal.<br>Which of the statements given above are correct?",correctId:"c",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"1 and 2 only",label:"B"},{id:"c",text:"1 and 3 only",label:"C"},{id:"d",text:"1, 2 and 3",label:"D"}],explanation:`Statement 2 is entirely reversed. The windward slopes of the <span class="text-blue font-bold">Western Ghats</span> receive <span class="text-red" style="font-weight: 800;">massive rainfall</span>, supporting dense <span class="text-green font-bold">Tropical Evergreen forests</span>. The <span class="text-red font-bold">Eastern Ghats</span> receive less rainfall and are dominated by <span class="text-teal font-bold">Tropical Dry Deciduous forests</span>. Statements 1 and 3 are correct; the <span class="text-blue font-bold">Western Ghats</span> are a formidable continuous barrier acting as peninsular India's primary water divide.<br>  <span class="text-blue-500 font-bold"><span class="text-rose-500 font-bold"> </span> </span>`,pyq:"JKSSB Wildlife 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"0ca463ab-e5a6-400b-bdc4-73b36661d715",category_id:"indian-geography",tags:["Transport N Communication"],difficulty:"hard",question:"The Eastern Dedicated Freight Corridor (EDFC) connects which of the following two locations?",correctId:"a",options:[{id:"a",text:"Sahnewal (Punjab) and Dankuni (West Bengal)",label:"A"},{id:"b",text:"Varanasi (Uttar Pradesh) and Dankuni (West Bengal)",label:"B"},{id:"c",text:"Sahnewal (Punjab) and Varanasi (Uttar Pradesh)",label:"C"},{id:"d",text:"Dadri (Uttar Pradesh) and JNPT (Maharashtra)",label:"D"}],explanation:'The <span class="text-blue font-bold"></span><span class="text-orange" style="font-weight: 800;">Eastern Dedicated Freight Corridor (EDFC)</span> spans approximately <span class="text-teal" style="font-weight: 800;">1,839 kilometers</span>, primarily <span style="font-style: italic;">serving heavy coal and steel transport.</span> It <span class="text-green" style="font-weight: 800;">originates</span> at <span class="text-green font-bold">Sahnewal</span> (near Ludhiana) in Punjab and <span class="text-red" style="font-weight: 800;">terminates</span> at <span class="text-red font-bold">Dankuni</span> (near Kolkata) in West Bengal. <div>Option D refers to the termini of the Western Dedicated Freight Corridor (WDFC).<br>  <span class="text-blue-500 font-bold"><span class="text-rose-500 font-bold"> </span> </span> </div>',pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"0823676c-1f8b-4b27-9c74-22d30623823e",category_id:"indian-geography",tags:["Irrigation"],difficulty:"hard",question:"Match the following Dams with their associated Rivers:<br>1- Mettur Dam : i- Kaveri<br>2- Ukai Dam : ii- Tapti<br>3- Bisalpur Dam : iii- Bhavani<br>4- Pilur Dam : iv- Banas<br>Choose the correct match:",correctId:"d",options:[{id:"a",text:"1-i, 2-ii, 3-iii, 4-iv",label:"A"},{id:"b",text:"1-iv, 2-i, 3-ii, 4-iii",label:"B"},{id:"c",text:"1-ii, 2-i, 3-iii, 4-iv",label:"C"},{id:"d",text:"1-i, 2-ii, 3-iv, 4-iii",label:"D"}],explanation:'The correct dam-river associations are:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Dam</th><th>River</th><th>State</th></tr></thead><tbody><tr><td>Mettur</td><td>Kaveri</td><td>Tamil Nadu</td></tr><tr><td>Ukai</td><td>Tapti</td><td>Gujarat</td></tr><tr><td>Bisalpur</td><td>Banas</td><td>Rajasthan</td></tr><tr><td>Pilur</td><td>Bhavani</td><td>Tamil Nadu</td></tr></tbody></table></div>  <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"1b81c7a4-261b-4373-a53d-4833b230ccf2",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:"Which of the following are tributaries of the Kaveri River?<br>1- Arkavati<br>2- Painganga<br>3- Shimsha<br>4- Lakshman Tirtha<br>5- Tungabhadra<br>Choose the correct option:",correctId:"c",options:[{id:"a",text:"1, 2 and 3 only",label:"A"},{id:"b",text:"2, 4 and 5 only",label:"B"},{id:"c",text:"1, 3 and 4 only",label:"C"},{id:"d",text:"1, 2, 3, 4 and 5",label:"D"}],explanation:`<span class="text-blue font-bold">Arkavati, Shimsha, and Lakshman Tirtha</span> are crucial tributaries of the <span class="text-green font-bold">Kaveri River</span>.<br><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Elimination Insight:</span> <span class="text-red font-bold"><span class="text-orange" style="font-weight: 800;">Painganga</span></span> is a <span style="font-style: italic;">major tributary of the Godavari River</span>. <span class="text-teal font-bold">Tungabhadra</span> is the <span style="font-style: italic;">largest tributary of the Krishna River</span>. Knowing either immediately eliminates options containing 2 or 5.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/g_NpI9EMPbE?si=A6g1KJdymhOEs3Oy" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/g_NpI9EMPbE/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"b4cbfeb1-d9c3-4e96-9fd1-2589d79a64ac",category_id:"indian-geography",tags:["Drainage System"],difficulty:"medium",question:'Which river rises from the Khamarpat hill in the Chota Nagpur Plateau and is historically called the "River of Sorrow"?',correctId:"b",options:[{id:"a",text:"Mahanadi",label:"A"},{id:"b",text:"Damodar",label:"B"},{id:"c",text:"Kosi",label:"C"},{id:"d",text:"Subarnarekha",label:"D"}],explanation:`The <span class="text-blue font-bold"></span><span class="text-magenta" style="font-weight: 800;">Damodar River </span>originates from<span class="text-orange" style="font-weight: 800;"> Khamarpat hill</span> on the <span class="text-green font-bold">Chota Nagpur Plateau</span> in <span class="text-green" style="font-weight: 800;">Jharkhand</span>. Because of its massive discharge during the monsoon, it caused devastating floods in the plains of West Bengal, earning it the title "<span class="text-red font-bold">Sorrow of Bengal</span>". This led to the establishment of the<span class="text-blue" style="font-weight: 800;"> Damodar Valley Corporation (DVC)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/Vkt9GaoVaqQ?si=MVMuSgiPZBuVZAC3" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/Vkt9GaoVaqQ/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"90fc365a-554b-4659-ae0b-42012291f323",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"medium",question:"The Tropic of Cancer (23.5° N) does NOT pass through which of the following Indian states?",correctId:"a",options:[{id:"a",text:"Manipur",label:"A"},{id:"b",text:"Mizoram",label:"B"},{id:"c",text:"Tripura",label:"C"},{id:"d",text:"Rajasthan",label:"D"}],explanation:`The <span class="text-blue font-bold">Tropic of Cancer</span> passes through exactly <span class="text-green font-bold">8 Indian states</span>. It does NOT pass through Manipur, which is located further north.<br><span class="text-red" style="font-weight: 800; text-decoration-line: underline;">Memory Trick:</span> Remember the states from<span style="font-weight: bold; text-decoration-line: underline;"> West to East</span>: <span class="text-orange" style="font-weight: 800;">"Gujju Raja MP Chala, Jharkhand Wali Trip Mein!"</span><span class="text-green" style="font-weight: 800;"> (Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram).</span><div><span style="color: rgb(74, 222, 128); font-weight: 800;"><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/rPBCd0NYw2k?si=HdP0cmSHG2WExeZ0" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/rPBCd0NYw2k/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br></span>  <span class="text-blue-500 font-bold"> </span> </div>`,pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"ea59c7c4-7115-43ae-ba3f-68e857451bb2",category_id:"indian-geography",tags:["India Size N Extent"],difficulty:"easy",question:"Consider the following statements about India's geographical location and choose the correct option:",correctId:"b",options:[{id:"a",text:"India lies entirely in the tropical zone.",label:"A"},{id:"b",text:"India lies wholly in the Northern and Eastern hemispheres.",label:"B"},{id:"c",text:"India lies in the Northern and Western hemispheres.",label:"C"},{id:"d",text:"India lies entirely in the temperate zone.",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">India</span> is situated completely to the north of the <span class="text-teal" style="font-weight: 800;">Equator (Northern Hemisphere)</span><span class="text-blue font-bold"></span> and entirely to the east of the <span class="text-teal" style="font-weight: 800;">Prime Meridian (Eastern Hemisphere)</span><span class="text-green font-bold"></span>. It does not lie entirely in the tropical zone; the <span class="text-red font-bold">Tropic of Cancer</span> <span style="font-style: italic;">divides the country into a southern tropical half and a northern sub-tropical/temperate half</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/bgrfl1WSqjY?si=YrzEzdHxvUf4xLA2" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/bgrfl1WSqjY/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:"JKSSB Operator 2026",created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"465ba377-9b84-4ddc-80a7-9de90ae5867e",category_id:"indian-geography",tags:["Physiographic Divisions"],difficulty:"easy",question:"Which of the following passes and their locations are correctly matched?<br>1- Banihal Pass — Jammu &amp; Kashmir<br>2- Bara Lapcha La and Shipki La — Himachal Pradesh<br>3- Bomdi La — Arunachal Pradesh<br>4- Nathu La and Jelep La — Sikkim<br>Choose the correct option:",correctId:"d",options:[{id:"a",text:"1 and 2 only",label:"A"},{id:"b",text:"1, 2 and 3 only",label:"B"},{id:"c",text:"3 and 4 only",label:"C"},{id:"d",text:"1, 2, 3 and 4",label:"D"}],explanation:'All the mountain passes are perfectly matched with their respective States/UTs.<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Pass</th><th>Location</th><th>Significance</th></tr></thead><tbody><tr><td>Banihal</td><td>J&amp;K</td><td>Connects Kashmir Valley to Jammu.</td></tr><tr><td>Shipki La</td><td>Himachal Pradesh</td><td>Sutlej river enters India through it.</td></tr><tr><td>Bomdi La</td><td>Arunachal Pradesh</td><td>Connects Arunachal to Lhasa.</td></tr><tr><td>Nathu La</td><td>Sikkim</td><td>Historic Silk Route trading post.</td></tr></tbody></table></div>  <span class="text-emerald-500 font-bold"> </span>',pyq:null,created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"6deeae27-0db5-43ac-9821-cc8caa05d16c",category_id:"indian-geography",tags:["Population"],difficulty:"hard",question:"What was the total number of districts in India as per the 2011 Census?",correctId:"b",options:[{id:"a",text:"613",label:"A"},{id:"b",text:"640",label:"B"},{id:"c",text:"623",label:"C"},{id:"d",text:"630",label:"D"}],explanation:'According to the final data of the Census 2011, India was administratively divided into <span class="text-blue font-bold">28 States and 7 Union Territories</span>, encompassing a total of <span class="text-green font-bold">640 districts</span>. This was an increase from the 593 districts recorded in the 2001 Census.<br>  <span class="text-rose-500 font-bold"> </span>',pyq:null,created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"630ec683-c7de-4157-90df-f2c6f8f9e8f9",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:"Which state recorded the highest literacy rate in India according to the 2011 Census?",correctId:"d",options:[{id:"a",text:"Delhi",label:"A"},{id:"b",text:"Rajasthan",label:"B"},{id:"c",text:"Karnataka",label:"C"},{id:"d",text:"Kerala",label:"D"}],explanation:`<span class="text-red" style="font-weight: 800;">Kerala </span>recorded the <span class="text-orange" style="font-weight: 800;">highest literacy rate</span> in the country at<span class="text-green" style="font-weight: 800;"> 94.00%</span> during the <span style="text-decoration-line: underline;">2011 Census</span> (Male literacy: 96.11%, Female literacy: 92.07%). <div><span style="text-decoration-line: underline; font-weight: bold;">Bihar</span><span style="font-style: italic;"> recorded the <span style="font-weight: bold;">lowest overall literacy rate at 61.80%</span></span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/TfZ4KRSwq44?si=_8G3DOhN3FTguAhh" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/TfZ4KRSwq44/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>  </div></div>`,pyq:null,created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"d405a5d7-edb0-46a0-b3b1-06b05d9acaf1",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:"What was the overall sex ratio of India as per the 2011 Census?",correctId:"d",options:[{id:"a",text:"940 females per 1000 males",label:"A"},{id:"b",text:"971 females per 1000 males",label:"B"},{id:"c",text:"978 females per 1000 males",label:"C"},{id:"d",text:"943 females per 1000 males",label:"D"}],explanation:'The <span class="text-red" style="font-weight: 800;">overall sex ratio of India </span>according to the 2011 Census was <span class="text-blue font-bold">943 females per 1000 males</span>. This was an upward trend from the 2001 Census (933).<span class="text-green" style="font-weight: 800;"> Kerala recorded the highest sex ratio (1084)</span>, while <span class="text-orange" style="font-weight: 800;">Haryana recorded the lowest among states (879)</span>.<br>',pyq:null,created_at:"2026-07-08T06:45:53.380404+00:00"},{id:"3d508aa3-3239-4dab-a289-f5dcfeaca083",category_id:"indian-geography",tags:["Population"],difficulty:"easy",question:"What was the overall literacy rate of India according to the 2011 Census?",correctId:"b",options:[{id:"a",text:"68.80%",label:"A"},{id:"b",text:"74.04%",label:"B"},{id:"c",text:"88.74%",label:"C"},{id:"d",text:"97.31%",label:"D"}],explanation:`The final data of the 2011 Census recorded <span class="text-blue" style="font-weight: 800;">India's overall literacy rate at 74.04%</span><span class="text-blue font-bold"></span>. The <span class="text-green" style="font-weight: 800;">male literacy</span> rate stood at <span class="text-green font-bold">82.14%</span>, while the <span class="text-red" style="font-weight: 800;">female literacy rate </span>was <span class="text-red font-bold">65.46%</span>, highlighting a noticeable gender gap in education at the time.<br>`,pyq:null,created_at:"2026-07-08T06:45:53.380404+00:00"}];export{t as default};

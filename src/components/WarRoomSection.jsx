@@ -185,6 +185,9 @@ export default function WarRoomSection() {
   const radarData = rawCategories.filter(c => {
     if (!c.categoryId || c.categoryId.toLowerCase() === 'uncategorized') return false;
     
+    // Only allow categories that are defined in CATEGORY_DISPLAY (subjects, not topics)
+    if (!CATEGORY_DISPLAY[c.categoryId]) return false;
+    
     // If user has a selected target exam, verify that the category is part of the exam config
     if (economy?.target_exam && EXAM_CONFIG[economy.target_exam]) {
       const examCats = EXAM_CONFIG[economy.target_exam].categories || [];
@@ -218,6 +221,43 @@ export default function WarRoomSection() {
     .sort((a, b) => b.incorrectCount - a.incorrectCount)
     .slice(0, 5);
 
+  // Weakest topics based on tag accuracy rate (aggregated across standard tags & PYQs)
+  const aggregatedTags = {};
+  (stats.tags || []).forEach(t => {
+    const rawClean = t.tagId.replace(/^pyq:\s*/i, '').replace(/^#/, '').trim();
+    if (!rawClean) return;
+    const upperKey = rawClean.toUpperCase();
+    const capitalizedName = rawClean.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    
+    if (!aggregatedTags[upperKey]) {
+      aggregatedTags[upperKey] = {
+        name: capitalizedName,
+        correctCount: 0,
+        incorrectCount: 0,
+        tagId: t.tagId
+      };
+    }
+    aggregatedTags[upperKey].correctCount += t.correctCount;
+    aggregatedTags[upperKey].incorrectCount += t.incorrectCount;
+  });
+
+  const weakTopics = Object.values(aggregatedTags)
+    .map(t => {
+      const total = t.correctCount + t.incorrectCount;
+      const accuracy = total > 0 ? (t.correctCount / total) * 100 : 0;
+      return {
+        ...t,
+        total,
+        accuracy
+      };
+    })
+    .filter(t => t.total >= 1 && t.accuracy < 70)
+    .sort((a, b) => {
+      if (a.accuracy !== b.accuracy) return a.accuracy - b.accuracy;
+      return b.incorrectCount - a.incorrectCount;
+    })
+    .slice(0, 15);
+
   // 4. PYQ Intelligence
   const pyqTagsData = (stats.tags || []).filter(t => t.tagId.startsWith('pyq: '));
   let totalPyqAttempted = 0;
@@ -245,7 +285,7 @@ export default function WarRoomSection() {
   })();
 
   return (
-    <div className="bg-theme-surface rounded-3xl p-6 md:p-8 border border-theme-border shadow-lg relative overflow-hidden mb-8">
+    <div className="bg-theme-surface rounded-3xl p-6 md:p-8 border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.03),0_20px_40px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden mb-8">
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-500/5 rounded-full blur-[100px] pointer-events-none" />
       
@@ -262,12 +302,13 @@ export default function WarRoomSection() {
       </div>
 
       {/* Row 1: Full-width Radar */}
-      <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border relative z-10 mb-6">
+      <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth relative z-10 mb-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 flex items-center gap-2">
             <Target size={13} />
             Expertise Radar
           </h3>
+          <div className="h-[1px] w-full bg-gradient-to-r from-emerald-500/20 via-emerald-500/5 to-transparent mb-5" />
           {/* Hoverable Info icon for zones */}
           <div className="relative group flex items-center">
             <Info size={16} className="text-theme-muted hover:text-theme-text cursor-help transition-colors" />
@@ -285,7 +326,7 @@ export default function WarRoomSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
 
         {/* Lag % Indicator */}
-        <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border flex flex-col justify-between h-full">
+        <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth flex flex-col justify-between h-full">
           <div>
             <h3 className={`text-xs font-black uppercase tracking-widest mb-4 flex items-center gap-2 ${
               lagPercent >= 15 ? 'text-theme-primary' : 'text-emerald-500'
@@ -293,6 +334,7 @@ export default function WarRoomSection() {
               <Activity size={14} />
               Mastery Lag
             </h3>
+            <div className={`h-[1px] w-full bg-gradient-to-r ${lagPercent >= 15 ? 'from-theme-primary/20 via-theme-primary/5' : 'from-emerald-500/20 via-emerald-500/5'} to-transparent mb-4`} />
 
             {/* Category WMI extremes overview card */}
             {strongestCategory && weakestMasteryCategory && (
@@ -311,7 +353,7 @@ export default function WarRoomSection() {
             )}
 
             {/* WMI explanation block */}
-            <div className="mcq-inner-card bg-theme-bg/40 border border-theme-border/30 rounded-xl p-3.5 space-y-2 mb-4">
+            <div className="mcq-inner-card bg-theme-bg/40 border border-theme-border-soft rounded-xl p-3.5 space-y-2 mb-4">
               <p className="text-[10px] font-bold text-theme-muted leading-normal">
                  WMI heavily penalizes guesswork. Answer carefully to maximize your score.
               </p>
@@ -340,7 +382,7 @@ export default function WarRoomSection() {
             </div>
 
             {/* Glowing gradient progress bar container */}
-            <div className="w-full bg-theme-bg/60 h-2.5 rounded-full p-[2px] border border-theme-border/30 shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] overflow-hidden">
+            <div className="w-full bg-theme-bg/60 h-2.5 rounded-full p-[2px] border border-theme-border-soft shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] overflow-hidden">
               <div 
                 className={`h-full rounded-full transition-all duration-700 shadow-[0_0_8px_rgba(59,130,246,0.2)] bg-gradient-to-r ${
                   lagPercent >= 15 ? 'from-theme-primary to-indigo-400' : 'from-emerald-500 to-teal-400'
@@ -356,11 +398,12 @@ export default function WarRoomSection() {
         </div>
 
         {/* Weakness Sniper */}
-        <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border flex flex-col">
+        <div className="bg-theme-bg/50 p-6 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth flex flex-col">
           <h3 className="text-xs font-black uppercase tracking-widest text-rose-500 mb-4 flex items-center gap-2">
             <Crosshair size={14} />
             Weakness Sniper
           </h3>
+          <div className="h-[1px] w-full bg-gradient-to-r from-rose-500/20 via-rose-500/5 to-transparent mb-4" />
 
           {/* Weak Zone Alert — simple message, no buttons */}
           {weakestCategory && (
@@ -381,7 +424,7 @@ export default function WarRoomSection() {
             <div>
               <p className="text-[10px] font-black uppercase text-theme-muted mb-2">Unstable Zones</p>
               {unstableCategories.length > 0 ? unstableCategories.map((c, i) => (
-                <div key={i} className="flex justify-between items-center bg-theme-surface p-2 rounded-lg mb-1.5 border border-theme-border/50">
+                <div key={i} className="flex justify-between items-center bg-theme-surface/60 p-2.5 rounded-xl mb-1.5 border border-white/[0.03]">
                   <span className="text-xs font-bold truncate pr-2">{CATEGORY_DISPLAY[c.categoryId] || c.categoryId}</span>
                   <span className="text-[10px] font-black bg-rose-500/10 text-rose-500 px-2 py-0.5 rounded flex items-center gap-1 shrink-0">
                     <TrendingUp size={10} /> Volatile
@@ -405,13 +448,66 @@ export default function WarRoomSection() {
 
       </div>
 
+      {/* Critical Weak Topics Tag Cloud */}
+      {weakTopics.length > 0 && (
+        <div className="mt-8 bg-theme-bg/50 p-5 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth relative z-10 animate-in fade-in duration-300">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-xs font-black uppercase tracking-widest text-rose-500 flex items-center gap-2">
+              <Crosshair size={14} className="text-rose-500" />
+              Critical Weak Topics
+            </h3>
+            <span className="text-[9px] font-black text-theme-muted uppercase tracking-widest">
+              High Error Density
+            </span>
+          </div>
+          <div className="h-[1px] w-full bg-gradient-to-r from-rose-500/20 via-rose-500/5 to-transparent mb-4" />
+
+          <div className="flex flex-wrap items-center justify-center gap-2 py-3.5 px-3 bg-theme-surface/10 rounded-xl border border-white/[0.03]">
+            {(() => {
+              const maxIncorrect = Math.max(...weakTopics.map(t => t.incorrectCount)) || 1;
+              return weakTopics.map(topic => {
+                const weight = topic.incorrectCount / maxIncorrect; // 0.0 to 1.0
+                
+                // Unified compact padding and size classes for premium layout
+                const sizeClass = 'text-[10px] font-extrabold px-3.5 py-1.5';
+                const opacity = 0.7 + weight * 0.3;
+                
+                // Visual density styles: critical / medium / low error counts
+                const severityStyle = weight > 0.7 
+                  ? 'shadow-[0_0_10px_rgba(244,63,94,0.15)] border-rose-500/20 bg-rose-500/10 text-rose-400' 
+                  : weight > 0.4
+                  ? 'shadow-[0_0_6px_rgba(245,158,11,0.06)] border-amber-500/15 bg-amber-500/8 text-amber-400'
+                  : 'border-white/[0.03] bg-theme-surface/40 text-theme-muted';
+
+                return (
+                  <div 
+                    key={topic.name} 
+                    className={`rounded-full border transition-all duration-300 hover:scale-105 hover:border-rose-500/40 select-none ${sizeClass} ${severityStyle}`}
+                    style={{ opacity }}
+                    title={`${topic.incorrectCount} errors in ${topic.total} attempts`}
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span className={`w-1 h-1 rounded-full shrink-0 ${
+                        weight > 0.7 ? 'bg-rose-500 animate-pulse' : weight > 0.4 ? 'bg-amber-500' : 'bg-theme-muted'
+                      }`} />
+                      {topic.name}
+                    </span>
+                  </div>
+                );
+              });
+            })()}
+          </div>
+        </div>
+      )}
+
       {/* PYQ Intelligence Widget */}
-      <div className="mt-8 bg-theme-bg/50 p-6 rounded-2xl border border-theme-border relative z-10 flex flex-col md:flex-row gap-6 md:items-center">
+      <div className="mt-8 bg-theme-bg/50 p-6 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth relative z-10 flex flex-col md:flex-row gap-6 md:items-center">
         <div className="flex-1">
           <h3 className="text-xs font-black uppercase tracking-widest text-amber-500 mb-2 flex items-center gap-2">
             <BookOpen size={14} />
             PYQ Intelligence
           </h3>
+          <div className="h-[1px] w-full bg-gradient-to-r from-amber-500/20 via-amber-500/5 to-transparent mb-4" />
           <p className="text-[11px] text-theme-muted font-bold">
             Tracking performance on Official Previous Year Questions
           </p>
@@ -438,14 +534,14 @@ export default function WarRoomSection() {
           {pyqGaps.length > 0 ? (
             <div className="space-y-2">
               {pyqGaps.map((gap, i) => (
-                <div key={i} className="flex justify-between items-center bg-theme-surface p-2.5 rounded-xl border border-theme-border/50">
+                <div key={i} className="flex justify-between items-center bg-theme-surface/60 p-2.5 rounded-xl border border-white/[0.03]">
                   <span className="text-xs font-bold text-theme-text">{gap}</span>
                   <span className="text-[9px] font-black uppercase bg-rose-500/10 text-rose-500 px-2 py-0.5 rounded-lg border border-rose-500/20">Needs Revision</span>
                 </div>
               ))}
             </div>
           ) : (
-             <div className="flex flex-col items-center justify-center p-4 bg-theme-surface rounded-xl border border-theme-border/50 text-center">
+             <div className="flex flex-col items-center justify-center p-4 bg-theme-surface/60 rounded-xl border border-white/[0.03] text-center">
                 <span className="text-emerald-500 mb-1"><Target size={18} /></span>
                 <span className="text-xs font-bold text-theme-muted">No major PYQ leaks detected!</span>
              </div>
@@ -455,11 +551,12 @@ export default function WarRoomSection() {
 
       {/* All Categories Progress (Full Width) */}
       {radarData.length > 0 && (
-        <div className="mt-8 bg-theme-bg/50 p-6 rounded-2xl border border-theme-border relative z-10">
+        <div className="mt-8 bg-theme-bg/50 p-6 rounded-2xl border border-theme-border-soft shadow-[inset_0_1px_1px_rgba(255,255,255,0.02),0_8px_20px_-6px_rgba(0,0,0,0.4)] hover:-translate-y-[2px] hover:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.05),0_15px_30px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 ease-smooth relative z-10">
           <h3 className="text-xs font-black uppercase tracking-widest text-theme-muted mb-6 flex items-center gap-2">
             <Target size={14} className="text-blue-500" />
             All Fronts (Category Mastery)
           </h3>
+          <div className="h-[1px] w-full bg-gradient-to-r from-blue-500/20 via-blue-500/5 to-transparent mb-5" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...radarData].sort((a,b) => b.wmi - a.wmi).map(c => {
               const masteryColor = c.wmi >= 90 ? 'var(--mastery-90)' : 
@@ -474,7 +571,7 @@ export default function WarRoomSection() {
                       {Math.round(c.wmi)}%
                     </span>
                   </div>
-                  <div className="w-full bg-theme-surface h-1.5 rounded-full overflow-hidden border border-theme-border/50">
+                  <div className="w-full bg-theme-bg/60 h-1.5 rounded-full overflow-hidden border border-theme-border-soft">
                     <div 
                       className="h-full rounded-full transition-all duration-1000" 
                       style={{ 

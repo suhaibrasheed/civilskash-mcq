@@ -712,6 +712,15 @@ export const updateBackgroundIntelligence = async ({ questions, answers, timeSpe
               else tagDeltas[tagId].incorrectCount += 1;
             });
           }
+
+          // Dynamically log 'pyq: <examName>' tag if it's a PYQ question to populate PYQ Intelligence stats
+          const pyqVal = q.pyq || (Array.isArray(q.tags) && q.tags.find(t => typeof t === 'string' && t.startsWith('PYQ: '))?.replace('PYQ: ', ''));
+          if (pyqVal) {
+            const pyqTagId = `pyq: ${pyqVal.toLowerCase().trim()}`;
+            if (!tagDeltas[pyqTagId]) tagDeltas[pyqTagId] = { correctCount: 0, incorrectCount: 0 };
+            if (isCorrect) tagDeltas[pyqTagId].correctCount += 1;
+            else tagDeltas[pyqTagId].incorrectCount += 1;
+          }
         }
       });
 

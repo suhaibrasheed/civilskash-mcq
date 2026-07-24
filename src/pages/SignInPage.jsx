@@ -103,7 +103,21 @@ export default function SignInPage() {
     const parseAndSaveReferral = async () => {
       // Parse referral code if deep-linked/navigated via ?ref=username
       const queryParams = new URLSearchParams(location.search);
-      const refCode = queryParams.get('ref');
+      let refCode = queryParams.get('ref');
+
+      // If not in direct query params, check the redirect 'from' path in location state
+      if (!refCode && location.state?.from) {
+        try {
+          const queryStartIndex = location.state.from.indexOf('?');
+          if (queryStartIndex !== -1) {
+            const redirectParams = new URLSearchParams(location.state.from.substring(queryStartIndex));
+            refCode = redirectParams.get('ref');
+          }
+        } catch (e) {
+          console.warn('Failed to parse referral from redirect state:', e);
+        }
+      }
+
       if (refCode) {
         localStorage.setItem('mcqkash_pending_referral_code', refCode);
         setReferredBy(refCode);
@@ -137,7 +151,7 @@ export default function SignInPage() {
     };
 
     parseAndSaveReferral();
-  }, [customMessage, location.search, showToast]);
+  }, [customMessage, location.search, location.state, showToast]);
 
   // Adjust default avatar selection when onboarding gender toggles
   useEffect(() => {

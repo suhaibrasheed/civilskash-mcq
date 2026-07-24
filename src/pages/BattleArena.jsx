@@ -705,7 +705,7 @@ export default function BattleArena() {
   }, [location.search]);
 
   const buildChallengeUrl = (challengerId, challengerName, challengerUsername, exam, seed, score) => {
-    const baseUrl = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}/arena/challenge`;
+    const baseUrl = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}/#/arena/challenge`;
     const params = new URLSearchParams({
       challenger_id: challengerId,
       challenger_name: challengerName || 'Aspirant',
@@ -713,7 +713,8 @@ export default function BattleArena() {
       challenger_rank: String(userKashRank || 15),
       exam: exam,
       seed: String(seed),
-      score: encodeScore(score)
+      score: encodeScore(score),
+      ref: challengerUsername || 'challenger'
     });
     return `${baseUrl}?${params.toString()}`;
   };
@@ -1384,31 +1385,43 @@ export default function BattleArena() {
       return;
     }
 
-    // Normal PvP Payout Economics (calculate early so it can be stored in pending ghost/early submit notifications)
+    // Payout Economics
     let winProfit = 0;
     let insActive = false;
     let insMsg = '';
     const userIsPro = economy.is_pro;
     const oppIsPro = opponent.is_pro;
 
-    if (score > oppScore) {
-      if (!userIsPro && oppIsPro) {
-        winProfit = 150;
-        insActive = true;
-        insMsg = "Pro Opponent triggered Betting Insurance. 50 coins refunded to them.";
-      } else {
-        winProfit = 200;
-      }
-    } else if (score < oppScore) {
-      if (userIsPro) {
-        winProfit = 50;
-        insActive = true;
-        insMsg = "You are Pro, 50 coins refunded.";
-      } else {
+    if (challengeData) {
+      // Challenge Mode (50 KC wager)
+      if (score > oppScore) {
+        winProfit = 100;
+      } else if (score < oppScore) {
         winProfit = 0;
+      } else {
+        winProfit = 50;
       }
     } else {
-      winProfit = 100;
+      // Normal PvP Payout (100 KC wager)
+      if (score > oppScore) {
+        if (!userIsPro && oppIsPro) {
+          winProfit = 150;
+          insActive = true;
+          insMsg = "Pro Opponent triggered Betting Insurance. 50 coins refunded to them.";
+        } else {
+          winProfit = 200;
+        }
+      } else if (score < oppScore) {
+        if (userIsPro) {
+          winProfit = 50;
+          insActive = true;
+          insMsg = "You are Pro, 50 coins refunded.";
+        } else {
+          winProfit = 0;
+        }
+      } else {
+        winProfit = 100;
+      }
     }
 
     setPayoutAmount(winProfit);
@@ -1592,7 +1605,6 @@ export default function BattleArena() {
       });
 
       const notifPayload = {
-        id: `challenge_${challengeData.challengerId}_${Date.now()}`,
         user_id: challengeData.challengerId,
         message: suspenseMessage,
         metadata: resultMeta,
@@ -1603,6 +1615,8 @@ export default function BattleArena() {
 
       try {
         // Path A: DB INSERT — guarantees delivery even if challenger is currently offline
+        // CRITICAL: We do NOT use .select() here because the select RLS policy restricts reading to the owner.
+        // If User B (the friend) runs .select() on a notification meant for User A (the challenger), RLS will block it.
         const { error: notifError } = await supabase
           .from('notifications')
           .insert(notifPayload);
@@ -1611,26 +1625,29 @@ export default function BattleArena() {
           console.error('[Challenge Notif] Supabase insert failed:', notifError.code, notifError.message, notifError.details);
         } else {
           console.log('[Challenge Notif] DB notification sent to challenger:', challengeData.challengerId);
+          
+          // Path B: WebSocket broadcast — instant delivery at 0 bytes of DB egress if challenger is online
+          try {
+            const broadcastChannel = supabase.channel(`notif_broadcast_${challengeData.challengerId}`, {
+              config: { broadcast: { self: false } }
+            });
+            await broadcastChannel.subscribe();
+            await broadcastChannel.send({
+              type: 'broadcast',
+              event: 'new_notification',
+              payload: {
+                ...notifPayload,
+                id: `challenge_${challengeData.challengerId}_${Date.now()}` // Mock ID for transient broadcast
+              }
+            });
+            supabase.removeChannel(broadcastChannel);
+            console.log('[Challenge Notif] Broadcast sent to challenger channel:', challengeData.challengerId);
+          } catch (broadcastErr) {
+            console.warn('[Challenge Notif] Broadcast failed:', broadcastErr);
+          }
         }
       } catch (err) {
         console.error('[Challenge Notif] DB insert network error:', err);
-      }
-
-      try {
-        // Path B: WebSocket broadcast — instant delivery at 0 bytes of DB egress if challenger is online
-        const broadcastChannel = supabase.channel(`notif_broadcast_${challengeData.challengerId}`, {
-          config: { broadcast: { self: false } }
-        });
-        await broadcastChannel.subscribe();
-        await broadcastChannel.send({
-          type: 'broadcast',
-          event: 'new_notification',
-          payload: notifPayload
-        });
-        supabase.removeChannel(broadcastChannel);
-        console.log('[Challenge Notif] Broadcast sent to challenger channel:', challengeData.challengerId);
-      } catch (broadcastErr) {
-        console.warn('[Challenge Notif] Broadcast failed (non-critical, DB delivery is the fallback):', broadcastErr);
       }
 
       // Mark seed as attempted locally
@@ -3981,7 +3998,8 @@ Generate exactly 10 new questions.`;
                   const rarityClass = `card-rarity-${liveRarity}`;
                   const liveUserRank = userKashRank || 15;
                   const liveOppRank = opponent?.rank || 15;
-                  const netKC = payoutAmount - 100;
+                  const wagerStakeAmount = challengeData ? 50 : 100;
+                  const netKC = payoutAmount - wagerStakeAmount;
 
                   return (
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-5 max-w-4xl mx-auto items-start">
@@ -4209,20 +4227,11 @@ Generate exactly 10 new questions.`;
                                       opponentAvatarId: opponent?.avatar_id || 2
                                     }
                                   )}
-                                  className={`${isFriendChallengeSetup ? 'w-full' : 'flex-1'} py-3 bg-gradient-primary text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-theme-primary/10`}
+                                  className="w-full py-3 bg-gradient-primary text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-theme-primary/10"
                                 >
                                   <Share2 size={14} />
                                   Flex Card
                                 </button>
-                                {!isFriendChallengeSetup && (
-                                  <button
-                                    onClick={handleChallengeShare}
-                                    className="flex-1 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-2xl text-xs font-black uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-indigo-500/10"
-                                  >
-                                    <Zap size={14} />
-                                    Challenge Friend
-                                  </button>
-                                )}
                               </div>
                               <button
                                 onClick={() => { setStep('gate'); setIsFriendChallengeSetup(false); refreshEconomy(); }}
@@ -4318,7 +4327,7 @@ Generate exactly 10 new questions.`;
                               <div className="flex items-center justify-between">
                                 <span className="text-[10px] font-semibold text-theme-muted uppercase tracking-wider">Wager Stake</span>
                                 <div className="flex items-center gap-1">
-                                  <span className="text-xs font-black text-theme-text">100</span>
+                                  <span className="text-xs font-black text-theme-text">{wagerStakeAmount}</span>
                                   <KashCoinIcon className="w-3.5 h-3.5" glow={false} />
                                 </div>
                               </div>

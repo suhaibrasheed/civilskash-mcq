@@ -204,6 +204,13 @@ export default function QOTDBento() {
     return selected;
   }, [currentQOTDDate, userId, economy?.target_exam, devOffset, bankLength]);
 
+  const getYesterdayQOTDDateStr = (todayStr) => {
+    const [year, month, day] = todayStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    date.setDate(date.getDate() - 1);
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  };
+
   useEffect(() => {
     if (!currentQOTDDate) return;
     
@@ -211,7 +218,32 @@ export default function QOTDBento() {
     const saved = localStorage.getItem(qotdKey);
     
     const streakKey = `mcqkash_qotd_streak_${userId}`;
-    const savedStreak = Number(localStorage.getItem(streakKey) || 0);
+    const lastSolvedKey = `mcqkash_qotd_last_solved_date_${userId}`;
+    
+    let savedStreak = Number(localStorage.getItem(streakKey) || 0);
+    let lastSolvedDate = localStorage.getItem(lastSolvedKey);
+    
+    // Legacy support: if there's a streak but no lastSolvedDate, set it appropriately
+    if (savedStreak > 0 && !lastSolvedDate) {
+      if (saved) {
+        lastSolvedDate = currentQOTDDate;
+      } else {
+        lastSolvedDate = getYesterdayQOTDDateStr(currentQOTDDate);
+      }
+      localStorage.setItem(lastSolvedKey, lastSolvedDate);
+    }
+    
+    // Check if streak was broken (missed a day)
+    if (lastSolvedDate && lastSolvedDate !== currentQOTDDate) {
+      const yesterdayStr = getYesterdayQOTDDateStr(currentQOTDDate);
+      if (lastSolvedDate !== yesterdayStr) {
+        // User missed at least one full QOTD day, reset streak to 0
+        savedStreak = 0;
+        localStorage.setItem(streakKey, '0');
+        localStorage.removeItem(lastSolvedKey); // Clear it so it can be re-initialized
+      }
+    }
+    
     setCurrentStreak(savedStreak);
     
     if (saved) {
@@ -285,6 +317,7 @@ export default function QOTDBento() {
     const newStreak = currentStreak + 1;
     setCurrentStreak(newStreak);
     localStorage.setItem(`mcqkash_qotd_streak_${userId}`, String(newStreak));
+    localStorage.setItem(`mcqkash_qotd_last_solved_date_${userId}`, currentQOTDDate);
     
     // Save solved QOTD question ID to history (keep max 7 entries)
     const historyKey = `mcqkash_qotd_history_${userId}`;

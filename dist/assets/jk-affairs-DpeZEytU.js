@@ -1,4 +1,390 @@
-const e=[{id:"15a0ace5-a1de-4089-8ea5-ea9d540980dd",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following Rivers flows through Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Teesta river",label:"A"},{id:"b",text:"Haldi river",label:"B"},{id:"c",text:"Rupnarayan river",label:"C"},{id:"d",text:"Tawi river",label:"D"}],explanation:`The <span class="text-red font-bold">Tawi River</span>, which orignates from <span class="text-green" style="font-weight: 800;">Doda district's</span> one of <span class="text-magenta" style="font-weight: 800;">Kali Kund Glacier,</span> it's  known as the <span class="text-green font-bold">lifeline of Jammu</span>, is a major <span class="text-blue font-bold">left-bank tributary of the Chenab River</span> flowing through the <span class="text-orange font-bold">Jammu region</span>. The other rivers listed flow through eastern India (West Bengal/Sikkim). <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/MFkcxR3vh-4?si=7gBn6RHqCIVF69S1" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
+const e=[{id:"d997a37d-1cee-4481-9c80-75e91a1c8ff5",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"The Zarkul canal takes the water from which of the following rivers?",correctId:"a",options:[{id:"a",text:"Nallah Sind",label:"A"},{id:"b",text:"Chenab",label:"B"},{id:"c",text:"Lidder",label:"C"},{id:"d",text:"Indus",label:"D"}],explanation:'The <span class="text-red font-bold">Zarkul canal</span> (constructed during the reign of <span class="text-orange" style="font-weight: 800;">Sultan Zain-ul-Abidin</span>) cuts through the <span class="text-blue font-bold">Ganderbal</span> region, drawing its water directly from <span class="text-orange font-bold">Nallah Sindh at Prang</span> to irrigate the surrounding elevated <span class="text-magenta font-bold">Karewas</span>. <br>',pyq:null,created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"3db95b90-5f40-420d-b9ff-c11a335930cb",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"easy",question:"The name of Dachigam National Park literally stands for:",correctId:"b",options:[{id:"a",text:"12 villages",label:"A"},{id:"b",text:"10 villages",label:"B"},{id:"c",text:"20 villages",label:"C"},{id:"d",text:"15 villages",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">"Dachigam"</span> literally translates to <span class="text-green" style="font-weight: 800;">"Ten Villages"</span> in the local language, commemorating the <span class="text-green font-bold">ten villages</span> that were relocated from the catchment area in the <span class="text-orange font-bold">early 20th century</span> to establish the <span class="text-magenta font-bold">initial protected sanctuary</span>.<br>',pyq:null,created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"b3c59461-946e-4040-a07c-aea3b18d59db",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"The point at which the Kishanganga River joins the river Jhelum is located near:",correctId:"a",options:[{id:"a",text:"Muzaffarabad",label:"A"},{id:"b",text:"Lidderwat",label:"B"},{id:"c",text:"Sumbal",label:"C"},{id:"d",text:"Naranag",label:"D"}],explanation:`The <span class="text-red font-bold">Kishanganga River</span> (known as the <span class="text-green font-bold">Neelum River</span> in <span class="text-blue font-bold">Pakistan-administered Kashmir)</span> flows through the <span class="text-orange font-bold">Gurez Valley</span> and merges with the <span class="text-magenta font-bold">Jhelum River</span> at <span class="text-teal font-bold">Domel in Muzaffarabad</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/xBI1BWyGVVY?si=4XuwKqX_HPcwLmVa" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/xBI1BWyGVVY/hqdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>   </div>`,pyq:null,created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"bb389521-de2a-4c95-ae30-2aa6fb2a6c2b",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"According to recent official data from the J&amp;K Forest Department (2024–25), which of the following districts in Jammu and Kashmir has the largest area under forest cover in absolute terms?",correctId:"c",options:[{id:"a",text:"Ganderbal",label:"A"},{id:"b",text:"Kathua",label:"B"},{id:"c",text:"Doda",label:"C"},{id:"d",text:"Anantnag",label:"D"}],explanation:'Based on the latest forest assessment data, <span class="text-red font-bold">Doda</span> district accounts for the <span class="text-magenta font-bold">largest absolute forest cover</span> area in the UT, tracking at <span class="text-green font-bold">5,555 square kilometers</span>. <div><span class="text-blue font-bold"></span><span class="text-red" style="font-weight: 800;">Kupwara district</span> maintains the <span class="text-teal font-bold">highest forest density by percentage</span> <span class="text-orange font-bold">(71.58%)</span>.<br>   </div>',pyq:null,created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"ce84521a-75dd-406e-b241-3b931506ef0d",category_id:"jk-affairs",tags:["Jk Geography","Mountain Passes"],difficulty:"easy",question:"The Jawahar Tunnel was constructed under which of the following mountain passes?",correctId:"b",options:[{id:"a",text:"Khardung La Pass",label:"A"},{id:"b",text:"Banihal Pass",label:"B"},{id:"c",text:"Razdan Pass",label:"C"},{id:"d",text:"Rohtang Pass",label:"D"}],explanation:'The <span class="text-red font-bold">Jawahar Tunnel</span> (also called the <span class="text-green font-bold">Banihal Tunnel)</span> was constructed beneath the <span class="text-blue font-bold">Banihal Pass</span> across the <span class="text-orange font-bold">Pir Panjal Range</span> to secure <span class="text-magenta font-bold">all-weather road connectivity</span> on <span class="text-teal font-bold">NH-44 between Jammu and Srinagar</span>.<br>',pyq:null,created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"4c1f9dea-e9cf-4f81-9456-68f286c9c979",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Kazinag National Park is situated in which of the following districts of the UT of Jammu and Kashmir?",correctId:"a",options:[{id:"a",text:"Baramulla",label:"A"},{id:"b",text:"Srinagar",label:"B"},{id:"c",text:"Budgam",label:"C"},{id:"d",text:"Bandipora",label:"D"}],explanation:'<span class="text-red font-bold">Kazinag National Park</span> is located on the <span class="text-green font-bold">north bank of the Jhelum River</span> in the <span class="text-blue font-bold">Uri sector</span> of the <span class="text-orange font-bold">Baramulla</span> district. It is a critical habitat established primarily to protect the <span class="text-magenta font-bold">endangered Markhor</span> wild goat.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"ec819f91-a274-4285-bd23-8d25a6db6f3c",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"hard",question:"The National Highway 701 (NH-701) connects which of the following two places?",correctId:"a",options:[{id:"a",text:"Baramulla and Tangdhar",label:"A"},{id:"b",text:"Uri and Leh",label:"B"},{id:"c",text:"Chenani and Khanabal",label:"C"},{id:"d",text:"Panchtarni and Khanabal",label:"D"}],explanation:'<span class="text-red font-bold">NH-701</span> is a secondary national highway in Jammu &amp; Kashmir that originates from its junction at <span class="text-blue font-bold">Baramulla</span> and travels northwest to terminate at <span class="text-orange font-bold">Tangdhar</span> <span class="text-magenta font-bold">(Kupwara</span> district) via the <span class="text-teal font-bold">Sadhna Pass</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"b467c510-4298-4761-800f-289b1e092e21",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"As per the Champion &amp; Seth classification of forests (1968), Forest Type Group 16 in the region of J&amp;K and Ladakh is represented by:",correctId:"c",options:[{id:"a",text:"Subtropical Dry Evergreen Forests",label:"A"},{id:"b",text:"Tropical Dry Deciduous Forests",label:"B"},{id:"c",text:"Dry Alpine Scrub",label:"C"},{id:"d",text:"Tropical Evergreen Forests",label:"D"}],explanation:'Under the standard Champion &amp; Seth framework, <span class="text-green font-bold">Group 16</span> encompasses the high-altitude vegetation above the <span class="text-orange font-bold">tree line</span> designated as <span class="text-blue font-bold">Dry Alpine Scrub</span>, characterized by stunted shrubs like <span class="text-magenta font-bold">Juniperus</span> and <span class="text-teal font-bold">alpine pastures</span>.<br>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"80ebe312-535b-490e-bc34-e5bb2919699e",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"hard",question:"As per the Champion &amp; Seth classification of forests (1968), dry broadleaved coniferous forests come under which of the following forest type groups in Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Subtropical Pine Forests",label:"A"},{id:"b",text:"Tropical Dry Deciduous Forests",label:"B"},{id:"c",text:"Tropical Dry Evergreen Forests",label:"C"},{id:"d",text:"Himalayan Dry Temperate Forests",label:"D"}],explanation:'<span class="text-red font-bold">Group 13</span> of the Champion &amp; Seth classification represents <span class="text-blue font-bold">Himalayan Dry Temperate Forests</span>. This classification includes <span class="text-blue" style="font-weight: 800;">specialized high-altitude vegetation</span> like <span class="text-orange font-bold">dry broadleaved coniferous forests</span>, <span class="text-magenta font-bold">Neoza Pine (Chilgoza)</span>, and <span class="text-teal font-bold">dry deodar patches</span>.<br>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"b369d76b-16ab-4169-8926-9d95a989dce7",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"hard",question:"Which of the following national parks is geographically bounded by the Rinnay River in the North?",correctId:"c",options:[{id:"a",text:"Kazinag National Park",label:"A"},{id:"b",text:"Jasrota National Park",label:"B"},{id:"c",text:"Kishtwar National Park",label:"C"},{id:"d",text:"Dachigam National Park",label:"D"}],explanation:'<span class="text-red font-bold">Kishtwar High Altitude National Park</span> is precisely demarcated by natural boundaries: the <span class="text-green font-bold">Rinnay River to the north</span>, <span class="text-blue font-bold">Kibar Nallah to the south</span>, the <span class="text-orange font-bold">Great Himalayan crest to the east</span>, and the <span class="text-magenta font-bold">Marusudar River to the west</span>.<br>',pyq:"JKSSB Compiler 2021",created_at:"2026-07-10T10:03:24.066948+00:00"},{id:"e39410b2-f2fa-4813-9791-604a1775d0b0",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"hard",question:'Match the following Köppen climate classifications with their corresponding regional assignments in Jammu &amp; Kashmir:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Climate code</th><th>Region</th></tr></thead><tbody><tr><td>i. Dfb</td><td>1. Jammu</td></tr><tr><td>ii. Cwa</td><td>2. Ladakh</td></tr><tr><td>iii. Dwd</td><td>3. Kashmir</td></tr></tbody></table></div>Select the correct matched option:',correctId:"b",options:[{id:"a",text:"i-1, ii-2, iii-3",label:"A"},{id:"b",text:"i-3, ii-1, iii-2",label:"B"},{id:"c",text:"i-3, ii-2, iii-1",label:"C"},{id:"d",text:"i-2, ii-1, iii-3",label:"D"}],explanation:'Under the system devised by <span class="text-red font-bold">Köppen</span>, the sub-tropical plains of Jammu correspond to <span class="text-blue font-bold">Cwa (humid subtropical with dry winters)</span>; the temperate Kashmir Valley aligns with <span class="text-green font-bold">Dfb (humid continental climate)</span>; and the severe, cold dry desert of Ladakh features a <span class="text-orange font-bold">Dwd type</span>.<br>',pyq:null,created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"78820cb1-e3d9-429f-bf30-445a2b93292d",category_id:"jk-affairs",tags:["Jk Geography","Natural Resources"],difficulty:"hard",question:"The Ratle Hydroelectric Power Corporation is organized as a joint venture entity between which two major corporations?",correctId:"b",options:[{id:"a",text:"NHPC &amp; NTPC",label:"A"},{id:"b",text:"NHPC and JKSPDC",label:"B"},{id:"c",text:"NTPC and JKSPDC",label:"C"},{id:"d",text:"NHPC and BHEL",label:"D"}],explanation:'The <span class="text-red font-bold">Ratle Hydroelectric Power Corporation</span> is a joint venture company formed between the <span class="text-blue font-bold">National Hydroelectric Power Corporation (NHPC, holding 51% stake)</span> and the J&amp;K State Power Development Corporation (JKSPDC, holding 49% stake) to execute an <span class="text-orange font-bold">850 MW plant on the Chenab in Kishtwar</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"1c03acf5-e40e-442b-ba3e-edf4b6bb2de3",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:"Which set of rivers was exclusively assigned to India for unrestricted water usage under the terms of the Indus Water Treaty?",correctId:"b",options:[{id:"a",text:"Chenab, Indus, Jhelum",label:"A"},{id:"b",text:"Ravi, Sutlej, Beas",label:"B"},{id:"c",text:"Chenab, Ravi, Jhelum",label:"C"},{id:"d",text:"Indus, Beas, Sutlej",label:"D"}],explanation:'Signed in <span class="text-red font-bold">1960</span>, the <span class="text-blue font-bold">Indus Waters Treaty</span> divided the system by granting India <span class="text-green font-bold">absolute operational control over the three eastern rivers- Ravi, Sutlej, and Beas </span>while <span class="text-orange font-bold">allocating the western rivers to Pakistan</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"2176b5f4-91f2-4b9b-a17f-0a444b11c512",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which wildlife sanctuary is located near Pahalgam in Kashmir Valley?",correctId:"a",options:[{id:"a",text:"Overa-Aru Wildlife Sanctuary",label:"A"},{id:"b",text:"Rajaji Wildlife Sanctuary",label:"B"},{id:"c",text:"Magal Sanctuary",label:"C"},{id:"d",text:"Salim Ali National Park",label:"D"}],explanation:'<span class="text-red font-bold">Overa-Aru Wildlife Sanctuary</span> is located near <span class="text-blue font-bold">Pahalgam</span> in the <span class="text-green font-bold">Anantnag district</span>. It is highly valued for protecting alpine species like the endangered <span class="text-orange font-bold">Musk Deer</span>, <span class="text-magenta font-bold">Hangul</span>, and various <span class="text-teal font-bold">rare Himalayan birds</span>. <br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB Animal Keeper 2025",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"51c3ee0e-26be-428f-9068-f01c9e0a755d",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"Which of the following is the largest national park in the Union Territory of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Dachigam National Park",label:"A"},{id:"b",text:"Hemis National Park",label:"B"},{id:"c",text:"Kishtwar National Park",label:"C"},{id:"d",text:"Salim Ali National Park",label:"D"}],explanation:`Following the <span class="text-red font-bold">2019 administrative reorganization</span>, <span class="text-blue font-bold">Hemis National Park</span> is now part of the <span class="text-green font-bold">UT of Ladakh</span>. Consequently, <span class="text-orange font-bold">Kishtwar High Altitude National Park</span> (spanning approximately <span class="text-magenta font-bold">2190 sq km)</span> stands as the <span class="text-teal font-bold">largest national park within the current UT of Jammu and Kashmir</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/xcvFCLgHvVc?si=NWYHpB3gLldKDEzG" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/xcvFCLgHvVc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Animal Keeper 2025",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"41d79d6a-a83f-42ea-b86a-f5f6bc8cb7f8",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"Which lake near Jammu is known for its scenic beauty and is a popular picnic spot?",correctId:"a",options:[{id:"a",text:"Surinsar Lake",label:"A"},{id:"b",text:"Dal Lake",label:"B"},{id:"c",text:"Wular Lake",label:"C"},{id:"d",text:"Mansar Lake",label:"D"}],explanation:`<span class="text-red font-bold">Surinsar Lake</span>, situated about <span class="text-blue font-bold">24 km from Jammu city</span>, is an <span class="text-green font-bold">active freshwater lake</span> surrounded by low-lying <span class="text-orange font-bold">pine hills</span> and is highly favored as a <span class="text-magenta font-bold">scenic picnic destination</span>. Its twin lake, <span class="text-teal font-bold">Mansar</span>, holds <span class="text-red font-bold">greater religious significance</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/NQZdn3RIDRg?si=sdbgkNOiUgUr60dx" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/NQZdn3RIDRg/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB SA 2025",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"7eb91bc5-58c4-4e71-8600-6d2558f0282b",category_id:"jk-affairs",tags:["Jk Geography","Horticulture"],difficulty:"easy",question:"Which district is known as the 'Apple Bowl of Jammu and Kashmir'?",correctId:"c",options:[{id:"a",text:"Pulwama",label:"A"},{id:"b",text:"Srinagar",label:"B"},{id:"c",text:"Shopian",label:"C"},{id:"d",text:"Kulgam",label:"D"}],explanation:`<span class="text-red font-bold">Shopian district</span> in <span class="text-blue font-bold">South Kashmir</span> is widely known as the "Apple Bowl of J&amp;K" due to its favorable <span class="text-orange font-bold">alpine climate</span> and expansive orchards producing <span class="text-magenta font-bold">premium commercial apple varieties</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/ZfjKvzTybXQ?si=_6SrqMXWAspu9Tcx" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/ZfjKvzTybXQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"df0fd28b-25a0-48c6-9f06-8974479e494b",category_id:"jk-affairs",tags:["Jk Geography","Economic Geography"],difficulty:"medium",question:"Kasida is a well-known traditional form of:",correctId:"b",options:[{id:"a",text:"Folk dance",label:"A"},{id:"b",text:"Embroidery",label:"B"},{id:"c",text:"Epic poem",label:"C"},{id:"d",text:"Miniature painting",label:"D"}],explanation:`<span class="text-red font-bold">Kashida (or Kasida)</span> is an ancient, <span class="text-blue font-bold">intricate needlework embroidery style</span> <span class="text-green font-bold">native to Kashmir</span>. It draws inspiration from local nature, featuring motifs like <span class="text-orange font-bold">Chinar leaves, flowers, and birds</span> on <span class="text-magenta font-bold">shawls, stoles, and pherans</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/YkpquSUBhbk?si=MiNgmWSam6-y0c2a" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/YkpquSUBhbk/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB Steno 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"471f3af4-8b72-4709-9c12-dc6f9a18dd66",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"hard",question:"Consider the following statements about the climate of the Jammu division:<br>1- Kashmir valley influences the climate of Northern Jammu<br>2- Southern plains of Jammu experience a temperate climate<br>Choose the correct option:",correctId:"a",options:[{id:"a",text:"1 only",label:"A"},{id:"b",text:"2 only",label:"B"},{id:"c",text:"Both 1 and 2",label:"C"},{id:"d",text:"Neither 1 nor 2",label:"D"}],explanation:'Statement 1 is correct because the northern high-altitude districts of Jammu <span class="text-red font-bold">(Doda, Kishtwar, Ramban)</span> are adjacent to the valley and share a <span class="text-blue font-bold">cold, temperate climate</span>. <div>Statement 2 is incorrect because the <span class="text-green font-bold">southern plains of Jammu</span> exhibit a <span class="text-orange font-bold">sub-tropical monsoon climate</span> with <span class="text-magenta font-bold">intense summers exceeding 40°C</span>.<br> <span class="text-rose-500 font-bold"> </span>   </div>',pyq:"JKSSB Pharma 2025",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"8feb1008-71e5-4ff7-b993-8219f7c4285e",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"easy",question:"Wular Lake is located entirely within which district of Jammu and Kashmir?",correctId:"c",options:[{id:"a",text:"Udhampur",label:"A"},{id:"b",text:"Baramulla",label:"B"},{id:"c",text:"Bandipora",label:"C"},{id:"d",text:"Kupwara",label:"D"}],explanation:`<span class="text-red font-bold">Wular Lake</span>, India's largest freshwater lake and an internationally designated <span class="text-green font-bold">Ramsar wetland site</span>, is located in the <span class="text-orange font-bold">Bandipora district</span> of <span class="text-magenta font-bold">North Kashmir</span>.<br>`,pyq:"JKSSB JA 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"84369789-5bfa-42cd-9165-e6b3a000fbf2",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"The Salal Hydroelectric Project is located on which of the following rivers?",correctId:"a",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Beas",label:"B"},{id:"c",text:"Ravi",label:"C"},{id:"d",text:"Indus",label:"D"}],explanation:'The <span class="text-red font-bold">690 MW Salal Hydroelectric Project</span> is a major engineering installation constructed on the <span class="text-blue font-bold">Chenab River</span> in the <span class="text-green font-bold">Reasi district</span> of <span class="text-orange font-bold">Jammu and Kashmir</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB JA 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"e39928dd-2a8a-4017-8be9-c082a3fe379a",category_id:"jk-affairs",tags:["Jk Geography","Climate"],difficulty:"easy",question:"What is the traditional name for the summer season in Kashmir?",correctId:"c",options:[{id:"a",text:"Wandah",label:"A"},{id:"b",text:"Shishur",label:"B"},{id:"c",text:"Grishm",label:"C"},{id:"d",text:"Harud",label:"D"}],explanation:`In the<span style="font-style: italic;"> localized seasonal system of the Kashmir Valley</span>, the warm summer period spanning from <span class="text-red font-bold">mid-May to mid-July</span> is designated as '<span class="text-blue font-bold">Grishm</span>'.<br>`,pyq:"JKSSB JA 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"4ef4f882-d45d-4fb3-984f-4a80d0d8cd30",category_id:"jk-affairs",tags:["Jk Geography","Transport"],difficulty:"hard",question:"The Druj Bridge is located in which district of Jammu &amp; Kashmir?",correctId:"c",options:[{id:"a",text:"Bandipora",label:"A"},{id:"b",text:"Kotranka",label:"B"},{id:"c",text:"Rajouri",label:"C"},{id:"d",text:"Kathua",label:"D"}],explanation:'The <span class="text-blue font-bold">132-meter long</span> strategic <span class="text-red font-bold">Druj Bridge</span> was built by the <span class="text-green font-bold">Border Roads Organisation (BRO)</span> over the <span class="text-orange font-bold">Druj Nallah</span> in the <span class="text-magenta font-bold">Rajouri district</span> to secure continuous <span class="text-teal font-bold">all-weather transport connectivity</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB JA 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"61db6180-5c8f-4266-b70c-4b325dc7feb6",category_id:"jk-affairs",tags:["Jk Geography","Protected Areas"],difficulty:"medium",question:"The Jammu &amp; Kashmir government proposed to declare which of the following lakes as an Eco-Sensitive Zone to check environmental degradation?",correctId:"a",options:[{id:"a",text:"Mansar Lake",label:"A"},{id:"b",text:"Wular Lake",label:"B"},{id:"c",text:"Dal Lake",label:"C"},{id:"d",text:"Nigeen Lake",label:"D"}],explanation:'<span class="text-red font-bold">Mansar Lake</span> (along with its twin <span class="text-blue font-bold">Surinsar)</span> was targeted for an <span class="text-green font-bold">Eco-Sensitive Zone</span> declaration to <span class="text-orange font-bold">regulate human encroachment</span> and preserve the <span class="text-magenta font-bold">unique aquatic biodiversity</span> of the <span class="text-teal font-bold">Jammu wetland ecosystem</span>.<br>',pyq:"JKSSB JA 2023",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"0c6c5987-f4da-4e2a-bebd-dd6f80c7d1f3",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"hard",question:'Match the following Hydroelectric Projects in J&amp;K with their specific operational locations:<br><div class="nk-mentor-table-wrapper"><table class="nk-mentor-table"><thead><tr><th>Hydroelectric project</th><th>Location</th></tr></thead><tbody><tr><td>i. Baglihar</td><td>1. Alchi</td></tr><tr><td>ii. Ratle</td><td>2. Kishtwar</td></tr><tr><td>iii. Uri</td><td>3. Uri</td></tr><tr><td>iv. Nimoo Bazgo</td><td>4. Ramban</td></tr></tbody></table></div>Choose the correct matched option:',correctId:"a",options:[{id:"a",text:"i-4, ii-2, iii-3, iv-1",label:"A"},{id:"b",text:"i-3, ii-1, iii-2, iv-4",label:"B"},{id:"c",text:"i-2, ii-3, iii-4, iv-1",label:"C"},{id:"d",text:"i-1, ii-2, iii-4, iv-3",label:"D"}],explanation:'<span class="text-red font-bold">Baglihar</span> is built on the <span class="text-blue font-bold">Chenab in Ramban</span>; <span class="text-green font-bold">Ratle</span> is a <span class="text-orange font-bold">run-of-the-river project on the Chenab in Kishtwar</span>; <span class="text-magenta font-bold">Uri</span> stands on the <span class="text-teal font-bold">Jhelum in Baramulla</span>; and <span class="text-red font-bold">Nimoo Bazgo</span> is situated on the <span class="text-blue font-bold">Indus at Alchi in Ladakh</span>.<br> <span class="text-rose-500 font-bold"> </span>',pyq:"JKSSB Police 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"837e5c25-2043-4b78-8c25-127845b9d474",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"easy",question:'Which famous hill station in the Kashmir Valley holds the title "Valley of Shepherds"?',correctId:"a",options:[{id:"a",text:"Pahalgam",label:"A"},{id:"b",text:"Gulmarg",label:"B"},{id:"c",text:"Sonamarg",label:"C"},{id:"d",text:"Betaab Valley",label:"D"}],explanation:`<span class="text-red font-bold">Pahalgam</span>, located at the confluence of the <span class="text-blue font-bold">Lidder River and Sheeshnag streams</span>, is universally known as the "<span class="text-green font-bold">Valley of Shepherds</span>" due to its expansive <span class="text-orange font-bold">high alpine meadows</span> historically utilized by <span class="text-magenta font-bold">local pastoralists</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/8sYzos-NTRc?si=LWgDDgsDTeggdu74" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/8sYzos-NTRc/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Police 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"5900357c-0742-4eb2-8fd8-5c7d39b9dad1",category_id:"jk-affairs",tags:["Jk Geography","Demography"],difficulty:"easy",question:"Which is the largest city by population and land area in the Union Territory of Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Jammu",label:"A"},{id:"b",text:"Srinagar",label:"B"},{id:"c",text:"Anantnag",label:"C"},{id:"d",text:"Leh",label:"D"}],explanation:`<span class="text-red font-bold">Srinagar</span> is the <span class="text-blue font-bold">most populated and largest urban center</span> in the <span class="text-green font-bold">UT of Jammu and Kashmir</span>, functioning additionally as the <span class="text-orange font-bold">summer capital</span> of the territory.<div><div class="nk-video-wrapper" data-video-url="https://youtu.be/bxcmWyVe2js?si=Gi5rGPKwoMmOmLp-" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; position: relative; display: block; overflow: hidden; border-radius: 14px; background: rgb(5, 10, 16); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: rgba(0, 0, 0, 0.55) 0px 12px 40px, rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px; cursor: pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/bxcmWyVe2js/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB Police 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"b0d6bc52-75f0-45ad-8214-f6376d2405a9",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"In which popular tourist destination is the Kolahoi Glacier located?",correctId:"b",options:[{id:"a",text:"Gulmarg",label:"A"},{id:"b",text:"Pahalgam",label:"B"},{id:"c",text:"Sonamarg",label:"C"},{id:"d",text:"Manasbal",label:"D"}],explanation:`The <span class="text-red font-bold">Kolahoi Glacier</span>, a prominent valley glacier also called the <span class="text-red" style="font-weight: 800;">"Goddess of Light,"</span> is located in the <span class="text-green font-bold">upper reaches of Pahalgam</span> and serves as the <span class="text-orange font-bold">principal headwater source for the Lidder River</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/tbGSvIbQ5JU?si=ha8J2CKHGsX94WiA" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/tbGSvIbQ5JU/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br> <span class="text-blue-500 font-bold"> </span>   </div>`,pyq:"JKSSB FAA 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"9d49b01e-279f-4b33-a163-0eba4395aaed",category_id:"jk-affairs",tags:["Jk Geography","Mountain Passes"],difficulty:"easy",question:"Which mountain pass serves as the primary route connecting the Kashmir Valley with the Ladakh region?",correctId:"b",options:[{id:"a",text:"Nathu La Pass",label:"A"},{id:"b",text:"Zoji La Pass",label:"B"},{id:"c",text:"Rohtang Pass",label:"C"},{id:"d",text:"Shipki La Pass",label:"D"}],explanation:`<span class="text-red font-bold">Zoji La</span> is a highly <span class="text-blue font-bold">critical high-altitude pass</span> in the <span class="text-green font-bold">Great Himalayan Range</span> that serves as the natural highway <span class="text-orange font-bold">connecting Srinagar (Kashmir) to Kargil and Leh (Ladakh)</span>.<div><div class="nk-video-wrapper" data-video-url="https://youtube.com/shorts/9BfL5SUGlgQ?si=uaj3npX1vYaG_d0q" data-video-platform="youtube" data-video-aspect="9/16" data-align="center" style="width:100%; max-width:340px; aspect-ratio:9/16;
+            position:relative; display:block; overflow:hidden; border-radius:14px;
+            background:;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+            cursor:pointer;">
+
+  <!-- Poster / background layer -->
+  <div class="nk-video-poster" style="position:absolute; inset:0; width:100%; height:100%;
+              display:flex; align-items:center; justify-content:center;
+              background-image: url(https://img.youtube.com/vi/9BfL5SUGlgQ/maxresdefault.jpg); background-size: cover; background-position: center;">
+
+    <!-- Film-grain noise overlay (subtle texture) -->
+    <div style="position:absolute; inset:0; url(" data:image="" svg+xml,%3csvg="" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" %3e%3cfilter="" id="n" %3e%3cfeturbulence="" type="fractalNoise" basefrequency="0.75" numoctaves="4" stitchtiles="stitch" %3e%3c="" filter%3e%3crect="" width="100%25" height="100%25" filter="url(%23n)" opacity="0.06" svg%3e");="" background-repeat:repeat;="" pointer-events:none;="" mix-blend-mode:overlay;="" opacity:0.4;"=""></div>
+
+    <!-- Cinematic vignette -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Play button -->
+    
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;">
+      <!-- glow ring -->
+      <div style="position:absolute; width:88px; height:88px; border-radius:50%;
+                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+                  filter: blur(8px); transform: scale(1.1);">
+      </div>
+      <!-- outer ring border -->
+      <div style="position:absolute; width:72px; height:72px; border-radius:50%;
+                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;">
+      </div>
+      <!-- glass button -->
+      <button class="nk-video-play-btn" style="position:relative; z-index:10; width:64px; height:64px; border-radius:50%;
+                     background: rgba(255,255,255,0.11);
+                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                     border: 1.5px solid rgba(255,255,255,0.28);
+                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+                     display:flex; align-items:center; justify-content:center;
+                     cursor:pointer; outline:none; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div> <br>    </div>`,pyq:"JKSSB FAA 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"ccd061b8-1969-4947-b143-233d1dbc8c03",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following is NOT a tributary stream of the Jhelum River?",correctId:"c",options:[{id:"a",text:"Vishav",label:"A"},{id:"b",text:"Sindh Nallah",label:"B"},{id:"c",text:"Verinag",label:"C"},{id:"d",text:"Rambiara",label:"D"}],explanation:`<span class="text-red font-bold">Vishav, Sindh, and Rambiara</span> are active tributaries feeding into the <span class="text-blue font-bold">Jhelum river system</span>. <div><span class="text-green font-bold">Verinag</span> is not a tributary stream; it is the specific <span class="text-orange font-bold">limestone spring</span> that serves as the Jhelum's point of origin.<br>    </div>`,pyq:"JKSSB FAA 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"fa47a1d8-6657-4f37-8e76-f75f96cfc5cb",category_id:"jk-affairs",tags:["Jk Geography","Physical Geography"],difficulty:"medium",question:"The famous holy cave shrine of Mata Vaishno Devi is located on which of the following mountains?",correctId:"c",options:[{id:"a",text:"Katra Hill",label:"A"},{id:"b",text:"Aru Hill",label:"B"},{id:"c",text:"Trikuta Hill",label:"C"},{id:"d",text:"Patnitop Hill",label:"D"}],explanation:'The <span class="text-red font-bold">Vaishno Devi Mandir</span> is situated inside a <span class="text-blue font-bold">natural cave</span> on the <span class="text-green font-bold">Trikuta Hills</span>, a distinct three-peaked mountain formation belonging to the <span class="text-orange font-bold">outer Shivalik range</span> in the <span class="text-magenta font-bold">Reasi district</span>.<br> <span class="text-blue-500 font-bold"> </span>',pyq:"JKSSB FAA 2024",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"ee142677-f7d9-47aa-9776-67384ad0556b",category_id:"jk-affairs",tags:["Jk Geography","Forests Wildlife"],difficulty:"easy",question:"What is the scientific name of the Himalayan Brown Bear found across the higher mountain passes of Jammu and Kashmir?",correctId:"b",options:[{id:"a",text:"Ursus maritimus",label:"A"},{id:"b",text:"Ursus arctos isabellinus",label:"B"},{id:"c",text:"Ailuropoda melanoleuca",label:"C"},{id:"d",text:"Melursus ursinus",label:"D"}],explanation:'The <span class="text-red font-bold">Himalayan Brown Bear</span>, which roams <span class="text-teal" style="font-weight: 800;">high alpine habitats</span> like <span class="text-blue font-bold"><span class="text-orange" style="font-weight: 800;">Dras and upper Dachigam</span></span>, is scientifically identified by its sub-specific binomial name <span class="text-green font-bold">Ursus arctos isabellinus</span>.<br>',pyq:"JKSSB Panchayat 2025",created_at:"2026-07-09T04:20:34.799386+00:00"},{id:"73d84ff0-112b-4b80-8c67-3fcc688e7c59",category_id:"jk-affairs",tags:["Jk Geography"],difficulty:"easy",question:"The Dulhasti Hydro Power Station is located in which district of Jammu and Kashmir",correctId:"d",options:[{id:"a",text:"Doda",label:"A"},{id:"b",text:"Ramban",label:"B"},{id:"c",text:"Rajouri",label:"C"},{id:"d",text:"Kishtwar",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">Dulhasti hydro power station</span> is located in <span class="text-green" style="font-weight: 800;">Kishtwar district</span> of J&amp;K on<span class="text-blue" style="font-weight: 800;"> river Chenab</span>, it has capacity of <span class="text-blue" style="font-weight: 800;">390MW</span> and operated <span class="text-blue" style="font-weight: 800;">by NHPC ltd. </span><div><span class="text-emerald-500 font-bold">   <span class="text-theme-primary font-medium"> </span></span></div>',pyq:null,created_at:"2026-07-08T05:21:36.476092+00:00"},{id:"5e344829-b3c0-49c9-93f9-9ce42557d41a",category_id:"jk-affairs",tags:["Jk Geography"],difficulty:"medium",question:"The Salal Hydroelectric Project is located in which River of JK?",correctId:"c",options:[{id:"a",text:"Jhelum",label:"A"},{id:"b",text:"Ravi",label:"B"},{id:"c",text:"Chenab",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:'<span style="color: rgb(59, 130, 246); font-weight: 700;"> <span class="text-blue-500 font-bold"> <span class="text-theme-primary font-medium"> </span></span></span>',pyq:null,created_at:"2026-07-08T05:21:36.476092+00:00"},{id:"90c3ac79-a09a-4d99-a224-199ef6aaef2f",category_id:"jk-affairs",tags:["Jk Geography"],difficulty:"medium",question:"The Uri-I Hydroelectric Power Station is located on which river?",correctId:"b",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Jhelum",label:"B"},{id:"c",text:"Ravi",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">Uri-I</span> is located on <span class="text-orange" style="font-weight: 800;">Jhelum river</span> in Baramulla district of J&amp;K.<div><span class="text-blue-500 font-bold"> <span class="text-theme-primary font-medium"> </span></span></div>',pyq:null,created_at:"2026-07-08T05:21:36.476092+00:00"},{id:"cd837850-8714-472b-beec-974dc20a2d2e",category_id:"jk-affairs",tags:["Jk Geography"],difficulty:"easy",question:"Baghlihar Hydro electric project is located on which river in J&amp;K?",correctId:"a",options:[{id:"a",text:"Chenab",label:"A"},{id:"b",text:"Jhelum",label:"B"},{id:"c",text:"Ravi",label:"C"},{id:"d",text:"Tawi",label:"D"}],explanation:'<span class="text-red" style="font-weight: 800;">Baglihar Hydroelectric Power Project </span>is located on the<span class="text-orange" style="font-weight: 800;"> Chenab River</span> in the <span class="text-magenta" style="font-weight: 800;">Ramban district</span> <span style="font-style: italic;">(specifically near Chanderkote and Batote) </span>of Jammu and Kashmir, India<div> <span class="text-theme-primary font-medium"> </span></div>',pyq:null,created_at:"2026-07-08T05:21:36.476092+00:00"},{id:"15a0ace5-a1de-4089-8ea5-ea9d540980dd",category_id:"jk-affairs",tags:["Jk Geography","Rivers Lakes"],difficulty:"medium",question:"Which of the following Rivers flows through Jammu and Kashmir?",correctId:"d",options:[{id:"a",text:"Teesta river",label:"A"},{id:"b",text:"Haldi river",label:"B"},{id:"c",text:"Rupnarayan river",label:"C"},{id:"d",text:"Tawi river",label:"D"}],explanation:`The <span class="text-red font-bold">Tawi River</span>, which orignates from <span class="text-green" style="font-weight: 800;">Doda district's</span> one of <span class="text-magenta" style="font-weight: 800;">Kali Kund Glacier,</span> it's  known as the <span class="text-green font-bold">lifeline of Jammu</span>, is a major <span class="text-blue font-bold">left-bank tributary of the Chenab River</span> flowing through the <span class="text-orange font-bold">Jammu region</span>. The other rivers listed flow through eastern India (West Bengal/Sikkim). <div><div class="nk-video-wrapper" data-video-url="https://youtu.be/MFkcxR3vh-4?si=7gBn6RHqCIVF69S1" data-video-platform="youtube" data-video-aspect="16/9" data-align="center" style="width:100%; max-width:700px; aspect-ratio:16/9;
             position:relative; display:block; overflow:hidden; border-radius:14px;
             background:;
             border: 1px solid rgba(255,255,255,0.09);

@@ -713,7 +713,8 @@ CREATE TABLE IF NOT EXISTS public.notifications (
   message text NOT NULL,
   created_at timestamp with time zone DEFAULT now() NOT NULL,
   read boolean DEFAULT false NOT NULL,
-  type text
+  type text,
+  metadata text
 );
 
 -- Enable RLS on notifications
