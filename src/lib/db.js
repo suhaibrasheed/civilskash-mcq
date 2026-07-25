@@ -230,21 +230,51 @@ export const getAllMockStats = async () => {
 };
 
 export const toggleBookmarkDB = async (questionData) => {
+  // Guard: ensure questionData has a valid, stable ID
+  if (!questionData) return false;
+  const questionId = questionData.id || questionData.question_id || null;
+  if (!questionId) {
+    console.warn('toggleBookmarkDB: question has no valid id, skipping.');
+    return false;
+  }
+
+  // Strip non-serializable fields (React refs, closures, DOM nodes) before storing
+  const serializableData = (() => {
+    try {
+      const { _priorityScore, isLockedDummy, isGuestDummy, isAiMockQuestion, ...safe } = questionData;
+      // Ensure id is always set to the resolved questionId
+      safe.id = questionId;
+      JSON.stringify(safe); // validate serializability
+      return safe;
+    } catch {
+      // Fallback: store only the essential fields
+      return {
+        id: questionId,
+        question: questionData.question || '',
+        options: questionData.options || [],
+        correctId: questionData.correctId || '',
+        explanation: questionData.explanation || '',
+        tags: questionData.tags || [],
+        category_id: questionData.category_id || '',
+      };
+    }
+  })();
+
   return withDBErrorHandler(async () => {
     const db = await initDB();
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([BOOKMARK_STORE], 'readwrite');
       const store = transaction.objectStore(BOOKMARK_STORE);
 
-      const checkRequest = store.get(questionData.id);
+      const checkRequest = store.get(questionId);
 
       checkRequest.onsuccess = () => {
         if (checkRequest.result) {
-          store.delete(questionData.id);
+          store.delete(questionId);
           resolve(false);
         } else {
           store.add({
-            ...questionData,
+            ...serializableData,
             bookmarkedAt: new Date().toISOString()
           });
           resolve(true);

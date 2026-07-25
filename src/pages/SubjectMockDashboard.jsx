@@ -8,24 +8,37 @@ import { getSolvedMocks } from '../lib/db';
 import { getScoreBand, normalizeSolvedMocks } from '../lib/mockDashboardUi';
 import { useEconomy } from '../context/EconomyContext';
 import Header from '../components/Header';
+import PyqLockedBanner from '../components/PyqLockedBanner';
 
 // ─── Sub-components ────────────────────────────────────────────────
 
-function EliteTile({ mock, index, from, solvedMap }) {
+function FullMockTile({ mock, index, from, solvedMap, isLocked }) {
   const navigate = useNavigate();
   const solved   = solvedMap?.[mock.id];
   const band     = getScoreBand(solved);
 
-  if (mock.isEmpty) {
+  if (mock.isEmpty || isLocked) {
     return (
-      <div className="group relative rounded-2xl p-5 overflow-hidden mock-locked-tile-3d">
+      <div 
+        onClick={isLocked ? () => navigate('/upgrade') : undefined}
+        className={`group relative rounded-2xl p-5 overflow-hidden ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.02] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'}`}
+      >
+        {isLocked && (
+          <div className="absolute top-2 right-2 z-20 flex items-center gap-1 text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full border border-theme-primary/30 bg-theme-primary/10 text-theme-primary shadow-sm">
+            Pro
+          </div>
+        )}
         <div className="relative z-10 flex flex-col items-center text-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-theme-bg/60 border border-theme-border flex items-center justify-center text-theme-muted">
-            <Lock size={18} />
+          <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${isLocked ? 'mock-locked-mark border-theme-primary/30' : 'bg-theme-bg/60 border-theme-border text-theme-muted'}`}>
+            <Lock size={18} className={isLocked ? 'text-theme-primary' : ''} />
           </div>
           <div>
-            <h4 className="font-black text-theme-muted text-sm">Elite Mock {index}</h4>
-            <p className="text-[10px] uppercase tracking-[0.15em] text-theme-muted/70 font-bold mt-1">No questions yet</p>
+            <h4 className={`font-black text-sm ${isLocked ? 'mock-pro-title text-theme-primary/95' : 'text-theme-muted'}`}>
+              Full Mock {index}
+            </h4>
+            <p className="text-[10px] uppercase tracking-[0.15em] text-theme-muted/70 font-bold mt-1">
+              {isLocked ? '✦ Pro Content' : 'No questions yet'}
+            </p>
           </div>
         </div>
       </div>
@@ -63,7 +76,7 @@ function EliteTile({ mock, index, from, solvedMap }) {
             <h4 className={`font-black text-sm transition-colors
               ${band ? `${band.className} mock-score-text` : 'text-theme-text group-hover:text-theme-primary'}`}
             >
-              Elite Mock {index}
+              Full Mock {index}
             </h4>
             <p className={`text-[10px] uppercase tracking-[0.15em] font-bold mt-1
               ${band ? `${band.className} mock-score-text opacity-80` : 'text-theme-primary/70'}`}
@@ -324,7 +337,7 @@ export default function SubjectMockDashboard() {
                       <span className="relative w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     </div>
                     <span className="text-xs font-bold text-theme-muted opacity-80">
-                      {eliteMocks.length} Elite • {miniMocks.length} Mini Mocks Available
+                      {eliteMocks.length} Full • {miniMocks.length} Mini Mocks Available
                     </span>
                   </div>
                 </div>
@@ -335,7 +348,7 @@ export default function SubjectMockDashboard() {
             <FilterBar tabs={topics} activeTab={activeTab} onTabChange={setActiveTab} />
           </div>
 
-          {/* ── Elite Full-Length Mocks ── */}
+          {/* ── Subject Full Mocks ── */}
           <section>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
@@ -345,7 +358,7 @@ export default function SubjectMockDashboard() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h2 className="text-lg font-black text-theme-text uppercase tracking-tight">
-                      Elite Full Mocks
+                      Full Mocks
                     </h2>
                     <span className="px-2 py-0.5 rounded-lg bg-theme-primary/15 text-theme-primary text-[9px] font-black border border-theme-primary/25 uppercase tracking-widest">
                       {activeTab}
@@ -369,18 +382,22 @@ export default function SubjectMockDashboard() {
 
             {!allEliteEmpty && (
               <div className="mb-4">
-                <AccomplishmentBar mocks={eliteMocks} solvedMap={solvedMap} label={`${activeTab} Elite`} />
+                <AccomplishmentBar mocks={eliteMocks} solvedMap={solvedMap} label={`${activeTab} Full`} />
               </div>
             )}
 
             <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
               {allEliteEmpty ? (
-                <EmptyState label={`${activeTab} Elite Mocks`} />
+                <EmptyState label={`${activeTab} Full Mocks`} />
               ) : (
                 <AnimatePresence>
-                  {displayedElite.map((mock, i) => (
-                    <EliteTile key={mock.id} mock={mock} index={mock.index} from={`/subject-mock/${category}`} solvedMap={solvedMap} />
-                  ))}
+                  {displayedElite.map((mock, i) => {
+                    const userTier = economy?.user_tier || 'FREE';
+                    const isLocked = userTier !== 'Pro' && mock.index > 2;
+                    return (
+                      <FullMockTile key={mock.id} mock={mock} index={mock.index} from={`/subject-mock/${category}`} solvedMap={solvedMap} isLocked={isLocked} />
+                    );
+                  })}
                 </AnimatePresence>
               )}
             </div>
@@ -454,24 +471,30 @@ export default function SubjectMockDashboard() {
                 </div>
               </div>
               
-              <div className="mb-8">
-                <AccomplishmentBar
-                  mocks={pyqMocks}
-                  solvedMap={solvedMap}
-                  label="PYQ Masterclass"
-                />
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {pyqMocks.map(mock => (
-                  <MiniMockRow
-                    key={mock.id}
-                    mock={mock}
-                    from={`/subject-mock/${category}`}
-                    solvedMap={solvedMap}
-                  />
-                ))}
-              </div>
+              {(economy?.user_tier || 'FREE') === 'Pro' ? (
+                <>
+                  <div className="mb-8">
+                    <AccomplishmentBar
+                      mocks={pyqMocks}
+                      solvedMap={solvedMap}
+                      label="PYQ Masterclass"
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {pyqMocks.map(mock => (
+                      <MiniMockRow
+                        key={mock.id}
+                        mock={mock}
+                        from={`/subject-mock/${category}`}
+                        solvedMap={solvedMap}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <PyqLockedBanner subtitle={`Unlock official ${categoryName} PYQ Sprints with expert solution breakdowns`} />
+              )}
             </section>
           )}
 

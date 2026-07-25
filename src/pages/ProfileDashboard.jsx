@@ -350,7 +350,7 @@ export default function ProfileDashboard() {
                 avatar_id: found.avatar_id || 1,
                 rank: found.rank || null,
                 full_name: found.full_name || economy.referred_by,
-                is_pro: !!found.pro_expires_at && new Date(found.pro_expires_at) > new Date()
+                is_pro: (!!(found.pro_expires_at || found.pro_expiration) && new Date(found.pro_expires_at || found.pro_expiration) > new Date()) || !!found.is_pro
               });
               setInviterLoading(false);
               return;
@@ -880,11 +880,11 @@ export default function ProfileDashboard() {
   const accuracy = userStats?.accuracyRate !== undefined ? userStats.accuracyRate : 0;
   
   const lastHistory = userStats?.history?.[0];
-  const lastScoreScaled = lastHistory?.total > 0 
+  const lastScoreScaled = (lastHistory?.total > 0 && typeof lastHistory?.correct === 'number') 
     ? ((lastHistory.correct / lastHistory.total) * 10).toFixed(1) 
     : '0.0';
 
-  const avgScoreScaled = totalQuestions > 0 
+  const avgScoreScaled = (totalQuestions > 0 && typeof correctQs === 'number' && !isNaN(correctQs)) 
     ? ((correctQs / totalQuestions) * 10).toFixed(1)
     : '0.0';
 

@@ -2,12 +2,13 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../components/Header';
 import McqCard from '../components/McqCard';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Filter, X, ChevronDown, SlidersHorizontal, Tag, BookOpen, Search, Zap, Lock, Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Filter, X, ChevronDown, SlidersHorizontal, Tag, BookOpen, Search, Zap, Lock, Sparkles, ArrowRight, Video } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getHybridContentHub, getAllQuestions } from '../lib/dataHub';
-import { getPracticePreferences, savePracticePreferences, getResurrectionQuestions } from '../lib/db';
+import { getPracticePreferences, savePracticePreferences, getResurrectionQuestions, getAllBookmarksDB } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { getQuestionPyq } from '../lib/mockEngine';
+import ProStudioPresenter from '../components/ProStudioPresenter';
 import { EXAM_SERIES } from '../lib/exams';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
@@ -17,12 +18,16 @@ const DIFFICULTY_OPTIONS = ['Easy', 'Medium', 'Hard', 'Unmarked'];
 const SORT_OPTIONS = [
   { value: 'default', label: 'Default Order' },
   { value: 'random', label: 'Random Order' },
+  { value: 'newest', label: 'Recently Added' },
+  { value: 'oldest', label: 'First Added' },
   { value: 'mistakes', label: 'By Mistake' },
   { value: 'difficulty-asc', label: 'Difficulty: Easy → Hard' },
   { value: 'difficulty-desc', label: 'Difficulty: Hard → Easy' },
-  { value: 'tags-asc', label: 'Tag Count: Fewer First' },
-  { value: 'pyq-desc', label: 'PYQ: Newest First' },
-  { value: 'pyq-asc', label: 'PYQ: Oldest First' },
+  { value: 'tags-asc', label: 'Tag Count: Few' },
+  { value: 'tags-desc', label: 'Tag Count: More' },
+  { value: 'pyq-desc', label: 'PYQ: New' },
+  { value: 'pyq-asc', label: 'PYQ: Old' },
+  { value: 'bookmarks', label: 'Bookmarks' },
 ];
 
 const DIFFICULTY_ORDER = { easy: 0, medium: 1, hard: 2, unmarked: 3 };
@@ -53,6 +58,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const { economy, openProUpsell } = useEconomy();
   const { user } = useAuth();
   const [mistakeIds, setMistakeIds] = useState(new Set());
+  const [bookmarkIds, setBookmarkIds] = useState(new Set());
   const [randomSeed, setRandomSeed] = useState(Date.now());
   const [prefsLoaded, setPrefsLoaded] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
@@ -81,9 +87,11 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const [selectedDifficulties, setSelectedDifficulties] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [pyqOnly, setPyqOnly] = useState(false);
+  const [selectedPyqExam, setSelectedPyqExam] = useState(null);
   const [sortBy, setSortBy] = useState('random');
   const [searchTerm, setSearchTerm] = useState('');
   const [showAllTags, setShowAllTags] = useState(false);
+  const [showStudioMode, setShowStudioMode] = useState(false);
 
   const getCategoryDisplayName = (cat) => {
     if (!cat) return 'Science & Tech';
@@ -98,6 +106,19 @@ export default function PracticeEngine({ isPyqArchive = false }) {
   const isTagMode = Boolean(tag); // true when browsing /mcq/:category/tag/:tag
   const preferenceId = `practice:${category || 'general-science'}:${tag || 'all'}:${examName || 'none'}`;
 
+  // Sync bookmarks live
+  useEffect(() => {
+    const handleSyncBookmarks = async () => {
+      try {
+        const bks = await getAllBookmarksDB();
+        setBookmarkIds(new Set((bks || []).map(q => q.id)));
+      } catch (err) {}
+    };
+    handleSyncBookmarks();
+    window.addEventListener('bookmarksUpdated', handleSyncBookmarks);
+    return () => window.removeEventListener('bookmarksUpdated', handleSyncBookmarks);
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
     setVisibleCount(PAGE_SIZE);
@@ -105,11 +126,13 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       try {
         let data = [];
         let resurrectionQuestions = [];
+        let userBookmarks = [];
         
         if (isPyqArchive && examName) {
-           const [allData, resQ] = await Promise.all([
+           const [allData, resQ, bks] = await Promise.all([
              getAllQuestions(),
              getResurrectionQuestions().catch(() => []),
+             getAllBookmarksDB().catch(() => []),
            ]);
            
            // Filter for PYQ matching examName
@@ -133,18 +156,22 @@ export default function PracticeEngine({ isPyqArchive = false }) {
            });
 
            resurrectionQuestions = resQ;
+           userBookmarks = bks;
         } else {
            const catId = category || 'general-science';
-           const [catData, resQ] = await Promise.all([
+           const [catData, resQ, bks] = await Promise.all([
              getHybridContentHub(catId),
              getResurrectionQuestions().catch(() => []),
+             getAllBookmarksDB().catch(() => []),
            ]);
            data = catData;
            resurrectionQuestions = resQ;
+           userBookmarks = bks;
         }
 
         setAllQuestions(data);
         setMistakeIds(new Set(resurrectionQuestions.map(q => q.id)));
+        setBookmarkIds(new Set((userBookmarks || []).map(q => q.id)));
       } finally {
         setIsLoading(false);
       }
@@ -204,6 +231,28 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     return Array.from(tagMap.values()).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
   }, [allQuestions]);
 
+  // Extract unique Exam PYQ names (without 4-digit years) for Official Papers capsules
+  const availablePyqExams = useMemo(() => {
+    const examMap = new Map(); // UPPERCASE -> { label, count, slug }
+    allQuestions.forEach(q => {
+      const pyq = getQuestionPyq(q);
+      if (!pyq) return;
+      // Strip 4-digit year at end (e.g. "JKSSB FAA 2024" -> "JKSSB FAA")
+      let cleanName = pyq.replace(/\s*\d{4}\s*$/, '').trim();
+      if (!cleanName) cleanName = pyq.trim();
+      
+      const key = cleanName.toUpperCase();
+      const slug = cleanName.toLowerCase().replace(/\s+/g, '-');
+      if (examMap.has(key)) {
+        examMap.get(key).count += 1;
+      } else {
+        examMap.set(key, { label: cleanName, count: 1, slug });
+      }
+    });
+
+    return Array.from(examMap.values()).sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  }, [allQuestions]);
+
   // Apply filters + sort
   const filteredQuestions = useMemo(() => {
     let result = [...allQuestions];
@@ -232,8 +281,15 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       );
     }
 
-    // PYQ Only filter
-    if (pyqOnly) {
+    // Official PYQ Exam filter / General PYQ Only filter
+    if (selectedPyqExam) {
+      const target = selectedPyqExam.toLowerCase();
+      result = result.filter(q => {
+        const pyq = getQuestionPyq(q);
+        if (!pyq) return false;
+        return pyq.toLowerCase().includes(target);
+      });
+    } else if (pyqOnly) {
       result = result.filter(q => getQuestionPyq(q) !== null);
     }
 
@@ -275,6 +331,21 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       return false;
     };
 
+    const getAddedTimestamp = (q) => {
+      if (q.created_at) {
+        const t = new Date(q.created_at).getTime();
+        if (!isNaN(t) && t > 0) return t;
+      }
+      if (q.createdAt) {
+        const t = new Date(q.createdAt).getTime();
+        if (!isNaN(t) && t > 0) return t;
+      }
+      if (typeof q.id === 'number') return q.id;
+      const numId = Number(q.id);
+      if (!isNaN(numId)) return numId;
+      return 0;
+    };
+
     if (sortBy === 'default' && economy?.target_exam) {
       const examId = economy.target_exam;
       result.sort((a, b) => {
@@ -290,6 +361,10 @@ export default function PracticeEngine({ isPyqArchive = false }) {
         .map(q => ({ q, r: random() }))
         .sort((a, b) => a.r - b.r)
         .map(({ q }) => q);
+    } else if (sortBy === 'newest') {
+      result.sort((a, b) => getAddedTimestamp(b) - getAddedTimestamp(a));
+    } else if (sortBy === 'oldest') {
+      result.sort((a, b) => getAddedTimestamp(a) - getAddedTimestamp(b));
     } else if (sortBy === 'mistakes') {
       result.sort((a, b) => Number(mistakeIds.has(b.id)) - Number(mistakeIds.has(a.id)));
     } else if (sortBy === 'difficulty-asc') {
@@ -298,10 +373,14 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       result.sort((a, b) => (DIFFICULTY_ORDER[(b.difficulty || 'unmarked').toLowerCase()] ?? -1) - (DIFFICULTY_ORDER[(a.difficulty || 'unmarked').toLowerCase()] ?? -1));
     } else if (sortBy === 'tags-asc') {
       result.sort((a, b) => (a.tags?.length || 0) - (b.tags?.length || 0));
+    } else if (sortBy === 'tags-desc') {
+      result.sort((a, b) => (b.tags?.length || 0) - (a.tags?.length || 0));
     } else if (sortBy === 'pyq-desc') {
       result.sort((a, b) => getPyqYear(b) - getPyqYear(a));
     } else if (sortBy === 'pyq-asc') {
       result.sort((a, b) => getPyqYear(a) - getPyqYear(b));
+    } else if (sortBy === 'bookmarks') {
+      result = result.filter(q => bookmarkIds.has(q.id));
     }
 
     // Search Term filter
@@ -320,7 +399,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     }
 
     return result;
-  }, [allQuestions, selectedDifficulties, selectedTags, pyqOnly, sortBy, isTagMode, tag, randomSeed, preferenceId, mistakeIds, economy?.target_exam, searchTerm, economy?.user_tier]);
+  }, [allQuestions, selectedDifficulties, selectedTags, pyqOnly, selectedPyqExam, sortBy, isTagMode, tag, randomSeed, preferenceId, mistakeIds, bookmarkIds, economy?.target_exam, searchTerm, economy?.user_tier]);
 
   const totalSearchMatches = useMemo(() => {
     if (searchTerm.trim() === '') return 0;
@@ -347,7 +426,14 @@ export default function PracticeEngine({ isPyqArchive = false }) {
       );
     }
 
-    if (pyqOnly) {
+    if (selectedPyqExam) {
+      const target = selectedPyqExam.toLowerCase();
+      result = result.filter(q => {
+        const pyq = getQuestionPyq(q);
+        if (!pyq) return false;
+        return pyq.toLowerCase().includes(target);
+      });
+    } else if (pyqOnly) {
       result = result.filter(q => getQuestionPyq(q) !== null);
     }
 
@@ -359,10 +445,10 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     });
 
     return result.length;
-  }, [allQuestions, selectedDifficulties, selectedTags, pyqOnly, isTagMode, tag, searchTerm]);
+  }, [allQuestions, selectedDifficulties, selectedTags, pyqOnly, selectedPyqExam, isTagMode, tag, searchTerm]);
 
-  const hasActiveFilters = selectedDifficulties.length > 0 || selectedTags.length > 0 || pyqOnly || sortBy !== 'random' || searchTerm.trim() !== '';
-  const activeFilterCount = selectedDifficulties.length + selectedTags.length + (pyqOnly ? 1 : 0) + (sortBy !== 'random' ? 1 : 0) + (searchTerm.trim() !== '' ? 1 : 0);
+  const hasActiveFilters = selectedDifficulties.length > 0 || selectedTags.length > 0 || pyqOnly || selectedPyqExam || sortBy !== 'random' || searchTerm.trim() !== '';
+  const activeFilterCount = selectedDifficulties.length + selectedTags.length + (pyqOnly ? 1 : 0) + (selectedPyqExam ? 1 : 0) + (sortBy !== 'random' ? 1 : 0) + (searchTerm.trim() !== '' ? 1 : 0);
 
   const loadMore = () => setVisibleCount(prev => prev + PAGE_SIZE);
 
@@ -385,6 +471,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     setSelectedDifficulties([]);
     setSelectedTags([]);
     setPyqOnly(false);
+    setSelectedPyqExam(null);
     setSortBy('random');
     setRandomSeed(Date.now());
     setSearchTerm('');
@@ -446,6 +533,20 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     };
 
     navigate('/mock-test', { state: { mock, from: location.pathname } });
+  };
+
+  const handleOpenMcqStudio = () => {
+    if (economy?.user_tier !== 'Pro') {
+      openProUpsell('MCQ Studio');
+      return;
+    }
+
+    if (filteredQuestions.length === 0) {
+      showToast("No questions match your current filters. Please adjust filters to open MCQ Studio.", "warning");
+      return;
+    }
+
+    setShowStudioMode(true);
   };
 
   // Clicking a tag on a McqCard → navigate to tag-filtered page or pyq archive
@@ -515,7 +616,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     <div className="min-h-screen bg-theme-bg flex flex-col">
       <Header />
 
-      <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
+      <main className="flex-1 max-w-4xl mx-auto w-full px-2 sm:px-4 py-4 sm:py-8">
         {/* Page header */}
         <div className="mb-8">
           <Link
@@ -581,45 +682,53 @@ export default function PracticeEngine({ isPyqArchive = false }) {
             >
               <div className="bg-theme-surface border border-theme-border rounded-2xl p-6 space-y-5">
                 
-                {/* Search and Smart Mock Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pb-4 border-b border-theme-border/50">
-                  <div className="md:col-span-2 relative">
-                    <input
-                      type="text"
-                      value={searchTerm}
-                      onChange={(e) => {
-                        setSearchTerm(e.target.value);
+                {/* Search Bar */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setVisibleCount(PAGE_SIZE);
+                    }}
+                    placeholder="Search for any term / question / topic ..."
+                    className="w-full bg-theme-bg border border-theme-border rounded-xl pl-10 pr-10 py-2.5 text-sm font-semibold focus:outline-none focus:border-theme-primary transition-all placeholder:text-theme-muted text-theme-text"
+                  />
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-theme-muted pointer-events-none">
+                    <Search size={16} />
+                  </div>
+                  {searchTerm && (
+                    <button
+                      onClick={() => {
+                        setSearchTerm('');
                         setVisibleCount(PAGE_SIZE);
                       }}
-                      placeholder="Search for any term / question / topic ..."
-                      className="w-full bg-theme-bg border border-theme-border rounded-xl pl-10 pr-10 py-2.5 text-sm font-semibold focus:outline-none focus:border-theme-primary transition-all placeholder:text-theme-muted text-theme-text"
-                    />
-                    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-theme-muted pointer-events-none">
-                      <Search size={16} />
-                    </div>
-                    {searchTerm && (
-                      <button
-                        onClick={() => {
-                          setSearchTerm('');
-                          setVisibleCount(PAGE_SIZE);
-                        }}
-                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-theme-muted hover:text-theme-text transition-colors"
-                      >
-                        <X size={16} />
-                      </button>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <button
-                      onClick={handleSmartMock}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 bg-theme-primary/10 hover:bg-theme-primary/20 text-theme-primary border border-theme-primary/20 hover:border-theme-primary/40 active:scale-95"
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-theme-muted hover:text-theme-text transition-colors"
                     >
-                      <Zap size={14} className="fill-current text-theme-primary" />
-                      <span>Smart Mock</span>
-                      {economy?.user_tier !== 'Pro' && <Lock size={12} className="ml-1 text-theme-primary" />}
+                      <X size={16} />
                     </button>
-                  </div>
+                  )}
+                </div>
+
+                {/* Action Buttons Row: Smart Mock & MCQ Studio side-by-side */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-4 border-b border-theme-border/50">
+                  <button
+                    onClick={handleSmartMock}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 bg-theme-primary/10 hover:bg-theme-primary/20 text-theme-primary border border-theme-primary/20 hover:border-theme-primary/40 active:scale-95 shadow-sm"
+                  >
+                    <Zap size={14} className="fill-current text-theme-primary" />
+                    <span>Smart Mock</span>
+                    {economy?.user_tier !== 'Pro' && <Lock size={12} className="ml-1 text-theme-primary" />}
+                  </button>
+
+                  <button
+                    onClick={handleOpenMcqStudio}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 bg-theme-primary/10 hover:bg-theme-primary/20 text-theme-primary border border-theme-primary/20 hover:border-theme-primary/40 active:scale-95 shadow-sm"
+                  >
+                    <Video size={14} className="fill-current text-theme-primary" />
+                    <span>MCQ Studio</span>
+                    {economy?.user_tier !== 'Pro' && <Lock size={12} className="ml-1 text-theme-primary" />}
+                  </button>
                 </div>
 
                 {/* Sort */}
@@ -628,19 +737,22 @@ export default function PracticeEngine({ isPyqArchive = false }) {
                     <ChevronDown size={14} /> Sort By
                   </label>
                   <div className="flex flex-wrap gap-2">
-                    {SORT_OPTIONS.map(opt => (
-                      <button
-                        key={opt.value}
-                        onClick={() => handleSortChange(opt.value)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
-                          ${sortBy === opt.value
-                            ? 'bg-theme-primary text-white border-theme-primary'
-                            : 'bg-theme-bg border-theme-border text-theme-text hover:border-theme-primary/50'
-                          }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
+                    {SORT_OPTIONS.map(opt => {
+                      const isSelected = sortBy === opt.value;
+                      return (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleSortChange(opt.value)}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
+                            ${isSelected
+                              ? 'bg-amber-500/15 border-amber-500/50 text-amber-600 dark:text-amber-300 font-bold shadow-sm shadow-amber-500/10'
+                              : 'bg-theme-bg/80 border-theme-border/70 text-theme-text opacity-85 hover:opacity-100 hover:border-theme-primary/40'
+                            }`}
+                        >
+                          {opt.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -649,21 +761,31 @@ export default function PracticeEngine({ isPyqArchive = false }) {
                   <label className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-3 flex items-center gap-1.5">
                     <Filter size={14} /> Difficulty
                   </label>
-                  <div className="flex gap-2">
-                    {DIFFICULTY_OPTIONS.map(d => (
-                      <button
-                        key={d}
-                        onClick={() => toggleDifficulty(d)}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
-                          ${selectedDifficulties.includes(d)
-                            ? 'bg-theme-primary text-white border-theme-primary'
-                            : 'bg-theme-bg border-theme-border text-theme-text hover:border-theme-primary/50'
-                          }`}
-                      >
-                        <span className={`w-2.5 h-2.5 rounded-full shadow-md ${difficultyDotClass(d)}`} />
-                        {d}
-                      </button>
-                    ))}
+                  <div className="flex flex-wrap gap-2">
+                    {DIFFICULTY_OPTIONS.map(d => {
+                      const isSelected = selectedDifficulties.includes(d);
+                      const key = d.toLowerCase();
+                      let activeStyle = 'bg-blue-500/15 border-blue-500/50 text-blue-600 dark:text-blue-300 font-bold';
+                      if (key === 'easy') activeStyle = 'bg-emerald-500/15 border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-bold';
+                      else if (key === 'medium') activeStyle = 'bg-blue-500/15 border-blue-500/50 text-blue-600 dark:text-blue-300 font-bold';
+                      else if (key === 'hard') activeStyle = 'bg-amber-500/15 border-amber-500/50 text-amber-600 dark:text-amber-300 font-bold';
+                      else if (key === 'unmarked') activeStyle = 'bg-slate-500/15 border-slate-500/50 text-slate-600 dark:text-slate-300 font-bold';
+
+                      return (
+                        <button
+                          key={d}
+                          onClick={() => toggleDifficulty(d)}
+                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
+                            ${isSelected
+                              ? activeStyle
+                              : 'bg-theme-bg/80 border-theme-border/70 text-theme-text opacity-85 hover:opacity-100 hover:border-theme-border'
+                            }`}
+                        >
+                          <span className={`w-2 h-2 rounded-full ${difficultyDotClass(d)}`} />
+                          {d}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -679,51 +801,97 @@ export default function PracticeEngine({ isPyqArchive = false }) {
                         {allAvailableTags.length > 15 && (
                           <button
                             onClick={() => setShowAllTags(!showAllTags)}
-                            className="text-xs font-bold text-theme-primary hover:text-blue-400 transition-colors uppercase tracking-wider"
+                            className="text-xs font-bold text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors uppercase tracking-wider"
                           >
                             {showAllTags ? 'Less' : 'More'}
                           </button>
                         )}
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {visibleTags.map(t => (
-                          <button
-                            key={t}
-                            onClick={() => toggleTag(t)}
-                            className={`px-3 py-1 rounded-full text-xs font-medium border transition-all
-                              ${selectedTags.some(st => st.toLowerCase() === t.toLowerCase())
-                                ? 'bg-theme-primary text-white border-theme-primary'
-                                : 'bg-theme-bg border-theme-border text-theme-text hover:border-theme-primary/50'
-                              }`}
-                          >
-                            {t}
-                          </button>
-                        ))}
+                        {visibleTags.map(t => {
+                          const isSelected = selectedTags.some(st => st.toLowerCase() === t.toLowerCase());
+                          return (
+                            <button
+                              key={t}
+                              onClick={() => toggleTag(t)}
+                              className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all
+                                ${isSelected
+                                  ? 'bg-theme-primary/15 border-theme-primary/50 text-theme-primary font-bold shadow-sm'
+                                  : 'bg-theme-bg/80 border-theme-border/70 text-theme-text opacity-85 hover:opacity-100 hover:border-theme-primary/40'
+                                }`}
+                            >
+                              {t}
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   );
                 })()}
 
-                {/* PYQ Only Filter */}
+                {/* Official Papers Filter Section */}
                 {!isPyqArchive && (
                   <div>
                     <label className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-3 flex items-center gap-1.5">
-                      <BookOpen size={14} /> Official Papers
+                      <BookOpen size={14} className="text-amber-500 dark:text-amber-400" /> Official Papers (PYQs)
                     </label>
-                    <button
-                      onClick={() => {
-                        setPyqOnly(!pyqOnly);
-                        setVisibleCount(PAGE_SIZE);
-                      }}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold border transition-all
-                        ${pyqOnly
-                          ? 'bg-amber-500 text-white border-amber-500 shadow-md shadow-amber-500/20'
-                          : 'bg-amber-500/10 border-amber-500/20 text-amber-600 hover:bg-amber-500/20 hover:border-amber-500/40'
-                        }`}
-                    >
-                      <span className={`w-2.5 h-2.5 rounded-full ${pyqOnly ? 'bg-white' : 'bg-amber-500'}`} />
-                      Show PYQs Only
-                    </button>
+
+                    {/* Single continuous flex container for All Official PYQs + Exam Capsules */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <button
+                        onClick={() => {
+                          setPyqOnly(!pyqOnly);
+                          setSelectedPyqExam(null);
+                          setVisibleCount(PAGE_SIZE);
+                        }}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
+                          ${pyqOnly && !selectedPyqExam
+                            ? 'bg-amber-500/15 border-amber-500/50 text-amber-600 dark:text-amber-300 font-bold shadow-sm shadow-amber-500/10'
+                            : 'bg-theme-bg/80 border-theme-border/70 text-theme-text opacity-85 hover:opacity-100 hover:border-amber-500/40'
+                          }`}
+                      >
+                        <span className={`w-2 h-2 rounded-full ${pyqOnly && !selectedPyqExam ? 'bg-amber-500' : 'bg-slate-400'}`} />
+                        All Official PYQs
+                      </button>
+
+                      {availablePyqExams.map(exam => {
+                        const isSelected = selectedPyqExam === exam.label;
+                        return (
+                          <button
+                            key={exam.label}
+                            onClick={() => {
+                              if (isSelected) {
+                                setSelectedPyqExam(null);
+                              } else {
+                                setSelectedPyqExam(exam.label);
+                                setPyqOnly(true);
+                              }
+                              setVisibleCount(PAGE_SIZE);
+                            }}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all
+                              ${isSelected
+                                ? 'bg-amber-500/15 border-amber-500/50 text-amber-600 dark:text-amber-300 font-bold shadow-sm shadow-amber-500/10'
+                                : 'bg-theme-bg/80 border-theme-border/70 text-theme-text opacity-85 hover:opacity-100 hover:border-amber-500/40'
+                              }`}
+                          >
+                            {exam.label}
+                          </button>
+                        );
+                      })}
+
+                      {selectedPyqExam && (
+                        <button
+                          onClick={() => {
+                            const examObj = availablePyqExams.find(e => e.label === selectedPyqExam);
+                            const slug = examObj ? examObj.slug : selectedPyqExam.toLowerCase().replace(/\s+/g, '-');
+                            navigate(`/pyq-archive/${slug}`, { state: { fromCategory: category } });
+                          }}
+                          className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 border border-amber-500/50 text-amber-700 dark:text-amber-200 hover:bg-amber-500/30 transition-all ml-1"
+                        >
+                          <span>Open Archive →</span>
+                        </button>
+                      )}
+                    </div>
                   </div>
                 )}
 
@@ -913,6 +1081,16 @@ export default function PracticeEngine({ isPyqArchive = false }) {
               </svg>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Pro Studio Mode Fullscreen Presenter Deck */}
+      <AnimatePresence>
+        {showStudioMode && (
+          <ProStudioPresenter
+            questions={filteredQuestions}
+            onClose={() => setShowStudioMode(false)}
+          />
         )}
       </AnimatePresence>
     </div>

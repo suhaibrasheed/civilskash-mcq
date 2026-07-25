@@ -45,19 +45,26 @@ export async function queryGenerativeAI(systemPrompt, userPrompt, options = {}) 
   
   if (provider === 'gemini') {
     apiKey = localStorage.getItem('civilsKash_geminiKey');
-    if (!apiKey) throw new Error("Google Gemini API key not set in settings.");
+    if (!apiKey) {
+      const err = new Error("Google Gemini API key not set in settings.");
+      err.code = 'MISSING_GEMINI_KEY';
+      throw err;
+    }
     const model = localStorage.getItem('civilsKash_geminiModel') || 'gemini-2.5-flash';
     apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
     headers = { "Content-Type": "application/json" };
     body = JSON.stringify({ "contents": [{ "parts": [{ "text": `${systemPrompt}\n\n${userPrompt}` }] }] });
   } else if (provider === 'openai') {
     apiKey = localStorage.getItem('civilsKash_openaiKey');
-    if (!apiKey) throw new Error("OpenAI API key not set in settings.");
-    const model = localStorage.getItem('civilsKash_openaiModel') || 'gpt-4o-mini';
+    if (!apiKey) {
+      const err = new Error("OpenAI API key not set in settings.");
+      err.code = 'MISSING_GEMINI_KEY';
+      throw err;
+    }
     apiUrl = "https://api.openai.com/v1/chat/completions";
     headers = { "Authorization": `Bearer ${apiKey}`, "Content-Type": "application/json" };
     body = JSON.stringify({
-      "model": model,
+      "model": localStorage.getItem('civilsKash_openaiModel') || 'gpt-4o-mini',
       "messages": [{ "role": "system", "content": systemPrompt }, { "role": "user", "content": userPrompt }]
     });
   } else if (provider === 'huggingface') {
@@ -143,25 +150,43 @@ export function renderMathInHtmlString(htmlString) {
   // Convert markdown tables first
   let result = convertMarkdownTablesToHtml(htmlString);
   
+  const safeKatexRender = (mathText, isDisplay = false, originalMatch = '') => {
+    if (!mathText || !mathText.trim()) return originalMatch;
+    const cleanMath = mathText.trim();
+    try {
+      // First try strict rendering so we can catch syntax issues
+      const rendered = katex.renderToString(cleanMath, { displayMode: isDisplay, throwOnError: true });
+      return rendered;
+    } catch (err) {
+      try {
+        // Fallback: sanitize common unescaped symbols (% _ # &)
+        const sanitized = cleanMath
+          .replace(/(?<!\\)%/g, '\\%')
+          .replace(/(?<!\\)#/g, '\\#')
+          .replace(/(?<!\\)&/g, '\\&');
+        return katex.renderToString(sanitized, { displayMode: isDisplay, throwOnError: false });
+      } catch (e) {
+        // Ultimate fallback: return text clean without crashing or rendering error box
+        return `<span class="font-mono text-xs px-1 py-0.5 rounded bg-theme-surface border border-theme-border">${cleanMath}</span>`;
+      }
+    }
+  };
+
   result = result.replace(/\$\$(.*?)\$\$/gs, (match, math) => {
-    try { return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false }); }
-    catch (e) { return match; }
+    return safeKatexRender(math, true, match);
   });
   
   result = result.replace(/\\\[(.*?)\\\]/gs, (match, math) => {
-    try { return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false }); }
-    catch (e) { return match; }
+    return safeKatexRender(math, true, match);
   });
   
   result = result.replace(/\\\(({.*?}|.*?)\\\)/gs, (match, math) => {
-    try { return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false }); }
-    catch (e) { return match; }
+    return safeKatexRender(math, false, match);
   });
 
   result = result.replace(/\$([^\$\n]{1,150})\$/g, (match, math) => {
     if (/^\d+([.,]\d+)?\s*(KashCoins|KC|million|billion|trillion)?\s*$/i.test(math.trim())) return match;
-    try { return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false }); }
-    catch (e) { return match; }
+    return safeKatexRender(math, false, match);
   });
   
   result = result.replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold text-theme-text">$1</strong>');

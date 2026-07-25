@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, Target, Search, GraduationCap, Brain, Zap,
   FileText, Crosshair, Eye, MessageCircle,
-  Crown, ArrowRight, BarChart2, Wand2, FlaskConical, Swords
+  Crown, ArrowRight, BarChart2, Wand2, FlaskConical, Swords, Video
 } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 
 import { createPortal } from 'react-dom';
 
-// ─── Feature Tile Data (Uniformly sized cards, 13 features total) ──────────
+// ─── Feature Tile Data (Uniformly sized cards, 14 features total) ──────────
 const FEATURES = [
   {
     id: 'rank-detector',
@@ -38,7 +38,7 @@ const FEATURES = [
   },
   {
     id: 'personal-coach',
-    name: 'Personal Study Mentor',
+    name: 'Personal Mentor',
     tagline: '24/7 AI study mentor.',
     desc: 'Get strategy, plans, mocks, and instant roadblock resolutions.',
     icon: GraduationCap,
@@ -115,6 +115,14 @@ const FEATURES = [
     desc: 'Unlock the full power of your personalized AI study suite.',
     icon: Wand2,
     accent: { bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.18)', text: '#f59e0b', glow: 'rgba(245,158,11,0.1)' },
+  },
+  {
+    id: 'mcq-studio',
+    name: 'MCQ Studio',
+    tagline: 'Deepest focus mode.',
+    desc: 'Unlock your Deepest Focus in an immersive Study Studio.',
+    icon: Video,
+    accent: { bg: 'rgba(236,72,153,0.06)', border: 'rgba(236,72,153,0.18)', text: '#f472b6', glow: 'rgba(236,72,153,0.1)' },
   },
 ];
 
@@ -196,7 +204,7 @@ export default function ProUpsellModal() {
     // Standard matches or rebrands
     const itemKey = f.name.toLowerCase().replace(/[\s_-]+/g, '-');
     if (itemKey === normalizedFeature) return true;
-    if (f.id === 'personal-coach' && (normalizedFeature === 'personal-coach' || normalizedFeature === 'ai-coach')) return true;
+    if (f.id === 'personal-coach' && (normalizedFeature === 'personal-coach' || normalizedFeature === 'ai-coach' || normalizedFeature === 'personal-study-mentor' || normalizedFeature === 'personal-mentor')) return true;
     return false;
   });
 

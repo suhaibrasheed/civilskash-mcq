@@ -865,16 +865,28 @@ export default function AdminSubiStudio() {
       }));
   };
 
-  const saveEditorBackup = () => {
+  const editorBackupTimeoutRef = useRef(null);
+
+  const saveEditorBackupImmediate = useCallback(() => {
+    if (editorBackupTimeoutRef.current) clearTimeout(editorBackupTimeoutRef.current);
     if (editorRef.current) {
       localStorage.setItem('civilsKash_editorBackup', editorRef.current.innerHTML);
     }
-  };
+  }, []);
+
+  const saveEditorBackup = useCallback(() => {
+    if (editorBackupTimeoutRef.current) clearTimeout(editorBackupTimeoutRef.current);
+    editorBackupTimeoutRef.current = setTimeout(() => {
+      if (editorRef.current) {
+        localStorage.setItem('civilsKash_editorBackup', editorRef.current.innerHTML);
+      }
+    }, 1000);
+  }, []);
 
   const replaceEditorWithMcqHtml = (html) => {
       if (!editorRef.current) return;
       editorRef.current.innerHTML = html || '<p><br></p>';
-      saveEditorBackup();
+      saveEditorBackupImmediate();
   };
 
   const getEditorPlainText = (rootEl = editorRef.current) => {
@@ -1147,59 +1159,63 @@ export default function AdminSubiStudio() {
 
   useEffect(() => {
     let hideTimeout = null;
-
+    let animFrame = null;
+    
     const handleDocumentMouseMove = (e) => {
-      const img = e.target.closest('.nk-mcq-image');
-      const videoWrapper = e.target.closest('.nk-video-wrapper');
-      const toolbar = e.target.closest('.nk-mcq-image-toolbar');
-      const targetEl = img || videoWrapper;
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animFrame = requestAnimationFrame(() => {
+        const target = e.target;
+        const targetEl = target ? target.closest('.nk-mcq-image') : null;
+        const toolbar = target ? target.closest('.nk-mcq-image-toolbar') : null;
 
-      if (targetEl && editorRef.current?.contains(targetEl)) {
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
-          hideTimeout = null;
+        if (targetEl) {
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+            hideTimeout = null;
+          }
+          const targetRect = targetEl.getBoundingClientRect();
+          const toolbarWidth = 220; 
+          let left = (targetRect.left + targetRect.width / 2) - (toolbarWidth / 2);
+          let top = targetRect.top - 50; 
+          
+          if (left < 10) left = 10;
+          if (left + toolbarWidth > window.innerWidth - 10) {
+              left = window.innerWidth - toolbarWidth - 10;
+          }
+          if (top < 10) {
+              top = targetRect.bottom + 10; 
+          }
+          
+          const currentWidthStr = targetEl.style.width || '';
+          const currentWidth = parseInt(currentWidthStr) || 100;
+          
+          setImgToolbar({
+              show: true,
+              top,
+              left,
+              targetImg: targetEl,
+              currentWidth
+          });
+        } else if (toolbar) {
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+            hideTimeout = null;
+          }
+        } else if (imgToolbar.show) {
+          if (!hideTimeout) {
+            hideTimeout = setTimeout(() => {
+              setImgToolbar({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
+            }, 350);
+          }
         }
-        const targetRect = targetEl.getBoundingClientRect();
-        const toolbarWidth = 220; 
-        let left = (targetRect.left + targetRect.width / 2) - (toolbarWidth / 2);
-        let top = targetRect.top - 50; 
-        
-        if (left < 10) left = 10;
-        if (left + toolbarWidth > window.innerWidth - 10) {
-            left = window.innerWidth - toolbarWidth - 10;
-        }
-        if (top < 10) {
-            top = targetRect.bottom + 10; 
-        }
-        
-        const currentWidthStr = targetEl.style.width || '';
-        const currentWidth = parseInt(currentWidthStr) || 100;
-        
-        setImgToolbar({
-            show: true,
-            top,
-            left,
-            targetImg: targetEl,
-            currentWidth
-        });
-      } else if (toolbar) {
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
-          hideTimeout = null;
-        }
-      } else if (imgToolbar.show) {
-        if (!hideTimeout) {
-          hideTimeout = setTimeout(() => {
-            setImgToolbar({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
-          }, 350);
-        }
-      }
+      });
     };
     
     document.addEventListener('mousemove', handleDocumentMouseMove, true);
     
     return () => {
       document.removeEventListener('mousemove', handleDocumentMouseMove, true);
+      if (animFrame) cancelAnimationFrame(animFrame);
       if (hideTimeout) {
         clearTimeout(hideTimeout);
       }
@@ -1390,8 +1406,9 @@ export default function AdminSubiStudio() {
           return;
       }
 
-     // Tag Auto-Suggest Logic (#)
-    const hashMatch = text.match(/#([a-zA-Z0-9_]*)$/);
+     // Tag Auto-Suggest Logic (#) - evaluate text up to cursor position only
+    const textBeforeCursor = text.slice(0, selection.anchorOffset);
+    const hashMatch = textBeforeCursor.match(/#([a-zA-Z0-9_]*)$/);
     if (hashMatch) {
         const query = hashMatch[1].toLowerCase().replace(/_/g, ' ');
         const existingTags = categoryTags[selectedCategory] || [];
@@ -1426,8 +1443,8 @@ export default function AdminSubiStudio() {
     }
     setTagPalette(p => ({ ...p, show: false }));
 
-    // PYQ Auto-Suggest Logic ([[)
-    const pyqMatch = text.match(/\[\[([a-zA-Z0-9_\s]*)$/);
+    // PYQ Auto-Suggest Logic ([[\) - evaluate text up to cursor position only
+    const pyqMatch = textBeforeCursor.match(/\[\[([a-zA-Z0-9_\s]*)$/);
     if (pyqMatch) {
         const query = pyqMatch[1].toLowerCase();
         const results = EXAM_SERIES.filter(e => e.name.toLowerCase().includes(query) || e.id.toLowerCase().includes(query));
@@ -2950,7 +2967,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
         const textNode = range.startContainer;
         const text = textNode.textContent || '';
-        const match = text.match(/#([a-zA-Z0-9_]*)$/);
+        const textBeforeCursor = text.slice(0, range.startOffset);
+        const match = textBeforeCursor.match(/#([a-zA-Z0-9_]*)$/);
         if (match) {
             range.setStart(textNode, range.startOffset - match[0].length);
             range.deleteContents();
@@ -2987,7 +3005,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
         const textNode = range.startContainer;
         const text = textNode.textContent || '';
-        const match = text.match(/\[\[([a-zA-Z0-9_\s]*)$/);
+        const textBeforeCursor = text.slice(0, range.startOffset);
+        const match = textBeforeCursor.match(/\[\[([a-zA-Z0-9_\s]*)$/);
         if (match) {
             range.setStart(textNode, range.startOffset - match[0].length);
             range.deleteContents();
@@ -4733,7 +4752,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
               <div className="flex-1 overflow-y-auto p-6 md:p-8 pb-20 space-y-6 custom-scrollbar bg-theme-bg/30">
                 <div className="max-w-2xl mx-auto space-y-6">
                   {previewQuestions.map((q, idx) => (
-                    <div key={q.id || idx} className="relative">
+                    <div key={q.id || idx} className="relative" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 180px' }}>
                       <div className="absolute -left-10 top-4 w-7 h-7 rounded-full bg-theme-primary/10 border border-theme-primary/20 flex items-center justify-center text-xs font-black text-theme-primary select-none hidden md:flex shadow-sm">
                         {idx + 1}
                       </div>

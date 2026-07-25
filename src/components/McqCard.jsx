@@ -77,8 +77,10 @@ export default function McqCard({
   onTagClick = null,          // (tag: string) => void — for clickable tags in practice mode
   searchTerm = "",
   onUse5050 = null,           // Callback when 50/50 lifeline is activated
+  cardClassName = "",
+  customStyle = null,
 }) {
-  const { economy, transactKC, openProUpsell } = useEconomy();
+  const { economy, transactKC, openProUpsell, setAiSettingsOpen } = useEconomy();
   const { showToast } = useToast();
   const navigate = useNavigate();
   const alert = (msg) => {
@@ -111,7 +113,9 @@ export default function McqCard({
 
   const handleAiTutorClick = async (e) => {
     e.stopPropagation();
-    if (economy?.user_tier !== 'Pro') {
+    const isProUser = economy?.user_tier === 'Pro' || economy?.is_pro;
+
+    if (!isProUser) {
       openProUpsell('AI Tutor');
       return;
     }
@@ -124,7 +128,11 @@ export default function McqCard({
       localStorage.getItem('civilsKash_openrouterKey');
 
     if (!activeKey) {
-      setAiError(`API key for ${provider.toUpperCase()} not found. Please add your key in the Profile Settings page to use the AI Tutor.`);
+      if (isProUser) {
+        setAiSettingsOpen(true);
+      } else {
+        openProUpsell('AI Tutor');
+      }
       return;
     }
 
@@ -315,12 +323,17 @@ export default function McqCard({
   };
 
   const handle5050 = async () => {
-    if (!economy || economy.kash_coins_balance < 3 || eliminatedOptions.length > 0 || selectedOption) return;
+    if (eliminatedOptions.length > 0 || selectedOption) return;
+    if (!economy || (economy.kash_coins_balance || 0) < 3) {
+      showToast("50/50 Hint costs 3 KashCoins! Earn KC by solving daily practice & maintaining streaks.", "warning");
+      return;
+    }
     const success = await transactKC(-3);
     if (success) {
       const incorrectOptions = questionData.options.filter(o => o.id !== questionData.correctId);
-      const shuffled = incorrectOptions.sort(() => 0.5 - Math.random());
-      setEliminatedOptions([shuffled[0].id, shuffled[1].id]);
+      const shuffled = [...incorrectOptions].sort(() => 0.5 - Math.random());
+      const toEliminate = shuffled.slice(0, 2).map(o => o?.id).filter(Boolean);
+      setEliminatedOptions(toEliminate);
       if (onUse5050) {
         onUse5050();
       }
@@ -442,8 +455,8 @@ export default function McqCard({
 
   return (
     <div 
-      className="mcq-glass-card max-w-3xl mx-auto w-full p-5 md:p-7 rounded-[1.35rem] relative overflow-hidden"
-      style={borderOverride}
+      className={`mcq-glass-card max-w-3xl mx-auto w-full px-3 py-4 sm:p-5 md:p-7 rounded-[1.35rem] relative overflow-hidden ${cardClassName}`}
+      style={{ ...borderOverride, ...(customStyle || {}) }}
       onClickCapture={(e) => {
         if (e.target.tagName === 'IMG' && e.target.classList.contains('nk-mcq-image')) {
           e.stopPropagation();
@@ -453,86 +466,91 @@ export default function McqCard({
       }}
     >
 
-      {/* Header: Difficulty Dot + Tags + Flag */}
-      <div className="relative flex justify-between items-start mb-4 gap-2">
-        <div className="flex items-start gap-2 flex-grow min-w-0">
-          {/* Difficulty Dot — anchored at the start, never wraps alone */}
-          <div className="mt-[7px] flex-shrink-0">
+      {/* Header: Difficulty Dot + Naturally Wrapped Tags + Inline Action Toolbar */}
+      <div className="relative flex flex-wrap items-center justify-between mb-3 sm:mb-4 gap-2">
+        
+        {/* Tags Flow: Difficulty Dot + All PYQ/Tags wrap naturally so none are cut off */}
+        <div className="flex flex-wrap items-center gap-1.5 min-w-0 flex-1">
+          {/* Difficulty Dot */}
+          <div className="flex-shrink-0 mr-0.5">
             <DifficultyDot difficulty={questionData.difficulty} />
           </div>
 
-          <div className="flex flex-wrap gap-1.5 items-center min-w-0">
-            {/* PYQ Badge — gold accent premium badge */}
-            {pyqVal && (
-              <button
-                onClick={(e) => handleTagClick(e, `PYQ: ${pyqVal}`)}
-                disabled={mode !== 'practice' || !onTagClick}
-                className={`flex items-center text-xs font-bold px-3 py-1.5 rounded-full border border-amber-500/25 dark:border-amber-400/20 bg-amber-500/8 dark:bg-amber-400/5 text-amber-600 dark:text-amber-400 shadow-[0_1px_6px_rgba(245,158,11,0.05)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
-                  ${mode === 'practice' && onTagClick
-                    ? 'cursor-pointer hover:bg-amber-500/15 dark:hover:bg-amber-400/10 hover:border-amber-500/40 hover:scale-105 active:scale-95'
-                    : 'cursor-default'
-                  }`}
-              >
-                <Sparkles size={10} className="mr-1.5 text-amber-500 fill-amber-500 flex-shrink-0" />
-                <span>{pyqVal}</span>
-              </button>
-            )}
+          {/* PYQ Badge */}
+          {pyqVal && (
+            <button
+              onClick={(e) => handleTagClick(e, `PYQ: ${pyqVal}`)}
+              disabled={mode !== 'practice' || !onTagClick}
+              className={`mcq-tag-btn flex items-center text-[10px] sm:text-xs font-bold leading-none px-2.5 h-[26px] max-h-[26px] sm:h-auto sm:max-h-none sm:px-3 sm:py-1.5 rounded-full border border-theme-primary/25 bg-theme-primary/8 text-theme-primary shadow-[0_1px_6px_rgba(var(--color-primary),0.06)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
+                ${mode === 'practice' && onTagClick
+                  ? 'cursor-pointer hover:bg-theme-primary/15 hover:border-theme-primary/40 hover:scale-105 active:scale-95'
+                  : 'cursor-default'
+                }`}
+            >
+              <Sparkles size={9} className="mr-1 fill-current opacity-80 flex-shrink-0" />
+              <span>{pyqVal}</span>
+            </button>
+          )}
 
-            {/* Pro Tag Badge */}
-            {hasProTag && (
-              <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-500 text-[10px] font-semibold border border-amber-500/20 flex-shrink-0 whitespace-nowrap">
-                <Zap size={10} className="fill-current flex-shrink-0" />
-                <span>Pro</span>
-              </div>
-            )}
+          {/* Pro Tag Badge */}
+          {hasProTag && (
+            <div className="flex items-center gap-0.5 px-2 h-[22px] max-h-[22px] sm:h-auto sm:max-h-none sm:px-2.5 sm:py-1 leading-none rounded-full bg-amber-500/10 text-amber-500 text-[9px] sm:text-[10px] font-semibold border border-amber-500/20 flex-shrink-0 whitespace-nowrap">
+              <Zap size={8} className="fill-current flex-shrink-0" />
+              <span>Pro</span>
+            </div>
+          )}
 
-            {/* Regular tags — matching design system gold glassmorphic pill */}
-            {regularTags.map(tag => (
-              <button
-                key={tag}
-                onClick={(e) => handleTagClick(e, tag)}
-                disabled={mode !== 'practice' || !onTagClick}
-                className={`flex items-center text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-500/25 dark:border-amber-400/20 bg-amber-500/8 dark:bg-amber-400/5 text-amber-600 dark:text-amber-400 shadow-[0_1px_6px_rgba(245,158,11,0.05)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
-                  ${mode === 'practice' && onTagClick
-                    ? 'cursor-pointer hover:bg-amber-500/15 dark:hover:bg-amber-400/10 hover:border-amber-500/40 hover:scale-105 active:scale-95'
-                    : 'cursor-default'
-                  }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+          {/* Regular tags — wrap naturally so no tag is cut off */}
+          {regularTags.map(tag => (
+            <button
+              key={tag}
+              onClick={(e) => handleTagClick(e, tag)}
+              disabled={mode !== 'practice' || !onTagClick}
+              className={`mcq-tag-btn flex items-center text-[10px] sm:text-xs font-semibold leading-none px-2.5 h-[26px] max-h-[26px] sm:h-auto sm:max-h-none sm:px-3 sm:py-1.5 rounded-full border border-theme-primary/20 bg-theme-primary/6 text-theme-primary/80 shadow-[0_1px_4px_rgba(var(--color-primary),0.04)] transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-[4px]
+                ${mode === 'practice' && onTagClick
+                  ? 'cursor-pointer hover:bg-theme-primary/12 hover:border-theme-primary/35 hover:text-theme-primary hover:scale-105 active:scale-95'
+                  : 'cursor-default'
+                }`}
+            >
+              {tag}
+            </button>
+          ))}
         </div>
 
-        {/* Action Toolbar — Borderless, clean, and spacious */}
-        <div className="flex items-center gap-[3px] flex-shrink-0 ml-2">
-          {mode !== 'result' && eliminatedOptions.length === 0 && !selectedOption && economy?.kash_coins_balance >= 3 && (
+        {/* Action Toolbar — Placed right after all tags in flow */}
+        <div className="flex items-center gap-1 sm:gap-[3px] flex-shrink-0 ml-auto">
+          {mode !== 'result' && eliminatedOptions.length === 0 && !selectedOption && (
             <button
               onClick={handle5050}
-              className="flex items-center justify-center w-9 h-9 rounded-full text-amber-500 hover:bg-amber-500/10 transition-all active:scale-90 flex-shrink-0"
+              className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full text-amber-500 hover:bg-amber-500/10 active:scale-90 flex-shrink-0 transition-all"
               title="50/50 Hint (Cost: 3 KC)"
             >
-              <Split size={20} />
+              <Split size={18} />
             </button>
           )}
           {mode !== 'exam' && showExplanationToggle && selectedOption && (
             <button
               onClick={() => setShowExplanation(!showExplanation)}
-              className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 h-9 rounded-xl transition-all duration-200 flex-shrink-0 whitespace-nowrap active:scale-90
-                ${showExplanation 
+              className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full transition-all duration-200 active:scale-90 flex-shrink-0 ${
+                showExplanation 
                   ? 'text-amber-500 bg-amber-500/10' 
-                  : 'text-theme-text hover:bg-theme-surface-hover/50 dark:hover:bg-theme-surface-hover/20 hover:text-theme-text'}`}
+                  : 'text-slate-400 dark:text-slate-500 hover:text-amber-500/85 hover:bg-amber-500/5'
+              }`}
+              title={showExplanation ? 'Hide Solution' : 'View Solution'}
             >
-              <Lightbulb size={18} className={showExplanation ? 'text-amber-500' : ''} />
-              <span>{showExplanation ? 'Hide' : 'Solution'}</span>
+              <Lightbulb size={18} fill={showExplanation ? 'currentColor' : 'none'} />
             </button>
           )}
           <button
             onClick={toggleBookmark}
-            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 active:scale-90 flex-shrink-0 ${isBookmarked ? 'text-amber-500 bg-amber-500/10 shadow-[0_0_12px_rgba(245,158,11,0.1)]' : 'text-slate-400 dark:text-slate-500 hover:text-amber-500/85 hover:bg-amber-500/5'}`}
+            className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full transition-all duration-200 active:scale-90 flex-shrink-0 ${
+              isBookmarked 
+                ? 'text-amber-500 bg-amber-500/10 shadow-[0_0_12px_rgba(245,158,11,0.1)]' 
+                : 'text-slate-400 dark:text-slate-500 hover:text-amber-500/85 hover:bg-amber-500/5'
+            }`}
             title="Bookmark this question"
           >
-            <Bookmark size={20} fill={isBookmarked ? 'currentColor' : 'none'} />
+            <Bookmark size={18} fill={isBookmarked ? 'currentColor' : 'none'} />
           </button>
         </div>
       </div>
@@ -639,7 +657,7 @@ export default function McqCard({
             exit={{ opacity: 0, height: 0, marginTop: 0 }}
             className="overflow-hidden"
           >
-            <div className="mcq-explanation-panel p-5 rounded-[1.1rem] space-y-4">
+            <div className="mcq-explanation-panel px-3 py-3.5 sm:p-5 rounded-[1.1rem] space-y-4">
               <div className="flex justify-between items-center pb-2 border-b border-theme-border/30">
                 <h4 className="flex items-center gap-2 font-bold text-theme-primary">
                   <Lightbulb size={18} /> Explanation

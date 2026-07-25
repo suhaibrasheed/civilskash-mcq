@@ -1056,7 +1056,7 @@ export default function BattleArena() {
         avatar_id: chosen.avatar_id || 1,
         username: resolvedUsername,
         referred_by: chosen.referred_by || null,
-        is_pro: (chosen.pro_expires_at && new Date(chosen.pro_expires_at) > new Date()) || !!chosen.is_admin,
+        is_pro: ((chosen.pro_expires_at || chosen.pro_expiration) && new Date(chosen.pro_expires_at || chosen.pro_expiration) > new Date()) || !!chosen.is_admin,
         accuracy: Math.round(oppAccuracy),
         rank: chosen.rank || 15,
         streak: oppStreak,
@@ -3588,27 +3588,27 @@ Generate exactly 10 new questions.`;
                     <Zap size={18} className="text-purple-400 fill-purple-400/20" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-sm text-slate-100 uppercase tracking-wider font-outfit">Challenge Mode Active</h4>
-                    <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest leading-none">Asynchronous Friend Duel</span>
+                    <h4 className="font-extrabold text-sm text-theme-text uppercase tracking-wider font-outfit">Challenge Mode Active</h4>
+                    <span className="text-[10px] font-bold text-purple-500 dark:text-purple-400 uppercase tracking-widest leading-none">Asynchronous Friend Duel</span>
                   </div>
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-theme-muted font-medium leading-relaxed border-t border-purple-500/20 pt-3">
                   <div className="flex items-start gap-2.5">
-                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <span className="text-purple-500 dark:text-purple-400 shrink-0 mt-0.5">✦</span>
                     <p>Complete this 20-question mock test first to establish your benchmark score.</p>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <span className="text-purple-500 dark:text-purple-400 shrink-0 mt-0.5">✦</span>
                     <p>We'll generate a special "Link Magic" URL to share via WhatsApp/Telegram.</p>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <span className="text-purple-500 dark:text-purple-400 shrink-0 mt-0.5">✦</span>
                     <p>When your friend accepts, they tackle the identical deck of questions.</p>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="text-purple-400 shrink-0 mt-0.5">✦</span>
-                    <p>Wager of <strong className="text-slate-100">50 KashCoins</strong> committed. You will be notified instantly when they finish!</p>
+                    <span className="text-purple-500 dark:text-purple-400 shrink-0 mt-0.5">✦</span>
+                    <p>Wager of <strong className="text-theme-text font-black">50 KashCoins</strong> committed. You will be notified instantly when they finish!</p>
                   </div>
                 </div>
               </div>
@@ -3616,26 +3616,26 @@ Generate exactly 10 new questions.`;
               <div className="max-w-xl mx-auto rounded-3xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-theme-surface/60 to-orange-500/10 backdrop-blur-md p-6 shadow-[0_15px_35px_-10px_rgba(245,158,11,0.15)] space-y-4 text-left">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-2xl bg-amber-500/20 flex items-center justify-center border border-amber-500/30">
-                    <Swords size={18} className="text-amber-400" />
+                    <Swords size={18} className="text-amber-500 dark:text-amber-400" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-sm text-slate-100 uppercase tracking-wider font-outfit">Daily Battle Rules</h4>
-                    <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest leading-none">Standard Mock Rules</span>
+                    <h4 className="font-extrabold text-sm text-theme-text uppercase tracking-wider font-outfit">Daily Battle Rules</h4>
+                    <span className="text-[10px] font-bold text-amber-500 dark:text-amber-400 uppercase tracking-widest leading-none">Standard Mock Rules</span>
                   </div>
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-theme-muted font-medium leading-relaxed border-t border-amber-500/20 pt-3">
                   <div className="flex items-start gap-2.5">
-                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <span className="text-amber-500 dark:text-amber-400 shrink-0 mt-0.5">✦</span>
                     <p>Standard mock consists of 20 randomized questions based on your target syllabus.</p>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <span className="text-amber-500 dark:text-amber-400 shrink-0 mt-0.5">✦</span>
                     <p>Scoring scheme is <strong>+1.00 Mark</strong> for correct and <strong>-0.25 Mark</strong> for incorrect answers.</p>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
-                    <p>Wager of <strong className="text-slate-100">100 KashCoins</strong> committed upon starting the mock match.</p>
+                    <span className="text-amber-500 dark:text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <p>Wager of <strong className="text-theme-text font-black">100 KashCoins</strong> committed upon starting the mock match.</p>
                   </div>
                 </div>
               </div>
@@ -5260,7 +5260,7 @@ Generate exactly 10 new questions.`;
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
-              className="bg-[#0f121d]/90 border border-purple-500/20 rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl relative overflow-hidden"
+              className="bg-theme-surface/95 border border-theme-border rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl relative overflow-hidden"
             >
               {/* Glow vignette */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] pointer-events-none" />
@@ -5272,10 +5272,10 @@ Generate exactly 10 new questions.`;
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-black text-lg text-slate-100 uppercase tracking-wider">
+                <h3 className="font-black text-lg text-theme-text uppercase tracking-wider">
                   {(isFriendChallengeSetup || challengeData) && step !== 'reveal' ? "Duel Arena Setup" : "Kash AI Working"}
                 </h3>
-                <p className="text-xs text-slate-400 font-semibold leading-relaxed">
+                <p className="text-xs text-theme-muted font-semibold leading-relaxed">
                   {aiLoadingText || "Synthesizing intelligence features..."}
                 </p>
               </div>

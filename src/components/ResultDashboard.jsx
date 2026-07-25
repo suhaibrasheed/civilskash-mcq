@@ -926,7 +926,15 @@ Generate high-yield revision notes.`;
       });
     } catch (err) {
       console.error(err);
-      showToast(err.message || "Failed to generate cheat sheet.", "error");
+      if (err?.code === 'MISSING_GEMINI_KEY' || err?.message?.includes('API key not set')) {
+        if (economy?.user_tier === 'Pro' || economy?.is_pro) {
+          setAiSettingsOpen(true);
+        } else {
+          openProUpsell('AI Cheat Sheet');
+        }
+      } else {
+        showToast(err.message || "Failed to generate cheat sheet.", "error");
+      }
     } finally {
       setIsAiLoading(false);
     }
@@ -1065,7 +1073,15 @@ Generate exactly 10 new questions.`;
       });
     } catch (err) {
       console.error(err);
-      showToast(err.message || "Failed to generate similar mock.", "error");
+      if (err?.code === 'MISSING_GEMINI_KEY' || err?.message?.includes('API key not set')) {
+        if (economy?.user_tier === 'Pro' || economy?.is_pro) {
+          setAiSettingsOpen(true);
+        } else {
+          openProUpsell('AI Mock Test Generator');
+        }
+      } else {
+        showToast(err.message || "Failed to generate similar mock.", "error");
+      }
     } finally {
       setIsAiLoading(false);
     }
@@ -2235,7 +2251,7 @@ Generate exactly 10 new questions.`;
             </div>
           </div>
 
-          <div className="p-4 md:p-8 space-y-12 bg-theme-bg/50">
+          <div className="px-1.5 py-4 sm:p-6 md:p-8 space-y-4 sm:space-y-8 md:space-y-12 bg-theme-bg/50">
             {filteredQuestions.length === 0 ? (
               <p className="text-center text-theme-muted py-8 font-medium">
                 No questions for this filter.
@@ -2283,7 +2299,7 @@ Generate exactly 10 new questions.`;
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
-              className="bg-[#0f121d]/90 border border-purple-500/20 rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl relative overflow-hidden"
+              className="bg-theme-surface/95 border border-theme-border rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl relative overflow-hidden"
             >
               {/* Glow vignette */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] pointer-events-none" />
@@ -2295,8 +2311,8 @@ Generate exactly 10 new questions.`;
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-black text-lg text-slate-100 uppercase tracking-wider">Kash AI Working</h3>
-                <p className="text-xs text-slate-400 font-semibold leading-relaxed">
+                <h3 className="font-black text-lg text-theme-text uppercase tracking-wider">Kash AI Working</h3>
+                <p className="text-xs text-theme-muted font-semibold leading-relaxed">
                   {aiLoadingText || "Synthesizing intelligence features..."}
                 </p>
               </div>

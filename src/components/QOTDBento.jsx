@@ -360,27 +360,24 @@ export default function QOTDBento() {
               {/* Tile A: The Streak Tracker */}
               {!isFocusedMode && (
                 <div 
-                  className="md:col-span-3 rounded-3xl p-[1.5px] transition-all duration-300 relative overflow-hidden flex flex-col justify-center items-center text-center"
+                  className="md:col-span-3 rounded-3xl p-[1.5px] transition-all duration-300 relative overflow-hidden flex flex-col justify-center items-center text-center border border-theme-border/40"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.05) 50%, rgba(124, 58, 237, 0.25) 100%)',
-                    boxShadow: '0 12px 36px -10px rgba(0, 0, 0, 0.5)'
+                    background: 'linear-gradient(135deg, rgba(var(--color-primary), 0.35) 0%, rgba(var(--color-primary), 0.05) 50%, rgba(var(--color-glow), 0.2) 100%)',
+                    boxShadow: 'var(--shadow-card)'
                   }}
                 >
                   <div 
-                    className="rounded-[22px] p-6 w-full h-full relative z-10 flex flex-col items-center justify-center space-y-3 min-h-[140px]"
-                    style={{
-                      background: 'linear-gradient(145deg, rgba(13, 21, 38, 0.9) 0%, rgba(8, 12, 24, 0.96) 100%)',
-                    }}
+                    className="rounded-[22px] p-6 w-full h-full relative z-10 flex flex-col items-center justify-center space-y-3 min-h-[140px] bg-theme-surface"
                   >
                     <div className="relative flex items-center justify-center">
                       <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-md animate-pulse" />
                       <Flame className="w-10 h-10 text-amber-500 relative z-10 fill-amber-500/10" />
                     </div>
                     <div>
-                      <div className="text-xl font-black text-slate-100 font-outfit uppercase tracking-wider leading-none">
+                      <div className="text-xl font-black text-theme-text font-outfit uppercase tracking-wider leading-none">
                         {currentStreak} {currentStreak === 1 ? 'Day' : 'Days'}
                       </div>
-                      <div className="text-[9px] font-black uppercase tracking-widest text-amber-400 mt-1.5 leading-none">
+                      <div className="text-[9px] font-black uppercase tracking-widest text-amber-500 dark:text-amber-400 mt-1.5 leading-none">
                         QOTD Streak
                       </div>
                     </div>
@@ -390,20 +387,17 @@ export default function QOTDBento() {
 
               {/* Tile B: The Action & QOTD Hub */}
               <div 
-                className={`rounded-3xl p-[1.5px] transition-all duration-300 relative overflow-hidden ${isFocusedMode ? 'w-full' : 'md:col-span-7'}`}
+                className={`rounded-3xl p-[1.5px] transition-all duration-300 relative overflow-hidden border border-theme-border/40 ${isFocusedMode ? 'w-full' : 'md:col-span-7'}`}
                 style={{
-                  background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.05) 50%, rgba(124, 58, 237, 0.25) 100%)',
-                  boxShadow: '0 12px 36px -10px rgba(0, 0, 0, 0.5)'
+                  background: 'linear-gradient(135deg, rgba(var(--color-primary), 0.35) 0%, rgba(var(--color-primary), 0.05) 50%, rgba(var(--color-glow), 0.2) 100%)',
+                  boxShadow: 'var(--shadow-card)'
                 }}
               >
                 {/* Glowing orbs */}
                 <div className="absolute top-[-80px] right-[-80px] w-56 h-56 bg-amber-500/10 rounded-full blur-[80px] pointer-events-none" />
 
                 <div 
-                  className={`rounded-[22px] ${isFocusedMode ? 'p-3 sm:p-4' : 'p-6'} relative z-10 space-y-4 h-full flex flex-col justify-center`}
-                  style={{
-                    background: 'linear-gradient(145deg, rgba(13, 21, 38, 0.9) 0%, rgba(8, 12, 24, 0.96) 100%)',
-                  }}
+                  className={`rounded-[22px] ${isFocusedMode ? 'p-3 sm:p-4' : 'p-6'} relative z-10 space-y-4 h-full flex flex-col justify-center bg-theme-surface`}
                 >
                   <AnimatePresence mode="wait">
                     
@@ -422,7 +416,7 @@ export default function QOTDBento() {
                           
                           <div className="space-y-1">
                             <div className="flex items-center gap-2.5">
-                              <h3 className="text-base font-black text-slate-100 uppercase tracking-tight font-outfit">
+                              <h3 className="text-base font-black text-theme-text uppercase tracking-tight font-outfit">
                                 Question of the Day
                               </h3>
                               
@@ -464,7 +458,7 @@ export default function QOTDBento() {
                   exit={{ opacity: 0 }}
                   className="space-y-4 w-full"
                 >
-                  <div className="w-full rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+                  <div className="w-full rounded-2xl overflow-hidden border border-theme-border/50 shadow-2xl">
                     <McqCard 
                       key={`${qotdQuestion.id}-${state}`}
                       questionData={qotdQuestion}
@@ -483,22 +477,22 @@ export default function QOTDBento() {
                       className="space-y-3 mt-4"
                     >
                       {isCorrect ? (
-                        <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-lg shadow-emerald-500/5">
+                        <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 p-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-lg shadow-emerald-500/5">
                           <span className="flex items-center gap-2">🏆 Correct Answer!</span>
-                          <span className="flex items-center gap-1 font-black text-sm text-emerald-300">+{earnedCoins} <KashCoinIcon className="w-4 h-4" /></span>
+                          <span className="flex items-center gap-1 font-black text-sm text-emerald-600 dark:text-emerald-300">+{earnedCoins} <KashCoinIcon className="w-4 h-4" /></span>
                         </div>
                       ) : (
-                        <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 p-3.5 rounded-xl text-xs font-bold shadow-lg shadow-rose-500/5">
+                        <div className="bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 p-3.5 rounded-xl text-xs font-bold shadow-lg shadow-rose-500/5">
                           ❌ Incorrect! Wager of 30 KC forfeited. Keep checking in daily!
                         </div>
                       )}
 
                       <div className="flex items-center justify-between w-full">
                         {/* Reset Clock capsule */}
-                        <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-white/5 border border-white/5 px-2.5 py-1.5 rounded-full w-fit">
+                        <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-theme-surface-2 border border-theme-border/40 px-2.5 py-1.5 rounded-full w-fit">
                           <Clock size={11} className="text-amber-500" />
                           <span>Next reset in:</span>
-                          <span className="text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
+                          <span className="text-amber-500 dark:text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
                         </div>
 
                         {/* Inline controls */}
@@ -516,16 +510,16 @@ export default function QOTDBento() {
                       {economy?.user_tier !== 'Pro' && (
                         <div className="bg-gradient-to-r from-purple-500/10 via-amber-500/10 to-purple-500/10 border border-purple-500/20 p-3.5 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                           <div className="space-y-0.5">
-                            <div className="text-[10px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1">
-                              <Sparkles size={11} className="text-amber-400" /> Pro Multiplier
+                            <div className="text-[10px] font-black uppercase text-amber-500 dark:text-amber-400 tracking-wider flex items-center gap-1">
+                              <Sparkles size={11} className="text-amber-500 dark:text-amber-400" /> Pro Multiplier
                             </div>
-                            <p className="text-xs text-slate-300">
+                            <p className="text-xs text-theme-muted">
                               Pro members earn 100 KC (+50 extra bonus) per QOTD resolve.
                             </p>
                           </div>
                           <button 
                             onClick={() => alert("Upgrade flows")}
-                            className="text-[9px] font-black uppercase tracking-wider bg-purple-500 text-slate-100 px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors shadow-md shadow-purple-500/15 cursor-pointer"
+                            className="text-[9px] font-black uppercase tracking-wider bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors shadow-md shadow-purple-500/15 cursor-pointer"
                           >
                             Go Pro
                           </button>
@@ -550,19 +544,19 @@ export default function QOTDBento() {
                     <div className="flex items-center gap-3">
                       {/* Green Check Circle */}
                       <div className="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30 flex-shrink-0">
-                        <Check size={14} className="text-emerald-400 stroke-[3]" />
+                        <Check size={14} className="text-emerald-500 dark:text-emerald-400 stroke-[3]" />
                       </div>
                       <div className="text-left">
-                        <h4 className="text-xs font-black text-emerald-400 font-outfit uppercase tracking-tight">
+                        <h4 className="text-xs font-black text-emerald-600 dark:text-emerald-400 font-outfit uppercase tracking-tight">
                           Today's QOTD solved.
                         </h4>
-                        <p className="text-[10px] font-medium text-slate-400 mt-0.5 leading-none">
+                        <p className="text-[10px] font-medium text-theme-muted mt-0.5 leading-none">
                           Return tomorrow!
                         </p>
                       </div>
                     </div>
                     {/* Coin Reward payout text on the right */}
-                    <div className="flex items-center gap-1.5 font-mono text-xs font-black text-emerald-400">
+                    <div className="flex items-center gap-1.5 font-mono text-xs font-black text-emerald-600 dark:text-emerald-400">
                       <span>{earnedCoins || 50}</span>
                       <KashCoinIcon className="w-3.5 h-3.5 animate-pulse" />
                     </div>
@@ -573,10 +567,10 @@ export default function QOTDBento() {
                     {/* Left aligned items: Timer + Config icons */}
                     <div className="flex items-center gap-2">
                       {/* Clock Reset Time badge */}
-                      <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-white/5 border border-white/5 px-3 py-1.5 rounded-full">
+                      <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-theme-surface-2 border border-theme-border/40 px-3 py-1.5 rounded-full">
                         <Clock size={11} className="text-amber-500" />
                         <span>Reset in:</span>
-                        <span className="text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
+                        <span className="text-amber-500 dark:text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
                       </div>
 
                       {/* Info button */}
@@ -593,7 +587,7 @@ export default function QOTDBento() {
                     {previousQOTDQuestions.length > 0 && (
                       <button
                         onClick={() => setState('review_history')}
-                        className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-400 hover:text-amber-300 bg-amber-500/5 hover:bg-amber-500/10 border border-amber-500/10 px-3.5 py-1.5 rounded-full cursor-pointer active:scale-95 transition-all"
+                        className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-600 dark:text-amber-400 hover:text-amber-500 bg-amber-500/5 hover:bg-amber-500/10 border border-amber-500/10 px-3.5 py-1.5 rounded-full cursor-pointer active:scale-95 transition-all"
                       >
                         <Eye size={12} />
                         <span>Review Previous QOTD</span>
@@ -614,21 +608,21 @@ export default function QOTDBento() {
                   className="space-y-4 w-full"
                 >
                   {/* Top Info Banner corresponding to Image 3 Red Box */}
-                  <div className={`py-3 px-4 rounded-xl text-[11px] font-bold flex items-center justify-center text-center shadow-lg ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shadow-emerald-500/5' : 'bg-rose-500/10 border border-rose-500/20 text-rose-400 shadow-rose-500/5'}`}>
+                  <div className={`py-3 px-4 rounded-xl text-[11px] font-bold flex items-center justify-center text-center shadow-lg ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 shadow-emerald-500/5' : 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 shadow-rose-500/5'}`}>
                     <span>{isCorrect ? "🏆 Victory! You won today's QOTD challenge." : "❌ Defeat! You lost today's QOTD challenge. Keep practicing!"}</span>
                   </div>
 
                   {/* Clock Reset and close trigger row (responsive stacking on mobile) */}
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
-                    <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-white/5 border border-white/5 px-3.5 py-1.5 rounded-full w-fit">
+                    <div className="flex items-center gap-1.5 text-[10px] text-theme-muted font-black uppercase tracking-wider bg-theme-surface-2 border border-theme-border/40 px-3.5 py-1.5 rounded-full w-fit">
                       <Clock size={11} className="text-amber-500" />
                       <span>Next Reset in:</span>
-                      <span className="text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
+                      <span className="text-amber-500 dark:text-amber-400 font-mono tracking-wider ml-0.5">{countdown}</span>
                     </div>
 
                     <button 
                       onClick={() => setState('resolved')}
-                      className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/5 hover:bg-amber-500/10 border border-amber-500/10 px-3.5 py-1.5 rounded-full cursor-pointer active:scale-95 transition-all w-fit"
+                      className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/5 hover:bg-amber-500/10 border border-amber-500/10 px-3.5 py-1.5 rounded-full cursor-pointer active:scale-95 transition-all w-fit"
                     >
                       <X size={11} />
                       <span>Close Review</span>
@@ -636,15 +630,15 @@ export default function QOTDBento() {
                   </div>
 
                   {/* Divider line */}
-                  <div className="border-t border-white/5" />
+                  <div className="border-t border-theme-border/40" />
 
                   {/* Scrollable feed of previous QOTDs */}
                   <div className="space-y-6 max-h-[500px] overflow-y-auto pr-1 custom-scrollbar">
                     {previousQOTDQuestions.map((q, idx) => (
-                      <div key={q.id} className="border border-white/5 rounded-2xl overflow-hidden shadow-2xl relative bg-slate-950/20">
-                        <div className="bg-white/5 px-4 py-2 border-b border-white/5 text-[9px] font-black uppercase text-amber-500 tracking-widest flex items-center justify-between">
+                      <div key={q.id} className="border border-theme-border/50 rounded-2xl overflow-hidden shadow-2xl relative bg-theme-surface-2/40">
+                        <div className="bg-theme-surface-2 px-4 py-2 border-b border-theme-border/40 text-[9px] font-black uppercase text-amber-600 dark:text-amber-500 tracking-widest flex items-center justify-between">
                           <span>Previous Challenge #{idx + 1}</span>
-                          <span className="text-[8px] bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded-md border border-amber-500/20">{String(q.difficulty).toUpperCase()}</span>
+                          <span className="text-[8px] bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded-md border border-amber-500/20">{String(q.difficulty).toUpperCase()}</span>
                         </div>
                         <McqCard 
                           key={`review-item-${q.id}`}

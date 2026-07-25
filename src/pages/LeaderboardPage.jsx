@@ -60,18 +60,18 @@ export default function LeaderboardPage() {
           const { data: dbRows, error } = await supabase.rpc('get_shoutout_feed');
           if (error) throw error;
           // Filter active Pro users on frontend to handle expired users
-          finalRows = (dbRows || []).filter(p => p.pro_expires_at && new Date(p.pro_expires_at) > new Date());
+          finalRows = (dbRows || []).filter(p => (p.pro_expires_at || p.pro_expiration) && new Date(p.pro_expires_at || p.pro_expiration) > new Date());
         } catch (shoutoutError) {
           console.warn('get_shoutout_feed RPC failed, falling back to profiles query:', shoutoutError);
           try {
             const { data: dbRows, error } = await supabase
               .from('profiles')
-              .select('id, full_name, avatar_id, pro_expires_at, status_message, last_status_update_at')
+              .select('id, full_name, avatar_id, pro_expires_at, pro_expiration, status_message, last_status_update_at')
               .not('status_message', 'is', null)
               .limit(50);
             if (error) throw error;
             // Filter active Pro users on frontend
-            finalRows = (dbRows || []).filter(p => p.pro_expires_at && new Date(p.pro_expires_at) > new Date());
+            finalRows = (dbRows || []).filter(p => (p.pro_expires_at || p.pro_expiration) && new Date(p.pro_expires_at || p.pro_expiration) > new Date());
           } catch (fallbackError) {
             console.error('Profile query fallback failed:', fallbackError);
             finalRows = [];
@@ -517,7 +517,7 @@ export default function LeaderboardPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
                 {leaderboardData.map((profile) => {
                   const isUser = user && profile.id === user.id;
-                  const isPro = profile.pro_expires_at && new Date(profile.pro_expires_at) > new Date();
+                  const isPro = ((profile.pro_expires_at || profile.pro_expiration) && new Date(profile.pro_expires_at || profile.pro_expiration) > new Date()) || profile.is_pro;
 
                   return (
                     <motion.div
@@ -580,7 +580,7 @@ export default function LeaderboardPage() {
                 {leaderboardData.map((profile, i) => {
                   const rank = profile.rank || (i + 1);
                   const isUser = user && profile.id === user.id;
-                  const isPro = profile.pro_expires_at && new Date(profile.pro_expires_at) > new Date();
+                  const isPro = ((profile.pro_expires_at || profile.pro_expiration) && new Date(profile.pro_expires_at || profile.pro_expiration) > new Date()) || profile.is_pro;
 
                   // Check if there's a rank gap for rendering Rivalry Radar divider
                   const showGap = leaderboardType !== 'shoutout' && i > 0 && profile.rank > leaderboardData[i - 1].rank + 1;

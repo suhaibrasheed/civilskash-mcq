@@ -221,7 +221,7 @@ export function EconomyProvider({ children }) {
           // Fetch Supabase Profile
           const response = await supabase
             .from('profiles')
-            .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier,pro_expiration')
+            .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
             .eq('id', user.id)
             .single();
           profile = response.data;
@@ -332,7 +332,7 @@ export function EconomyProvider({ children }) {
               // Re-fetch profile to get updated values
               let { data: updatedProfile } = await supabase
                 .from('profiles')
-                .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier,pro_expiration')
+                .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
                 .eq('id', user.id)
                 .single();
               if (updatedProfile) {
@@ -395,10 +395,26 @@ export function EconomyProvider({ children }) {
             localStorage.setItem(`mcqkash_last_streak_${user.id}`, dbStreakDateStr);
           }
 
-          // Verify if Pro is active: is_pro must be true AND not expired (or admin bypasses)
-          const hasNotExpired = (profile.pro_expiration && new Date(profile.pro_expiration) > new Date()) || 
-                                (profile.pro_expires_at && new Date(profile.pro_expires_at) > new Date());
-          const isPro = (!!profile.is_pro && hasNotExpired) || !!profile.is_admin;
+          // Verify if Pro is active: is_pro must be true AND not expired (or admin bypasses or local pro override backup exists)
+          const localProOverrideStr = localStorage.getItem(`mcqkash_pro_override_${user.id}`);
+          let localProActive = false;
+          let overrideTier = null;
+          let overrideExp = null;
+          if (localProOverrideStr) {
+            try {
+              const parsedOverride = JSON.parse(localProOverrideStr);
+              const exp = parsedOverride.pro_expiration || parsedOverride.pro_expires_at;
+              if (parsedOverride.is_pro && exp && new Date(exp) > new Date()) {
+                localProActive = true;
+                overrideTier = parsedOverride.pro_tier;
+                overrideExp = exp;
+              }
+            } catch (e) {}
+          }
+
+          const rawProExpiry = profile.pro_expires_at || profile.pro_expiration || overrideExp;
+          const hasNotExpired = rawProExpiry && new Date(rawProExpiry) > new Date();
+          const isPro = (!!profile.is_pro && hasNotExpired) || !!profile.is_admin || localProActive;
           const expectedTier = isPro ? 'Pro' : 'FREE';
 
           // Sync database state to our local context state
@@ -410,8 +426,8 @@ export function EconomyProvider({ children }) {
             current_streak_days: profile.streak_days,
             user_tier: expectedTier,
             pro_factor: isPro ? 1.5 : 1.0,
-            pro_expires_at: profile.pro_expires_at,
-            pro_expiration: profile.pro_expiration || null,
+            pro_expires_at: profile.pro_expires_at || profile.pro_expiration || null,
+            pro_expiration: profile.pro_expiration || profile.pro_expires_at || null,
             pro_tier: profile.pro_tier || null,
             payment_history: profile.payment_history || [],
             is_pro: isPro,
@@ -489,7 +505,8 @@ export function EconomyProvider({ children }) {
                 await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
               }
             } else {
-              // Streak breaks
+              // Streak breaks — update localStorage to today so this logic doesn't re-fire on every reload
+              localStorage.setItem(lastStreakKey, todayStr);
               updatedData.current_streak_days = 0;
               updatedData.active_pledges = (updatedData.active_pledges || []).map(p =>
                 p.status === 'MATURE' || p.status === 'LIQUIDATED' ? p : { ...p, status: 'LIQUIDATED' }

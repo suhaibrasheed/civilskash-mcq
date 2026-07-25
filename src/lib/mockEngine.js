@@ -422,8 +422,8 @@ export function generateMocksForExam(examId) {
     return question;
   };
 
-  // ── Elite Full-Length Mocks (10 free Full + 30 Elite Pro mocks) ──────────────
-  const ELITE_COUNT = 40;
+  // ── Elite Full-Length Mocks (15 free/locked Full + 30 Elite Pro mocks) ──────────────
+  const ELITE_COUNT = 45;
   const ELITE_Q = 100;
 
   const eliteEasyPtrs = {};
@@ -700,12 +700,13 @@ export function generateSubjectMocks(categoryId, targetExamId = null) {
     const eliteMocks = [];
 
     for (let i = 0; i < shuffled.length; i += 90) {
+      if (eliteMocks.length >= 3) break;
       const chunk = shuffled.slice(i, i + 100);
       if (chunk.length === 0) break;
       eliteMocks.push({
         id: `subj-${categoryId}-${topic}-elite-${eliteMocks.length + 1}`,
         index: eliteMocks.length + 1,
-        title: `${topic === 'All' ? 'Full Subject' : topic} Elite Mock ${eliteMocks.length + 1}`,
+        title: `${topic === 'All' ? 'Full Subject' : topic} Full Mock ${eliteMocks.length + 1}`,
         questions: chunk.length,
         minutes: chunk.length,
         type: 'elite',

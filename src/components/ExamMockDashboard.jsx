@@ -6,6 +6,7 @@ import { getSolvedMocks } from '../lib/db';
 import { getScoreBand, isExamMockLockedForFreeUser, normalizeSolvedMocks } from '../lib/mockDashboardUi';
 import { useEconomy } from '../context/EconomyContext';
 import { useNavigate } from 'react-router-dom';
+import PyqLockedBanner from './PyqLockedBanner';
 
 // ─── Accomplishment Badge ───────────────────────────────────────────
 function SolvedBadge({ solvedInfo }) {
@@ -369,8 +370,8 @@ export default function ExamMockDashboard({ exam, onBack }) {
   const displayedElite = showAllElite 
     ? eliteMocks 
     : [
-        ...eliteMocks.filter(m => m.index <= 10).slice(0, 3),
-        ...eliteMocks.filter(m => m.index > 10).slice(0, 2)
+        ...eliteMocks.filter(m => m.index <= 15).slice(0, 5),
+        ...eliteMocks.filter(m => m.index > 15).slice(0, 2)
       ];
   
   const currentMocks = activeTab === 'all' ? quickMocks : sectionalData;
@@ -417,7 +418,7 @@ export default function ExamMockDashboard({ exam, onBack }) {
                 <span className="relative w-1.5 h-1.5 rounded-full bg-emerald-500" />
               </div>
               <span className="text-xs font-bold text-theme-muted opacity-80">
-                10 Full • 30 Elite • {quickMocks.length} Quick • {config.categories.length} Sections
+                15 Full • 30 Elite • {quickMocks.length} Quick • {config.categories.length} Sections
               </span>
             </div>
           </div>
@@ -471,9 +472,9 @@ export default function ExamMockDashboard({ exam, onBack }) {
                 return displayedElite.map((mock) => {
                   const locked = isExamMockLockedForFreeUser(mock, userTier);
                   if (locked) proCounter++;
-                  const isFree = mock.index <= 10;
-                  const displayIndex = isFree ? mock.index : mock.index - 10;
-                  const displayName = isFree ? `Full Mock ${displayIndex}` : `Elite Mock ${displayIndex}`;
+                  const isFreeMock = mock.index <= 15;
+                  const displayIndex = isFreeMock ? mock.index : mock.index - 15;
+                  const displayName = isFreeMock ? `Full Mock ${displayIndex}` : `Elite Mock ${displayIndex}`;
                   return (
                     <EliteTile
                       key={mock.id}
@@ -632,32 +633,38 @@ export default function ExamMockDashboard({ exam, onBack }) {
             </div>
           </div>
           
-          <div className="mb-8">
-            <AccomplishmentBar
-              mocks={Object.values(pyqMocks).flat()}
-              solvedMap={solvedMap}
-              label="PYQ"
-            />
-          </div>
-
-          <div className="space-y-8">
-            {Object.keys(pyqMocks).sort((a,b) => b.localeCompare(a)).map(year => (
-              <div key={year}>
-                <h3 className="text-sm font-bold text-theme-muted mb-3 uppercase tracking-wider pl-1">{year === 'Unknown' ? 'Mixed PYQs' : `${year} Papers`}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {pyqMocks[year].map(mock => (
-                    <QuickMockRow
-                      key={mock.id}
-                      mock={mock}
-                      examId={exam.id}
-                      solvedMap={solvedMap}
-                      isLocked={isExamMockLockedForFreeUser(mock, userTier)}
-                    />
-                  ))}
-                </div>
+          {userTier === 'Pro' ? (
+            <>
+              <div className="mb-8">
+                <AccomplishmentBar
+                  mocks={Object.values(pyqMocks).flat()}
+                  solvedMap={solvedMap}
+                  label="PYQ"
+                />
               </div>
-            ))}
-          </div>
+
+              <div className="space-y-8">
+                {Object.keys(pyqMocks).sort((a,b) => b.localeCompare(a)).map(year => (
+                  <div key={year}>
+                    <h3 className="text-sm font-bold text-theme-muted mb-3 uppercase tracking-wider pl-1">{year === 'Unknown' ? 'Mixed PYQs' : `${year} Papers`}</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {pyqMocks[year].map(mock => (
+                        <QuickMockRow
+                          key={mock.id}
+                          mock={mock}
+                          examId={exam.id}
+                          solvedMap={solvedMap}
+                          isLocked={isExamMockLockedForFreeUser(mock, userTier)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <PyqLockedBanner subtitle={`Unlock official ${config.label || exam.name || 'Exam'} PYQ Sprints with expert solution breakdowns`} />
+          )}
         </section>
       )}
 

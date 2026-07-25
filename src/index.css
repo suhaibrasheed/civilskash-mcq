@@ -2452,6 +2452,12 @@ textarea.text-theme-text {
 }
 
 /* Mobile-first Safe Area Inset Support & Tap Enhancements */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 body {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -2473,3 +2479,54 @@ header {
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px) !important;
 }
+
+/* Math formula & KaTeX horizontal scroll wrapper for mobile screens */
+.katex-display, .katex {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch target enforcement on mobile screens (< 768px) */
+@media (max-width: 768px) {
+  button:not(.mcq-tag-btn), 
+  a.btn-touch,
+  .touch-target {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Tables horizontal scroll container */
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Expand question & explanation images on mobile to utilize full available width */
+  .mcq-explanation-content img,
+  .studio-expl-content img,
+  .mcq-glass-card img:not(.no-full-width),
+  .nk-mcq-image,
+  img.expanded-studio-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 420px !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+    margin: 10px 0 !important;
+    display: block !important;
+  }
+
+  /* Tighten option row horizontal padding to save precious mobile width */
+  .mcq-option-row,
+  .mcq-option-selected,
+  .mcq-option-correct,
+  .mcq-option-wrong,
+  .mcq-option-muted {
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+  }
+}
+

@@ -206,7 +206,8 @@ export default function ExamEngine() {
     updatePalette('not_answered');
     setAnswers(prev => {
       const newAnswers = { ...prev };
-      delete newAnswers[questions[currentIdx].id];
+      const qId = questions[currentIdx]?.id;
+      if (qId) delete newAnswers[qId];
       return newAnswers;
     });
   };
@@ -235,8 +236,8 @@ export default function ExamEngine() {
   return (
     <div className="min-h-screen bg-theme-bg flex flex-col h-screen overflow-hidden">
       {/* Exam Header */}
-      <header className="h-14 bg-theme-surface border-b border-theme-border flex items-center justify-between px-4 shrink-0">
-        <div className="flex items-center gap-4">
+      <header className="h-14 bg-theme-surface border-b border-theme-border flex items-center justify-between px-3 sm:px-6 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button onClick={() => {
             if (mock) {
               localStorage.removeItem(`mcqkash_mock_answers_${mock.id}`);
@@ -246,7 +247,7 @@ export default function ExamEngine() {
               localStorage.removeItem('mcqkash_active_mock_examId');
             }
             navigate(fromPath, { state: { selectedExamId: examId } });
-          }} className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors">
+          }} className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors">
             <ArrowLeft size={20} />
           </button>
           <div className="scale-75 origin-left">
@@ -254,21 +255,21 @@ export default function ExamEngine() {
           </div>
         </div>
         
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button 
             onClick={toggleFullscreen} 
             title={isFullscreen ? "Exit Full Screen" : "Full Screen Mode"}
-            className="p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
+            className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
           >
             {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
           </button>
-          <div className="flex items-center gap-2 bg-theme-surface-hover px-4 py-1.5 rounded-full border border-theme-border shadow-inner">
-            <Clock size={16} className={timeLeft < 120 ? 'text-rose-500 animate-pulse' : 'text-theme-primary'} />
-            <span className={`font-mono font-bold ${timeLeft < 120 ? 'text-rose-500' : 'text-theme-text'}`}>
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-theme-surface-hover px-3 sm:px-4 py-1.5 rounded-full border border-theme-border shadow-inner">
+            <Clock size={15} className={timeLeft < 120 ? 'text-rose-500 animate-pulse' : 'text-theme-primary'} />
+            <span className={`font-mono font-bold text-sm sm:text-base ${timeLeft < 120 ? 'text-rose-500' : 'text-theme-text'}`}>
               {formatTime(timeLeft)}
             </span>
           </div>
-          <button onClick={handleSubmit} className="bg-theme-primary hover:bg-blue-600 text-white px-6 py-1.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-theme-primary/10 hover:shadow-theme-primary/30 animate-subtle">
+          <button onClick={handleSubmit} className="bg-theme-primary hover:bg-blue-600 text-white px-4 sm:px-6 py-1.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-theme-primary/10 hover:shadow-theme-primary/30 animate-subtle flex-shrink-0">
             Submit
           </button>
         </div>
@@ -277,7 +278,7 @@ export default function ExamEngine() {
       {/* Main Content Split */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left: Question Area */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto px-2 py-3 sm:p-6 md:p-8 custom-scrollbar">
           <div className="max-w-3xl mx-auto mb-4 text-theme-muted font-bold flex justify-between items-center">
             <span>Question {currentIdx + 1} of {questions.length}</span>
             <div className="flex items-center gap-2">

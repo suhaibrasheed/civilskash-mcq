@@ -103,11 +103,15 @@ export const ensureCategoryLoaded = async (categoryId) => {
 };
 
 /**
- * Background loader to fetch all categories into memory after startup.
+ * Background loader to fetch all categories into memory asynchronously after startup.
  */
 export const loadStaticQuestionsInBackground = async () => {
   const categories = Object.keys(CATEGORY_LOADERS);
-  await Promise.all(categories.map(catId => ensureCategoryLoaded(catId)));
+  for (const catId of categories) {
+    await ensureCategoryLoaded(catId);
+    // Yield brief 20ms frame break to prevent main-thread lag
+    await new Promise(resolve => setTimeout(resolve, 20));
+  }
 };
 
 export const getHybridContentHub = async (requestedCategoryId, tagFilter = null) => {
@@ -158,8 +162,8 @@ export const getAllQuestions = async () => {
 };
 
 /**
- * Loads all offline questions from IndexedDB, triggers background static question downloads,
- * and registers compiled exams synchronously.
+ * Loads all offline questions from IndexedDB, registers compiled exams synchronously,
+ * and schedules static question bank loading in non-blocking background frames.
  */
 export const loadOfflineQuestionsIntoSyncBank = async () => {
   try {
@@ -173,8 +177,16 @@ export const loadOfflineQuestionsIntoSyncBank = async () => {
     // Load static exams synchronously on boot (instant config)
     await loadSupabaseExamsIntoSyncBank();
 
-    // Await static question imports so counts are fully accurate on boot
-    await loadStaticQuestionsInBackground();
+    // Schedule question bank loading in idle background frames without blocking startup
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        loadStaticQuestionsInBackground();
+      }, { timeout: 3000 });
+    } else {
+      setTimeout(() => {
+        loadStaticQuestionsInBackground();
+      }, 100);
+    }
   } catch (err) {
     console.error("Failed to load offline questions into sync bank:", err);
   }
