@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, Target, Search, GraduationCap, Brain, Zap,
   FileText, Crosshair, Eye, MessageCircle,
-  Crown, ArrowRight, BarChart2, Wand2, FlaskConical, Swords, Video
+  Crown, ArrowRight, BarChart2, Wand2, FlaskConical, Swords, Video, SlidersHorizontal
 } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 
 import { createPortal } from 'react-dom';
 
-// ─── Feature Tile Data (Uniformly sized cards, 14 features total) ──────────
+// ─── Feature Tile Data (Uniformly sized cards, 15 features total) ──────────
 const FEATURES = [
   {
     id: 'rank-detector',
@@ -64,7 +64,7 @@ const FEATURES = [
     id: 'mock-forge',
     name: 'Mock Forge',
     tagline: 'Build custom exam practices.',
-    desc: 'Instantly assemble mocks from any combination of custom filters.',
+    desc: 'Build AI-powered Mocks from your mistakes & weak areas.',
     icon: Zap,
     accent: { bg: 'rgba(168,85,247,0.06)', border: 'rgba(168,85,247,0.18)', text: '#c084fc', glow: 'rgba(168,85,247,0.1)' },
   },
@@ -72,9 +72,25 @@ const FEATURES = [
     id: 'smart-mock',
     name: 'Smart Mock',
     tagline: 'Syllabus oriented tests.',
-    desc: 'Build AI-powered mocks from any topic, filter, or weak area.',
+    desc: 'Instantly assemble mocks from any combination of custom filters.',
     icon: FlaskConical,
     accent: { bg: 'rgba(20,184,166,0.06)', border: 'rgba(20,184,166,0.18)', text: '#2dd4bf', glow: 'rgba(20,184,166,0.1)' },
+  },
+  {
+    id: 'mcq-studio',
+    name: 'MCQ Studio',
+    tagline: 'Deepest focus mode.',
+    desc: 'Unlock your Deepest Focus in an immersive Study Studio.',
+    icon: Video,
+    accent: { bg: 'rgba(236,72,153,0.06)', border: 'rgba(236,72,153,0.18)', text: '#f472b6', glow: 'rgba(236,72,153,0.1)' },
+  },
+  {
+    id: 'unlimited-practice',
+    name: 'Unlimited Practice',
+    tagline: 'Unlock Every Topic, PYQ archive, and Filter with Pro.',
+    desc: 'Unlock Every Topic, PYQ archive, and Filter with Pro.',
+    icon: SlidersHorizontal,
+    accent: { bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.18)', text: '#f59e0b', glow: 'rgba(245,158,11,0.1)' },
   },
   {
     id: 'smart-notes',
@@ -115,14 +131,6 @@ const FEATURES = [
     desc: 'Unlock the full power of your personalized AI study suite.',
     icon: Wand2,
     accent: { bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.18)', text: '#f59e0b', glow: 'rgba(245,158,11,0.1)' },
-  },
-  {
-    id: 'mcq-studio',
-    name: 'MCQ Studio',
-    tagline: 'Deepest focus mode.',
-    desc: 'Unlock your Deepest Focus in an immersive Study Studio.',
-    icon: Video,
-    accent: { bg: 'rgba(236,72,153,0.06)', border: 'rgba(236,72,153,0.18)', text: '#f472b6', glow: 'rgba(236,72,153,0.1)' },
   },
 ];
 
@@ -188,9 +196,11 @@ export default function ProUpsellModal() {
     if (proUpsellOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = 'unset';
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [proUpsellOpen]);
 
   const handleUpgrade = () => {
@@ -204,6 +214,15 @@ export default function ProUpsellModal() {
     // Standard matches or rebrands
     const itemKey = f.name.toLowerCase().replace(/[\s_-]+/g, '-');
     if (itemKey === normalizedFeature) return true;
+    if (f.id === normalizedFeature) return true;
+    if (f.id === 'unlimited-practice' && (
+      normalizedFeature === 'unlimited-practice' || 
+      normalizedFeature === 'gated-filters' || 
+      normalizedFeature === 'pro-filters' || 
+      normalizedFeature === 'filters' || 
+      normalizedFeature === 'pyq-archives' ||
+      normalizedFeature === 'practice-limit'
+    )) return true;
     if (f.id === 'personal-coach' && (normalizedFeature === 'personal-coach' || normalizedFeature === 'ai-coach' || normalizedFeature === 'personal-study-mentor' || normalizedFeature === 'personal-mentor')) return true;
     return false;
   });

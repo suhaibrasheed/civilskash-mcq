@@ -1031,13 +1031,13 @@ export default function Header() {
           <MCQKashLogo tier={economy?.user_tier || 'FREE'} />
 
           {/* ── Right Actions ─────────────────────────────────────── */}
-          <div className="flex items-center gap-[6px]">
+          <div className="flex items-center gap-1 sm:gap-2">
 
             {/* Streak / Flame — standalone icon button */}
             <button
               onClick={() => setStreakModalOpen(true)}
               aria-label="View streak"
-              className="relative flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90"
+              className="relative flex items-center justify-center w-9 h-9 sm:w-[38px] sm:h-[38px] rounded-full group transition-all duration-200 active:scale-90"
               style={{ overflow: 'visible' }}
             >
               {/* Hover ring — appears only on hover */}
@@ -1048,15 +1048,15 @@ export default function Header() {
                 <div className="relative flex items-center justify-center">
                   <div className={`absolute inset-[-3px] bg-gradient-to-t ${flameStyles.glow} rounded-full blur-[6px] opacity-45 animate-pulse pointer-events-none`} />
                   <Flame
-                    size={23}
+                    size={21}
                     strokeWidth={2}
-                    className={`relative z-10 ${flameStyles.stroke} ${flameStyles.fill} ${flameStyles.shadow} transition-all duration-700`}
+                    className={`relative z-10 ${flameStyles.stroke} ${flameStyles.fill} ${flameStyles.shadow} transition-all duration-700 sm:w-[23px] sm:h-[23px]`}
                   />
                 </div>
               ) : (
                 <Flame
-                  className="text-theme-muted opacity-40 group-hover:opacity-75 group-hover:text-orange-400 transition-all duration-300"
-                  size={23}
+                  className="text-theme-muted opacity-40 group-hover:opacity-75 group-hover:text-orange-400 transition-all duration-300 sm:w-[23px] sm:h-[23px]"
+                  size={21}
                   strokeWidth={1.6}
                   fill="transparent"
                 />
@@ -1067,7 +1067,7 @@ export default function Header() {
             <button
               onClick={() => setCoinsVaultOpen(true)}
               aria-label="View coin vault"
-              className="group flex items-center gap-1.5 h-11 md:h-[38px] px-2.5 sm:px-3 rounded-full transition-all duration-200 active:scale-95"
+              className="group flex items-center gap-1.5 h-9 sm:h-[38px] px-2.5 sm:px-3 rounded-xl sm:rounded-2xl transition-all duration-200 active:scale-95"
               style={{
                 background: 'rgba(var(--color-surface-rgb), 0.55)',
                 border: '1px solid rgba(var(--color-border-rgb, 255,255,255), 0.12)',
@@ -1075,20 +1075,20 @@ export default function Header() {
             >
               <KashCoinDisplay
                 amount={economy?.kash_coins_balance || 0}
-                className="text-[13px] sm:text-[14px] font-extrabold group-hover:opacity-80 transition-opacity"
+                className="text-[12px] sm:text-[14px] font-extrabold group-hover:opacity-80 transition-opacity"
                 iconClassName="w-[1.15em] h-[1.15em]"
               />
             </button>
 
             {/* Thin visual spacer */}
-            <div className="w-px h-5 rounded-full opacity-20" style={{ background: 'var(--color-border)' }} />
+            <div className="w-px h-4 sm:h-5 rounded-full opacity-20 mx-[2px] sm:mx-1" style={{ background: 'var(--color-border)' }} />
 
             {/* Bell / Notifications — standalone */}
             <div className="relative" ref={notificationsRef}>
               <button
                 onClick={() => setNotificationsOpen(n => !n)}
                 aria-label="Notifications"
-                className={`relative flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
+                className={`relative flex items-center justify-center w-9 h-9 sm:w-[38px] sm:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
                   notificationsOpen
                     ? 'text-theme-primary'
                     : 'text-theme-muted hover:text-theme-primary'
@@ -1103,9 +1103,9 @@ export default function Header() {
                 />
 
                 {isSilenced ? (
-                  <BellOff size={23} strokeWidth={1.7} className="relative z-10 opacity-55" />
+                  <BellOff size={21} strokeWidth={1.7} className="relative z-10 opacity-55 sm:w-[23px] sm:h-[23px]" />
                 ) : (
-                  <Bell size={23} strokeWidth={1.7} className="relative z-10" />
+                  <Bell size={21} strokeWidth={1.7} className="relative z-10 sm:w-[23px] sm:h-[23px]" />
                 )}
 
                 {/* Notification badge dot */}
@@ -1117,8 +1117,8 @@ export default function Header() {
                     style={{
                       width: 8,
                       height: 8,
-                      top: 8,
-                      right: 8,
+                      top: 6,
+                      right: 6,
                       borderColor: 'rgba(var(--color-surface-rgb), 1)',
                       boxShadow: hasBacklog
                         ? '0 0 7px rgba(239,68,68,0.75)'
@@ -1150,7 +1150,7 @@ export default function Header() {
               <button
                 onClick={() => setSettingsOpen(s => !s)}
                 aria-label="Settings"
-                className={`flex items-center justify-center w-11 h-11 md:w-[38px] md:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
+                className={`flex items-center justify-center w-9 h-9 sm:w-[38px] sm:h-[38px] rounded-full group transition-all duration-200 active:scale-90 ${
                   settingsOpen
                     ? 'text-theme-primary'
                     : 'text-theme-muted hover:text-theme-primary'

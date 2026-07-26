@@ -18,8 +18,8 @@ const DIFFICULTY_OPTIONS = ['Easy', 'Medium', 'Hard', 'Unmarked'];
 const SORT_OPTIONS = [
   { value: 'default', label: 'Default Order' },
   { value: 'random', label: 'Random Order' },
+  { value: 'oldest', label: 'Oldest First' },
   { value: 'newest', label: 'Recently Added' },
-  { value: 'oldest', label: 'First Added' },
   { value: 'mistakes', label: 'By Mistake' },
   { value: 'difficulty-asc', label: 'Difficulty: Easy → Hard' },
   { value: 'difficulty-desc', label: 'Difficulty: Hard → Easy' },
@@ -391,11 +391,18 @@ export default function PracticeEngine({ isPyqArchive = false }) {
         const optionsMatch = Array.isArray(q.options) && q.options.some(o => o.text && o.text.toLowerCase().includes(term));
         return questionMatch || optionsMatch;
       });
+    }
 
-      // For Free users: restrict to 10 search results
-      if (economy?.user_tier !== 'Pro' && result.length > 10) {
-        result = result.slice(0, 10);
-      }
+    // For Free users: restrict to 10 MCQs when using any Gated Filter
+    const isGated = 
+      !['default', 'random', 'oldest'].includes(sortBy) ||
+      selectedTags.length > 0 ||
+      selectedPyqExam !== null ||
+      pyqOnly ||
+      searchTerm.trim() !== '';
+
+    if (economy?.user_tier !== 'Pro' && isGated && result.length > 10) {
+      result = result.slice(0, 10);
     }
 
     return result;
@@ -449,6 +456,16 @@ export default function PracticeEngine({ isPyqArchive = false }) {
 
   const hasActiveFilters = selectedDifficulties.length > 0 || selectedTags.length > 0 || pyqOnly || selectedPyqExam || sortBy !== 'random' || searchTerm.trim() !== '';
   const activeFilterCount = selectedDifficulties.length + selectedTags.length + (pyqOnly ? 1 : 0) + (selectedPyqExam ? 1 : 0) + (sortBy !== 'random' ? 1 : 0) + (searchTerm.trim() !== '' ? 1 : 0);
+
+  const isGatedFilterActive = useMemo(() => {
+    return (
+      !['default', 'random', 'oldest'].includes(sortBy) ||
+      selectedTags.length > 0 ||
+      selectedPyqExam !== null ||
+      pyqOnly ||
+      searchTerm.trim() !== ''
+    );
+  }, [sortBy, selectedTags, selectedPyqExam, pyqOnly, searchTerm]);
 
   const loadMore = () => setVisibleCount(prev => prev + PAGE_SIZE);
 
@@ -913,36 +930,6 @@ export default function PracticeEngine({ isPyqArchive = false }) {
 
         {/* Question Feed */}
         <div className="space-y-6 pb-20">
-          {!isLoading && searchTerm.trim() !== '' && economy?.user_tier !== 'Pro' && totalSearchMatches > 0 && (
-            <div className="relative overflow-hidden rounded-3xl border border-amber-500/20 dark:border-amber-500/30 bg-gradient-to-r from-amber-500/[0.07] via-theme-surface to-purple-500/[0.07] p-5 shadow-[0_8px_30px_rgb(245,158,11,0.06)] backdrop-blur-md max-w-3xl mx-auto w-full transition-all duration-300 hover:shadow-[0_8px_30px_rgb(245,158,11,0.1)]">
-              <div className="absolute -right-8 -top-8 w-24 h-24 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -left-8 -bottom-8 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3.5">
-                  <div className="mt-0.5 flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-sm">
-                    <Sparkles size={14} />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest bg-amber-500/10 text-amber-500 border border-amber-500/25">
-                        Pro Search Limit
-                      </span>
-                    </div>
-                    <p className="text-sm font-semibold text-theme-text leading-snug">
-                      Showing {Math.min(totalSearchMatches, 10)} of {totalSearchMatches} MCQs for <span className="text-amber-500 font-bold font-mono bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">"{searchTerm}"</span>. Subscribe to Pro to unlock the rest.
-                    </p>
-                  </div>
-                </div>
-                <Link
-                  to="/upgrade"
-                  className="inline-flex items-center justify-center gap-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-200 shrink-0 text-center"
-                >
-                  Go Pro <ArrowRight size={12} />
-                </Link>
-              </div>
-            </div>
-          )}
           {isLoading ? (
             // Skeleton placeholders
             Array.from({ length: 3 }).map((_, i) => (
@@ -987,6 +974,38 @@ export default function PracticeEngine({ isPyqArchive = false }) {
             </motion.div>
           ) : (
             <>
+              {/* TOP BANNER: Rendered before 1st MCQ item when Gated Filter is active */}
+              {isGatedFilterActive && economy?.user_tier !== 'Pro' && filteredQuestions.length > 0 && (
+                <div className="relative overflow-hidden rounded-2xl border border-amber-500/25 dark:border-amber-400/20 bg-gradient-to-r from-amber-500/[0.08] via-theme-surface to-purple-500/[0.06] p-4 sm:p-5 shadow-[0_4px_20px_rgba(245,158,11,0.08)] backdrop-blur-md max-w-3xl mx-auto w-full transition-all duration-300">
+                  <div className="absolute -right-6 -top-6 w-20 h-20 bg-amber-500/15 rounded-full blur-xl pointer-events-none" />
+                  <div className="absolute -left-6 -bottom-6 w-20 h-20 bg-purple-500/10 rounded-full blur-xl pointer-events-none" />
+                  
+                  <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md shadow-amber-500/20">
+                        <Sparkles size={15} />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30">
+                            PRO FILTER PREVIEW
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm font-bold text-theme-text leading-snug">
+                          Only first 10 MCQs are Free. Unlock unlimited practice with Pro.
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => openProUpsell('Unlimited Practice')}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95 transition-all duration-200 shrink-0 text-center"
+                    >
+                      Unlock <ArrowRight size={13} />
+                    </button>
+                  </div>
+                </div>
+              )}
+
               {gatedFeed.map((q) => (
                 <McqCard
                   key={q.id}
@@ -998,33 +1017,34 @@ export default function PracticeEngine({ isPyqArchive = false }) {
                 />
               ))}
 
-              {searchTerm.trim() !== '' && economy?.user_tier !== 'Pro' && totalSearchMatches > 0 && (
-                <div className="relative overflow-hidden rounded-3xl border border-amber-500/20 dark:border-amber-500/30 bg-gradient-to-r from-amber-500/[0.07] via-theme-surface to-purple-500/[0.07] p-5 shadow-[0_8px_30px_rgb(245,158,11,0.06)] backdrop-blur-md max-w-3xl mx-auto w-full transition-all duration-300 hover:shadow-[0_8px_30px_rgb(245,158,11,0.1)] mt-6">
-                  <div className="absolute -right-8 -top-8 w-24 h-24 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
-                  <div className="absolute -left-8 -bottom-8 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+              {/* BOTTOM BANNER: Rendered after 10th MCQ item when Gated Filter is active */}
+              {isGatedFilterActive && economy?.user_tier !== 'Pro' && filteredQuestions.length > 0 && (
+                <div className="relative overflow-hidden rounded-3xl border border-amber-500/30 dark:border-amber-400/25 bg-gradient-to-r from-amber-500/[0.09] via-theme-surface to-purple-500/[0.08] p-5 sm:p-6 shadow-[0_12px_40px_rgba(245,158,11,0.12)] backdrop-blur-xl max-w-3xl mx-auto w-full transition-all duration-300 mt-6">
+                  <div className="absolute -right-8 -top-8 w-28 h-28 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
+                  <div className="absolute -left-8 -bottom-8 w-28 h-28 bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
                   
                   <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
-                      <div className="mt-0.5 flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-sm">
-                        <Sparkles size={14} />
+                      <div className="mt-0.5 flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md shadow-amber-500/25">
+                        <Sparkles size={18} />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest bg-amber-500/10 text-amber-500 border border-amber-500/25">
-                            Pro Search Limit
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30">
+                            PRO FILTER LIMIT REACHED
                           </span>
                         </div>
-                        <p className="text-sm font-semibold text-theme-text leading-snug">
-                          Showing {Math.min(totalSearchMatches, 10)} of {totalSearchMatches} MCQs for <span className="text-amber-500 font-bold font-mono bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">"{searchTerm}"</span>. Subscribe to Pro to unlock the rest.
+                        <p className="text-sm font-extrabold text-theme-text leading-snug">
+                          Only first 10 MCQs are Free. Unlock unlimited practice with Pro.
                         </p>
                       </div>
                     </div>
-                    <Link
-                      to="/upgrade"
-                      className="inline-flex items-center justify-center gap-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-200 shrink-0 text-center"
+                    <button
+                      onClick={() => openProUpsell('Unlimited Practice')}
+                      className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-200 shrink-0 text-center"
                     >
-                      Go Pro <ArrowRight size={12} />
-                    </Link>
+                      Unlock <ArrowRight size={14} />
+                    </button>
                   </div>
                 </div>
               )}

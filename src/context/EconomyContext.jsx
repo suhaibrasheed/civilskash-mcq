@@ -175,6 +175,12 @@ export function EconomyProvider({ children }) {
   // Helper to load economy (merging live Supabase data if logged in)
   const loadEconomy = async (force = false) => {
     try {
+      if (force) {
+        lastSyncedDataRef.current = null;
+        if (user?.id) {
+          localStorage.removeItem(`mcqkash_profile_cache_${user.id}`);
+        }
+      }
       const localData = await getUserEconomy();
       let updatedData = { ...localData };
 
@@ -413,7 +419,8 @@ export function EconomyProvider({ children }) {
           }
 
           const rawProExpiry = profile.pro_expires_at || profile.pro_expiration || overrideExp;
-          const hasNotExpired = rawProExpiry && new Date(rawProExpiry) > new Date();
+          const isLifetimeTier = profile.pro_tier === 'LIFETIME' || overrideTier === 'LIFETIME';
+          const hasNotExpired = isLifetimeTier || (rawProExpiry && new Date(rawProExpiry) > new Date()) || (!!profile.is_pro && !rawProExpiry);
           const isPro = (!!profile.is_pro && hasNotExpired) || !!profile.is_admin || localProActive;
           const expectedTier = isPro ? 'Pro' : 'FREE';
 
@@ -650,6 +657,36 @@ export function EconomyProvider({ children }) {
     }
     await loadEconomy(true);
     clearLeaderboardCache();
+  };
+
+  const downgradeToFree = async () => {
+    if (user) {
+      try {
+        const { error } = await supabase.rpc('downgrade_user_to_free_rpc');
+        if (error) {
+          console.warn('downgrade_user_to_free_rpc call notice, attempting direct fallback update:', error.message);
+          await supabase
+            .from('profiles')
+            .update({
+              is_pro: false,
+              pro_tier: null,
+              pro_expiration: null,
+              pro_expires_at: null
+            })
+            .eq('id', user.id);
+        }
+      } catch (err) {
+        console.error('Downgrade error:', err);
+      }
+      localStorage.removeItem(`mcqkash_pro_override_${user.id}`);
+      localStorage.removeItem(`mcqkash_profile_cache_${user.id}`);
+      localStorage.removeItem(`mcqkash_ranks_cache_${user.id}`);
+    } else {
+      await dbToggleProTier(false);
+    }
+    clearLeaderboardCache();
+    await loadEconomy(true);
+    window.dispatchEvent(new Event('sync-profile-stats'));
   };
 
   const completeDailyStreak = async () => {
@@ -901,6 +938,7 @@ export function EconomyProvider({ children }) {
       transactKC,
       spendRevisionKC,
       toggleProTier,
+      downgradeToFree,
       completeDailyStreak,
       placeStreakBet,
       calculateFreezeCost,

@@ -14,7 +14,7 @@ const corsHeaders = {
 const PRICING_PLANS: Record<string, { price: number; floorPrice: number; days: number }> = {
   ONE_DAY: { price: 900, floorPrice: 900, days: 1 }, // ₹9 1-Day Pass
   ONE_HOUR: { price: 900, floorPrice: 900, days: 1 }, // Alias for 1-Day Pass
-  ONE_WEEK: { price: 9900, floorPrice: 900, days: 7 },
+  ONE_WEEK: { price: 4900, floorPrice: 900, days: 7 },
   ONE_MONTH: { price: 24900, floorPrice: 9900, days: 30 },
   THREE_MONTHS: { price: 39900, floorPrice: 24900, days: 90 },
   SIX_MONTHS: { price: 49900, floorPrice: 34900, days: 180 },

@@ -1305,10 +1305,10 @@ export default function ProStudioPresenter({ questions = [], onClose }) {
     document.body.style.top = `-${scrollY}px`;
 
     return () => {
-      document.body.style.overflow = origOverflow;
-      document.body.style.position = origPosition;
-      document.body.style.width = origWidth;
-      document.body.style.top = origTop;
+      document.body.style.overflow = origOverflow && origOverflow !== 'hidden' ? origOverflow : 'unset';
+      document.body.style.position = origPosition || 'static';
+      document.body.style.width = origWidth || 'auto';
+      document.body.style.top = origTop || 'auto';
       window.scrollTo(0, scrollY);
     };
   }, []);

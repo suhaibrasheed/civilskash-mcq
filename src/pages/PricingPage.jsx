@@ -20,27 +20,13 @@ const EDGE_FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL || 'https://eojry
 
 const PLANS = [
   {
-    id: 'ONE_DAY',
-    name: '1 Day',
-    label: '1-Day Pass',
-    price: 9,
-    floorPrice: 9,
-    originalPrice: 49,
-    priceNote: '₹9 / 1 day pass',
-    icon: Flame,
-    iconColor: '#ec4899',
-    featured: false,
-    badge: { text: '1-Day Pack', color: '#ec4899' },
-    days: 1,
-  },
-  {
     id: 'ONE_WEEK',
     name: '1 Week',
     label: 'Trial',
-    price: 99,
+    price: 49,
     floorPrice: 9,
     originalPrice: 299,
-    priceNote: '₹99 / week',
+    priceNote: '₹49 / week',
     icon: Flame,
     iconColor: '#f43f5e',
     featured: false,
@@ -333,36 +319,28 @@ export default function PricingPage() {
         body: JSON.stringify({ planId: plan.id }),
       });
 
+      const expectedAmountPaise = Math.max((plan.floorPrice || 9) * 100, (plan.price - discount) * 100);
+
       if (res.ok) {
         const data = await res.json();
-        orderId = data.orderId;
-        amount = data.amount;
-        currency = data.currency;
-        keyId = data.keyId;
-      } else {
-        // Avoid falling back to ONE_WEEK order for ONE_DAY / ONE_HOUR plan (which locks ₹99 on Razorpay's servers)
-        if (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') {
-          console.warn("Remote Edge Function create-order failed for ONE_DAY, using direct ₹9 client checkout...");
+        if (data.amount && Math.abs(data.amount - expectedAmountPaise) > 50) {
+          console.warn(`Remote Edge Function returned order amount ₹${data.amount/100}, but client expected ₹${expectedAmountPaise/100}. Using direct client checkout amount...`);
           orderId = null;
-          amount = 900; // 900 paise = ₹9
+          amount = expectedAmountPaise;
           currency = 'INR';
-          keyId = 'rzp_live_SxuAK5B53kL3qS';
+          keyId = data.keyId || 'rzp_live_SxuAK5B53kL3qS';
         } else {
-          const fallbackRes = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-            body: JSON.stringify({ planId: 'ONE_WEEK' }),
-          });
-          if (!fallbackRes.ok) {
-            const errData = await res.json().catch(() => ({}));
-            throw new Error(errData.error || 'Order creation failed');
-          }
-          const data = await fallbackRes.json();
           orderId = data.orderId;
-          amount = plan.price * 100;
+          amount = data.amount;
           currency = data.currency;
           keyId = data.keyId;
         }
+      } else {
+        console.warn("Remote Edge Function create-order failed, using direct client checkout amount...");
+        orderId = null;
+        amount = expectedAmountPaise;
+        currency = 'INR';
+        keyId = 'rzp_live_SxuAK5B53kL3qS';
       }
 
       const razorpayOptions = {
@@ -440,10 +418,30 @@ export default function PricingPage() {
             }
 
             if (isSuccess) {
+              const expDate = new Date();
+              const daysToAdd = plan.days || 30;
+              expDate.setTime(expDate.getTime() + Math.round(daysToAdd * 24 * 60 * 60 * 1000));
+              const isoExp = expDate.toISOString();
+
+              // Instant optimistic local Pro activation
+              localStorage.setItem(`mcqkash_pro_override_${user.id}`, JSON.stringify({
+                is_pro: true,
+                pro_tier: plan.id,
+                pro_expiration: isoExp,
+                pro_expires_at: isoExp,
+              }));
+
+              // Clear all profile & leaderboard caches so UI updates instantly across all views
+              localStorage.removeItem(`mcqkash_profile_cache_${user.id}`);
+              localStorage.removeItem(`mcqkash_ranks_cache_${user.id}`);
+              localStorage.removeItem('mcqkash_lb_cache_coins');
+              localStorage.removeItem('mcqkash_lb_cache_streaks');
+
               confetti({ particleCount: 180, spread: 100, origin: { y: 0.5 }, colors: ['#fbbf24', '#a855f7', '#6366f1', '#10b981', '#f43f5e'] });
               showToast('Welcome to Pro! ★', 'success');
-              await refreshEconomy();
-              setTimeout(() => navigate('/profile'), 1600);
+              await refreshEconomy(true);
+              window.dispatchEvent(new Event('sync-profile-stats'));
+              setTimeout(() => navigate('/profile'), 1200);
             }
           } catch (e) { showToast(e.message || 'Verification failed.', 'error'); }
           finally { setLoadingPlan(null); }

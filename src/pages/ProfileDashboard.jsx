@@ -232,7 +232,7 @@ export default function ProfileDashboard() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, loading: authLoading, signUp, signIn, signInWithGoogle, signOut } = useAuth();
-  const { economy, toggleProTier, refreshEconomy, spendRevisionKC, openProUpsell, aiSettingsOpen, setAiSettingsOpen } = useEconomy();
+  const { economy, toggleProTier, downgradeToFree, refreshEconomy, spendRevisionKC, openProUpsell, aiSettingsOpen, setAiSettingsOpen } = useEconomy();
   const { showToast } = useToast();
   const { playVictory } = useSound();
   const { theme } = useTheme();
@@ -316,6 +316,20 @@ export default function ProfileDashboard() {
 
   // Billing Modal state
   const [showBillingModal, setShowBillingModal] = useState(false);
+  const [isDowngrading, setIsDowngrading] = useState(false);
+
+  const handleDowngrade = async () => {
+    setIsDowngrading(true);
+    try {
+      await downgradeToFree();
+      showToast("Membership downgraded to FREE.", "info");
+      setShowBillingModal(false);
+    } catch (err) {
+      showToast(err.message || "Failed to downgrade.", "error");
+    } finally {
+      setIsDowngrading(false);
+    }
+  };
 
   // Inviter Card state
   const [inviterData, setInviterData] = useState(null);
@@ -1154,28 +1168,31 @@ export default function ProfileDashboard() {
             >
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${aiBlob1} rounded-full blur-[80px] pointer-events-none`} />
 
-              <div className="relative z-10 flex flex-col">
+              <div className="relative z-10 flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
                   <div
                     onClick={() => setShowAiCoachDescription(!showAiCoachDescription)}
-                    className="flex items-center gap-2.5 cursor-pointer select-none group"
+                    className="flex items-center justify-between sm:justify-start gap-2.5 cursor-pointer select-none group flex-1"
                   >
-                    <div className={`text-theme-muted ${aiHoverClass} transition-colors duration-200 flex items-center justify-center`}>
-                      {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                    <div className="flex items-center gap-2 flex-wrap min-w-0">
+                      <h2 className={`text-base sm:text-lg font-black text-theme-text tracking-tight ${aiHoverClass} transition-colors duration-200`}>
+                        Personal Study Mentor
+                      </h2>
+                      <div className={`flex items-center gap-1 ${aiBadgeClass} px-2 py-0.5 rounded-full border shrink-0`}>
+                        <Sparkles size={11} className={`${aiSparkleClass} animate-pulse`} />
+                        <span className="text-[9px] font-black uppercase tracking-widest">Elite AI</span>
+                      </div>
                     </div>
-                    <h2 className={`text-lg font-black text-theme-text tracking-tight ${aiHoverClass} transition-colors duration-200`}>
-                      Personal Study Mentor
-                    </h2>
-                    <div className={`flex items-center gap-1 ${aiBadgeClass} px-2 py-0.5 rounded-full border shrink-0`}>
-                      <Sparkles size={11} className={`${aiSparkleClass} animate-pulse`} />
-                      <span className="text-[9px] font-black uppercase tracking-widest">Elite AI</span>
+
+                    <div className={`text-theme-muted ${aiHoverClass} transition-colors duration-200 flex items-center justify-center shrink-0 p-1`}>
+                      {showAiCoachDescription ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                     </div>
                   </div>
 
-                  <div className="shrink-0 flex items-center">
+                  <div className="shrink-0 w-full sm:w-auto">
                     <button
                       onClick={handleAiCoachClick}
-                      className={`px-5 py-2.5 bg-gradient-to-r ${aiBtnClass} text-white rounded-xl font-black text-xs shadow-md active:scale-95 transition-all flex items-center gap-1.5`}
+                      className={`w-full sm:w-auto justify-center px-5 py-3 sm:py-2.5 bg-gradient-to-r ${aiBtnClass} text-white rounded-2xl sm:rounded-xl font-black text-xs uppercase tracking-wider shadow-md active:scale-95 transition-all flex items-center gap-2`}
                     >
                       {economy?.user_tier === 'Pro' ? (
                         <><Wand2 size={13} /> Start Coaching</>
@@ -1577,53 +1594,60 @@ export default function ProfileDashboard() {
           />
           
           {/* Modal Container */}
-          <div className="relative w-full max-w-lg bg-[#0c0f17] border border-white/5 rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
+          <div className="relative w-full max-w-lg bg-[#0c0f17] border border-white/10 rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
             
             {/* Glow vignette */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-20 bg-purple-500/10 blur-3xl pointer-events-none rounded-full" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-24 bg-purple-500/15 blur-3xl pointer-events-none rounded-full" />
             
             {/* Header */}
-            <div className="p-6 pb-4 border-b border-white/5 flex items-center justify-between z-10">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
-                  <span className="text-purple-400 font-bold text-sm">★</span>
+            <div className="p-6 pb-4 border-b border-white/10 flex items-center justify-between z-10">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center shrink-0 shadow-sm">
+                  <span className="text-purple-400 font-extrabold text-base">★</span>
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-base text-slate-100 leading-none">MCQ Kash Pro</h3>
-                  <span className="text-[10px] text-purple-400 font-bold tracking-wider uppercase">Subscription Status</span>
+                  <h3 className="font-extrabold text-lg text-slate-100 leading-tight">MCQ Kash Pro</h3>
+                  <span className="text-[10px] text-purple-400 font-extrabold tracking-widest uppercase">Subscription Management</span>
                 </div>
               </div>
               <button 
                 onClick={() => setShowBillingModal(false)}
-                className="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center text-slate-400 transition-colors text-lg"
+                className="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center text-slate-400 transition-colors text-lg"
               >
                 ✕
               </button>
             </div>
 
             {/* Content Body */}
-            <div className="p-6 space-y-6 overflow-y-auto z-10 flex-1">
+            <div className="p-6 space-y-5 overflow-y-auto z-10 flex-1">
               
               {/* Premium Status Card */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/40 via-indigo-950/20 to-transparent border border-purple-500/25 p-5 shadow-inner">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/50 via-indigo-950/30 to-slate-900/60 border border-purple-500/30 p-5 shadow-xl">
                 {/* Micro reflection */}
-                <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-purple-300/20 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-300/40 to-transparent" />
                 
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <span className="text-[9px] font-black uppercase tracking-widest text-purple-300/70 bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/15">
-                      {economy?.pro_tier === 'LIFETIME' ? 'Lifetime Pass' : 'Premium Membership'}
+                    <span className="text-[9px] font-black uppercase tracking-widest text-purple-300 bg-purple-500/20 px-3 py-1 rounded-full border border-purple-400/30 shadow-sm">
+                      {economy?.pro_tier === 'LIFETIME' ? 'Lifetime Unlimited Pass' : 'Active Premium Membership'}
                     </span>
-                    <h4 className="font-black text-xl text-slate-100 mt-2.5 leading-none">
-                      {economy?.pro_tier ? economy.pro_tier.replace(/_/g, ' ') : 'Pro Active'}
+                    <h4 className="font-black text-2xl text-slate-100 mt-2.5 leading-none tracking-tight">
+                      {economy?.pro_tier ? economy.pro_tier.replace(/_/g, ' ') : 'Pro Member'}
                     </h4>
                   </div>
-                  <span className="text-2xl">⚡</span>
+                  
+                  <button
+                    onClick={handleDowngrade}
+                    disabled={isDowngrading}
+                    className="px-3 py-1.5 bg-rose-500/10 hover:bg-rose-500/25 border border-rose-500/30 text-rose-400 hover:text-rose-300 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all disabled:opacity-50 shadow-sm"
+                  >
+                    {isDowngrading ? 'Downgrading...' : 'Downgrade'}
+                  </button>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-purple-500/15 pt-3.5 mt-2.5 text-xs">
-                  <span className="text-purple-300/70 font-semibold">Valid Until:</span>
-                  <span className="font-bold text-slate-200">
+                <div className="flex items-center justify-between border-t border-purple-500/20 pt-3.5 mt-2 text-xs">
+                  <span className="text-purple-300/80 font-bold uppercase tracking-wider text-[10px]">Valid Until:</span>
+                  <span className="font-extrabold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
                     {economy?.pro_tier === 'LIFETIME' ? (
                       'Lifetime Access (Forever)'
                     ) : economy?.pro_expiration ? (
@@ -1633,53 +1657,45 @@ export default function ProfileDashboard() {
                         year: 'numeric'
                       })
                     ) : (
-                      'Active'
+                      'Active Subscription'
                     )}
                   </span>
                 </div>
               </div>
 
-              {/* Payment History */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest">Transaction History</h4>
-                {economy?.payment_history && economy.payment_history.length > 0 ? (
-                  <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
-                    {economy.payment_history.map((tx, idx) => (
-                      <div key={idx} className="flex justify-between items-center p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xs hover:border-white/10 transition-colors">
-                        <div>
-                          <div className="font-bold text-slate-200">Pro Upgrade ({tx.plan_id ? tx.plan_id.replace(/_/g, ' ') : 'Plan'})</div>
-                          <div className="text-[10px] text-slate-500 mt-0.5 font-medium">ID: {tx.payment_id || tx.order_id || 'N/A'}</div>
-                        </div>
-                        <div className="text-right">
-                          <div className="font-black text-slate-100">₹{tx.amount_paid}</div>
-                          <div className="text-[10px] text-slate-500 mt-0.5 font-semibold">
-                            {tx.timestamp ? new Date(tx.timestamp).toLocaleDateString('en-IN') : 'Completed'}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+              {/* Unlocked Benefits Highlight */}
+              <div className="rounded-2xl bg-white/[0.02] border border-white/10 p-4 space-y-3">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Unlocked Pro Perks</span>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-purple-500/5 border border-purple-500/10 text-purple-200 font-bold">
+                    <span className="text-amber-400 font-black">2X</span> Double KashCoins
                   </div>
-                ) : (
-                  <div className="p-6 rounded-xl border border-dashed border-white/5 text-center text-xs text-slate-500 font-semibold">
-                    No transaction records stored locally.
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-purple-500/5 border border-purple-500/10 text-purple-200 font-bold">
+                    <span className="text-purple-400">🤖</span> Master AI Mentor
                   </div>
-                )}
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-purple-500/5 border border-purple-500/10 text-purple-200 font-bold">
+                    <span className="text-emerald-400">🎯</span> All Locked Mocks
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-purple-500/5 border border-purple-500/10 text-purple-200 font-bold">
+                    <span className="text-cyan-400">🛡️</span> Ad-Free Experience
+                  </div>
+                </div>
               </div>
 
-              {/* Help & Support Note */}
-              <div className="rounded-2xl bg-purple-900/10 border border-purple-500/20 p-5 text-xs text-purple-300/95 leading-relaxed font-semibold">
-                🎉 <span className="text-slate-100 font-extrabold">Congratulations!</span> You are officially a Pro member. You now have unrestricted access to all features, locked mock exams, and will automatically mint <span className="text-amber-400 font-black">double</span> the coins compared to free users on every correct answer. Let's build your streak!
+              {/* Congratulations Message */}
+              <div className="rounded-2xl bg-purple-950/30 border border-purple-500/20 p-4 text-xs text-purple-200 leading-relaxed font-semibold">
+                🎉 <span className="text-slate-100 font-extrabold">Congratulations!</span> You are officially an active Pro member. You have unrestricted access to all feature modules, locked mock exams, and double coin minting on correct answers.
               </div>
 
             </div>
 
-            {/* Footer */}
-            <div className="p-5 bg-white/[0.01] border-t border-white/5 flex items-center justify-center z-10">
+            {/* Footer with full-width primary Enjoy Pro button */}
+            <div className="p-5 bg-white/[0.01] border-t border-white/10 flex items-center justify-center z-10">
               <button
                 onClick={() => setShowBillingModal(false)}
-                className="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-lg shadow-purple-500/20 active:scale-98"
+                className="w-full py-3.5 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white rounded-2xl text-xs font-black uppercase tracking-widest transition-all shadow-lg shadow-purple-500/25 active:scale-98"
               >
-                🚀 Let's Crack It!
+                🎉 ENJOY PRO
               </button>
             </div>
 
