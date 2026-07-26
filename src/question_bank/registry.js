@@ -2,6 +2,7 @@
 export const CATEGORY_LOADERS = {
   "accountancy": () => import('./accountancy.json'),
   "computer-awareness": () => import('./computer-awareness.json'),
+  "current-affairs": () => import('./current-affairs.json'),
   "environment": () => import('./environment.json'),
   "general-science": () => import('./general-science.json'),
   "indian-economy": () => import('./indian-economy.json'),

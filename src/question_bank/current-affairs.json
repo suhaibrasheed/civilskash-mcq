@@ -1,0 +1,37 @@
+[
+  {
+    "id": "db50cd19-ce27-457c-a7fe-7200f00e834f",
+    "category_id": "current-affairs",
+    "tags": [
+      "Cities"
+    ],
+    "difficulty": "easy",
+    "question": "Which city in Madhya Pradesh is the host of India's first Hindi-medium MBBS college?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Indore",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Jabalpur",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Gwalior",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Bhopal",
+        "label": "D"
+      }
+    ],
+    "explanation": "Jabalpur in M.P was approved to host India's first Hindi-medium MBBS college. The academic session will begin from 2027-28 with 50 MBBS Seats.<div> </div>",
+    "pyq": null,
+    "created_at": "2026-07-26T06:45:24.637231+00:00"
+  }
+]

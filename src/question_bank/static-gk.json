@@ -1,5 +1,1135 @@
 [
   {
+    "id": "9c7725ed-03cf-41e2-98dc-4c305de33ae7",
+    "category_id": "static-gk",
+    "tags": [
+      "Important Days"
+    ],
+    "difficulty": "easy",
+    "question": "The birth anniversary of ______ is celebrated as International Nurses Day every year.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Clara Barton",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Florence Nightingale",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Alice Walker",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mother Teresa",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-orange\" style=\"font-weight: 800;\">International Nurses Day</span> is celebrated globally on <span class=\"text-red font-bold\"><span class=\"text-orange\" style=\"font-weight: 800;\">May 12th</span></span> to mark the birth anniversary of <span class=\"text-blue font-bold\">Florence Nightingale, </span>known as the \"<span class=\"text-green font-bold\">Lady with the Lamp</span>,\" <span class=\"text-blue font-bold\">Florence Nightingale</span> is universally recognized as the <span class=\"text-magenta font-bold\">foundational philosopher and founder of modern nursing</span>, particularly for her work managing nurses and treating wounded soldiers during the <span class=\"text-orange font-bold\">Crimean War</span>.  <div><img src=\"https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/florence-nightingale-gettyimages-2629681?_a=BAVAZGDX0\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br>   </div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "985c2ad7-0cd7-46d8-b649-e41c01305ebe",
+    "category_id": "static-gk",
+    "tags": [
+      "Environment",
+      "Important Days"
+    ],
+    "difficulty": "easy",
+    "question": "Which day is celebrated every year as World Environment Day?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "5th August",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "5th July",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "5th June",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5th February",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">World Environment Day</span> is celebrated annually on <span class=\"text-red font-bold\">June 5th</span>.<br>Established by the <span class=\"text-blue font-bold\">United Nations Environment Programme (UNEP)</span> in <span class=\"text-green font-bold\">1972</span> during the <span class=\"text-magenta font-bold\">Stockholm Conference</span>, it is the primary global platform for raising awareness and action on pressing environmental issues like <span class=\"text-orange font-bold\">marine pollution, human overpopulation, and global warming</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "4e98a1e0-18c3-4183-a2c1-7bedaef9b3da",
+    "category_id": "static-gk",
+    "tags": [
+      "Sports"
+    ],
+    "difficulty": "medium",
+    "question": "The Sultan of Johor Cup is a tournament associated with which sport?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Golf",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pool",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Snooker",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hockey",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Sultan of Johor Cup</span> is a prestigious international <span class=\"text-blue font-bold\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">Field Hockey tournament.</span><br>Held annually in <span class=\"text-green font-bold\">Johor Bahru, Malaysia</span>, it is an invitational tournament specifically for <span class=\"text-magenta font-bold\">Under-21</span> men's national teams, serving as a critical platform to <span class=\"text-orange font-bold\">scout and develop future global hockey stars</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "750e6e77-8002-400a-bee9-c9c1320f1272",
+    "category_id": "static-gk",
+    "tags": [
+      "Sports"
+    ],
+    "difficulty": "easy",
+    "question": "The term 'Putt' is used in which of the following sports?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cricket",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Billiards",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Chess",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Golf",
+        "label": "D"
+      }
+    ],
+    "explanation": "The term <span class=\"text-red\" style=\"font-weight: 800;\">'Putt'</span> is heavily used in <span class=\"text-blue font-bold\">Golf</span>. It refers to a specific, highly controlled stroke taken on the <span class=\"text-green font-bold\">putting green</span> (the smooth grass area around the hole) using a specialized club called a \"<span class=\"text-magenta font-bold\">putter</span>.\" The objective is to <span class=\"text-teal font-bold\">roll the ball smoothly along the ground and directly into the cup</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "cdd20d0d-d892-4798-a57e-97ef2641361a",
+    "category_id": "static-gk",
+    "tags": [
+      "Computers"
+    ],
+    "difficulty": "easy",
+    "question": "Who among the following is a co-founder of Twitter (now known as X)?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Jack Dorsey",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Richard Branson",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bill Gates",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Tim Berners-Lee",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Jack Dorsey</span> is one of the original co-founders of <span class=\"text-blue font-bold\">Twitter</span> (now <span class=\"text-green font-bold\">rebranded as X by Elon Musk)</span>.<br>Launched in <span class=\"text-magenta font-bold\">2006</span>, the platform was created collaboratively by <span class=\"text-red font-bold\">Jack Dorsey</span>, <span class=\"text-orange font-bold\">Biz Stone, Evan Williams, and Noah Glass</span>. It revolutionized <span class=\"text-teal font-bold\">micro-blogging</span> by strictly limiting initial character counts.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "3a1d4d90-0a3e-415b-8e9f-74e98d6cd69c",
+    "category_id": "static-gk",
+    "tags": [
+      "Computers"
+    ],
+    "difficulty": "easy",
+    "question": "Google was founded by Larry Page and ______?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Elon Musk",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Jeff Bezos",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Sergey Brin",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "George Bin",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Google</span> was founded by computer scientists <span class=\"text-blue font-bold\">Larry Page and Sergey Brin</span> in <span class=\"text-green font-bold\">September 1998</span>.<br>The two met as Ph.D. students at <span class=\"text-magenta font-bold\">Stanford University</span>, where they developed the <span class=\"text-magenta\" style=\"font-weight: 800;\">revolutionary \"PageRank\" algorithm</span>, fundamentally changing how internet search engines indexed and ranked web pages.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "2d9c18f2-daa0-44d9-9868-35eba144c474",
+    "category_id": "static-gk",
+    "tags": [
+      "Art N Culture"
+    ],
+    "difficulty": "easy",
+    "question": "The Hornbill Festival is celebrated in which Indian state?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assam",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Mizoram",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Nagaland",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Arunachal Pradesh",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Hornbill Festival</span> is a vibrant cultural extravaganza celebrated in <span class=\"text-blue font-bold\">Nagaland</span>.<br>Often called the \"<span class=\"text-green font-bold\">Festival of Festivals</span>,\" it is organized annually from <span class=\"text-magenta font-bold\">December 1 to 10</span> at the <span class=\"text-orange font-bold\">Kisama Heritage Village near Kohima</span>. It showcases the rich traditional dances, folk music, crafts, and cuisine of all major Naga tribes. It is named after the revered <span class=\"text-teal font-bold\">Indian Hornbill</span> bird.<div><div class=\"nk-video-wrapper\" data-video-url=\"https://youtube.com/shorts/2y-jbL7JbeQ?si=0dVtB4DsREHXxf1x\" data-video-platform=\"youtube\" data-video-aspect=\"9/16\" data-align=\"center\" style=\"width:100%; max-width:340px; aspect-ratio:9/16;\n            position:relative; display:block; overflow:hidden; border-radius:14px;\n            background:;\n            border: 1px solid rgba(255,255,255,0.09);\n            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);\n            cursor:pointer;\">\n\n  <!-- Poster / background layer -->\n  <div class=\"nk-video-poster\" style=\"position:absolute; inset:0; width:100%; height:100%;\n              display:flex; align-items:center; justify-content:center;\n              background-image: url(https://img.youtube.com/vi/2y-jbL7JbeQ/hqdefault.jpg); background-size: cover; background-position: center;\">\n\n    <!-- Film-grain noise overlay (subtle texture) -->\n    <div style=\"position:absolute; inset:0; url(\" data:image=\"\" svg+xml,%3csvg=\"\" viewbox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" %3e%3cfilter=\"\" id=\"n\" %3e%3cfeturbulence=\"\" type=\"fractalNoise\" basefrequency=\"0.75\" numoctaves=\"4\" stitchtiles=\"stitch\" %3e%3c=\"\" filter%3e%3crect=\"\" width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\" opacity=\"0.06\" svg%3e\");=\"\" background-repeat:repeat;=\"\" pointer-events:none;=\"\" mix-blend-mode:overlay;=\"\" opacity:0.4;\"=\"\"></div>\n\n    <!-- Cinematic vignette -->\n    <div style=\"position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);\"></div>\n\n    <!-- Play button -->\n    \n    <div style=\"position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;\">\n      <!-- glow ring -->\n      <div style=\"position:absolute; width:88px; height:88px; border-radius:50%;\n                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);\n                  filter: blur(8px); transform: scale(1.1);\">\n      </div>\n      <!-- outer ring border -->\n      <div style=\"position:absolute; width:72px; height:72px; border-radius:50%;\n                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;\">\n      </div>\n      <!-- glass button -->\n      <button class=\"nk-video-play-btn\" style=\"position:relative; z-index:10; width:64px; height:64px; border-radius:50%;\n                     background: rgba(255,255,255,0.11);\n                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);\n                     border: 1.5px solid rgba(255,255,255,0.28);\n                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);\n                     display:flex; align-items:center; justify-content:center;\n                     cursor:pointer; outline:none; transition: all 0.3s ease;\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"white\" style=\"margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));\">\n          <path d=\"M8 5v14l11-7z\"></path>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div> <br>   </div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "6e58089e-7972-41fb-b9d1-d8bf08948d0e",
+    "category_id": "static-gk",
+    "tags": [
+      "Indian Polity",
+      "History"
+    ],
+    "difficulty": "medium",
+    "question": "Who was the first woman Chief Minister of an Indian State?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Indira Gandhi",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sucheta Kriplani",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Sarojini Naidu",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mamata Banerjee",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Sucheta Kriplani</span> created history by becoming India's first female Chief Minister, serving the state of <span class=\"text-green font-bold\">Uttar Pradesh</span> from <span class=\"text-magenta font-bold\">1963 to 1967</span>.<br><span style=\"font-weight: bold; text-decoration-line: underline;\">Crucial Distinction:</span> While <span class=\"text-red font-bold\">Sucheta Kriplani</span> was the<span class=\"text-red\" style=\"font-weight: 800;\"> first female Chief Minister</span>, <span class=\"text-orange font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">Sarojini Naidu</span></span> was the <span class=\"text-teal font-bold\">first female Governor</span> (also serving in <span class=\"text-green font-bold\">Uttar Pradesh)</span>.<div><img src=\"https://etvbharatimages.akamaized.net/etvbharat/prod-images/5188558_suchetakriplani.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br>   <span class=\"text-blue-500 font-bold\"> </span> </div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "a0e08185-0419-4968-b28d-96220d361131",
+    "category_id": "static-gk",
+    "tags": [
+      "Sports"
+    ],
+    "difficulty": "easy",
+    "question": "The famous swimmer Michael Phelps belongs to which country?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Australia",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "England",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Norway",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "America",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Michael Phelps</span> is a legendary former competitive swimmer from America <span class=\"text-orange font-bold\">(USA)</span>.<br>He is universally recognized as the <span class=\"text-blue font-bold\"> most decorated athlete in the history of the Olympic Games</span>, possessing a staggering total of <span class=\"text-green font-bold\">28 Olympic medals</span> (including <span class=\"text-magenta font-bold\">23 Golds)</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "2f5d3009-8666-4cb2-92c9-d8228207d5e6",
+    "category_id": "static-gk",
+    "tags": [
+      "Miscellaneous"
+    ],
+    "difficulty": "easy",
+    "question": "What is the official currency of South Africa?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rand",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Real",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ruble",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Peso",
+        "label": "D"
+      }
+    ],
+    "explanation": "The official currency of South Africa is the <span class=\"text-red font-bold\">South African Rand</span> <span class=\"text-blue font-bold\">(ZAR)</span>.<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Country</th><th>Currency</th></tr></thead><tbody><tr><td>South Africa</td><td>Rand</td></tr><tr><td>Brazil</td><td>Real</td></tr><tr><td>Russia</td><td>Ruble</td></tr><tr><td>Argentina / Chile</td><td>Peso</td></tr></tbody></table></div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "3ea78f87-17c9-481d-a010-983374b089ab",
+    "category_id": "static-gk",
+    "tags": [
+      "Science N Technology"
+    ],
+    "difficulty": "hard",
+    "question": "Who is the founder of the Indian biotechnology company, Biocon?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Indu Jain",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Kiran Mazumdar-Shaw",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ratan Tata",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Indra Nooyi",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Kiran Mazumdar-Shaw</span> is the billionaire entrepreneur who founded <span class=\"text-blue font-bold\">Biocon</span> in <span class=\"text-green font-bold\">1978</span>.<br>Starting from a small garage in <span class=\"text-magenta font-bold\">Bengaluru</span> as an <span class=\"text-orange font-bold\">enzyme-manufacturing startup</span>, she transformed it into one of India's largest and most successful biopharmaceutical companies, specializing in <span class=\"text-teal font-bold\">affordable insulins and generic active pharmaceutical ingredients</span>.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "50e26db6-459b-406b-94c8-98a08b259e77",
+    "category_id": "static-gk",
+    "tags": [
+      "Awards N Honours",
+      "Defence"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following is the highest award for military gallantry in India?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ashoka Chakra",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Param Vir Chakra",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Shaurya Chakra",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Kirti Chakra",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Param Vir Chakra</span> <span class=\"text-blue font-bold\">(PVC)</span> is <span class=\"text-green\" style=\"font-weight: 800;\">India's highest military decoration</span>, awarded for displaying acts of conspicuous gallantry, exceptional courage, and self-sacrifice in the presence of the enemy <span class=\"text-magenta font-bold\">(wartime)</span>.<br><span style=\"font-weight: bold; text-decoration-line: underline;\">Exam Tip:</span> If a question asks for the <span class=\"text-orange font-bold\">highest peacetime gallantry award</span> (away from the battlefield), the correct answer is the <span class=\"text-teal font-bold\">Ashoka Chakra</span>.<br>   <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "0977347d-971f-4785-82f7-4096d6ccda91",
+    "category_id": "static-gk",
+    "tags": [
+      "Awards N Honours"
+    ],
+    "difficulty": "medium",
+    "question": "The Padma Vibhushan is the ______ civilian award of India.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Highest",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Fourth Highest",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Third Highest",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Second Highest",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Padma Vibhushan</span> is the <span class=\"text-blue font-bold\">second-highest civilian award</span> in the Republic of India.<br>The strict hierarchy of Indian civilian honors (from <span class=\"text-teal font-bold\">highest to lowest)</span> is:<br>1.  <span class=\"text-green font-bold\">Bharat Ratna</span> (Highest)<br>2.  <span class=\"text-red font-bold\">Padma Vibhushan</span> (Exceptional &amp; distinguished service)<br>3.  <span class=\"text-magenta font-bold\">Padma Bhushan</span> (Distinguished service of high order)<br>4.  <span class=\"text-orange font-bold\">Padma Shri</span> (Distinguished service)<div><div class=\"nk-video-wrapper\" data-video-url=\"https://youtube.com/shorts/djLi3OHGsU0?si=VY-mBhLU-QLDIsku\" data-video-platform=\"youtube\" data-video-aspect=\"9/16\" data-align=\"center\" style=\"width:100%; max-width:340px; aspect-ratio:9/16;\n            position:relative; display:block; overflow:hidden; border-radius:14px;\n            background:;\n            border: 1px solid rgba(255,255,255,0.09);\n            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);\n            cursor:pointer;\">\n\n  <!-- Poster / background layer -->\n  <div class=\"nk-video-poster\" style=\"position:absolute; inset:0; width:100%; height:100%;\n              display:flex; align-items:center; justify-content:center;\n              background-image: url(https://img.youtube.com/vi/djLi3OHGsU0/hqdefault.jpg); background-size: cover; background-position: center;\">\n\n    <!-- Film-grain noise overlay (subtle texture) -->\n    <div style=\"position:absolute; inset:0; url(\" data:image=\"\" svg+xml,%3csvg=\"\" viewbox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" %3e%3cfilter=\"\" id=\"n\" %3e%3cfeturbulence=\"\" type=\"fractalNoise\" basefrequency=\"0.75\" numoctaves=\"4\" stitchtiles=\"stitch\" %3e%3c=\"\" filter%3e%3crect=\"\" width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\" opacity=\"0.06\" svg%3e\");=\"\" background-repeat:repeat;=\"\" pointer-events:none;=\"\" mix-blend-mode:overlay;=\"\" opacity:0.4;\"=\"\"></div>\n\n    <!-- Cinematic vignette -->\n    <div style=\"position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);\"></div>\n\n    <!-- Play button -->\n    \n    <div style=\"position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;\">\n      <!-- glow ring -->\n      <div style=\"position:absolute; width:88px; height:88px; border-radius:50%;\n                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);\n                  filter: blur(8px); transform: scale(1.1);\">\n      </div>\n      <!-- outer ring border -->\n      <div style=\"position:absolute; width:72px; height:72px; border-radius:50%;\n                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;\">\n      </div>\n      <!-- glass button -->\n      <button class=\"nk-video-play-btn\" style=\"position:relative; z-index:10; width:64px; height:64px; border-radius:50%;\n                     background: rgba(255,255,255,0.11);\n                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);\n                     border: 1.5px solid rgba(255,255,255,0.28);\n                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);\n                     display:flex; align-items:center; justify-content:center;\n                     cursor:pointer; outline:none; transition: all 0.3s ease;\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"white\" style=\"margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));\">\n          <path d=\"M8 5v14l11-7z\"></path>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div> <br>  <span class=\"text-blue-500 font-bold\"> </span> </div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "3fb2ed9f-5a70-4afa-bbec-94282f8134db",
+    "category_id": "static-gk",
+    "tags": [
+      "Organizations"
+    ],
+    "difficulty": "easy",
+    "question": "The World Food Programme (WFP) is the food assistance branch of the United Nations. Where is it headquartered?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Washington DC",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rome",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Vienna",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Brussels",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">World Food Programme</span> <span class=\"text-blue font-bold\">(WFP)</span> is headquartered in <span class=\"text-green font-bold\">Rome, Italy</span>.<br><span style=\"font-weight: bold; text-decoration-line: underline;\">Mnemonic trick:</span> The <span class=\"text-teal\" style=\"font-weight: 800;\">major United Nations agencies</span> dedicated strictly<span class=\"text-teal\" style=\"font-weight: 800;\"> to food and agriculture</span> are all <span class=\"text-teal font-bold\">centralized in Rome</span>. These include the <span class=\"text-blue font-bold\">WFP</span>, the <span class=\"text-magenta font-bold\">Food and Agriculture Organization (FAO)</span>, and the <span class=\"text-orange font-bold\">International Fund for Agricultural Development (IFAD)</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "b956bce4-acd9-4d46-8b24-067f444336b9",
+    "category_id": "static-gk",
+    "tags": [
+      "Organizations"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following countries is NOT a member of the SAARC Association?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pakistan",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nepal",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bhutan",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "China",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">China</span> is not a member of the South Asian Association for Regional Cooperation <span class=\"text-blue font-bold\">(SAARC)</span>; it only holds an \"<span class=\"text-green font-bold\">observer</span>\" status.<br>Founded in <span class=\"text-magenta font-bold\">1985</span>, <span class=\"text-blue font-bold\">SAARC</span> is comprised of exactly 8 member countries: <span class=\"text-orange font-bold\">Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, and Sri Lanka</span>.<div><div class=\"nk-video-wrapper\" data-video-url=\"https://youtube.com/shorts/ColO6s1Q0Aw?si=lgWO9za8XBYVY_qZ\" data-video-platform=\"youtube\" data-video-aspect=\"9/16\" data-align=\"center\" style=\"width:100%; max-width:340px; aspect-ratio:9/16;\n            position:relative; display:block; overflow:hidden; border-radius:14px;\n            background:;\n            border: 1px solid rgba(255,255,255,0.09);\n            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);\n            cursor:pointer;\">\n\n  <!-- Poster / background layer -->\n  <div class=\"nk-video-poster\" style=\"position:absolute; inset:0; width:100%; height:100%;\n              display:flex; align-items:center; justify-content:center;\n              background-image: url(https://img.youtube.com/vi/ColO6s1Q0Aw/hqdefault.jpg); background-size: cover; background-position: center;\">\n\n    <!-- Film-grain noise overlay (subtle texture) -->\n    <div style=\"position:absolute; inset:0; url(\" data:image=\"\" svg+xml,%3csvg=\"\" viewbox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" %3e%3cfilter=\"\" id=\"n\" %3e%3cfeturbulence=\"\" type=\"fractalNoise\" basefrequency=\"0.75\" numoctaves=\"4\" stitchtiles=\"stitch\" %3e%3c=\"\" filter%3e%3crect=\"\" width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\" opacity=\"0.06\" svg%3e\");=\"\" background-repeat:repeat;=\"\" pointer-events:none;=\"\" mix-blend-mode:overlay;=\"\" opacity:0.4;\"=\"\"></div>\n\n    <!-- Cinematic vignette -->\n    <div style=\"position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);\"></div>\n\n    <!-- Play button -->\n    \n    <div style=\"position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;\">\n      <!-- glow ring -->\n      <div style=\"position:absolute; width:88px; height:88px; border-radius:50%;\n                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);\n                  filter: blur(8px); transform: scale(1.1);\">\n      </div>\n      <!-- outer ring border -->\n      <div style=\"position:absolute; width:72px; height:72px; border-radius:50%;\n                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;\">\n      </div>\n      <!-- glass button -->\n      <button class=\"nk-video-play-btn\" style=\"position:relative; z-index:10; width:64px; height:64px; border-radius:50%;\n                     background: rgba(255,255,255,0.11);\n                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);\n                     border: 1.5px solid rgba(255,255,255,0.28);\n                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);\n                     display:flex; align-items:center; justify-content:center;\n                     cursor:pointer; outline:none; transition: all 0.3s ease;\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"white\" style=\"margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));\">\n          <path d=\"M8 5v14l11-7z\"></path>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div> <br>   </div>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "ab2cda1e-c397-4fac-bf9b-c4a71a9c434c",
+    "category_id": "static-gk",
+    "tags": [
+      "Organizations",
+      "International Affairs"
+    ],
+    "difficulty": "easy",
+    "question": "How many non-permanent members does the UN Security Council have?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "10",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "7",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "3",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "5",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\"></span><span class=\"text-red\" style=\"font-weight: 800;\">United Nations Security Council (UNSC)</span><span class=\"text-blue font-bold\"></span> consists of<span class=\"text-orange\" style=\"font-weight: 800;\"> exactly 15 members</span> in total:<br><span class=\"text-green font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\">5 Permanent Members (The P5):</span><span class=\"text-blue\" style=\"font-weight: 800;\"> USA, UK, France, Russia, China</span> (they hold <span class=\"text-orange font-bold\">veto power)</span>.<br><span class=\"text-teal font-bold\">10 Non-Permanent Members</span>: These are elected by the UN General Assembly for <span style=\"font-style: italic;\">two-year terms, with seats distributed on a strict regional basis</span> to ensure global representation.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "1a0b3ff9-3444-4430-b4d5-1b9beb6389f6",
+    "category_id": "static-gk",
+    "tags": [
+      "International Affairs",
+      "Current Affairs"
+    ],
+    "difficulty": "medium",
+    "question": "What is the name of the new strategic grouping (often dubbed the \"Middle-East QUAD\") that India is a part of, along with the US, UAE, and Israel?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "QUAD+",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Mini QUAD",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Middle-East QUAD",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "I2U2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-red\" style=\"font-weight: 800;\"> new strategic alliance</span> is officially named the <span class=\"text-red font-bold\">I2U2 Group</span>.<br>The acronym derives directly from the initial letters of its member states: <span class=\"text-teal\" style=\"font-weight: 800;\">I2 (India and Israel)</span><span class=\"text-blue font-bold\"></span> and <span class=\"text-teal\" style=\"font-weight: 800;\">U2 (USA and UAE).</span> Formed in late <span class=\"text-magenta font-bold\">2021</span>, the <span style=\"font-style: italic;\">bloc focuses heavily on joint economic investments</span> in critical sectors like <span class=\"text-orange font-bold\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">water, energy, space, and food security in the West Asian region</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "35a3e5cb-9ae5-4239-bc28-ca45df3bcd15",
+    "category_id": "static-gk",
+    "tags": [
+      "Important Days"
+    ],
+    "difficulty": "medium",
+    "question": "On which date is the International Day for the Abolition of Slavery observed globally?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "December 2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "December 10",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "February 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "February 10",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">International Day for the Abolition of Slavery</span> is observed every year on <span class=\"text-blue font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">December 2</span></span>.<br>Organized by the <span class=\"text-green font-bold\">United Nations</span>, this day focuses on eradicating contemporary forms of slavery, such as <span class=\"text-magenta font-bold\">human trafficking, sexual exploitation, forced child labor, and forced marriages</span>.<br>",
+    "pyq": "JKSSB Finance 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "06c2ff50-f8a2-49d5-a536-74f7db6aeaab",
+    "category_id": "static-gk",
+    "tags": [
+      "Geography"
+    ],
+    "difficulty": "hard",
+    "question": "According to Koppen's classification of climate, the region of Ladakh falls under which category?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dwf",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Dfd",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cf",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "BWk",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under the <span class=\"text-red font-bold\">Köppen climate classification</span>, <span class=\"text-blue font-bold\">Ladakh</span> is primarily categorized as <span class=\"text-green font-bold\">BWk</span> <span class=\"text-magenta font-bold\">(Cold Desert Climate)</span>.<br><span style=\"font-style: italic;\">B = Dry (Arid) climate.<br>W = Desert (Wüste in German).<br>k = Cold (average annual temperature is extremely low).</span><br><span class=\"text-blue font-bold\"><span class=\"text-orange\" style=\"font-weight: 800;\">Ladakh</span></span> lies in the deep <span class=\"text-orange font-bold\">rain shadow of the Great Himalayas</span>, meaning it receives practically zero monsoon rainfall, making it a <span class=\"text-teal font-bold\">high-altitude, freezing arid desert</span>.<br>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "7a16b595-2f38-4204-81b9-d9f3b84e9d18",
+    "category_id": "static-gk",
+    "tags": [
+      "Economy",
+      "Current Affairs"
+    ],
+    "difficulty": "easy",
+    "question": "The \"Prarambh\" Summit is primarily associated with which of the following sectors?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "India-UK Free Trade Agreement",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Startup ecosystem at the international level",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Protection of child rights",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Cooperation in Quantum Technology Applications",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Prarambh Summit</span> <span class=\"text-blue font-bold\">(Startup India International Summit)</span> is a massive global initiative aimed at bolstering the Startup Ecosystem.<br>Organized by the <span class=\"text-green font-bold\">Department for Promotion of Industry and Internal Trade</span> <span class=\"text-magenta font-bold\">(DPIIT)</span>, the summit brings together top global innovators, <span class=\"text-orange font-bold\">venture capitalists</span>, and young minds to share ideas, secure seed funding, and map the future of <span class=\"text-teal font-bold\">digital entrepreneurship</span>.<br>   <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "b19da335-0558-4816-8fcd-ee86cb1fd1e8",
+    "category_id": "static-gk",
+    "tags": [
+      "Miscellaneous"
+    ],
+    "difficulty": "medium",
+    "question": "Which government programme in India provides free medical screening and treatment to children suffering from serious birth defects, diseases, and deficiencies?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ayushman Bharat",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Rashtriya Swasthya Bima Yojana (RSBY)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "National Health Mission (NHM)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Rajiv Gandhi Jeevandayee Arogya Yojana",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under the umbrella of the <span class=\"text-red font-bold\">National Health Mission</span> <span class=\"text-blue font-bold\">(NHM)</span>, the government executes the <span class=\"text-green font-bold\">Rashtriya Bal Swasthya Karyakram</span> <span class=\"text-magenta font-bold\">(RBSK)</span>.<br>This specific initiative focuses on early identification and absolutely free medical management of the \"<span class=\"text-orange font-bold\">4 Ds</span>\" in children (from birth to 18 years): <span class=\"text-teal font-bold\">Defects at birth, Diseases, Deficiencies, and Developmental delays</span>.<br>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "7e671438-d6de-40a4-8e5c-737470a75248",
+    "category_id": "static-gk",
+    "tags": [
+      "Important Days"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following pairs of Important Days and their respective dates:<br>1- International Day for the Elderly -&gt; i. 10th December<br>2- World AIDS Day -&gt; ii. 16th October<br>3- World Food Day -&gt; iii. 1st October<br>4- Human Rights Day -&gt; iv. 1st December<br>Choose the correct chronological matching:",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1-iii, 2-ii, 3-i, 4-iv",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1-ii, 2-iv, 3-iii, 4-i",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1-i, 2-iii, 3-iv, 4-ii",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1-iii, 2-iv, 3-ii, 4-i",
+        "label": "D"
+      }
+    ],
+    "explanation": "The correct mappings for these highly tested UN observance days are:<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Event</th><th>Date</th></tr></thead><tbody><tr><td><span class=\"text-red font-bold\">Intl. Day of Older Persons</span> (Elderly)</td><td><span class=\"text-blue font-bold\">October 1</span></td></tr><tr><td><span class=\"text-green font-bold\">World Food Day</span></td><td><span class=\"text-magenta font-bold\">October 16</span></td></tr><tr><td><span class=\"text-orange font-bold\">World AIDS Day</span></td><td><span class=\"text-teal font-bold\">December 1</span></td></tr><tr><td><span class=\"text-red font-bold\">Human Rights Day</span></td><td><span class=\"text-blue font-bold\">December 10</span></td></tr></tbody></table></div>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "e75d60aa-922e-42c7-898e-6fa9781aa711",
+    "category_id": "static-gk",
+    "tags": [
+      "Economy",
+      "Miscellaneous"
+    ],
+    "difficulty": "easy",
+    "question": "What is the primary target demographic of the \"Atal Pension Yojana\" (APY)?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retired persons from the Quasi-government sector",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Workers of the unorganised sector",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Workers of the organised sector",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ex-servicemen",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Atal Pension Yojana</span> <span class=\"text-blue font-bold\">(APY)</span> is a <span style=\"font-style: italic;\">government-backed social security scheme</span> specifically targeted at workers of the <span class=\"text-green font-bold\">unorganized sector</span> (such as daily wage laborers, maids, drivers, etc.).<br>Administered by the <span class=\"text-magenta font-bold\">PFRDA</span>, it guarantees a fixed minimum monthly pension ranging from <span class=\"text-orange font-bold\">₹1,000 to ₹5,000</span> once the subscriber attains the <span class=\"text-teal font-bold\">age of 60</span>, provided they contribute during their working years.<br>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "eb6bf16e-5cf0-4d43-8b7f-a357458b3cb9",
+    "category_id": "static-gk",
+    "tags": [
+      "Miscellaneous"
+    ],
+    "difficulty": "medium",
+    "question": "The \"Nal Se Jal\" Yojana under the Ministry of Jal Shakti aims to provide piped drinking water to every rural home. What was the target year set by the government to achieve this milestone?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "2022",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2023",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2024",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "2025",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Jal Jeevan Mission</span>'s \"<span class=\"text-blue font-bold\">Har Ghar Jal</span>\" <span class=\"text-green font-bold\">(Nal Se Jal)</span> initiative officially set the ambitious target of providing functional household tap connections to every single rural household in India by the year <span class=\"text-magenta font-bold\">2024</span>.<br><span style=\"font-weight: bold;\"><span class=\"text-red\" style=\"font-weight: 800;\">Progress Check: </span></span>While the mission achieved historic, massive leaps (raising coverage from <span class=\"text-orange font-bold\">17% in 2019</span> to <span class=\"text-teal font-bold\">over 75% by early 2024)</span>, hitting the absolute 100% mark nationwide by the deadline remains a continuing administrative challenge.<br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "f8b0ef51-81d3-454e-add5-258b352bc7cd",
+    "category_id": "static-gk",
+    "tags": [
+      "Miscellaneous",
+      "History"
+    ],
+    "difficulty": "hard",
+    "question": "Choose the correct sequence of the following Central Government Programmes based on the year of their launch in chronological order (Oldest to Newest):<br>1- Atal Pension Yojana<br>2- Pradhan Mantri Gramin Awaas Yojana (originally Indira Awaas Yojana)<br>3- Integrated Child Development Services (ICDS)<br>4- Mahatma Gandhi National Rural Employment Guarantee Scheme (MGNREGS)<br>5- Integrated Rural Development Programme (IRDP)",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "5, 3, 2, 1, 4",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "3, 5, 2, 4, 1",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2, 3, 5, 4, 1",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "2, 1, 3, 5, 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "To answer correctly, trace the exact launch years of these flagship schemes:<br><div class=\"nk-mentor-table-wrapper\"><table class=\"nk-mentor-table\"><thead><tr><th>Scheme</th><th>Launch year</th></tr></thead><tbody><tr><td><span class=\"text-red font-bold\">ICDS</span></td><td><span class=\"text-blue font-bold\">1975</span></td></tr><tr><td><span class=\"text-green font-bold\">IRDP</span></td><td><span class=\"text-magenta font-bold\">1978</span></td></tr><tr><td><span class=\"text-orange font-bold\">Awaas Yojana</span> (Indira Awaas)</td><td><span class=\"text-teal font-bold\">1985</span> (Revamped as PMAY in 2016)</td></tr><tr><td><span class=\"text-red font-bold\">MGNREGS</span></td><td><span class=\"text-blue font-bold\">2005</span></td></tr><tr><td><span class=\"text-green font-bold\">Atal Pension Yojana</span></td><td><span class=\"text-magenta font-bold\">2015</span></td></tr></tbody></table></div>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "b05ef84a-d573-4d95-a2bd-bc11340a9f85",
+    "category_id": "static-gk",
+    "tags": [
+      "Organizations"
+    ],
+    "difficulty": "medium",
+    "question": "Which non-governmental organization (NGO) is world-renowned for providing emergency medical assistance in conflict zones and disaster-stricken areas worldwide?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Doctors Without Borders",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "World Health Organization (WHO)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "UNICEF",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "International Red Cross",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Doctors Without Borders</span> (internationally known as <span class=\"text-blue font-bold\">Médecins Sans Frontières</span> or <span class=\"text-green font-bold\">MSF)</span> is a <span style=\"font-style: italic;\">prestigious international humanitarian NGO.</span><br>They deploy highly skilled medical personnel to active war zones, areas hit by catastrophic natural disasters, and regions suffering from endemic disease outbreaks. They were awarded the <span class=\"text-magenta font-bold\">Nobel Peace Prize in 1999</span>. (Note: <span class=\"text-orange font-bold\">WHO and UNICEF are UN agencies, not NGOs)</span>.<br>",
+    "pyq": "JKSSB Supervisor 2024",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "7fcf9481-5ab4-45d2-9429-3d4f95ad1225",
+    "category_id": "static-gk",
+    "tags": [
+      "Environment"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following acts as the primary Sub-Committee for the operationalization of the Graded Response Action Plan (GRAP) in the National Capital Region?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Central Pollution Control Board",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Pollution Control Committee",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Commission for Air Quality Management",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Delhi Pollution Control Committee",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Commission for Air Quality Management</span> <span class=\"text-blue font-bold\">(CAQM)</span> is the supreme statutory body responsible for implementing and invoking various stages of the <span class=\"text-green font-bold\">Graded Response Action Plan</span> <span class=\"text-magenta font-bold\">(GRAP)</span> in <span class=\"text-orange font-bold\">Delhi-NCR</span>.<br>When the <span class=\"text-teal font-bold\">Air Quality Index</span> <span class=\"text-red font-bold\">(AQI)</span> plummets, the <span class=\"text-blue font-bold\">CAQM</span> enforces progressive restrictions on construction, diesel generators, and heavy vehicular traffic to combat severe winter smog.<br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "b43a4bab-85ae-47b5-813d-061d51497d61",
+    "category_id": "static-gk",
+    "tags": [
+      "Art N Culture",
+      "Current Affairs"
+    ],
+    "difficulty": "medium",
+    "question": "Where is the 'Statue of Peace' of Swami Ramanujacharya, unveiled by the Home Minister, located?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Chennai",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Manipal",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Srinagar",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Ahmedabad",
+        "label": "D"
+      }
+    ],
+    "explanation": "In <span class=\"text-red font-bold\">2022</span>, Union Home Minister <span class=\"text-blue font-bold\">Amit Shah</span> virtually unveiled the <span class=\"text-green font-bold\">Statue of Peace</span> dedicated to the great Vedic philosopher and social reformer <span class=\"text-magenta font-bold\">Swami Ramanujacharya</span> in <span class=\"text-orange font-bold\">Srinagar, Jammu and Kashmir</span>.<br>Exam Trap: Do not confuse this with the gigantic \"<span class=\"text-teal font-bold\">Statue of Equality</span>\" (also Ramanujacharya) situated in <span class=\"text-red font-bold\">Hyderabad</span>, or the <span class=\"text-orange\" style=\"font-weight: 800;\">Jain \"Statue of Peace\" located in Rajasthan</span>.<br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "7026dae7-6da3-4762-893a-ab7d7671fff4",
+    "category_id": "static-gk",
+    "tags": [
+      "Economy"
+    ],
+    "difficulty": "easy",
+    "question": "Where is the world's largest foreign exchange (Forex) trading market located?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tokyo",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bombay",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "London",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Frankfurt",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">London</span> holds the undisputed title as the world's largest foreign exchange (Forex) market.<br>Due to its strategic <span class=\"text-green font-bold\">geographical time zone</span> (bridging the gap between Asian market closures and American market openings) and highly sophisticated banking infrastructure, <span class=\"text-red font-bold\">London</span> commands the <span class=\"text-orange font-bold\">highest daily trading volume</span> of global currencies, outperforming both <span class=\"text-magenta font-bold\">New York and Tokyo</span>.<br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "35bd0061-01ea-4acb-97f2-39da55c43b4c",
+    "category_id": "static-gk",
+    "tags": [
+      "Economy"
+    ],
+    "difficulty": "hard",
+    "question": "Roughly how many Central Public Sector Enterprises (CPSEs) hold the Miniratna status?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "10",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "14",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "73",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "12",
+        "label": "D"
+      }
+    ],
+    "explanation": "As per varying official records of the Department of Public Enterprises, there are consistently around <span class=\"text-blue font-bold\">73 to 74</span> <span class=\"text-red font-bold\">Miniratna CPSEs</span> (combining both Category-I and Category-II).<br>To ensure financial autonomy, the government categorizes high-performing PSUs as:<br><span class=\"text-green font-bold\">Maharatna</span> (~13 companies like <span class=\"text-orange font-bold\">BHEL, ONGC)</span><br><span class=\"text-magenta font-bold\">Navratna</span> (~16 companies like <span class=\"text-teal font-bold\">HAL, BEL)</span><br>Miniratna (~73 companies like <span class=\"text-red font-bold\">IRCTC, AAI)</span><br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "5a71dfe7-ec49-48fc-b73a-11cb4f0aea8d",
+    "category_id": "static-gk",
+    "tags": [
+      "Economy",
+      "Current Affairs"
+    ],
+    "difficulty": "medium",
+    "question": "Name India's first dedicated e-commerce housing portal, launched by the National Real Estate Development Council (NAREDCO) in 2020.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "IndianRealEstate.com",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Housing.com",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "HousingForAll.com",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "IndianProperties.com",
+        "label": "D"
+      }
+    ],
+    "explanation": "In early <span class=\"text-red font-bold\">2020</span>, the <span class=\"text-blue font-bold\">Ministry of Housing and Urban Affairs</span>, in association with <span class=\"text-green font-bold\">NAREDCO</span>, launched <span class=\"text-magenta font-bold\">HousingForAll.com</span>.<br>It served as<span class=\"text-blue\" style=\"font-weight: 800;\"> India's first government-backed e-commerce real estate portal,</span> specifically designed to help homebuyers discover, select, and directly purchase thousands of ready-to-move-in homes transparently online.<br>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
+    "id": "ec4e6c51-715b-4623-9062-590b2b5182bf",
+    "category_id": "static-gk",
+    "tags": [
+      "Organizations"
+    ],
+    "difficulty": "easy",
+    "question": "The Economic and Social Commission for Asia and the Pacific (UNESCAP) functions as the regional development arm of which global body?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "United Nations",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "World Economic Forum",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "World Bank",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "World Trade Organisation",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">UNESCAP</span> is the primary <span class=\"text-blue font-bold\">regional development arm of the United Nations for the Asia-Pacific region</span>.<br>Headquartered in <span class=\"text-green font-bold\">Bangkok, Thailand</span>, its core mission is to foster cooperation among its <span class=\"text-magenta font-bold\">53 member states</span> to achieve <span class=\"text-orange font-bold\">inclusive economic growth, sustainable infrastructure, and social development</span> across the largest and most populous region on Earth.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Police 2022",
+    "created_at": "2026-07-12T17:43:22.133661+00:00"
+  },
+  {
     "id": "211a74ca-f5a8-4b05-92bf-6ebe6f56136e",
     "category_id": "static-gk",
     "tags": [
