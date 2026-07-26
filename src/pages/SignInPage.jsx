@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
-import { AlertTriangle, User, Mail, Lock, Sparkles, Check, Gift } from 'lucide-react';
+import { AlertTriangle, User, Mail, Lock, Sparkles, Check, Gift, Trophy } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
@@ -16,11 +16,33 @@ export default function SignInPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { showToast } = useToast();
+  const hasFiredReferralToastRef = useRef(false);
+
+  // Synchronously detect referral code on component instantiation
+  const getInitialReferralCode = () => {
+    try {
+      if (typeof window !== 'undefined') {
+        const searchRef = new URLSearchParams(window.location.search).get('ref');
+        if (searchRef) return searchRef.trim();
+
+        const hash = window.location.hash || '';
+        if (hash.includes('?')) {
+          const hashRef = new URLSearchParams(hash.substring(hash.indexOf('?'))).get('ref');
+          if (hashRef) return hashRef.trim();
+        }
+      }
+      return localStorage.getItem('mcqkash_pending_referral_code') || '';
+    } catch (e) {
+      return '';
+    }
+  };
+
+  const initialRef = getInitialReferralCode();
 
   // Basic Credentials
   const [authEmail, setAuthEmail] = useState('');
   const [authPassword, setAuthPassword] = useState('');
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(() => !initialRef);
   const [isAuthSubmitting, setIsAuthSubmitting] = useState(false);
   const [authError, setAuthError] = useState('');
 
@@ -34,7 +56,7 @@ export default function SignInPage() {
   // Profile Onboarding State
   const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
-  const [referredBy, setReferredBy] = useState('');
+  const [referredBy, setReferredBy] = useState(initialRef);
   const [onboardingPassword, setOnboardingPassword] = useState('');
   const [usernameStatus, setUsernameStatus] = useState(null); // 'checking' | 'valid' | 'invalid' | null
   const [usernameError, setUsernameError] = useState('');
@@ -42,6 +64,92 @@ export default function SignInPage() {
   const checkingTimeoutRef = useRef(null);
   const [selectedAvatarId, setSelectedAvatarId] = useState(1);
   const [selectedGender, setSelectedGender] = useState('male');
+
+  // Inviter Profile State for Rich Referral Banner
+  const [inviterProfile, setInviterProfile] = useState(null);
+  const [inviterLoading, setInviterLoading] = useState(false);
+
+  useEffect(() => {
+    if (!referredBy || !referredBy.trim()) {
+      setInviterProfile(null);
+      return;
+    }
+
+    let isMounted = true;
+    const fetchInviterInfo = async () => {
+      setInviterLoading(true);
+      try {
+        // Try RPC get_public_profile_by_username first
+        const { data, error } = await supabase.rpc('get_public_profile_by_username', {
+          target_username: referredBy.trim()
+        });
+
+        let rankVal = data?.rank || null;
+        if (!rankVal) {
+          try {
+            const cached = localStorage.getItem('mcqkash_lb_cache_coins');
+            if (cached) {
+              const { data: lbData } = JSON.parse(cached);
+              const found = (lbData || []).find(p => p.username?.toLowerCase() === referredBy.toLowerCase() || p.full_name?.toLowerCase() === referredBy.toLowerCase());
+              if (found) rankVal = found.rank || null;
+            }
+          } catch (e) {}
+        }
+
+        if (!error && data && isMounted) {
+          setInviterProfile({
+            avatar_id: data.avatar_id || 1,
+            full_name: data.full_name || `@${referredBy}`,
+            username: data.username || referredBy,
+            rank: rankVal,
+            is_pro: (!!(data.pro_expires_at || data.pro_expiration) && new Date(data.pro_expires_at || data.pro_expiration) > new Date()) || !!data.is_pro
+          });
+          setInviterLoading(false);
+          return;
+        }
+
+        // Direct table fallback query by username
+        const { data: profData, error: profError } = await supabase
+          .from('profiles')
+          .select('avatar_id, full_name, username, pro_expires_at, is_pro')
+          .ilike('username', referredBy.trim())
+          .maybeSingle();
+
+        if (!profError && profData && isMounted) {
+          setInviterProfile({
+            avatar_id: profData.avatar_id || 1,
+            full_name: profData.full_name || `@${referredBy}`,
+            username: profData.username || referredBy,
+            rank: rankVal,
+            is_pro: (!!profData.pro_expires_at && new Date(profData.pro_expires_at) > new Date()) || !!profData.is_pro
+          });
+        } else if (isMounted) {
+          setInviterProfile({
+            avatar_id: 1,
+            full_name: `@${referredBy}`,
+            username: referredBy,
+            rank: rankVal,
+            is_pro: false
+          });
+        }
+      } catch (e) {
+        if (isMounted) {
+          setInviterProfile({
+            avatar_id: 1,
+            full_name: `@${referredBy}`,
+            username: referredBy,
+            rank: null,
+            is_pro: false
+          });
+        }
+      } finally {
+        if (isMounted) setInviterLoading(false);
+      }
+    };
+
+    fetchInviterInfo();
+    return () => { isMounted = false; };
+  }, [referredBy]);
 
   // FIX-04 (BUG-04): Single-fire guard — prevents double Supabase fetch when both user + loading change
   const hasHandledAuthRef = useRef(false);
@@ -96,16 +204,26 @@ export default function SignInPage() {
 
   // Display custom message & parse referral parameter
   useEffect(() => {
-    if (customMessage) {
-      showToast(customMessage, 'info', 5000);
-    }
-    
     const parseAndSaveReferral = async () => {
-      // Parse referral code if deep-linked/navigated via ?ref=username
-      const queryParams = new URLSearchParams(location.search);
-      let refCode = queryParams.get('ref');
+      let refCode = null;
 
-      // If not in direct query params, check the redirect 'from' path in location state
+      // 1. Check React Router location.search
+      if (location.search) {
+        refCode = new URLSearchParams(location.search).get('ref');
+      }
+
+      // 2. Check window.location.search (before hash in HashRouter URLs like /mcq/signin?ref=xyz)
+      if (!refCode && typeof window !== 'undefined' && window.location.search) {
+        refCode = new URLSearchParams(window.location.search).get('ref');
+      }
+
+      // 3. Check window.location.hash (if query params are inside hash like /mcq/#/signin?ref=xyz)
+      if (!refCode && typeof window !== 'undefined' && window.location.hash?.includes('?')) {
+        const hashQuery = window.location.hash.substring(window.location.hash.indexOf('?'));
+        refCode = new URLSearchParams(hashQuery).get('ref');
+      }
+
+      // 4. Check redirect state 'from' path
       if (!refCode && location.state?.from) {
         try {
           const queryStartIndex = location.state.from.indexOf('?');
@@ -119,28 +237,36 @@ export default function SignInPage() {
       }
 
       if (refCode) {
+        refCode = refCode.trim();
         localStorage.setItem('mcqkash_pending_referral_code', refCode);
         setReferredBy(refCode);
-        setIsLogin(false); // Directly take the invitee to sign up page (register mode)
+        setIsLogin(false); // Directly switch to Join / Sign Up tab for new invitees!
         
-        // Also save to IndexedDB
+        if (!hasFiredReferralToastRef.current) {
+          hasFiredReferralToastRef.current = true;
+          showToast(`🎁 Referral code "@${refCode}" applied automatically!`, 'info', 4000);
+        }
+
         try {
           await updateUserEconomy({ pending_referral_code: refCode });
         } catch (dbErr) {
           console.error('Failed to save referral to IndexedDB:', dbErr);
         }
       } else {
-        // Try localStorage first
+        if (customMessage && !hasFiredReferralToastRef.current) {
+          hasFiredReferralToastRef.current = true;
+          showToast(customMessage, 'info', 5000);
+        }
+
+        // Fallback: Restore saved referral code from localStorage or IndexedDB if user navigated around
         let savedRef = localStorage.getItem('mcqkash_pending_referral_code');
         if (savedRef) {
           setReferredBy(savedRef);
         } else {
-          // If not in localStorage, try IndexedDB
           try {
             const econ = await getUserEconomy();
             if (econ && econ.pending_referral_code) {
               setReferredBy(econ.pending_referral_code);
-              // sync back to localStorage
               localStorage.setItem('mcqkash_pending_referral_code', econ.pending_referral_code);
             }
           } catch (dbErr) {
@@ -446,12 +572,78 @@ export default function SignInPage() {
                         type="button"
                         onClick={() => { setIsLogin(false); setAuthError(''); }}
                         className={`py-3 rounded-lg text-xs md:text-sm font-black uppercase tracking-wider transition-all ${
-                          !isLogin ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'
+        !isLogin ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'
                         }`}
                       >
                         Register
                       </button>
                     </div>
+
+                    {!isLogin && referredBy && (
+                      <div className="relative mb-6 rounded-3xl p-6 pt-7 sm:px-8 sm:pt-7 sm:pb-6 bg-theme-surface/90 dark:bg-[#12161f] border-t border-t-amber-500/50 border-b border-b-amber-500/20 border-x border-x-amber-500/30 text-amber-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)] animate-in fade-in slide-in-from-top-2 duration-300 z-10 overflow-hidden group">
+                        {/* Warm amber radial glow behind avatar/name area */}
+                        <div className="absolute -top-12 -left-12 w-56 h-56 bg-amber-500/12 rounded-full blur-3xl pointer-events-none" />
+                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-amber-500/[0.05] rounded-full blur-2xl pointer-events-none" />
+
+                        {/* Content Container */}
+                        <div className="relative z-10">
+                          {/* Top Section: Avatar + Name & Unified Pills */}
+                          <div className="flex items-center gap-5 min-w-0">
+                            
+                            {/* Avatar with attached PRO badge */}
+                            <div className="relative shrink-0">
+                              <div className="w-[56px] h-[56px] sm:w-[62px] sm:h-[62px] rounded-full ring-[3px] ring-amber-500/40 p-0.5 bg-theme-surface shadow-md">
+                                {inviterLoading ? (
+                                  <div className="w-full h-full rounded-full bg-amber-500/20 animate-pulse flex items-center justify-center">
+                                    <Sparkles size={16} className="text-amber-500 animate-spin" />
+                                  </div>
+                                ) : (
+                                  <Avatar id={inviterProfile?.avatar_id || 1} className="w-full h-full rounded-full bg-theme-bg" />
+                                )}
+                              </div>
+
+                              {!inviterLoading && inviterProfile?.is_pro && (
+                                <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-[7.5px] font-black px-1.5 py-[2px] rounded-full border border-theme-surface shadow-md uppercase tracking-wider">
+                                  PRO
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Name Block & Unified Badge System */}
+                            <div className="flex flex-col justify-center min-w-0 flex-1">
+                              {/* Primary Name */}
+                              <h4 className="font-extrabold text-lg sm:text-xl text-theme-text tracking-tight truncate leading-snug">
+                                {inviterLoading ? `@${referredBy}` : (inviterProfile?.full_name || `@${referredBy}`)}
+                              </h4>
+
+                              {/* Unified Badge System Row */}
+                              <div className="flex items-center gap-2 mt-2 flex-wrap">
+                                {!inviterLoading && inviterProfile?.rank && (
+                                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-[10px] font-black text-amber-400 uppercase tracking-wider shadow-sm h-6">
+                                    <Trophy size={11} className="fill-amber-400 text-amber-400 shrink-0" />
+                                    <span>Rank #{inviterProfile.rank}</span>
+                                  </div>
+                                )}
+
+                                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-[10px] font-black text-amber-400 uppercase tracking-wider shadow-sm h-6">
+                                  <Sparkles size={11} className="text-amber-400 shrink-0" />
+                                  <span>invited you</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div className="mt-6 mb-5 h-[1px] bg-amber-500/15 w-full" />
+
+                          {/* Bottom CTA — Visual Anchor */}
+                          <div className="flex items-center gap-3 text-xs sm:text-sm font-bold text-amber-400 tracking-normal">
+                            <Gift size={18} className="shrink-0 text-amber-400 animate-bounce" />
+                            <span>Sign up to claim Jackpot Money & Rewards</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     <form onSubmit={handleAuthSubmit} className="space-y-5 relative z-10">
                       <div className="space-y-1">

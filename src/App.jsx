@@ -126,6 +126,32 @@ function AppContent() {
   const [showSplash, setShowSplash] = useState(true);
   const [safetyTimeoutTriggered, setSafetyTimeoutTriggered] = useState(false);
 
+  // Hash Router Deep Link Normalizer for Referral & Direct Auth Links
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const pathname = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+
+      let refParam = new URLSearchParams(search).get('ref');
+      if (!refParam && hash.includes('?')) {
+        const hashQuery = hash.substring(hash.indexOf('?'));
+        refParam = new URLSearchParams(hashQuery).get('ref');
+      }
+
+      if (refParam) {
+        localStorage.setItem('mcqkash_pending_referral_code', refParam.trim());
+      }
+
+      const isSignInPath = pathname.endsWith('/signin') || pathname.endsWith('/signin/') || hash.includes('/signin') || !!refParam;
+
+      if (isSignInPath && (!hash || hash === '#/' || hash === '')) {
+        const targetRef = refParam ? `?ref=${encodeURIComponent(refParam.trim())}` : '';
+        window.location.hash = `#/signin${targetRef}`;
+      }
+    }
+  }, []);
+
   useEffect(() => {
     let mounted = true;
     const loadQuestionSources = async () => {
