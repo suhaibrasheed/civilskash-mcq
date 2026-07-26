@@ -24,7 +24,7 @@ const PLANS = [
     name: '1 Week',
     label: 'Trial',
     price: 49,
-    floorPrice: 9,
+    floorPrice: 29,
     originalPrice: 299,
     priceNote: '₹49 / week',
     icon: Flame,
