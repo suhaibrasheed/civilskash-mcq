@@ -20,18 +20,18 @@ const EDGE_FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL || 'https://eojry
 
 const PLANS = [
   {
-    id: 'ONE_HOUR',
-    name: '1 Hour',
-    label: 'Quick Test',
-    price: 2,
-    floorPrice: 2,
+    id: 'ONE_DAY',
+    name: '1 Day',
+    label: '1-Day Pass',
+    price: 9,
+    floorPrice: 9,
     originalPrice: 49,
-    priceNote: '₹2 / 1 hour test',
+    priceNote: '₹9 / 1 day pass',
     icon: Flame,
     iconColor: '#ec4899',
     featured: false,
-    badge: { text: 'Test Pack', color: '#ec4899' },
-    days: 0.0416,
+    badge: { text: '1-Day Pack', color: '#ec4899' },
+    days: 1,
   },
   {
     id: 'ONE_WEEK',
@@ -340,26 +340,34 @@ export default function PricingPage() {
         currency = data.currency;
         keyId = data.keyId;
       } else {
-        // Fallback for custom test plan if remote deployed Edge Function on Supabase does not recognize ONE_HOUR yet
-        const fallbackRes = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-          body: JSON.stringify({ planId: 'ONE_WEEK' }),
-        });
-        if (!fallbackRes.ok) {
-          const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.error || 'Order creation failed');
+        // Avoid falling back to ONE_WEEK order for ONE_DAY / ONE_HOUR plan (which locks ₹99 on Razorpay's servers)
+        if (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') {
+          console.warn("Remote Edge Function create-order failed for ONE_DAY, using direct ₹9 client checkout...");
+          orderId = null;
+          amount = 900; // 900 paise = ₹9
+          currency = 'INR';
+          keyId = 'rzp_live_SxuAK5B53kL3qS';
+        } else {
+          const fallbackRes = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+            body: JSON.stringify({ planId: 'ONE_WEEK' }),
+          });
+          if (!fallbackRes.ok) {
+            const errData = await res.json().catch(() => ({}));
+            throw new Error(errData.error || 'Order creation failed');
+          }
+          const data = await fallbackRes.json();
+          orderId = data.orderId;
+          amount = plan.price * 100;
+          currency = data.currency;
+          keyId = data.keyId;
         }
-        const data = await fallbackRes.json();
-        orderId = data.orderId;
-        amount = plan.price * 100; // Force exact ₹2 price (200 paise)
-        currency = data.currency;
-        keyId = data.keyId;
       }
 
       const razorpayOptions = {
         key: keyId,
-        amount: plan.id === 'ONE_HOUR' ? 200 : amount,
+        amount: (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') ? 900 : amount,
         currency: currency || 'INR',
         name: 'MCQ Kash',
         description: `${plan.name} Pro Upgrade`,
@@ -369,31 +377,40 @@ export default function PricingPage() {
         handler: async (response) => {
           try {
             let isSuccess = false;
-            const vRes = await fetch(`${EDGE_FUNCTION_URL}/verify-payment`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id || 'test_order_1hr',
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature || 'test_sig',
-                planId: plan.id,
-              }),
-            });
+            let vRes = null;
+            let vError = null;
 
-            if (vRes.ok) {
+            try {
+              vRes = await fetch(`${EDGE_FUNCTION_URL}/verify-payment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id || 'test_order_1day',
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature || 'test_sig',
+                  planId: plan.id,
+                }),
+              });
+            } catch (netErr) {
+              vError = netErr;
+              console.warn("Network fetch to verify-payment failed:", netErr.message);
+            }
+
+            if (vRes && vRes.ok) {
               const { success } = await vRes.json();
               isSuccess = success;
             } else {
-              const errJson = await vRes.json().catch(() => ({}));
-              console.warn("Backend verify-payment non-200, attempting client fallback profile sync...", errJson);
+              const errJson = vRes ? await vRes.json().catch(() => ({})) : {};
+              console.warn("Backend verify-payment non-200 or network error, attempting client fallback profile sync...", errJson, vError);
               
-              // Resilient Fallback: If Razorpay payment succeeded, upgrade user locally & attempt DB update
+              // Resilient Fallback: If Razorpay payment succeeded (payment_id present), upgrade user locally
               if (response.razorpay_payment_id) {
                 const expDate = new Date();
-                expDate.setDate(expDate.getDate() + (plan.days || 30));
+                const daysToAdd = plan.days || ((plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') ? 1 : 30);
+                expDate.setTime(expDate.getTime() + Math.round(daysToAdd * 24 * 60 * 60 * 1000));
                 const isoExp = expDate.toISOString();
 
-                // Save local Pro override so user gets instant Pro access regardless of RLS
+                // Save local Pro override so user gets instant Pro access
                 localStorage.setItem(`mcqkash_pro_override_${user.id}`, JSON.stringify({
                   is_pro: true,
                   pro_tier: plan.id,
@@ -401,11 +418,13 @@ export default function PricingPage() {
                   pro_expires_at: isoExp,
                 }));
 
+                const validDbTier = (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') ? 'ONE_DAY' : plan.id;
+
                 const { error: clientUpdateErr } = await supabase
                   .from('profiles')
                   .update({
                     is_pro: true,
-                    pro_tier: plan.id,
+                    pro_tier: validDbTier,
                     pro_expiration: isoExp,
                     pro_expires_at: isoExp,
                   })
@@ -416,7 +435,7 @@ export default function PricingPage() {
                 }
                 isSuccess = true;
               } else {
-                throw new Error(errJson.error || 'Payment verification failed.');
+                throw new Error(errJson.error || vError?.message || 'Payment verification failed.');
               }
             }
 
@@ -431,7 +450,7 @@ export default function PricingPage() {
         },
       };
 
-      if (plan.id !== 'ONE_HOUR' && orderId) {
+      if (orderId) {
         razorpayOptions.order_id = orderId;
       }
 
@@ -792,8 +811,8 @@ export default function PricingPage() {
             // Recalculate monthly price note if a discount is active
             let activePriceNote = plan.priceNote;
             if (discount > 0) {
-              if (plan.id === 'ONE_HOUR') {
-                activePriceNote = `₹${finalPrice} / 1 hour`;
+              if (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') {
+                activePriceNote = `₹${finalPrice} / 1 day pass`;
               } else if (plan.id === 'ONE_WEEK') {
                 activePriceNote = `₹${finalPrice} / week`;
               } else if (plan.id === 'ONE_MONTH') {

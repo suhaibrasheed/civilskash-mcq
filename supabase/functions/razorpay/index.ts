@@ -12,7 +12,8 @@ const corsHeaders = {
 
 // Pricing configurations in Paise (INR subunits)
 const PRICING_PLANS: Record<string, { price: number; floorPrice: number; days: number }> = {
-  ONE_HOUR: { price: 200, floorPrice: 200, days: 0.0416 }, // ₹2 test plan (1 hour)
+  ONE_DAY: { price: 900, floorPrice: 900, days: 1 }, // ₹9 1-Day Pass
+  ONE_HOUR: { price: 900, floorPrice: 900, days: 1 }, // Alias for 1-Day Pass
   ONE_WEEK: { price: 9900, floorPrice: 900, days: 7 },
   ONE_MONTH: { price: 24900, floorPrice: 9900, days: 30 },
   THREE_MONTHS: { price: 39900, floorPrice: 24900, days: 90 },
@@ -28,10 +29,10 @@ serve(async (req) => {
   }
 
   try {
-    const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-    const razorpayKeyId = Deno.env.get("RAZORPAY_KEY_ID") ?? "";
-    const razorpayKeySecret = Deno.env.get("RAZORPAY_KEY_SECRET") ?? "";
+    const supabaseUrl = (Deno.env.get("SUPABASE_URL") ?? "").trim();
+    const supabaseServiceKey = (Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "").trim();
+    const razorpayKeyId = (Deno.env.get("RAZORPAY_KEY_ID") ?? "").trim();
+    const razorpayKeySecret = (Deno.env.get("RAZORPAY_KEY_SECRET") ?? "").trim();
 
     if (!supabaseUrl || !supabaseServiceKey || !razorpayKeyId || !razorpayKeySecret) {
       return new Response(
@@ -174,16 +175,10 @@ serve(async (req) => {
         }
       }
 
-      // 2. Compute subscription expiration bounds
-      const selectedPlan = PRICING_PLANS[planId];
-      const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + selectedPlan.days);
-      const isoExpiration = expirationDate.toISOString();
-
-      // Fetch user profile based on ID to append payment record
+      // Fetch user profile based on ID to append payment record and stack expiration if currently active
       let { data: profile, error: fetchError } = await supabaseAdmin
         .from("profiles")
-        .select("payment_history")
+        .select("payment_history, pro_expires_at, pro_expiration")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -210,8 +205,19 @@ serve(async (req) => {
             { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
         }
-        profile = { payment_history: [] };
+        profile = { payment_history: [], pro_expires_at: null, pro_expiration: null };
       }
+
+      // Compute subscription expiration bounds (stacks on top of existing active time if not yet expired)
+      const selectedPlan = PRICING_PLANS[planId];
+      const now = new Date();
+      const existingExpRaw = profile.pro_expires_at || profile.pro_expiration;
+      const existingExp = existingExpRaw ? new Date(existingExpRaw) : null;
+      const baseDate = (existingExp && existingExp > now) ? existingExp : now;
+
+      const expirationDate = new Date(baseDate.getTime());
+      expirationDate.setTime(expirationDate.getTime() + Math.round(selectedPlan.days * 24 * 60 * 60 * 1000));
+      const isoExpiration = expirationDate.toISOString();
 
       const newPayment = {
         order_id: razorpay_order_id,
@@ -226,36 +232,51 @@ serve(async (req) => {
       const exists = history.some((p: any) => p.payment_id === razorpay_payment_id);
       const updatedHistory = exists ? history : [...history, newPayment];
 
+      const validDbTier = (planId === 'ONE_HOUR' || planId === 'ONE_DAY') ? 'ONE_DAY' : planId;
+
       // Update the user profile securely (discount is kept intact for renewals/future use)
       let { error: updateError } = await supabaseAdmin
         .from("profiles")
         .update({
           is_pro: true,
-          pro_tier: planId,
+          pro_tier: validDbTier,
           pro_expiration: isoExpiration,
           pro_expires_at: isoExpiration,
           payment_history: updatedHistory,
         })
         .eq("id", user.id);
 
-      // Fallback: If full update failed due to optional column mismatch (e.g. payment_history column missing), retry minimal update
+      // Fallback: If full update failed (e.g. due to constraint check on pro_tier or missing optional columns), retry minimal updates
       if (updateError) {
         console.warn("Full profile update warning, retrying minimal update:", updateError.message);
         const { error: minimalError } = await supabaseAdmin
           .from("profiles")
           .update({
             is_pro: true,
-            pro_tier: planId,
+            pro_tier: validDbTier,
             pro_expiration: isoExpiration,
           })
           .eq("id", user.id);
 
         if (minimalError) {
-          console.error("Supabase Database Update Error:", minimalError);
-          return new Response(
-            JSON.stringify({ error: "Failed to update user profile.", details: minimalError.message }),
-            { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-          );
+          console.warn("Minimal profile update failed, retrying fail-safe update without pro_tier constraint:", minimalError.message);
+          // Fail-safe update: Activate Pro and set expiration even if pro_tier check constraint fails in DB
+          const { error: failSafeError } = await supabaseAdmin
+            .from("profiles")
+            .update({
+              is_pro: true,
+              pro_expiration: isoExpiration,
+              pro_expires_at: isoExpiration,
+            })
+            .eq("id", user.id);
+
+          if (failSafeError) {
+            console.error("Supabase Database Fail-Safe Update Error:", failSafeError);
+            return new Response(
+              JSON.stringify({ error: "Failed to update user profile.", details: failSafeError.message }),
+              { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+            );
+          }
         }
       }
 
