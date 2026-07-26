@@ -51,6 +51,37 @@ const getISTDetails = () => {
   return { hour, dateStr };
 };
 
+// Calculate time remaining until next Daily Battle reset (Midnight IST / 00:00 IST next day)
+const getTimeUntilNextDailyBattleReset = () => {
+  const now = new Date();
+  
+  const dtFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: false
+  });
+  
+  const formattedStr = dtFormatter.format(now);
+  const match = formattedStr.match(/(\d+)\/(\d+)\/(\d+),\s+(\d+):(\d+):(\d+)/);
+  if (!match) return { hours: 0, minutes: 0, seconds: 0, secondsLeftToday: 0 };
+  
+  const [_, month, day, year, hour, minute, second] = match.map(Number);
+  
+  const secondsLeftToday = (23 - hour) * 3600 + (59 - minute) * 60 + (59 - second) + 1;
+  
+  const hours = Math.floor(secondsLeftToday / 3600);
+  const minutes = Math.floor((secondsLeftToday % 3600) / 60);
+  const seconds = secondsLeftToday % 60;
+  
+  return { hours, minutes, seconds, secondsLeftToday };
+};
+
+
 const getCardRarity = (card) => {
   if (!card) return 'common';
   const outcome = card.outcome;
@@ -417,6 +448,24 @@ export default function BattleArena() {
   const [isLockedBySleep, setIsLockedBySleep] = useState(false);
   const [isLockedByDailyLimit, setIsLockedByDailyLimit] = useState(false);
   const [isLockedByCoins, setIsLockedByCoins] = useState(false);
+  
+  // Live countdown timer for Daily Battle reset (Midnight IST)
+  const [dailyBattleTimeLeft, setDailyBattleTimeLeft] = useState('');
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const { hours, minutes, seconds } = getTimeUntilNextDailyBattleReset();
+      const formatted = hours > 0 
+        ? `${hours}h ${minutes}m ${seconds}s` 
+        : `${minutes}m ${seconds}s`;
+      setDailyBattleTimeLeft(formatted);
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   
   // Matchmaking variables
   const [matchProgress, setMatchProgress] = useState(0);
@@ -921,8 +970,13 @@ export default function BattleArena() {
     }
 
     // Check 3: Daily Limit (1 battle per day)
-    // BYPASS FOR TESTING: Let Daily challenges be unlimited
-    setIsLockedByDailyLimit(false);
+    const userId = economy.id || 'guest';
+    const lastBattleDate = localStorage.getItem(`mcqkash_last_battle_date_${userId}`);
+    if (lastBattleDate === dateStr) {
+      setIsLockedByDailyLimit(true);
+    } else {
+      setIsLockedByDailyLimit(false);
+    }
 
     // Check 4: Coins requirement (100 coins minimum)
     // Generous Mode: Insufficient coins never locks the user out
@@ -1151,7 +1205,10 @@ export default function BattleArena() {
     }
 
     if (isLockedBySleep) return;
-    if (isLockedByDailyLimit) return;
+    if (isLockedByDailyLimit) {
+      showToast("Today's daily challenge is complete. Check back tomorrow!", 'warning');
+      return;
+    }
     if (isLockedByCoins) return;
 
     // Roll matching success: 80% match, 20% no match
@@ -1177,10 +1234,13 @@ export default function BattleArena() {
       showToast('Generous Mode: Entering battle with subsidized wager! 🪙', 'info');
     }
 
-    // Set daily limit battle timestamp (in IST dateStr)
-    const { dateStr } = getISTDetails();
-    const userId = economy.id || 'guest';
-    localStorage.setItem(`mcqkash_last_battle_date_${userId}`, dateStr);
+    // Set daily limit battle timestamp (in IST dateStr) ONLY for Daily Battles
+    if (!isFriendChallengeSetup) {
+      const { dateStr } = getISTDetails();
+      const userId = economy.id || 'guest';
+      localStorage.setItem(`mcqkash_last_battle_date_${userId}`, dateStr);
+      setIsLockedByDailyLimit(true);
+    }
 
     // Generate a random seed if not in challenge mode
     const activeSeed = challengeData ? challengeData.seed : (currentSeed || Math.floor(Math.random() * 1000000) + 1);
@@ -3044,100 +3104,131 @@ Generate exactly 10 new questions.`;
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-3"
+            className="space-y-4"
           >
-            {/* Header info */}
-            <div className="text-center pt-2 pb-1">
+            {/* ─── Hero Header ─── */}
+            <div className="text-center pt-2 pb-2">
               <h1 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-3 font-outfit">
-                THE <span className="text-gradient-primary">BATTLE ARENA</span>
+                THE{' '}
+                <span 
+                  className="text-gradient-primary relative"
+                  style={{ filter: 'drop-shadow(0 0 18px rgba(var(--color-primary), 0.35))' }}
+                >
+                  BATTLE ARENA
+                </span>
               </h1>
-              <p className="text-sm md:text-base font-semibold text-theme-muted max-w-lg mx-auto leading-relaxed mt-3 px-4">
-                Every Battle Counts. <span className="text-theme-primary font-bold">Bet KashCoins</span>, <span className="text-theme-accent font-bold">Beat Aspirants</span>, <span className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-black drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] inline-block">Win Battle Cards</span> and <span className="text-theme-text font-black underline decoration-theme-primary/40 underline-offset-4">Dominate the Rankings</span>.
+              <p className="text-sm font-semibold text-theme-muted max-w-lg mx-auto leading-relaxed px-4">
+                Every Battle Counts.{' '}
+                <span className="text-theme-primary font-bold">Bet KashCoins</span>,{' '}
+                <span className="text-theme-accent font-bold">Beat Aspirants</span>,{' '}
+                <span 
+                  className="font-black"
+                  style={{ 
+                    background: 'linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}
+                >
+                  Win Battle Cards
+                </span>{' '}and{' '}
+                <span className="text-theme-text font-black underline decoration-theme-primary/40 underline-offset-4">Dominate the Rankings</span>.
               </p>
             </div>
 
-            {/* Lock Messages (Exclusive Gates) */}
+            {/* Sleep Lock Gatecard */}
             {isLockedBySleep && (
-              <div className="rounded-3xl border border-rose-500/20 bg-rose-500/5 backdrop-blur-md p-6 text-center space-y-4 shadow-xl">
-                <div className="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto">
-                  <Lock size={28} />
+              <div className="rounded-3xl border border-rose-500/20 bg-rose-500/5 backdrop-blur-md p-6 text-center space-y-3 shadow-xl">
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mx-auto border border-rose-500/15">
+                  <Lock size={24} />
                 </div>
-                <h3 className="text-lg font-black text-rose-500 uppercase tracking-tight">Arena Is Sleeping</h3>
-                <p className="text-xs font-semibold text-theme-muted leading-relaxed max-w-sm mx-auto">
-                  "The Arena is sleeping. Real aspirants are resting for tomorrow's grind. Come back at 6:00 AM IST."
+                <h3 className="text-base font-black text-rose-400 uppercase tracking-tight">Arena Is Sleeping</h3>
+                <p className="text-xs font-medium text-theme-muted leading-relaxed max-w-sm mx-auto">
+                  The Arena is sleeping. Real aspirants are resting for tomorrow's grind. Come back at 6:00 AM IST.
                 </p>
               </div>
             )}
 
-            {!isLockedBySleep && isLockedByDailyLimit && (
-              <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-md p-6 text-center space-y-4 shadow-xl">
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center mx-auto animate-pulse">
-                  <Trophy size={28} />
-                </div>
-                <h3 className="text-lg font-black text-amber-500 uppercase tracking-tight">Daily Honor Secured</h3>
-                <p className="text-xs font-semibold text-theme-muted leading-relaxed max-w-sm mx-auto">
-                  "You have completed your daily challenge. The Arena limits warriors to 1 match per day to enforce rigorous, disciplined training. Come back tomorrow!"
-                </p>
-              </div>
-            )}
-
-            {!isLockedBySleep && !isLockedByDailyLimit && isLockedByCoins && (
-              <div className="rounded-3xl border border-rose-500/20 bg-rose-500/5 backdrop-blur-md p-6 text-center space-y-4 shadow-xl">
-                <div className="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto">
-                  <Coins size={28} />
-                </div>
-                <h3 className="text-lg font-black text-rose-500 uppercase tracking-tight">Insufficient KashCoins</h3>
-                <p className="text-xs font-semibold text-theme-muted leading-relaxed max-w-sm mx-auto">
-                  "Entering the Battle Arena requires a wager of 100 KashCoins. Solve daily mocks, fix mistakes, or preserve streaks to earn more!"
-                </p>
-              </div>
-            )}
-
-            {/* Start matchmaking buttons */}
-            {!isLockedBySleep && !isLockedByDailyLimit && !isLockedByCoins && (
-              <div className="flex flex-col sm:flex-row justify-center gap-5 py-4 px-4 items-center w-full max-w-2xl mx-auto">
-                {/* DAILY BATTLE BUTTON */}
-                <button
-                  onClick={handleStartSearch}
-                  className="group relative w-full sm:w-1/2 flex items-center justify-between px-7 py-4 rounded-3xl overflow-hidden transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,0.25)] active:scale-95 text-white border border-orange-500/30 bg-gradient-to-br from-orange-500 via-red-500 to-amber-600 shadow-lg"
-                >
-                  {/* Subtle hover sweep light */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-                  
-                  <div className="flex items-center gap-4 relative z-10">
-                    <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:rotate-6 transition-transform">
-                      <Swords size={20} className="text-white" />
+            {!isLockedBySleep && !isLockedByCoins && (
+              <div className="flex flex-col sm:flex-row justify-center gap-4 py-2 px-2 items-stretch w-full max-w-2xl mx-auto">
+                
+                {/* ── DAILY BATTLE BUTTON ── */}
+                {isLockedByDailyLimit ? (
+                  <button
+                    onClick={() => showToast("Today's daily challenge is complete. Check back tomorrow!", 'info')}
+                    className="arena-btn-locked group relative w-full sm:w-1/2 flex items-center justify-between px-5 py-4 rounded-2xl transition-all duration-300 cursor-not-allowed outline-none focus:outline-none focus:ring-0"
+                  >
+                    <div className="flex items-center gap-3 relative z-10">
+                      {/* Icon box */}
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border"
+                        style={{
+                          background: 'rgba(245, 158, 11, 0.10)',
+                          borderColor: 'rgba(245, 158, 11, 0.25)'
+                        }}
+                      >
+                        <Clock size={18} style={{ color: 'rgba(245, 158, 11, 0.80)' }} className="animate-pulse" />
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <span className="font-extrabold text-[13px] tracking-tight leading-none uppercase font-outfit">DAILY BATTLE</span>
+                          <span 
+                            className="text-[8px] font-black px-1.5 py-0.5 rounded-md uppercase leading-none"
+                            style={{
+                              background: 'rgba(245, 158, 11, 0.15)',
+                              border: '1px solid rgba(245, 158, 11, 0.30)',
+                              color: 'inherit'
+                            }}
+                          >DONE</span>
+                        </div>
+                        <span className="text-[10px] font-semibold opacity-70 leading-none">
+                          Next in: <span className="font-mono font-extrabold text-[11px]" style={{ opacity: 1 }}>{dailyBattleTimeLeft || '00h 00m'}</span>
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex flex-col text-left">
-                      <span className="font-extrabold text-[15px] tracking-tight leading-none mb-1.5 uppercase font-outfit">DAILY BATTLE</span>
-                      <span className="text-[10px] font-black uppercase tracking-wider text-white/80 leading-none">
-                        Wager: 100 KashCoins
-                      </span>
+                    <Lock size={14} className="opacity-40 relative z-10 shrink-0" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleStartSearch}
+                    className="arena-btn-daily group relative w-full sm:w-1/2 flex items-center justify-between px-5 py-4 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0"
+                  >
+                    {/* Shimmer sweep */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none" />
+                    <div className="flex items-center gap-3 relative z-10">
+                      <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                        <Swords size={18} className="text-white" />
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="font-extrabold text-[13px] tracking-tight leading-none mb-1 uppercase font-outfit text-white">DAILY BATTLE</span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white/75 leading-none">
+                          Wager: 100 KashCoins
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <ChevronRight size={18} className="text-white/70 group-hover:translate-x-1 transition-transform relative z-10" />
-                </button>
+                    <ChevronRight size={16} className="text-white/70 group-hover:translate-x-0.5 transition-transform relative z-10 shrink-0" />
+                  </button>
+                )}
 
-                {/* CHALLENGE FRIEND BUTTON */}
+                {/* ── CHALLENGE FRIEND BUTTON ── */}
                 <button
                   onClick={handleStartChallengeSetup}
-                  className="group relative w-full sm:w-1/2 flex items-center justify-between px-7 py-4 rounded-3xl overflow-hidden transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(139,92,246,0.25)] active:scale-95 text-white border border-purple-500/30 bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 shadow-lg"
+                  className="arena-btn-challenge group relative w-full sm:w-1/2 flex items-center justify-between px-5 py-4 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0"
                 >
-                  {/* Subtle hover sweep light */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-
-                  <div className="flex items-center gap-4 relative z-10">
-                    <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:scale-105 transition-transform">
-                      <Zap size={20} className="text-amber-300 fill-amber-300/20" />
+                  {/* Shimmer sweep */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none" />
+                  <div className="flex items-center gap-3 relative z-10">
+                    <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                      <Zap size={18} className="text-white" />
                     </div>
                     <div className="flex flex-col text-left">
-                      <span className="font-extrabold text-[15px] tracking-tight leading-none mb-1.5 uppercase font-outfit">CHALLENGE FRIEND</span>
-                      <span className="text-[10px] font-black uppercase tracking-wider text-white/80 leading-none">
+                      <span className="font-extrabold text-[13px] tracking-tight leading-none mb-1 uppercase font-outfit text-white">CHALLENGE FRIEND</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-white/75 leading-none">
                         Wager: 50 KashCoins
                       </span>
                     </div>
                   </div>
-                  <ChevronRight size={18} className="text-white/70 group-hover:translate-x-1 transition-transform relative z-10" />
+                  <ChevronRight size={16} className="text-white/70 group-hover:translate-x-0.5 transition-transform relative z-10 shrink-0" />
                 </button>
               </div>
             )}

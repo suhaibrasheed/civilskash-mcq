@@ -428,6 +428,177 @@ body {
       0 10px 20px -16px black;
   }
 
+  /* ─── QOTD Bento Tile — True 3D Glassmorphism Surface ─── */
+  .qotd-bento-tile {
+    background: rgba(var(--color-surface-rgb), 0.88);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--color-border-soft);
+    box-shadow:
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+      0 10px 28px -6px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dark: Deep navy glass with specular highlight top */
+  .theme-dark .qotd-bento-tile {
+    background: rgba(13, 21, 38, 0.80);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      0 16px 40px -12px rgba(0, 0, 0, 0.75),
+      0 2px 8px -2px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Light: Pure white glass, subtle blue tint border */
+  .theme-light .qotd-bento-tile {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(196, 210, 255, 0.65);
+    box-shadow:
+      inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+      0 8px 28px -6px rgba(67, 97, 238, 0.10),
+      0 2px 4px -1px rgba(67, 97, 238, 0.05);
+  }
+
+  /* Sepia: Warm parchment glass, sand border */
+  .theme-sepia .qotd-bento-tile {
+    background: rgba(253, 247, 237, 0.92);
+    border: 1px solid rgba(210, 190, 155, 0.65);
+    box-shadow:
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+      0 8px 28px -6px rgba(38, 23, 8, 0.10),
+      0 2px 4px -1px rgba(38, 23, 8, 0.05);
+  }
+
+  /* ─── Arena Battle Buttons — Full Premium Theme System ─── */
+
+  /* ── Daily Battle — Active State ── */
+  /* Dark: Ember fire gradient with amber-orange glow */
+  .arena-btn-daily {
+    background: linear-gradient(140deg, #fb923c 0%, #f97316 35%, #ea580c 70%, #c2410c 100%);
+    border: 1px solid rgba(251, 146, 60, 0.35);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.15) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+      0 10px 30px -8px rgba(234, 88, 12, 0.60),
+      0 4px 12px -4px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+  }
+  .arena-btn-daily:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.15) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+      0 14px 38px -6px rgba(234, 88, 12, 0.70),
+      0 4px 12px -4px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Light: Punchy orange, crisp shadow */
+  .theme-light .arena-btn-daily {
+    background: linear-gradient(140deg, #f97316 0%, #ea580c 55%, #c2410c 100%);
+    border: 1px solid rgba(234, 88, 12, 0.45);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.2) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.1) inset,
+      0 8px 24px -6px rgba(234, 88, 12, 0.40),
+      0 2px 6px -2px rgba(0, 0, 0, 0.12);
+    color: #ffffff;
+  }
+
+  /* Sepia: Deep terracotta, rich & warm */
+  .theme-sepia .arena-btn-daily {
+    background: linear-gradient(140deg, #c2410c 0%, #9a3412 55%, #7c2d12 100%);
+    border: 1px solid rgba(194, 65, 12, 0.45);
+    box-shadow:
+      0 1px 0 rgba(255, 200, 150, 0.15) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+      0 8px 24px -6px rgba(154, 52, 18, 0.40),
+      0 2px 6px -2px rgba(38, 23, 8, 0.20);
+    color: #ffffff;
+  }
+
+  /* ── Daily Battle — Locked/Done State ── */
+  /* Dark: True dark glass with amber accent border — NOT white, NOT light */
+  .arena-btn-locked {
+    background: linear-gradient(145deg, rgba(245, 158, 11, 0.07) 0%, rgba(13, 21, 38, 0.90) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.25) inset,
+      0 6px 20px -8px rgba(0, 0, 0, 0.50);
+    color: #f0f4ff;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Light: Warm cream amber glass, deep amber text — no harsh borders */
+  .theme-light .arena-btn-locked {
+    background: linear-gradient(145deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.85) 100%);
+    border: 1px solid rgba(217, 119, 6, 0.30);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 4px 14px -4px rgba(217, 119, 6, 0.15),
+      0 1px 3px -1px rgba(0, 0, 0, 0.06);
+    color: #78350f;
+    backdrop-filter: none;
+  }
+
+  /* Sepia: Warm sand glass, deep rich amber text */
+  .theme-sepia .arena-btn-locked {
+    background: linear-gradient(145deg, rgba(255, 248, 225, 0.90) 0%, rgba(254, 240, 190, 0.85) 100%);
+    border: 1px solid rgba(180, 100, 20, 0.28);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 4px 14px -4px rgba(146, 64, 14, 0.15),
+      0 1px 3px -1px rgba(38, 23, 8, 0.08);
+    color: #7c2d12;
+    backdrop-filter: none;
+  }
+
+  /* ── Challenge Friend Button ── */
+  /* Dark: Electric violet-indigo with purple glow */
+  .arena-btn-challenge {
+    background: linear-gradient(140deg, #8b5cf6 0%, #7c3aed 35%, #6366f1 70%, #4f46e5 100%);
+    border: 1px solid rgba(167, 139, 250, 0.30);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.12) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+      0 10px 30px -8px rgba(124, 58, 237, 0.55),
+      0 4px 12px -4px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+  }
+  .arena-btn-challenge:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.12) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+      0 14px 38px -6px rgba(124, 58, 237, 0.65),
+      0 4px 12px -4px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Light: Rich vibrant indigo-blue */
+  .theme-light .arena-btn-challenge {
+    background: linear-gradient(140deg, #6366f1 0%, #4f46e5 55%, #4338ca 100%);
+    border: 1px solid rgba(99, 102, 241, 0.40);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.18) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.08) inset,
+      0 8px 24px -6px rgba(79, 70, 229, 0.38),
+      0 2px 6px -2px rgba(0, 0, 0, 0.10);
+    color: #ffffff;
+  }
+
+  /* Sepia: Brown-chocolate gradient, warm & authoritative */
+  .theme-sepia .arena-btn-challenge {
+    background: linear-gradient(140deg, #92400e 0%, #78350f 55%, #5c2a0c 100%);
+    border: 1px solid rgba(146, 64, 14, 0.40);
+    box-shadow:
+      0 1px 0 rgba(255, 200, 150, 0.12) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+      0 8px 24px -6px rgba(92, 42, 12, 0.38),
+      0 2px 6px -2px rgba(38, 23, 8, 0.20);
+    color: #ffffff;
+  }
+
   .mock-locked-tile-3d {
     background:
       linear-gradient(135deg, color-mix(in srgb, white 4%, transparent), transparent 34%),
