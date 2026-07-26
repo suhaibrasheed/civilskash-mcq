@@ -103,15 +103,11 @@ export const ensureCategoryLoaded = async (categoryId) => {
 };
 
 /**
- * Background loader to fetch all categories into memory asynchronously after startup.
+ * Loads all static category question banks into memory in parallel.
  */
 export const loadStaticQuestionsInBackground = async () => {
   const categories = Object.keys(CATEGORY_LOADERS);
-  for (const catId of categories) {
-    await ensureCategoryLoaded(catId);
-    // Yield brief 20ms frame break to prevent main-thread lag
-    await new Promise(resolve => setTimeout(resolve, 20));
-  }
+  await Promise.all(categories.map(catId => ensureCategoryLoaded(catId)));
 };
 
 export const getHybridContentHub = async (requestedCategoryId, tagFilter = null) => {
@@ -162,8 +158,8 @@ export const getAllQuestions = async () => {
 };
 
 /**
- * Loads all offline questions from IndexedDB, registers compiled exams synchronously,
- * and schedules static question bank loading in non-blocking background frames.
+ * Loads all offline questions from IndexedDB, registers compiled exams,
+ * and loads all static question banks in parallel into memory on boot.
  */
 export const loadOfflineQuestionsIntoSyncBank = async () => {
   try {
@@ -174,19 +170,11 @@ export const loadOfflineQuestionsIntoSyncBank = async () => {
       }
     });
 
-    // Load static exams synchronously on boot (instant config)
-    await loadSupabaseExamsIntoSyncBank();
-
-    // Schedule question bank loading in idle background frames without blocking startup
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(() => {
-        loadStaticQuestionsInBackground();
-      }, { timeout: 3000 });
-    } else {
-      setTimeout(() => {
-        loadStaticQuestionsInBackground();
-      }, 100);
-    }
+    // Load static exams and all static question categories in parallel on boot
+    await Promise.all([
+      loadSupabaseExamsIntoSyncBank(),
+      loadStaticQuestionsInBackground()
+    ]);
   } catch (err) {
     console.error("Failed to load offline questions into sync bank:", err);
   }

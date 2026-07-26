@@ -637,7 +637,7 @@ export default function ProfileDashboard() {
 
   const handleShareReferral = async () => {
     const inviteUrl = window.location.origin + (window.location.pathname.startsWith('/mcq') ? '/mcq' : '') + '/signin?ref=' + encodeURIComponent(economy?.username || '');
-    const shareText = `📚 Preparing for Competitive Exams?\nI'm using MCQkash for topic-wise MCQs, PYQ's, Smart Revision, and exam-focused Mock Test with AI Analysis.\nJoin to compete with me on Leaderboard and USE my referral code "${economy?.username}" when signing up and we'll both earn Jackpot KashCoins + Exclusive FREE Rewards 🎁\n🚀 Click here to register directly --> ${inviteUrl}`;
+    const shareText = `📚 Preparing for Competitive Exams?\nI'm using MCQkash for topic-wise MCQs, PYQs, Smart Revision, and exam-focused Mock Test with Expert Analysis.\n\nJoin me on Leaderboard and USE my referral code "${economy?.username}" when signing up and we'll both earn Jackpot Money + Exclusive FREE Rewards 🎁\n\nJoin me here --> ${inviteUrl}`;
     
     if (navigator.share) {
       try {
