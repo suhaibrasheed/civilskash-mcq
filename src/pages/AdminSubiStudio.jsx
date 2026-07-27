@@ -271,7 +271,7 @@ export default function AdminSubiStudio() {
   });
 
   // Text Toolbar State
-  const [textToolbar, setTextToolbar] = useState({ show: false, top: 0, left: 0 });
+  const [textToolbar, setTextToolbar] = useState({ show: false, top: 0, left: 0, placement: 'above', menuAlign: 'center' });
   const [showFormatMenu, setShowFormatMenu] = useState(false);
   // Image Toolbar State
   const [imgToolbar, setImgToolbar] = useState({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
@@ -1121,28 +1121,41 @@ export default function AdminSubiStudio() {
     
     const range = selection.getRangeAt(0);
     const rect = range.getBoundingClientRect();
-    const editorRect = editorRef.current.getBoundingClientRect();
     
     if (rect.width > 0) {
-      // Offscreen constraint
+      // Offscreen constraint (using viewport fixed coordinates)
       const toolbarWidth = 260;
       const toolbarHeight = 44;
+      const popupHeight = 44;
+      const totalHeightNeeded = toolbarHeight + popupHeight + 12;
       
-      let top = rect.bottom - editorRect.top + 8;
-      let left = rect.left - editorRect.left + (rect.width / 2) - (toolbarWidth / 2);
+      let placement = 'above';
+      let top = rect.top - toolbarHeight - 8;
+      
+      // If placing above would cut off the formatting popup at the top of the viewport, place below selection
+      if (rect.top - totalHeightNeeded < 10) {
+        top = rect.bottom + 8;
+        placement = 'below';
+      }
+      
+      // Clamp top within viewport
+      if (top < 10) top = 10;
+      if (top + toolbarHeight > window.innerHeight - 10) {
+        top = window.innerHeight - toolbarHeight - 10;
+      }
+      
+      let left = rect.left + (rect.width / 2) - (toolbarWidth / 2);
+      let menuAlign = 'center';
       
       if (left < 10) {
         left = 10;
-      } else if (left + toolbarWidth > editorRect.width - 10) {
-        left = editorRect.width - toolbarWidth - 10;
+        menuAlign = 'left';
+      } else if (left + toolbarWidth > window.innerWidth - 10) {
+        left = window.innerWidth - toolbarWidth - 10;
+        menuAlign = 'right';
       }
       
-      if (top + toolbarHeight > editorRef.current.clientHeight - 10) {
-        top = rect.top - editorRect.top - toolbarHeight - 8;
-      }
-      if (top < 10) top = 10;
-
-      setTextToolbar({ show: true, top, left });
+      setTextToolbar({ show: true, top, left, placement, menuAlign });
     }
   }, []);
 
@@ -4672,7 +4685,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
             {/* Floating Text Color Toolbar */}
             {textToolbar.show && (
                 <div 
-                    className="absolute z-30 bg-theme-bg border border-theme-border rounded-xl shadow-2xl flex items-center p-1.5 animate-in fade-in slide-in-from-top-2 backdrop-blur-md"
+                    className="fixed z-50 bg-theme-bg border border-theme-border rounded-xl shadow-2xl flex items-center p-1.5 animate-in fade-in slide-in-from-top-2 backdrop-blur-md nk-mcq-text-toolbar"
                     style={{ top: textToolbar.top, left: textToolbar.left }}
                 >
                     <div className="flex items-center gap-1 border-r border-theme-border pr-2 mr-2">
@@ -4690,8 +4703,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                             </button>
                             
                             {showFormatMenu && (
-                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 pb-2">
-                                    <div className="bg-theme-bg border border-theme-border rounded-lg shadow-xl flex items-center p-1.5 gap-1.5 animate-in fade-in slide-in-from-bottom-2 backdrop-blur-md">
+                                <div className={`absolute ${textToolbar.placement === 'below' ? 'top-full pt-2' : 'bottom-full pb-2'} ${textToolbar.menuAlign === 'left' ? 'left-0' : textToolbar.menuAlign === 'right' ? 'right-0' : 'left-1/2 -translate-x-1/2'}`}>
+                                    <div className={`bg-theme-bg border border-theme-border rounded-lg shadow-xl flex items-center p-1.5 gap-1.5 animate-in fade-in ${textToolbar.placement === 'below' ? 'slide-in-from-top-2' : 'slide-in-from-bottom-2'} backdrop-blur-md`}>
                                         <button
                                             onClick={() => document.execCommand('bold', false, null)}
                                             className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-theme-surface hover:text-theme-primary text-theme-muted hover:scale-105 transition-all active:scale-95"

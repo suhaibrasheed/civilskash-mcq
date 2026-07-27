@@ -3,6 +3,7 @@ import { Target, AlertTriangle, Crosshair, TrendingUp, Activity, BookOpen, Info 
 import { getWarRoomStats } from '../lib/db';
 import { useEconomy } from '../context/EconomyContext';
 import { EXAM_CONFIG } from '../lib/mockEngine';
+import { isTopicTag, isPyqTag, cleanTopicName } from '../lib/tagUtils';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -56,7 +57,7 @@ const SubjectRadarChart = ({ data }) => {
 
   // Ensure we filter valid categories
   let sorted = [...data]
-    .filter(c => c.categoryId && c.categoryId !== 'uncategorized' && (c.totalAttempted || 0) > 0);
+    .filter(c => c.categoryId && c.categoryId !== 'uncategorized');
 
   // Guarantee at least 6 spokes to form a clear spiderweb shape
   const fallbackAxes = ['Polity', 'History', 'Geography', 'Economy', 'Science', 'General GK'];
@@ -80,11 +81,20 @@ const SubjectRadarChart = ({ data }) => {
 
   const labels = sorted.map(c => CATEGORY_DISPLAY[c.categoryId] || c.categoryId);
   const accuracyValues = sorted.map(c => Math.round(c.accuracyRate || 0));
-  const avgAccuracy = accuracyValues.reduce((a, b) => a + b, 0) / accuracyValues.length;
+  
+  // Compute avgAccuracy ONLY over categories that have actually been attempted
+  const attemptedCats = sorted.filter(c => !c.isPlaceholder && (c.totalAttempted || 0) > 0);
+  const avgAccuracy = attemptedCats.length > 0 
+    ? attemptedCats.reduce((sum, c) => sum + Math.round(c.accuracyRate || 0), 0) / attemptedCats.length 
+    : 70; // Fallback neutral if no attempts yet
 
   const fillColor = getAccuracyColor(avgAccuracy, 0.15);
   const borderColor = getAccuracyColor(avgAccuracy, 0.85);
-  const pointBgColors = accuracyValues.map(v => getAccuracyColor(v, 1));
+  const pointBgColors = sorted.map(c => {
+    if (c.isPlaceholder || (c.totalAttempted || 0) === 0) return 'rgba(148, 163, 184, 0.25)';
+    return getAccuracyColor(c.accuracyRate || 0, 1);
+  });
+  const pointRadiusValues = sorted.map(c => (c.isPlaceholder || (c.totalAttempted || 0) === 0) ? 3 : 5);
 
   const chartData = {
     labels,
@@ -96,9 +106,9 @@ const SubjectRadarChart = ({ data }) => {
         borderColor,
         borderWidth: 2,
         pointBackgroundColor: pointBgColors,
-        pointBorderColor: 'rgba(255,255,255,0.3)',
+        pointBorderColor: sorted.map(c => (c.isPlaceholder || (c.totalAttempted || 0) === 0) ? 'rgba(148, 163, 184, 0.3)' : 'rgba(255,255,255,0.3)'),
         pointBorderWidth: 1.5,
-        pointRadius: 5,
+        pointRadius: pointRadiusValues,
         pointHoverRadius: 8,
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: borderColor,
@@ -125,7 +135,7 @@ const SubjectRadarChart = ({ data }) => {
           label: (context) => {
             const idx = context.dataIndex;
             const cat = sorted[idx];
-            if (cat.isPlaceholder) {
+            if (cat.isPlaceholder || (cat.totalAttempted || 0) === 0) {
               return '  No practice sessions yet';
             }
             const acc = accuracyValues[idx];
@@ -155,7 +165,13 @@ const SubjectRadarChart = ({ data }) => {
           callback: val => val === 0 ? '' : `${val}%`,
         },
         pointLabels: {
-          color: (ctx) => getAccuracyColor(accuracyValues[ctx.index] ?? 0, 1),
+          color: (ctx) => {
+            const cat = sorted[ctx.index];
+            if (!cat || cat.isPlaceholder || (cat.totalAttempted || 0) === 0) {
+              return 'rgba(148, 163, 184, 0.65)'; // Neutral gray for unattempted
+            }
+            return getAccuracyColor(accuracyValues[ctx.index] ?? 0, 1);
+          },
           font: { size: 11, weight: 'bold' },
           padding: 10,
         },
@@ -215,23 +231,24 @@ export default function WarRoomSection() {
   // High variance = low stability
   const unstableCategories = [...activeCategories].sort((a, b) => b.stabilityIndex - a.stabilityIndex).slice(0, 3);
   
-  // Heated tags: high incorrect ratio
+  // Heated tags: high incorrect ratio (strictly TOPICS, excluding PYQs & difficulty levels)
   const heatedTags = [...(stats.tags || [])]
-    .filter(t => t.incorrectCount > 0)
+    .filter(t => t.incorrectCount > 0 && isTopicTag(t.tagId))
     .sort((a, b) => b.incorrectCount - a.incorrectCount)
-    .slice(0, 5);
+    .slice(0, 5)
+    .map(t => ({ ...t, name: cleanTopicName(t.tagId) }));
 
-  // Weakest topics based on tag accuracy rate (aggregated across standard tags & PYQs)
+  // Weakest topics based on tag accuracy rate (strictly TOPICS, excluding PYQs & difficulty levels)
   const aggregatedTags = {};
   (stats.tags || []).forEach(t => {
-    const rawClean = t.tagId.replace(/^pyq:\s*/i, '').replace(/^#/, '').trim();
-    if (!rawClean) return;
-    const upperKey = rawClean.toUpperCase();
-    const capitalizedName = rawClean.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    if (!isTopicTag(t.tagId)) return;
+    const name = cleanTopicName(t.tagId);
+    if (!name) return;
+    const upperKey = name.toUpperCase();
     
     if (!aggregatedTags[upperKey]) {
       aggregatedTags[upperKey] = {
-        name: capitalizedName,
+        name,
         correctCount: 0,
         incorrectCount: 0,
         tagId: t.tagId
@@ -258,8 +275,8 @@ export default function WarRoomSection() {
     })
     .slice(0, 15);
 
-  // 4. PYQ Intelligence
-  const pyqTagsData = (stats.tags || []).filter(t => t.tagId.startsWith('pyq: '));
+  // 4. PYQ Intelligence (strictly PYQ tags)
+  const pyqTagsData = (stats.tags || []).filter(t => isPyqTag(t.tagId));
   let totalPyqAttempted = 0;
   let totalPyqCorrect = 0;
   
@@ -275,7 +292,7 @@ export default function WarRoomSection() {
     .filter(t => t.incorrectCount > 0)
     .sort((a, b) => b.incorrectCount - a.incorrectCount)
     .slice(0, 3)
-    .map(t => t.tagId.replace('pyq: ', '').toUpperCase());
+    .map(t => cleanTopicName(t.tagId).toUpperCase());
 
   // 4. Weakest category (min 3 questions attempted) for the Weak Zone Alert
   const weakestCategory = (() => {
@@ -438,7 +455,7 @@ export default function WarRoomSection() {
               <div className="flex flex-wrap gap-1.5">
                 {heatedTags.length > 0 ? heatedTags.map((t, i) => (
                   <span key={i} className="px-2 py-1 bg-rose-500/10 border border-rose-500/20 text-rose-500 rounded-md text-[10px] font-black uppercase flex items-center gap-1">
-                    <AlertTriangle size={10} /> {t.tagId}
+                    <AlertTriangle size={10} /> {t.name || cleanTopicName(t.tagId)}
                   </span>
                 )) : <div className="text-xs text-theme-muted">No data yet.</div>}
               </div>

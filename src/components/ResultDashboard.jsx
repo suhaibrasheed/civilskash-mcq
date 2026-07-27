@@ -15,6 +15,7 @@ import { useToast } from '../context/ToastContext';
 import { KashCoinDisplay } from './EconomyUI';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { queryGenerativeAI, formatMentorResponse, stripCodeFences } from '../lib/ai';
+import { isTopicTag } from '../lib/tagUtils';
 
 const titleCaseSignal = (value = '') => value
   .toString()
@@ -394,10 +395,10 @@ const buildGhostMessage = ({
     .filter(stat => stat.total >= 2)
     .sort((a, b) => a.accuracy - b.accuracy || b.incorrect - a.incorrect)[0];
   const costlyTag = [...tagStats]
-    .filter(stat => stat.total >= 2 && stat.incorrect + stat.skipped > 0)
+    .filter(stat => stat.total >= 2 && stat.incorrect + stat.skipped > 0 && isTopicTag(stat.tag))
     .sort((a, b) => b.missRate - a.missRate || b.total - a.total)[0];
   const cleanTag = [...tagStats]
-    .filter(stat => stat.total >= 2 && stat.incorrect === 0 && stat.skipped === 0)
+    .filter(stat => stat.total >= 2 && stat.incorrect === 0 && stat.skipped === 0 && isTopicTag(stat.tag))
     .sort((a, b) => b.total - a.total)[0];
 
   const previousMocks = Array.isArray(pastMocks)

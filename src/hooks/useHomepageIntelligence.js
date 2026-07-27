@@ -5,6 +5,8 @@ import { useEconomy } from '../context/EconomyContext';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { EXAM_SERIES } from '../lib/exams';
 
+import { isTopicTag, isDifficultyTag, cleanTopicName } from '../lib/tagUtils';
+
 // Helper to map category slug/id to display names
 const CATEGORY_MAP = {
   'accountancy': 'Accountancy',
@@ -32,12 +34,6 @@ const getCategoryName = (slug) => {
   if (!slug) return 'General';
   const cleanSlug = slug.toLowerCase().trim();
   return CATEGORY_MAP[cleanSlug] || slug.charAt(0).toUpperCase() + slug.slice(1);
-};
-
-const isDifficultyTag = (tag) => {
-  if (!tag) return false;
-  const t = tag.toLowerCase().trim();
-  return t === '#easy' || t === '#medium' || t === '#hard' || t === 'easy' || t === 'medium' || t === 'hard';
 };
 
 export function useHomepageIntelligence() {
@@ -235,7 +231,7 @@ export function useHomepageIntelligence() {
     // Fallback if no specific drop is found: find tag with lowest accuracy and >= 5 attempts
     if (!weakestTag && tags.length > 0) {
       const sortedTags = [...tags]
-        .filter(t => !isDifficultyTag(t.tagId) && (t.correctCount + t.incorrectCount) >= 5)
+        .filter(t => isTopicTag(t.tagId) && (t.correctCount + t.incorrectCount) >= 5)
         .map(t => ({
           tagId: t.tagId,
           accuracy: (t.correctCount / (t.correctCount + t.incorrectCount)) * 100
@@ -251,7 +247,7 @@ export function useHomepageIntelligence() {
     let tagSuggestionCategory = '';
     if (tags.length > 0) {
       const sortedTagsForSuggestion = [...tags]
-        .filter(t => !isDifficultyTag(t.tagId))
+        .filter(t => isTopicTag(t.tagId))
         .map(t => ({
           tagId: t.tagId,
           attempts: t.correctCount + t.incorrectCount,
