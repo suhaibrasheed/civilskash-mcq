@@ -63,7 +63,7 @@
     },
     "created_at": "2026-06-05T03:57:33.401074+00:00",
     "status": "published",
-    "updated_at": "2026-06-20T06:28:56.372244+00:00"
+    "updated_at": "2026-07-30T12:48:00.439768+00:00"
   },
   {
     "id": "jkssb-faa",
@@ -125,7 +125,7 @@
     },
     "created_at": "2026-06-05T03:49:32.428023+00:00",
     "status": "published",
-    "updated_at": "2026-06-16T15:27:33.837389+00:00"
+    "updated_at": "2026-07-30T12:48:00.439768+00:00"
   },
   {
     "id": "upsc-csat-prelims-",
@@ -151,6 +151,64 @@
     },
     "created_at": "2026-06-05T04:02:19.650363+00:00",
     "status": "published",
-    "updated_at": "2026-06-16T15:27:33.837389+00:00"
+    "updated_at": "2026-07-30T12:48:00.439768+00:00"
+  },
+  {
+    "id": "jkssb-police",
+    "name": "JKSSB Police",
+    "categories": [
+      {
+        "id": "jk-affairs",
+        "weight": 15
+      },
+      {
+        "id": "current-affairs",
+        "weight": 10
+      },
+      {
+        "id": "computer-awareness",
+        "weight": 15
+      },
+      {
+        "id": "english",
+        "weight": 15
+      },
+      {
+        "id": "reasoning",
+        "weight": 10
+      },
+      {
+        "id": "maths",
+        "weight": 10
+      },
+      {
+        "id": "indian-polity",
+        "weight": 5
+      },
+      {
+        "id": "indian-economy",
+        "weight": 5
+      },
+      {
+        "id": "modern-history",
+        "weight": 5
+      },
+      {
+        "id": "environment",
+        "weight": 5
+      },
+      {
+        "id": "indian-geography",
+        "weight": 5
+      }
+    ],
+    "difficulties": {
+      "easy": 0.3,
+      "hard": 0.2,
+      "medium": 0.5
+    },
+    "created_at": "2026-07-30T12:48:00.439768+00:00",
+    "status": "published",
+    "updated_at": "2026-07-30T12:48:00.439768+00:00"
   }
 ]
