@@ -1,5 +1,1339 @@
 [
   {
+    "id": "b8e34c64-3975-4cd9-b761-d7d9d402d367",
+    "category_id": "english",
+    "tags": [
+      "Vocabulary"
+    ],
+    "difficulty": "easy",
+    "question": "Select the Synonyms of the word: Gallant",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Valiant",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Coward",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Craven",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Timid",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Gallant</span> means <span class=\"text-orange font-bold\">brave, heroic, or chivalrous</span>.<br><span class=\"text-green font-bold\">Valiant</span> is a <span class=\"text-blue font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\">direct synonym (showing courage/determination)</span><span class=\"text-magenta font-bold\"></span>. The other three options are <span class=\"text-teal font-bold\">antonyms</span>.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "0e57aa8f-5466-475e-a1de-d74f50ba9b89",
+    "category_id": "english",
+    "tags": [
+      "Sentence Improvement"
+    ],
+    "difficulty": "easy",
+    "question": "Given below are four jumbled sentences. Out of the given options pick the one that gives their correct order.<div>P: Creating a relaxing bedroom environment is very important too, and this can be done using a calming, subtle fragrance.</div><div>Q: It is possible to retrain your brain to have a sound sleep.</div><div>R: This is possible if you make sure your room is undisturbed, quiet and dark.</div><div>S: Start by regulating the times you go to bed and get up.</div>",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "PRSQ",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "PSQR",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "QSPR",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "QRPS",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Q is the independent opener</span> <span class=\"text-orange font-bold\">(Main Idea: retraining the brain for sleep)</span>.<br><span class=\"text-green font-bold\">S gives the first step</span> (\"Start by regulating...\").<br><span class=\"text-blue font-bold\">P gives the second step</span> (\"Creating a relaxing environment is very important too...\").<br><span class=\"text-magenta font-bold\">R concludes</span> by explaining how P's environment is achieved (\"This is possible if...\").<br><span class=\"text-teal font-bold\">Sequence: Q - S - P - R</span>. <br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "9dc9ee6c-abc2-4900-8ab4-f6b090479bb0",
+    "category_id": "english",
+    "tags": [
+      "Vocabulary"
+    ],
+    "difficulty": "easy",
+    "question": "Fill in the blank using a meaningful phrase: If you don't know the meaning of 'posse', why don't you ____ the word in a dictionary?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Look at",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Look into",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Look for",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Look up",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red\" style=\"font-weight: 800;\">phrasal verb \"look up\" </span>specifically means to <span class=\"text-green font-bold\">search for information</span> in a <span class=\"text-blue font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">reference book, dictionary, or database</span></span>.<br><span class=\"text-teal\" style=\"font-weight: 800;\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">(\"Look into\" means to investigate)</span><span class=\"text-magenta font-bold\"></span>.<br>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "61236186-5392-47e7-b9f1-7c22ab887034",
+    "category_id": "english",
+    "tags": [
+      "Voice"
+    ],
+    "difficulty": "easy",
+    "question": "Change the following sentence from Active voice to Passive voice: They are organizing a farewell party next week.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "A farewell party is being organized next week.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A farewell party is being organized by them next week.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A farewell party was organized by them next week.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A farewell party will be organized by them next week.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Active Tense:</span> <span class=\"text-red font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\">Present Continuous (\"are organizing\").</span><br><span class=\"text-red\" style=\"font-weight: 800;\">Passive Formula:</span> <span class=\"text-green font-bold\">Is/Am/Are + BEING + V3</span>.<br>Conversion:<span style=\"font-style: italic;\"> \"A farewell party <span class=\"text-green\" style=\"font-weight: 800;\">is being organized</span> by them next week.\"</span><br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "7a969e42-7af1-45fc-8257-f02172646e4b",
+    "category_id": "english",
+    "tags": [
+      "Prepositions"
+    ],
+    "difficulty": "easy",
+    "question": "Fill in the blanks with appropriate prepositions: The team worked tirelessly __ the guidance of their coach to improve their performance __ the challenging season.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "by, about",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "under, towards",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "under, during",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "by, during",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">First Blank:</span> You <span style=\"font-style: italic;\">work under someone's guidance or authority</span>.<br><span class=\"text-red\" style=\"font-weight: 800;\">Second Blank:</span> You refer to a <span class=\"text-green\" style=\"font-weight: 800;\">period of time</span> using <span class=\"text-green font-bold\">during</span> <span class=\"text-blue font-bold\">(during the season)</span>.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "78bbe7ef-a5b4-4933-8f0d-7c6dce7c21cb",
+    "category_id": "english",
+    "tags": [
+      "Prepositions"
+    ],
+    "difficulty": "medium",
+    "question": "Fill in the blanks with appropriate prepositions: She stood __ the window, lost in thought __ her future plans for the upcoming year.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "by, about",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "beside, towards",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "by, towards",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "beside, about",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">First Blank:</span> <span class=\"text-orange\" style=\"font-weight: 800;\">\"By\"</span> means <span class=\"text-orange font-bold\">near or next to</span> <span class=\"text-green font-bold\">(stood by the window)</span>. \"Beside\" is also acceptable, so check the second blank.<br><span class=\"text-red\" style=\"font-weight: 800;\">Second Blank: </span>You <span class=\"text-blue font-bold\">think about something</span> <span class=\"text-magenta font-bold\">(lost in thought about her future plans)</span>.<br><span class=\"text-teal font-bold\">Option A pairs them correctly</span>.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "10bb6659-28eb-45a5-b312-c1a3bc76e63b",
+    "category_id": "english",
+    "tags": [
+      "Idioms N Phrases"
+    ],
+    "difficulty": "easy",
+    "question": "Choose the correct meaning of the idiom: `By the skin of your teeth`",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "be in a comfortable situation.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "to do more than you can actually do.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "to spoil someone's moment of praise.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "narrowly avoiding something.",
+        "label": "D"
+      }
+    ],
+    "explanation": "The idiom <span class=\"text-red\" style=\"font-weight: 800;\">\"by the skin of your teeth\"</span> means to <span class=\"text-green font-bold\">barely manage to do something</span> or to <span class=\"text-blue font-bold\">narrowly avoid disaster</span>.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "673d0600-7571-46c2-adcb-79e1e39f426a",
+    "category_id": "english",
+    "tags": [
+      "Synonyms N Antonyms"
+    ],
+    "difficulty": "hard",
+    "question": "Select the antonym of the word: Idiosyncrasy",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Erraticism",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Conformity",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Peculiarity",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Oddity",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Idiosyncrasy</span> means a <span class=\"text-orange font-bold\">peculiar behavior, habit, or characteristic</span> <span class=\"text-green font-bold\">unique to an individual</span> (Options A, C, and D are synonyms).<br><span class=\"text-blue font-bold\">Conformity</span> means behaving according to <span class=\"text-magenta font-bold\">standard rules or general customs</span>, making it the <span class=\"text-teal font-bold\">antonym</span>.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "e04406b5-a130-48bc-8f51-23cec5a177e9",
+    "category_id": "english",
+    "tags": [
+      "Punctuation"
+    ],
+    "difficulty": "medium",
+    "question": "Select the sentence with the correct punctuation.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Jaya said, \"They were getting really excited and were shouting 'Come on!'\"",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Jaya said They were getting really excited and were shouting \"Come on!\"",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Jaya said, 'they were getting really excited and were shouting \"Come on!\"'",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Jaya said, 'they were getting really excited and were shouting' Come on.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Use a <span class=\"text-red font-bold\">comma after the reporting verb</span> (\"Jaya said,\").<br>Use<span class=\"text-teal\" style=\"font-weight: 800;\"> double quotes (\" \")</span> for the <span class=\"text-teal\" style=\"font-weight: 800;\">main speech</span>.<br>Use <span class=\"text-green\" style=\"font-weight: 800;\">single quotes (' ')</span> for a <span class=\"text-magenta font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">quote within a quote</span></span> (the shouting of 'Come on!').<br><span class=\"text-teal font-bold\">Only Option A correctly nests these punctuation marks</span>.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "0ebb047b-b15e-4723-9f5d-ea3dd2b1c972",
+    "category_id": "english",
+    "tags": [
+      "Modals"
+    ],
+    "difficulty": "medium",
+    "question": "Fill in the blank using a suitable modal: We ____ have locked the gate. Then the dog wouldn't have got out.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "ought to",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "would",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "may",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "have to",
+        "label": "D"
+      }
+    ],
+    "explanation": "This sentence expresses <span class=\"text-red font-bold\">regret over a past mistake</span>. The structure <span class=\"text-green\" style=\"font-weight: 800;\">\"ought to have + V3\" (or \"should have + V3\")</span> is used to say that an<span class=\"text-blue\" style=\"font-weight: 800;\"> action was the right thing to do, but it wasn't done</span>.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "ab1a2005-477c-43e1-b37c-c956f4e7f05d",
+    "category_id": "english",
+    "tags": [
+      "Narration"
+    ],
+    "difficulty": "easy",
+    "question": "Identify the sentence that correctly changes the following direct speech into indirect speech. He said, \"I am going to the market now.\"",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "He said that he was going to the market then.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "He said that he is going to the market now.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "He says that he is going to the market now.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "He said that I was going to the market then.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Tense:</span><span class=\"text-green\" style=\"font-weight: 800;\"> Present Continuous </span>(\"am going\")<span class=\"text-magenta\" style=\"font-weight: 800;\"> backshifts</span> <span class=\"text-green\" style=\"font-weight: 800;\">to Past Continuous</span><span class=\"text-green font-bold\"></span> (\"was going\").<br><span class=\"text-red\" style=\"font-weight: 800;\">Pronoun:</span> <span class=\"text-orange\" style=\"font-weight: 800;\">\"I\" </span>changes to <span class=\"text-orange\" style=\"font-weight: 800;\">\"he\"</span>.<br><span class=\"text-red\" style=\"font-weight: 800;\">Time Word: </span>\"Now\" must change to \"then\".<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "34e56071-f0a3-431c-9cac-9fbdd7fa65ce",
+    "category_id": "english",
+    "tags": [
+      "Parts Of Speech",
+      "Error Detection"
+    ],
+    "difficulty": "hard",
+    "question": "In this question, the sentence is broken into four parts. Find out the error part in the sentence from the given options and mark your answer.<br>His perspicacious (a)/ observations would have revealed (b)/ insights that had (c)/ previously gone unnoticed (d).",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "His perspicacious",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Observations would have revealed",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Insights that had",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Previously gone unnoticed",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">\"His\"</span> is a <span class=\"text-orange font-bold\">possessive adjective</span> that <span class=\"text-green font-bold\">must be followed by a Noun</span>. <span class=\"text-blue\" style=\"font-weight: 800;\">\"Perspicacious\" is an adjective</span>. It should either be replaced with the <span class=\"text-blue\" style=\"font-weight: 800;\">noun form \"perspicacity\"</span> (His perspicacity would have revealed...), or it must directly modify the noun \"observations\" in a smoother structure. The <span class=\"text-teal font-bold\">error lies in fragment A</span>.<br>",
+    "pyq": "JKSSB JA 2024",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "b5f0d0b8-735f-4f95-8e8f-486937ffa5a4",
+    "category_id": "english",
+    "tags": [
+      "Subject Verb Agreement",
+      "Error Detection"
+    ],
+    "difficulty": "hard",
+    "question": "Identify grammatical error: 'The committee are meeting tomorrow to discuss the proposal.'",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Committee",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Are meeting",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Tomorrow",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Discuss",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">\"Committee\"</span> is a <span class=\"text-orange font-bold\">collective noun</span>. When a <span class=\"text-orange font-bold\">collective noun</span> acts together as a <span class=\"text-green font-bold\">single united body</span> (like meeting to discuss), it <span class=\"text-green\" style=\"font-weight: 800;\">takes a singular verb</span><span class=\"text-blue font-bold\"></span>.<br>Correction: \"The <span class=\"text-green\" style=\"font-weight: 800;\">committee is </span>meeting tomorrow...\"<br>   <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "dd41280a-a504-48d0-9f44-cd22c4ba14d0",
+    "category_id": "english",
+    "tags": [
+      "Idioms N Phrases"
+    ],
+    "difficulty": "easy",
+    "question": "Idiom 'A penny for your thoughts' means?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "To sell thoughts",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "To offer money for opinion",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "To think about money",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "To be rich",
+        "label": "D"
+      }
+    ],
+    "explanation": "The idiom<span class=\"text-red\" style=\"font-weight: 800;\"> \"A penny for your thoughts\"</span> is a <span class=\"text-green font-bold\">polite, friendly way</span> of <span class=\"text-blue font-bold\">asking someone what they are thinking about</span>, especially if they have been quiet for a while.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "bf978f72-b3f8-4cee-afcc-a4e992931c04",
+    "category_id": "english",
+    "tags": [
+      "Sentence Improvement"
+    ],
+    "difficulty": "hard",
+    "question": "Rearrange words: carefully/considered/they/before/decision/making/the/important.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "They considered the decision carefully before making it.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "They considered making the important decision carefully before.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "They considered carefully before making the important decision.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Making carefully the important decision considered before they.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Subject (They) + Verb (considered) + Adverb (carefully)</span> + <span class=\"text-orange font-bold\">Conjunction (before)</span> + <span class=\"text-green font-bold\">Gerund phrase (making the important decision)</span>. <span class=\"text-blue font-bold\">Option C</span> forms a <span class=\"text-magenta font-bold\">grammatically sound and meaningful sentence</span>. (Note: The raw words do not include \"it\" as seen in option A).<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "8ba976d6-ac34-468a-a424-b6dcd04c5a39",
+    "category_id": "english",
+    "tags": [
+      "Punctuation"
+    ],
+    "difficulty": "hard",
+    "question": "Which is used between independent clauses?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Colon",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Semicolon",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Comma",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Hyphen",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">Semicolon (;)</span> is specifically used to <span class=\"text-green font-bold\">connect two closely related independent clauses</span> <span class=\"text-blue font-bold\">without using a coordinating conjunction</span> (like 'and' or 'but').<br>Example: I have a big test tomorrow; I can't go out tonight.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "2f6feae3-3cd3-4caa-8bdd-9f3ec5fe9f18",
+    "category_id": "english",
+    "tags": [
+      "Pronoun"
+    ],
+    "difficulty": "medium",
+    "question": "The market is nearer to them than ____?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "We",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ourselves",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Ours",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Us",
+        "label": "D"
+      }
+    ],
+    "explanation": "This tests the <span class=\"text-red font-bold\">Pronoun Comparison Rule</span>. We are comparing two objects here: \"to them\" vs \"to us\". Therefore, the object case pronoun \"us\" is correct. (If comparing subjects, it would be \"we\").<br>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "bf204562-322f-4da4-8333-1d4ed616d78c",
+    "category_id": "english",
+    "tags": [
+      "Prepositions"
+    ],
+    "difficulty": "easy",
+    "question": "Railway track runs ____ river?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Over",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "On",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "By",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Across",
+        "label": "D"
+      }
+    ],
+    "explanation": "When something is <span class=\"text-red font-bold\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">vertically above something else</span> (like a bridge or track spanning above water), the preposition<span class=\"text-teal\" style=\"font-weight: 800;\"> \"over\" is used</span>. (<span class=\"text-red\" style=\"font-weight: 800;\">\"Across\" </span>implies <span class=\"text-orange font-bold\">flat movement from one side to another</span> on the surface).<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB JA 2023",
+    "created_at": "2026-07-31T13:13:35.913018+00:00"
+  },
+  {
+    "id": "c55ba854-8e33-470c-8b67-e0c0fd2beb94",
+    "category_id": "english",
+    "tags": [
+      "Fill In The Blanks"
+    ],
+    "difficulty": "easy",
+    "question": "His ambition ______ a successful entrepreneur.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "is becoming",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "is become",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "is to becoming",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "is to become",
+        "label": "D"
+      }
+    ],
+    "explanation": "The sentence requires an <span class=\"text-red font-bold\">Infinitive (To + V1)</span> acting as a <span class=\"text-green font-bold\">subject complement</span> to define his ambition. \"His ambition is <span class=\"text-teal\" style=\"font-weight: 800;\">to become</span>...\" expresses <span class=\"text-orange font-bold\">purpose and intent</span> perfectly.<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "092f7327-b161-4c31-b0e4-b147b73798d5",
+    "category_id": "english",
+    "tags": [
+      "Synonyms N Antonyms"
+    ],
+    "difficulty": "easy",
+    "question": "Antonym of `DILEMMA`",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Quandary",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Perplexity",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Agreement",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Predicament",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Dilemma</span> means a state of <span class=\"text-orange font-bold\">difficult choice, uncertainty, or conflict</span>.<br><span class=\"text-green font-bold\">Agreement (or resolution)</span> is the <span class=\"text-blue font-bold\">closest antonym</span> among the choices.<br><span class=\"text-magenta font-bold\"><span class=\"text-red\" style=\"font-weight: 800;\">Quandary, Perplexity, and Predicament</span></span> are <span class=\"text-teal font-bold\">direct synonyms</span> of <span class=\"text-red font-bold\">dilemma</span>. <br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "912419bc-5300-46a6-9a25-d55ee392f726",
+    "category_id": "english",
+    "tags": [
+      "Synonyms N Antonyms"
+    ],
+    "difficulty": "hard",
+    "question": "Synonym of `TRADUCE`",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Betray",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Build",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Pressure",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Stiffen",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Traduce</span> means to <span class=\"text-orange font-bold\">speak badly of someone, slander, or defame</span> their character.<br><span class=\"text-green font-bold\">Betray</span> is the <span class=\"text-blue font-bold\">closest synonym</span> provided, as both involve a <span class=\"text-magenta font-bold\">breach of trust</span> or damaging someone's reputation.<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "4e72fb29-9509-422e-95b8-2c7656480d96",
+    "category_id": "english",
+    "tags": [
+      "Idioms N Phrases"
+    ],
+    "difficulty": "medium",
+    "question": "Meaning of idiom `Weal and woe`",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Well-wishers and critics",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "High and low level",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Safe and dangerous place",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Prosperity and misfortune",
+        "label": "D"
+      }
+    ],
+    "explanation": "The idiom <span class=\"text-red\" style=\"font-weight: 800;\">\"Weal and woe\"</span> refers to the <span class=\"text-green font-bold\">good times and bad times</span> in life. <span class=\"text-red\" style=\"font-weight: 800;\">\"Weal\" </span>means <span class=\"text-orange font-bold\">well-being, wealth, or prosperity</span>, and <span class=\"text-red\" style=\"font-weight: 800;\">\"woe\"</span> means <span class=\"text-teal font-bold\">sorrow or misfortune</span>.<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "f60ad57d-2dc8-432b-bb80-00667a2c63d7",
+    "category_id": "english",
+    "tags": [
+      "Voice"
+    ],
+    "difficulty": "easy",
+    "question": "The teacher praised the student. (Find correct Passive/Active voice)",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "The student was praised by the teacher.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The student praises the teacher.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The teacher praises the student.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Did the teacher praise the student?",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Active Tense:</span> <span class=\"text-red font-bold\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">Simple Past (V2: \"praised\")</span><br><span class=\"text-red\" style=\"font-weight: 800;\">Passive Formula:</span> <span class=\"text-green font-bold\">Was/Were + V3</span><br>Conversion: Object (\"The student\") + <span class=\"text-green\" style=\"font-weight: 800;\">was + praised</span> + by + Subject (\"the teacher\").<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "761f729a-0f08-4c66-aa25-2c0aa71c13ff",
+    "category_id": "english",
+    "tags": [
+      "Clauses"
+    ],
+    "difficulty": "hard",
+    "question": "Determine the function of the highlighted dependent clause:<br>The medicines which the doctor prescribed were very expensive.",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Noun clause",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Adverb clause",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Adjective clause",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">dependent clause</span> <span style=\"font-style: italic;\">\"which the doctor prescribed\" directly modifies the noun \"medicines\"</span>. It <span class=\"text-blue font-bold\">acts as an adjective</span> telling us which specific medicines were expensive.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "f4403186-0bbe-4ac8-9ec6-7be94360fe26",
+    "category_id": "english",
+    "tags": [
+      "Articles"
+    ],
+    "difficulty": "medium",
+    "question": "Fill in the blanks:<br>On ___ cold December evening, ____ doorbell wouldn't stop ringing at my house.",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "a, the",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "the, the",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "no article, no article",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "no article, the",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">1. First Blank: </span>Uses the <span class=\"text-orange\" style=\"font-weight: 800;\">indefinite article 'a' </span>because it refers to <span class=\"text-orange font-bold\">any single, unspecified cold evening</span> in December.<br><span class=\"text-red\" style=\"font-weight: 800;\">2. Second Blank:</span> Uses the <span class=\"text-teal\" style=\"font-weight: 800;\">definite article 'the' </span>because it refers to the <span class=\"text-teal\" style=\"font-weight: 800;\">specific doorbell of the speaker's house</span>.<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "4cfa818e-ed2c-4746-8131-5362f3d33d23",
+    "category_id": "english",
+    "tags": [
+      "Noun",
+      "Error Detection"
+    ],
+    "difficulty": "easy",
+    "question": "Identify the part of the sentence that contains an error: This room would appear much more appealing (A) / if you put a furniture (B) / in that corner. (C) / No error (D)",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "This room would appear much more appealing",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "if you put a furniture",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "in that corner",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "No error",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Furniture</span> is an <span class=\"text-orange font-bold\">uncountable noun</span>. It <span class=\"text-teal\" style=\"font-weight: 800;\">cannot take the indefinite article 'A/An'</span> <span class=\"text-orange\" style=\"font-weight: 800;\">or be made plural with an 'S'</span>.<br>Correction: \"...if you put some <span class=\"text-red font-bold\">furniture</span>\" OR \"...if you put a piece of <span class=\"text-red font-bold\">furniture</span>\".<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "7db388fb-e797-4485-a124-b7fc094004ff",
+    "category_id": "english",
+    "tags": [
+      "Vocabulary"
+    ],
+    "difficulty": "easy",
+    "question": "Out of the given words, choose the mis-spelt one.",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Impressive",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Immaculate",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Imminent",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Immitate",
+        "label": "D"
+      }
+    ],
+    "explanation": "The correct spelling is <span class=\"text-red font-bold\">Imitate</span> (meaning to <span class=\"text-green font-bold\">copy or mimic)</span>. It uses a single 'm'.<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "4b1fd2f3-5d1a-414a-bfe0-5e12ab0dda3c",
+    "category_id": "english",
+    "tags": [
+      "Voice"
+    ],
+    "difficulty": "easy",
+    "question": "Select the alternative that best expresses the sentence in passive voice: 'The teacher explained the lesson to the students.'",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The lesson is explained to the students by the teacher.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The students were being explained the lesson by the teacher.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The lesson was explained to the students by the teacher.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The students explained the lesson to the teacher.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Active Tense:</span> <span class=\"text-red font-bold\"></span><span class=\"text-magenta\" style=\"font-weight: 800;\"><span class=\"text-orange\" style=\"font-weight: 800;\">Simple Past (V2: \"explained\")</span></span><br><span class=\"text-red\" style=\"font-weight: 800;\">Passive Formula: </span><span class=\"text-green font-bold\">Was/Were + V3</span><br>Conversion: Object (\"The lesson\") + <span class=\"text-green\" style=\"font-weight: 800;\">was + explained </span>+ to the students + by + Subject (\"the teacher\").<br>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "b10ce3f6-fb2a-4d00-88c7-6b99b6f39b11",
+    "category_id": "english",
+    "tags": [
+      "Voice"
+    ],
+    "difficulty": "easy",
+    "question": "Select the alternative that best expresses the sentence in passive voice: 'Sarita was writing a letter to her mother.'",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "A letter was written by Sarita to her mother.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A letter was being written by Sarita to her mother.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A letter has been written to her mother by Sarita.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "A letter was written to her mother by Sarita.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Active Tense:</span> <span class=\"text-red font-bold\"></span><span class=\"text-orange\" style=\"font-weight: 800;\">Past Continuous (Was + V1-ing: \"was writing\")</span><br><span class=\"text-red\" style=\"font-weight: 800;\">Passive Formula:</span> <span class=\"text-green font-bold\">Was/Were + BEING + V3</span><br>Conversion: Object (\"A letter\") +<span class=\"text-green\" style=\"font-weight: 800;\"> was being + written</span> + by Sarita + to her mother.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "c27a8d11-f2d1-4e96-b845-b8bd00975a27",
+    "category_id": "english",
+    "tags": [
+      "Pronoun"
+    ],
+    "difficulty": "hard",
+    "question": "Select the most appropriate word: 'I have nobody _____ I can confide in.'",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "whoever",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "who",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "that",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "whom",
+        "label": "D"
+      }
+    ],
+    "explanation": "This sentence tests the <span class=\"text-red font-bold\"></span><span class=\"text-red\" style=\"font-weight: 800;\">Who vs. Whom rule</span>.<br>The preposition<span class=\"text-green\" style=\"font-weight: 800;\"> \"in\" requires an object.</span> You confide in him/her (Object), not he/she (Subject). Therefore, the <span class=\"text-blue font-bold\">objective relative pronoun whom</span> is required.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "44a48cda-c071-4513-87df-56d3fb764d0c",
+    "category_id": "english",
+    "tags": [
+      "Parts Of Speech"
+    ],
+    "difficulty": "hard",
+    "question": "Identify the type of phrase in the sentence: 'Did you have fun watching the movie?'",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Adjective phrase",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Gerund phrase",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Adverb phrase",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "None",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">Gerund Phrase</span> starts with an<span class=\"text-teal\" style=\"font-weight: 800;\"> \"-ing\" word acting as a noun</span> and includes its objects or modifiers. Here, <span class=\"text-blue\" style=\"font-weight: 800;\">\"watching the movie\" functions as a noun </span>explaining exactly what activity was fun.<br>  <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2025",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "319920e6-2422-44e3-8412-526538815c10",
+    "category_id": "english",
+    "tags": [
+      "Error Detection"
+    ],
+    "difficulty": "hard",
+    "question": "Which sentences are correct?<div>p) I can write you the letter every week,</div><div>q) Srinivas left home at 15 to work abroad,</div><div>r) I had an impression he was upset,</div><div>s) My master bedroom is very large.</div>",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "p and r",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "r and s",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "q and s",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "p and q",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Sentence p (Incorrect)</span>: Needs an <span class=\"text-orange font-bold\">indefinite article</span> for a general action <span class=\"text-green\" style=\"font-weight: 800;\">(\"write you a letter\")</span>.<br><span class=\"text-green font-bold\">Sentence q (Correct)</span>: Grammatically sound usage of age and purpose.<br><span class=\"text-magenta font-bold\"></span><span class=\"text-red\" style=\"font-weight: 800;\">Sentence r (Incorrect):</span> The <span class=\"text-orange\" style=\"font-weight: 800;\">correct fixed idiom</span> is <span class=\"text-green\" style=\"font-weight: 800;\">\"to have the impression\"</span>.<br><span class=\"text-teal font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\">Sentence s (Correct):</span> Grammatically sound.<br>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "2dc59dd9-0bb0-4ee8-9fbf-6c3a1f09a9c9",
+    "category_id": "english",
+    "tags": [
+      "Synonyms N Antonyms"
+    ],
+    "difficulty": "easy",
+    "question": "ACQUIESCE (find the nearest meaning)",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Liquid",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Watery",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Consent",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "To know someone",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Acquiesce</span> means to <span class=\"text-green font-bold\">accept something reluctantly but without protest</span>; to <span class=\"text-blue font-bold\">submit or consent quietly</span>.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "3624459e-0acc-49dd-972f-30bc0b60bf69",
+    "category_id": "english",
+    "tags": [
+      "Narration"
+    ],
+    "difficulty": "medium",
+    "question": "The Colonel said, `Get ready for our departure.` (Change to indirect speech)",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Colonel said get ready for our departure.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The Colonel ordered them to get ready for their departure.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The Colonel ordered, `You should get ready for the departure.`",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The Colonel requested that they get ready for their departure.",
+        "label": "D"
+      }
+    ],
+    "explanation": "This is an <span class=\"text-red font-bold\"></span><span class=\"text-red\" style=\"font-weight: 800;\">Imperative sentence (a command).</span><br><span class=\"text-red\" style=\"font-weight: 800;\">1. Reporting Verb:</span> \"Said\" changes to \"ordered\".<br><span class=\"text-red\" style=\"font-weight: 800;\">2. Conjunction:</span> Use the <span class=\"text-teal\" style=\"font-weight: 800;\">infinitive connector \"to\".</span><br><span class=\"text-red\" style=\"font-weight: 800;\">3. Pronoun:</span><span class=\"text-blue\" style=\"font-weight: 800;\"> \"Our\" </span>changes<span class=\"text-blue\" style=\"font-weight: 800;\"> to \"their\"</span>.<br>Result: <span class=\"text-magenta font-bold\">The Colonel ordered them to get ready for their departure</span>.<br>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "b7d72e59-b19c-46cf-83e3-b2b4fa65d2d9",
+    "category_id": "english",
+    "tags": [
+      "Idioms N Phrases"
+    ],
+    "difficulty": "easy",
+    "question": "He was in a brown study and did not seem to catch my point. Find correct phrase for bold words.",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "In his study room",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Absorbed in reading",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Absent-minded",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "In a state of shock",
+        "label": "D"
+      }
+    ],
+    "explanation": "The idiom<span class=\"text-red\" style=\"font-weight: 800;\"> \"in a brown study\"</span> means to be <span class=\"text-green font-bold\"></span><span class=\"text-green\" style=\"font-weight: 800;\">deeply absorbed in thought, reading, or reverie</span>, making one <span class=\"text-blue font-bold\">unaware of their surroundings</span>.<br>  <span class=\"text-emerald-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "146175f9-f56c-442e-9f00-3366f9bee925",
+    "category_id": "english",
+    "tags": [
+      "Narration"
+    ],
+    "difficulty": "hard",
+    "question": "In narration, convert: `Moti asked Gangu whether the latter was in his senses.`",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "\"Hey Gangu, are you in your senses now?\" asked Moti",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "\"Gangu, have you lost your senses?\" asked Moti",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "\"Gangu, are you in your senses?\" asked Moti",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "\"Are you senseless, Gangu?\" asked Moti",
+        "label": "D"
+      }
+    ],
+    "explanation": "Reverse engineering <span class=\"text-red font-bold\">Indirect to Direct Speech</span>:<br><span class=\"text-red\" style=\"font-weight: 800;\">1. Connector \"Whether\": </span>Indicates it was a <span class=\"text-green font-bold\">Yes/No question</span> starting with a helping verb.<br><span class=\"text-red\" style=\"font-weight: 800;\">2. Tense Backshift Reversed:</span> \"Was\" (Past) reverts to \"Are\" (Present).<br><span class=\"text-red\" style=\"font-weight: 800;\">3. Vocative Case: </span>\"The latter\" (Gangu) moves inside the quotes as a direct address.<br>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "a317eb23-2cd3-4169-80bc-ec3e84261bf9",
+    "category_id": "english",
+    "tags": [
+      "Noun",
+      "Error Detection"
+    ],
+    "difficulty": "hard",
+    "question": "Identify the portion of the sentence which has an error: `We are going to launch this three crores project within the next few months.`",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "We are going to launch",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "This three crores project",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Within the next few months",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "No error",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Hyphenated Adjective Rule</span>: When a <span class=\"text-orange font-bold\">number and a noun</span> ar<span style=\"font-style: italic;\">e combined to act as an adjective describing another noun (project)</span>, the middle noun <span class=\"text-green font-bold\">cannot be pluralized</span>.<br>Correction: \"...this three crore project...\"<br>   <span class=\"text-rose-500 font-bold\"> </span>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
+    "id": "8fbbb76b-f14b-4dc1-aebd-55df35db9e79",
+    "category_id": "english",
+    "tags": [
+      "Voice"
+    ],
+    "difficulty": "medium",
+    "question": "Choose the correct active/passive voice form: `The news has been brought to us by him.`",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "He brought us the news.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "He has brought us the news.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "He was brought the news to us.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "We brought the news to him.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red\" style=\"font-weight: 800;\">Passive Tense:</span> <span class=\"text-red font-bold\"></span><span class=\"text-orange\" style=\"font-weight: 800;\">Present Perfect Passive (Has + BEEN + V3: \"has been brought\")</span><br><span class=\"text-red\" style=\"font-weight: 800;\">Active Formula:</span> <span class=\"text-green font-bold\">Has/Have + V3</span><br>* Conversion: Subject (\"He\") +<span class=\"text-green\" style=\"font-weight: 800;\"> has brought</span> + Object 1 (\"us\") + Object 2 (\"the news\").<br>",
+    "pyq": "JKSSB Operator 2023",
+    "created_at": "2026-07-31T04:48:13.276313+00:00"
+  },
+  {
     "id": "61f9f523-b348-4e5a-973a-1668a45d44ad",
     "category_id": "english",
     "tags": [
