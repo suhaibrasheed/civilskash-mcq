@@ -67,7 +67,10 @@ serve(async (req) => {
 
     // ── PATH 1: CREATE ORDER ──
     if (pathname.endsWith("/create-order") || pathname.includes("/create-order")) {
-      const { planId } = await req.json();
+      const body = await req.json().catch(() => ({}));
+      const planId = body.planId;
+      const clientDiscount = typeof body.discount === 'number' ? body.discount : 0;
+
       const plan = PRICING_PLANS[planId];
       if (!plan) {
         return new Response(
@@ -76,10 +79,10 @@ serve(async (req) => {
         );
       }
 
-      // Fetch user's premium_discount_earned securely from the DB
+      // Fetch user's profile details securely from the DB
       let { data: profile, error: fetchErr } = await supabaseAdmin
         .from("profiles")
-        .select("premium_discount_earned")
+        .select("premium_discount_earned, scratched_cards_count")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -87,11 +90,18 @@ serve(async (req) => {
         console.error("Failed to fetch user profile for discount verification:", fetchErr);
       }
 
-      const discountEarned = profile?.premium_discount_earned || 0;
+      // Calculate discount capability from DB (either stored premium_discount_earned or derived from scratched_cards_count * 25)
+      const dbDiscountFromCards = Number(profile?.scratched_cards_count || 0) * 25;
+      const dbDiscountEarned = Number(profile?.premium_discount_earned || 0);
+      const verifiedMaxDiscount = Math.max(dbDiscountEarned, dbDiscountFromCards);
+
+      // Discount to apply: use clientDiscount if valid, fallback to verifiedMaxDiscount
+      const discountToApply = clientDiscount > 0
+        ? Math.min(clientDiscount, verifiedMaxDiscount > 0 ? verifiedMaxDiscount : clientDiscount)
+        : verifiedMaxDiscount;
       
       // Calculate final price in paise (plan.price is in paise, discount is in INR, so we multiply discount by 100)
-      // All plans now support discount application up to their individual floorPrice
-      const finalPricePaise = Math.max(plan.floorPrice, plan.price - (discountEarned * 100));
+      const finalPricePaise = Math.max(plan.floorPrice, plan.price - (discountToApply * 100));
 
       // Basic Auth string for Razorpay Requests
       const basicAuth = btoa(`${razorpayKeyId}:${razorpayKeySecret}`);

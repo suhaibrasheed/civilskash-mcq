@@ -234,12 +234,13 @@ BEGIN
   -- Roll coins (choices: 100 to 250 with 250 having 5% probability)
   coins_roll := (ARRAY[100,100,100,100, 125,125,125,125, 150,150,150, 175,175,175, 200,200,200, 225,225, 250])[floor(random() * 20) + 1];
 
-  -- Apply rewards (KashCoins, +1 streak freeze, +3 days power surge) and increment scratched cards count
+  -- Apply rewards (KashCoins, +1 streak freeze, +3 days power surge, +₹25 discount) and increment scratched cards count
   UPDATE public.profiles
   SET liquid_coins = liquid_coins + coins_roll,
       available_streak_freezes = available_streak_freezes + 1,
       power_surge_expires_at = COALESCE(power_surge_expires_at, NOW()) + INTERVAL '3 days',
-      scratched_cards_count = scratched_cards_count + 1
+      scratched_cards_count = scratched_cards_count + 1,
+      premium_discount_earned = COALESCE(premium_discount_earned, 0) + 25
   WHERE id = auth.uid();
 
   RETURN json_build_object(

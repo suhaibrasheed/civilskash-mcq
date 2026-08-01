@@ -299,12 +299,24 @@ export default function PricingPage() {
       return;
     }
     setLoadingPlan(plan.id);
+
+    // Watchdog safety timer: reset loading state if Razorpay fails to launch or popup is blocked
+    const safetyTimer = setTimeout(() => {
+      setLoadingPlan(prev => (prev === plan.id ? null : prev));
+    }, 8000);
+
     try {
       const ok = await loadRazorpay();
-      if (!ok) { showToast('Failed to load Razorpay.', 'error'); setLoadingPlan(null); return; }
+      if (!ok) {
+        clearTimeout(safetyTimer);
+        showToast('Failed to load Razorpay.', 'error');
+        setLoadingPlan(null);
+        return;
+      }
 
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) {
+        clearTimeout(safetyTimer);
         showToast('Session expired. Sign in again.', 'warning');
         navigate('/profile');
         setLoadingPlan(null);
@@ -312,35 +324,33 @@ export default function PricingPage() {
       }
       const token = session.access_token;
 
-      let orderId, amount, currency, keyId;
-      const res = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ planId: plan.id }),
-      });
+      let orderId = null;
+      let amount;
+      let currency = 'INR';
+      let keyId = 'rzp_live_SxuAK5B53kL3qS';
 
       const expectedAmountPaise = Math.max((plan.floorPrice || 9) * 100, (plan.price - discount) * 100);
 
-      if (res.ok) {
-        const data = await res.json();
-        if (data.amount && Math.abs(data.amount - expectedAmountPaise) > 50) {
-          console.warn(`Remote Edge Function returned order amount ₹${data.amount/100}, but client expected ₹${expectedAmountPaise/100}. Using direct client checkout amount...`);
-          orderId = null;
-          amount = expectedAmountPaise;
-          currency = 'INR';
-          keyId = data.keyId || 'rzp_live_SxuAK5B53kL3qS';
+      try {
+        const res = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ planId: plan.id, discount }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.orderId) orderId = data.orderId;
+          amount = data.amount || expectedAmountPaise;
+          currency = data.currency || 'INR';
+          if (data.keyId) keyId = data.keyId;
         } else {
-          orderId = data.orderId;
-          amount = data.amount;
-          currency = data.currency;
-          keyId = data.keyId;
+          console.warn("Remote Edge Function create-order returned non-200, using client amount calculation...");
+          amount = expectedAmountPaise;
         }
-      } else {
-        console.warn("Remote Edge Function create-order failed, using direct client checkout amount...");
-        orderId = null;
+      } catch (edgeErr) {
+        console.warn("Remote Edge Function create-order network error, using client amount calculation...", edgeErr);
         amount = expectedAmountPaise;
-        currency = 'INR';
-        keyId = 'rzp_live_SxuAK5B53kL3qS';
       }
 
       const razorpayOptions = {
@@ -351,8 +361,15 @@ export default function PricingPage() {
         description: `${plan.name} Pro Upgrade`,
         prefill: { email: user.email },
         theme: { color: plan.featured ? '#a855f7' : '#f59e0b' },
-        modal: { ondismiss: () => { setLoadingPlan(null); showToast('Cancelled.', 'info'); } },
+        modal: {
+          ondismiss: () => {
+            clearTimeout(safetyTimer);
+            setLoadingPlan(null);
+            showToast('Cancelled.', 'info');
+          }
+        },
         handler: async (response) => {
+          clearTimeout(safetyTimer);
           try {
             let isSuccess = false;
             let vRes = null;
@@ -363,7 +380,7 @@ export default function PricingPage() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
                 body: JSON.stringify({
-                  razorpay_order_id: response.razorpay_order_id || 'test_order_1day',
+                  razorpay_order_id: response.razorpay_order_id || orderId || 'test_order_1day',
                   razorpay_payment_id: response.razorpay_payment_id,
                   razorpay_signature: response.razorpay_signature || 'test_sig',
                   planId: plan.id,
@@ -452,8 +469,21 @@ export default function PricingPage() {
         razorpayOptions.order_id = orderId;
       }
 
-      new window.Razorpay(razorpayOptions).open();
+      try {
+        const rzp = new window.Razorpay(razorpayOptions);
+        rzp.on('payment.failed', function (res) {
+          clearTimeout(safetyTimer);
+          setLoadingPlan(null);
+          showToast(res.error?.description || 'Payment failed.', 'error');
+        });
+        rzp.open();
+      } catch (rzpErr) {
+        clearTimeout(safetyTimer);
+        setLoadingPlan(null);
+        showToast('Could not open Razorpay checkout popup. Please try again.', 'error');
+      }
     } catch (e) {
+      clearTimeout(safetyTimer);
       showToast(e.message || 'Checkout failed.', 'error');
       setLoadingPlan(null);
     }
