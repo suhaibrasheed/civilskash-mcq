@@ -1707,31 +1707,31 @@ export default function PricingPage() {
                   />
 
                   {/* Rewards Program Rules card */}
-                  <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-5 space-y-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">How Referrals Work</span>
+                  <div className="bg-theme-surface/50 backdrop-blur-md border border-theme-border/40 rounded-3xl p-5 space-y-4 shadow-sm">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted">How Referrals Work</span>
                     
                     <div className="space-y-3.5 text-xs text-left">
                       <div className="flex items-start gap-2.5">
-                        <div className="w-5 h-5 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold shrink-0 text-[10px]">1</div>
+                        <div className="w-5 h-5 rounded bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 flex items-center justify-center font-bold shrink-0 text-[10px]">1</div>
                         <div>
-                          <span className="font-extrabold text-white block">Share & Invite</span>
-                          <span className="text-slate-300 font-medium text-[11px]">Give your real friends your referral code (i.e username) to sign-up.</span>
+                          <span className="font-extrabold text-theme-text block">Share & Invite</span>
+                          <span className="text-theme-muted font-medium text-[11px]">Give your real friends your referral code (i.e username) to sign-up.</span>
                         </div>
                       </div>
                       
                       <div className="flex items-start gap-2.5">
-                        <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
+                        <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
                         <div>
-                          <span className="font-extrabold text-white block">Friends Get instant benefits</span>
-                          <span className="text-slate-300 font-medium text-[11px]">Referees receive <strong className="text-amber-500">150 KashCoins</strong> + <strong className="text-emerald-400">₹25 Wallet Money</strong> + <strong className="text-cyan-400">1 Freeze</strong> + <strong className="text-rose-400">7-day Surge</strong>.</span>
+                          <span className="font-extrabold text-theme-text block">Friends Get instant benefits</span>
+                          <span className="text-theme-muted font-medium text-[11px]">Referees receive <strong className="text-amber-500">150 KashCoins</strong> + <strong className="text-emerald-500 dark:text-emerald-400">₹25 Wallet Money</strong> + <strong className="text-cyan-500 dark:text-cyan-400">1 Freeze</strong> + <strong className="text-rose-500 dark:text-rose-400">7-day Surge</strong>.</span>
                         </div>
                       </div>
 
                       <div className="flex items-start gap-2.5">
-                        <div className="w-5 h-5 rounded bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
+                        <div className="w-5 h-5 rounded bg-purple-500/10 text-purple-500 dark:text-purple-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
                         <div>
-                          <span className="font-extrabold text-white block">You Get premium rewards</span>
-                          <span className="text-slate-300 font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-400">Scratch Card</strong> loaded with rewards!</span>
+                          <span className="font-extrabold text-theme-text block">You Get premium rewards</span>
+                          <span className="text-theme-muted font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-500 dark:text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-500 dark:text-amber-400">Scratch Card</strong> loaded with rewards!</span>
                         </div>
                       </div>
 

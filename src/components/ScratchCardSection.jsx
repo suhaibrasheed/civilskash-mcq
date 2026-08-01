@@ -142,7 +142,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
   };
 
   return (
-    <div className="bg-amber-500/[0.01] dark:bg-amber-500/[0.02] backdrop-blur-md border border-amber-500/15 rounded-3xl p-5 space-y-4 text-left shadow-[0_8px_32px_0_rgba(0,0,0,0.15)]">
+    <div className="bg-theme-surface/40 backdrop-blur-md border border-amber-500/20 rounded-3xl p-5 space-y-4 text-left shadow-sm">
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted">
           Referral Card
@@ -170,25 +170,25 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: 'spring', damping: 20 }}
-                    className="w-full relative rounded-2xl p-3.5 sm:p-4 overflow-hidden border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 via-slate-900/90 to-emerald-950/40 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-lg"
+                    className="w-full relative rounded-2xl p-3.5 sm:p-4 overflow-hidden border border-emerald-500/40 bg-emerald-500/10 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-sm"
                   >
                     {/* Left: Checkmark Icon & Details */}
                     <div className="flex items-center gap-3 relative z-10 min-w-0 flex-1">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-xl shrink-0 border border-emerald-500/30">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 flex items-center justify-center font-black text-xl shrink-0 border border-emerald-500/30">
                         <CheckCircle2 size={20} />
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-sm font-extrabold text-white tracking-tight">
+                        <h4 className="text-sm font-extrabold text-theme-text tracking-tight">
                           {card.isWelcome ? 'Welcome Rewards Claimed!' : 'Referral Rewards Claimed!'}
                         </h4>
                         <div className="flex flex-wrap items-center gap-2 text-xs font-bold mt-1">
-                          <span className="text-amber-400">+{rewards.coins_rewarded} KC</span>
-                          <span className="text-slate-500">•</span>
-                          <span className="text-emerald-400">+₹{rewards.wallet_credited} Cash</span>
-                          <span className="text-slate-500">•</span>
-                          <span className="text-cyan-300">+{rewards.freezes_added} Shield</span>
-                          <span className="text-slate-500">•</span>
-                          <span className="text-rose-400">+{rewards.surge_days_added}d Surge</span>
+                          <span className="text-amber-500 dark:text-amber-400">+{rewards.coins_rewarded} KC</span>
+                          <span className="text-theme-muted/40">•</span>
+                          <span className="text-emerald-600 dark:text-emerald-400">+₹{rewards.wallet_credited} Cash</span>
+                          <span className="text-theme-muted/40">•</span>
+                          <span className="text-cyan-600 dark:text-cyan-300">+{rewards.freezes_added} Shield</span>
+                          <span className="text-theme-muted/40">•</span>
+                          <span className="text-rose-500 dark:text-rose-400">+{rewards.surge_days_added}d Surge</span>
                         </div>
                       </div>
                     </div>
@@ -196,7 +196,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                     {/* Right: Done Button */}
                     <button
                       onClick={() => handleDismissCard(card.id)}
-                      className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-black text-slate-200 hover:text-white uppercase tracking-wider transition-all border border-slate-700 cursor-pointer shrink-0 self-end sm:self-auto"
+                      className="px-3.5 py-1.5 rounded-xl bg-theme-surface hover:bg-theme-surface-hover text-xs font-black text-theme-text uppercase tracking-wider transition-all border border-theme-border/60 cursor-pointer shrink-0 self-end sm:self-auto shadow-sm"
                     >
                       Done
                     </button>
@@ -212,7 +212,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                   whileTap={{ scale: 0.985 }}
                   onClick={() => handleOneTapReveal(card)}
                   disabled={claimingId !== null}
-                  className="w-full relative group cursor-pointer text-left rounded-2xl p-3.5 sm:p-4 overflow-hidden transition-all duration-300 border border-amber-500/35 hover:border-amber-400/70 shadow-[0_6px_24px_-6px_rgba(245,158,11,0.2)] bg-gradient-to-r from-amber-950/40 via-slate-900/90 to-amber-950/40 backdrop-blur-xl flex items-center justify-between gap-3"
+                  className="w-full relative group cursor-pointer text-left rounded-2xl p-3.5 sm:p-4 overflow-hidden transition-all duration-300 border border-amber-500/35 hover:border-amber-500/70 shadow-sm bg-gradient-to-r from-amber-500/15 via-theme-surface/90 to-amber-500/15 backdrop-blur-xl flex items-center justify-between gap-3"
                 >
                   {/* Subtle shimmer aura */}
                   <div className="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/20 rounded-full blur-xl group-hover:bg-amber-400/30 transition-all duration-500 pointer-events-none" />
@@ -223,19 +223,19 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                       🎁
                     </div>
                     <div className="flex items-center gap-2 flex-wrap min-w-0">
-                      <h4 className="text-sm font-extrabold text-white tracking-tight">
+                      <h4 className="text-sm font-extrabold text-theme-text tracking-tight">
                         {card.isWelcome ? 'Reveal Welcome Card' : 'Reveal Scratch Card'}
                       </h4>
-                      <Sparkles size={14} className="text-amber-400 animate-pulse shrink-0" />
+                      <Sparkles size={14} className="text-amber-500 dark:text-amber-400 animate-pulse shrink-0" />
                     </div>
                   </div>
 
                   {/* Right: Clean Arrow or Loading indicator */}
-                  <div className="relative z-10 shrink-0 text-amber-400 group-hover:translate-x-1 transition-transform">
+                  <div className="relative z-10 shrink-0 text-amber-500 dark:text-amber-400 group-hover:translate-x-1 transition-transform">
                     {isClaimingThis ? (
-                      <Loader size={18} className="animate-spin text-amber-400" />
+                      <Loader size={18} className="animate-spin text-amber-500" />
                     ) : (
-                      <ChevronRight size={20} className="text-amber-400" />
+                      <ChevronRight size={20} className="text-amber-500 dark:text-amber-400" />
                     )}
                   </div>
                 </motion.button>
@@ -244,16 +244,16 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
           </div>
         ) : (
           /* BEAUTIFUL EMPTY STATE CARD */
-          <div className="bg-gradient-to-r from-amber-500/10 via-amber-500/[0.03] to-slate-900 border border-amber-500/30 rounded-3xl p-5 flex items-center justify-between gap-4 text-left shadow-sm">
+          <div className="bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-theme-surface/90 border border-amber-500/30 rounded-3xl p-5 flex items-center justify-between gap-4 text-left shadow-sm backdrop-blur-md">
             <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-2xl shrink-0 border border-amber-500/30">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-500 dark:text-amber-400 flex items-center justify-center font-black text-2xl shrink-0 border border-amber-500/30">
                 🎁
               </div>
               <div>
-                <h4 className="text-xs font-black text-white tracking-tight uppercase">
+                <h4 className="text-xs font-black text-theme-text tracking-tight uppercase">
                   Invite Friends & Win Cash
                 </h4>
-                <span className="text-[11px] font-bold text-amber-400/90 block mt-0.5">
+                <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 block mt-0.5">
                   Earn ₹25 Wallet Money + 150 KashCoins per friend invited!
                 </span>
               </div>
@@ -266,8 +266,8 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
       {cardHistory.length > 0 && (
         <div className="pt-3 border-t border-amber-500/15 space-y-2.5">
           <div className="flex items-center justify-between">
-            <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-500 flex items-center gap-1.5">
-              <Clock size={11} className="text-amber-500" />
+            <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-500 dark:text-amber-400 flex items-center gap-1.5">
+              <Clock size={11} className="text-amber-500 dark:text-amber-400" />
               Earned Card History
             </span>
             <span className="text-[9px] text-theme-muted font-bold">
@@ -279,30 +279,30 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
             {cardHistory.map((item, idx) => (
               <div
                 key={item.id || idx}
-                className="bg-slate-900/60 backdrop-blur-md border border-amber-500/20 hover:border-amber-400/40 rounded-2xl p-3 flex items-center justify-between text-left transition-all shadow-sm group"
+                className="bg-theme-surface/80 backdrop-blur-md border border-theme-border/40 hover:border-amber-500/40 rounded-2xl p-3 flex items-center justify-between text-left transition-all shadow-sm group"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center font-black text-sm shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-400 flex items-center justify-center font-black text-sm shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                     🎁
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
-                    <div className="text-xs font-black text-white tracking-tight">
+                    <div className="text-xs font-black text-theme-text tracking-tight">
                       {item.type === 'Welcome Card' ? 'Welcome' : (item.date || 'Saved')}
                     </div>
                     <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-extrabold mt-0.5">
-                      <span className="text-amber-400">+{item.coins || 150} KC</span>
-                      <span className="text-slate-600">•</span>
-                      <span className="text-emerald-400">+₹{item.wallet || 25} Wallet</span>
+                      <span className="text-amber-600 dark:text-amber-400">+{item.coins || 150} KC</span>
+                      <span className="text-theme-muted/40">•</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">+₹{item.wallet || 25} Wallet</span>
                       {(item.freezes > 0 || !item.type) && (
                         <>
-                          <span className="text-slate-600">•</span>
-                          <span className="text-cyan-300">+{item.freezes || 1} Shield</span>
+                          <span className="text-theme-muted/40">•</span>
+                          <span className="text-cyan-600 dark:text-cyan-300">+{item.freezes || 1} Shield</span>
                         </>
                       )}
                       {item.surge_days > 0 && (
                         <>
-                          <span className="text-slate-600">•</span>
-                          <span className="text-rose-400">+{item.surge_days}d Surge</span>
+                          <span className="text-theme-muted/40">•</span>
+                          <span className="text-rose-500 dark:text-rose-400">+{item.surge_days}d Surge</span>
                         </>
                       )}
                     </div>
@@ -310,7 +310,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
                 </div>
 
                 {item.type === 'Welcome Card' && item.date && (
-                  <span className="text-[10px] font-bold text-slate-400 shrink-0 ml-2">
+                  <span className="text-[10px] font-bold text-theme-muted shrink-0 ml-2">
                     {item.date}
                   </span>
                 )}

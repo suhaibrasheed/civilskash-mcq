@@ -8,7 +8,7 @@ import { updateUserEconomy } from '../lib/db';
 import { supabase } from '../lib/supabase';
 
 export default function StudyGoalsModal({ isOpen, onClose }) {
-  const { economy, refreshEconomy } = useEconomy();
+  const { economy, refreshEconomy, updateEconomyFields } = useEconomy();
   const { showToast } = useToast();
 
   const [targetExam, setTargetExam] = useState(null);
@@ -17,13 +17,14 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
   const [smartDndActive, setSmartDndActive] = useState(true);
   const [aiLanguage, setAiLanguage] = useState('English');
   const [activeTooltip, setActiveTooltip] = useState(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
     if (isOpen && economy) {
       setTargetExam(economy.target_exam || null);
-      setSmartMockLimit(economy.smart_mock_limit || 20);
-      setDndFocusActive(!!economy.dnd_focus_active);
-      setSmartDndActive(economy.smart_dnd_active ?? true);
+      setSmartMockLimit(economy.smart_mock_limit || Number(localStorage.getItem('civilsKash_smartMockLimit')) || 20);
+      setDndFocusActive(economy.dnd_focus_active ?? (localStorage.getItem('civilsKash_dndFocusActive') === 'true'));
+      setSmartDndActive(economy.smart_dnd_active ?? (localStorage.getItem('civilsKash_smartDndActive') !== 'false'));
       setAiLanguage(localStorage.getItem('civilsKash_aiLanguage') || 'English');
       document.body.style.overflow = 'hidden';
     }
@@ -33,27 +34,25 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const handleSave = async () => {
+    if (isSaving) return;
+    setIsSaving(true);
+
     try {
-      await updateUserEconomy({
+      const updates = {
         target_exam: targetExam,
         smart_mock_limit: Number(smartMockLimit),
         dnd_focus_active: dndFocusActive,
         smart_dnd_active: smartDndActive,
-      });
+      };
 
-      if (economy?.id && economy.id !== 'default_user') {
-        try {
-          const { error } = await supabase
-            .from('profiles')
-            .update({ target_exam: targetExam })
-            .eq('id', economy.id);
-          if (error) throw error;
-        } catch (supabaseErr) {
-          console.warn("Failed to sync study goals to Supabase, saved locally:", supabaseErr);
-          showToast('Saved locally. Cloud sync pending.', 'warning');
-        }
+      // 1. Immediately update React Context & IndexedDB for 0ms UI reactivity
+      if (updateEconomyFields) {
+        await updateEconomyFields(updates);
+      } else {
+        await updateUserEconomy(updates);
       }
 
+      // 2. Immediately update local profile cache and localStorage fallbacks
       if (economy?.id && economy.id !== 'default_user') {
         const cacheKey = `mcqkash_profile_cache_${economy.id}`;
         const cached = localStorage.getItem(cacheKey);
@@ -61,6 +60,9 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
           try {
             const parsed = JSON.parse(cached);
             parsed.target_exam = targetExam;
+            parsed.smart_mock_limit = Number(smartMockLimit);
+            parsed.dnd_focus_active = dndFocusActive;
+            parsed.smart_dnd_active = smartDndActive;
             localStorage.setItem(cacheKey, JSON.stringify(parsed));
           } catch (e) {
             console.warn("Failed to update profile cache locally:", e);
@@ -68,13 +70,33 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
         }
       }
 
+      localStorage.setItem('civilsKash_smartMockLimit', smartMockLimit);
+      localStorage.setItem('civilsKash_dndFocusActive', dndFocusActive);
+      localStorage.setItem('civilsKash_smartDndActive', smartDndActive);
       localStorage.setItem('civilsKash_aiLanguage', aiLanguage);
-      await refreshEconomy(true);
-      showToast('Study goals saved!', 'success');
+
+      // 3. Instant UI feedback & modal dismissal
+      showToast('Study goals saved successfully!', 'success');
       onClose();
+
+      // 4. Perform Supabase database sync & economy refresh in the background without blocking UI
+      if (economy?.id && economy.id !== 'default_user') {
+        try {
+          await supabase
+            .from('profiles')
+            .update({ target_exam: targetExam })
+            .eq('id', economy.id);
+        } catch (supabaseErr) {
+          console.warn("Failed to sync study goals to Supabase in background:", supabaseErr);
+        }
+      }
+
+      await refreshEconomy(true);
     } catch (err) {
       console.error(err);
       showToast('Failed to save study goals.', 'error');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -230,7 +252,13 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
           {/* Footer Actions */}
           <div className="px-6 py-4 flex gap-3 bg-theme-surface border-t border-theme-border/10">
             <button onClick={onClose} className="flex-1 py-3 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border/50 text-xs hover:bg-theme-surface-hover transition-colors active:scale-95">Cancel</button>
-            <button onClick={handleSave} className="flex-1 py-3 rounded-xl font-bold text-white bg-theme-primary hover:opacity-90 text-xs shadow-md transition-all active:scale-95">Save Goals</button>
+            <button 
+              onClick={handleSave} 
+              disabled={isSaving}
+              className="flex-1 py-3 rounded-xl font-bold text-white bg-theme-primary hover:opacity-90 text-xs shadow-md transition-all active:scale-95 disabled:opacity-60 disabled:pointer-events-none"
+            >
+              {isSaving ? 'Saving...' : 'Save Goals'}
+            </button>
           </div>
         </div>
       </div>

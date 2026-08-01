@@ -516,7 +516,7 @@ export default function PracticeEngine({ isPyqArchive = false }) {
     }
 
     let mockQuestions = [];
-    const targetMockSize = economy?.smart_mock_limit || 20;
+    const targetMockSize = economy?.smart_mock_limit || Number(localStorage.getItem('civilsKash_smartMockLimit')) || 20;
 
     if (pool.length >= targetMockSize) {
       // Shuffle pool and take targetMockSize

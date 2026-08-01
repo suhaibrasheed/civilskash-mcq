@@ -3966,7 +3966,7 @@ Generate exactly 10 new questions.`;
                                <div className="text-[10px] text-theme-muted/60 font-normal lowercase mt-0.5 truncate max-w-[100px] sm:max-w-[120px]">@{economy?.username || 'you'}</div>
                              </div>
                              <span className="font-mono text-xl sm:text-2xl font-black text-theme-primary">
-                               {userScore.toFixed(2)}
+                               {Number(userScore || 0).toFixed(2)}
                              </span>
                            </div>
 

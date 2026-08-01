@@ -877,17 +877,18 @@ export const getWarRoomStats = async () => {
   });
 };
 
-export const getUserEconomy = async () => {
+export const getUserEconomy = async (userId) => {
   return withDBErrorHandler(async () => {
     const db = await initDB();
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([USER_ECONOMY_STORE], 'readonly');
       const store = transaction.objectStore(USER_ECONOMY_STORE);
-      const request = store.get('default_user');
+      const targetId = userId && userId !== 'default_user' ? userId : 'default_user';
+      const request = store.get(targetId);
 
       request.onsuccess = () => {
         const defaults = {
-          id: 'default_user',
+          id: targetId,
           kash_coins_balance: 100,
           pro_factor: 1.0,
           user_tier: 'FREE',
@@ -900,14 +901,28 @@ export const getUserEconomy = async () => {
           revision_shields: 0,
           consecutive_high_scores: 0,
           target_exam: null,
+          smart_mock_limit: 20,
           dnd_focus_active: false,
           smart_dnd_active: true,
           mastered_count: 0,
           badges: []
         };
 
-        if (request.result) resolve({ ...defaults, ...request.result });
-        else resolve(defaults);
+        if (request.result) {
+          resolve({ ...defaults, ...request.result });
+        } else {
+          // If specific user ID not found yet in IndexedDB, fallback to default_user
+          if (targetId !== 'default_user') {
+            const fallbackReq = store.get('default_user');
+            fallbackReq.onsuccess = () => {
+              if (fallbackReq.result) resolve({ ...defaults, ...fallbackReq.result, id: targetId });
+              else resolve(defaults);
+            };
+            fallbackReq.onerror = () => resolve(defaults);
+          } else {
+            resolve(defaults);
+          }
+        }
       };
       request.onerror = () => reject(request.error);
     });
@@ -917,16 +932,20 @@ export const getUserEconomy = async () => {
 export const updateUserEconomy = async (updates) => {
   return withDBErrorHandler(async () => {
     const db = await initDB();
-    const current = await getUserEconomy();
+    const current = await getUserEconomy(updates?.id);
     const updated = { ...current, ...updates };
 
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([USER_ECONOMY_STORE], 'readwrite');
       const store = transaction.objectStore(USER_ECONOMY_STORE);
-      const request = store.put(updated);
+      
+      store.put(updated);
+      if (updated.id && updated.id !== 'default_user') {
+        store.put({ ...updated, id: 'default_user' });
+      }
 
-      request.onsuccess = () => resolve(updated);
-      request.onerror = () => reject(request.error);
+      transaction.oncomplete = () => resolve(updated);
+      transaction.onerror = () => reject(transaction.error);
     });
   });
 };

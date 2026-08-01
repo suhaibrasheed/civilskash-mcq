@@ -181,7 +181,7 @@ export function EconomyProvider({ children }) {
           localStorage.removeItem(`mcqkash_profile_cache_${user.id}`);
         }
       }
-      const localData = await getUserEconomy();
+      const localData = await getUserEconomy(user?.id);
       let updatedData = { ...localData };
 
       if (user) {
@@ -361,7 +361,10 @@ export function EconomyProvider({ children }) {
             lastSyncedDataRef.current.full_name === profile.full_name &&
             lastSyncedDataRef.current.is_pro === profile.is_pro &&
             lastSyncedDataRef.current.scratched_cards_count === Number(profile.scratched_cards_count || 0) &&
-            lastSyncedDataRef.current.target_exam === profile.target_exam;
+            lastSyncedDataRef.current.target_exam === (profile.target_exam || localData.target_exam) &&
+            lastSyncedDataRef.current.smart_mock_limit === localData.smart_mock_limit &&
+            lastSyncedDataRef.current.dnd_focus_active === localData.dnd_focus_active &&
+            lastSyncedDataRef.current.smart_dnd_active === localData.smart_dnd_active;
 
           if (isSame) {
             // Check maturities to see if anything changed locally
@@ -392,7 +395,10 @@ export function EconomyProvider({ children }) {
             full_name: profile.full_name,
             is_pro: profile.is_pro,
             scratched_cards_count: Number(profile.scratched_cards_count || 0),
-            target_exam: profile.target_exam
+            target_exam: profile.target_exam || localData.target_exam,
+            smart_mock_limit: localData.smart_mock_limit,
+            dnd_focus_active: localData.dnd_focus_active,
+            smart_dnd_active: localData.smart_dnd_active
           };
 
           // Sync last streak date from DB to localStorage if available
@@ -451,7 +457,10 @@ export function EconomyProvider({ children }) {
             available_streak_freezes: profile.available_streak_freezes,
             onboarded: !!profile.onboarded,
             scratched_cards_count: Number(profile.scratched_cards_count || 0),
-            target_exam: profile.target_exam || null,
+            target_exam: (profile.target_exam !== undefined && profile.target_exam !== null) ? profile.target_exam : (localData.target_exam || null),
+            smart_mock_limit: localData.smart_mock_limit || 20,
+            dnd_focus_active: !!localData.dnd_focus_active,
+            smart_dnd_active: localData.smart_dnd_active ?? true,
             users_accuracy: profile.users_accuracy || 0,
             joinee_date: profile.joinee_date,
           };
@@ -560,7 +569,11 @@ export function EconomyProvider({ children }) {
           prev.scratched_cards_count === updatedData.scratched_cards_count &&
           prev.premium_discount_earned === updatedData.premium_discount_earned &&
           prev.avatar_id === updatedData.avatar_id &&
-          prev.full_name === updatedData.full_name
+          prev.full_name === updatedData.full_name &&
+          prev.target_exam === updatedData.target_exam &&
+          prev.smart_mock_limit === updatedData.smart_mock_limit &&
+          prev.dnd_focus_active === updatedData.dnd_focus_active &&
+          prev.smart_dnd_active === updatedData.smart_dnd_active
         ) {
           return prev;
         }
@@ -949,6 +962,13 @@ export function EconomyProvider({ children }) {
     return true;
   };
 
+  const updateEconomyFields = async (updates) => {
+    if (!economy) return;
+    const updatedData = { ...economy, ...updates };
+    await updateUserEconomy(updatedData);
+    setEconomy(updatedData);
+  };
+
   return (
     <EconomyContext.Provider value={{
       economy,
@@ -965,6 +985,7 @@ export function EconomyProvider({ children }) {
       breakVault,
       confirmFailure,
       manualRefreshEconomy,
+      updateEconomyFields,
       aiSettingsOpen,
       setAiSettingsOpen,
       proUpsellOpen,
