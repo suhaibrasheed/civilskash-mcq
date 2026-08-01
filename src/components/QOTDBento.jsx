@@ -83,6 +83,7 @@ export default function QOTDBento() {
   const userId = user?.id || 'guest_user';
   
   const [state, setState] = useState('idle'); // 'idle', 'active', 'result', 'resolved', 'review_history'
+  const [isBetting, setIsBetting] = useState(false);
   const [countdown, setCountdown] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -282,20 +283,27 @@ export default function QOTDBento() {
   }, [currentQOTDDate, userId, qotdQuestion]);
 
   const handleBetClick = async () => {
-    if (!qotdQuestion) return;
+    if (!qotdQuestion || isBetting) return;
     
     const coinBalance = economy?.kash_coins_balance || 0;
     if (coinBalance < 30) {
       playShatter();
-      alert("Insufficient KashCoins! Complete battles or review bookmarks to earn more.");
+      showToast("Insufficient KashCoins! Complete battles or review bookmarks to earn more.", "error");
       return;
     }
     
-    const success = await transactKC(-30);
-    if (!success) return;
-    
+    setIsBetting(true);
     playCorrect();
+    showToast("30 KashCoins wagered! Today's QOTD challenge unlocked 🎯", "success");
     setState('active');
+
+    try {
+      await transactKC(-30);
+    } catch (err) {
+      console.warn("Failed to process QOTD wager:", err);
+    } finally {
+      setIsBetting(false);
+    }
   };
 
   const handleDevReset = () => {
@@ -422,10 +430,10 @@ export default function QOTDBento() {
                             </h3>
                             <button 
                               onClick={handleInfoClick}
-                              className="p-1 rounded bg-theme-primary/5 hover:bg-theme-primary/10 text-theme-muted hover:text-theme-primary border border-theme-border/40 active:scale-95 transition-all cursor-pointer outline-none focus:outline-none"
+                              className="p-1 rounded-full text-theme-muted hover:text-amber-500 hover:bg-amber-500/10 active:scale-90 transition-all cursor-pointer outline-none focus:outline-none"
                               title="QOTD Information"
                             >
-                              <Info size={12} />
+                              <Info size={14} />
                             </button>
                           </div>
 
@@ -438,7 +446,8 @@ export default function QOTDBento() {
                       {/* Action Button: BET 30 KC */}
                       <button
                         onClick={handleBetClick}
-                        className="group relative flex items-center gap-2 font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl active:scale-95 transition-all duration-200 shrink-0 cursor-pointer overflow-hidden outline-none focus:outline-none"
+                        disabled={isBetting}
+                        className="group relative flex items-center gap-2 font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl active:scale-95 transition-all duration-200 shrink-0 cursor-pointer overflow-hidden outline-none focus:outline-none disabled:opacity-70 disabled:pointer-events-none"
                         style={{
                           background: 'var(--gradient-primary)',
                           color: '#ffffff',
@@ -446,7 +455,7 @@ export default function QOTDBento() {
                           boxShadow: '0 4px 16px -4px rgba(var(--color-primary), 0.45), 0 1px 0 rgba(255, 255, 255, 0.12) inset'
                         }}
                       >
-                        <span>Bet 30</span>
+                        <span>{isBetting ? "Unlocking..." : "Bet 30"}</span>
                         <KashCoinIcon className="w-4 h-4" style={{ color: 'inherit' }} />
                         <div className="absolute inset-0 bg-white/15 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
                       </button>
@@ -501,9 +510,10 @@ export default function QOTDBento() {
                             <div className="flex items-center gap-1.5">
                               <button 
                                 onClick={handleInfoClick}
-                                className="p-1 rounded bg-amber-500/5 hover:bg-amber-500/10 text-amber-500/60 hover:text-amber-500 border border-amber-500/10 active:scale-95 transition-all cursor-pointer"
+                                className="p-1 rounded-full text-amber-500/60 hover:text-amber-500 hover:bg-amber-500/10 active:scale-90 transition-all cursor-pointer outline-none focus:outline-none"
+                                title="QOTD Information"
                               >
-                                <Info size={10} />
+                                <Info size={12} />
                               </button>
                             </div>
                           </div>
@@ -579,7 +589,7 @@ export default function QOTDBento() {
 
                         <button 
                           onClick={handleInfoClick}
-                          className="p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-400 hover:text-amber-900 border border-amber-500/20 active:scale-95 transition-all cursor-pointer shrink-0 outline-none focus:outline-none"
+                          className="p-2 rounded-full text-amber-500/70 hover:text-amber-500 hover:bg-amber-500/10 active:scale-90 transition-all cursor-pointer shrink-0 outline-none focus:outline-none"
                           title="QOTD Information"
                         >
                           <Info size={14} />
