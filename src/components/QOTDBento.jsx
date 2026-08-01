@@ -57,7 +57,7 @@ const getQOTDDayString = () => {
   };
 };
 
-const getSeededRandom = (seedStr) => {
+const seededRandom = (seedStr) => {
   let hash = 0;
   for (let i = 0; i < seedStr.length; i++) {
     hash = (hash << 5) - hash + seedStr.charCodeAt(i);
@@ -68,6 +68,9 @@ const getSeededRandom = (seedStr) => {
     return Math.abs(hash) / 233280;
   };
 };
+
+const getSeededRandom = seededRandom;
+
 
 export default function QOTDBento() {
   const navigate = useNavigate();
@@ -160,7 +163,8 @@ export default function QOTDBento() {
     );
     
     const historyKey = `mcqkash_qotd_history_${userId}`;
-    const history = JSON.parse(localStorage.getItem(historyKey) || '[]');
+    let history = [];
+    try { history = JSON.parse(localStorage.getItem(historyKey) || '[]'); } catch (e) { history = []; }
     
     let seedOffset = devOffset;
     let selected = null;
@@ -262,7 +266,8 @@ export default function QOTDBento() {
       
       if (parsed.questionId) {
         const historyKey = `mcqkash_qotd_history_${userId}`;
-        let history = JSON.parse(localStorage.getItem(historyKey) || '[]');
+        let history = [];
+        try { history = JSON.parse(localStorage.getItem(historyKey) || '[]'); } catch (e) { history = []; }
         if (!history.includes(parsed.questionId)) {
           history = [parsed.questionId, ...history].slice(0, 7);
           localStorage.setItem(historyKey, JSON.stringify(history));
@@ -328,7 +333,8 @@ export default function QOTDBento() {
     
     // Save solved QOTD question ID to history (keep max 7 entries)
     const historyKey = `mcqkash_qotd_history_${userId}`;
-    let history = JSON.parse(localStorage.getItem(historyKey) || '[]');
+    let history = [];
+    try { history = JSON.parse(localStorage.getItem(historyKey) || '[]'); } catch (e) { history = []; }
     history = [qotdQuestion.id, ...history.filter(id => id !== qotdQuestion.id)].slice(0, 7);
     localStorage.setItem(historyKey, JSON.stringify(history));
     
@@ -351,7 +357,8 @@ export default function QOTDBento() {
   // Look up actual question data for previously solved QOTDs
   const previousQOTDQuestions = useMemo(() => {
     const historyKey = `mcqkash_qotd_history_${userId}`;
-    const historyIds = JSON.parse(localStorage.getItem(historyKey) || '[]');
+    let historyIds = [];
+    try { historyIds = JSON.parse(localStorage.getItem(historyKey) || '[]'); } catch (e) { historyIds = []; }
     return historyIds
       .map(id => ALL_STATIC_BANKS_SYNC.find(q => q.id === id))
       .filter(Boolean);

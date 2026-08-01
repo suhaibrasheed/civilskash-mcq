@@ -1822,8 +1822,8 @@ export default function BattleArena() {
     const oppName = (card.opponentName || 'Opponent').substring(0, 18);
     const uUsername = (economy?.username || 'you').toLowerCase().substring(0, 18);
     const oUsername = oppName.toLowerCase().replace(/\s+/g, '').substring(0, 18);
-    const uScore = card.userScore.toFixed(2);
-    const oScore = card.opponentScore.toFixed(2);
+    const uScore = Number(card?.userScore || 0).toFixed(2);
+    const oScore = Number(card?.opponentScore || 0).toFixed(2);
 
     // ── Background ──
     const bgGrad = ctx.createLinearGradient(0, 0, W, H);
@@ -3059,7 +3059,7 @@ Generate exactly 10 new questions.`;
               {/* Score to beat block */}
               <div className="p-5 bg-amber-500/5 rounded-2xl border border-amber-500/20 max-w-[240px] mx-auto relative z-10">
                 <span className="text-[9px] font-black text-theme-muted uppercase tracking-widest block mb-1">SCORE TO BEAT</span>
-                <span className="text-4xl font-mono font-black text-amber-500">{challengeData.scoreToBeat.toFixed(2)}</span>
+                <span className="text-4xl font-mono font-black text-amber-500">{Number(challengeData?.scoreToBeat || 0).toFixed(2)}</span>
                 <span className="text-xs font-semibold text-theme-muted block mt-1">out of 20.00</span>
               </div>
 
@@ -3882,7 +3882,7 @@ Generate exactly 10 new questions.`;
                     <p className="text-xs font-black text-theme-text">{economy?.full_name || 'You'}</p>
                     <div className="p-3 bg-theme-bg/60 rounded-2xl border border-theme-border/40 min-w-[80px]">
                       <span className="font-mono text-xl font-black text-theme-primary">
-                        {userScore.toFixed(2)}
+                        {Number(userScore || 0).toFixed(2)}
                       </span>
                     </div>
                   </div>
@@ -3901,7 +3901,7 @@ Generate exactly 10 new questions.`;
                         <Clock size={16} className="text-theme-muted animate-spin" />
                       ) : (
                         <span className="font-mono text-xl font-black text-amber-500 animate-pulse">
-                          {tickingScore.toFixed(2)}
+                          {Number(tickingScore || 0).toFixed(2)}
                         </span>
                       )}
                     </div>
@@ -4180,7 +4180,7 @@ Generate exactly 10 new questions.`;
                                   <span>#{liveUserRank} Rank</span>
                                 </div>
                                 <span className="font-mono text-xl sm:text-2xl font-black text-theme-primary">
-                                  {userScore.toFixed(2)}
+                                  {Number(userScore || 0).toFixed(2)}
                                 </span>
                               </div>
 
@@ -4226,7 +4226,7 @@ Generate exactly 10 new questions.`;
                                   <span>{isGhostMode || isFriendChallengeSetup ? '---' : `#${liveOppRank}`} Rank</span>
                                 </div>
                                 <span className="font-mono text-xl sm:text-2xl font-black text-theme-primary">
-                                  {isGhostMode || isFriendChallengeSetup ? '---' : opponentScore.toFixed(2)}
+                                  {isGhostMode || isFriendChallengeSetup ? '---' : Number(opponentScore || 0).toFixed(2)}
                                 </span>
                               </div>
 
@@ -4302,7 +4302,7 @@ Generate exactly 10 new questions.`;
                               <div className="flex gap-3 w-full">
                                 <button
                                   onClick={() => handleFlexShare(
-                                    `I just battled in MCQKash! Scored ${userScore.toFixed(2)} points. Beat my score: ${window.location.origin}`,
+                                    `I just battled in MCQKash! Scored ${Number(userScore || 0).toFixed(2)} points. Beat my score: ${window.location.origin}`,
                                     {
                                       outcome: liveOutcome,
                                       targetExam: economy?.target_exam,
@@ -5120,7 +5120,7 @@ Generate exactly 10 new questions.`;
                       </div>
                       <span className="font-mono text-[28px] sm:text-[34px] font-black tabular-nums leading-none"
                         style={{ color: p.scoreTxt, textShadow: `0 0 22px ${p.scoreGlow}` }}>
-                        {selectedHistoryCard.userScore.toFixed(2)}
+                        {Number(selectedHistoryCard?.userScore || 0).toFixed(2)}
                       </span>
                     </div>
 
@@ -5167,7 +5167,7 @@ Generate exactly 10 new questions.`;
                       </div>
                       <span className="font-mono text-[28px] sm:text-[34px] font-black tabular-nums leading-none"
                         style={{ color: p.scoreTxt, textShadow: `0 0 22px ${p.scoreGlow}` }}>
-                        {selectedHistoryCard.opponentScore.toFixed(2)}
+                        {Number(selectedHistoryCard?.opponentScore || 0).toFixed(2)}
                       </span>
                     </div>
                   </div>

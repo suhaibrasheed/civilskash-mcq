@@ -1941,7 +1941,7 @@ Generate exactly 10 new questions.`;
             </div>
             <p className="text-xs font-bold text-theme-muted uppercase tracking-wider">Total Score</p>
             <h2 className="text-4xl font-black text-theme-primary leading-none">
-              {score.toFixed(2)}
+              {Number(score || 0).toFixed(2)}
               <span className="text-lg text-theme-muted font-medium"> /{maxScore}</span>
             </h2>
             <span className={`mt-1 text-xs font-black px-3 py-0.5 rounded-full ${isGoodMock ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}>

@@ -207,7 +207,12 @@ function SearchOverlay({ isOpen, onClose, setStreakModalOpen, setCoinsVaultOpen 
     if (isOpen) {
       const cached = localStorage.getItem('mcqkash_recent_searches');
       if (cached) {
-        setRecentSearches(JSON.parse(cached));
+        try {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed)) setRecentSearches(parsed);
+        } catch (e) {
+          console.warn('Failed to parse recent searches:', e);
+        }
       }
     }
   }, [isOpen]);
