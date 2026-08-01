@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Sparkles, Zap, Shield, Award, AlertCircle,
   BarChart3, Brain, FileCheck, MessageSquare, Check, Infinity,
-  TrendingUp, Coins, Unlock, Flame, Send, X, Loader, Trophy
+  TrendingUp, Coins, Unlock, Flame, Send, X, Loader, Trophy, Clock, Tag
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useEconomy } from '../context/EconomyContext';
@@ -18,14 +18,56 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const EDGE_FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL || 'https://eojryhfwtnjyegqhiust.supabase.co'}/functions/v1/razorpay`;
 
+// Charm Pricing Math: Rounds calculated discount to an integer ending in 9
+const calculateCharmPrice = (mrp, discountPercent) => {
+  if (!discountPercent || discountPercent <= 0) return mrp;
+  const rawPrice = mrp * (1 - discountPercent / 100);
+  if (rawPrice <= 9) return 9;
+  return Math.floor(rawPrice / 10) * 10 + 9;
+};
+
+// Compute plan pricing enforcing rules for Heavy Coupons (>75%) vs Moderate Coupons (<=75%)
+const computePlanPrice = (plan, appliedCoupon, walletDiscountAmount) => {
+  const baseMrp = plan.originalPrice || plan.price;
+  const couponDiscountPercent = appliedCoupon ? Number(appliedCoupon.discount_percent) : 0;
+  const couponPrice = calculateCharmPrice(baseMrp, couponDiscountPercent);
+  const floor = typeof plan.floorPrice === 'number' ? plan.floorPrice : 9;
+
+  // Heavy Coupons (> 75% OFF): Wallet discount is 0 for price calculation & Floor Price can be breached!
+  if (couponDiscountPercent > 75) {
+    return {
+      baseMrp,
+      couponDiscountPercent,
+      couponPrice,
+      effectiveWalletDiscount: 0,
+      finalPrice: couponPrice,
+      isHeavyCoupon: true,
+    };
+  }
+
+  // Moderate Coupons (<= 75% OFF) or No Coupon: Wallet discount applies, capped by floor price
+  const rawWalletDiscount = walletDiscountAmount > 0 ? walletDiscountAmount : 0;
+  const finalPrice = Math.max(floor, couponPrice - rawWalletDiscount);
+  const effectiveWalletDiscount = Math.max(0, couponPrice - finalPrice);
+
+  return {
+    baseMrp,
+    couponDiscountPercent,
+    couponPrice,
+    effectiveWalletDiscount,
+    finalPrice,
+    isHeavyCoupon: false,
+  };
+};
+
 const PLANS = [
   {
     id: 'ONE_WEEK',
     name: '1 Week',
     label: 'Trial',
     price: 49,
-    floorPrice: 29,
-    originalPrice: 299,
+    floorPrice: 19,
+    originalPrice: 149,
     priceNote: '₹49 / week',
     icon: Flame,
     iconColor: '#f43f5e',
@@ -38,11 +80,12 @@ const PLANS = [
     label: 'Starter',
     price: 249,
     floorPrice: 99,
-    originalPrice: 499,
+    originalPrice: 599,
     priceNote: '₹249 / month',
     icon: Zap,
     iconColor: '#3b82f6',
     featured: false,
+    days: 30,
   },
   {
     id: 'THREE_MONTHS',
@@ -50,11 +93,12 @@ const PLANS = [
     label: 'Super Saver',
     price: 399,
     floorPrice: 249,
-    originalPrice: 799,
+    originalPrice: 1339,
     priceNote: '₹133 / month',
     icon: BarChart3,
     iconColor: '#10b981',
     featured: false,
+    days: 90,
   },
   {
     id: 'SIX_MONTHS',
@@ -62,11 +106,12 @@ const PLANS = [
     label: 'Trending',
     price: 499,
     floorPrice: 349,
-    originalPrice: 1199,
+    originalPrice: 1669,
     priceNote: '₹83 / month',
     icon: TrendingUp,
     iconColor: '#f59e0b',
     featured: false,
+    days: 180,
     badge: { text: 'Trending', color: '#f59e0b' },
   },
   {
@@ -80,19 +125,21 @@ const PLANS = [
     icon: Award,
     iconColor: '#6366f1',
     featured: false,
+    days: 365,
     badge: { text: 'Popular', color: '#3b82f6' },
   },
   {
     id: 'LIFETIME',
-    name: 'Lifetime',
+    name: 'Lifetime (10 Yrs)',
     label: 'Best Value',
     price: 1149,
     floorPrice: 999,
-    originalPrice: 4999,
-    priceNote: '₹7 / month equivalent',
+    originalPrice: 3799,
+    priceNote: '₹4 / month equivalent',
     icon: Infinity,
     iconColor: '#a855f7',
     featured: true,
+    days: 3650,
     badge: { text: 'Best Value', color: '#a855f7' },
   },
 ];
@@ -113,7 +160,7 @@ export default function PricingPage() {
   const { showToast } = useToast();
   const { playVictory } = useSound();
 
-  const getScratchHistory = () => {
+  const scratchHistory = useMemo(() => {
     try {
       const username = economy?.username || 'default';
       const historyKey = `mcqkash_scratch_history_${username}`;
@@ -161,33 +208,311 @@ export default function PricingPage() {
     } catch (e) {
       return [];
     }
-  };
+  }, [economy?.username, economy?.id, economy?.referred_by, economy?.scratched_cards_count]);
 
   const getKashCoinsEarnedFromInvites = () => {
-    const history = getScratchHistory();
-    if (history.length > 0) {
-      return history.reduce((sum, item) => sum + (item.coins || 0), 0);
+    if (scratchHistory.length > 0) {
+      return scratchHistory.reduce((sum, item) => sum + (item.coins || 0), 0);
     }
     return 0;
   };
 
   const getScratchedReferralCount = () => {
-    const history = getScratchHistory();
-    // Count only Referral Cards, excluding Welcome Card from invite counts
-    return history.filter(item => item.type === 'Referral Card').length;
+    return scratchHistory.filter(item => item.type === 'Referral Card').length;
   };
 
   const getScratchedWelcomeCount = () => {
-    const history = getScratchHistory();
-    // Count Welcome Cards scratched
-    return history.filter(item => item.type === 'Welcome Card').length;
+    return scratchHistory.filter(item => item.type === 'Welcome Card').length;
   };
   const [loadingPlan, setLoadingPlan] = useState(null);
   const [showRewardCenterModal, setShowRewardCenterModal] = useState(false);
-  
+  const [buyingCoins, setBuyingCoins] = useState(false);
+
   // Inviter Card state
   const [inviterData, setInviterData] = useState(null);
   const [inviterLoading, setInviterLoading] = useState(false);
+
+  // Dynamic Coupon State & Logic
+  const [couponInput, setCouponInput] = useState('');
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [couponLoading, setCouponLoading] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [expiredNotice, setExpiredNotice] = useState(null);
+
+  // 1. Load active applied coupon from localStorage on mount & check anti-cheat device memory
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('mcqkash_applied_coupon');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed?.expires_at && Date.now() > parsed.expires_at) {
+          localStorage.removeItem('mcqkash_applied_coupon');
+          setExpiredNotice({ code: parsed.code, discount_percent: parsed.discount_percent });
+          showToast(`Sorry, your offer period for '${parsed.code}' has expired.`, 'warning');
+        } else {
+          setAppliedCoupon(parsed);
+          if (parsed?.code) setCouponInput(parsed.code);
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load saved coupon state:', e);
+    }
+  }, []);
+
+  // 2. Countdown Timer Effect for Expiring Coupons
+  useEffect(() => {
+    if (!appliedCoupon?.expires_at) {
+      setTimeLeft(null);
+      return;
+    }
+
+    const updateTimer = () => {
+      const diff = appliedCoupon.expires_at - Date.now();
+      if (diff <= 0) {
+        setExpiredNotice({ code: appliedCoupon.code, discount_percent: appliedCoupon.discount_percent });
+        setAppliedCoupon(null);
+        setCouponInput('');
+        localStorage.removeItem('mcqkash_applied_coupon');
+        setTimeLeft(null);
+        showToast(`Sorry, your offer for '${appliedCoupon.code}' has expired!`, 'warning');
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
+  }, [appliedCoupon]);
+
+  // 3. Handle Apply Coupon Code (Anti-Cheat Device Expiry Memory)
+  const handleApplyCoupon = async (codeToApply) => {
+    const cleanCode = (codeToApply || '').trim().toUpperCase();
+    if (!cleanCode) {
+      showToast('Please enter a coupon code.', 'warning');
+      return;
+    }
+
+    setCouponLoading(true);
+    setCouponInput(cleanCode);
+
+    // Static In-App Default Fallback (45% OFF works offline)
+    if (cleanCode === 'KASH45' || cleanCode === 'KASH35' || cleanCode === 'WELCOME35') {
+      const couponObj = {
+        code: 'KASH45',
+        discount_percent: 45,
+        valid_days: 9999,
+        expires_at: null,
+      };
+      setAppliedCoupon(couponObj);
+      setExpiredNotice(null);
+      localStorage.setItem('mcqkash_applied_coupon', JSON.stringify(couponObj));
+      showToast('🎉 In-App 45% OFF Coupon Applied Successfully!', 'success');
+      if (playVictory) playVictory();
+      setCouponLoading(false);
+      return;
+    }
+
+    // 100% Pure Dynamic Supabase Query for All Other Coupons
+    try {
+      const { data, error } = await supabase
+        .from('coupons')
+        .select('*')
+        .eq('code', cleanCode)
+        .eq('is_active', true)
+        .maybeSingle();
+
+      if (!error && data) {
+        const validDays = Number(data.valid_days || 15);
+        
+        // Anti-Cheat Check: Look up saved device-level first-activation expiry timestamp
+        const expiryStorageKey = `mcqkash_coupon_expiry_${data.code}`;
+        const savedDeviceExpiry = localStorage.getItem(expiryStorageKey);
+        let expiresAt = null;
+
+        if (savedDeviceExpiry) {
+          const parsedExpiry = Number(savedDeviceExpiry);
+          if (Date.now() > parsedExpiry) {
+            // Anti-Cheat: User already activated and burned their 15 days on this device!
+            setAppliedCoupon(null);
+            setExpiredNotice({ code: data.code, discount_percent: Number(data.discount_percent) });
+            showToast(`Sorry, your ${validDays}-day offer for '${data.code}' has expired on this device.`, 'error');
+            setCouponLoading(false);
+            return;
+          }
+          expiresAt = parsedExpiry;
+        } else {
+          // First time activating this code on this device! Lock in permanent expiration timestamp
+          expiresAt = validDays < 900 ? Date.now() + (validDays * 24 * 60 * 60 * 1000) : null;
+          if (expiresAt) {
+            localStorage.setItem(expiryStorageKey, String(expiresAt));
+          }
+        }
+
+        const couponObj = {
+          code: data.code,
+          discount_percent: Number(data.discount_percent),
+          valid_days: validDays,
+          expires_at: expiresAt,
+        };
+        setAppliedCoupon(couponObj);
+        setExpiredNotice(null);
+        localStorage.setItem('mcqkash_applied_coupon', JSON.stringify(couponObj));
+        showToast(`🎉 ${data.discount_percent}% OFF Coupon '${data.code}' Applied!`, 'success');
+        if (playVictory) playVictory();
+      } else {
+        showToast('Invalid or expired coupon code. Join Telegram for today\'s active code!', 'error');
+      }
+    } catch (err) {
+      showToast('Failed to validate coupon. Please try again.', 'error');
+    } finally {
+      setCouponLoading(false);
+    }
+  };
+
+  const handleRemoveCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponInput('');
+    localStorage.removeItem('mcqkash_applied_coupon');
+    showToast('Coupon removed.', 'info');
+  };
+
+  const handleBuyKashCoins = async () => {
+    if (!user) {
+      showToast('Sign In to purchase KashCoins!', 'warning');
+      navigate('/signin');
+      return;
+    }
+
+    const walletBalance = Number(economy?.premium_discount_earned ?? (getScratchedReferralCount() * 25));
+    const appliedDiscount = Math.min(walletBalance, 40);
+    const expectedPayPaise = Math.max(900, (49 - appliedDiscount) * 100);
+
+    setBuyingCoins(true);
+
+    try {
+      const ok = await loadRazorpay();
+      if (!ok) {
+        showToast('Failed to load Razorpay SDK.', 'error');
+        setBuyingCoins(false);
+        return;
+      }
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        showToast('Session expired. Sign in again.', 'warning');
+        navigate('/profile');
+        setBuyingCoins(false);
+        return;
+      }
+      const token = session.access_token;
+
+      let orderId = null;
+      let returnedAmount = null;
+      let currency = 'INR';
+      let keyId = 'rzp_live_SxuAK5B53kL3qS';
+
+      try {
+        const res = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ planId: 'BUY_KASH_COINS_1000', discount: appliedDiscount }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.orderId) orderId = data.orderId;
+          if (data.amount) returnedAmount = Number(data.amount);
+          currency = data.currency || 'INR';
+          if (data.keyId) keyId = data.keyId;
+        }
+      } catch (e) {
+        console.warn('Order creation fallback warning:', e);
+      }
+
+      const razorpayOptions = {
+        key: keyId,
+        amount: expectedPayPaise,
+        currency: currency,
+        name: 'MCQ Kash',
+        description: 'Get 1,000 KashCoins Boost',
+        prefill: { email: user.email },
+        theme: { color: '#f59e0b' },
+        modal: { ondismiss: () => { setBuyingCoins(false); showToast('Cancelled.', 'info'); } },
+        handler: async (response) => {
+          try {
+            const vRes = await fetch(`${EDGE_FUNCTION_URL}/verify-payment`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id || orderId || 'test_coins',
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature || 'test_sig',
+                planId: 'BUY_KASH_COINS_1000',
+              }),
+            });
+
+            let isVerified = false;
+            if (vRes && vRes.ok) {
+              isVerified = true;
+            } else if (response.razorpay_payment_id) {
+              // Resilient fallback: payment ID received, credit 1000 KashCoins via RPC
+              const { error: coinsErr } = await supabase.rpc('transact_coins_rpc', { amount: 1000 });
+              if (!coinsErr) {
+                isVerified = true;
+              }
+            }
+
+            if (isVerified) {
+              if (appliedDiscount > 0 && user?.id) {
+                const currentWallet = Number(
+                  economy?.premium_discount_earned !== undefined && economy?.premium_discount_earned !== null
+                    ? economy.premium_discount_earned
+                    : (getScratchedReferralCount() * 25)
+                );
+                const newWalletBalance = Math.max(0, currentWallet - appliedDiscount);
+                try {
+                  await supabase
+                    .from('profiles')
+                    .update({ premium_discount_earned: newWalletBalance })
+                    .eq('id', user.id);
+                } catch (walletErr) {
+                  console.warn('Wallet balance deduction notice:', walletErr);
+                }
+              }
+
+              confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 }, colors: ['#fbbf24', '#f59e0b', '#10b981'] });
+              const successMsg = appliedDiscount > 0
+                ? `Payment Successful! ₹${appliedDiscount} Wallet Discount applied. +1,000 KashCoins credited! 🪙`
+                : 'Payment Successful! +1,000 KashCoins credited! 🪙';
+              showToast(successMsg, 'success');
+              if (playVictory) playVictory();
+              await refreshEconomy(true);
+              window.dispatchEvent(new Event('sync-profile-stats'));
+            } else {
+              throw new Error('Payment verification failed.');
+            }
+          } catch (e) {
+            showToast(e.message || 'Verification failed.', 'error');
+          } finally {
+            setBuyingCoins(false);
+          }
+        }
+      };
+
+      if (orderId && returnedAmount === expectedPayPaise) razorpayOptions.order_id = orderId;
+      new window.Razorpay(razorpayOptions).open();
+    } catch (e) {
+      showToast(e.message || 'Purchase failed.', 'error');
+      setBuyingCoins(false);
+    }
+  };
 
   useEffect(() => {
     if (showRewardCenterModal && economy?.referred_by) {
@@ -235,11 +560,10 @@ export default function PricingPage() {
     }
   }, [showRewardCenterModal, economy?.referred_by]);
 
-  // Body scroll locking when Reward Center is open & Force Refresh Economy
+  // Body scroll locking when Reward Center is open
   useEffect(() => {
     if (showRewardCenterModal) {
       document.body.style.overflow = 'hidden';
-      if (refreshEconomy) refreshEconomy(true);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -248,6 +572,11 @@ export default function PricingPage() {
     };
   }, [showRewardCenterModal]);
   
+  // Preload Razorpay SDK on mount to eliminate checkout load delay
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
+
   const discount = economy?.premium_discount_earned || 0;
 
   const handleShareReferral = async () => {
@@ -324,38 +653,48 @@ export default function PricingPage() {
       }
       const token = session.access_token;
 
+      // Real-time pre-checkout discount sync: update Supabase profiles DB instantly before order creation
+      const currentDiscount = Number(economy?.premium_discount_earned ?? (getScratchedReferralCount() * 25));
+      try {
+        await supabase
+          .from('profiles')
+          .update({ premium_discount_earned: currentDiscount })
+          .eq('id', user.id);
+      } catch (syncErr) {
+        console.warn('Pre-checkout discount sync notice:', syncErr);
+      }
+
       let orderId = null;
-      let amount;
+      let returnedAmount = null;
       let currency = 'INR';
       let keyId = 'rzp_live_SxuAK5B53kL3qS';
 
-      const expectedAmountPaise = Math.max((plan.floorPrice || 9) * 100, (plan.price - discount) * 100);
+      const { baseMrp, couponDiscountPercent, couponPrice, effectiveWalletDiscount, finalPrice } = computePlanPrice(plan, appliedCoupon, currentDiscount);
+      const expectedAmountPaise = finalPrice * 100;
 
       try {
         const res = await fetch(`${EDGE_FUNCTION_URL}/create-order`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-          body: JSON.stringify({ planId: plan.id, discount }),
+          body: JSON.stringify({ planId: plan.id, discount: effectiveWalletDiscount, couponCode: appliedCoupon?.code, couponDiscount: couponDiscountPercent }),
         });
 
         if (res.ok) {
           const data = await res.json();
           if (data.orderId) orderId = data.orderId;
-          amount = data.amount || expectedAmountPaise;
+          if (data.amount) returnedAmount = Number(data.amount);
           currency = data.currency || 'INR';
           if (data.keyId) keyId = data.keyId;
         } else {
           console.warn("Remote Edge Function create-order returned non-200, using client amount calculation...");
-          amount = expectedAmountPaise;
         }
       } catch (edgeErr) {
         console.warn("Remote Edge Function create-order network error, using client amount calculation...", edgeErr);
-        amount = expectedAmountPaise;
       }
 
       const razorpayOptions = {
         key: keyId,
-        amount: (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') ? 900 : amount,
+        amount: expectedAmountPaise,
         currency: currency || 'INR',
         name: 'MCQ Kash',
         description: `${plan.name} Pro Upgrade`,
@@ -435,6 +774,19 @@ export default function PricingPage() {
             }
 
             if (isSuccess) {
+              if (currentDiscount > 0 && user?.id) {
+                const actualDiscountApplied = Math.min(currentDiscount, Math.max(0, plan.price - (typeof plan.floorPrice === 'number' ? plan.floorPrice : 9)));
+                const newWalletBalance = Math.max(0, currentDiscount - actualDiscountApplied);
+                try {
+                  await supabase
+                    .from('profiles')
+                    .update({ premium_discount_earned: newWalletBalance })
+                    .eq('id', user.id);
+                } catch (walletErr) {
+                  console.warn('Wallet balance deduction notice on Pro upgrade:', walletErr);
+                }
+              }
+
               const expDate = new Date();
               const daysToAdd = plan.days || 30;
               expDate.setTime(expDate.getTime() + Math.round(daysToAdd * 24 * 60 * 60 * 1000));
@@ -465,7 +817,7 @@ export default function PricingPage() {
         },
       };
 
-      if (orderId) {
+      if (orderId && returnedAmount === expectedAmountPaise) {
         razorpayOptions.order_id = orderId;
       }
 
@@ -803,9 +1155,102 @@ export default function PricingPage() {
           )}
         </section>
 
-        {/* REFERRAL TILE (Free Users with 0 discount) */}
-        {!isPro && discount === 0 && (
+        {/* 1. URGENCY COUNTDOWN BANNER (Masterpiece Luxury Fintech Style) */}
+        {appliedCoupon && appliedCoupon.expires_at && (
           <div className="max-w-[980px] mx-auto px-6 mb-6">
+            <div className="bg-gradient-to-r from-slate-900/95 via-amber-950/40 to-slate-900/95 border border-amber-500/35 rounded-2xl p-4 sm:p-4.5 flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-2xl shadow-[0_12px_40px_rgba(245,158,11,0.18)] relative overflow-hidden group">
+              {/* Luminous Top Shimmer Border */}
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent pointer-events-none opacity-80" />
+              {/* Background ambient glow flare */}
+              <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Left Info Group */}
+              <div className="flex items-center gap-3.5 text-left relative z-10">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/40 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(245,158,11,0.25)]">
+                  <Clock className="w-5 h-5 text-amber-400 animate-pulse" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-black uppercase tracking-wider text-slate-100 flex items-center gap-1.5">
+                      YOUR EXCLUSIVE{' '}
+                      <span className="text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-orange-400 font-black px-2.5 py-0.5 rounded-md shadow-[0_2px_12px_rgba(245,158,11,0.4)] tracking-wide text-xs">
+                        {appliedCoupon.discount_percent}% OFF
+                      </span>{' '}
+                      IS LIVE
+                    </span>
+                  </div>
+                  <p className="text-[12px] text-slate-300 font-medium mt-1 leading-snug">
+                    Your coupon is active. <span className="text-amber-300 font-bold underline decoration-amber-500/40 underline-offset-2">Complete your upgrade before this offer expires.</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Countdown Timer Vault Display */}
+              {timeLeft && (
+                <div className="flex items-center gap-3 bg-slate-950/90 border border-amber-500/30 px-4 py-2.5 rounded-xl shrink-0 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] relative z-10">
+                  <div className="flex flex-col items-center min-w-[28px]">
+                    <span className="text-base font-black text-amber-400 font-mono leading-none drop-shadow-[0_2px_8px_rgba(245,158,11,0.5)]">{timeLeft.days}d</span>
+                    <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">DAYS</span>
+                  </div>
+                  <span className="text-amber-500/60 font-black text-sm animate-pulse">:</span>
+                  <div className="flex flex-col items-center min-w-[28px]">
+                    <span className="text-base font-black text-amber-400 font-mono leading-none drop-shadow-[0_2px_8px_rgba(245,158,11,0.5)]">{String(timeLeft.hours).padStart(2, '0')}h</span>
+                    <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">HRS</span>
+                  </div>
+                  <span className="text-amber-500/60 font-black text-sm animate-pulse">:</span>
+                  <div className="flex flex-col items-center min-w-[28px]">
+                    <span className="text-base font-black text-amber-400 font-mono leading-none drop-shadow-[0_2px_8px_rgba(245,158,11,0.5)]">{String(timeLeft.minutes).padStart(2, '0')}m</span>
+                    <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">MIN</span>
+                  </div>
+                  <span className="text-amber-500/60 font-black text-sm animate-pulse">:</span>
+                  <div className="flex flex-col items-center min-w-[28px]">
+                    <span className="text-base font-black text-amber-400 font-mono leading-none drop-shadow-[0_2px_8px_rgba(245,158,11,0.5)]">{String(timeLeft.seconds).padStart(2, '0')}s</span>
+                    <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">SEC</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* 2. EXPIRED COUPON BANNER (Masterpiece Rose Luxury Banner) */}
+        {!appliedCoupon && expiredNotice && (
+          <div className="max-w-[980px] mx-auto px-6 mb-6">
+            <div className="bg-gradient-to-r from-rose-950/60 via-slate-900/95 to-rose-950/60 border border-rose-500/35 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-2xl shadow-[0_10px_35px_rgba(244,63,94,0.15)] relative overflow-hidden">
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-rose-500 to-transparent pointer-events-none opacity-80" />
+              <div className="flex items-center gap-3.5 text-left relative z-10">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-600/10 border border-rose-500/40 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(244,63,94,0.25)]">
+                  <Clock className="w-5 h-5 text-rose-400 opacity-80" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-black uppercase tracking-wider text-rose-300 flex items-center gap-1.5">
+                      SPECIAL OFFER HAS EXPIRED{' '}
+                      <span className="text-rose-200 bg-rose-500/20 font-black px-2 py-0.5 rounded-md border border-rose-500/30 text-xs">
+                        {expiredNotice.code}
+                      </span>
+                    </span>
+                  </div>
+                  <p className="text-[12px] text-slate-300 font-medium mt-1 leading-snug">
+                    Sorry, your <span className="text-white font-bold">{expiredNotice.discount_percent}% OFF</span> offer period has ended for this device. Standard pricing applies.
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://t.me/+gGtCAlVgB3I5ZTBl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 hover:text-white text-xs font-black tracking-wide transition-all flex items-center gap-2 shrink-0 relative z-10"
+              >
+                <span>Get New Code on Telegram</span>
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* 3. REFERRAL / EARN REWARDS TILE (Placed BEFORE Pricing Grid) */}
+        {!isPro && (
+          <div className="max-w-[980px] mx-auto px-6 mb-8">
             <div className="bg-gradient-to-r from-cyan-950/40 via-cyan-900/20 to-slate-900/60 border border-cyan-500/30 hover:border-cyan-500/50 rounded-3xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] relative overflow-hidden transition-all duration-300 text-left">
               <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 pointer-events-none" />
               <div className="space-y-1.5">
@@ -819,7 +1264,7 @@ export default function PricingPage() {
               </div>
               <button 
                 onClick={() => setShowRewardCenterModal(true)}
-                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_4px_14px_rgba(6,182,212,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 flex items-center justify-center gap-1.5"
+                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_4px_14px_rgba(6,182,212,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Sparkles size={12} /> Earn Rewards
               </button>
@@ -834,11 +1279,11 @@ export default function PricingPage() {
             const isLoading = loadingPlan === plan.id;
             const PlanIcon = plan.icon;
 
-            const finalPrice = Math.max(plan.floorPrice, plan.price - discount);
+            const { baseMrp, couponDiscountPercent, couponPrice, effectiveWalletDiscount, finalPrice, isHeavyCoupon } = computePlanPrice(plan, appliedCoupon, discount);
 
             // Recalculate monthly price note if a discount is active
             let activePriceNote = plan.priceNote;
-            if (discount > 0) {
+            if (finalPrice < baseMrp) {
               if (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') {
                 activePriceNote = `₹${finalPrice} / 1 day pass`;
               } else if (plan.id === 'ONE_WEEK') {
@@ -852,7 +1297,7 @@ export default function PricingPage() {
               } else if (plan.id === 'ONE_YEAR') {
                 activePriceNote = `₹${Math.round(finalPrice / 12)} / month`;
               } else if (plan.id === 'LIFETIME') {
-                activePriceNote = `₹${Math.round(finalPrice / 144)} / month equivalent`;
+                activePriceNote = `₹4 / month equivalent`;
               }
             }
 
@@ -883,19 +1328,46 @@ export default function PricingPage() {
                 <div className="plan-divider" />
 
                 <div className="price-section">
-                  <div className="price-row">
+                  <div className="price-row flex items-baseline gap-1.5 flex-wrap">
                     <span className="price-currency">₹</span>
                     <span className="price-amount">{finalPrice}</span>
-                    {discount > 0 && finalPrice < plan.price ? (
-                      <span className="price-strike">₹{plan.price}</span>
-                    ) : (
-                      <span className="price-strike">₹{plan.originalPrice}</span>
-                    )}
+                    {effectiveWalletDiscount > 0 && couponDiscountPercent > 0 && finalPrice < couponPrice && couponPrice < baseMrp ? (
+                      <>
+                        <span className="line-through text-amber-400/90 font-bold text-xs sm:text-sm">
+                          ₹{couponPrice}
+                        </span>
+                        <span className="price-strike opacity-60 text-xs">
+                          ₹{baseMrp}
+                        </span>
+                      </>
+                    ) : couponDiscountPercent > 0 && finalPrice < baseMrp ? (
+                      <span className="price-strike opacity-60 text-xs">
+                        ₹{baseMrp}
+                      </span>
+                    ) : effectiveWalletDiscount > 0 && finalPrice < plan.price ? (
+                      <>
+                        <span className="line-through text-amber-400/90 font-bold text-xs sm:text-sm">
+                          ₹{plan.price}
+                        </span>
+                        <span className="price-strike opacity-60 text-xs">
+                          ₹{baseMrp}
+                        </span>
+                      </>
+                    ) : finalPrice < baseMrp ? (
+                      <span className="price-strike">₹{baseMrp}</span>
+                    ) : null}
                   </div>
                   <div className="price-note">{activePriceNote}</div>
-                  {discount > 0 && finalPrice < plan.price && (
-                    <div className="text-[10px] font-bold text-emerald-500 mt-1">
-                      Referral Discount Applied: -₹{plan.price - finalPrice}
+                  {couponDiscountPercent > 0 && (
+                    <div className="text-[10px] font-extrabold text-amber-400 mt-1 flex items-center gap-1">
+                      <Sparkles size={11} className="text-amber-400 animate-pulse shrink-0" />
+                      <span>{couponDiscountPercent}% Coupon Applied ({appliedCoupon.code})</span>
+                    </div>
+                  )}
+                  {discount > 0 && (
+                    <div className="text-[10px] font-extrabold text-emerald-400 mt-0.5 flex items-center gap-1">
+                      <Coins size={11} className="text-emerald-400 shrink-0" />
+                      <span>{isHeavyCoupon ? 'No wallet discount for Mega Coupons' : `Wallet Discount: -₹${effectiveWalletDiscount}`}</span>
                     </div>
                   )}
                 </div>
@@ -919,6 +1391,101 @@ export default function PricingPage() {
               </div>
             );
           })}
+        </div>
+
+        {/* 4. BEHAVIORAL FOMO NOTE BELOW PLAN TILES (Masterpiece Luxury Banner) */}
+        {appliedCoupon && appliedCoupon.expires_at && (
+          <div className="max-w-[980px] mx-auto px-6 mt-4 mb-2">
+            <div className="bg-gradient-to-r from-amber-950/40 via-slate-900/95 to-amber-950/40 border border-amber-500/30 rounded-2xl p-3.5 flex items-center justify-between gap-3 backdrop-blur-xl shadow-[0_4px_20px_rgba(245,158,11,0.1)] relative overflow-hidden">
+              <div className="flex items-center gap-2.5 text-left">
+                <div className="w-7 h-7 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
+                  <Zap size={14} className="text-amber-400 fill-amber-400/30" />
+                </div>
+                <p className="text-[11px] text-slate-300 font-medium leading-normal">
+                  Discount Code <strong className="text-amber-300 font-mono bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/25">{appliedCoupon.code}</strong> Active · Upgrade before the countdown timer ends to lock in these special prices before they revert to original MRP.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 5. PREMIUM COUPON CARD (Placed BELOW Pricing Grid) */}
+        <div className="max-w-[980px] mx-auto px-6 mt-8 mb-10">
+          <div className="bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/95 border border-amber-500/25 hover:border-amber-500/40 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(245,158,11,0.07)] space-y-3.5 relative overflow-hidden transition-all duration-300">
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/45 to-transparent pointer-events-none" />
+
+            {/* Row 1: Title + Subtitle */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0">
+                  <Tag size={15} className="text-amber-400" />
+                </div>
+                <h4 className="text-[13px] font-black text-white tracking-tight">Apply Your Discount Coupon?</h4>
+              </div>
+              <p className="text-[11px] text-slate-400 font-medium sm:text-right pl-[42px] sm:pl-0">Enter your Special Offer Coupon from Telegram</p>
+            </div>
+
+            {/* Subtle divider */}
+            <div className="h-px bg-slate-800/70" />
+
+            {/* Row 2: Full-width Input + Apply */}
+            <div className="flex items-stretch gap-2.5">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={couponInput}
+                  onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
+                  onKeyDown={(e) => e.key === 'Enter' && handleApplyCoupon(couponInput)}
+                  placeholder="ENTER CODE"
+                  className="w-full h-11 bg-slate-950/80 border border-slate-700/60 focus:border-amber-500/50 rounded-xl px-4 text-[11px] font-mono font-bold text-white uppercase tracking-widest placeholder:text-slate-600 placeholder:normal-case placeholder:tracking-normal outline-none transition-all"
+                />
+                {appliedCoupon && (
+                  <button
+                    onClick={handleRemoveCoupon}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[9px] font-black text-rose-400 hover:text-rose-300 bg-rose-500/10 px-1.5 py-0.5 rounded-md border border-rose-500/20 transition-all"
+                  >✕</button>
+                )}
+              </div>
+              <button
+                onClick={() => handleApplyCoupon(couponInput)}
+                disabled={couponLoading || !couponInput.trim()}
+                className="h-11 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 font-black text-[11px] uppercase tracking-widest rounded-xl transition-all shadow-[0_4px_16px_rgba(245,158,11,0.3)] shrink-0 flex items-center gap-1.5 cursor-pointer"
+              >
+                {couponLoading ? <Loader size={12} className="animate-spin" /> : 'Apply'}
+              </button>
+            </div>
+
+            {/* Row 3: Quick-action buttons OR Applied badge */}
+            {!appliedCoupon ? (
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <button
+                  onClick={() => handleApplyCoupon('KASH45')}
+                  title="Tap to apply 45% discount instantly"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[11px] font-black text-amber-400 hover:text-amber-300 transition-all active:scale-95 cursor-pointer"
+                  style={{ background: 'rgba(245,158,11,0.09)', border: '1px solid rgba(245,158,11,0.28)' }}
+                >
+                  <Sparkles size={12} className="animate-pulse shrink-0" />
+                  Use KASH45 (45% OFF)
+                </button>
+                <a
+                  href="https://t.me/+gGtCAlVgB3I5ZTBl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[11px] font-black text-cyan-400 hover:text-cyan-300 transition-all active:scale-95"
+                  style={{ background: 'rgba(6,182,212,0.07)', border: '1px solid rgba(6,182,212,0.25)' }}
+                >
+                  <Send size={12} className="shrink-0" />
+                  Get Coupon on Telegram
+                </a>
+              </div>
+            ) : (
+              <div className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-emerald-400 text-[11px] font-black mx-auto w-fit" style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)' }}>
+                <Check size={13} className="shrink-0" />
+                <span><strong>{appliedCoupon.code}</strong> Applied — {appliedCoupon.discount_percent}% OFF Active</span>
+              </div>
+            )}
+
+          </div>
         </div>
 
         {/* FEATURES PANEL */}
@@ -1052,6 +1619,47 @@ export default function PricingPage() {
                 <div className="space-y-3">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Invite Stats</span>
                   <div className="grid grid-cols-2 gap-3">
+                    
+                    {/* 1. Wallet Money (FIRST TILE - Full Width col-span-2) */}
+                    <div className="bg-emerald-500/[0.03] border border-emerald-500/20 rounded-2xl p-4 text-left col-span-2 flex items-center justify-between">
+                      <div className="flex flex-col justify-center">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-emerald-400">
+                          Wallet Money
+                        </span>
+                        <div className="text-3xl font-black text-emerald-400 mt-1 tracking-tight">
+                          ₹{(() => {
+                            if (!economy || economy.id === 'default_user') {
+                              return (getScratchedReferralCount() * 25) + 25;
+                            }
+                            const sc = Number(economy.scratched_cards_count || 0);
+                            const welcomeBonus = (economy.referred_by || localStorage.getItem('mcqkash_welcome_coins_pending')) ? 25 : 0;
+                            const maxEarned = (sc * 25) + welcomeBonus;
+                            const dbBal = economy.premium_discount_earned !== undefined && economy.premium_discount_earned !== null
+                              ? Number(economy.premium_discount_earned)
+                              : maxEarned;
+                            return dbBal;
+                          })()}
+                        </div>
+                      </div>
+
+                      {/* 15 Days Left Badge (Clean, No Emojis, No wrapping) */}
+                      {(() => {
+                        const lastInviteTime = localStorage.getItem('mcqkash_last_referral_time')
+                          ? Number(localStorage.getItem('mcqkash_last_referral_time'))
+                          : Date.now();
+                        const expiryTime = lastInviteTime + (15 * 24 * 60 * 60 * 1000);
+                        const diffMs = expiryTime - Date.now();
+                        const daysLeft = Math.max(1, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+
+                        return (
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[10px] font-black uppercase tracking-wider shrink-0">
+                            <Clock size={12} className="text-rose-400 shrink-0" />
+                            <span>{daysLeft} Days Left</span>
+                          </div>
+                        );
+                      })()}
+                    </div>
+
                     {/* Friends Joined */}
                     <div className="bg-blue-500/[0.03] border border-blue-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-blue-400">Friends Joined</span>
@@ -1082,19 +1690,6 @@ export default function PricingPage() {
                     <div className="bg-rose-500/[0.03] border border-rose-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-rose-400">Power Surge</span>
                       <div className="text-2xl font-black text-white mt-1">+{(getScratchedReferralCount() * 3) + (getScratchedWelcomeCount() * 7)} Days</div>
-                    </div>
-
-                    {/* Wallet Money */}
-                    <div className="bg-emerald-500/[0.03] border border-emerald-500/10 rounded-2xl p-4 text-left col-span-2 flex items-center justify-between">
-                      <div className="flex flex-col">
-                        <span className="text-[9px] font-black uppercase tracking-widest text-emerald-400">Wallet Money</span>
-                        <div className="text-2xl font-black text-emerald-500 mt-1">
-                          ₹{!economy || economy.id === 'default_user' ? (getScratchedReferralCount() * 25) : (economy.premium_discount_earned || 0)}
-                        </div>
-                      </div>
-                      <span className="text-[9px] text-slate-400 font-bold tracking-wide max-w-[150px] text-right">
-                        Applies to premium checkout automatically
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -1128,7 +1723,7 @@ export default function PricingPage() {
                         <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
                         <div>
                           <span className="font-extrabold text-white block">Friends Get instant benefits</span>
-                          <span className="text-slate-300 font-medium text-[11px]">Referees receive a <strong className="text-amber-500">variable 100-250 KashCoins</strong> + <strong className="text-cyan-400">1 Streak Freeze</strong> + <strong className="text-rose-400">7-day Power Surge boost</strong>.</span>
+                          <span className="text-slate-300 font-medium text-[11px]">Referees receive <strong className="text-amber-500">150 KashCoins</strong> + <strong className="text-emerald-400">₹25 Wallet Money</strong> + <strong className="text-cyan-400">1 Freeze</strong> + <strong className="text-rose-400">7-day Surge</strong>.</span>
                         </div>
                       </div>
 
@@ -1136,7 +1731,7 @@ export default function PricingPage() {
                         <div className="w-5 h-5 rounded bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
                         <div>
                           <span className="font-extrabold text-white block">You Get premium rewards</span>
-                          <span className="text-slate-300 font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-400">Scratch Card</strong> loaded with <strong className="text-amber-500">variable KashCoins</strong>, <strong className="text-cyan-400">freezes</strong>, and <strong className="text-rose-400">surges</strong>!</span>
+                          <span className="text-slate-300 font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-400">Scratch Card</strong> loaded with rewards!</span>
                         </div>
                       </div>
 
@@ -1145,12 +1740,84 @@ export default function PricingPage() {
                       </div>
                     </div>
                   </div>
-                </div>
 
+                  {/* How Wallet Works Card */}
+                  <div className="bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 rounded-3xl p-5 space-y-3.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] text-left">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-1.5">
+                        <Sparkles size={12} className="text-emerald-400" />
+                        How Wallet Works
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[9px] font-black uppercase tracking-wider">
+                        Use It Or Lose It
+                      </span>
+                    </div>
+                    
+                    <div className="space-y-3 text-xs">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">1</div>
+                        <div>
+                          <span className="font-extrabold text-white block">Earn ₹25 Per Invite & Joining</span>
+                          <span className="text-slate-300 font-medium text-[11px]">Inviting a friend adds <strong className="text-emerald-400">₹25 to your Wallet</strong>, and the invited friend also gets <strong className="text-emerald-400">₹25 Wallet Money</strong> on joining!</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-5 h-5 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
+                        <div>
+                          <span className="font-extrabold text-white block">Reduces Pro Price & Buys KashCoins</span>
+                          <span className="text-slate-300 font-medium text-[11px]">Wallet money automatically reduces your <strong className="text-cyan-400">Pro membership price</strong> at checkout, and can buy <strong className="text-amber-400">KashCoins</strong> in the Coins Vault!</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-5 h-5 rounded bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
+                        <div>
+                          <span className="font-extrabold text-white block">15-Day Expiry (Resets On Each Invite)</span>
+                          <span className="text-slate-300 font-medium text-[11px]">Wallet balance has a <strong className="text-rose-400">15-day "Use It or Lose It" timer</strong>. Every new invite <strong className="text-amber-400">resets your 15-day timer</strong> back to full to keep adding money!</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </motion.div>
           </div>
         )}
+
+        {/* Minimalist Visual Checkout Loading Overlay */}
+        <AnimatePresence>
+          {(loadingPlan !== null || buyingCoins) && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md"
+            >
+              <motion.div
+                initial={{ scale: 0.85, y: 10 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.85, y: 10 }}
+                className="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-8 max-w-xs w-full shadow-[0_25px_60px_rgba(0,0,0,0.85)] text-center flex flex-col items-center gap-5 relative overflow-hidden"
+              >
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-500 via-cyan-400 to-amber-500 animate-pulse" />
+                
+                {/* Visual Shield & Spinner */}
+                <div className="relative w-20 h-20 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                  <Shield className="w-10 h-10 text-amber-400 animate-pulse" />
+                  <div className="absolute inset-0 rounded-3xl border-2 border-amber-400/50 border-t-transparent animate-spin" />
+                </div>
+
+                {/* Minimal Clean Text Badge */}
+                <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-amber-400 bg-amber-500/10 px-4 py-2 rounded-2xl border border-amber-500/25 shadow-sm">
+                  <Sparkles size={13} className="animate-spin text-amber-400 shrink-0" />
+                  <span>256-bit SSL Protected Checkout</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </>

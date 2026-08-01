@@ -14,12 +14,13 @@ const corsHeaders = {
 const PRICING_PLANS: Record<string, { price: number; floorPrice: number; days: number }> = {
   ONE_DAY: { price: 900, floorPrice: 900, days: 1 }, // ₹9 1-Day Pass
   ONE_HOUR: { price: 900, floorPrice: 900, days: 1 }, // Alias for 1-Day Pass
-  ONE_WEEK: { price: 4900, floorPrice: 900, days: 7 },
-  ONE_MONTH: { price: 24900, floorPrice: 9900, days: 30 },
-  THREE_MONTHS: { price: 39900, floorPrice: 24900, days: 90 },
-  SIX_MONTHS: { price: 49900, floorPrice: 34900, days: 180 },
-  ONE_YEAR: { price: 59900, floorPrice: 44900, days: 365 },
-  LIFETIME: { price: 114900, floorPrice: 99900, days: 36500 }, // 100 Years
+  ONE_WEEK: { price: 4900, floorPrice: 1900, days: 7 }, // ₹49 base, ₹19 floor
+  ONE_MONTH: { price: 24900, floorPrice: 9900, days: 30 }, // ₹249 base, ₹99 floor
+  THREE_MONTHS: { price: 39900, floorPrice: 24900, days: 90 }, // ₹399 base, ₹249 floor
+  SIX_MONTHS: { price: 49900, floorPrice: 34900, days: 180 }, // ₹499 base, ₹349 floor
+  ONE_YEAR: { price: 59900, floorPrice: 44900, days: 365 }, // ₹599 base, ₹449 floor
+  LIFETIME: { price: 114900, floorPrice: 99900, days: 36500 }, // ₹1149 base, ₹999 floor
+  BUY_KASH_COINS_1000: { price: 4900, floorPrice: 900, days: 0 }, // ₹49 base, ₹9 floor (max ₹40 discount)
 };
 
 serve(async (req) => {
@@ -90,18 +91,17 @@ serve(async (req) => {
         console.error("Failed to fetch user profile for discount verification:", fetchErr);
       }
 
-      // Calculate discount capability from DB (either stored premium_discount_earned or derived from scratched_cards_count * 25)
+      // Calculate discount capability from DB & client request
       const dbDiscountFromCards = Number(profile?.scratched_cards_count || 0) * 25;
       const dbDiscountEarned = Number(profile?.premium_discount_earned || 0);
-      const verifiedMaxDiscount = Math.max(dbDiscountEarned, dbDiscountFromCards);
+      const userAvailableDiscountINR = Math.max(dbDiscountEarned, dbDiscountFromCards, clientDiscount);
 
-      // Discount to apply: use clientDiscount if valid, fallback to verifiedMaxDiscount
-      const discountToApply = clientDiscount > 0
-        ? Math.min(clientDiscount, verifiedMaxDiscount > 0 ? verifiedMaxDiscount : clientDiscount)
-        : verifiedMaxDiscount;
-      
-      // Calculate final price in paise (plan.price is in paise, discount is in INR, so we multiply discount by 100)
-      const finalPricePaise = Math.max(plan.floorPrice, plan.price - (discountToApply * 100));
+      // Max discount allowed for this specific plan based on floorPrice (in INR)
+      const maxAllowedPlanDiscountINR = Math.max(0, (plan.price - plan.floorPrice) / 100);
+      const discountToApplyINR = Math.min(userAvailableDiscountINR, maxAllowedPlanDiscountINR);
+
+      // Calculate final price in paise
+      const finalPricePaise = Math.max(plan.floorPrice, plan.price - (discountToApplyINR * 100));
 
       // Basic Auth string for Razorpay Requests
       const basicAuth = btoa(`${razorpayKeyId}:${razorpayKeySecret}`);
@@ -185,10 +185,10 @@ serve(async (req) => {
         }
       }
 
-      // Fetch user profile based on ID to append payment record and stack expiration if currently active
+      // Fetch user profile based on ID
       let { data: profile, error: fetchError } = await supabaseAdmin
         .from("profiles")
-        .select("payment_history, pro_expires_at, pro_expiration")
+        .select("payment_history, pro_expires_at, pro_expiration, liquid_coins, premium_discount_earned, scratched_cards_count")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -215,20 +215,10 @@ serve(async (req) => {
             { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
         }
-        profile = { payment_history: [], pro_expires_at: null, pro_expiration: null };
+        profile = { payment_history: [], pro_expires_at: null, pro_expiration: null, liquid_coins: 100, premium_discount_earned: 0, scratched_cards_count: 0 };
       }
 
-      // Compute subscription expiration bounds (stacks on top of existing active time if not yet expired)
       const selectedPlan = PRICING_PLANS[planId];
-      const now = new Date();
-      const existingExpRaw = profile.pro_expires_at || profile.pro_expiration;
-      const existingExp = existingExpRaw ? new Date(existingExpRaw) : null;
-      const baseDate = (existingExp && existingExp > now) ? existingExp : now;
-
-      const expirationDate = new Date(baseDate.getTime());
-      expirationDate.setTime(expirationDate.getTime() + Math.round(selectedPlan.days * 24 * 60 * 60 * 1000));
-      const isoExpiration = expirationDate.toISOString();
-
       const newPayment = {
         order_id: razorpay_order_id,
         payment_id: razorpay_payment_id,
@@ -238,13 +228,52 @@ serve(async (req) => {
       };
 
       const history = Array.isArray(profile?.payment_history) ? profile.payment_history : [];
-      // Prevent duplicates
       const exists = history.some((p: any) => p.payment_id === razorpay_payment_id);
       const updatedHistory = exists ? history : [...history, newPayment];
 
+      // SPECIAL PATH: BUY 1000 KASHCOINS VIA RAZORPAY
+      if (planId === 'BUY_KASH_COINS_1000') {
+        const { error: coinsErr } = await supabaseAdmin
+          .from("profiles")
+          .update({
+            liquid_coins: Number(profile.liquid_coins || 0) + 1000,
+            payment_history: updatedHistory,
+          })
+          .eq("id", user.id);
+
+        if (coinsErr) {
+          console.error("Failed to credit KashCoins:", coinsErr);
+          return new Response(
+            JSON.stringify({ error: "Failed to credit KashCoins to profile.", details: coinsErr.message }),
+            { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+
+        return new Response(
+          JSON.stringify({ success: true, message: "+1,000 KashCoins credited!" }),
+          { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // STANDARD PRO SUBSCRIPTION PATH
+      const now = new Date();
+      const existingExpRaw = profile.pro_expires_at || profile.pro_expiration;
+      const existingExp = existingExpRaw ? new Date(existingExpRaw) : null;
+      const baseDate = (existingExp && existingExp > now) ? existingExp : now;
+
+      const expirationDate = new Date(baseDate.getTime());
+      expirationDate.setTime(expirationDate.getTime() + Math.round(selectedPlan.days * 24 * 60 * 60 * 1000));
+      const isoExpiration = expirationDate.toISOString();
+
+      // Deduct only the discount actually applied to this plan, leaving remaining wallet money intact!
+      const currentWalletINR = Math.max(Number(profile.premium_discount_earned || 0), Number(profile.scratched_cards_count || 0) * 25);
+      const maxPlanDiscountINR = Math.max(0, (selectedPlan.price - selectedPlan.floorPrice) / 100);
+      const discountAppliedINR = Math.min(currentWalletINR, maxPlanDiscountINR);
+      const remainingWalletBalanceINR = Math.max(0, currentWalletINR - discountAppliedINR);
+
       const validDbTier = (planId === 'ONE_HOUR' || planId === 'ONE_DAY') ? 'ONE_DAY' : planId;
 
-      // Update the user profile securely (discount is kept intact for renewals/future use)
+      // Update user profile securely with remaining wallet balance
       let { error: updateError } = await supabaseAdmin
         .from("profiles")
         .update({
@@ -253,6 +282,7 @@ serve(async (req) => {
           pro_expiration: isoExpiration,
           pro_expires_at: isoExpiration,
           payment_history: updatedHistory,
+          premium_discount_earned: remainingWalletBalanceINR,
         })
         .eq("id", user.id);
 

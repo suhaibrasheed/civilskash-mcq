@@ -257,6 +257,13 @@ export default function ExamEngine() {
         
         <div className="flex items-center gap-2 sm:gap-4">
           <button 
+            onClick={() => setIsInfoModalOpen(true)}
+            title="Mock Guidelines"
+            className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-muted hover:text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
+          >
+            <Info size={16} />
+          </button>
+          <button 
             onClick={toggleFullscreen} 
             title={isFullscreen ? "Exit Full Screen" : "Full Screen Mode"}
             className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
@@ -282,14 +289,7 @@ export default function ExamEngine() {
           <div className="max-w-3xl mx-auto mb-4 text-theme-muted font-bold flex justify-between items-center">
             <span>Question {currentIdx + 1} of {questions.length}</span>
             <div className="flex items-center gap-2">
-              <span className="bg-theme-primary/10 text-theme-primary px-2 py-1 rounded text-xs">+1 Mark / -0.25 Negative</span>
-              <button 
-                onClick={() => setIsInfoModalOpen(true)} 
-                className="text-theme-muted hover:text-theme-text transition-colors p-1"
-                title="Mock Guidelines"
-              >
-                <Info size={16} />
-              </button>
+              <span className="bg-theme-primary/10 text-theme-primary px-2.5 py-1 rounded-full text-xs font-semibold">+1 Mark / -0.25 Negative</span>
             </div>
           </div>
           
@@ -414,59 +414,121 @@ export default function ExamEngine() {
         </div>
       </div>
       
-      {/* Smart-Mock Guidelines Modal */}
       <UniversalModal
         isOpen={isInfoModalOpen}
         onClose={() => setIsInfoModalOpen(false)}
         title="Mock Test Guidelines"
       >
-        <div className="space-y-5 text-sm text-theme-text text-left leading-relaxed">
-          <div className="space-y-1">
-            <h4 className="font-bold text-theme-primary flex items-center gap-1.5">
-              <span>📌</span> Mark for Review
-            </h4>
-            <p className="text-xs text-theme-muted pl-5">
-              Highlights the question in purple in your navigation palette so you can quickly jump back to it. It does not affect your score.
-            </p>
-          </div>
-
-          <div className="space-y-1 border-t border-theme-border/30 pt-3">
-            <h4 className="font-bold text-amber-500 flex items-center gap-1.5">
-              <span>⚡</span> 50/50 Lifeline Penalty
-            </h4>
-            <p className="text-xs text-theme-muted pl-5">
-              Using the 50/50 lifeline costs 3 KashCoins and eliminates 2 incorrect options. If you answer correctly using 50/50, a penalty of <strong>0.5 marks is deducted</strong> (earning +0.50 net instead of +1.00 for that question).
-            </p>
-          </div>
-
-          {economy?.user_tier !== 'Pro' ? (
-            <div className="space-y-2 border-t border-amber-500/20 bg-amber-500/5 p-3.5 rounded-xl mt-3">
-              <h4 className="font-bold text-amber-600 flex items-center gap-1.5">
-                <span>🔒</span> Free Tier Scoring Limit
+        <div className="space-y-3 text-sm text-theme-text text-left leading-relaxed">
+          {/* Card 1: Marking Scheme */}
+          <div 
+            className="p-3.5 rounded-2xl bg-theme-surface/60 backdrop-blur-md flex items-start gap-3 transition-all"
+            style={{ border: '1px solid rgba(255, 255, 255, 0.08)' }}
+          >
+            <div className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+              <span className="text-base font-black">🎯</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text flex items-center gap-2">
+                Marking Scheme
+                <span className="text-[10px] font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full" style={{ border: '1px solid rgba(59, 130, 246, 0.2)' }}>Standard</span>
               </h4>
-              <p className="text-[11px] text-amber-700 dark:text-amber-300 leading-relaxed">
-                Serious aspirants attempt the complete Mock Test. This Test includes locked tricky Pro Questions (10–20%), reducing your maximum achievable score and earning ability as a Free Member. Upgrade to Pro for Full Access.
+              <p className="text-xs text-theme-muted mt-1 leading-relaxed">
+                Each correct answer earns <strong className="text-emerald-500">+1.0 mark</strong>. Each incorrect answer incurs a <strong className="text-rose-500">-0.25 mark</strong> negative penalty.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Mark for Review */}
+          <div 
+            className="p-3.5 rounded-2xl bg-theme-surface/60 backdrop-blur-md flex items-start gap-3 transition-all"
+            style={{ border: '1px solid rgba(255, 255, 255, 0.08)' }}
+          >
+            <div className="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center shrink-0 mt-0.5">
+              <span className="text-base font-black">📌</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text flex items-center gap-2">
+                Mark for Review
+                <span className="text-[10px] font-semibold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full" style={{ border: '1px solid rgba(168, 85, 247, 0.2)' }}>Palette Helper</span>
+              </h4>
+              <p className="text-xs text-theme-muted mt-1 leading-relaxed">
+                Flags questions in purple on your navigation palette for quick re-visits. Marked questions are scored normally if answered.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3: 50/50 Lifeline */}
+          <div 
+            className="p-3.5 rounded-2xl bg-theme-surface/60 backdrop-blur-md flex items-start gap-3 transition-all"
+            style={{ border: '1px solid rgba(255, 255, 255, 0.08)' }}
+          >
+            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+              <span className="text-base font-black">⚡</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text flex items-center gap-2">
+                50/50 Lifeline
+                <span className="text-[10px] font-semibold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full" style={{ border: '1px solid rgba(245, 158, 11, 0.2)' }}>3 KC / Use</span>
+              </h4>
+              <p className="text-xs text-theme-muted mt-1 leading-relaxed">
+                Eliminates 2 incorrect options. Correct answers using 50/50 incur a <strong className="text-amber-500">0.5 mark deduction</strong> (+0.50 net score).
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4: Tier Access Status */}
+          {economy?.user_tier !== 'Pro' ? (
+            <div 
+              className="p-3.5 rounded-2xl bg-amber-500/5 backdrop-blur-md space-y-2"
+              style={{ border: '1px solid rgba(245, 158, 11, 0.25)' }}
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-amber-500 dark:text-amber-400 flex items-center gap-1.5">
+                  <span>🔒</span> Free Member Limit
+                </h4>
+                <span className="text-[9px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/15 px-2 py-0.5 rounded-md" style={{ border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                  Pro Locked
+                </span>
+              </div>
+              <p className="text-[11px] text-amber-700 dark:text-amber-300/90 leading-relaxed font-medium">
+                10–20% of high-yield tricky questions are locked for Free members. Upgrade to Pro for complete access and full leaderboard scoring.
               </p>
               <button
                 onClick={() => {
                   setIsInfoModalOpen(false);
                   navigate('/upgrade');
                 }}
-                className="mt-1.5 w-full py-1.5 bg-amber-500 hover:bg-amber-600 text-white font-black rounded-lg text-[10px] uppercase tracking-wider transition-all active:scale-95 text-center"
+                className="mt-1 w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black rounded-xl text-xs uppercase tracking-wider transition-all active:scale-[0.98] shadow-md shadow-amber-500/20 text-center"
               >
-                Upgrade to Pro
+                Unlock Pro Access
               </button>
             </div>
           ) : (
-            <div className="space-y-1 border-t border-emerald-500/20 bg-emerald-500/5 p-3 rounded-xl mt-3 text-emerald-800 dark:text-emerald-300">
-              <h4 className="font-bold flex items-center gap-1.5">
-                <span>★</span> Active Pro Member
-              </h4>
-              <p className="text-xs">
-                You have active Pro status. All questions are fully unlocked and scoreable without limits.
-              </p>
+            <div 
+              className="p-3.5 rounded-2xl bg-emerald-500/5 backdrop-blur-md flex items-center gap-3"
+              style={{ border: '1px solid rgba(16, 185, 129, 0.25)' }}
+            >
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
+                <span className="text-base font-black">★</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  Active Pro Membership
+                </h4>
+                <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">
+                  All questions fully unlocked. Full scoring and ranking enabled.
+                </p>
+              </div>
             </div>
           )}
+
+          {/* Footer Note */}
+          <div className="pt-2 border-t border-theme-border/20 text-center">
+            <p className="text-[10px] text-theme-muted/50 font-medium tracking-wide">
+              Leaderboard Intelligence includes all registered aspirants (absentees score 0).
+            </p>
+          </div>
         </div>
       </UniversalModal>
     </div>

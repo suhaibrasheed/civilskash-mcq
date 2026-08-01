@@ -67,8 +67,12 @@ function buildDynamicResurrectionMocks(allQuestions) {
 
   // 1. Process Tag Mocks: search for tags with >= 2 mistakes
   let sortedTags = getTagCounts(remaining);
+  const processedTags = new Set();
+
   while (sortedTags.length > 0 && sortedTags[0][1] >= 2) {
     const [tagName, mistakeCount] = sortedTags[0];
+    if (processedTags.has(tagName)) break;
+    processedTags.add(tagName);
     
     // Get all mistakes with this tag
     const tagMistakes = remaining.filter(q => Array.isArray(q.tags) && q.tags.some(t => t === tagName));
@@ -133,8 +137,8 @@ function buildDynamicResurrectionMocks(allQuestions) {
       });
     }
 
-    // Refresh tag counts
-    sortedTags = getTagCounts(remaining);
+    // Refresh tag counts, filtering out already processed tags
+    sortedTags = getTagCounts(remaining).filter(([t]) => !processedTags.has(t));
   }
 
   // 2. Process Category Mocks: search for categories with >= 2 mistakes remaining
@@ -148,8 +152,13 @@ function buildDynamicResurrectionMocks(allQuestions) {
   };
 
   let sortedCats = getCategoryCounts(remaining);
+  const processedCats = new Set();
+
   while (sortedCats.length > 0 && sortedCats[0][1] >= 2) {
     const [catId, mistakeCount] = sortedCats[0];
+    if (processedCats.has(catId)) break;
+    processedCats.add(catId);
+
     const catMistakes = remaining.filter(q => q.category_id === catId);
 
     if (catMistakes.length >= 2) {
@@ -198,13 +207,15 @@ function buildDynamicResurrectionMocks(allQuestions) {
       });
     }
 
-    // Refresh category counts
-    sortedCats = getCategoryCounts(remaining);
+    // Refresh category counts, filtering out already processed categories
+    sortedCats = getCategoryCounts(remaining).filter(([c]) => !processedCats.has(c));
   }
 
   // 3. Leftover mixed mistakes
   let mixedIndex = 1;
-  while (remaining.length > 0) {
+  let safetyGuard = 0;
+  while (remaining.length > 0 && safetyGuard < 100) {
+    safetyGuard++;
     const chunk = remaining.splice(0, 10);
     let finalQuestionData = [...chunk];
 

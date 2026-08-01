@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { getAggregatedStats, getWarRoomStats, getRevisionStats, getUserEconomy } from '../lib/db';
 import { useAuth } from '../context/AuthContext';
 import { useEconomy } from '../context/EconomyContext';
@@ -44,6 +44,8 @@ export function useHomepageIntelligence() {
   const [telemetry, setTelemetry] = useState(null);
 
   // 1. Fetch Supabase Leaderboard Ranks (cached for 24 hours)
+  const lastRankFetchRef = useRef(0);
+
   useEffect(() => {
     let active = true;
     async function fetchRanks(force = false) {
@@ -51,8 +53,13 @@ export function useHomepageIntelligence() {
 
       const now = Date.now();
       const cacheKey = `mcqkash_ranks_cache_${user.id}`;
-      const cached = localStorage.getItem(cacheKey);
 
+      if (force && (now - lastRankFetchRef.current < 10000)) {
+        // Cooldown guard: skip forced RPC calls within 10 seconds to prevent network spam
+        return;
+      }
+
+      const cached = localStorage.getItem(cacheKey);
       let cacheFresh = false;
       if (cached) {
         try {
@@ -70,6 +77,7 @@ export function useHomepageIntelligence() {
       if (cacheFresh && !force) return;
 
       try {
+        lastRankFetchRef.current = now;
         const [coinsRes, streakRes, countRes] = await Promise.all([
           supabase.rpc('get_logged_in_user_coins_rank'),
           supabase.rpc('get_logged_in_user_streak_rank'),
@@ -106,16 +114,18 @@ export function useHomepageIntelligence() {
     };
   }, [user]);
 
-  // 2. Fetch IndexedDB Data
+  // 2. Fetch IndexedDB Data in Parallel
   useEffect(() => {
     let active = true;
     async function loadData() {
       setLoading(true);
       try {
-        const stats = await getAggregatedStats();
-        const warRoom = await getWarRoomStats();
-        const revision = await getRevisionStats();
-        const localEconomy = await getUserEconomy();
+        const [stats, warRoom, revision, localEconomy] = await Promise.all([
+          getAggregatedStats(),
+          getWarRoomStats(),
+          getRevisionStats(),
+          getUserEconomy()
+        ]);
 
         if (active) {
           setTelemetry({

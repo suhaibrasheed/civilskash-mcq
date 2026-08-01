@@ -81,7 +81,7 @@ function HeroStart() {
     }
   }, [isDynamic, greetings.length, allSubheadings.length, activeTriggers.length]);
 
-  // 1. Subheading cycles every 8 seconds randomly
+  // 1. Subheading cycles every 16 seconds randomly (doubled from 8s)
   useEffect(() => {
     if (!isDynamic) return;
     const interval = setInterval(() => {
@@ -94,11 +94,11 @@ function HeroStart() {
         }
         return nextIndex;
       });
-    }, 8000);
+    }, 16000);
     return () => clearInterval(interval);
   }, [isDynamic]);
 
-  // 2. Sub-capsules cycle one by one every 6 seconds (in round-robin)
+  // 2. Sub-capsules cycle one by one every 12 seconds (doubled from 6s)
   useEffect(() => {
     if (!isDynamic) return;
     const interval = setInterval(() => {
@@ -126,11 +126,11 @@ function HeroStart() {
         }
         return nextStep;
       });
-    }, 6000);
+    }, 12000);
     return () => clearInterval(interval);
   }, [isDynamic]);
 
-  // 3. Heading/Greeting changes every 150 seconds randomly
+  // 3. Heading/Greeting changes every 300 seconds (doubled from 150s)
   useEffect(() => {
     if (!isDynamic) return;
     const interval = setInterval(() => {
@@ -143,11 +143,11 @@ function HeroStart() {
         }
         return nextIndex;
       });
-    }, 150000);
+    }, 300000);
     return () => clearInterval(interval);
   }, [isDynamic]);
 
-  // 4. Active trigger (Main Capsule at the top) changes every 50 seconds randomly
+  // 4. Active trigger (Main Capsule at the top) changes every 100 seconds (doubled from 50s)
   useEffect(() => {
     if (!isDynamic) return;
     const interval = setInterval(() => {
@@ -160,7 +160,7 @@ function HeroStart() {
         }
         return nextIndex;
       });
-    }, 50000);
+    }, 100000);
     return () => clearInterval(interval);
   }, [isDynamic]);
 
@@ -421,7 +421,7 @@ function HeroStart() {
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-theme-primary/15 bg-theme-primary/5 backdrop-blur-md shadow-sm"
               >
                 {renderTopIcon(topCapsuleType)}
@@ -443,7 +443,7 @@ function HeroStart() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="pointer-events-none select-none px-3.5 py-1.5 rounded-full backdrop-blur-md flex items-center gap-2 w-full"
                   style={{
                     background: 'rgba(var(--color-surface-rgb), 0.5)',
@@ -468,7 +468,7 @@ function HeroStart() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               {headingText}
@@ -483,7 +483,7 @@ function HeroStart() {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               {subheadingText}

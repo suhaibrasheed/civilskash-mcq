@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   ArrowLeft, CheckCircle2, XCircle, MinusCircle,
   BarChart3, Target, Activity, LogOut, PlayCircle, Share2,
-  Clock, Trophy, Award, Crown, Coins, Sparkles, Flame, Zap, Shield, ShieldCheck
+  Clock, Trophy, Award, Crown, Coins, Sparkles, Flame, Zap, Shield, ShieldCheck, Info
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,101 +28,160 @@ export const formatTime = (seconds) => {
   return m > 0 ? `${m}m ${s}s` : `${s}s`;
 };
 
-// Deterministically generate total live aspirants (40 to 65) based on mock attributes
+// Deterministically generate total registered aspirants (120 to 280) based on mock attributes
 export const getDeterministicLiveAspirants = (mockId, title) => {
   const seed = `${mockId || ''}-${title || 'Mock'}`;
   const hash = [...seed].reduce((acc, char) => ((acc << 5) - acc + char.charCodeAt(0)) | 0, 0);
-  return 40 + (Math.abs(hash) % 26); // Returns 40 to 65
+  return 120 + (Math.abs(hash) % 161); // Returns 120 to 280
 };
 
-// Bulletproof Ghost Analytics Algorithm
-export function calculateRealtimeIntelligence(score, totalQuestions, timeTakenSeconds, totalLiveAspirants) {
+// Micro-hash helper: deterministically maps any seed string to a float in [0, 1)
+const microHash = (seed) => {
+  const h = [...String(seed)].reduce((acc, c) => (Math.imul(acc ^ c.charCodeAt(0), 2654435761) >>> 0), 0);
+  return (h >>> 0) / 4294967296;
+};
+
+// Realistic Ghost Population Algorithm
+// The leaderboard contains ALL registered aspirants — those who didn't attempt score 0.
+// A deterministic seed per (mockId, score) keeps rank stable across re-attempts.
+export function calculateRealtimeIntelligence(score, totalQuestions, timeTakenSeconds, totalLiveAspirants, mockId) {
   const scoreClamped = typeof score === 'number' && !isNaN(score) ? score : 0;
   const totalQs = typeof totalQuestions === 'number' && !isNaN(totalQuestions) && totalQuestions > 0 ? totalQuestions : 10;
   const timeSeconds = typeof timeTakenSeconds === 'number' && !isNaN(timeTakenSeconds) ? timeTakenSeconds : 300;
   const totalLive = (typeof totalLiveAspirants === 'number' && !isNaN(totalLiveAspirants) && totalLiveAspirants > 0)
     ? totalLiveAspirants
-    : 50;
+    : 150;
 
-  const ratio = totalQs > 0 ? Math.max(0, Math.min(1, scoreClamped / totalQs)) : 0;
-  
-  let basePercentile;
-  if (ratio >= 0.9) {
-    basePercentile = 2.5 + (1.0 - ratio) * 50; // Perfect score maps to 2.5% (targets Top 1-5%)
-  } else if (ratio >= 0.7) {
-    basePercentile = 7.5 + (0.9 - ratio) * 75; // Top 7.5% to 22.5%
-  } else if (ratio >= 0.5) {
-    basePercentile = 22.5 + (0.7 - ratio) * 112.5; // Top 22.5% to 45% (50% score -> 45%)
-  } else if (ratio >= 0.3) {
-    basePercentile = 45.0 + (0.5 - ratio) * 150; // Top 45% to 75%
-  } else {
-    basePercentile = 75.0 + (0.3 - ratio) * 70; // Top 75% to 96%
-  }
+  // ── Step 1: Build realistic population distribution ─────────────
+  // Deterministic per-mock seed so numbers don't shift on re-attempts
+  const mockSeed = `${mockId || 'mock'}-${totalQs}`;
 
-  const benchmarkTime = totalQs * 60;
-  const timeRatio = benchmarkTime > 0 ? timeSeconds / benchmarkTime : 1;
-  const clampedTimeRatio = Math.max(0.1, Math.min(2.0, timeRatio));
-  
-  // Fast time shifts percentile higher (better/lower percentile); slow time degrades it
-  const timeAdjustment = (clampedTimeRatio - 1.0) * 4.0;
-  let finalPercentile = basePercentile + timeAdjustment;
-  
-  finalPercentile = Math.max(0.5, Math.min(99.0, finalPercentile));
-  const roundedPercentile = Math.round(finalPercentile * 10) / 10;
+  // 10–40% of the leaderboard are absentees who scored 0
+  const absentRaw = microHash(mockSeed + '-absent');
+  const absentFraction = 0.10 + absentRaw * 0.30; // [0.10, 0.40]
+  const absentCount = Math.round(totalLive * absentFraction);
 
-  const rawRank = (roundedPercentile / 100) * totalLive;
-  const rank = Math.max(1, Math.min(totalLive, Math.round(rawRank)));
+  // 3–10% of attendees scored negative (negative marking)
+  const negRaw = microHash(mockSeed + '-neg');
+  const negFraction = 0.03 + negRaw * 0.07;        // [0.03, 0.10]
+  const negCount = Math.round((totalLive - absentCount) * negFraction);
 
-  const isHighScore = ratio >= 0.6;
-  const avgSeconds = totalQs > 0 ? timeSeconds / totalQs : 0;
-  const isFast = avgSeconds <= 45;
+  // The rest are genuine positive-scorers
+  const positiveCount = totalLive - absentCount - negCount;
 
+  // ── Step 2: Determine user's percentile within the full field ───
   const minutes = Math.floor(timeSeconds / 60);
   const seconds = Math.round(timeSeconds % 60);
   const formattedTime = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+  const avgSeconds = totalQs > 0 ? timeSeconds / totalQs : 0;
+  const isFast = avgSeconds <= 45;
 
-  const beatPercent = Math.round(100 - roundedPercentile);
-  // How many real aspirants the user beat
+  let rank;
+  let finalPercentile;
+
+  // ── Convention: finalPercentile = (beatCount / totalLive) * 100
+  // HIGHER value = better. Displayed as "X Percentile" — standard NTA-style.
+  // Targets: 10/10 → ~99%, 9/10 → ~97.5%, 5/10 → ~70%, 3/10 → ~45%
+
+  if (scoreClamped <= -6) {
+    // Very negative: absolute bottom — 0.5–2.5 percentile
+    const pRaw = microHash(mockSeed + '-veryNeg-' + String(Math.round(scoreClamped)));
+    finalPercentile = 0.5 + pRaw * 2.0;      // 0.5 – 2.5
+    rank = Math.max(totalLive - 2, Math.round((1 - finalPercentile / 100) * totalLive));
+
+  } else if (scoreClamped < 0) {
+    // Mild negative: 2.5–6 percentile
+    const pRaw = microHash(mockSeed + '-neg-' + String(Math.round(scoreClamped * 4)));
+    finalPercentile = 2.5 + pRaw * 3.5;      // 2.5 – 6
+    rank = Math.round((1 - finalPercentile / 100) * totalLive);
+
+  } else if (scoreClamped === 0) {
+    // Zero-scorer: just above negative scorers — 5–25 percentile
+    const pRaw = microHash(mockSeed + '-zero');
+    const rankMin = positiveCount + 1;
+    const rankMax = Math.max(rankMin, totalLive - negCount - 1);
+    rank = Math.round(rankMin + pRaw * (rankMax - rankMin));
+    rank = Math.max(rankMin, Math.min(rankMax, rank));
+    finalPercentile = Math.round(((totalLive - rank) / totalLive) * 1000) / 10;
+
+  } else {
+    // Positive score — smooth piecewise curve on beatCount-percentile (higher = better).
+    // Time nudge ±3 pts: fast → higher (better), slow → lower (worse).
+    // Anchors: 10/10→99.3%, 9/10→97.5%, 5/10→70%, 3/10→45%
+    const ratio = Math.max(0, Math.min(1, scoreClamped / totalQs));
+
+    let basePct;
+    if (ratio >= 0.9) {
+      basePct = 97.5 + (ratio - 0.9) * 18;    // 97.5% → 99.3%  (9/10 → 10/10)
+    } else if (ratio >= 0.5) {
+      basePct = 70.0 + (ratio - 0.5) * 68.75; // 70%   → 97.5%  (5/10 → 9/10)
+    } else if (ratio >= 0.3) {
+      basePct = 45.0 + (ratio - 0.3) * 125;   // 45%   → 70%    (3/10 → 5/10)
+    } else {
+      basePct = 28.0 + ratio * 56.7;          // ~28%  → 45%    (barely +ve → 3/10)
+    }
+
+    // Time nudge: fast → higher percentile (better), slow → lower
+    const benchmarkTime = totalQs * 60;
+    const clampedTR = Math.max(0.1, Math.min(2.0, timeSeconds / Math.max(1, benchmarkTime)));
+    const timeAdj = -(clampedTR - 1.0) * 3.0; // inverted: fast (ratio<1) gives positive boost
+    finalPercentile = Math.max(27.0, Math.min(99.9, basePct + timeAdj));
+
+    // Derive rank from percentile (positive scorer always ranks above zero-scorers)
+    rank = Math.max(1, Math.min(positiveCount, Math.round((1 - finalPercentile / 100) * totalLive)));
+  }
+
+  rank = Math.max(1, Math.min(totalLive, rank));
   const beatCount = totalLive - rank;
-  // How close to the next rank above
-  const rankAbovePercent = Math.round((1 / totalLive) * 100 * 10) / 10;
-  // Avg time the ghost field took (benchmark is 55s/q for the pack)
+  const roundedPercentile = Math.max(0.1, Math.min(99.9, Math.round(((beatCount / totalLive) * 100) * 10) / 10));
+  const beatPercent = Math.round((beatCount / totalLive) * 100);
+  const isHighScore = (scoreClamped / totalQs) >= 0.6;
+
+  // ── Step 3: Build insight comment ───────────────────────────────
   const packAvgTime = Math.round(totalQs * 55);
   const timeDeltaSeconds = Math.abs(packAvgTime - timeSeconds);
   const timeDeltaFormatted = timeDeltaSeconds >= 60
     ? `${Math.floor(timeDeltaSeconds / 60)}m ${timeDeltaSeconds % 60}s`
     : `${timeDeltaSeconds}s`;
 
-  // Dynamic, variable insight comments — feel real, cite live numbers
   let insightComment = "";
-  let insightColor = "muted"; // "green" | "amber" | "blue" | "rose" | "muted"
+  let insightColor = "muted";
 
-  if (rank === 1) {
-    insightComment = `You are number 1 out of ${totalLive} active aspirants. No one in this session came close, outrunning the entire field by ${timeDeltaFormatted}.`;
+  if (scoreClamped <= -6) {
+    insightComment = `Score of ${scoreClamped.toFixed(2)} places you below ${beatPercent}% of the leaderboard including those who didn't attempt. Focus on reducing incorrect attempts before speed.`;
+    insightColor = "rose";
+  } else if (scoreClamped < 0) {
+    insightComment = `Negative score this session. You rank below those who left the test blank. Reducing random guessing alone will push you above ${negCount + absentCount} aspirants next attempt.`;
+    insightColor = "rose";
+  } else if (scoreClamped === 0) {
+    insightComment = `A zero score puts you above ${negCount} aspirants who lost marks to negative marking, but below all ${positiveCount} active scorers. Attempt at least half the paper next time.`;
+    insightColor = "rose";
+  } else if (rank === 1) {
+    insightComment = `#1 out of ${totalLive} registered aspirants. You finished ${timeDeltaFormatted} ${timeSeconds < packAvgTime ? 'faster than' : 'slower than'} the field average. Dominant performance.`;
     insightColor = "green";
   } else if (isFast && isHighScore) {
-    insightComment = `Your ${formattedTime} finish broke a tie with ${Math.min(5, beatCount)} aspirants at identical scores. You beat ${beatCount} of ${totalLive} because speed was your edge.`;
+    insightComment = `Speed and accuracy delivered. Your ${formattedTime} finish placed you ahead of ${beatCount} of ${totalLive} aspirants — including ${absentCount} who didn't show up and ${negCount} who went negative.`;
     insightColor = "green";
-  } else if (!isFast && isHighScore && rank <= 5) {
-    insightComment = `Top ${rank} accuracy in this session. Only ${rank - 1} aspirants scored higher. Being ${timeDeltaFormatted} faster would have locked number 1.`;
+  } else if (!isFast && isHighScore && rank <= Math.ceil(totalLive * 0.05)) {
+    insightComment = `Top ${rank} out of ${totalLive}. Only ${rank - 1} aspirants outscored you. ${timeDeltaFormatted} faster pacing would have sealed Rank 1.`;
     insightColor = "green";
   } else if (!isFast && isHighScore) {
-    insightComment = `Strong accuracy. You beat ${beatCount} aspirants but lost ${timeDeltaFormatted} compared to the pack average. Trim your review time and you jump ${Math.min(rank - 1, 8)} ranks.`;
+    insightComment = `Strong accuracy — you beat ${beatCount} aspirants. However you were ${timeDeltaFormatted} slower than the active-scorer average. Cutting review time could push you ${Math.min(rank - 1, 10)} ranks higher.`;
     insightColor = "amber";
   } else if (isFast && !isHighScore && rank <= Math.round(totalLive * 0.4)) {
-    insightComment = `You finished ${timeDeltaFormatted} ahead of the field average, but rushed ${Math.round((1 - ratio) * totalQs)} questions into wrong answers. Slower pace by 30 seconds yields a Top ${Math.max(1, rank - 5)} rank.`;
+    insightComment = `You finished ${timeDeltaFormatted} ahead of the field average, but rushed questions into wrong answers. Slow down by 30 seconds and you could reach Top ${Math.max(1, rank - 8)}.`;
     insightColor = "amber";
   } else if (isFast && !isHighScore) {
-    insightComment = `Quick session with ${Math.round(timeSeconds / totalQs)} seconds average per question, but accuracy cost you ${totalLive - rank} positions. Trap options caught you. Slow down by 20 seconds per question.`;
+    insightComment = `${Math.round(avgSeconds)}s average per question was quick, but accuracy cost you ${totalLive - rank} positions. Trap options are your weak point — slow down and eliminate before selecting.`;
     insightColor = "rose";
-  } else if (beatPercent >= 60) {
-    insightComment = `You outperformed ${beatPercent}% of ${totalLive} active aspirants. Consistent performance like this compounds. Keep going.`;
+  } else if (beatPercent >= 65) {
+    insightComment = `You outperformed ${beatPercent}% of ${totalLive} registered aspirants including ${absentCount} no-shows. Consistent pressure like this is how ranks climb.`;
     insightColor = "blue";
-  } else if (beatPercent >= 35) {
-    insightComment = `You beat ${beatCount} of ${totalLive} aspirants this session. The gap to the Top 25% is ${Math.round((0.75 - ratio) * totalQs * 10) / 10} marks, which is achievable next attempt.`;
+  } else if (beatPercent >= 40) {
+    insightComment = `You beat ${beatCount} of ${totalLive} aspirants this session. The gap between you and the Top 25% is within reach — roughly ${Math.max(1, Math.round((0.75 * totalQs) - scoreClamped))} marks.`;
     insightColor = "amber";
   } else {
-    insightComment = `Rank ${rank} of ${totalLive} with ${totalLive - rank} aspirants ahead. Focus on the incorrect questions below. Recovering them moves you up 2 to 3 ranks.`;
+    insightComment = `Rank ${rank} of ${totalLive}. You're ahead of ${beatCount} aspirants. Target the incorrect answers below — recovering them directly moves you ${Math.min(8, totalLive - rank)} places up.`;
     insightColor = "rose";
   }
 
@@ -130,6 +189,9 @@ export function calculateRealtimeIntelligence(score, totalQuestions, timeTakenSe
     percentile: roundedPercentile,
     rank,
     totalLiveAspirants: totalLive,
+    absentCount,
+    negCount,
+    positiveCount,
     insightComment,
     insightColor,
     isFast,
@@ -196,7 +258,8 @@ export function useRealtimeIntelligence(score, totalQuestions, timeTakenSeconds,
           }
 
           if (count !== null && count > 1) {
-            totalLiveAspirants = count + Math.floor(Math.random() * 10);
+            // Keep deterministic — no random jitter so repeat-takers see stable numbers
+            totalLiveAspirants = count;
           }
         }
       } catch (err) {
@@ -205,7 +268,7 @@ export function useRealtimeIntelligence(score, totalQuestions, timeTakenSeconds,
 
       if (!active) return;
 
-      const stats = calculateRealtimeIntelligence(score, totalQuestions, timeTakenSeconds, totalLiveAspirants);
+      const stats = calculateRealtimeIntelligence(score, totalQuestions, timeTakenSeconds, totalLiveAspirants, mockId);
       setData(stats);
       setIsLoading(true);
 
@@ -346,11 +409,31 @@ const summarizeByTag = (questions, answers) => {
   }));
 };
 
+// Groups messages by dimension so the final output is always multi-dimensional.
+// Returns the top-priority message. If a complementary message from a DIFFERENT
+// group exists, appends a second sentence from it — giving depth without repetition.
 const pickStableInsight = (messages, seedParts) => {
   if (messages.length === 0) return '';
   const seed = seedParts.join('|');
-  const hash = [...seed].reduce((acc, char) => ((acc << 5) - acc + char.charCodeAt(0)) | 0, 0);
-  return messages[Math.abs(hash) % messages.length].text;
+  const hash = (s) => [...String(s)].reduce((acc, c) => ((acc << 5) - acc + c.charCodeAt(0)) | 0, 0);
+
+  // Each message carries a group tag so we can combine different dimensions
+  const sorted = [...messages].sort((a, b) => b.priority - a.priority);
+  const primary = sorted[0];
+
+  // Pick a complementary from a different group (if available)
+  const complement = sorted.find(m => m.group && m.group !== primary.group);
+
+  if (complement) {
+    // Use hash to pick which of the two orderings to use (keeps it deterministic)
+    const flip = (Math.abs(hash(seed + '-flip')) % 3) === 0; // 33% chance secondary leads
+    return flip
+      ? `${complement.text} ${primary.text}`
+      : `${primary.text} ${complement.text}`;
+  }
+
+  // No complement — return primary only
+  return primary.text;
 };
 
 const getSyntheticBaseline = (value, seedParts, spread = 9) => {
@@ -377,6 +460,7 @@ const buildGhostMessage = ({
   revisionStats,
   pastMocks,
   warRoomStats,
+  score,
 }) => {
   const attempted = correct + incorrect;
   const totalSeconds = Object.values(timeSpent).reduce((acc, curr) => acc + curr, 0);
@@ -385,9 +469,12 @@ const buildGhostMessage = ({
   const categoryStats = summarizeByCategory(questions, answers, timeSpent, category);
   const tagStats = summarizeByTag(questions, answers);
   const messages = [];
-  const add = (priority, text) => messages.push({ priority, text });
+  // group labels: 'history' | 'category' | 'topic' | 'pace' | 'skip' | 'score' | 'revision' | 'war' | 'baseline'
+  const add = (priority, group, text) => messages.push({ priority, group, text });
   const baselineSeed = [mock?.id || mock?.name || mock?.title || 'mock', accuracy, percentage, total, correct, incorrect, skipped];
+  const scoreCurrent = typeof score === 'number' && !isNaN(score) ? score : (correct - incorrect * 0.25);
 
+  // ── Category & topic analysis ────────────────────────────────
   const bestCategory = [...categoryStats]
     .filter(stat => stat.total >= 2)
     .sort((a, b) => b.accuracy - a.accuracy || b.correct - a.correct)[0];
@@ -400,7 +487,12 @@ const buildGhostMessage = ({
   const cleanTag = [...tagStats]
     .filter(stat => stat.total >= 2 && stat.incorrect === 0 && stat.skipped === 0 && isTopicTag(stat.tag))
     .sort((a, b) => b.total - a.total)[0];
+  // Second-worst topic (if it exists) for richer feedback
+  const secondCostlyTag = [...tagStats]
+    .filter(stat => stat.total >= 2 && stat.incorrect + stat.skipped > 0 && isTopicTag(stat.tag) && stat.tag !== costlyTag?.tag)
+    .sort((a, b) => b.missRate - a.missRate || b.total - a.total)[0];
 
+  // ── Historical comparison ────────────────────────────────────
   const previousMocks = Array.isArray(pastMocks)
     ? pastMocks.filter(stat => {
       const sameCategory = stat.category === category || stat.categoryId === category || stat.examId === category;
@@ -408,88 +500,169 @@ const buildGhostMessage = ({
     })
     : [];
   const prevMock = previousMocks[previousMocks.length - 1];
+  const prevMockRecent = previousMocks.slice(-3); // last 3 for trend analysis
+
+  // Trend: improving / declining / flat
+  let trendDirection = 'stable';
+  if (prevMockRecent.length >= 2) {
+    const recentAvgAcc = prevMockRecent.reduce((s, m) => s + Math.round((m.correct / Math.max(1, m.attempted || m.total)) * 100), 0) / prevMockRecent.length;
+    if (accuracy >= recentAvgAcc + 7) trendDirection = 'improving';
+    else if (accuracy <= recentAvgAcc - 7) trendDirection = 'declining';
+  }
 
   if (prevMock && prevMock.total > 0) {
     const prevAcc = Math.round((prevMock.correct / Math.max(1, prevMock.attempted || prevMock.total)) * 100) || 0;
     const accDiff = accuracy - prevAcc;
-    if (accDiff >= 8) add(98, `Your ${titleCaseSignal(category)} accuracy improved by ${accDiff}% compared with your previous performance. You reached ${accuracy}% accuracy today, so this mock shows real progress, not just another attempt.`);
-    else if (accDiff <= -8) add(98, `Your ${titleCaseSignal(category)} accuracy dropped by ${Math.abs(accDiff)}% compared with your previous performance. Focus on the questions you rushed or guessed before trying to increase speed.`);
-    else add(76, `${titleCaseSignal(category)} is almost unchanged from your last attempt: ${accuracy}% now vs ${prevAcc}% before. That usually means the same type of mistakes are repeating, so review the wrong answers before starting another mock.`);
+    const prevPct = prevMock.percentage || Math.round(((prevMock.correct - prevMock.incorrect * 0.25) / prevMock.total) * 100);
+    const scoreDiff = Math.round(percentage - prevPct);
+
+    if (accDiff >= 12) {
+      add(99, 'history', `Accuracy jumped ${accDiff}% from your last ${titleCaseSignal(category)} attempt (${prevAcc}% → ${accuracy}%). That kind of leap usually signals a concept clicked — not just practice repetition. Lock it in with one revision pass.`);
+    } else if (accDiff >= 6) {
+      add(95, 'history', `Accuracy is up ${accDiff}% vs your previous ${titleCaseSignal(category)} mock. The gap is closing. Your current trajectory puts you in the top quartile if you maintain this for two more attempts.`);
+    } else if (accDiff <= -10) {
+      add(97, 'history', `Accuracy dropped ${Math.abs(accDiff)}% from your last attempt (${prevAcc}% → ${accuracy}%). This is a red flag — likely the same questions are catching you twice. Prioritize the incorrect answers below before attempting again.`);
+    } else if (accDiff <= -5) {
+      add(90, 'history', `Accuracy slipped by ${Math.abs(accDiff)}% this session. Small dips are normal, but ${accuracy}% vs your last ${prevAcc}% suggests a specific topic shifted against you — check the breakdown below.`);
+    } else {
+      if (trendDirection === 'improving') {
+        add(80, 'history', `Your ${titleCaseSignal(category)} accuracy is holding at ${accuracy}% — consistent across recent mocks and trending upward. Consistency at this level is where real exam readiness is built.`);
+      } else if (trendDirection === 'declining') {
+        add(82, 'history', `Accuracy is flat at ${accuracy}% but your recent trend shows a slow decline. Don't let familiarity breed carelessness — review the topics with the highest miss rates now.`);
+      } else {
+        add(75, 'history', `${titleCaseSignal(category)} accuracy is stable: ${accuracy}% today, ${prevAcc}% last time. The same type of errors are likely repeating — reviewing wrong answers before the next mock is the fastest way forward.`);
+      }
+    }
 
     const prevTime = Object.values(prevMock.timeSpent || {}).reduce((acc, curr) => acc + curr, 0);
     const prevAvgTime = prevTime > 0 ? prevTime / Math.max(1, prevMock.total) : 0;
     if (prevAvgTime > 0 && avgSeconds > 0) {
       const timeDiffPct = Math.round(((prevAvgTime - avgSeconds) / prevAvgTime) * 100);
-      if (timeDiffPct >= 12 && accuracy >= prevAcc - 3) add(92, `You answered ${timeDiffPct}% faster per question than your previous ${titleCaseSignal(category)} attempt without losing accuracy. That is the exact speed gain exam mocks are supposed to create.`);
-      else if (timeDiffPct <= -12) add(84, `You spent ${Math.abs(timeDiffPct)}% more time per question than your previous attempt. If that extra time did not improve accuracy, it is hesitation, not strategy.`);
+      if (timeDiffPct >= 15 && accuracy >= prevAcc - 3) {
+        add(93, 'pace', `You answered ${timeDiffPct}% faster per question than your previous attempt without an accuracy drop. That is genuine speed development — your recall is automating.`);
+      } else if (timeDiffPct >= 10 && accuracy < prevAcc - 5) {
+        add(87, 'pace', `You gained ${timeDiffPct}% speed but lost ${Math.abs(accDiff)}% accuracy. Going faster hurt you here. Dial back to your previous pace until accuracy stabilises above ${prevAcc}%.`);
+      } else if (timeDiffPct <= -15) {
+        add(83, 'pace', `You spent ${Math.abs(timeDiffPct)}% more time per question than your previous attempt. If that extra time didn't improve accuracy (${accuracy}%), the bottleneck is conceptual — not review time.`);
+      }
     }
   } else {
     const expectedAccuracy = getSyntheticBaseline(accuracy, baselineSeed, 8);
     const diff = accuracy - expectedAccuracy;
-    if (Math.abs(diff) >= 5) {
-      add(82, `Your ${titleCaseSignal(category)} accuracy is ${Math.abs(diff)}% ${diff > 0 ? 'better' : 'lower'} than your current practice trend. Today you scored ${accuracy}% accuracy, so the system will watch your next mock to confirm whether this is becoming your new level.`);
+    if (diff >= 8) {
+      add(84, 'baseline', `${accuracy}% accuracy is ${diff}% above your estimated baseline for this subject. Whether this is a strong day or a topic you know well, the system will calibrate over the next two mocks.`);
+    } else if (diff <= -8) {
+      add(84, 'baseline', `${accuracy}% accuracy came in ${Math.abs(diff)}% below your estimated baseline. First attempt often undershoots — but note which topics felt unfamiliar and front-load those in revision.`);
     }
   }
 
-  if (worstCategory && worstCategory.accuracy <= 50) {
-    add(96, `${titleCaseSignal(worstCategory.category)} was your weakest Category today: ${worstCategory.incorrect + worstCategory.skipped}/${worstCategory.total} questions were missed or skipped. Start revision there first, because it pulled your score down the most.`);
+  // ── Weak & strong area feedback ──────────────────────────────
+  if (worstCategory && worstCategory.accuracy <= 40) {
+    add(97, 'category', `${titleCaseSignal(worstCategory.category)} is your critical gap: only ${worstCategory.correct}/${worstCategory.total} correct (${worstCategory.accuracy}% accuracy). This single category is pulling your score down more than any other factor. Address it first.`);
+  } else if (worstCategory && worstCategory.accuracy <= 60) {
+    add(93, 'category', `${titleCaseSignal(worstCategory.category)} was your weakest area: ${worstCategory.incorrect + worstCategory.skipped}/${worstCategory.total} questions missed or skipped. A focused one-hour revision pass here will add the most marks per hour of study.`);
   }
-  if (bestCategory && bestCategory.accuracy >= 80) {
-    add(88, `${titleCaseSignal(bestCategory.category)} was your strongest Category: ${bestCategory.correct}/${bestCategory.total} correct. Keep it warm with quick revision, but spend deeper study time on weaker areas.`);
+  if (bestCategory && bestCategory.accuracy >= 90) {
+    add(86, 'category', `${titleCaseSignal(bestCategory.category)}: ${bestCategory.correct}/${bestCategory.total} — near-perfect command. Revise it briefly before the exam, then redirect your study time to your weaker areas.`);
+  } else if (bestCategory && bestCategory.accuracy >= 75) {
+    add(82, 'category', `${titleCaseSignal(bestCategory.category)} is your strongest area this mock: ${bestCategory.correct}/${bestCategory.total} correct. Protect this category with quick reviews; deep study time should go to weaker spots.`);
   }
-  if (costlyTag && costlyTag.missRate >= 50) {
-    add(94, `${costlyTag.tag} looks like your weakest Topic in this mock: ${costlyTag.incorrect + costlyTag.skipped}/${costlyTag.total} were missed or skipped. Add this Topic to your next revision session first.`);
+
+  // Topic-level (tag) analysis — most actionable for aspirants
+  if (costlyTag && costlyTag.missRate >= 75) {
+    const detail = secondCostlyTag ? ` ${secondCostlyTag.tag} also needs attention (${secondCostlyTag.incorrect + secondCostlyTag.skipped}/${secondCostlyTag.total} missed).` : '';
+    add(96, 'topic', `${costlyTag.tag} is your highest-risk topic this mock — ${costlyTag.incorrect + costlyTag.skipped}/${costlyTag.total} questions missed or wrong (${costlyTag.missRate}% miss rate). Schedule a dedicated session on this before your next attempt.${detail}`);
+  } else if (costlyTag && costlyTag.missRate >= 50) {
+    add(92, 'topic', `${costlyTag.tag} is holding you back: ${costlyTag.incorrect + costlyTag.skipped}/${costlyTag.total} missed. Add it to your priority revision list for this week.`);
   }
   if (cleanTag) {
-    add(78, `${cleanTag.tag} was your cleanest Topic today: ${cleanTag.correct}/${cleanTag.total} correct. This is the kind of Topic you should revise fast, not deeply, before the next mock.`);
+    add(76, 'topic', `${cleanTag.tag}: ${cleanTag.correct}/${cleanTag.total} — clean sweep. You have solid command here. Light maintenance revision is all you need; deeper time belongs to your weak zones.`);
   }
 
+  // ── Pacing & negative marking analysis ───────────────────────
   if (avgSeconds > 0) {
-    if (avgSeconds <= 35 && accuracy >= 75) add(90, `You were fast and accurate: ${avgSeconds}s per question with ${accuracy}% accuracy. That means your recall was active, not just lucky guessing.`);
-    else if (avgSeconds <= 35 && accuracy < 60) add(88, `You moved quickly at ${avgSeconds}s per question, but ${accuracy}% accuracy shows speed was costing marks. Slow down on statement-based questions and protect yourself from negative marking.`);
-    else if (avgSeconds >= 90 && accuracy >= 75) add(80, `You used extra time well: ${avgSeconds}s per question with ${accuracy}% accuracy. Good for learning mode, but full mocks will need the same accuracy with tighter timing.`);
-    else if (avgSeconds >= 90 && accuracy < 60) add(90, `You spent ${avgSeconds}s per question but accuracy stayed at ${accuracy}%. That tells the system this was a concept problem, not a time-management problem.`);
+    const negMarkingRisk = incorrect >= Math.ceil(total * 0.25);
+    if (avgSeconds <= 30 && accuracy >= 80) {
+      add(91, 'pace', `${avgSeconds}s per question with ${accuracy}% accuracy — exceptional speed-accuracy balance. Your instincts are working. This is exam-ready performance.`);
+    } else if (avgSeconds <= 35 && accuracy >= 70) {
+      add(89, 'pace', `Fast and precise: ${avgSeconds}s average per question, ${accuracy}% accuracy. The recall-to-speed ratio tells the system your conceptual foundation is solid. Maintain this.`);
+    } else if (avgSeconds <= 35 && accuracy < 60) {
+      add(90, 'pace', `You averaged ${avgSeconds}s per question — very fast — but ${accuracy}% accuracy means speed is costing marks. With negative marking, ${incorrect} wrong answers is a significant penalty. Slow down by 15–20 seconds on every question you're unsure of.`);
+    } else if (avgSeconds >= 90 && accuracy >= 75) {
+      add(80, 'pace', `${avgSeconds}s per question with ${accuracy}% accuracy shows thorough thinking. This is fine for practice, but full-length exams will demand the same accuracy at 60s per question. Build that pace gradually.`);
+    } else if (avgSeconds >= 90 && accuracy < 60) {
+      add(91, 'pace', `Spending ${avgSeconds}s per question didn't translate into accuracy (${accuracy}%). The bottleneck is conceptual clarity, not time. More reading time without concept revision won't help here.`);
+    } else if (negMarkingRisk && accuracy < 65) {
+      add(89, 'pace', `${incorrect} wrong answers with negative marking at play. Your net score suffered significantly from incorrect attempts. A conservative strategy — skip genuinely uncertain questions — would improve your rank.`);
+    }
   }
 
-  if (skipped >= Math.max(2, Math.ceil(total * 0.25))) add(86, `You skipped ${skipped}/${total} questions, which shows uncertainty in this mock. Next time, attempt the borderline questions after eliminating two options so the system can map your weak areas better.`);
-  if (incorrect >= Math.max(3, correct)) add(90, `Wrong answers were higher than correct answers today: ${incorrect} wrong vs ${correct} correct. Negative marking reduced your score, so controlled guessing is your next improvement area.`);
-  if (percentage >= 75 && incorrect <= 1) add(92, `Excellent control: ${percentage}% score with only ${incorrect} wrong answer. The best part is that you avoided careless mistakes while keeping the score high.`);
-  if (percentage < 40 && attempted > 0) {
+  // ── Skipped questions analysis ────────────────────────────────
+  if (skipped >= Math.max(3, Math.ceil(total * 0.35))) {
+    add(88, 'skip', `You left ${skipped} of ${total} questions unanswered — that's ${Math.round((skipped / total) * 100)}% of the paper. Unattempted questions score 0, but wrong answers lose marks. Attempting after eliminating two options is almost always the better play.`);
+  } else if (skipped >= Math.max(2, Math.ceil(total * 0.20))) {
+    add(84, 'skip', `${skipped}/${total} questions were skipped. A selective approach is smart, but make sure you're skipping due to genuine uncertainty — not unfamiliarity you could push through.`);
+  }
+
+  // ── Score range-based signals ─────────────────────────────────
+  if (incorrect > correct && attempted > 0) {
+    add(92, 'score', `Incorrect answers (${incorrect}) outnumbered correct answers (${correct}) today. Negative marking turned this into a net loss. Controlled guessing — eliminate two wrong options, then attempt — is the single most impactful change you can make.`);
+  }
+  if (percentage >= 80 && incorrect <= 2) {
+    add(93, 'score', `${percentage}% score with only ${incorrect} wrong answers. This is near-optimal performance — high score with minimal negative marking exposure. Exam-ready level.`);
+  } else if (percentage >= 70 && accuracy >= 80) {
+    add(89, 'score', `${percentage}% score at ${accuracy}% accuracy. Strong performance. The ceiling from here is reducing the ${incorrect} incorrect answers — every one you convert to correct adds 1.25 marks net.`);
+  }
+  if (percentage < 35 && attempted > 0) {
     const focusTopic = costlyTag?.tag || worstCategory?.category || titleCaseSignal(category);
-    add(92, `${percentage}% score shows this mock exposed a clear weak area, especially around ${titleCaseSignal(focusTopic)}. Do one focused revision pass there before attempting another random mock.`);
+    add(94, 'score', `${percentage}% — this mock has identified a clear content gap, particularly around ${titleCaseSignal(focusTopic)}. Don't attempt another mock yet. One targeted revision pass on this topic will matter more than five untargeted mocks.`);
+  } else if (percentage < 50 && percentage >= 35) {
+    add(87, 'score', `${percentage}% score places you just below the passing threshold. You're in range — ${Math.round((50 - percentage) / 100 * total + 1)} more correct answers would cross it. Focus on your weakest topic first.`);
   }
 
-  if (revisionMode === 'srs' && revisionOutcome.promoted > 0) {
-    const bestInterval = Math.max(...Object.keys(revisionOutcome.promotedToCounts).map(Number));
-    add(91, `${revisionOutcome.promoted} revision questions moved deeper into memory. Your longest promoted interval now reaches ${bestInterval} days, which means retention is improving.`);
+  // ── Revision mode specific signals ───────────────────────────
+  if (revisionMode === 'srs' && revisionOutcome?.promoted > 0) {
+    const bestInterval = Object.keys(revisionOutcome.promotedToCounts || {}).length > 0
+      ? Math.max(...Object.keys(revisionOutcome.promotedToCounts).map(Number))
+      : 0;
+    add(91, 'revision', `${revisionOutcome.promoted} cards moved to longer intervals${bestInterval > 0 ? ` (up to ${bestInterval} days)` : ''}. Your memory consolidation is working — these concepts are becoming automatic.`);
   }
   if (revisionMode === 'resurrection') {
-    if (revisionOutcome.promoted > 0) add(98, `${revisionOutcome.promoted}/${total} old mistakes were fixed and moved into spaced revision. That means this resurrection mock converted weak memory into usable recall.`);
-    if (revisionOutcome.resurrected > 0) add(89, `${revisionOutcome.resurrected} old mistakes are still repeating. These are now priority Topics for your next revision cycle.`);
-  } else if (revisionOutcome.resurrected > 0 && revisionOutcome.resurrected >= Math.ceil(total * 0.3)) {
-    add(72, `${revisionOutcome.resurrected} MCQs from this mock were moved into resurrection. That is not a loss; it gives your next revision session exact targets.`);
+    if (revisionOutcome?.promoted > 0) {
+      add(98, 'revision', `${revisionOutcome.promoted}/${total} old mistakes fixed and promoted to spaced revision. This is exactly how resurrection mocks are supposed to work — converting weak memory into reliable recall.`);
+    }
+    if (revisionOutcome?.resurrected > 0) {
+      add(89, 'revision', `${revisionOutcome.resurrected} questions are still repeating as mistakes. These are now your highest-priority targets — they've been wrong twice, which means there's a concept misunderstanding to resolve, not just a memory gap.`);
+    }
+  } else if (revisionOutcome?.resurrected > 0 && revisionOutcome.resurrected >= Math.ceil(total * 0.3)) {
+    add(72, 'revision', `${revisionOutcome.resurrected} questions from this mock entered resurrection. That's not a setback — it's the system giving you precision targets for your next revision cycle.`);
   }
 
+  // ── War Room cross-session pattern ───────────────────────────
   const heatedWarTag = [...(warRoomStats?.tags || [])]
     .filter(tag => tag.incorrectCount > 0)
     .sort((a, b) => (b.incorrectCount / Math.max(1, b.correctCount + b.incorrectCount)) - (a.incorrectCount / Math.max(1, a.correctCount + a.incorrectCount)))[0];
   if (heatedWarTag && !costlyTag) {
-    add(58, `Long-term weakness detected: ${titleCaseSignal(heatedWarTag.tagId)} is still one of your risky Topics. Today's mock did not fully clear that weakness.`);
+    add(62, 'war', `Pattern detected across sessions: ${titleCaseSignal(heatedWarTag.tagId)} has a persistent error rate in your War Room history. Today's mock didn't clear that weakness — prioritise it in your next study block.`);
   }
-  if (revisionStats?.resurrectedThisWeek > 0 && revisionMode === 'resurrection') {
-    add(70, `${revisionStats.resurrectedThisWeek} mistakes were revised through resurrection this week. Your weak areas are becoming visible and trackable instead of hidden.`);
+  if (revisionStats?.resurrectedThisWeek > 2 && revisionMode === 'resurrection') {
+    add(73, 'war', `${revisionStats.resurrectedThisWeek} mistakes have been cycled through resurrection this week. You're making the system do exactly what it was built for — keep the cadence.`);
   }
 
+  // ── Fallback ──────────────────────────────────────────────────
   if (messages.length === 0) {
-    if (accuracy >= 90) add(50, `Elite precision: ${accuracy}% accuracy with very little error noise. Keep this pace and use review only for the few questions that broke concentration.`);
-    else if (accuracy < 50) add(50, `${accuracy}% accuracy points to concept gaps, not just silly mistakes. Review the weakest Topic first, then retry a small mock.`);
-    else if (lightningBonus > 0) add(50, `Rapid execution detected. The clock was in your favor today, so the next upgrade is improving accuracy without losing speed.`);
-    else add(50, `You finished with ${accuracy}% accuracy, which gives a useful starting level. The next mock will show whether this performance is becoming consistent.`);
+    if (accuracy >= 90) {
+      add(50, 'score', `Elite precision: ${accuracy}% accuracy across ${total} questions. This level of control is the benchmark for top-percentile performance. Focus only on the handful of questions that slipped.`);
+    } else if (accuracy < 50) {
+      add(50, 'score', `${accuracy}% accuracy signals a concept gap, not just exam nerves. Before your next mock, do a focused review of the weakest topic — that single change will have more impact than another untargeted attempt.`);
+    } else if (lightningBonus > 0) {
+      add(50, 'pace', `Speed bonus earned — the clock was working in your favor today. The next performance level is matching this speed with higher accuracy. Target the incorrect questions to find where precision broke down.`);
+    } else {
+      add(50, 'score', `${accuracy}% accuracy on ${total} questions. You finished the mock — that's the baseline. The system now has enough data to track your trend. Review the errors below to make the next attempt count.`);
+    }
   }
 
-  const topPriority = Math.max(...messages.map(message => message.priority));
-  const finalists = messages.filter(message => message.priority >= topPriority - 12);
-  return pickStableInsight(finalists, [
+  return pickStableInsight(messages, [
     mock?.id || mock?.name || mock?.title || 'mock',
     new Date().toDateString(),
     accuracy,
@@ -596,6 +769,11 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
     mock?.id,
     mock?.title || mock?.name
   );
+
+  // ── Realtime Intelligence info icon handler ──────────────────
+  const handleRtInfoClick = () => {
+    showToast("Those who didn't take Mock Test scored 0.", 'info');
+  };
 
   // ── Save stats + find next mock on mount ────────────────────────
   useEffect(() => {
@@ -795,6 +973,7 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
             incorrect,
             skipped,
             total,
+            score,
             lightningBonus,
             revisionMode,
             revisionOutcome,
@@ -1911,10 +2090,9 @@ Generate exactly 10 new questions.`;
           </section>
         )}
 
-        {earnings && (
-          <>
-            {/* Row 1: Realtime Intelligence & Session Intelligence */}
-            <div className={`grid grid-cols-1 ${hideRealtimeIntelligence ? 'md:grid-cols-1' : 'md:grid-cols-2'} gap-5 mb-5`}>
+
+        {/* Row 1: Realtime Intelligence & Session Intelligence — always visible */}
+        <div className={`grid grid-cols-1 ${hideRealtimeIntelligence ? 'md:grid-cols-1' : 'md:grid-cols-2'} gap-5 mb-5`}>
               {/* Realtime Intelligence: Rank + Percentile unified card */}
               {!hideRealtimeIntelligence && (
                 <div className="bg-theme-surface/60 backdrop-blur-md rounded-3xl border border-theme-border shadow-lg relative overflow-hidden flex flex-col p-6 hover:shadow-card-hover hover:scale-[1.005] transition-all duration-300">
@@ -1938,7 +2116,17 @@ Generate exactly 10 new questions.`;
                             <Crown size={17} />
                           </div>
                           <div>
-                            <h3 className="font-black text-theme-text uppercase tracking-widest text-xs">Realtime Intelligence</h3>
+                            <span className="font-black text-theme-text uppercase tracking-widest text-xs flex items-center gap-1.5">
+                              Realtime Intelligence
+                              <button
+                                onClick={handleRtInfoClick}
+                                title="About this leaderboard"
+                                className="text-theme-muted/50 hover:text-theme-muted transition-colors leading-none"
+                                style={{ lineHeight: 0 }}
+                              >
+                                <Info size={10} />
+                              </button>
+                            </span>
                             <p className="text-[10px] text-theme-primary uppercase tracking-wider font-semibold">Live Leaderboard</p>
                           </div>
                         </div>
@@ -1964,7 +2152,7 @@ Generate exactly 10 new questions.`;
                         <span className="text-xs font-bold text-theme-muted uppercase tracking-wider flex items-center gap-2">
                           <Sparkles size={13} className="text-theme-primary" /> Percentile
                         </span>
-                        <span className="font-black text-theme-primary text-lg">Top {rtData?.percentile}%</span>
+                        <span className="font-black text-theme-primary text-lg">{rtData?.percentile}%</span>
                       </div>
 
                       {/* Color-coded Smart Comment */}
@@ -2015,13 +2203,22 @@ Generate exactly 10 new questions.`;
                     </div>
                   </div>
 
-                  {/* Ghost message — clean mono block */}
+                  {/* Ghost message — skeleton while loading, content when ready */}
                   <div className="bg-theme-bg/50 border border-theme-border rounded-2xl p-4 relative shadow-sm flex-1 flex flex-col justify-center">
                     <div className="absolute top-0 left-0 w-1 h-full bg-theme-primary rounded-l-2xl" />
-                    <p className="text-sm font-medium text-theme-text leading-relaxed font-mono pl-1">
-                      <span className="text-theme-primary mr-1.5 opacity-70">›</span>
-                      {ghostMessage}
-                    </p>
+                    {!ghostMessage ? (
+                      <div className="pl-1 space-y-2.5">
+                        <div className="h-3 bg-theme-border/60 rounded-full animate-pulse w-[92%]" />
+                        <div className="h-3 bg-theme-border/60 rounded-full animate-pulse w-[78%]" />
+                        <div className="h-3 bg-theme-border/60 rounded-full animate-pulse w-[85%]" />
+                        <div className="h-3 bg-theme-border/60 rounded-full animate-pulse w-[60%]" />
+                      </div>
+                    ) : (
+                      <p className="text-sm font-medium text-theme-text leading-relaxed font-mono pl-1">
+                        <span className="text-theme-primary mr-1.5 opacity-70">›</span>
+                        {ghostMessage}
+                      </p>
+                    )}
                   </div>
 
                   {/* Time stat — subtle contextual line */}
@@ -2038,7 +2235,7 @@ Generate exactly 10 new questions.`;
                   </div>
 
                   {/* Upsell — only if applicable */}
-                  {earnings.isRevision && economy.user_tier === 'FREE' ? (
+                  {earnings?.isRevision && economy.user_tier === 'FREE' ? (
                     <div className="bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-xl p-4 flex items-center gap-3">
                       <Flame className="text-amber-500 shrink-0" size={18} />
                       <div>
@@ -2050,7 +2247,7 @@ Generate exactly 10 new questions.`;
                         </p>
                       </div>
                     </div>
-                  ) : earnings.phantomLost > 0 ? (
+                  ) : earnings?.phantomLost > 0 ? (
                     <div className="bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-xl p-4 flex items-center gap-3">
                       <Flame className="text-amber-500 shrink-0" size={18} />
                       <div>
@@ -2062,10 +2259,12 @@ Generate exactly 10 new questions.`;
                       </div>
                     </div>
                   ) : null}
-                </div>
-              </div>
-            </div>
+                </div>{/* end inner flex col */}
+              </div>{/* end Session tile */}
+            </div>{/* end grid */}
 
+        {earnings && (
+          <>
             {/* Row 2: Wager Checkpoint wide card */}
             <div className="bg-theme-surface/60 backdrop-blur-md rounded-3xl border border-theme-border shadow-lg relative overflow-hidden p-6 hover:shadow-card-hover transition-all duration-300 mb-6">
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-amber-500/8 rounded-full blur-[70px] pointer-events-none" />

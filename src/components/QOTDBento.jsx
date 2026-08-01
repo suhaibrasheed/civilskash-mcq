@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, Clock, Lock, Sparkles, Eye, History, RotateCw, Info, Check, ChevronRight, X } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
@@ -38,25 +39,30 @@ const getQOTDDayString = () => {
     qotdDate.setDate(qotdDate.getDate() - 1);
   }
   
-  const qotdDateStr = `${qotdDate.getFullYear()}-${String(qotdDate.getMonth() + 1).padStart(2, '0')}-${String(qotdDate.getDate()).padStart(2, '0')}`;
-  
-  let nextReset = new Date(istDate);
-  nextReset.setHours(4, 0, 0, 0);
-  if (istDate.getHours() >= 4) {
+  const nextReset = new Date(istDate);
+  if (hour >= 4) {
     nextReset.setDate(nextReset.getDate() + 1);
   }
+  nextReset.setHours(4, 0, 0, 0);
   
-  const msToNextReset = Math.max(0, nextReset.getTime() - istDate.getTime());
+  const msToNextReset = nextReset.getTime() - istDate.getTime();
   
-  return { dateStr: qotdDateStr, msToNextReset };
+  const yyyy = qotdDate.getFullYear();
+  const mm = String(qotdDate.getMonth() + 1).padStart(2, '0');
+  const dd = String(qotdDate.getDate()).padStart(2, '0');
+  
+  return {
+    dateStr: `${yyyy}-${mm}-${dd}`,
+    msToNextReset
+  };
 };
 
-const seededRandom = (seedStr) => {
+const getSeededRandom = (seedStr) => {
   let hash = 0;
   for (let i = 0; i < seedStr.length; i++) {
-    hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
+    hash = (hash << 5) - hash + seedStr.charCodeAt(i);
+    hash |= 0;
   }
-  hash = Math.abs(hash);
   return () => {
     hash = (hash * 9301 + 49297) % 233280;
     return Math.abs(hash) / 233280;
@@ -64,6 +70,7 @@ const seededRandom = (seedStr) => {
 };
 
 export default function QOTDBento() {
+  const navigate = useNavigate();
   const { economy, transactKC } = useEconomy();
   const { playCorrect, playWrong, playShatter } = useSound();
   const { theme } = useTheme();
@@ -506,7 +513,7 @@ export default function QOTDBento() {
                                 </p>
                               </div>
                               <button 
-                                onClick={() => alert("Upgrade flows")}
+                                onClick={() => navigate('/pricing')}
                                 className="px-3.5 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 text-[11px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer shrink-0"
                               >
                                 Upgrade Pro

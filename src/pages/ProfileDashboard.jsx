@@ -1793,6 +1793,47 @@ export default function ProfileDashboard() {
                 <div className="space-y-3">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted">Invite Stats</span>
                   <div className="grid grid-cols-2 gap-3">
+                    
+                    {/* 1. Wallet Money (FIRST TILE - Full Width col-span-2) */}
+                    <div className="bg-emerald-500/[0.03] border border-emerald-500/20 rounded-2xl p-4 text-left col-span-2 flex items-center justify-between">
+                      <div className="flex flex-col justify-center">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-emerald-400">
+                          Wallet Money
+                        </span>
+                        <div className="text-3xl font-black text-emerald-500 dark:text-emerald-400 mt-1 tracking-tight">
+                          ₹{(() => {
+                            if (!economy || economy.id === 'default_user') {
+                              return (getScratchedReferralCount() * 25) + 25;
+                            }
+                            const sc = Number(economy.scratched_cards_count || 0);
+                            const welcomeBonus = (economy.referred_by || localStorage.getItem('mcqkash_welcome_coins_pending')) ? 25 : 0;
+                            const maxEarned = (sc * 25) + welcomeBonus;
+                            const dbBal = economy.premium_discount_earned !== undefined && economy.premium_discount_earned !== null
+                              ? Number(economy.premium_discount_earned)
+                              : maxEarned;
+                            return dbBal;
+                          })()}
+                        </div>
+                      </div>
+
+                      {/* 15 Days Left Badge (Clean, No Emojis, No wrapping) */}
+                      {(() => {
+                        const lastInviteTime = localStorage.getItem('mcqkash_last_referral_time')
+                          ? Number(localStorage.getItem('mcqkash_last_referral_time'))
+                          : Date.now();
+                        const expiryTime = lastInviteTime + (15 * 24 * 60 * 60 * 1000);
+                        const diffMs = expiryTime - Date.now();
+                        const daysLeft = Math.max(1, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+
+                        return (
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-500 dark:text-rose-400 text-[10px] font-black uppercase tracking-wider shrink-0">
+                            <Clock size={12} className="text-rose-500 dark:text-rose-400 shrink-0" />
+                            <span>{daysLeft} Days Left</span>
+                          </div>
+                        );
+                      })()}
+                    </div>
+
                     {/* Friends Joined */}
                     <div className="bg-blue-500/[0.03] border border-blue-500/10 rounded-2xl p-4 text-left">
                       <span className="text-[9px] font-black uppercase tracking-widest text-blue-400">Friends Joined</span>
@@ -1828,19 +1869,6 @@ export default function ProfileDashboard() {
                         +{(getScratchedReferralCount() * 3) + (getScratchedWelcomeCount() * 7)} <span className="text-[10px] text-rose-600/70 dark:text-rose-400/70 font-bold tracking-wide">Days</span>
                       </div>
                     </div>
-
-                    {/* Wallet Money */}
-                    <div className="bg-emerald-500/[0.03] border border-emerald-500/10 rounded-2xl p-4 text-left col-span-2 flex items-center justify-between">
-                      <div className="flex flex-col">
-                        <span className="text-[9px] font-black uppercase tracking-widest text-emerald-400">Wallet Money</span>
-                        <div className="text-2xl font-black text-emerald-500 mt-1">
-                          ₹{!economy || economy.id === 'default_user' ? (getScratchedReferralCount() * 25) : (economy.premium_discount_earned || 0)}
-                        </div>
-                      </div>
-                      <span className="text-[9px] text-theme-muted font-bold tracking-wide max-w-[150px] text-right">
-                        Applies to premium checkout automatically
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1873,7 +1901,7 @@ export default function ProfileDashboard() {
                       <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
                       <div>
                         <span className="font-extrabold text-theme-text block">Friends Get instant benefits</span>
-                        <span className="text-theme-muted font-medium text-[11px]">Referees receive a <strong className="text-amber-500">variable 100-250 KashCoins</strong> + <strong className="text-cyan-400">1 Streak Freeze</strong> + <strong className="text-rose-400">7-day Power Surge boost</strong>.</span>
+                        <span className="text-theme-muted font-medium text-[11px]">Referees receive <strong className="text-amber-500">150 KashCoins</strong> + <strong className="text-emerald-500 dark:text-emerald-400">₹25 Wallet Money</strong> + <strong className="text-cyan-400">1 Freeze</strong> + <strong className="text-rose-400">7-day Surge</strong>.</span>
                       </div>
                     </div>
 
@@ -1881,7 +1909,7 @@ export default function ProfileDashboard() {
                       <div className="w-5 h-5 rounded bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
                       <div>
                         <span className="font-extrabold text-theme-text block">You Get premium rewards</span>
-                        <span className="text-theme-muted font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-400">Scratch Card</strong> loaded with <strong className="text-amber-500">variable KashCoins</strong>, <strong className="text-cyan-400">freezes</strong>, and <strong className="text-rose-400">surges</strong>!</span>
+                        <span className="text-theme-muted font-medium text-[11px]">Every referral awards you a <strong className="text-emerald-500 dark:text-emerald-400">flat ₹25 premium discount</strong> and a <strong className="text-amber-400">Scratch Card</strong> loaded with rewards!</span>
                       </div>
                     </div>
 
@@ -1890,8 +1918,47 @@ export default function ProfileDashboard() {
                     </div>
                   </div>
                 </div>
-              </div>
 
+                {/* How Wallet Works Card */}
+                <div className="bg-theme-primary/[0.01] dark:bg-theme-primary/[0.02] backdrop-blur-md border border-emerald-500/20 rounded-3xl p-5 space-y-3.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] text-left">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500 dark:text-emerald-400 flex items-center gap-1.5">
+                      <Sparkles size={12} className="text-emerald-500 dark:text-emerald-400" />
+                      How Wallet Works
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 text-[9px] font-black uppercase tracking-wider">
+                      Use It Or Lose It
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-3 text-xs">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[10px]">1</div>
+                      <div>
+                        <span className="font-extrabold text-theme-text block">Earn ₹25 Per Invite & Joining</span>
+                        <span className="text-theme-muted font-medium text-[11px]">Inviting a friend adds <strong className="text-emerald-500 dark:text-emerald-400">₹25 to your Wallet</strong>, and the invited friend also gets <strong className="text-emerald-500 dark:text-emerald-400">₹25 Wallet Money</strong> on joining!</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold shrink-0 text-[10px]">2</div>
+                      <div>
+                        <span className="font-extrabold text-theme-text block">Reduces Pro Price & Buys KashCoins</span>
+                        <span className="text-theme-muted font-medium text-[11px]">Wallet money automatically reduces your <strong className="text-cyan-500 dark:text-cyan-400">Pro membership price</strong> at checkout, and can buy <strong className="text-amber-500">KashCoins</strong> in the Coins Vault!</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 rounded bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold shrink-0 text-[10px]">3</div>
+                      <div>
+                        <span className="font-extrabold text-theme-text block">15-Day Expiry (Resets On Each Invite)</span>
+                        <span className="text-theme-muted font-medium text-[11px]">Wallet balance has a <strong className="text-rose-500 dark:text-rose-400">15-day "Use It or Lose It" timer</strong>. Every new invite <strong className="text-amber-500">resets your 15-day timer</strong> back to full to keep adding money!</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </motion.div>
         </div>

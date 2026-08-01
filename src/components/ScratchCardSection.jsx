@@ -1,30 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Gift, Sparkles, Snowflake, Flame, Loader, ChevronRight } from 'lucide-react';
-import { motion as m, AnimatePresence as Ap } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Gift, Sparkles, Snowflake, Flame, Loader, CheckCircle2, User, Clock, Shield, Share2, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
+import { saveReferralCardToDB, getReferralCardsFromDB } from '../lib/db';
 import confetti from 'canvas-confetti';
 
 export default function ScratchCardSection({ economy, refreshEconomy, showToast, playVictory }) {
   const [cards, setCards] = useState([]);
-  const [activeCard, setActiveCard] = useState(null);
-  const [isScratched, setIsScratched] = useState(false);
-  const [isScratching, setIsScratching] = useState(false);
-  const [isClaiming, setIsClaiming] = useState(false);
-  const [rewardData, setRewardData] = useState(null);
-  const [scratchHistory, setScratchHistory] = useState([]);
-
-  const canvasRef = useRef(null);
-  const contextRef = useRef(null);
+  const [claimingId, setClaimingId] = useState(null);
+  const [claimedRewardsMap, setClaimedRewardsMap] = useState({});
+  const [cardHistory, setCardHistory] = useState([]);
 
   const username = economy?.username || 'default';
-  const historyKey = `mcqkash_scratch_history_${username}`;
-  const scratchedKey = `mcqkash_scratched_count_${username}`;
+  const ecoId = economy?.id;
+  const refCount = Number(economy?.referral_count || 0);
+  const scratchedCount = Number(economy?.scratched_cards_count || 0);
+  const referredBy = economy?.referred_by;
 
-  // Load pending cards and history
-  useEffect(() => {
-    if (!economy || username === 'default' || economy.id === 'default_user') return;
+  // Load history and pending cards purely from local storage / state (0 Supabase DB load)
+  const loadCardsAndHistory = useCallback(async () => {
+    if (!ecoId || ecoId === 'default_user' || username === 'default') return;
 
-    // 1. Check Welcome Card
+    const savedHistory = await getReferralCardsFromDB(username);
     const welcomeCoins = localStorage.getItem('mcqkash_welcome_coins_pending');
     const pendingList = [];
 
@@ -36,14 +33,7 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
       });
     }
 
-    // 2. Check Referral Cards
-    const dbCount = Number(economy.referral_count || 0);
-    const isGuest = !economy || economy.id === 'default_user';
-    const scratchedCount = isGuest
-      ? Number(localStorage.getItem(scratchedKey) || 0)
-      : Number(economy.scratched_cards_count || 0);
-    const pendingReferrals = Math.max(0, dbCount - scratchedCount);
-
+    const pendingReferrals = Math.max(0, refCount - scratchedCount);
     for (let i = 0; i < pendingReferrals; i++) {
       pendingList.push({
         id: `ref_${scratchedCount + i + 1}`,
@@ -52,457 +42,281 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
     }
 
     setCards(pendingList);
+    setCardHistory(savedHistory);
+  }, [ecoId, username, refCount, scratchedCount]);
 
-    // Load history
-    try {
-      let history = JSON.parse(localStorage.getItem(historyKey) || '[]');
-      if (economy && economy.id && economy.id !== 'default_user') {
-        let changed = false;
-        
-        // 1. Sync/Restore Welcome Card
-        const hasWelcome = history.some(item => item.type === 'Welcome Card');
-        const welcomePending = localStorage.getItem('mcqkash_welcome_coins_pending');
-        if (economy.referred_by && !hasWelcome && !welcomePending) {
-          history.push({
-            id: 'welcome_restored',
-            type: 'Welcome Card',
-            coins: 150,
-            wallet: 0,
-            date: 'Welcome'
-          });
-          changed = true;
-        }
-        
-        // 2. Sync/Restore Referral Cards
-        const currentReferralCount = history.filter(item => item.type === 'Referral Card').length;
-        const targetReferralCount = Number(economy.scratched_cards_count || 0);
-        if (currentReferralCount < targetReferralCount) {
-          const diff = targetReferralCount - currentReferralCount;
-          for (let i = 0; i < diff; i++) {
-            history.push({
-              id: `ref_restored_${Date.now()}_${i}`,
-              type: 'Referral Card',
-              coins: 150,
-              wallet: 25,
-              date: 'Referred'
-            });
-          }
-          changed = true;
-        }
-        
-        if (changed) {
-          localStorage.setItem(historyKey, JSON.stringify(history));
-        }
-      }
-      setScratchHistory(history);
-    } catch (e) {
-      setScratchHistory([]);
-    }
-  }, [economy, username]);
-
-  // Canvas setup
   useEffect(() => {
-    if (!activeCard || !canvasRef.current || rewardData) return;
+    loadCardsAndHistory();
+  }, [loadCardsAndHistory]);
+
+  // ⚡ 1-TAP REVEAL & INSTANT SAVE TO INDEXED DB (0 Database overhead)
+  const handleOneTapReveal = async (card) => {
+    if (claimingId || claimedRewardsMap[card.id]) return;
+
+    setClaimingId(card.id);
+    let resultRewards = null;
 
     try {
-      const canvas = canvasRef.current;
-      canvas.width = 320;
-      canvas.height = 180;
+      if (card.isWelcome) {
+        resultRewards = {
+          coins_rewarded: card.coins || 150,
+          wallet_credited: 25,
+          freezes_added: 1,
+          surge_days_added: 7
+        };
 
-      const ctx = canvas.getContext('2d');
-      if (!ctx) {
-        autoRevealFallback();
-        return;
-      }
-      contextRef.current = ctx;
-
-      // Draw the gold gradient cover
-      const grad = ctx.createLinearGradient(0, 0, 320, 180);
-      grad.addColorStop(0, '#f59e0b');
-      grad.addColorStop(0.3, '#fbbf24');
-      grad.addColorStop(0.5, '#fef08a');
-      grad.addColorStop(0.7, '#f59e0b');
-      grad.addColorStop(1, '#b45309');
-
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 320, 180);
-
-      // Add overlay sparkles
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-      for (let i = 0; i < 30; i++) {
-        const x = Math.random() * 320;
-        const y = Math.random() * 180;
-        const r = Math.random() * 2.5;
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.fillStyle = '#78350f';
-      ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('🎁 SCRATCH TO REVEAL', 160, 80);
-      ctx.font = '500 9px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#92400e';
-      ctx.fillText('Swipe or drag here to scratch card', 160, 105);
-    } catch (err) {
-      console.warn('Canvas setup error, auto-revealing...', err);
-      autoRevealFallback();
-    }
-  }, [activeCard, rewardData]);
-
-  const autoRevealFallback = () => {
-    setIsScratched(true);
-    triggerRewardClaim();
-  };
-
-  const getMousePos = (e) => {
-    if (!canvasRef.current) return { x: 0, y: 0 };
-    const rect = canvasRef.current.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    return {
-      x: clientX - rect.left,
-      y: clientY - rect.top
-    };
-  };
-
-  const startScratching = (e) => {
-    setIsScratching(true);
-    scratch(e);
-  };
-
-  const stopScratching = () => {
-    setIsScratching(false);
-    checkScratchPercentage();
-  };
-
-  const scratch = (e) => {
-    if (!isScratching || isScratched || isClaiming || !contextRef.current) return;
-    try {
-      e.preventDefault();
-      const pos = getMousePos(e);
-      const ctx = contextRef.current;
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.beginPath();
-      ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
-      ctx.fill();
-    } catch (err) {
-      autoRevealFallback();
-    }
-  };
-
-  const checkScratchPercentage = () => {
-    if (isScratched || isClaiming || !canvasRef.current) return;
-    try {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      const imgData = ctx.getImageData(0, 0, 320, 180);
-      const pixels = imgData.data;
-      let transparentCount = 0;
-      for (let i = 3; i < pixels.length; i += 4) {
-        if (pixels[i] === 0) transparentCount++;
-      }
-      const ratio = transparentCount / (320 * 180);
-      if (ratio > 0.45) {
-        triggerRewardClaim();
-      }
-    } catch (e) {
-      autoRevealFallback();
-    }
-  };
-
-  const triggerRewardClaim = async () => {
-    setIsScratched(true);
-    if (activeCard.isWelcome) {
-      setRewardData({ success: true, coins_rewarded: activeCard.coins });
-      if (playVictory) playVictory();
-      confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
-      return;
-    }
-
-    setIsClaiming(true);
-    try {
-      const { data, error } = await supabase.rpc('scratch_referral_card_rpc');
-      if (error) throw error;
-
-      if (data && data.success) {
-        // RPC applied rewards to DB — show the reveal
-        setRewardData(data);
-        if (playVictory) playVictory();
-        confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
-      } else if (data && data.success === false) {
-        // RPC ran but said no pending cards (already scratched / count mismatch)
-        if (showToast) showToast('No pending referral rewards found. Balance is up to date.', 'info');
-        setIsScratched(false);
-        setActiveCard(null);
-        // Remove from local pending list & force fresh data
-        setCards(prev => prev.filter(c => c.id !== activeCard.id));
-        if (refreshEconomy) await refreshEconomy(true);
+        // Credit Welcome Card ₹25 wallet money to DB
+        if (ecoId && ecoId !== 'default_user') {
+          await supabase.from('profiles').update({
+            premium_discount_earned: Number(economy.premium_discount_earned || 0) + 25
+          }).eq('id', ecoId);
+        }
+        localStorage.removeItem('mcqkash_welcome_coins_pending');
       } else {
-        // Null or unexpected response — treat as transient failure, let user retry
-        throw new Error('Unexpected RPC response. Please try again.');
+        const { data, error } = await supabase.rpc('scratch_referral_card_rpc');
+        if (error) throw error;
+        if (data && data.success) {
+          resultRewards = {
+            coins_rewarded: data.coins_rewarded || 150,
+            wallet_credited: 25,
+            freezes_added: 1,
+            surge_days_added: 3
+          };
+        } else {
+          if (showToast) showToast(data?.message || 'Reward already claimed.', 'info');
+          setCards(prev => prev.filter(c => c.id !== card.id));
+          if (refreshEconomy) await refreshEconomy(true);
+          setClaimingId(null);
+          return;
+        }
+      }
+
+      // Reset 15-day wallet countdown timer on claim
+      localStorage.setItem('mcqkash_last_referral_time', Date.now().toString());
+
+      // Save card entry to IndexedDB / localStorage permanently
+      const newCardEntry = {
+        id: card.id,
+        owner: username,
+        type: card.isWelcome ? 'Welcome Card' : 'Referral Card',
+        coins: resultRewards.coins_rewarded,
+        wallet: resultRewards.wallet_credited,
+        freezes: resultRewards.freezes_added,
+        surge_days: resultRewards.surge_days_added,
+        date: new Date().toLocaleDateString(undefined, { day: 'numeric', month: 'short' }),
+        timestamp: Date.now()
+      };
+
+      await saveReferralCardToDB(newCardEntry);
+      setCardHistory(prev => [newCardEntry, ...prev.filter(c => c.id !== card.id)]);
+
+      // Mark card as revealed in UI state
+      setClaimedRewardsMap(prev => ({ ...prev, [card.id]: resultRewards }));
+
+      // Sound & Celebration
+      if (playVictory) playVictory();
+      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f59e0b', '#10b981', '#3b82f6', '#ec4899'] });
+
+      // Refresh economy stats cleanly
+      if (refreshEconomy) await refreshEconomy(true);
+      window.dispatchEvent(new Event('sync-profile-stats'));
+
+      if (showToast) {
+        showToast(`Unlocked +${resultRewards.coins_rewarded} KC & +₹${resultRewards.wallet_credited} Wallet Money! 🚀`, 'success');
       }
     } catch (e) {
-      console.error('Scratch claim failed:', e);
-      if (showToast) showToast(e.message || 'Failed to claim referral reward. Please try again.', 'error');
-      setIsScratched(false);
+      console.error('Failed to reveal card:', e);
+      if (showToast) showToast(e.message || 'Could not reveal card. Please try again.', 'error');
     } finally {
-      setIsClaiming(false);
+      setClaimingId(null);
     }
   };
 
-  const handleSaveClaim = async () => {
-    if (!activeCard || !rewardData) return;
-
-    const coinsWon = activeCard.isWelcome ? activeCard.coins : (rewardData.coins_rewarded || 0);
-    setIsClaiming(true);
-
-    // Save to history
-    try {
-      const history = JSON.parse(localStorage.getItem(historyKey) || '[]');
-      const newEntry = {
-        id: activeCard.id,
-        type: activeCard.isWelcome ? 'Welcome Card' : 'Referral Card',
-        coins: coinsWon,
-        wallet: activeCard.isWelcome ? 0 : (rewardData.wallet_credited || 25),
-        freezes: rewardData.freezes_added || 0,
-        surge_days: rewardData.surge_days_added || 0,
-        date: new Date().toLocaleDateString(undefined, { day: 'numeric', month: 'short' })
-      };
-      const updatedHistory = [newEntry, ...history];
-      localStorage.setItem(historyKey, JSON.stringify(updatedHistory));
-      setScratchHistory(updatedHistory);
-    } catch (e) {
-      console.error('Failed to save scratch history:', e);
-    }
-
-    // Clear welcome flag
-    if (activeCard.isWelcome) {
-      localStorage.removeItem('mcqkash_welcome_coins_pending');
-    }
-
-    // BUG-SC-01 FIX: Optimistically remove this card from the pending list immediately.
-    // Don't wait for refreshEconomy — the list is derived from economy.referral_count - economy.scratched_cards_count,
-    // but economy may be cached. Removing from local state prevents the card from re-appearing.
-    setCards(prev => prev.filter(c => c.id !== activeCard.id));
-
-    // Reset scratch UI state
-    setActiveCard(null);
-    setIsScratched(false);
-    setRewardData(null);
-    setIsClaiming(false);
-
-    // BUG-SC-03 FIX: Force-bust the 24h cache so refreshed economy reflects
-    // the updated liquid_coins, scratched_cards_count, streak_freezes, power_surge
-    // that scratch_referral_card_rpc wrote to the DB.
-    if (refreshEconomy) await refreshEconomy(true);
-
-    if (showToast) showToast(`Claimed +${coinsWon} KashCoins & Rewards! 🚀`, 'success');
+  const handleDismissCard = (cardId) => {
+    setCards(prev => prev.filter(c => c.id !== cardId));
+    setClaimedRewardsMap(prev => {
+      const copy = { ...prev };
+      delete copy[cardId];
+      return copy;
+    });
   };
 
   return (
     <div className="bg-amber-500/[0.01] dark:bg-amber-500/[0.02] backdrop-blur-md border border-amber-500/15 rounded-3xl p-5 space-y-4 text-left shadow-[0_8px_32px_0_rgba(0,0,0,0.15)]">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted">Referral Scratch Cards</span>
+        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-theme-muted">
+          Referral Card
+        </span>
         {cards.length > 0 && (
-          <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 text-[9px] font-black uppercase tracking-widest animate-pulse">
+          <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 text-[9.5px] font-black uppercase tracking-widest animate-pulse">
             {cards.length} Pending
           </span>
         )}
       </div>
 
-      {activeCard ? (
-        <div className="flex flex-col items-center justify-center py-2">
-          {/* Scratch Card Canvas Container */}
-          <div className="relative w-80 h-44 rounded-2xl overflow-hidden border shadow-lg bg-theme-surface flex items-center justify-center select-none" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.08)' }}>
-            
-            {/* Revealed rewards display */}
-            <div className="absolute inset-0 p-4 flex flex-col justify-center items-center">
-              {isClaiming ? (
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <Loader className="w-6 h-6 text-amber-500 animate-spin" />
-                  <span className="text-[10px] font-mono text-theme-muted animate-pulse">Claiming rewards...</span>
-                </div>
-              ) : rewardData ? (
-                <m.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="space-y-3 w-full"
-                >
-                  <div className="flex items-center justify-center gap-1">
-                    <Sparkles className="text-amber-500 animate-bounce" size={13} />
-                    <span className="text-[9px] font-black text-theme-primary uppercase tracking-widest">Scratch Success!</span>
-                  </div>
+      {/* PENDING CARDS OR BEAUTIFUL EMPTY STATE CARD */}
+      <div className="space-y-3">
+        {cards.length > 0 ? (
+          <div className="grid grid-cols-1 gap-3">
+            {cards.map((card) => {
+              const isClaimingThis = claimingId === card.id;
+              const rewards = claimedRewardsMap[card.id];
 
-                  <div className="grid grid-cols-2 gap-2 text-left">
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
-                      <div className="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                        <Gift size={12} />
-                      </div>
-                      <div>
-                        <div className="text-[7px] font-black uppercase text-theme-muted tracking-widest leading-none">KashCoins</div>
-                        <div className="text-xs font-black text-amber-500">
-                          +{rewardData.coins_rewarded || activeCard.coins} KC
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
-                      <div className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
-                        <Gift size={12} />
-                      </div>
-                      <div>
-                        <div className="text-[7px] font-black uppercase text-theme-muted tracking-widest leading-none">Wallet Money</div>
-                        <div className="text-xs font-black text-emerald-500">
-                          {activeCard.isWelcome ? '₹0' : '₹25'}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
-                      <div className="w-6 h-6 rounded-lg bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0">
-                        <Snowflake size={12} />
-                      </div>
-                      <div>
-                        <div className="text-[7px] font-black uppercase text-theme-muted tracking-widest leading-none">Streak Shield</div>
-                        <div className="text-[10px] font-black text-theme-text">+1 Shield</div>
-                      </div>
-                    </div>
-
-                    <div className="bg-theme-bg/60 p-2 rounded-xl border flex items-center gap-2" style={{ borderColor: 'rgba(var(--color-text-rgb), 0.06)' }}>
-                      <div className="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-500 flex items-center justify-center shrink-0">
-                        <Flame size={12} fill="currentColor" />
-                      </div>
-                      <div>
-                        <div className="text-[7px] font-black uppercase text-theme-muted tracking-widest leading-none">Power Surge</div>
-                        <div className="text-[10px] font-black text-theme-text">
-                          +{activeCard.isWelcome ? '7' : '3'} Days
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </m.div>
-              ) : (
-                <span className="text-[10px] text-theme-muted italic">Scratching canvas failed.</span>
-              )}
-            </div>
-
-            {/* Canvas Scratch layer */}
-            {!rewardData && (
-              <canvas
-                ref={canvasRef}
-                className="absolute inset-0 cursor-crosshair touch-none select-none z-10"
-                onMouseDown={startScratching}
-                onMouseUp={stopScratching}
-                onMouseLeave={stopScratching}
-                onMouseMove={scratch}
-                onTouchStart={startScratching}
-                onTouchEnd={stopScratching}
-                onTouchMove={scratch}
-              />
-            )}
-          </div>
-
-          <div className="w-full mt-3 flex gap-2">
-            {rewardData ? (
-              <button
-                onClick={handleSaveClaim}
-                className="w-full py-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md"
-              >
-                Claim rewards & Continue
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={autoRevealFallback}
-                  className="flex-1 py-2 bg-theme-surface hover:bg-theme-surface-hover text-theme-muted hover:text-theme-text border border-theme-border rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
-                >
-                  Auto-Reveal
-                </button>
-                <button
-                  onClick={() => setActiveCard(null)}
-                  className="py-2 px-3 bg-theme-surface hover:bg-theme-surface-hover text-theme-muted hover:text-theme-text border border-theme-border rounded-xl text-[10px] font-bold transition-all"
-                >
-                  Cancel
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {/* Card selection list */}
-          {cards.length > 0 ? (
-            <div className="grid grid-cols-1 gap-2">
-              {cards.map((card, idx) => (
-                <button
-                  key={card.id}
-                  onClick={() => setActiveCard(card)}
-                  className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/5 to-amber-500/[0.01] hover:from-amber-500/10 hover:to-amber-500/5 border border-amber-500/20 hover:border-amber-500/40 rounded-2xl transition-all duration-300 text-left group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                      <Gift size={16} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-black text-theme-text">
-                        {card.isWelcome ? 'Welcome Gift Scratch Card' : `Referral Reward Card #${idx + 1}`}
-                      </h4>
-                      <p className="text-[9px] text-theme-muted uppercase tracking-widest font-black mt-0.5">
-                        {card.isWelcome ? 'Unlock welcome benefits!' : 'Claim variable kashcoins & surges'}
-                      </p>
-                    </div>
-                  </div>
-                  <ChevronRight size={14} className="text-amber-500 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div className="py-6 text-center bg-amber-500/[0.02] rounded-2xl border border-amber-500/10 text-theme-muted text-[10px] font-bold uppercase tracking-wider">
-              🎉 All caught up! Invite friends to get scratch cards.
-            </div>
-          )}
-
-          {/* History/Archive area */}
-          {scratchHistory.length > 0 && (
-            <div className="space-y-2 pt-2">
-              <div className="max-h-[160px] overflow-y-auto custom-scrollbar space-y-2 pr-1.5">
-                {scratchHistory.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between p-3 bg-theme-surface/40 dark:bg-theme-surface/20 border hover:border-theme-primary/20 rounded-2xl text-left backdrop-blur-md shadow-sm hover:scale-[1.01] hover:bg-theme-surface/50 transition-all duration-300"
-                    style={{ borderColor: 'rgba(var(--color-text-rgb), 0.08)' }}
+              if (rewards) {
+                /* REVEALED / OPENED CARD STATE - COMPACT & BEAUTIFUL */
+                return (
+                  <motion.div
+                    key={card.id}
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', damping: 20 }}
+                    className="w-full relative rounded-2xl p-3.5 sm:p-4 overflow-hidden border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 via-slate-900/90 to-emerald-950/40 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-lg"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-theme-primary/10 text-theme-primary flex items-center justify-center border border-theme-primary/15 shrink-0">
-                        <Gift size={14} className="opacity-80" />
+                    {/* Left: Checkmark Icon & Details */}
+                    <div className="flex items-center gap-3 relative z-10 min-w-0 flex-1">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-xl shrink-0 border border-emerald-500/30">
+                        <CheckCircle2 size={20} />
                       </div>
-                      <div>
-                        <span className="text-[10px] font-black text-theme-text block leading-none">{item.type}</span>
-                        <span className="text-[8px] font-bold text-theme-muted uppercase tracking-widest mt-1 block">{item.date}</span>
+                      <div className="min-w-0">
+                        <h4 className="text-sm font-extrabold text-white tracking-tight">
+                          {card.isWelcome ? 'Welcome Rewards Claimed!' : 'Referral Rewards Claimed!'}
+                        </h4>
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-bold mt-1">
+                          <span className="text-amber-400">+{rewards.coins_rewarded} KC</span>
+                          <span className="text-slate-500">•</span>
+                          <span className="text-emerald-400">+₹{rewards.wallet_credited} Cash</span>
+                          <span className="text-slate-500">•</span>
+                          <span className="text-cyan-300">+{rewards.freezes_added} Shield</span>
+                          <span className="text-slate-500">•</span>
+                          <span className="text-rose-400">+{rewards.surge_days_added}d Surge</span>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <div className="text-right flex flex-col items-end gap-1">
-                        <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 text-[9px] font-black tracking-wide shrink-0">
-                          +{item.coins} KC
-                        </span>
-                        {item.wallet > 0 && (
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-[8.5px] font-black tracking-wide shrink-0">
-                            +₹{item.wallet} Wallet
-                          </span>
-                        )}
-                      </div>
+
+                    {/* Right: Done Button */}
+                    <button
+                      onClick={() => handleDismissCard(card.id)}
+                      className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-black text-slate-200 hover:text-white uppercase tracking-wider transition-all border border-slate-700 cursor-pointer shrink-0 self-end sm:self-auto"
+                    >
+                      Done
+                    </button>
+                  </motion.div>
+                );
+              }
+
+              /* UNREVEALED MYSTERY SCRATCH CARD - CLEAN FULLY CLICKABLE CARD */
+              return (
+                <motion.button
+                  key={card.id}
+                  whileHover={{ scale: 1.015, y: -1 }}
+                  whileTap={{ scale: 0.985 }}
+                  onClick={() => handleOneTapReveal(card)}
+                  disabled={claimingId !== null}
+                  className="w-full relative group cursor-pointer text-left rounded-2xl p-3.5 sm:p-4 overflow-hidden transition-all duration-300 border border-amber-500/35 hover:border-amber-400/70 shadow-[0_6px_24px_-6px_rgba(245,158,11,0.2)] bg-gradient-to-r from-amber-950/40 via-slate-900/90 to-amber-950/40 backdrop-blur-xl flex items-center justify-between gap-3"
+                >
+                  {/* Subtle shimmer aura */}
+                  <div className="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/20 rounded-full blur-xl group-hover:bg-amber-400/30 transition-all duration-500 pointer-events-none" />
+
+                  {/* Left: Gift Icon + Single Clean Text */}
+                  <div className="flex items-center gap-3 relative z-10 min-w-0 flex-1">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 flex items-center justify-center font-black text-xl shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform shrink-0 border border-amber-200/40">
+                      🎁
+                    </div>
+                    <div className="flex items-center gap-2 flex-wrap min-w-0">
+                      <h4 className="text-sm font-extrabold text-white tracking-tight">
+                        {card.isWelcome ? 'Reveal Welcome Card' : 'Reveal Scratch Card'}
+                      </h4>
+                      <Sparkles size={14} className="text-amber-400 animate-pulse shrink-0" />
                     </div>
                   </div>
-                ))}
+
+                  {/* Right: Clean Arrow or Loading indicator */}
+                  <div className="relative z-10 shrink-0 text-amber-400 group-hover:translate-x-1 transition-transform">
+                    {isClaimingThis ? (
+                      <Loader size={18} className="animate-spin text-amber-400" />
+                    ) : (
+                      <ChevronRight size={20} className="text-amber-400" />
+                    )}
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+        ) : (
+          /* BEAUTIFUL EMPTY STATE CARD */
+          <div className="bg-gradient-to-r from-amber-500/10 via-amber-500/[0.03] to-slate-900 border border-amber-500/30 rounded-3xl p-5 flex items-center justify-between gap-4 text-left shadow-sm">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-2xl shrink-0 border border-amber-500/30">
+                🎁
+              </div>
+              <div>
+                <h4 className="text-xs font-black text-white tracking-tight uppercase">
+                  Invite Friends & Win Cash
+                </h4>
+                <span className="text-[11px] font-bold text-amber-400/90 block mt-0.5">
+                  Earn ₹25 Wallet Money + 150 KashCoins per friend invited!
+                </span>
               </div>
             </div>
-          )}
+          </div>
+        )}
+      </div>
+
+      {/* REWARD CARD HISTORY (INDEXED DB OFFLINE HISTORY) */}
+      {cardHistory.length > 0 && (
+        <div className="pt-3 border-t border-amber-500/15 space-y-2.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-500 flex items-center gap-1.5">
+              <Clock size={11} className="text-amber-500" />
+              Earned Card History
+            </span>
+            <span className="text-[9px] text-theme-muted font-bold">
+              {cardHistory.length} Saved
+            </span>
+          </div>
+
+          <div className="space-y-2 max-h-56 overflow-y-auto custom-scrollbar pr-1">
+            {cardHistory.map((item, idx) => (
+              <div
+                key={item.id || idx}
+                className="bg-slate-900/60 backdrop-blur-md border border-amber-500/20 hover:border-amber-400/40 rounded-2xl p-3 flex items-center justify-between text-left transition-all shadow-sm group"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center font-black text-sm shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    🎁
+                  </div>
+                  <div className="flex flex-col justify-center min-w-0">
+                    <div className="text-xs font-black text-white tracking-tight">
+                      {item.type === 'Welcome Card' ? 'Welcome' : (item.date || 'Saved')}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-extrabold mt-0.5">
+                      <span className="text-amber-400">+{item.coins || 150} KC</span>
+                      <span className="text-slate-600">•</span>
+                      <span className="text-emerald-400">+₹{item.wallet || 25} Wallet</span>
+                      {(item.freezes > 0 || !item.type) && (
+                        <>
+                          <span className="text-slate-600">•</span>
+                          <span className="text-cyan-300">+{item.freezes || 1} Shield</span>
+                        </>
+                      )}
+                      {item.surge_days > 0 && (
+                        <>
+                          <span className="text-slate-600">•</span>
+                          <span className="text-rose-400">+{item.surge_days}d Surge</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {item.type === 'Welcome Card' && item.date && (
+                  <span className="text-[10px] font-bold text-slate-400 shrink-0 ml-2">
+                    {item.date}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

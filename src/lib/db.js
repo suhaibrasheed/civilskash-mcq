@@ -168,6 +168,21 @@ const withDBErrorHandler = async (operation) => {
   }
 };
 
+// ⚡ IN-MEMORY SESSION CACHES (0ms latency, zero disk I/O on repeated reads)
+let _mockStatsCache = null;
+let _solvedMocksCache = null;
+let _aggregatedStatsCache = null;
+let _revisionRecordsCache = null;
+let _revisionStatsCache = null;
+
+export const invalidateDBCache = () => {
+  _mockStatsCache = null;
+  _solvedMocksCache = null;
+  _aggregatedStatsCache = null;
+  _revisionRecordsCache = null;
+  _revisionStatsCache = null;
+};
+
 export const saveMockStats = async (stats) => {
   return withDBErrorHandler(async () => {
     const db = await initDB();
@@ -179,14 +194,19 @@ export const saveMockStats = async (stats) => {
         date: new Date().toISOString()
       });
 
-      request.onsuccess = () => resolve(true);
+      request.onsuccess = () => {
+        invalidateDBCache();
+        resolve(true);
+      };
       request.onerror = () => reject(request.error);
     });
   });
 };
 
 export const getAllMockStats = async () => {
-  return withDBErrorHandler(async () => {
+  if (_mockStatsCache) return _mockStatsCache;
+
+  const result = await withDBErrorHandler(async () => {
     const db = await initDB();
     
     let isPro = false;
@@ -227,6 +247,9 @@ export const getAllMockStats = async () => {
       request.onerror = () => reject(request.error);
     });
   });
+
+  if (result) _mockStatsCache = result;
+  return result || [];
 };
 
 export const toggleBookmarkDB = async (questionData) => {
@@ -400,7 +423,9 @@ export const markQuestionsForResurrection = async (questions = []) => {
 };
 
 export const getRevisionRecords = async () => {
-  return withDBErrorHandler(async () => {
+  if (_revisionRecordsCache) return _revisionRecordsCache;
+
+  const records = await withDBErrorHandler(async () => {
     const db = await initDB();
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([REVISION_STORE], 'readonly');
@@ -410,6 +435,9 @@ export const getRevisionRecords = async () => {
       request.onerror = () => reject(request.error);
     });
   });
+
+  if (records) _revisionRecordsCache = records;
+  return records || [];
 };
 
 export const getResurrectionQuestions = async (excludeCooldown = true) => {
@@ -449,6 +477,8 @@ export const getDueSRSQuestions = async (limit = 10) => {
 };
 
 export const getRevisionStats = async () => {
+  if (_revisionStatsCache) return _revisionStatsCache;
+
   const records = await getRevisionRecords();
   const now = Date.now();
   const weekAgo = now - 7 * 24 * 60 * 60 * 1000;
@@ -464,7 +494,7 @@ export const getRevisionStats = async () => {
   const srs6Count = records.filter(r => r.status === 'SRS' && r.srs_interval === 60).length;
   const masteredCount = records.filter(r => r.status === 'Mastered').length;
 
-  return {
+  const result = {
     totalResurrection: poolCount,
     totalSRS: srs12Count + srs35Count + srs6Count,
     dueSRS: records.filter(r => r.status === 'SRS' && r.next_revision_date && new Date(r.next_revision_date).getTime() <= now).length,
@@ -475,6 +505,9 @@ export const getRevisionStats = async () => {
     srs6Count,
     masteredCount,
   };
+
+  _revisionStatsCache = result;
+  return result;
 };
 
 export const getPracticePreferences = async (id) => {
@@ -640,11 +673,13 @@ export const applyRevisionOutcomes = async ({ questions = [], answers = {}, mode
       });
     }
 
+    invalidateDBCache();
     return summary;
   });
 };
 
 export const getAggregatedStats = async () => {
+  if (_aggregatedStatsCache) return _aggregatedStatsCache;
   try {
     const allStats = await getAllMockStats();
     const totalTests = allStats.length;
@@ -662,7 +697,9 @@ export const getAggregatedStats = async () => {
     const accuracyRate = accuracy;
     const history = allStats.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    return { totalTests, totalQuestions, totalCorrect, totalIncorrect, accuracyRate, history };
+    const result = { totalTests, totalQuestions, totalCorrect, totalIncorrect, accuracyRate, history };
+    _aggregatedStatsCache = result;
+    return result;
   } catch (error) {
     console.error("Error aggregating stats:", error);
     return { totalTests: 0, totalQuestions: 0, totalCorrect: 0, totalIncorrect: 0, accuracyRate: 0, history: [] };
@@ -679,6 +716,7 @@ export const getAllFailedQuestionsDB = async () => {
 };
 
 export const getSolvedMocks = async () => {
+  if (_solvedMocksCache) return _solvedMocksCache;
   try {
     const allStats = await getAllMockStats();
     // Return unique mocks with their best performance
@@ -696,7 +734,9 @@ export const getSolvedMocks = async () => {
       }
     });
 
-    return Array.from(solvedMap.values());
+    const result = Array.from(solvedMap.values());
+    _solvedMocksCache = result;
+    return result;
   } catch (error) {
     console.error("Error getting solved mocks:", error);
     return [];
@@ -1152,4 +1192,38 @@ export const saveOfflineQuestions = async (questions) => {
       transaction.onerror = () => reject(transaction.error);
     });
   });
+};
+
+/**
+ * Save a referral/welcome card entry to local IndexedDB/localStorage.
+ * @param {object} cardEntry
+ * @returns {Promise<boolean>}
+ */
+export const saveReferralCardToDB = async (cardEntry) => {
+  try {
+    const key = `mcqkash_referral_cards_${cardEntry.owner || 'default'}`;
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    const filtered = existing.filter(c => c.id !== cardEntry.id);
+    const updated = [cardEntry, ...filtered];
+    localStorage.setItem(key, JSON.stringify(updated));
+    return true;
+  } catch (e) {
+    console.warn('Failed to save referral card to local DB:', e);
+    return false;
+  }
+};
+
+/**
+ * Retrieve all referral/welcome card history for a user from local DB.
+ * @param {string} username
+ * @returns {Promise<object[]>}
+ */
+export const getReferralCardsFromDB = async (username) => {
+  try {
+    const key = `mcqkash_referral_cards_${username || 'default'}`;
+    return JSON.parse(localStorage.getItem(key) || '[]');
+  } catch (e) {
+    console.warn('Failed to fetch referral cards from local DB:', e);
+    return [];
+  }
 };

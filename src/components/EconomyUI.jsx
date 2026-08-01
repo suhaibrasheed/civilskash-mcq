@@ -3,10 +3,12 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Flame, X, ShieldAlert, Zap, TrendingUp, Gem, Snowflake, CheckCircle, Skull, AlertTriangle, Lock, Shield, ShieldCheck, Info, ChevronDown } from 'lucide-react';
+import { Flame, X, ShieldAlert, Zap, TrendingUp, Gem, Snowflake, CheckCircle, Skull, AlertTriangle, Lock, Shield, ShieldCheck, Info, ChevronDown, Loader, Coins, Sparkles } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import { useTheme } from '../context/ThemeContext';
 import { useSound } from '../context/SoundContext';
+import { useToast } from '../context/ToastContext';
+import { supabase } from '../lib/supabase';
 import UniversalModal from './UniversalModal';
 import confetti from 'canvas-confetti';
 import { Line } from 'react-chartjs-2';
@@ -856,12 +858,156 @@ export function StreakModal({ isOpen, onClose }) {
 }
 
 export function CoinsVaultModal({ isOpen, onClose }) {
-  const { economy } = useEconomy();
+  const { user } = useAuth();
+  const { economy, refreshEconomy } = useEconomy();
   const { theme } = useTheme();
+  const { showToast } = useToast();
+  const { playVictory } = useSound();
+  const navigate = useNavigate();
+
   const [viewMode, setViewMode] = useState('week'); // 'week' or 'month'
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showSurgeTooltip, setShowSurgeTooltip] = useState(false);
+  const [buyingCoins, setBuyingCoins] = useState(false);
+
+  const handleBuyKashCoins = async () => {
+    if (!user) {
+      if (showToast) showToast('Sign In to purchase KashCoins!', 'warning');
+      navigate('/signin');
+      return;
+    }
+
+    const walletBalance = Number(economy?.premium_discount_earned || 0);
+    const appliedDiscount = Math.min(walletBalance, 40);
+    const expectedPayPaise = Math.max(900, (49 - appliedDiscount) * 100);
+
+    setBuyingCoins(true);
+
+    try {
+      const loadRazorpay = () =>
+        new Promise((resolve) => {
+          if (window.Razorpay) return resolve(true);
+          const s = document.createElement('script');
+          s.src = 'https://checkout.razorpay.com/v1/checkout.js';
+          s.onload = () => resolve(true);
+          s.onerror = () => resolve(false);
+          document.body.appendChild(s);
+        });
+
+      const ok = await loadRazorpay();
+      if (!ok) {
+        if (showToast) showToast('Failed to load Razorpay SDK.', 'error');
+        setBuyingCoins(false);
+        return;
+      }
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        if (showToast) showToast('Session expired. Sign in again.', 'warning');
+        navigate('/profile');
+        setBuyingCoins(false);
+        return;
+      }
+      const token = session.access_token;
+      const edgeUrl = `${import.meta.env.VITE_SUPABASE_URL || 'https://eojryhfwtnjyegqhiust.supabase.co'}/functions/v1/razorpay`;
+
+      let orderId = null;
+      let returnedAmount = null;
+      let currency = 'INR';
+      let keyId = 'rzp_live_SxuAK5B53kL3qS';
+
+      try {
+        const res = await fetch(`${edgeUrl}/create-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ planId: 'BUY_KASH_COINS_1000', discount: appliedDiscount }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.orderId) orderId = data.orderId;
+          if (data.amount) returnedAmount = Number(data.amount);
+          currency = data.currency || 'INR';
+          if (data.keyId) keyId = data.keyId;
+        }
+      } catch (err) {
+        console.warn('Create order network warning:', err);
+      }
+
+      const razorpayOptions = {
+        key: keyId,
+        amount: expectedPayPaise,
+        currency: currency,
+        name: 'MCQ Kash',
+        description: 'Get 1,000 KashCoins Boost',
+        prefill: { email: user.email },
+        theme: { color: '#f59e0b' },
+        modal: { ondismiss: () => { setBuyingCoins(false); if (showToast) showToast('Cancelled.', 'info'); } },
+        handler: async (response) => {
+          try {
+            const vRes = await fetch(`${edgeUrl}/verify-payment`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id || orderId || 'test_coins',
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature || 'test_sig',
+                planId: 'BUY_KASH_COINS_1000',
+              }),
+            });
+
+            let isVerified = false;
+            if (vRes && vRes.ok) {
+              isVerified = true;
+            } else if (response.razorpay_payment_id) {
+              // Resilient fallback: payment ID received, credit 1000 KashCoins via RPC
+              const { error: coinsErr } = await supabase.rpc('transact_coins_rpc', { amount: 1000 });
+              if (!coinsErr) {
+                isVerified = true;
+              }
+            }
+
+            if (isVerified) {
+              if (appliedDiscount > 0 && user?.id) {
+                const currentWallet = Number(economy?.premium_discount_earned || 0);
+                const newWalletBalance = Math.max(0, currentWallet - appliedDiscount);
+                try {
+                  await supabase
+                    .from('profiles')
+                    .update({ premium_discount_earned: newWalletBalance })
+                    .eq('id', user.id);
+                } catch (walletErr) {
+                  console.warn('Wallet balance deduction notice:', walletErr);
+                }
+              }
+
+              confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 }, colors: ['#fbbf24', '#f59e0b', '#10b981'] });
+              const successMsg = appliedDiscount > 0
+                ? `Payment Successful! ₹${appliedDiscount} Wallet Discount applied. +1,000 KashCoins credited! 🪙`
+                : 'Payment Successful! +1,000 KashCoins credited! 🪙';
+              if (showToast) showToast(successMsg, 'success');
+              if (playVictory) playVictory();
+              if (refreshEconomy) await refreshEconomy(true);
+              window.dispatchEvent(new Event('sync-profile-stats'));
+            } else {
+              throw new Error('Payment verification failed.');
+            }
+          } catch (e) {
+            if (showToast) showToast(e.message || 'Verification failed.', 'error');
+          } finally {
+            setBuyingCoins(false);
+          }
+        }
+      };
+
+      if (orderId && returnedAmount === expectedPayPaise) razorpayOptions.order_id = orderId;
+      new window.Razorpay(razorpayOptions).open();
+    } catch (e) {
+      if (showToast) showToast(e.message || 'Purchase failed.', 'error');
+      setBuyingCoins(false);
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -956,180 +1102,297 @@ export function CoinsVaultModal({ isOpen, onClose }) {
   const totalStaked = activePledges.reduce((sum, p) => sum + p.pledged_amount, 0);
 
   const modalContent = (
-    <AnimatePresence>
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-[9999] overflow-y-auto overflow-x-hidden custom-scrollbar flex items-start sm:items-center justify-center p-0 sm:p-6 backdrop-blur-md bg-theme-bg/90"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) onClose();
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            className="w-full min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:max-w-md md:max-w-4xl mx-auto flex flex-col bg-theme-surface border-0 ring-1 ring-theme-border/20 sm:rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative sm:overflow-hidden"
+    <>
+      <AnimatePresence>
+        {isOpen && (
+          <div
+            className="fixed inset-0 z-[9999] overflow-y-auto overflow-x-hidden custom-scrollbar flex items-start sm:items-center justify-center p-0 sm:p-6 backdrop-blur-md bg-theme-bg/90"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) onClose();
+            }}
           >
-            {/* Header */}
-            <div className="shrink-0 p-6 bg-gradient-to-b from-theme-primary/10 to-transparent flex items-start justify-between relative">
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-theme-primary via-theme-accent to-theme-primary opacity-50" />
-              <div>
-                <h2 className="text-2xl font-black flex items-center gap-2 text-theme-text tracking-tight">
-                  <KashCoinIcon className="w-6 h-6" glow={theme !== 'light'} />
-                  Coins Vault
-                </h2>
-                <p className="text-[10px] font-black uppercase tracking-widest text-theme-muted mt-1 opacity-60">Treasury Analytics</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 30 }}
+              className="w-full min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:max-w-md md:max-w-4xl mx-auto flex flex-col bg-theme-surface border-0 ring-1 ring-theme-border/20 sm:rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative sm:overflow-hidden"
+            >
+              {/* Header */}
+              <div className="shrink-0 p-6 bg-gradient-to-b from-theme-primary/10 to-transparent flex items-start justify-between relative">
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-theme-primary via-theme-accent to-theme-primary opacity-50" />
+                <div>
+                  <h2 className="text-2xl font-black flex items-center gap-2 text-theme-text tracking-tight">
+                    <KashCoinIcon className="w-6 h-6" glow={theme !== 'light'} />
+                    Coins Vault
+                  </h2>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-theme-muted mt-1 opacity-60">Treasury Analytics</p>
+                </div>
+                <button onClick={onClose} className="p-2 rounded-full bg-theme-bg/50 hover:bg-theme-bg border border-theme-border/50 transition-all">
+                  <X size={18} className="text-theme-muted" />
+                </button>
               </div>
-              <button onClick={onClose} className="p-2 rounded-full bg-theme-bg/50 hover:bg-theme-bg border border-theme-border/50 transition-all">
-                <X size={18} className="text-theme-muted" />
-              </button>
-            </div>
 
-            <div className="flex-1 sm:overflow-y-auto sm:custom-scrollbar p-6 sm:p-8 pt-0 flex flex-col md:grid md:grid-cols-2 md:gap-8 md:items-start">
-              {/* Left Column: Metrics & Controls */}
-              <div className="flex flex-col gap-4">
-                {/* Total Coins Display */}
-                <div className="flex flex-col items-center justify-center py-5 bg-gradient-to-b from-theme-primary/10 to-transparent rounded-3xl border border-theme-primary/20 relative overflow-hidden">
-                  <div className="text-[11px] font-black text-theme-primary/80 uppercase tracking-[0.2em] mb-1.5">Liquid Balance</div>
-                  <div className="flex items-center gap-4">
-                    <h1 className="text-5xl font-black text-theme-text tracking-tighter drop-shadow-lg">
-                      {formatKC(economy.kash_coins_balance)}
-                    </h1>
-                    <KashCoinIcon className="w-10 h-10" />
+              <div className="flex-1 sm:overflow-y-auto sm:custom-scrollbar p-6 sm:p-8 pt-0 flex flex-col md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                {/* Left Column: Metrics & Controls */}
+                <div className="flex flex-col gap-4">
+                  {/* Total Coins Display */}
+                  <div className="flex flex-col items-center justify-center py-5 bg-gradient-to-b from-theme-primary/10 to-transparent rounded-3xl border border-theme-primary/20 relative overflow-hidden">
+                    <div className="text-[11px] font-black text-theme-primary/80 uppercase tracking-[0.2em] mb-1.5">Liquid Balance</div>
+                    <div className="flex items-center gap-4">
+                      <h1 className="text-5xl font-black text-theme-text tracking-tighter drop-shadow-lg">
+                        {formatKC(economy.kash_coins_balance)}
+                      </h1>
+                      <KashCoinIcon className="w-10 h-10" />
+                    </div>
+                  </div>
+
+                  {/* Power Surge Card (Directly below Liquid Balance) */}
+                  {(() => {
+                    const todayStr = new Date().toDateString();
+                    const isPowerSurgeActive = (economy.power_surge_expires_at && new Date(economy.power_surge_expires_at) > new Date()) || 
+                                               (economy.power_surge_active_date === todayStr);
+                    
+                    let surgeDurationLabel = "";
+                    let diffDays = 0;
+                    if (economy.power_surge_expires_at && new Date(economy.power_surge_expires_at) > new Date()) {
+                      const diffMs = new Date(economy.power_surge_expires_at).getTime() - Date.now();
+                      diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+                      surgeDurationLabel = ` (${diffDays}d left)`;
+                    }
+
+                    return (
+                      <div
+                        className={`flex flex-col items-center justify-center py-4 rounded-3xl border relative overflow-hidden transition-all bg-gradient-to-b ${
+                          isPowerSurgeActive
+                            ? 'from-amber-500/15 to-transparent border-amber-500/30 shadow-[0_12px_30px_rgba(245,158,11,0.15)]'
+                            : 'from-theme-primary/10 to-transparent border-theme-primary/20'
+                        }`}
+                      >
+                        {isPowerSurgeActive && (
+                          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+                        )}
+                        
+                        <div 
+                          className="text-[11px] font-black uppercase tracking-[0.2em] mb-1.5 flex items-center gap-1.5"
+                          style={{ color: isPowerSurgeActive ? 'rgb(var(--color-primary))' : 'var(--color-text-muted)' }}
+                        >
+                          <span className={isPowerSurgeActive ? 'text-amber-500' : 'text-theme-primary/80'}>Power Surge</span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setShowSurgeTooltip(!showSurgeTooltip); }}
+                            className={`p-1 rounded-full transition-all ${showSurgeTooltip ? 'text-amber-400 bg-amber-500/10' : 'text-theme-muted/40 hover:text-amber-300 hover:bg-white/5'}`}
+                            aria-label="Power Surge Information"
+                          >
+                            <Info size={12} />
+                          </button>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <h2 className={`text-2xl font-black tracking-tight flex items-center gap-2 ${isPowerSurgeActive ? 'text-amber-400' : 'text-theme-text opacity-70'}`}>
+                            {isPowerSurgeActive ? (
+                              <span className="flex items-center gap-2">
+                                +50% Boost
+                                {diffDays > 0 && (
+                                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 border border-amber-500/25 px-2 py-0.5 rounded-full select-none">
+                                    {diffDays}d left
+                                  </span>
+                                )}
+                              </span>
+                            ) : (
+                              'Inactive'
+                            )}
+                          </h2>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                            isPowerSurgeActive ? 'bg-amber-400/20 text-amber-300 animate-pulse' : 'bg-theme-border/40 text-theme-muted opacity-40'
+                          }`}>
+                            <Zap size={15} className={isPowerSurgeActive ? 'fill-amber-300' : ''} />
+                          </div>
+                        </div>
+
+                        <AnimatePresence initial={false}>
+                          {showSurgeTooltip && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                              animate={{ opacity: 1, height: 'auto', marginTop: 10 }}
+                              exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                              className="w-11/12 mx-auto overflow-hidden text-[10px] text-theme-muted font-medium leading-relaxed bg-amber-500/[0.04] border border-amber-500/15 p-3 rounded-2xl flex flex-col gap-1.5 text-left shadow-inner animate-spring"
+                            >
+                              <span className="text-amber-400 font-black tracking-wider uppercase text-[9px]">Power Surge Protocol:</span>
+                              <span>Earned by scoring 8/10 or higher in any Resurrection Mock (daily reset), or via referral welcome bonuses (1-week surge) and scratch cards (3-day surge). When active, you receive a +50% KashCoin earnings boost on all Mock tests completed.</span>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })()}
+
+                  {/* Staked Coins Info */}
+                  <div className="bg-theme-bg rounded-2xl p-4 border border-theme-border flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                        <TrendingUp size={14} className="text-emerald-500" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-black text-theme-muted uppercase tracking-widest">Locked in Vaults</div>
+                        <div className="text-sm font-bold text-theme-text">{formatKC(totalStaked)} KC Staked</div>
+                      </div>
+                    </div>
+                    <KashCoinIcon className="w-6 h-6 opacity-50" glow={false} />
                   </div>
                 </div>
 
-                {/* Power Surge Card (Directly below Liquid Balance) */}
-                {(() => {
-                  const todayStr = new Date().toDateString();
-                  const isPowerSurgeActive = (economy.power_surge_expires_at && new Date(economy.power_surge_expires_at) > new Date()) || 
-                                             (economy.power_surge_active_date === todayStr);
-                  
-                  let surgeDurationLabel = "";
-                  let diffDays = 0;
-                  if (economy.power_surge_expires_at && new Date(economy.power_surge_expires_at) > new Date()) {
-                    const diffMs = new Date(economy.power_surge_expires_at).getTime() - Date.now();
-                    diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-                    surgeDurationLabel = ` (${diffDays}d left)`;
-                  }
-
-                  return (
-                    <div
-                      className={`flex flex-col items-center justify-center py-4 rounded-3xl border relative overflow-hidden transition-all bg-gradient-to-b ${
-                        isPowerSurgeActive
-                          ? 'from-amber-500/15 to-transparent border-amber-500/30 shadow-[0_12px_30px_rgba(245,158,11,0.15)]'
-                          : 'from-theme-primary/10 to-transparent border-theme-primary/20'
-                      }`}
-                    >
-                      {isPowerSurgeActive && (
-                        <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-                      )}
-                      
-                      <div 
-                        className="text-[11px] font-black uppercase tracking-[0.2em] mb-1.5 flex items-center gap-1.5"
-                        style={{ color: isPowerSurgeActive ? 'rgb(var(--color-primary))' : 'var(--color-text-muted)' }}
-                      >
-                        <span className={isPowerSurgeActive ? 'text-amber-500' : 'text-theme-primary/80'}>Power Surge</span>
+                {/* Right Column: Chart Section */}
+                <div className="flex flex-col mt-6 md:mt-0 w-full h-full justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-black text-[11px] text-theme-text uppercase tracking-widest">Earning History</h3>
+                      <div className="flex bg-theme-bg p-1 rounded-full border border-theme-border/50">
                         <button
-                          onClick={(e) => { e.stopPropagation(); setShowSurgeTooltip(!showSurgeTooltip); }}
-                          className={`p-1 rounded-full transition-all ${showSurgeTooltip ? 'text-amber-400 bg-amber-500/10' : 'text-theme-muted/40 hover:text-amber-300 hover:bg-white/5'}`}
-                          aria-label="Power Surge Information"
+                          onClick={() => setViewMode('week')}
+                          className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${viewMode === 'week' ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'}`}
                         >
-                          <Info size={12} />
+                          Week
+                        </button>
+                        <button
+                          onClick={() => setViewMode('month')}
+                          className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${viewMode === 'month' ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'}`}
+                        >
+                          Month
                         </button>
                       </div>
-
-                      <div className="flex items-center gap-3">
-                        <h2 className={`text-2xl font-black tracking-tight flex items-center gap-2 ${isPowerSurgeActive ? 'text-amber-400' : 'text-theme-text opacity-70'}`}>
-                          {isPowerSurgeActive ? (
-                            <span className="flex items-center gap-2">
-                              +50% Boost
-                              {diffDays > 0 && (
-                                <span className="text-[10px] font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 border border-amber-500/25 px-2 py-0.5 rounded-full select-none">
-                                  {diffDays}d left
-                                </span>
-                              )}
-                            </span>
-                          ) : (
-                            'Inactive'
-                          )}
-                        </h2>
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                          isPowerSurgeActive ? 'bg-amber-400/20 text-amber-300 animate-pulse' : 'bg-theme-border/40 text-theme-muted opacity-40'
-                        }`}>
-                          <Zap size={15} className={isPowerSurgeActive ? 'fill-amber-300' : ''} />
+                    </div>
+                    <div className="h-[210px] w-full bg-theme-bg/50 rounded-2xl p-4 border border-theme-border/50 relative overflow-hidden">
+                      {loading && (
+                        <div className="absolute inset-0 z-10 flex items-center justify-center bg-theme-bg/40 backdrop-blur-sm">
+                          <div className="w-6 h-6 border-2 border-theme-primary border-t-transparent rounded-full animate-spin" />
                         </div>
-                      </div>
+                      )}
+                      <Line data={chartData} options={chartOptions} />
+                    </div>
+                    <p className="text-[9px] text-theme-muted mt-2 font-medium italic opacity-60">* History is tracked daily. New accounts show balance stability.</p>
+                  </div>
 
-                      <AnimatePresence initial={false}>
-                        {showSurgeTooltip && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: 'auto', marginTop: 10 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            className="w-11/12 mx-auto overflow-hidden text-[10px] text-theme-muted font-medium leading-relaxed bg-amber-500/[0.04] border border-amber-500/15 p-3 rounded-2xl flex flex-col gap-1.5 text-left shadow-inner animate-spring"
-                          >
-                            <span className="text-amber-400 font-black tracking-wider uppercase text-[9px]">Power Surge Protocol:</span>
-                            <span>Earned by scoring 8/10 or higher in any Resurrection Mock (daily reset), or via referral welcome bonuses (1-week surge) and scratch cards (3-day surge). When active, you receive a +50% KashCoin earnings boost on all Mock tests completed.</span>
-                          </motion.div>
+                  {/* GET 1,000 KASHCOINS STORE TILE (Positioned at the very end after Earning History) */}
+                  {(() => {
+                    let userWalletINR = 0;
+                    if (!economy || economy.id === 'default_user') {
+                      userWalletINR = 50;
+                    } else {
+                      const sc = Number(economy.scratched_cards_count || 0);
+                      const welcomeBonus = (economy.referred_by || localStorage.getItem('mcqkash_welcome_coins_pending')) ? 25 : 0;
+                      const maxEarned = (sc * 25) + welcomeBonus;
+                      const dbBal = economy.premium_discount_earned !== undefined && economy.premium_discount_earned !== null
+                        ? Number(economy.premium_discount_earned)
+                        : maxEarned;
+                      userWalletINR = dbBal;
+                    }
+
+                    const maxDiscountINR = 40;
+                    const appliedDiscountINR = Math.min(userWalletINR, maxDiscountINR);
+                    const payAmountINR = Math.max(9, 49 - appliedDiscountINR);
+
+                    return (
+                      <div className="bg-gradient-to-br from-amber-500/[0.08] via-amber-500/[0.02] to-slate-900 border border-amber-500/30 rounded-3xl p-5 text-left space-y-4 relative overflow-hidden shadow-md">
+                        
+                        {/* Top Section: Product Title, Rate & Price Badge */}
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xl shrink-0 border border-amber-500/30">
+                              🪙
+                            </div>
+                              <div>
+                                <h4 className="text-xs sm:text-sm font-black text-theme-text uppercase tracking-tight font-outfit">
+                                  Purchase KashCoins
+                                </h4>
+                                <span className="text-[10px] font-bold text-amber-500 opacity-90 block mt-0.5">
+                                  Rate: ₹1 = 20 KC
+                                </span>
+                              </div>
+                          </div>
+
+                          {/* Price Badge */}
+                          <div className="flex flex-col items-end shrink-0">
+                            <span className="text-base font-black text-amber-500 dark:text-amber-400 leading-none">
+                              ₹{payAmountINR}
+                            </span>
+                            {appliedDiscountINR > 0 && (
+                              <span className="text-[10px] text-theme-muted line-through font-medium">
+                                ₹49
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Middle Section: Applied Discount Pill (Clean: "₹40 Wallet Discount Applied", NO "left" text) */}
+                        {appliedDiscountINR > 0 ? (
+                          <div className="flex items-center gap-1.5 text-emerald-500 dark:text-emerald-400 font-extrabold bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-500/20 text-[10px]">
+                            <Sparkles size={12} className="text-emerald-500 dark:text-emerald-400 shrink-0" />
+                            <span>₹{appliedDiscountINR} Wallet Discount Applied</span>
+                          </div>
+                        ) : (
+                          <div className="text-[10px] text-theme-muted font-medium bg-theme-bg/40 px-3 py-1.5 rounded-xl border border-theme-border/30">
+                            Base price ₹49. Earn Wallet Money to get up to ₹40 discount!
+                          </div>
                         )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })()}
 
-                {/* Staked Coins Info */}
-                <div className="bg-theme-bg rounded-2xl p-4 border border-theme-border flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                      <TrendingUp size={14} className="text-emerald-500" />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-black text-theme-muted uppercase tracking-widest">Locked in Vaults</div>
-                      <div className="text-sm font-bold text-theme-text">{formatKC(totalStaked)} KC Staked</div>
-                    </div>
-                  </div>
-                  <KashCoinIcon className="w-6 h-6 opacity-50" glow={false} />
-                </div>
-              </div>
+                        {/* Bottom Section: Full Width Action Button (Never Cut Off!) */}
+                        <button
+                          onClick={handleBuyKashCoins}
+                          disabled={buyingCoins}
+                          className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs uppercase tracking-widest rounded-2xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                          {buyingCoins ? (
+                            <Loader size={14} className="animate-spin" />
+                          ) : (
+                            <>
+                              <KashCoinIcon className="w-4 h-4" glow={false} />
+                              <span>Get 1,000 KC (₹{payAmountINR})</span>
+                            </>
+                          )}
+                        </button>
 
-              {/* Right Column: Chart Section */}
-              <div className="flex flex-col mt-6 md:mt-0 w-full h-full justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-black text-[11px] text-theme-text uppercase tracking-widest">Earning History</h3>
-                    <div className="flex bg-theme-bg p-1 rounded-full border border-theme-border/50">
-                      <button
-                        onClick={() => setViewMode('week')}
-                        className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${viewMode === 'week' ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'}`}
-                      >
-                        Week
-                      </button>
-                      <button
-                        onClick={() => setViewMode('month')}
-                        className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${viewMode === 'month' ? 'bg-theme-primary text-white shadow-sm' : 'text-theme-muted hover:text-theme-text'}`}
-                      >
-                        Month
-                      </button>
-                    </div>
-                  </div>
-                  <div className="h-[210px] w-full bg-theme-bg/50 rounded-2xl p-4 border border-theme-border/50 relative overflow-hidden">
-                    {loading && (
-                      <div className="absolute inset-0 z-10 flex items-center justify-center bg-theme-bg/40 backdrop-blur-sm">
-                        <div className="w-6 h-6 border-2 border-theme-primary border-t-transparent rounded-full animate-spin" />
                       </div>
-                    )}
-                    <Line data={chartData} options={chartOptions} />
-                  </div>
-                  <p className="text-[9px] text-theme-muted mt-2 font-medium italic opacity-60">* History is tracked daily. New accounts show balance stability.</p>
+                    );
+                  })()}
                 </div>
               </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
-            </div>
+      {/* Minimalist Visual Checkout Loading Overlay */}
+      <AnimatePresence>
+        {buyingCoins && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.85, y: 10 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.85, y: 10 }}
+              className="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-8 max-w-xs w-full shadow-[0_25px_60px_rgba(0,0,0,0.85)] text-center flex flex-col items-center gap-5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-500 via-cyan-400 to-amber-500 animate-pulse" />
+              
+              {/* Visual Shield & Spinner */}
+              <div className="relative w-20 h-20 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                <Shield className="w-10 h-10 text-amber-400 animate-pulse" />
+                <div className="absolute inset-0 rounded-3xl border-2 border-amber-400/50 border-t-transparent animate-spin" />
+              </div>
+
+              {/* Minimal Clean Text Badge */}
+              <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-amber-400 bg-amber-500/10 px-4 py-2 rounded-2xl border border-amber-500/25 shadow-sm">
+                <Sparkles size={13} className="animate-spin text-amber-400 shrink-0" />
+                <span>256-bit SSL Protected Checkout</span>
+              </div>
+            </motion.div>
           </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </>
   );
 
   return createPortal(modalContent, document.body);

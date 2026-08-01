@@ -182,10 +182,9 @@ BEGIN
       power_surge_expires_at = COALESCE(power_surge_expires_at, NOW()) + INTERVAL '7 days'
   WHERE id = auth.uid();
 
-  -- 2. Update referrer profile (increments referral count to grant scratch card, and awards flat ₹25 premium discount)
+  -- 2. Update referrer profile (increments referral count to grant scratch card; wallet money +25 is credited when scratch card is unveiled)
   UPDATE public.profiles
-  SET referral_count = referral_count + 1,
-      premium_discount_earned = LEAST(125, premium_discount_earned + 25)
+  SET referral_count = referral_count + 1
   WHERE id = ref_row.id;
 
   -- 3. Insert notification for the referrer (notifies about scratch card)
@@ -311,4 +310,10 @@ BEGIN
   );
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+
+-- 11. Database Indexes to prevent full-table sequential scans on referral & profile lookups
+CREATE INDEX IF NOT EXISTS idx_profiles_referred_by ON public.profiles (referred_by);
+CREATE INDEX IF NOT EXISTS idx_profiles_username_lower ON public.profiles (LOWER(username));
+
 

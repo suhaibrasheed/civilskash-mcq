@@ -548,7 +548,24 @@ export function EconomyProvider({ children }) {
 
       // Update local storage/IndexedDB if changes occurred
       await updateUserEconomy(updatedData);
-      setEconomy(updatedData);
+      setEconomy(prev => {
+        if (prev &&
+          prev.id === updatedData.id &&
+          prev.kash_coins_balance === updatedData.kash_coins_balance &&
+          prev.staked_coins_balance === updatedData.staked_coins_balance &&
+          prev.current_streak_days === updatedData.current_streak_days &&
+          prev.user_tier === updatedData.user_tier &&
+          prev.is_pro === updatedData.is_pro &&
+          prev.referral_count === updatedData.referral_count &&
+          prev.scratched_cards_count === updatedData.scratched_cards_count &&
+          prev.premium_discount_earned === updatedData.premium_discount_earned &&
+          prev.avatar_id === updatedData.avatar_id &&
+          prev.full_name === updatedData.full_name
+        ) {
+          return prev;
+        }
+        return updatedData;
+      });
 
       // Log daily snapshot if not done
       await logCoinSnapshot(updatedData.kash_coins_balance);

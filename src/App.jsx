@@ -7,6 +7,8 @@ import PracticeEngine from './pages/PracticeEngine';
 import FloatingNav from './components/FloatingNav';
 import SignInPage from './pages/SignInPage';
 import ProUpsellModal from './components/ProUpsellModal';
+import { AnimatePresence } from 'framer-motion';
+import PageTransition from './components/PageTransition';
 import { useEconomy } from './context/EconomyContext';
 import { Sparkles } from 'lucide-react';
 import NotFoundPage from './pages/NotFoundPage';
@@ -119,6 +121,34 @@ import { ToastProvider } from './context/ToastContext';
 import { NotificationProvider } from './context/NotificationContext';
 import { loadOfflineQuestionsIntoSyncBank } from './lib/dataHub';
 
+function AnimatedRoutes({ isFullyLoaded }) {
+  return (
+    <Routes>
+      <Route path="/" element={<PageTransition><OnboardingGuard><Home key={isFullyLoaded ? "ready" : "loading"} /></OnboardingGuard></PageTransition>} />
+      <Route path="/mock-test" element={<PageTransition><OnboardingGuard><ExamEngineWrapper /></OnboardingGuard></PageTransition>} />
+      <Route path="/mcq/:category" element={<PageTransition><OnboardingGuard><PracticeEngine /></OnboardingGuard></PageTransition>} />
+      <Route path="/:category" element={<PageTransition><OnboardingGuard><PracticeEngine /></OnboardingGuard></PageTransition>} />
+      <Route path="/mcq/:category/tag/:tag" element={<PageTransition><OnboardingGuard><PracticeEngine /></OnboardingGuard></PageTransition>} />
+      <Route path="/:category/tag/:tag" element={<PageTransition><OnboardingGuard><PracticeEngine /></OnboardingGuard></PageTransition>} />
+      <Route path="/pyq-archive/:examName" element={<PageTransition><OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard></PageTransition>} />
+      <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
+      <Route path="/admin/subistudio" element={<PageTransition><AdminSubiStudio /></PageTransition>} />
+      <Route path="/bookmarks" element={<PageTransition><OnboardingGuard><BookmarksDashboard /></OnboardingGuard></PageTransition>} />
+      <Route path="/profile" element={<PageTransition><ProfileDashboard /></PageTransition>} />
+      <Route path="/leaderboard" element={<PageTransition><OnboardingGuard><LeaderboardPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/subject-mock/:category" element={<PageTransition><OnboardingGuard><SubjectMockDashboard /></OnboardingGuard></PageTransition>} />
+      <Route path="/exam/:examId" element={<PageTransition><OnboardingGuard><ExamMockDashboardPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/resurrection" element={<PageTransition><OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard></PageTransition>} />
+      <Route path="/upgrade" element={<PageTransition><OnboardingGuard><PricingPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/pricing" element={<PageTransition><OnboardingGuard><PricingPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/battle-arena" element={<PageTransition><OnboardingGuard><BattleArena /></OnboardingGuard></PageTransition>} />
+      <Route path="/arena/challenge" element={<PageTransition><OnboardingGuard><BattleArena /></OnboardingGuard></PageTransition>} />
+      <Route path="/signin" element={<PageTransition><SignInPage /></PageTransition>} />
+      <Route path="*" element={<PageTransition><NotFoundPage /></PageTransition>} />
+    </Routes>
+  );
+}
+
 function AppContent() {
   const { user, loading: authLoading } = useAuth();
   const { economy } = useEconomy();
@@ -187,7 +217,7 @@ function AppContent() {
     if (isFullyLoaded) {
       const timer = setTimeout(() => {
         setShowSplash(false);
-      }, 600); // sync with CSS transition duration
+      }, 1800); // 1.8 seconds startup window for smooth background initialization
       return () => clearTimeout(timer);
     }
   }, [isFullyLoaded]);
@@ -252,28 +282,7 @@ function AppContent() {
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-theme-primary" style={{ borderTopColor: 'rgb(var(--color-primary))' }}></div>
           </div>
         }>
-          <Routes>
-            <Route path="/" element={<OnboardingGuard><Home key={isFullyLoaded ? "ready" : "loading"} /></OnboardingGuard>} />
-            <Route path="/mock-test" element={<OnboardingGuard><ExamEngineWrapper /></OnboardingGuard>} />
-            <Route path="/mcq/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-            <Route path="/:category" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-            <Route path="/mcq/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-            <Route path="/:category/tag/:tag" element={<OnboardingGuard><PracticeEngine /></OnboardingGuard>} />
-            <Route path="/pyq-archive/:examName" element={<OnboardingGuard><PracticeEngine isPyqArchive /></OnboardingGuard>} />
-            <Route path="/admin/mapper" element={<Navigate to="/admin/subistudio" replace />} />
-            <Route path="/admin/subistudio" element={<AdminSubiStudio />} />
-            <Route path="/bookmarks" element={<OnboardingGuard><BookmarksDashboard /></OnboardingGuard>} />
-            <Route path="/profile" element={<ProfileDashboard />} />
-            <Route path="/leaderboard" element={<OnboardingGuard><LeaderboardPage /></OnboardingGuard>} />
-            <Route path="/subject-mock/:category" element={<OnboardingGuard><SubjectMockDashboard /></OnboardingGuard>} />
-            <Route path="/exam/:examId" element={<OnboardingGuard><ExamMockDashboardPage /></OnboardingGuard>} />
-            <Route path="/resurrection" element={<OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard>} />
-            <Route path="/upgrade" element={<OnboardingGuard><PricingPage /></OnboardingGuard>} />
-            <Route path="/battle-arena" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-            <Route path="/arena/challenge" element={<OnboardingGuard><BattleArena /></OnboardingGuard>} />
-            <Route path="/signin" element={<SignInPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <AnimatedRoutes isFullyLoaded={isFullyLoaded} />
         </React.Suspense>
         <NavigationWrapper />
         {/* 🔒 UNIFIED PRO UPSELL MODAL — globally mounted so it is active even on custom router/header unmounted views */}
