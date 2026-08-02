@@ -14,6 +14,7 @@ import FeedbackModal from './FeedbackModal';
 import MoreAppsModal from './MoreAppsModal';
 import { getRevisionStats } from '../lib/db';
 import { supabase } from '../lib/supabase';
+import { triggerDailyAndroidPushNotification } from '../lib/androidPushNotifier';
 
 
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
@@ -872,6 +873,13 @@ export default function Header() {
                n.status = 'triggered';
                changed = true;
                showToast(`⚔️ [Battle Arena] ${n.opponentName} accepted your challenge, checkout who won?`, "info");
+               // Forward to outside Android Push Notification (respecting user daily push limit)
+               triggerDailyAndroidPushNotification(
+                 '⚔️ Battle Arena Challenge Result',
+                 `${n.opponentName} accepted your challenge! Tap to see who won.`,
+                 './battle-arena',
+                 n.id
+               );
                // No victory/shatter audio trigger on notification arrival to preserve suspense
                // (Sounds will play once the user opens and views the battle card results)
               // Award payout! Wager was deducted, now we award payout = coinChange + 100

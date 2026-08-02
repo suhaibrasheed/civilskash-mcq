@@ -16,6 +16,7 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
   const [dndFocusActive, setDndFocusActive] = useState(false);
   const [smartDndActive, setSmartDndActive] = useState(true);
   const [aiLanguage, setAiLanguage] = useState('English');
+  const [dailyPushLimit, setDailyPushLimit] = useState(1);
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -26,6 +27,7 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
       setDndFocusActive(economy.dnd_focus_active ?? (localStorage.getItem('civilsKash_dndFocusActive') === 'true'));
       setSmartDndActive(economy.smart_dnd_active ?? (localStorage.getItem('civilsKash_smartDndActive') !== 'false'));
       setAiLanguage(localStorage.getItem('civilsKash_aiLanguage') || 'English');
+      setDailyPushLimit(Number(localStorage.getItem('mcqkash_daily_push_limit')) || 1);
       document.body.style.overflow = 'hidden';
     }
     return () => { document.body.style.overflow = 'unset'; };
@@ -74,6 +76,7 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
       localStorage.setItem('civilsKash_dndFocusActive', dndFocusActive);
       localStorage.setItem('civilsKash_smartDndActive', smartDndActive);
       localStorage.setItem('civilsKash_aiLanguage', aiLanguage);
+      localStorage.setItem('mcqkash_daily_push_limit', String(dailyPushLimit));
 
       // 3. Instant UI feedback & modal dismissal
       showToast('Study goals saved successfully!', 'success');
@@ -209,6 +212,31 @@ export default function StudyGoalsModal({ isOpen, onClose }) {
                 >
                   <option value="English" style={{ background: 'var(--color-surface)', color: 'var(--color-text)' }}>English (Default)</option>
                   <option value="Hinglish" style={{ background: 'var(--color-surface)', color: 'var(--color-text)' }}>Hinglish</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-theme-muted">
+                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                </div>
+              </div>
+            </SettingRow>
+
+            {/* Daily System Push Limit (1 - 5 per day) */}
+            <SettingRow 
+              id="dailyPushLimit" 
+              label="Daily Push Limit (Android System Alerts)" 
+              tooltip="Personalize the max number of outside-app system notifications you receive per day (1 to 5). System alerts are dynamically linked to your streak warnings, battle challenges, and SRS revisions."
+            >
+              <div className="relative">
+                <select
+                  value={dailyPushLimit}
+                  onChange={(e) => setDailyPushLimit(Number(e.target.value))}
+                  className="w-full p-4 pr-10 rounded-2xl border text-sm font-bold bg-theme-surface-hover/30 border-theme-border/50 text-theme-text focus:outline-none focus:border-theme-primary transition-all shadow-sm cursor-pointer appearance-none"
+                  style={{ background: 'rgba(var(--color-surface-rgb), 0.45)', backdropFilter: 'blur(8px)' }}
+                >
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <option key={num} value={num} style={{ background: 'var(--color-surface)', color: 'var(--color-text)' }}>
+                      {num} Notification{num > 1 ? 's' : ''} / Day {num === 1 ? '(Default & Recommended)' : ''}
+                    </option>
+                  ))}
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-theme-muted">
                   <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>

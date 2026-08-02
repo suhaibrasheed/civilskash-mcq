@@ -27,6 +27,7 @@ const ExamMockDashboardPage = React.lazy(() => import('./pages/ExamMockDashboard
 
 import { useAuth } from './context/AuthContext';
 import { parseVideoUrl } from './lib/video';
+import { isAndroidUser, requestAndroidNotificationPermission, triggerDailyAndroidPushNotification } from './lib/androidPushNotifier';
 
 function OnboardingGuard({ children }) {
   const { user } = useAuth();
@@ -227,6 +228,24 @@ function AppContent() {
       const timer = setTimeout(() => {
         setShowSplash(false);
       }, 600); // 600ms fade-out transition matching CSS .mcqkash-splash.fade-out
+      return () => clearTimeout(timer);
+    }
+  }, [isFullyLoaded]);
+
+  // Android System Push Notification Manager — Strict 1 Notification Per Day Guard
+  useEffect(() => {
+    if (isFullyLoaded && isAndroidUser()) {
+      const initAndroidPush = async () => {
+        const granted = await requestAndroidNotificationPermission();
+        if (granted) {
+          await triggerDailyAndroidPushNotification(
+            'MCQ Kash — Daily Revision Alert',
+            'Your daily 10-minute MCQ test is ready! Protect your streak & rank.',
+            './'
+          );
+        }
+      };
+      const timer = setTimeout(initAndroidPush, 2400);
       return () => clearTimeout(timer);
     }
   }, [isFullyLoaded]);

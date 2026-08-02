@@ -3,6 +3,8 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from './AuthContext';
 import { useToast } from './ToastContext';
 
+import { triggerDailyAndroidPushNotification } from '../lib/androidPushNotifier';
+
 // Singleton notification state — lives at App root, never unmounts on navigation
 const NotificationContext = createContext({
   dbNotifications: [],
@@ -41,6 +43,17 @@ export function NotificationProvider({ children }) {
         .order('created_at', { ascending: false });
       if (!error && data) {
         setDbNotifications(data);
+        // Forward unread notifications to outside Android Push Notifier (respecting user daily limit 1-5)
+        data.forEach(n => {
+          if (n.message) {
+            triggerDailyAndroidPushNotification(
+              n.type ? `MCQ Kash — ${n.type.toUpperCase()}` : 'MCQ Kash Alert',
+              n.message,
+              './',
+              n.id
+            );
+          }
+        });
       }
     } catch (err) {
       console.warn('[NotificationContext] Failed to fetch notifications:', err);
