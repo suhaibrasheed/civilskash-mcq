@@ -227,7 +227,7 @@ export function EconomyProvider({ children }) {
           // Fetch Supabase Profile
           const response = await supabase
             .from('profiles')
-            .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
+            .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
             .eq('id', user.id)
             .single();
           profile = response.data;
@@ -338,7 +338,7 @@ export function EconomyProvider({ children }) {
               // Re-fetch profile to get updated values
               let { data: updatedProfile } = await supabase
                 .from('profiles')
-                .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expires_at,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
+                .select('id,email,full_name,avatar_id,liquid_coins,staked_coins,streak_days,pro_expiration,status_message,last_status_update_at,is_admin,last_streak_increment_at,target_exam,users_accuracy,joinee_date,username,referred_by,referral_count,premium_discount_earned,power_surge_expires_at,available_streak_freezes,onboarded,scratched_cards_count,is_pro,pro_tier')
                 .eq('id', user.id)
                 .single();
               if (updatedProfile) {
@@ -415,20 +415,36 @@ export function EconomyProvider({ children }) {
           if (localProOverrideStr) {
             try {
               const parsedOverride = JSON.parse(localProOverrideStr);
-              const exp = parsedOverride.pro_expiration || parsedOverride.pro_expires_at;
+              const exp = parsedOverride.pro_expiration;
               if (parsedOverride.is_pro && exp && new Date(exp) > new Date()) {
                 localProActive = true;
                 overrideTier = parsedOverride.pro_tier;
                 overrideExp = exp;
+              } else if (exp && new Date(exp) <= new Date()) {
+                localStorage.removeItem(`mcqkash_pro_override_${user.id}`);
               }
             } catch (e) {}
           }
 
-          const rawProExpiry = profile.pro_expires_at || profile.pro_expiration || overrideExp;
-          const isLifetimeTier = profile.pro_tier === 'LIFETIME' || overrideTier === 'LIFETIME';
-          const hasNotExpired = isLifetimeTier || (rawProExpiry && new Date(rawProExpiry) > new Date()) || (!!profile.is_pro && !rawProExpiry);
-          const isPro = (!!profile.is_pro && hasNotExpired) || !!profile.is_admin || localProActive;
+          const rawProExpiry = profile.pro_expiration || overrideExp;
+          const isExpired = !!rawProExpiry && new Date(rawProExpiry) <= new Date();
+          const hasNotExpired = !isExpired && ((rawProExpiry && new Date(rawProExpiry) > new Date()) || (!!profile.is_pro && !rawProExpiry));
+          const isPro = !isExpired && ((!!profile.is_pro && hasNotExpired) || !!profile.is_admin || localProActive);
           const expectedTier = isPro ? 'Pro' : 'FREE';
+
+          // Direct database & local cache update if subscription is expired
+          if (isExpired && profile.is_pro) {
+            console.info("[Pro Engine] Subscription expired on", rawProExpiry, ". Reverting profile to Free Tier.");
+            if (user?.id) {
+              localStorage.removeItem(`mcqkash_pro_override_${user.id}`);
+              supabase
+                .from('profiles')
+                .update({ is_pro: false, pro_tier: null })
+                .eq('id', user.id)
+                .then(() => {})
+                .catch(() => {});
+            }
+          }
 
           // Sync database state to our local context state
           updatedData = {
@@ -439,8 +455,7 @@ export function EconomyProvider({ children }) {
             current_streak_days: profile.streak_days,
             user_tier: expectedTier,
             pro_factor: isPro ? 1.5 : 1.0,
-            pro_expires_at: profile.pro_expires_at || profile.pro_expiration || null,
-            pro_expiration: profile.pro_expiration || profile.pro_expires_at || null,
+            pro_expiration: profile.pro_expiration || null,
             pro_tier: profile.pro_tier || null,
             payment_history: profile.payment_history || [],
             is_pro: isPro,
@@ -617,6 +632,8 @@ export function EconomyProvider({ children }) {
     handleAuthTransition();
   }, [user]);
 
+
+
   const transactKC = async (amount) => {
     if (!economy) return false;
     if (economy.kash_coins_balance + amount < 0) return false;
@@ -700,8 +717,7 @@ export function EconomyProvider({ children }) {
             .update({
               is_pro: false,
               pro_tier: null,
-              pro_expiration: null,
-              pro_expires_at: null
+              pro_expiration: null
             })
             .eq('id', user.id);
         }

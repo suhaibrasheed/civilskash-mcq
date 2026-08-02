@@ -364,7 +364,7 @@ export default function ProfileDashboard() {
                 avatar_id: found.avatar_id || 1,
                 rank: found.rank || null,
                 full_name: found.full_name || economy.referred_by,
-                is_pro: (!!(found.pro_expires_at || found.pro_expiration) && new Date(found.pro_expires_at || found.pro_expiration) > new Date()) || !!found.is_pro
+                is_pro: (found.pro_expiration ? new Date(found.pro_expiration) > new Date() : !!found.is_pro)
               });
               setInviterLoading(false);
               return;
@@ -1628,26 +1628,49 @@ export default function ProfileDashboard() {
                 
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <span className="text-[9px] font-black uppercase tracking-widest text-purple-300 bg-purple-500/20 px-3 py-1 rounded-full border border-purple-400/30 shadow-sm">
-                      {economy?.pro_tier === 'LIFETIME' ? 'Lifetime Unlimited Pass' : 'Active Premium Membership'}
+                    <span className={`text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full border shadow-sm ${
+                      economy?.is_pro 
+                        ? (economy?.pro_tier === 'LIFETIME' ? 'text-purple-300 bg-purple-500/20 border-purple-400/30' : 'text-emerald-300 bg-emerald-500/20 border-emerald-400/30') 
+                        : 'text-amber-300 bg-amber-500/20 border-amber-400/30'
+                    }`}>
+                      {economy?.is_pro 
+                        ? (economy?.pro_tier === 'LIFETIME' ? 'Lifetime Unlimited Pass' : 'Active Premium Membership') 
+                        : 'Subscription Expired'}
                     </span>
                     <h4 className="font-black text-2xl text-slate-100 mt-2.5 leading-none tracking-tight">
-                      {economy?.pro_tier ? economy.pro_tier.replace(/_/g, ' ') : 'Pro Member'}
+                      {economy?.is_pro 
+                        ? (economy?.pro_tier ? economy.pro_tier.replace(/_/g, ' ') : 'Pro Member') 
+                        : 'Free Tier Member'}
                     </h4>
                   </div>
                   
-                  <button
-                    onClick={handleDowngrade}
-                    disabled={isDowngrading}
-                    className="px-3 py-1.5 bg-rose-500/10 hover:bg-rose-500/25 border border-rose-500/30 text-rose-400 hover:text-rose-300 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all disabled:opacity-50 shadow-sm"
-                  >
-                    {isDowngrading ? 'Downgrading...' : 'Downgrade'}
-                  </button>
+                  {economy?.is_pro ? (
+                    <button
+                      onClick={handleDowngrade}
+                      disabled={isDowngrading}
+                      className="px-3 py-1.5 bg-rose-500/10 hover:bg-rose-500/25 border border-rose-500/30 text-rose-400 hover:text-rose-300 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all disabled:opacity-50 shadow-sm"
+                    >
+                      {isDowngrading ? 'Downgrading...' : 'Downgrade'}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => { setShowBillingModal(false); navigate('/pricing'); }}
+                      className="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all shadow-sm"
+                    >
+                      Renew Plan
+                    </button>
+                  )}
                 </div>
 
                 <div className="flex items-center justify-between border-t border-purple-500/20 pt-3.5 mt-2 text-xs">
-                  <span className="text-purple-300/80 font-bold uppercase tracking-wider text-[10px]">Valid Until:</span>
-                  <span className="font-extrabold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
+                  <span className="text-purple-300/80 font-bold uppercase tracking-wider text-[10px]">
+                    {economy?.is_pro ? 'Valid Until:' : 'Expired On:'}
+                  </span>
+                  <span className={`font-extrabold px-2.5 py-1 rounded-lg border ${
+                    economy?.is_pro 
+                      ? 'text-amber-300 bg-amber-500/10 border-amber-500/20' 
+                      : 'text-rose-300 bg-rose-500/10 border-rose-500/20'
+                  }`}>
                     {economy?.pro_tier === 'LIFETIME' ? (
                       'Lifetime Access (Forever)'
                     ) : economy?.pro_expiration ? (
@@ -1657,7 +1680,7 @@ export default function ProfileDashboard() {
                         year: 'numeric'
                       })
                     ) : (
-                      'Active Subscription'
+                      economy?.is_pro ? 'Active Subscription' : 'Expired'
                     )}
                   </span>
                 </div>

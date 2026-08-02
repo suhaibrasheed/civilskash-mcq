@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Sparkles, Zap, Shield, Award, AlertCircle,
   BarChart3, Brain, FileCheck, MessageSquare, Check, Infinity,
-  TrendingUp, Coins, Unlock, Flame, Send, X, Loader, Trophy, Clock, Tag
+  TrendingUp, Coins, Unlock, Flame, Send, X, Loader, Trophy, Clock, Tag, Crown
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useEconomy } from '../context/EconomyContext';
@@ -227,6 +227,7 @@ export default function PricingPage() {
   const [loadingPlan, setLoadingPlan] = useState(null);
   const [showRewardCenterModal, setShowRewardCenterModal] = useState(false);
   const [buyingCoins, setBuyingCoins] = useState(false);
+  const [isGoingPro, setIsGoingPro] = useState(false);
 
   // Inviter Card state
   const [inviterData, setInviterData] = useState(null);
@@ -507,10 +508,12 @@ export default function PricingPage() {
       };
 
       if (orderId && returnedAmount === expectedPayPaise) razorpayOptions.order_id = orderId;
+      setIsGoingPro(true);
       new window.Razorpay(razorpayOptions).open();
     } catch (e) {
       showToast(e.message || 'Purchase failed.', 'error');
       setBuyingCoins(false);
+      setIsGoingPro(false);
     }
   };
 
@@ -543,7 +546,7 @@ export default function PricingPage() {
                 avatar_id: found.avatar_id || 1,
                 rank: found.rank || null,
                 full_name: found.full_name || economy.referred_by,
-                is_pro: (!!(found.pro_expires_at || found.pro_expiration) && new Date(found.pro_expires_at || found.pro_expiration) > new Date()) || !!found.is_pro
+                is_pro: (found.pro_expiration ? new Date(found.pro_expiration) > new Date() : !!found.is_pro)
               });
               setInviterLoading(false);
               return;
@@ -709,6 +712,7 @@ export default function PricingPage() {
         },
         handler: async (response) => {
           clearTimeout(safetyTimer);
+          setIsGoingPro(true);
           try {
             let isSuccess = false;
             let vRes = null;
@@ -749,7 +753,6 @@ export default function PricingPage() {
                   is_pro: true,
                   pro_tier: plan.id,
                   pro_expiration: isoExp,
-                  pro_expires_at: isoExp,
                 }));
 
                 const validDbTier = (plan.id === 'ONE_DAY' || plan.id === 'ONE_HOUR') ? 'ONE_DAY' : plan.id;
@@ -760,7 +763,6 @@ export default function PricingPage() {
                     is_pro: true,
                     pro_tier: validDbTier,
                     pro_expiration: isoExp,
-                    pro_expires_at: isoExp,
                   })
                   .eq('id', user.id);
 
@@ -797,7 +799,6 @@ export default function PricingPage() {
                 is_pro: true,
                 pro_tier: plan.id,
                 pro_expiration: isoExp,
-                pro_expires_at: isoExp,
               }));
 
               // Clear all profile & leaderboard caches so UI updates instantly across all views
@@ -813,7 +814,7 @@ export default function PricingPage() {
               setTimeout(() => navigate('/profile'), 1200);
             }
           } catch (e) { showToast(e.message || 'Verification failed.', 'error'); }
-          finally { setLoadingPlan(null); }
+          finally { setLoadingPlan(null); setIsGoingPro(false); }
         },
       };
 
@@ -1786,33 +1787,50 @@ export default function PricingPage() {
           </div>
         )}
 
-        {/* Minimalist Visual Checkout Loading Overlay */}
+        {/* Minimalist Visual Checkout & Going Premium Loading Overlay */}
         <AnimatePresence>
-          {(loadingPlan !== null || buyingCoins) && (
+          {(loadingPlan !== null || buyingCoins || isGoingPro) && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md"
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-xl"
             >
               <motion.div
-                initial={{ scale: 0.85, y: 10 }}
+                initial={{ scale: 0.85, y: 15 }}
                 animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.85, y: 10 }}
-                className="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-8 max-w-xs w-full shadow-[0_25px_60px_rgba(0,0,0,0.85)] text-center flex flex-col items-center gap-5 relative overflow-hidden"
+                exit={{ scale: 0.85, y: 15 }}
+                className="bg-slate-900/95 border border-amber-500/40 rounded-3xl p-8 max-w-xs w-full shadow-[0_30px_90px_rgba(245,158,11,0.25)] text-center flex flex-col items-center gap-5 relative overflow-hidden"
               >
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-500 via-cyan-400 to-amber-500 animate-pulse" />
+                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-300 to-amber-500 animate-pulse" />
                 
-                {/* Visual Shield & Spinner */}
-                <div className="relative w-20 h-20 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.2)]">
-                  <Shield className="w-10 h-10 text-amber-400 animate-pulse" />
-                  <div className="absolute inset-0 rounded-3xl border-2 border-amber-400/50 border-t-transparent animate-spin" />
+                {/* Visual Shield / Crown & Rotating Ring */}
+                <div className="relative w-20 h-20 rounded-3xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center shadow-[0_0_35px_rgba(245,158,11,0.3)]">
+                  {isGoingPro ? (
+                    <Crown className="w-10 h-10 text-amber-400 animate-bounce" style={{ filter: 'drop-shadow(0 0 10px rgba(245, 158, 11, 0.8))' }} />
+                  ) : (
+                    <Shield className="w-10 h-10 text-amber-400 animate-pulse" />
+                  )}
+                  <div className="absolute inset-0 rounded-3xl border-2 border-amber-400/60 border-t-transparent animate-spin" />
+                </div>
+
+                {/* Animated Heading & Text */}
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-black text-white font-outfit uppercase tracking-tight flex items-center justify-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-amber-400 animate-spin" />
+                    <span>{isGoingPro ? `${user?.user_metadata?.full_name || economy?.full_name || 'Aspirant'} going Premium` : 'Securing Checkout'}</span>
+                  </h3>
+                  <p className="text-[11px] font-medium text-amber-200/90 leading-relaxed">
+                    {isGoingPro 
+                      ? 'Activating 1.5x KashCoins Boost, Unlocking Full Mocks & Golden Badge...' 
+                      : 'Connecting to 256-bit SSL encrypted payment gateway...'}
+                  </p>
                 </div>
 
                 {/* Minimal Clean Text Badge */}
-                <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-amber-400 bg-amber-500/10 px-4 py-2 rounded-2xl border border-amber-500/25 shadow-sm">
-                  <Sparkles size={13} className="animate-spin text-amber-400 shrink-0" />
-                  <span>256-bit SSL Protected Checkout</span>
+                <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 shadow-sm">
+                  <Sparkles size={12} className="animate-spin text-amber-400 shrink-0" />
+                  <span>{isGoingPro ? 'Instant Activation' : 'Razorpay Secured'}</span>
                 </div>
               </motion.div>
             </motion.div>

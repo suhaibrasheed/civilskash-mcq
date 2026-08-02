@@ -1110,7 +1110,7 @@ export default function BattleArena() {
         avatar_id: chosen.avatar_id || 1,
         username: resolvedUsername,
         referred_by: chosen.referred_by || null,
-        is_pro: ((chosen.pro_expires_at || chosen.pro_expiration) && new Date(chosen.pro_expires_at || chosen.pro_expiration) > new Date()) || !!chosen.is_admin,
+        is_pro: (chosen.pro_expiration && new Date(chosen.pro_expiration) > new Date()) || !!chosen.is_admin,
         accuracy: Math.round(oppAccuracy),
         rank: chosen.rank || 15,
         streak: oppStreak,

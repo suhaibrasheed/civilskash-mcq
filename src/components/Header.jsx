@@ -19,7 +19,7 @@ import { supabase } from '../lib/supabase';
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
 // ── MCQ Kash Logo — Simplified & Clean ────────────────────────────
 export function MCQKashLogo({ tier = 'FREE', onlyIcon = false }) {
-  const isPro = tier === 'Pro';
+  const isPro = tier === 'Pro' || (tier && tier !== 'FREE' && tier !== 'Free');
   const navigate = useNavigate();
   const { theme } = useTheme();
 
@@ -107,7 +107,7 @@ export function MCQKashLogo({ tier = 'FREE', onlyIcon = false }) {
 
       {/* Tier Badge — glassmorphic 3D premium feel */}
       <div className={`px-2.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-[0.16em] sm:tracking-[0.18em] transition-all flex items-center gap-1 backdrop-blur-md select-none ${getBadgeStyle()}`}>
-        {tier}
+        {isPro ? 'Pro' : 'Free'}
       </div>
     </div>
   );

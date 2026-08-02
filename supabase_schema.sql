@@ -104,7 +104,7 @@ BEGIN
     IF NEW.liquid_coins IS DISTINCT FROM OLD.liquid_coins OR
        NEW.staked_coins IS DISTINCT FROM OLD.staked_coins OR
        NEW.streak_days IS DISTINCT FROM OLD.streak_days OR
-       NEW.pro_expires_at IS DISTINCT FROM OLD.pro_expires_at OR
+       NEW.pro_expiration IS DISTINCT FROM OLD.pro_expiration OR
        NEW.is_admin IS DISTINCT FROM OLD.is_admin OR
        NEW.last_streak_increment_at IS DISTINCT FROM OLD.last_streak_increment_at THEN
       RAISE EXCEPTION 'Permission denied: Direct updates to financial, streak, or tier columns are not allowed.';
@@ -114,7 +114,7 @@ BEGIN
   -- Check if status_message is changing
   IF NEW.status_message IS DISTINCT FROM OLD.status_message THEN
     -- Check if user is Pro or Admin
-    IF (NEW.pro_expires_at IS NULL OR NEW.pro_expires_at <= NOW()) AND NOT COALESCE(NEW.is_admin, false) THEN
+    IF (NEW.pro_expiration IS NULL OR NEW.pro_expiration <= NOW()) AND NOT COALESCE(NEW.is_admin, false) THEN
       RAISE EXCEPTION 'Status message is a Pro-only feature. Go Pro to speak to the global audience!';
     END IF;
 
@@ -271,11 +271,11 @@ BEGIN
 
   IF is_pro THEN
     UPDATE public.profiles
-    SET pro_expires_at = NOW() + INTERVAL '90 days'
+    SET pro_expiration = NOW() + INTERVAL '90 days'
     WHERE id = auth.uid();
   ELSE
     UPDATE public.profiles
-    SET pro_expires_at = NULL
+    SET pro_expiration = NULL
     WHERE id = auth.uid();
   END IF;
 END;
@@ -291,7 +291,7 @@ RETURNS TABLE (
   staked_coins integer,
   total_coins integer,
   streak_days integer,
-  pro_expires_at timestamp with time zone,
+  pro_expiration timestamp with time zone,
   status_message varchar(50),
   last_status_update_at timestamp with time zone
 ) AS $$
@@ -303,7 +303,7 @@ RETURNS TABLE (
     p.staked_coins, 
     p.total_coins, 
     p.streak_days, 
-    CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+    CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
     p.status_message, 
     p.last_status_update_at
   FROM public.profiles p
@@ -345,14 +345,14 @@ RETURNS TABLE (
   staked_coins integer,
   total_coins integer,
   streak_days integer,
-  pro_expires_at timestamp with time zone,
+  pro_expiration timestamp with time zone,
   status_message varchar(50),
   last_status_update_at timestamp with time zone,
   rank integer
 ) AS $$
   SELECT 
     mr.id, mr.full_name, mr.avatar_id, mr.liquid_coins, mr.staked_coins, mr.total_coins, mr.streak_days,
-    mr.pro_expires_at, mr.status_message, mr.last_status_update_at,
+    mr.pro_expiration, mr.status_message, mr.last_status_update_at,
     CASE 
       WHEN leaderboard_type = 'coins' THEN
         (SELECT COUNT(*)::integer + 1 FROM public.profiles pr WHERE pr.total_coins > mr.total_coins OR (pr.total_coins = mr.total_coins AND pr.id < mr.id))::integer
@@ -364,7 +364,7 @@ RETURNS TABLE (
     SELECT * FROM (
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'coins'
@@ -375,7 +375,7 @@ RETURNS TABLE (
       
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'coins' AND viewer_id IS NOT NULL 
@@ -388,7 +388,7 @@ RETURNS TABLE (
       
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'coins' AND viewer_id IS NOT NULL 
@@ -405,7 +405,7 @@ RETURNS TABLE (
     SELECT * FROM (
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'streaks'
@@ -416,7 +416,7 @@ RETURNS TABLE (
       
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'streaks' AND viewer_id IS NOT NULL 
@@ -429,7 +429,7 @@ RETURNS TABLE (
       
       (SELECT 
         p.id, p.full_name, p.avatar_id, p.liquid_coins, p.staked_coins, p.total_coins, p.streak_days, 
-        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+        CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
         p.status_message, p.last_status_update_at
       FROM public.profiles p
       WHERE leaderboard_type = 'streaks' AND viewer_id IS NOT NULL 
@@ -452,7 +452,7 @@ RETURNS TABLE (
   id uuid,
   full_name text,
   avatar_id smallint,
-  pro_expires_at timestamp with time zone,
+  pro_expiration timestamp with time zone,
   status_message varchar(50),
   last_status_update_at timestamp with time zone
 ) AS $$
@@ -462,12 +462,12 @@ BEGIN
     p.id, 
     p.full_name, 
     p.avatar_id, 
-    CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expires_at END as pro_expires_at, 
+    CASE WHEN p.is_admin THEN NOW() + INTERVAL '100 years' ELSE p.pro_expiration END as pro_expiration, 
     p.status_message, 
     p.last_status_update_at
   FROM public.profiles p
   WHERE p.status_message IS NOT NULL 
-    AND (COALESCE(p.is_admin, false) OR (p.pro_expires_at IS NOT NULL AND p.pro_expires_at > NOW()))
+    AND (COALESCE(p.is_admin, false) OR (p.pro_expiration IS NOT NULL AND p.pro_expiration > NOW()))
   ORDER BY p.last_status_update_at DESC
   LIMIT 50;
 END;

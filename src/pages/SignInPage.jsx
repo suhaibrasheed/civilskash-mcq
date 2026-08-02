@@ -102,7 +102,7 @@ export default function SignInPage() {
             full_name: data.full_name || `@${referredBy}`,
             username: data.username || referredBy,
             rank: rankVal,
-            is_pro: (!!(data.pro_expires_at || data.pro_expiration) && new Date(data.pro_expires_at || data.pro_expiration) > new Date()) || !!data.is_pro
+            is_pro: (data.pro_expiration ? new Date(data.pro_expiration) > new Date() : !!data.is_pro)
           });
           setInviterLoading(false);
           return;
@@ -111,7 +111,7 @@ export default function SignInPage() {
         // Direct table fallback query by username
         const { data: profData, error: profError } = await supabase
           .from('profiles')
-          .select('avatar_id, full_name, username, pro_expires_at, is_pro')
+          .select('avatar_id, full_name, username, pro_expiration, is_pro')
           .ilike('username', referredBy.trim())
           .maybeSingle();
 
@@ -121,7 +121,7 @@ export default function SignInPage() {
             full_name: profData.full_name || `@${referredBy}`,
             username: profData.username || referredBy,
             rank: rankVal,
-            is_pro: (!!profData.pro_expires_at && new Date(profData.pro_expires_at) > new Date()) || !!profData.is_pro
+            is_pro: (profData.pro_expiration ? new Date(profData.pro_expiration) > new Date() : !!profData.is_pro)
           });
         } else if (isMounted) {
           setInviterProfile({

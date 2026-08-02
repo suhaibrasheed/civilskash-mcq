@@ -16,8 +16,7 @@ BEGIN
   SET 
     is_pro = false,
     pro_tier = NULL,
-    pro_expiration = NULL,
-    pro_expires_at = NULL
+    pro_expiration = NULL
   WHERE id = auth.uid();
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;

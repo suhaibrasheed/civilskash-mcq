@@ -188,7 +188,7 @@ serve(async (req) => {
       // Fetch user profile based on ID
       let { data: profile, error: fetchError } = await supabaseAdmin
         .from("profiles")
-        .select("payment_history, pro_expires_at, pro_expiration, liquid_coins, premium_discount_earned, scratched_cards_count")
+        .select("payment_history, pro_expiration, liquid_coins, premium_discount_earned, scratched_cards_count")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -215,7 +215,7 @@ serve(async (req) => {
             { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
         }
-        profile = { payment_history: [], pro_expires_at: null, pro_expiration: null, liquid_coins: 100, premium_discount_earned: 0, scratched_cards_count: 0 };
+        profile = { payment_history: [], pro_expiration: null, liquid_coins: 100, premium_discount_earned: 0, scratched_cards_count: 0 };
       }
 
       const selectedPlan = PRICING_PLANS[planId];
@@ -257,7 +257,7 @@ serve(async (req) => {
 
       // STANDARD PRO SUBSCRIPTION PATH
       const now = new Date();
-      const existingExpRaw = profile.pro_expires_at || profile.pro_expiration;
+      const existingExpRaw = profile.pro_expiration;
       const existingExp = existingExpRaw ? new Date(existingExpRaw) : null;
       const baseDate = (existingExp && existingExp > now) ? existingExp : now;
 
@@ -280,7 +280,6 @@ serve(async (req) => {
           is_pro: true,
           pro_tier: validDbTier,
           pro_expiration: isoExpiration,
-          pro_expires_at: isoExpiration,
           payment_history: updatedHistory,
           premium_discount_earned: remainingWalletBalanceINR,
         })
@@ -306,7 +305,6 @@ serve(async (req) => {
             .update({
               is_pro: true,
               pro_expiration: isoExpiration,
-              pro_expires_at: isoExpiration,
             })
             .eq("id", user.id);
 
