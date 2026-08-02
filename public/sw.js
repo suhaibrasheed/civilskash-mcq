@@ -1,10 +1,16 @@
-const CACHE_NAME = 'mcqkash-v2';
+const CACHE_NAME = 'mcqkash-v3';
 const URLS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './maskable-icon-512.png',
+  './icon-1024.png',
+  './apple-touch-icon.png',
+  './logo-leather-dark.png',
+  './favicon.ico',
+  './favicon-96x96.png'
 ];
 
 self.addEventListener('install', (event) => {

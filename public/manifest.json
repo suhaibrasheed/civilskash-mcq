@@ -1,15 +1,18 @@
 {
   "id": "/mcq/",
-  "name": "MCQ Kash",
+  "name": "MCQ Kash — Exam Practice & Test Series",
   "short_name": "MCQ Kash",
-  "description": "Competitive Exam Practice & Test Series by CivilsKash",
+  "description": "Premium Competitive Exam Practice, Mock Tests, and Analytics Platform by CivilsKash.",
+  "lang": "en-US",
+  "dir": "ltr",
   "start_url": "/mcq/",
   "scope": "/mcq/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "categories": ["education", "exams"],
+  "background_color": "#090b0e",
+  "theme_color": "#090b0e",
+  "categories": ["education", "exams", "productivity"],
   "icons": [
     {
       "src": "icon-192.png",
@@ -30,10 +33,32 @@
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "maskable-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Mock Test",
+      "short_name": "Mock Test",
+      "description": "Launch active competitive mock tests",
+      "url": "/mcq/mock-test",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Leaderboard & Stats",
+      "short_name": "Leaderboard",
+      "description": "View live ranks, streaks, and performance analytics",
+      "url": "/mcq/leaderboard",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

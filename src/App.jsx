@@ -107,8 +107,11 @@ function ExamEngineWrapper() {
 function AppLoadingSplash({ isFadingOut }) {
   return (
     <div className={`mcqkash-splash ${isFadingOut ? 'fade-out' : ''}`} role="status" aria-live="polite" aria-label="Loading MCQ Kash">
-      <div className="mcqkash-splash-card">
-        <h1 className="tracking-widest font-black">MCQ Kash</h1>
+      <div className="mcqkash-splash-card flex flex-col items-center gap-4">
+        <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-amber-500/40 bg-[#090b0e] p-0.5 animate-pulse">
+          <img src="/logo-leather-dark.png" alt="MCQ Kash Logo" className="w-full h-full object-cover rounded-xl" />
+        </div>
+        <h1 className="tracking-widest font-black text-xl text-amber-100/90">MCQ Kash</h1>
         <div className="mcqkash-splash-bar" aria-hidden="true"><span /></div>
       </div>
     </div>
