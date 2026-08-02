@@ -47,12 +47,25 @@ export function MCQKashLogo({ tier = 'FREE', onlyIcon = false }) {
   };
 
   const logoIconContent = (
-    <div className="relative flex items-center justify-center w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.6)] border border-amber-500/25 bg-[#090b0e] transition-all duration-300 group-hover:scale-105 group-hover:border-amber-400/50 group-hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-      <img
-        src="/logo-leather-dark.png"
-        alt="MCQ Kash App Logo"
-        className="w-full h-full object-cover rounded-xl select-none"
+    <div className="relative flex items-center justify-center w-[34px] h-[34px] sm:w-[38px] sm:h-[38px]">
+      <Hexagon
+        size={32}
+        className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 sm:hidden"
+        strokeWidth={1.6}
+        style={{ color: 'rgb(var(--color-primary))' }}
       />
+      <Hexagon
+        size={36}
+        className="absolute transition-all duration-500 group-hover:rotate-[30deg] group-hover:scale-105 hidden sm:block"
+        strokeWidth={1.6}
+        style={{ color: 'rgb(var(--color-primary))' }}
+      />
+      <span
+        className="text-[12px] sm:text-[13px] font-black tracking-tighter relative z-10"
+        style={{ color: 'rgb(var(--color-primary))' }}
+      >
+        M
+      </span>
     </div>
   );
 

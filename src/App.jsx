@@ -107,11 +107,8 @@ function ExamEngineWrapper() {
 function AppLoadingSplash({ isFadingOut }) {
   return (
     <div className={`mcqkash-splash ${isFadingOut ? 'fade-out' : ''}`} role="status" aria-live="polite" aria-label="Loading MCQ Kash">
-      <div className="mcqkash-splash-card flex flex-col items-center gap-4">
-        <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-amber-500/40 bg-[#090b0e] p-0.5 animate-pulse">
-          <img src="/logo-leather-dark.png" alt="MCQ Kash Logo" className="w-full h-full object-cover rounded-xl" />
-        </div>
-        <h1 className="tracking-widest font-black text-xl text-amber-100/90">MCQ Kash</h1>
+      <div className="mcqkash-splash-card">
+        <h1 className="tracking-widest font-black">MCQ Kash</h1>
         <div className="mcqkash-splash-bar" aria-hidden="true"><span /></div>
       </div>
     </div>
@@ -158,6 +155,15 @@ function AppContent() {
   const [contentReady, setContentReady] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [safetyTimeoutTriggered, setSafetyTimeoutTriggered] = useState(false);
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+
+  // Mandatory 1.8s minimum startup splash window for background initialization
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMinTimeElapsed(true);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Hash Router Deep Link Normalizer for Referral & Direct Auth Links
   useEffect(() => {
@@ -213,14 +219,14 @@ function AppContent() {
     };
   }, []);
 
-  // Ensure questions, Auth, and Economy are fully resolved before hiding the splash screen
-  const isFullyLoaded = safetyTimeoutTriggered || (contentReady && !authLoading && economy !== null && (!user || economy.id === user.id));
+  // Ensure questions, Auth, Economy, AND 1.8s minimum startup time have elapsed
+  const isFullyLoaded = minTimeElapsed && (safetyTimeoutTriggered || (contentReady && !authLoading && economy !== null && (!user || economy.id === user.id)));
 
   useEffect(() => {
     if (isFullyLoaded) {
       const timer = setTimeout(() => {
         setShowSplash(false);
-      }, 1800); // 1.8 seconds startup window for smooth background initialization
+      }, 600); // 600ms fade-out transition matching CSS .mcqkash-splash.fade-out
       return () => clearTimeout(timer);
     }
   }, [isFullyLoaded]);
