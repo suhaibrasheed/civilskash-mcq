@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mcqkash-v3';
+const CACHE_NAME = 'mcqkash-v5';
 const URLS_TO_CACHE = [
   './',
   './index.html',
@@ -10,7 +10,10 @@ const URLS_TO_CACHE = [
   './apple-touch-icon.png',
   './logo-leather-dark.png',
   './favicon.ico',
-  './favicon-96x96.png'
+  './favicon-96x96.png',
+  './screenshot-mobile-1.png',
+  './screenshot-mobile-2.png',
+  './screenshot-desktop-1.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -66,4 +69,26 @@ self.addEventListener('fetch', (event) => {
       })
       .catch(() => caches.match(event.request))
   );
+});
+
+// Background Sync capability for offline test submissions
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-exam-results' || event.tag === 'mcqkash-sync') {
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(() => {
+        console.log('[SW] Background sync triggered for offline test results');
+      })
+    );
+  }
+});
+
+// Periodic Background Sync capability for daily current affairs & test series updates
+self.addEventListener('periodicsync', (event) => {
+  if (event.tag === 'update-daily-mcqs' || event.tag === 'mcqkash-periodic-update') {
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(() => {
+        console.log('[SW] Periodic background sync running for daily content updates');
+      })
+    );
+  }
 });

@@ -8,11 +8,37 @@
   "start_url": "/mcq/",
   "scope": "/mcq/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
   "orientation": "portrait",
   "background_color": "#090b0e",
   "theme_color": "#090b0e",
   "categories": ["education", "exams", "productivity"],
+  "iarc_rating_id": "e84b075a-4ef7-4f6f-b83e-d70b35c05c8d",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope_extensions": [
+    { "origin": "*.civilskash.in" },
+    { "origin": "civilskash.in" }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "auto",
+  "share_target": {
+    "action": "/mcq/bookmarks",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+mcqkash",
+      "url": "/mcq/?link=%s"
+    }
+  ],
   "icons": [
     {
       "src": "icon-192.png",
@@ -43,6 +69,29 @@
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile-1.png",
+      "sizes": "687x1024",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Live Performance Ranks, Streaks & Pro Profile"
+    },
+    {
+      "src": "screenshot-mobile-2.png",
+      "sizes": "698x1024",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Official UPSC & Competitive Mock Test Series"
+    },
+    {
+      "src": "screenshot-desktop-1.png",
+      "sizes": "1024x605",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Active Prep Mode & Student Analytics Dashboard"
     }
   ],
   "shortcuts": [
