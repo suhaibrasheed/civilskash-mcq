@@ -1178,7 +1178,7 @@ export default function AdminSubiStudio() {
       if (animFrame) cancelAnimationFrame(animFrame);
       animFrame = requestAnimationFrame(() => {
         const target = e.target;
-        const targetEl = target ? target.closest('.nk-mcq-image') : null;
+        const targetEl = target ? target.closest('.nk-mcq-image, .nk-video-wrapper') : null;
         const toolbar = target ? target.closest('.nk-mcq-image-toolbar') : null;
 
         if (targetEl) {
@@ -1942,7 +1942,11 @@ export default function AdminSubiStudio() {
   const handleAlignImage = (align) => {
     if (imgToolbar.targetImg) {
       imgToolbar.targetImg.setAttribute('data-align', align);
-      setImgToolbar({ show: false, top: 0, left: 0, targetImg: null });
+      if (imgToolbar.targetImg.classList?.contains('nk-video-wrapper')) {
+        const width = (align === 'left' || align === 'right') ? '45%' : '100%';
+        imgToolbar.targetImg.style.width = width;
+      }
+      setImgToolbar({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
     }
   };
 
