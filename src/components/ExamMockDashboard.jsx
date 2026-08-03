@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Trophy, Zap, ChevronRight, Lock, AlertCircle, CheckCircle2, TrendingUp, BookOpen, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Trophy, Zap, ChevronRight, Lock, AlertCircle, CheckCircle2, TrendingUp, BookOpen, ChevronDown, Layers, ChevronUp } from 'lucide-react';
 import { generateMocksForExam, EXAM_CONFIG } from '../lib/mockEngine';
 import { getSolvedMocks } from '../lib/db';
 import { getScoreBand, isExamMockLockedForFreeUser, normalizeSolvedMocks } from '../lib/mockDashboardUi';
@@ -25,7 +25,7 @@ function SolvedBadge({ solvedInfo }) {
 // ─── Sub-components ────────────────────────────────────────────────
 
 /** Elite Mock tile (100Q / 100M) */
-function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, displayName }) {
+function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, displayName, className = "" }) {
   const navigate  = useNavigate();
   const solved    = solvedMap?.[mock.id];
   const band      = getScoreBand(solved);
@@ -34,7 +34,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, display
     return (
       <div 
         onClick={isLocked ? () => navigate('/upgrade') : undefined}
-        className={`group relative rounded-2xl p-5 overflow-hidden ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.02] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'}`}
+        className={`group relative rounded-2xl p-5 overflow-hidden ${isLocked ? 'mock-locked-card cursor-pointer hover:scale-[1.02] hover:border-theme-primary/40 transition-all duration-300' : 'mock-locked-tile-3d'} ${className}`}
       >
         {isLocked && (
           <>
@@ -62,7 +62,7 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, display
   }
 
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <SolvedBadge solvedInfo={solved} />
       <motion.div
         whileHover={{ y: -6, scale: 1.02 }}
@@ -95,6 +95,30 @@ function EliteTile({ mock, index, examId, solvedMap, isLocked, proTitle, display
         </div>
       </motion.div>
     </div>
+  );
+}
+
+/** Interactive tile button to expand/collapse mock grid responsive view */
+function ShowAllTile({ onClick, remainingCount, className = "", isExpanded = false }) {
+  return (
+    <motion.div
+      whileHover={{ y: -6, scale: 1.02 }}
+      whileTap={{ scale: 0.97 }}
+      onClick={onClick}
+      className={`group relative rounded-2xl p-5 cursor-pointer overflow-hidden transition-all duration-500 mock-tile-3d border border-theme-primary/40 hover:border-theme-primary flex flex-col items-center justify-center text-center gap-3 ${className}`}
+    >
+      <div className="w-12 h-12 rounded-2xl bg-theme-primary/10 border border-theme-primary/30 text-theme-primary flex items-center justify-center font-black transition-all group-hover:bg-theme-primary group-hover:text-white group-hover:scale-110 shadow-md">
+        {isExpanded ? <ChevronUp size={20} /> : <Layers size={20} />}
+      </div>
+      <div>
+        <h4 className="font-black text-sm text-theme-text group-hover:text-theme-primary transition-colors">
+          {isExpanded ? 'Show Less' : 'Show All Mocks'}
+        </h4>
+        <p className="text-[10px] uppercase tracking-widest font-bold text-theme-primary/80 mt-1">
+          {isExpanded ? 'Collapse' : `+${remainingCount} More`}
+        </p>
+      </div>
+    </motion.div>
   );
 }
 
@@ -366,14 +390,6 @@ export default function ExamMockDashboard({ exam, onBack }) {
   const allQuickEmpty  = quickMocks.every(m => m.isEmpty);
   const allEliteEmpty  = eliteMocks.every(m => m.isEmpty);
   const userTier       = economy?.user_tier || 'FREE';
-
-  const displayedElite = showAllElite 
-    ? eliteMocks 
-    : [
-        ...eliteMocks.filter(m => m.index <= 15).slice(0, 5),
-        ...eliteMocks.filter(m => m.index > 15).slice(0, 2)
-      ];
-  
   const currentMocks = activeTab === 'all' ? quickMocks : sectionalData;
   const displayedQuick = showAllQuick ? currentMocks : currentMocks.slice(0, MAX_VISIBLE);
   const hasMoreQuick = currentMocks.length > MAX_VISIBLE;
@@ -468,10 +484,22 @@ export default function ExamMockDashboard({ exam, onBack }) {
           ) : (
             <AnimatePresence>
               {(() => {
-                let proCounter = 0;
-                return displayedElite.map((mock) => {
+                const totalMocks = eliteMocks.length;
+                const visibilityClasses = [
+                  '', '', '',
+                  'hidden sm:block', 'hidden sm:block',
+                  'hidden md:block', 'hidden md:block',
+                  'hidden lg:block', 'hidden lg:block'
+                ];
+                const showAllBreakpoints = [
+                  { cls: 'flex sm:hidden', threshold: 3 },
+                  { cls: 'hidden sm:flex md:hidden', threshold: 5 },
+                  { cls: 'hidden md:flex lg:hidden', threshold: 7 },
+                  { cls: 'hidden lg:flex', threshold: 9 },
+                ];
+
+                const renderMockTile = (mock, visibilityClass = "") => {
                   const locked = isExamMockLockedForFreeUser(mock, userTier);
-                  if (locked) proCounter++;
                   const isFreeMock = mock.index <= 15;
                   const displayIndex = isFreeMock ? mock.index : mock.index - 15;
                   const displayName = isFreeMock ? `Full Mock ${displayIndex}` : `Elite Mock ${displayIndex}`;
@@ -485,9 +513,39 @@ export default function ExamMockDashboard({ exam, onBack }) {
                       isLocked={locked}
                       proTitle={displayName}
                       displayName={displayName}
+                      className={visibilityClass}
                     />
                   );
-                });
+                };
+
+                if (!showAllElite) {
+                  return (
+                    <>
+                      {eliteMocks.slice(0, 9).map((mock, idx) => renderMockTile(mock, visibilityClasses[idx] || ''))}
+                      {showAllBreakpoints.map(({ cls, threshold }) => (
+                        totalMocks > threshold && (
+                          <ShowAllTile
+                            key={cls}
+                            className={cls}
+                            remainingCount={totalMocks - threshold}
+                            onClick={() => setShowAllElite(true)}
+                          />
+                        )
+                      ))}
+                    </>
+                  );
+                }
+
+                return (
+                  <>
+                    {eliteMocks.map(mock => renderMockTile(mock))}
+                    <ShowAllTile
+                      key="show-less"
+                      isExpanded={true}
+                      onClick={() => setShowAllElite(false)}
+                    />
+                  </>
+                );
               })()}
             </AnimatePresence>
           )}
