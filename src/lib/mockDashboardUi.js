@@ -56,9 +56,9 @@ export function isExamMockLockedForFreeUser(mock, userTier) {
   if (userTier === 'Pro') return false;
   if (!mock || mock.isEmpty) return false;
 
-  // Full & Elite Mocks: index 1..15 are Full Mocks (first 5 free, rest 6..15 locked), index 16..45 are Elite Mocks (all locked)
+  // Full & Elite Mocks: index 1..15 are Full Mocks (first 3 free, rest 4..15 locked), index 16..45 are Elite Mocks (all locked)
   if (mock.type === 'elite') {
-    if (mock.index <= 15) return mock.index > 5;
+    if (mock.index <= 15) return mock.index > 3;
     return true;
   }
   // Quick Mocks: first 50 free → 100/150 locked (~67%)
