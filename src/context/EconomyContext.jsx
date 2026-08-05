@@ -584,8 +584,15 @@ export function EconomyProvider({ children }) {
               localStorage.setItem(lastStreakKey, yesterday.toDateString());
               
               if (user && freezesToUse > 0) {
-                // UPDATE DATABASE FREEZES securely via RPC!
-                await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
+                // UPDATE DATABASE FREEZES securely via RPC with direct fallback!
+                const { error: freezeErr } = await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
+                if (freezeErr) {
+                  console.warn('consume_streak_freezes_rpc notice, using direct profile update fallback:', freezeErr.message);
+                  await supabase
+                    .from('profiles')
+                    .update({ available_streak_freezes: updatedData.available_streak_freezes })
+                    .eq('id', user.id);
+                }
               }
             } else {
               // Streak breaks — update localStorage to yesterday so this logic doesn't re-fire on every reload today,
@@ -605,9 +612,12 @@ export function EconomyProvider({ children }) {
               
               if (user) {
                 // Reset streak in database
-                await supabase.from('profiles').update({ streak_days: 0 }).eq('id', user.id);
+                await supabase.from('profiles').update({ streak_days: 0, available_streak_freezes: updatedData.available_streak_freezes }).eq('id', user.id);
                 if (freezesToUse > 0) {
-                  await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
+                  const { error: freezeErr } = await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
+                  if (freezeErr) {
+                    console.warn('consume_streak_freezes_rpc notice, applied direct profile update fallback');
+                  }
                 }
               }
             }
@@ -822,25 +832,19 @@ export function EconomyProvider({ children }) {
     });
 
     if (user) {
-      // Live Supabase RPC with direct fallback
-      const { error } = await supabase.rpc('increment_user_streak');
+      // 1 single atomic query — updates streak_days and timestamp together
+      const { error } = await supabase
+        .from('profiles')
+        .update({
+          streak_days: newStreakDays,
+          last_streak_increment_at: now.toISOString()
+        })
+        .eq('id', user.id);
+
       if (error) {
-        console.warn('increment_user_streak RPC notice, using direct profile update fallback:', error.message);
-        await supabase
-          .from('profiles')
-          .update({
-            streak_days: newStreakDays,
-            last_streak_increment_at: now.toISOString()
-          })
-          .eq('id', user.id);
-      } else {
-        // Also update timestamp to guarantee zero mismatch if RPC only increments streak_days
-        await supabase
-          .from('profiles')
-          .update({
-            last_streak_increment_at: now.toISOString()
-          })
-          .eq('id', user.id);
+        // Fallback to RPC if direct profile update fails
+        console.warn('[Streak] Direct update notice, using RPC fallback:', error.message);
+        await supabase.rpc('increment_user_streak').catch(() => {});
       }
       // Patch profile cache so next loadEconomy reads the updated streak_days
       try {
