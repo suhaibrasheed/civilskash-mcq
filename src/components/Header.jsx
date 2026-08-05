@@ -998,8 +998,8 @@ export default function Header() {
   const flameStyles = getFlameGlowColors(theme);
 
   const isStreakDoneToday = () => {
-    if (!economy || !economy.last_streak_date) return false;
-    return new Date(economy.last_streak_date).toDateString() === new Date().toDateString();
+    if (!economy || !economy.last_streak_date || !economy.current_streak_days) return false;
+    return new Date(economy.last_streak_date).toDateString() === new Date().toDateString() && economy.current_streak_days > 0;
   };
 
   useEffect(() => {

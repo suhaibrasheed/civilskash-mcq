@@ -407,7 +407,7 @@ export default function BattleArena() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, loading } = useAuth();
-  const { economy, transactKC, refreshEconomy, openProUpsell } = useEconomy();
+  const { economy, transactKC, completeDailyStreak, refreshEconomy, openProUpsell } = useEconomy();
   const { showToast } = useToast();
   const { playVictory, playShatter, playCorrect, playWrong, playTick } = useSound();
 
@@ -1592,6 +1592,9 @@ export default function BattleArena() {
       await transactKC(payoutAmount);
     }
 
+    // Battle mode counts as a daily activity — keep streak alive
+    if (completeDailyStreak) await completeDailyStreak();
+
     // For challenge mode: oppScore is challengeData.scoreToBeat (already set above)
     // Use it so the friend's battle card correctly shows the challenger's real score
     const effectiveOppScore = challengeData ? challengeData.scoreToBeat : oppScore;
@@ -2246,6 +2249,9 @@ export default function BattleArena() {
     if (payoutAmount > 0) {
       await transactKC(payoutAmount);
     }
+
+    // Battle mode counts as a daily activity — keep streak alive
+    if (completeDailyStreak) await completeDailyStreak();
     
     // Save Battle Card in History Gallery
     const userId = economy?.id || 'guest';

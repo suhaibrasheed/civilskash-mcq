@@ -692,6 +692,22 @@ export default function ResultDashboard({ questions: rawQuestions, answers: rawA
   const [isAiLoading, setIsAiLoading] = useState(false);
   const [aiLoadingText, setAiLoadingText] = useState('');
 
+  // Streak-only effect: triggers completeDailyStreak once economy is available.
+  // The main run() useEffect has [] deps and captures economy at mount — if economy
+  // is null at that moment the if(economy) guard silently skips streak completion.
+  // This effect re-fires whenever economy changes and calls completeDailyStreak
+  // exactly once per result screen (idempotency is enforced inside the function itself).
+  const streakTriggeredRef = useRef(false);
+  useEffect(() => {
+    if (streakTriggeredRef.current || !economy) return;
+    streakTriggeredRef.current = true;
+    if (completeDailyStreak) {
+      completeDailyStreak().catch(err => console.warn('[ResultDashboard] Streak update failed:', err));
+    }
+  // completeDailyStreak intentionally omitted — it's recreated each render but is idempotent
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [economy]);
+
   // Unpack / restore dynamically locked questions if user is Pro
   const isProUser = economy?.user_tier === 'Pro';
   const { questions, answers, timeSpent, used5050 } = React.useMemo(() => {

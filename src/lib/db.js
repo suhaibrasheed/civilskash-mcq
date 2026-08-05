@@ -929,11 +929,40 @@ export const getUserEconomy = async (userId) => {
   });
 };
 
+// Helper: resolve the active Supabase user ID from localStorage auth tokens.
+// Supabase stores auth as sb-{projectRef}-auth-token with value { access_token, user: {id} }
+export const resolveActiveUserId = () => {
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith('sb-') && key.endsWith('-auth-token'))) {
+        const val = localStorage.getItem(key);
+        if (val) {
+          const parsed = JSON.parse(val);
+          // Supabase v2 format: { access_token, user: { id } }
+          if (parsed?.user?.id) return parsed.user.id;
+          // Supabase v2 alt format: { currentSession: { user: { id } } }
+          if (parsed?.currentSession?.user?.id) return parsed.currentSession.user.id;
+          // Supabase v2 flat session: { session: { user: { id } } }
+          if (parsed?.session?.user?.id) return parsed.session.user.id;
+        }
+      }
+    }
+  } catch (e) {}
+  return null;
+};
+
 export const updateUserEconomy = async (updates) => {
   return withDBErrorHandler(async () => {
     const db = await initDB();
-    const current = await getUserEconomy(updates?.id);
-    const updated = { ...current, ...updates };
+    let targetId = updates?.id;
+    if (!targetId) {
+      targetId = resolveActiveUserId();
+    }
+    if (!targetId) targetId = 'default_user';
+
+    const current = await getUserEconomy(targetId);
+    const updated = { ...current, ...updates, id: targetId };
 
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([USER_ECONOMY_STORE], 'readwrite');

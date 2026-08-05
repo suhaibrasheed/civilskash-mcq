@@ -17,8 +17,8 @@
   "prefer_related_applications": false,
   "related_applications": [],
   "scope_extensions": [
-    { "origin": "*.civilskash.in" },
-    { "origin": "civilskash.in" }
+    { "type": "origin", "origin": "*.civilskash.in" },
+    { "type": "origin", "origin": "civilskash.in" }
   ],
   "launch_handler": {
     "client_mode": "focus-existing"
@@ -27,6 +27,7 @@
   "share_target": {
     "action": "/mcq/bookmarks",
     "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",

@@ -137,23 +137,46 @@ export function EconomyProvider({ children }) {
         }
       }
 
-      // 2. Sync pending accuracy
+      // 2. Hitchhiked pending profile updates (accuracy + streak freeze deltas in 1 query)
       const accuracyKey = `mcqkash_pending_accuracy_${user.id}`;
       const pendingAccuracy = localStorage.getItem(accuracyKey);
+      const freezeDeltaKey = `mcqkash_pending_freezes_${user.id}`;
+      const pendingFreezeDelta = Number(localStorage.getItem(freezeDeltaKey) || 0);
+
       let accuracySynced = false;
-      if (pendingAccuracy !== null) {
-        localStorage.removeItem(accuracyKey); // Optimistic clear
+      let freezesSynced = false;
+
+      if (pendingAccuracy !== null || pendingFreezeDelta !== 0) {
+        const pendingUpdates = {};
+        if (pendingAccuracy !== null) {
+          pendingUpdates.users_accuracy = Number(pendingAccuracy);
+          localStorage.removeItem(accuracyKey); // Optimistic clear
+        }
         
-        const { error } = await supabase
+        if (pendingFreezeDelta !== 0) {
+          localStorage.removeItem(freezeDeltaKey); // Optimistic clear
+          const baselineFreezes = Number(economy?.available_streak_freezes || 0);
+          pendingUpdates.available_streak_freezes = Math.max(0, baselineFreezes + pendingFreezeDelta);
+        }
+
+        const { error: profileUpdateErr } = await supabase
           .from('profiles')
-          .update({ users_accuracy: Number(pendingAccuracy) })
+          .update(pendingUpdates)
           .eq('id', user.id);
-        if (error) {
+
+        if (profileUpdateErr) {
           // Rollback on failure
-          localStorage.setItem(accuracyKey, pendingAccuracy);
-          console.warn('Failed to sync accuracy, rolled back queue:', error);
+          if (pendingAccuracy !== null) {
+            localStorage.setItem(accuracyKey, pendingAccuracy);
+          }
+          if (pendingFreezeDelta !== 0) {
+            const existingDelta = Number(localStorage.getItem(freezeDeltaKey) || 0);
+            localStorage.setItem(freezeDeltaKey, String(existingDelta + pendingFreezeDelta));
+          }
+          console.warn('Failed to sync hitchhiked profile updates, rolled back queue:', profileUpdateErr);
         } else {
-          accuracySynced = true;
+          accuracySynced = pendingAccuracy !== null;
+          freezesSynced = pendingFreezeDelta !== 0;
         }
       }
 
@@ -161,7 +184,7 @@ export function EconomyProvider({ children }) {
       await syncLeaderboards(user.id, force);
 
       // Record successful sync timestamp
-      if (coinsSynced || accuracySynced || force) {
+      if (coinsSynced || accuracySynced || freezesSynced || force) {
         localStorage.setItem(`mcqkash_last_successful_sync_${user.id}`, String(now));
         window.dispatchEvent(new Event('sync-notifications'));
       }
@@ -404,7 +427,12 @@ export function EconomyProvider({ children }) {
           // Sync last streak date from DB to localStorage if available
           if (profile.last_streak_increment_at) {
             const dbStreakDateStr = new Date(profile.last_streak_increment_at).toDateString();
-            localStorage.setItem(`mcqkash_last_streak_${user.id}`, dbStreakDateStr);
+            const currentLocalStreak = user ? localStorage.getItem(`mcqkash_last_streak_${user.id}`) : null;
+            const todayStr = new Date().toDateString();
+            // Don't overwrite local today mark with an older DB timestamp
+            if (dbStreakDateStr === todayStr || currentLocalStreak !== todayStr) {
+              localStorage.setItem(`mcqkash_last_streak_${user.id}`, dbStreakDateStr);
+            }
           }
 
           // Verify if Pro is active: is_pro must be true AND not expired (or admin bypasses or local pro override backup exists)
@@ -446,13 +474,34 @@ export function EconomyProvider({ children }) {
             }
           }
 
+          const localPledgesBackupStr = localStorage.getItem(`mcqkash_active_pledges_${profile.id || user?.id || 'guest'}`);
+          let fallbackPledges = [];
+          if (localPledgesBackupStr) {
+            try { fallbackPledges = JSON.parse(localPledgesBackupStr); } catch (e) {}
+          }
+          const activePledges = (localData.active_pledges && localData.active_pledges.length > 0)
+            ? localData.active_pledges
+            : fallbackPledges;
+
           // Sync database state to our local context state
           updatedData = {
             ...updatedData,
             id: profile.id,
             kash_coins_balance: Math.max(0, profile.liquid_coins - Number(localStorage.getItem('mcqkash_welcome_coins_pending') || 0)),
             staked_coins_balance: profile.staked_coins, // database total
-            current_streak_days: profile.streak_days,
+            // Protect the locally-optimistic streak count: if the user just completed their streak today
+            // (localStorage marker = today) but the DB RPC hasn't committed yet, we'd overwrite the
+            // user's visible +1 with the old DB value. Prefer the local (already written to IndexedDB)
+            // value when it's strictly higher and the streak was done today.
+            current_streak_days: (() => {
+              const lsKey = user ? `mcqkash_last_streak_${user.id}` : 'mcqkash_last_streak_guest';
+              const todayMark = localStorage.getItem(lsKey);
+              const streakDoneLocallyToday = todayMark && todayMark === new Date().toDateString();
+              if (streakDoneLocallyToday && (localData.current_streak_days || 0) > (profile.streak_days || 0)) {
+                return localData.current_streak_days; // Local optimistic increment is authoritative
+              }
+              return profile.streak_days; // DB is authoritative otherwise
+            })(),
             user_tier: expectedTier,
             pro_factor: isPro ? 1.5 : 1.0,
             pro_expiration: profile.pro_expiration || null,
@@ -469,7 +518,10 @@ export function EconomyProvider({ children }) {
             referral_count: profile.referral_count,
             premium_discount_earned: profile.premium_discount_earned,
             power_surge_expires_at: profile.power_surge_expires_at,
-            available_streak_freezes: profile.available_streak_freezes,
+            available_streak_freezes: (profile.available_streak_freezes !== undefined && profile.available_streak_freezes !== null)
+              ? profile.available_streak_freezes
+              : (localData.available_streak_freezes || 0),
+            active_pledges: activePledges,
             onboarded: !!profile.onboarded,
             scratched_cards_count: Number(profile.scratched_cards_count || 0),
             target_exam: (profile.target_exam !== undefined && profile.target_exam !== null) ? profile.target_exam : (localData.target_exam || null),
@@ -536,12 +588,20 @@ export function EconomyProvider({ children }) {
                 await supabase.rpc('consume_streak_freezes_rpc', { count: freezesToUse });
               }
             } else {
-              // Streak breaks — update localStorage to today so this logic doesn't re-fire on every reload
-              localStorage.setItem(lastStreakKey, todayStr);
+              // Streak breaks — update localStorage to yesterday so this logic doesn't re-fire on every reload today,
+              // while still allowing completeDailyStreak() to run when the user completes a mock test today!
+              const yesterday = new Date(now);
+              yesterday.setDate(now.getDate() - 1);
+              localStorage.setItem(lastStreakKey, yesterday.toDateString());
               updatedData.current_streak_days = 0;
-              updatedData.active_pledges = (updatedData.active_pledges || []).map(p =>
-                p.status === 'MATURE' || p.status === 'LIQUIDATED' ? p : { ...p, status: 'LIQUIDATED' }
-              );
+              updatedData.active_pledges = (updatedData.active_pledges || []).map(p => {
+                if (p.status === 'MATURE' || p.status === 'LIQUIDATED') return p;
+                // Grace: a pledge created on or after the streak-break date was placed optimistically.
+                // Liquidating it immediately (before the contract period even starts properly) is
+                // unfair and confusing. Protect pledges created today from instant liquidation.
+                if (p.pledge_start_date && new Date(p.pledge_start_date).toDateString() === todayStr) return p;
+                return { ...p, status: 'LIQUIDATED' };
+              });
               
               if (user) {
                 // Reset streak in database
@@ -743,9 +803,11 @@ export function EconomyProvider({ children }) {
     const lastStreakKey = user ? `mcqkash_last_streak_${user.id}` : 'mcqkash_last_streak_guest';
     const lastActiveStr = localStorage.getItem(lastStreakKey);
 
-    if (lastActiveStr === todayStr) return; // Already done today
+    if (lastActiveStr === todayStr && (economy.current_streak_days || 0) > 0) return; // Already done today
 
     localStorage.setItem(lastStreakKey, todayStr);
+
+    const newStreakDays = (economy.current_streak_days || 0) + 1;
     
     let activePledges = [...(economy.active_pledges || [])];
     const updatedPledges = activePledges.map(pledge => {
@@ -760,28 +822,78 @@ export function EconomyProvider({ children }) {
     });
 
     if (user) {
-      // Live Supabase RPC
-      await supabase.rpc('increment_user_streak');
+      // Live Supabase RPC with direct fallback
+      const { error } = await supabase.rpc('increment_user_streak');
+      if (error) {
+        console.warn('increment_user_streak RPC notice, using direct profile update fallback:', error.message);
+        await supabase
+          .from('profiles')
+          .update({
+            streak_days: newStreakDays,
+            last_streak_increment_at: now.toISOString()
+          })
+          .eq('id', user.id);
+      } else {
+        // Also update timestamp to guarantee zero mismatch if RPC only increments streak_days
+        await supabase
+          .from('profiles')
+          .update({
+            last_streak_increment_at: now.toISOString()
+          })
+          .eq('id', user.id);
+      }
+      // Patch profile cache so next loadEconomy reads the updated streak_days
+      try {
+        const cacheKey = `mcqkash_profile_cache_${user.id}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          localStorage.setItem(cacheKey, JSON.stringify({
+            ...parsed,
+            streak_days: newStreakDays,
+            last_streak_increment_at: now.toISOString()
+          }));
+        }
+      } catch (e) {}
     }
 
     await updateUserEconomy({
-      current_streak_days: economy.current_streak_days + 1,
+      id: user?.id || 'default_user',
+      current_streak_days: newStreakDays,
       active_pledges: updatedPledges
     });
 
-    await loadEconomy(true);
+    // Optimistic state update — avoids loadEconomy(true) race condition where a
+    // stale DB fetch could overwrite the streak increment we just wrote.
+    setEconomy(prev => prev ? {
+      ...prev,
+      current_streak_days: newStreakDays,
+      last_streak_date: todayStr,
+      active_pledges: updatedPledges
+    } : prev);
+
     clearLeaderboardCache();
   };
 
   const placeStreakBet = async (amount, durationDays, rewardMultiplier) => {
-    if (!economy || economy.kash_coins_balance < amount) return false;
+    if (!economy || (economy.kash_coins_balance || 0) < amount) return false;
+
+    const newLiquid = Math.max(0, (economy.kash_coins_balance || 0) - amount);
 
     if (user) {
-      // Deduct from live Supabase
+      // Deduct from live Supabase via RPC or direct fallback
       const { error } = await supabase.rpc('stake_coins_rpc', { amount });
       if (error) {
-        console.error('Failed to stake coins in Supabase:', error);
-        return false;
+        console.warn('stake_coins_rpc notice, executing direct fallback update:', error.message);
+        const newStaked = (economy.staked_coins_balance || 0) + amount;
+        const { error: updateErr } = await supabase
+          .from('profiles')
+          .update({ liquid_coins: newLiquid, staked_coins: newStaked })
+          .eq('id', user.id);
+        if (updateErr) {
+          console.error('Failed to update coins in Supabase:', updateErr);
+          return false;
+        }
       }
     } else {
       // Deduct locally
@@ -798,11 +910,44 @@ export function EconomyProvider({ children }) {
     };
 
     const updatedPledges = [...(economy.active_pledges || []), newPledge];
+    const newStakedTotal = updatedPledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
+
+    const userIdKey = user?.id || 'guest';
+    localStorage.setItem(`mcqkash_active_pledges_${userIdKey}`, JSON.stringify(updatedPledges));
+
+    // Patch profile cache so the next non-force loadEconomy reads the updated coin values
+    if (user) {
+      try {
+        const cacheKey = `mcqkash_profile_cache_${user.id}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          localStorage.setItem(cacheKey, JSON.stringify({
+            ...parsed,
+            liquid_coins: newLiquid,
+            staked_coins: newStakedTotal
+          }));
+        }
+      } catch (e) {}
+    }
+
     await updateUserEconomy({
+      id: user?.id || 'default_user',
+      kash_coins_balance: newLiquid,
+      staked_coins_balance: newStakedTotal,
       active_pledges: updatedPledges
     });
 
-    await loadEconomy(true);
+    // Optimistic state update — avoids calling loadEconomy(true) which re-runs streak
+    // validation and could immediately LIQUIDATE the brand-new pledge if the streak
+    // has been inactive for 2+ days.
+    setEconomy(prev => prev ? {
+      ...prev,
+      kash_coins_balance: newLiquid,
+      staked_coins_balance: newStakedTotal,
+      active_pledges: updatedPledges
+    } : prev);
+
     clearLeaderboardCache();
     return true;
   };
@@ -811,32 +956,83 @@ export function EconomyProvider({ children }) {
     if (!economy) return 0;
     const activePledges = economy.active_pledges || [];
     const totalStaked = activePledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
-    const netWorth = economy.kash_coins_balance + totalStaked;
+    const netWorth = (economy.kash_coins_balance || 0) + totalStaked;
     return Math.max(1, Math.floor(netWorth * 0.05)); // 5% of net worth
   };
 
   const buyStreakFreeze = async () => {
     if (!economy) return false;
     const cost = calculateFreezeCost();
-    if (economy.kash_coins_balance < cost) return false;
+    if ((economy.kash_coins_balance || 0) < cost) return false;
+
+    const newFreezes = (economy.available_streak_freezes || 0) + 1;
+    const newLiquid = Math.max(0, (economy.kash_coins_balance || 0) - cost);
 
     if (user) {
-      // Live Supabase RPC
+      let dbFreezeUpdated = false;
+
+      // Live Supabase RPC with fallback
       const { error } = await supabase.rpc('buy_streak_freeze_rpc', { cost });
       if (error) {
-        console.error('Failed to buy freeze in Supabase:', error);
-        return false;
+        console.warn('buy_streak_freeze_rpc notice, executing direct fallback update:', error.message);
+        const { error: fbErr } = await supabase
+          .from('profiles')
+          .update({ liquid_coins: newLiquid, available_streak_freezes: newFreezes })
+          .eq('id', user.id);
+        if (fbErr) {
+          console.error('buyStreakFreeze full fallback failed:', fbErr.message);
+          return false;
+        }
+        dbFreezeUpdated = true;
+      } else {
+        // RPC handled coin deduction — separately update freeze count
+        const { error: freezeErr } = await supabase
+          .from('profiles')
+          .update({ available_streak_freezes: newFreezes })
+          .eq('id', user.id);
+        if (freezeErr) {
+          console.warn('buyStreakFreeze freeze count update failed, queuing pending delta:', freezeErr.message);
+          // Queue a +1 delta for syncPendingData to pick up on next sync
+          const pendingFreezeKey = `mcqkash_pending_freezes_${user.id}`;
+          const existingDelta = Number(localStorage.getItem(pendingFreezeKey) || 0);
+          localStorage.setItem(pendingFreezeKey, String(existingDelta + 1));
+        } else {
+          dbFreezeUpdated = true;
+        }
       }
+
+      // Patch profile cache so next loadEconomy reads the updated values
+      try {
+        const cacheKey = `mcqkash_profile_cache_${user.id}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          localStorage.setItem(cacheKey, JSON.stringify({
+            ...parsed,
+            liquid_coins: newLiquid,
+            available_streak_freezes: newFreezes
+          }));
+        }
+      } catch (e) {}
     } else {
       // Guest local DB
       await dbTransactKC(-cost);
     }
 
     await updateUserEconomy({
-      available_streak_freezes: (economy.available_streak_freezes || 0) + 1
+      id: user?.id || 'default_user',
+      kash_coins_balance: newLiquid,
+      available_streak_freezes: newFreezes
     });
 
-    await loadEconomy(true);
+    // Optimistic state update — avoids loadEconomy(true) re-fetching a potentially stale
+    // profile and overwriting the freeze count we just wrote to the database.
+    setEconomy(prev => prev ? {
+      ...prev,
+      kash_coins_balance: newLiquid,
+      available_streak_freezes: newFreezes
+    } : prev);
+
     clearLeaderboardCache();
     return true;
   };
@@ -858,7 +1054,9 @@ export function EconomyProvider({ children }) {
     });
 
     if (changed) {
-      await updateUserEconomy({ active_pledges: updatedPledges });
+      const userIdKey = user?.id || 'guest';
+      localStorage.setItem(`mcqkash_active_pledges_${userIdKey}`, JSON.stringify(updatedPledges));
+      await updateUserEconomy({ id: user?.id || 'default_user', active_pledges: updatedPledges });
       await loadEconomy(true);
     }
   };
@@ -881,22 +1079,37 @@ export function EconomyProvider({ children }) {
     const reward = Math.floor(pledge.pledged_amount * (1 + pledge.reward_multiplier));
 
     if (user) {
-      // Live Supabase RPC
+      // Live Supabase RPC with fallback
       const { error } = await supabase.rpc('claim_staked_coins_rpc', { 
         staked_amount: pledge.pledged_amount,
         reward_multiplier: pledge.reward_multiplier
       });
       if (error) {
-        console.error('Failed to claim staked yield in Supabase:', error);
-        return null;
+        console.warn('claim_staked_coins_rpc notice, executing direct fallback update:', error.message);
+        const newLiquid = (economy.kash_coins_balance || 0) + reward;
+        const newStaked = Math.max(0, (economy.staked_coins_balance || 0) - pledge.pledged_amount);
+        await supabase
+          .from('profiles')
+          .update({ liquid_coins: newLiquid, staked_coins: newStaked })
+          .eq('id', user.id);
       }
     } else {
       // Guest local DB
       await dbTransactKC(reward);
     }
 
-    const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
-    await updateUserEconomy({ active_pledges: updatedPledges });
+    const updatedPledges = (economy.active_pledges || []).filter(p => p.id !== pledgeId);
+    const newStakedTotal = updatedPledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
+
+    const userIdKey = user?.id || 'guest';
+    localStorage.setItem(`mcqkash_active_pledges_${userIdKey}`, JSON.stringify(updatedPledges));
+
+    await updateUserEconomy({
+      id: user?.id || 'default_user',
+      kash_coins_balance: (economy.kash_coins_balance || 0) + reward,
+      staked_coins_balance: newStakedTotal,
+      active_pledges: updatedPledges
+    });
     await loadEconomy(true);
     clearLeaderboardCache();
 
@@ -912,21 +1125,36 @@ export function EconomyProvider({ children }) {
     const refund = Math.floor(pledge.pledged_amount * 0.6);
 
     if (user) {
-      // Live Supabase RPC
+      // Live Supabase RPC with fallback
       const { error } = await supabase.rpc('break_staked_coins_rpc', {
         staked_amount: pledge.pledged_amount
       });
       if (error) {
-        console.error('Failed to break vault in Supabase:', error);
-        return false;
+        console.warn('break_staked_coins_rpc notice, executing direct fallback update:', error.message);
+        const newLiquid = (economy.kash_coins_balance || 0) + refund;
+        const newStaked = Math.max(0, (economy.staked_coins_balance || 0) - pledge.pledged_amount);
+        await supabase
+          .from('profiles')
+          .update({ liquid_coins: newLiquid, staked_coins: newStaked })
+          .eq('id', user.id);
       }
     } else {
       // Guest local DB
       await dbTransactKC(refund);
     }
 
-    const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
-    await updateUserEconomy({ active_pledges: updatedPledges });
+    const updatedPledges = (economy.active_pledges || []).filter(p => p.id !== pledgeId);
+    const newStakedTotal = updatedPledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
+
+    const userIdKey = user?.id || 'guest';
+    localStorage.setItem(`mcqkash_active_pledges_${userIdKey}`, JSON.stringify(updatedPledges));
+
+    await updateUserEconomy({
+      id: user?.id || 'default_user',
+      kash_coins_balance: (economy.kash_coins_balance || 0) + refund,
+      staked_coins_balance: newStakedTotal,
+      active_pledges: updatedPledges
+    });
     await loadEconomy(true);
     clearLeaderboardCache();
     return refund;
@@ -934,9 +1162,38 @@ export function EconomyProvider({ children }) {
 
   const confirmFailure = async (pledgeId) => {
     if (!economy) return false;
-    const updatedPledges = economy.active_pledges.filter(p => p.id !== pledgeId);
-    await updateUserEconomy({ active_pledges: updatedPledges });
-    await loadEconomy(true);
+    const updatedPledges = (economy.active_pledges || []).filter(p => p.id !== pledgeId);
+    const newStakedTotal = updatedPledges.filter(p => p.status !== 'LIQUIDATED').reduce((sum, p) => sum + p.pledged_amount, 0);
+
+    const userIdKey = user?.id || 'guest';
+    localStorage.setItem(`mcqkash_active_pledges_${userIdKey}`, JSON.stringify(updatedPledges));
+
+    // Patch profile cache so next loadEconomy reads correct staked_coins
+    if (user) {
+      try {
+        const cacheKey = `mcqkash_profile_cache_${user.id}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          localStorage.setItem(cacheKey, JSON.stringify({ ...parsed, staked_coins: newStakedTotal }));
+        }
+      } catch (e) {}
+    }
+
+    await updateUserEconomy({
+      id: user?.id || 'default_user',
+      staked_coins_balance: newStakedTotal,
+      active_pledges: updatedPledges
+    });
+
+    // Optimistic state update — avoids loadEconomy(true) re-fetching IndexedDB/DB
+    // which could bring back the stale liquidated pledge.
+    setEconomy(prev => prev ? {
+      ...prev,
+      staked_coins_balance: newStakedTotal,
+      active_pledges: updatedPledges
+    } : prev);
+
     return true;
   };
 

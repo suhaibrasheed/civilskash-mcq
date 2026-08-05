@@ -1000,6 +1000,7 @@ export default function ProfileDashboard() {
           const todayStr = new Date().toDateString();
           const isStreakProtected = economy?.last_streak_date === todayStr;
           const hasStreakFreeze = (economy?.available_streak_freezes || 0) > 0;
+          const streakDays = economy?.current_streak_days || 0;
 
           if (isStreakProtected) {
             return (
@@ -1055,7 +1056,7 @@ export default function ProfileDashboard() {
                 </div>
               </motion.div>
             );
-          } else {
+          } else if (streakDays > 0) {
             return (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -1078,6 +1079,33 @@ export default function ProfileDashboard() {
                 <div className="text-left sm:text-right shrink-0">
                   <span className="text-[10px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-600 px-3 py-1 rounded-full border border-rose-500/10 whitespace-nowrap">
                     Streak Ends Soon
+                  </span>
+                </div>
+              </motion.div>
+            );
+          } else {
+            return (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-gradient-to-r from-amber-500/20 via-theme-surface to-amber-500/5 border border-amber-500/20 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 shadow-sm"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                    <Flame className="animate-pulse" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-sm text-theme-text leading-none mb-1">
+                      Start Your Daily Streak Today! ⚡
+                    </h4>
+                    <p className="text-xs text-theme-muted font-medium">
+                      Complete 1 Mock Test today to build your streak and earn bonus KashCoins!
+                    </p>
+                  </div>
+                </div>
+                <div className="text-left sm:text-right shrink-0">
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full border border-amber-500/10 whitespace-nowrap">
+                    Ready to Start
                   </span>
                 </div>
               </motion.div>

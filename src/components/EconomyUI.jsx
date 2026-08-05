@@ -376,21 +376,36 @@ export function StreakModal({ isOpen, onClose }) {
                     <div className="relative">
                       <div className="relative z-10 w-20 h-20 flex items-center justify-center">
                         {/* Steady, Slow Glow Pulse */}
-                        <div className={`absolute inset-0 blur-3xl rounded-full opacity-30 animate-[pulse_4s_ease-in-out_infinite] ${economy.available_streak_freezes > 0 ? 'bg-cyan-500' : 'bg-theme-primary'}`} />
+                        <div className={`absolute inset-0 blur-3xl rounded-full opacity-30 animate-[pulse_4s_ease-in-out_infinite] ${
+                          (economy.current_streak_days || 0) > 0
+                            ? ((economy.available_streak_freezes || 0) > 0 ? 'bg-cyan-500' : 'bg-amber-500')
+                            : ((economy.available_streak_freezes || 0) > 0 ? 'bg-cyan-500/40' : 'bg-slate-600/20')
+                        }`} />
 
                         <Flame
-                          className={`relative z-10 transition-all duration-1000 ${economy.available_streak_freezes > 0
-                            ? 'text-cyan-400 fill-cyan-400/10 drop-shadow-[0_0_20px_rgba(34,211,238,0.4)]'
-                            : 'text-theme-primary fill-theme-primary/10 drop-shadow-[0_0_20px_rgb(var(--color-primary)/0.4)]'
-                            }`}
+                          className={`relative z-10 transition-all duration-1000 ${
+                            (economy.current_streak_days || 0) > 0
+                              ? ((economy.available_streak_freezes || 0) > 0
+                                  ? 'text-cyan-400 fill-cyan-400/10 drop-shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+                                  : 'text-amber-500 fill-amber-500/10 drop-shadow-[0_0_20px_rgba(245,158,11,0.5)]')
+                              : ((economy.available_streak_freezes || 0) > 0
+                                  ? 'text-cyan-400/70 fill-cyan-400/5 drop-shadow-[0_0_10px_rgba(34,211,238,0.2)]'
+                                  : 'text-slate-500/40 fill-slate-500/5')
+                          }`}
                           size={64}
                           strokeWidth={2}
                         />
                       </div>
                     </div>
                   </div>
-                  <p className={`text-[11px] font-black uppercase tracking-[0.5em] mt-3 ${economy.available_streak_freezes > 0 ? 'text-blue-400/80 drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]' : 'text-theme-primary/80'}`}>
-                    {economy.available_streak_freezes > 0 ? 'Streak Protected' : 'Days Streak Active'}
+                  <p className={`text-[11px] font-black uppercase tracking-[0.5em] mt-3 ${
+                    (economy.current_streak_days || 0) > 0
+                      ? ((economy.available_streak_freezes || 0) > 0 ? 'text-cyan-400/90 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]' : 'text-amber-400/90 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]')
+                      : ((economy.available_streak_freezes || 0) > 0 ? 'text-cyan-400/70' : 'text-theme-muted/60')
+                  }`}>
+                    {(economy.current_streak_days || 0) > 0
+                      ? ((economy.available_streak_freezes || 0) > 0 ? 'Streak Protected' : 'Days Streak Active')
+                      : ((economy.available_streak_freezes || 0) > 0 ? 'Streak Freeze Active' : 'No Active Streak')}
                   </p>
                   {/* Clean Unified Streak Freeze Row inside the Streak Tile (no nested border container) */}
                   <div className="w-full px-6 mt-6 pt-5 border-t border-theme-border/20 flex flex-col gap-4">

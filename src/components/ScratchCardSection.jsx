@@ -91,6 +91,24 @@ export default function ScratchCardSection({ economy, refreshEconomy, showToast,
         }
       }
 
+      // Persist freeze reward to Supabase so manual sync and DB re-fetches reflect the new count
+      if (resultRewards.freezes_added > 0 && ecoId && ecoId !== 'default_user') {
+        const newFreezeCount = (economy.available_streak_freezes || 0) + resultRewards.freezes_added;
+        const { error: freezeWriteErr } = await supabase
+          .from('profiles')
+          .update({ available_streak_freezes: newFreezeCount })
+          .eq('id', ecoId);
+        if (freezeWriteErr) {
+          console.warn('[ScratchCard] Failed to persist freeze reward to DB:', freezeWriteErr.message);
+          // Queue as pending so next sync applies it
+          try {
+            const pendingKey = `mcqkash_pending_freezes_${ecoId}`;
+            const pending = Number(localStorage.getItem(pendingKey) || 0);
+            localStorage.setItem(pendingKey, String(pending + resultRewards.freezes_added));
+          } catch (e) {}
+        }
+      }
+
       // Reset 15-day wallet countdown timer on claim
       localStorage.setItem('mcqkash_last_referral_time', Date.now().toString());
 
