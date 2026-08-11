@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mcqkash-v6';
+const CACHE_NAME = 'mcqkash-v7';
 const URLS_TO_CACHE = [
   './',
   './index.html',
@@ -9,7 +9,9 @@ const URLS_TO_CACHE = [
   './icon-1024.png',
   './apple-touch-icon.png',
   './logo-leather-dark.png',
+  './favicon.svg',
   './favicon.ico',
+  './favicon-32x32.png',
   './favicon-96x96.png',
   './screenshot-mobile-1.png',
   './screenshot-mobile-2.png',
