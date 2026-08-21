@@ -19,39 +19,16 @@ const hashString = (value = '') => {
   return Math.abs(hash);
 };
 
-const shuffleOptions = (options, id) => {
-  if (!options || !Array.isArray(options) || options.length === 0) return [];
-  const seed = hashString(id || '');
-  let s = seed | 0;
-  const rng = () => {
-    s = (s + 0x6d2b79f5) | 0;
-    let t = Math.imul(s ^ (s >>> 15), 1 | s);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  const a = [...options];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
-  return a.map((opt, index) => ({
-    ...opt,
-    label: labels[index] || opt.label || String.fromCharCode(65 + index)
-  }));
-};
-
 const normalizeSupabaseQuestion = (question) => {
   const rawOptions = Array.isArray(question.options) ? question.options : [];
   const mappedOptions = rawOptions.map((opt, idx) => {
     const optId = opt.id || String.fromCharCode(97 + idx);
     return {
       id: optId,
-      label: optId.toUpperCase(),
+      label: opt.label || optId.toUpperCase(),
       text: typeof opt === 'string' ? opt : (opt.text || '')
     };
   });
-  const shuffledOptions = shuffleOptions(mappedOptions, question.id);
 
   return {
     id: question.id,
@@ -60,7 +37,7 @@ const normalizeSupabaseQuestion = (question) => {
     difficulty: question.difficulty || null,
     question: question.question,
     correctId: question.correct_id || question.correctId || 'a',
-    options: shuffledOptions,
+    options: mappedOptions,
     explanation: question.explanation || '',
     pyq: question.pyq || null,
   };
