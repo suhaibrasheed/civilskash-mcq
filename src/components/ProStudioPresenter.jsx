@@ -904,7 +904,7 @@ function StudioMcqSlide({ question, theme, contentScale = 1.0, soundEnabled = tr
     <div
       onClick={handleContainerClick}
       style={{
-        display: 'flex', flexDirection: 'column', gap: `${20 * contentScale}px`,
+        display: 'flex', flexDirection: 'column', gap: `${12 * contentScale}px`,
         width: '100%', transition: 'all 0.2s ease-out',
       }}
     >
@@ -2095,7 +2095,7 @@ export default function ProStudioPresenter({ questions = [], onClose }) {
             className="studio-scroll"
             style={{
               flex: 1, overflowY: 'auto',
-              padding: '60px 24px 20px 24px',
+              padding: `${Math.round(68 * contentScale)}px 24px 24px 24px`,
               pointerEvents: isPenActive ? 'none' : 'auto',
               scrollbarWidth: 'none',
             }}
