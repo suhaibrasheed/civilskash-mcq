@@ -1,5 +1,775 @@
 [
   {
+    "id": "b669d177-2dcf-4ca9-8e14-4c881a8e9538",
+    "category_id": "indian-economy",
+    "tags": [
+      "Market Economy"
+    ],
+    "difficulty": "easy",
+    "question": "In a purely free-market economy, the central economic problems of what, how, and for whom to produce are solved primarily through:",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Directives from the central planning authority",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The price mechanism and forces of demand and supply",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Customary traditions and historical practices",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Government-mandated price ceilings and floors",
+        "label": "D"
+      }
+    ],
+    "explanation": "In a <span class=\"text-red font-bold\">capitalist framework</span>, <span class=\"text-blue font-bold\">resource allocation is entirely decentralized</span>. The \"<span class=\"text-green font-bold\">invisible hand</span>\" of the <span class=\"text-orange font-bold\">price mechanism</span>, driven purely by <span class=\"text-magenta font-bold\">consumer demand and producer supply</span> dictates production choices and wealth distribution, eliminating the need for a <span class=\"text-teal font-bold\">central planning authority</span>. <div>  </div>",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "26f9a72c-20df-4f23-8c8e-1762f4d9ca1c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Planning"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding economic planning in India:<br>1. The erstwhile Planning Commission primarily followed a \"bottom-up\" approach for formulating economic plans.<br>2. NITI Aayog was established as a quintessential platform to foster cooperative federalism.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The erstwhile <span class=\"text-red font-bold\">Planning Commission</span> operated on a <span class=\"text-blue font-bold\">highly centralized, top-down model</span>, imposing <span class=\"text-green font-bold\">five-year plans</span> on states from the center. In contrast, <span class=\"text-orange font-bold\">NITI Aayog</span> was specifically designed to replace this rigid structure, institutionalizing a <span class=\"text-magenta font-bold\">bottom-up approach</span> and <span class=\"text-teal font-bold\">cooperative federalism</span> by directly involving state governments as equal partners in policy formulation.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "8e36ca99-3f64-4395-bcdf-6f30df371d32",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding the Industrial Policy Resolution of 1991:<br>1. It abolished industrial licensing for all industries without any exceptions.<br>2. It drastically reduced the number of industries reserved exclusively for the public sector.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">1991 reforms</span> radically<span class=\"text-teal\" style=\"font-weight: 800;\"> deregulated the industrial sector</span> but stopped short of blanket abolitions. <span class=\"text-blue font-bold\">Industrial licensing</span> was retained for a strategic shortlist of <span class=\"text-green font-bold\">hazardous and environmentally sensitive sectors</span> (like <span class=\"text-orange font-bold\">aerospace and explosives)</span>, while the <span class=\"text-magenta font-bold\">exclusive monopoly of the public sector</span> was aggressively trimmed down to just <span class=\"text-teal font-bold\">Atomic Energy and Railway transport</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "dc4eb2d4-6bf4-43d0-ab16-920ed4054695",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Planning"
+    ],
+    "difficulty": "easy",
+    "question": "Which Five-Year Plan in India is primarily associated with the Mahalanobis strategy, focusing heavily on rapid industrialization and basic industries?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "First Five-Year Plan",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Second Five-Year Plan",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Third Five-Year Plan",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Fourth Five-Year Plan",
+        "label": "D"
+      }
+    ],
+    "explanation": "Drafted by statistician <span class=\"text-red font-bold\">P.C. Mahalanobis</span>, the <span class=\"text-blue font-bold\">Second Five-Year Plan (1956-1961)</span> marked a <span class=\"text-green font-bold\">pivotal structural shift</span> in India's development strategy. It pivoted away from the<span class=\"text-magenta\" style=\"font-weight: 800;\"> First Plan's agricultural focus</span> to aggressively promote <span class=\"text-magenta font-bold\">heavy and capital goods industries</span>, aiming to build a <span class=\"text-teal font-bold\">self-reliant industrial base</span>.<div>   </div>",
+    "pyq": "JKSSB FAA 2022",
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "85c1a4e4-56c8-4ded-b74d-47c2901c1721",
+    "category_id": "indian-economy",
+    "tags": [
+      "Market Economy"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding a Mixed Economy framework in India:<br>1. It is characterized by the coexistence and functioning of both private and public sectors.<br>2. The government strictly dictates the production and pricing decisions of the private sector enterprises.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "A <span class=\"text-red font-bold\">mixed economic framework</span> deliberately blends <span class=\"text-blue font-bold\">socialist welfare objectives with capitalist efficiency</span>, allowing the <span class=\"text-green font-bold\">public and private sectors to co-exist</span>. While the government provides broad <span class=\"text-orange font-bold\">regulatory oversight</span>, private enterprises retain autonomy over their microeconomic decisions, operating on <span class=\"text-magenta font-bold\">market mechanisms and profit motives</span> rather than <span class=\"text-teal font-bold\">state-dictated pricing</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "1d97f2b8-cc3a-458c-832b-86c08038e0ba",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding currency convertibility introduced during the 1991 Economic Reforms:<br>1. The macroeconomic reforms immediately led to full capital account convertibility of the Indian Rupee.<br>2. The Rupee was made fully convertible on the current account to facilitate international trade and remittances.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "To integrate with the global economy post-1991, India made the<span class=\"text-teal\" style=\"font-weight: 800;\"> Rupee fully convertible on the current account,</span> seamlessly allowing for <span class=\"text-blue font-bold\">unhindered trade, remittances, and dividend transfers</span>. However, to shield the economy from <span class=\"text-orange font-bold\">speculative volatility</span>, the RBI still restricts <span class=\"text-green font-bold\">full capital account convertibility</span>, heavily regulating <span class=\"text-magenta font-bold\">large-scale foreign asset transactions and borrowings</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "2bbf9601-6074-47e0-98b6-3149ac1577ca",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Planning"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following best describes the shift to \"Indicative Planning\" adopted by India post the 1991 economic reforms?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "The state sets rigid, binding targets and directly allocates resources for all industrial sectors.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The state acts as a facilitator, providing broad directions and using fiscal/monetary tools to encourage the private sector to achieve national targets.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The state completely withdraws from the economy, leaving all resource planning entirely to unchecked market forces.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "The state focuses solely on agricultural planning and leaves all industrial planning to foreign direct investors.",
+        "label": "D"
+      }
+    ],
+    "explanation": "Post-1991, <span class=\"text-teal font-bold\">imperative (directive) planning</span> gave way to <span class=\"text-red font-bold\">indicative planning</span>, prominently from the <span class=\"text-blue font-bold\">8th Five-Year Plan</span> onwards. Instead of rationing resources and setting rigid quotas, the state transitioned into a <span class=\"text-green font-bold\">facilitator role</span>, using <span class=\"text-orange font-bold\">tax incentives, subsidies, and monetary policies</span> to steer private investment toward <span class=\"text-magenta font-bold\">national macroeconomic targets</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "30c39ec4-5d7a-4f7a-a901-6c40aeee7296",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding Privatization in India:<br>1. \"Minority Disinvestment\" implies the complete transfer of management and majority ownership of a public sector enterprise to a private entity.<br>2. A key objective of privatization is to improve the financial discipline and operational efficiency of Public Sector Undertakings (PSUs).<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Privatization</span> fundamentally aims to curb the <span class=\"text-red font-bold\">fiscal drain of inefficient PSUs</span> by infusing private sector discipline. Crucially, \"<span class=\"text-blue font-bold\">minority disinvestment</span>\" only involves selling a <span class=\"text-green font-bold\">fractional equity stake (under 51%)</span> while the <span class=\"text-orange font-bold\">government retains management control</span>; handing over majority ownership and operational control is exclusively termed a \"<span class=\"text-magenta font-bold\">strategic sale</span>.\"",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "8753885a-be2d-4965-b87d-2f8cb86dc8c3",
+    "category_id": "indian-economy",
+    "tags": [
+      "Market Economy"
+    ],
+    "difficulty": "easy",
+    "question": "In a traditional socialist (command) economy, the factors of production are primarily owned and controlled by:",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Private entrepreneurs and domestic capitalists",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Foreign multinational corporations",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "The State or central government authority",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Unregulated joint ventures",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-teal font-bold\">Command economies</span> operate on the principle of <span class=\"text-red font-bold\">collective or state ownership</span> to ensure <span class=\"text-blue font-bold\">equitable wealth distribution</span>. Consequently, the central government monopolizes the <span class=\"text-green font-bold\">factors of production (land, labor, capital)</span>, effectively eliminating <span class=\"text-orange font-bold\">private entrepreneurship</span> and the <span class=\"text-magenta font-bold\">profit motive</span> from core economic decisions.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "cb42bea0-414d-4586-a145-e3b20b50a9ba",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Planning"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding the \"Plan Holiday\" in India's planning history:<br>1. It occurred between 1966 and 1969 primarily due to the miserable failure of the Third Five-Year Plan.<br>2. During this three-year period, regular five-year planning was paused and three Annual Plans were formulated instead.<br>Which of the statements given above is/are correct?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "The catastrophic convergence of the <span class=\"text-teal font-bold\">Sino-Indian War</span>, the <span class=\"text-red font-bold\">Indo-Pak War</span>, and <span class=\"text-blue font-bold\">severe back-to-back droughts</span> drained national resources, leading to the utter failure of the <span class=\"text-green font-bold\">Third Plan</span>. This forced a \"<span class=\"text-orange font-bold\">Plan Holiday</span>\" <span class=\"text-magenta font-bold\">(1966-1969)</span> where regular five-year planning was suspended in favor of <span class=\"text-teal font-bold\">three short-term Annual Plans</span> to stabilize the crisis-hit agricultural and industrial sectors.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "ca746d24-29d8-4bde-bdb3-bccd44e1e33c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Reforms"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following is NOT correct regarding the institutional changes introduced following the 1991 Economic Reforms?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Monopolies and Restrictive Trade Practices (MRTP) Act was relaxed to eliminate the threshold limits for asset expansion by large companies.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "The restrictive Foreign Exchange Regulation Act (FERA) was eventually replaced by a facilitating Foreign Exchange Management Act (FEMA).",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Statutory Liquidity Ratio (SLR) and Cash Reserve Ratio (CRR) were drastically increased to restrict bank credit to the private sector.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Quantitative restrictions on imports, such as import quotas and high tariffs, were significantly reduced.",
+        "label": "D"
+      }
+    ],
+    "explanation": "A cornerstone of the financial sector reforms (guided by the <span class=\"text-red font-bold\">Narasimham Committee)</span> was the systematic reduction of <span class=\"text-blue font-bold\">pre-empted bank resources</span>. The RBI drastically slashed the historically high <span class=\"text-green font-bold\">Statutory Liquidity Ratio (SLR)</span> and <span class=\"text-orange font-bold\">Cash Reserve Ratio (CRR)</span>, <span class=\"text-magenta font-bold\">unlocking massive liquidity</span> to fuel <span class=\"text-teal font-bold\">private sector credit expansion</span>, rather than restricting it.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "f428ee01-b339-4bd4-80b3-4dec488afb02",
+    "category_id": "indian-economy",
+    "tags": [
+      "Economic Planning"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding the structural composition of NITI Aayog:<br>1. Its Governing Council comprises the Chief Ministers of all States and Lt. Governors of Union Territories.<br>2. The Union Minister of Finance acts as the ex-officio Chairperson of the NITI Aayog.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Both 1 and 2",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Neither 1 nor 2",
+        "label": "D"
+      }
+    ],
+    "explanation": "To guarantee <span class=\"text-red font-bold\">cooperative federalism</span>, NITI Aayog's Governing Council embeds the <span class=\"text-green font-bold\">Chief Ministers of all states and Lt. Governors of UTs</span> directly into the planning apex. Furthermore, its leadership structure mandates the <span class=\"text-orange font-bold\">Prime Minister of India</span>—not the Finance Minister—to serve as the <span class=\"text-magenta font-bold\">ex-officio Chairperson</span>, giving the institution <span class=\"text-teal font-bold\">supreme executive backing</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T13:14:44.23821+00:00"
+  },
+  {
+    "id": "9b38060e-e391-4308-803a-95f62413d2ee",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "easy",
+    "question": "Who is responsible for the formulation and execution of Fiscal Policy in India?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reserve Bank of India (RBI)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ministry of Finance, Government of India",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "NITI Aayog",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Finance Commission of India",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Fiscal policy</span> deals with <span class=\"text-blue font-bold\">taxation, public expenditure, and public debt management</span>, which is formulated and executed by the <span class=\"text-green font-bold\">Ministry of Finance (Government of India)</span>. In contrast, <span class=\"text-orange font-bold\">monetary policy</span> is formulated and executed by the <span class=\"text-magenta font-bold\">central bank (Reserve Bank of India)</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "0526ea5b-0a34-466b-a631-c31c330ef540",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is a qualitative (selective) instrument of monetary policy used by the Reserve Bank of India?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cash Reserve Ratio (CRR)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Statutory Liquidity Ratio (SLR)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Margin Requirements",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Open Market Operations (OMO)",
+        "label": "D"
+      }
+    ],
+    "explanation": "Margin requirements, moral suasion, credit rationing, and consumer credit regulation are <span class=\"text-teal font-bold\">qualitative (selective) instruments</span> that control the <span class=\"text-red font-bold\">direction and allocation of credit</span> to specific sectors. <span class=\"text-orange font-bold\">CRR, SLR, Repo Rate, and OMO</span> are <span class=\"text-blue font-bold\">quantitative (general) instruments</span> that regulate the <span class=\"text-green font-bold\">aggregate volume of money and credit</span> in the entire economy.",
+    "pyq": "JKSSB FAA 2022",
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "395bb38a-cfc0-4bcb-8888-c9d7a42a194d",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "easy",
+    "question": "In public finance and fiscal accounting, 'Primary Deficit' is calculated as:",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fiscal Deficit minus Interest Payments",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Revenue Deficit minus Grants for Creation of Capital Assets",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Total Expenditure minus Total Non-Debt Receipts",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Fiscal Deficit plus External Borrowings",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-magenta font-bold\">Primary Deficit</span> reflects the government's <span class=\"text-teal font-bold\">net borrowing requirement</span> strictly to finance current year expenditures excluding past debt obligations. It is computed as <span class=\"text-red font-bold\">Fiscal Deficit minus Interest Payments</span>; a <span class=\"text-blue font-bold\">zero primary deficit</span> means the government <span class=\"text-green font-bold\">borrows solely to service past debts</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "c5d03bbd-1b48-4059-8abc-7d898398e13a",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "medium",
+    "question": "During periods of severe demand-pull inflation, which combination of fiscal and monetary policy measures is most appropriate to stabilize the economy?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase government spending and lower the Repo Rate",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Reduce taxation and increase the Cash Reserve Ratio (CRR)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Cut public expenditure and increase policy interest rates",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Increase infrastructure subsidies and conduct Open Market purchases of G-Secs",
+        "label": "D"
+      }
+    ],
+    "explanation": "To curb <span class=\"text-orange font-bold\">demand-pull inflation</span>, a <span class=\"text-magenta font-bold\">contractionary fiscal policy</span> <span class=\"text-teal font-bold\">(reducing public expenditure or hiking taxes)</span> combined with a <span class=\"text-red font-bold\">contractionary/tight monetary policy</span> <span class=\"text-blue font-bold\">(hiking policy rates like Repo Rate</span> and absorbing market liquidity) is implemented to <span class=\"text-green font-bold\">suppress excessive aggregate demand</span>. Expansionary policies like rate cuts or spending hikes would further fuel inflation.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "d59cf71f-7c3c-43cb-b863-5f3b4e428ee1",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding the Monetary Policy Committee (MPC) of India:<br>1.  It consists of six members: three from the RBI and three appointed by the Central Government.<br>2.  The Governor of the RBI acts as the ex-officio Chairperson and holds a casting vote in the event of a tie.<br>3.  The MPC is mandated by law to meet at least eight times in every financial year.<br>Which of the statements given above are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statements 1 and 2 are correct under <span class=\"text-orange font-bold\">Section 45ZB of the amended RBI Act, 1934</span>. Statement 3 is incorrect because the statutory requirement mandates the <span class=\"text-magenta font-bold\">MPC to meet at least four times in a financial year</span> (although <span class=\"text-teal font-bold\">bi-monthly meetings</span> are held as standard operating procedure).",
+    "pyq": "UPSC Prelims 2017",
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "d9e4d255-e73c-4ed1-aca8-112100565edf",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following correctly describes the mechanism of the 'Standing Deposit Facility' (SDF) introduced by the RBI in 2022?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "An uncollateralized facility allowing banks to park overnight surplus liquidity with the RBI at a rate lower than the Repo Rate.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A collateralized overnight borrowing window for commercial banks against government securities at a penalty rate.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "A targeted long-term refinancing window operated exclusively for Non-Banking Financial Companies (NBFCs).",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "An emergency liquidity window for urban cooperative banks backed by sovereign guarantees.",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">Standing Deposit Facility (SDF)</span> allows the RBI to <span class=\"text-blue font-bold\">absorb surplus liquidity</span> from commercial banks <span class=\"text-green font-bold\">without having to pledge government securities (G-Secs)</span> as collateral. It replaced the fixed-rate Reverse Repo as the <span class=\"text-orange font-bold\">lower floor of the Liquidity Adjustment Facility (LAF) corridor</span>, pegged <span class=\"text-magenta font-bold\">25 basis points below the Policy Repo Rate</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "b91d3510-5d68-4a6a-8850-63b4551b75ad",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding fiscal mechanisms and macroeconomic effects:<br>1.  'Automatic stabilizers' refer to fiscal mechanisms like progressive income taxes and unemployment benefits that cushion economic fluctuations without explicit discretionary policy action.<br>2.  'Crowding-out effect' occurs when expansionary fiscal policy financed through heavy government market borrowing drives up interest rates, thereby reducing private capital investment.<br>3.  'Fiscal Drag' occurs when inflation pushes nominal incomes into higher tax brackets under progressive taxation, automatically raising tax revenues and dampening aggregate demand.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "All three statements are conceptually accurate. <span class=\"text-teal font-bold\">Automatic stabilizers</span> <span class=\"text-red font-bold\">moderate cyclical swings without legislative lags</span>; <span class=\"text-blue font-bold\">crowding-out</span> highlights the <span class=\"text-green font-bold\">displacement of private investment</span> due to rising interest rates from state borrowing; and <span class=\"text-orange font-bold\">fiscal drag (bracket creep)</span> dampens private consumption through <span class=\"text-magenta font-bold\">higher effective tax burdens during inflation</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "56434947-a911-41e1-a269-7f85d2b35b41",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding monetary policy instruments and credit mechanics:<br>1.  An increase in the Cash Reserve Ratio (CRR) reduces the credit creation capacity of commercial banks, thereby decreasing the money multiplier.<br>2.  Open Market Sale of government securities by the central bank injects high-powered reserve money into the commercial banking system.<br>3.  Under the Liquidity Adjustment Facility (LAF) corridor, the Marginal Standing Facility (MSF) rate acts as the upper ceiling for overnight interbank call money rates.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "Statements 1 and 3 are correct. The <span class=\"text-teal font-bold\">money multiplier is inversely related to reserve requirements (CRR/SLR)</span>, and the <span class=\"text-red font-bold\">MSF rate (Repo + 25 bps)</span> serves as the corridor's upper ceiling. Statement 2 is incorrect because the <b>sale</b> of government securities by the central bank <span class=\"text-orange font-bold\">withdraws/absorbs reserve money</span> from the banking system, whereas the <b>purchase</b> of G-Secs injects liquidity.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "076b6277-4faf-41f2-baa7-b3bd8c5de02c",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding deficit concepts and the FRBM framework in India:<br>1.  'Effective Revenue Deficit' is defined as the Revenue Deficit minus Grants-in-Aid for the creation of capital assets given to States and local bodies.<br>2.  'Monetized Deficit' refers to that part of the government's fiscal deficit which is financed directly through central bank credit expansion (printing money/borrowing from RBI).<br>3.  The Fiscal Responsibility and Budget Management (FRBM) Act prohibits the RBI from subscribing directly to sovereign dated securities in the primary auction market, except under specified escape clauses.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "All three statements are correct. <span class=\"text-teal font-bold\">Effective Revenue Deficit</span> separates <span class=\"text-red font-bold\">purely consumptive revenue deficits from productive capital transfers</span>; <span class=\"text-blue font-bold\">monetized deficit</span> indicates <span class=\"text-green font-bold\">central bank monetization of sovereign debt</span>; and the <span class=\"text-orange font-bold\">FRBM Act, 2003</span> <span class=\"text-magenta font-bold\">ended the primary issuance of government securities directly to the RBI</span> (effective April 2006) to enforce monetary discipline.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
+    "id": "bff840ca-4279-4fdf-ab27-e155c36d9fcc",
+    "category_id": "indian-economy",
+    "tags": [
+      "Fiscal And Monetary Policy"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding the interaction and limits of monetary and fiscal policy:<br>1.  In a 'Liquidity Trap', nominal interest rates approach near-zero levels and money demand becomes infinitely elastic, rendering conventional monetary policy ineffective while fiscal policy becomes highly potent.<br>2.  The 'Taylor Rule' is an empirical monetary policy benchmark that prescribes how a central bank should adjust short-term nominal interest rates in response to inflation gaps and output gaps.<br>3.  An 'Accommodative' monetary policy stance signifies that the central bank is prepared to cut rates or inject liquidity to stimulate economic growth, signaling an absence of immediate rate hikes.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "All three statements are correct. In a <span class=\"text-teal font-bold\">Keynesian liquidity trap</span>, <span class=\"text-red font-bold\">monetary expansion fails to stimulate borrowing</span> as <span class=\"text-blue font-bold\">liquidity preference becomes horizontal</span>, making direct government expenditure necessary. The <span class=\"text-green font-bold\">Taylor Rule</span> links policy rates systematically to <span class=\"text-orange font-bold\">deviations in target inflation and potential output</span>, while an <span class=\"text-magenta font-bold\">accommodative stance</span> indicates <span class=\"text-teal font-bold\">growth-supportive loose monetary conditions</span>.",
+    "pyq": null,
+    "created_at": "2026-08-21T03:55:30.107741+00:00"
+  },
+  {
     "id": "613c056a-2454-499b-b3ca-53ebfb4d6da3",
     "category_id": "indian-economy",
     "tags": [

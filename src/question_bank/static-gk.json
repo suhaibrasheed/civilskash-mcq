@@ -1,5 +1,40 @@
 [
   {
+    "id": "3dd57737-71b4-4de3-a89d-0af47778169e",
+    "category_id": "static-gk",
+    "tags": [
+      "Art N Culture"
+    ],
+    "difficulty": "easy",
+    "question": "Where is \"The Gateway of India\" located?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Chenai",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Jaipur",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "New Delhi",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Mumbai",
+        "label": "D"
+      }
+    ],
+    "explanation": "The<span class=\"text-red\" style=\"font-weight: 800;\"> <b>Gateway of India</b></span><b> </b>is an <span class=\"text-teal\" style=\"font-weight: 800;\">arch-monument</span>, completed<span class=\"text-teal\" style=\"font-weight: 800;\"> in 1924</span>, on the waterfront of<span class=\"text-blue\" style=\"font-weight: 800;\"> Mumbai, Maharashtra, India.</span> It was erected to commemorate the landing <span class=\"text-orange\" style=\"font-weight: 800;\">of King George V</span> of the United Kingdom for his coronation as the<span class=\"text-blue\" style=\"font-weight: 800;\"> Emperor of India in December 1911 at Strand Road near Wellington Fountain</span>. He was the first British monarch to visit India.<div><img src=\"https://planetofhotels.com/guide/sites/default/files/styles/paragraph__hero_banner__hb_image__1880bp/public/hero_banner/Gateway-to-India_0.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <span class=\"text-theme-primary font-medium\">  </span></div>",
+    "pyq": null,
+    "created_at": "2026-08-05T08:38:15.596626+00:00"
+  },
+  {
     "id": "9c7725ed-03cf-41e2-98dc-4c305de33ae7",
     "category_id": "static-gk",
     "tags": [
