@@ -390,28 +390,30 @@ export default function PrintableTestPaper({
                         let statusLabel = null;
 
                         if (isOfficialCorrect && isCandidateChoice) {
-                          badgeClass = "border-emerald-600 bg-emerald-100 text-emerald-950 font-black";
-                          statusLabel = <span className="text-[10px] text-emerald-800 font-black">✓ [YOUR CHOICE - CORRECT]</span>;
+                          badgeClass = "border-emerald-600 bg-emerald-100 text-emerald-950 font-bold";
+                          statusLabel = <span className="text-xs font-black text-emerald-800 shrink-0 ml-1">✓</span>;
                         } else if (isOfficialCorrect) {
                           badgeClass = "border-emerald-600 bg-emerald-50 text-emerald-900 font-bold";
-                          statusLabel = <span className="text-[10px] text-emerald-700 font-black">✓ [OFFICIAL KEY]</span>;
+                          statusLabel = <span className="text-xs font-black text-emerald-700 shrink-0 ml-1">✓</span>;
                         } else if (isCandidateChoice && !isOfficialCorrect) {
-                          badgeClass = "border-rose-500 bg-rose-50 text-rose-900 font-bold line-through";
-                          statusLabel = <span className="text-[10px] text-rose-700 font-black">✗ [YOUR CHOICE]</span>;
+                          badgeClass = "border-rose-500 bg-rose-50 text-rose-900 font-bold";
+                          statusLabel = <span className="text-xs font-black text-rose-600 shrink-0 ml-1">✗</span>;
                         }
 
                         return (
                           <div 
                             key={optId}
-                            className={`p-2.5 rounded-lg border flex items-start gap-2 ${badgeClass}`}
+                            className={`p-2.5 rounded-lg border flex items-start justify-between gap-2 ${badgeClass}`}
                           >
-                            <span className="font-black uppercase w-4 shrink-0">
-                              {opt.label || optId.toUpperCase()}.
-                            </span>
-                            <span 
-                              className="flex-1"
-                              dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text || '') }}
-                            />
+                            <div className="flex items-start gap-2 flex-1 min-w-0">
+                              <span className="font-black uppercase w-4 shrink-0">
+                                {opt.label || optId.toUpperCase()}.
+                              </span>
+                              <span 
+                                className="flex-1"
+                                dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text || '') }}
+                              />
+                            </div>
                             {statusLabel}
                           </div>
                         );
