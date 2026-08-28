@@ -156,7 +156,8 @@ export default function GlobalTestsPage() {
   // Magic 1-Tap Exam Link Share (Psychologically Motivating)
   const handleMagicShareExam = (test, e) => {
     e?.stopPropagation();
-    const shareUrl = `${window.location.origin}/#/global-tests?testId=${test.id}`;
+    const appBase = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`;
+    const shareUrl = `${appBase}/#/global-tests?testId=${test.id}`;
     const text = `🎯 *Attempt this Official Statewide Mock Test Live Now on MCQKash!*\n\n📝 Exam: *${test.title}*\n⚡ Single-attempt official test • Statewide Merit List & Percentiles.\n\nTake the free mock test here:\n👉 ${shareUrl}`;
 
     if (navigator.share) {
@@ -176,7 +177,8 @@ export default function GlobalTestsPage() {
     e?.stopPropagation();
     const score = attempt?.score ?? 0;
     const accuracy = attempt?.accuracy ?? 0;
-    const shareUrl = `${window.location.origin}/#/global-tests?testId=${test.id}`;
+    const appBase = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`;
+    const shareUrl = `${appBase}/#/global-tests?testId=${test.id}`;
     const text = `🏆 *MCQKash Weekly Global Test Scorecard*\n\nExam: *${test.title}*\nMy Score: *${score.toFixed(2)} / ${test.total_marks || test.total_questions}*\nAccuracy: *${accuracy}%*\n\nChallenge my score on MCQKash:\n👉 ${shareUrl}`;
     
     if (navigator.share) {

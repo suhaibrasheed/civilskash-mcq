@@ -2098,7 +2098,8 @@ export default function BattleArena() {
   }
 
   const handleFlexShare = async (customText, cardData = null) => {
-    const defaultText = customText || `I just fought in the Battle Arena on MCQKash! Flexing my score card. Join the arena: ${window.location.origin}`;
+    const appOrigin = `${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`;
+    const defaultText = customText || `I just fought in the Battle Arena on MCQKash! Flexing my score card. Join the arena: ${appOrigin}`;
 
     const cardToShare = cardData || selectedHistoryCard;
     if (!cardToShare) {
@@ -2138,7 +2139,7 @@ export default function BattleArena() {
     // Fallback: Web Share Text API or Clipboard
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'Battle Arena Flex', text: defaultText, url: window.location.origin });
+        await navigator.share({ title: 'Battle Arena Flex', text: defaultText, url: appOrigin });
         showToast('Shared successfully!', 'success');
       } catch (err) {
         console.warn('Share failed:', err);
@@ -4230,7 +4231,7 @@ Generate exactly 10 new questions.`;
                               <div className="flex gap-3 w-full">
                                 <button
                                   onClick={() => handleFlexShare(
-                                    `I just battled in MCQKash! Scored ${Number(userScore || 0).toFixed(2)} points. Beat my score: ${window.location.origin}`,
+                                    `I just battled in MCQKash! Scored ${Number(userScore || 0).toFixed(2)} points. Beat my score: ${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`,
                                     {
                                       outcome: liveOutcome,
                                       targetExam: economy?.target_exam,
@@ -4722,7 +4723,7 @@ Generate exactly 10 new questions.`;
 
             <div className="flex flex-col gap-3 w-full max-w-xs relative z-10">
               <button
-                onClick={() => handleFlexShare(`${economy?.full_name || 'Aspirant'} just broke MCQKash's algorithm scoring 20/20 in Battle Arena. Try to beat me: ${window.location.origin}`)}
+                onClick={() => handleFlexShare(`${economy?.full_name || 'Aspirant'} just broke MCQKash's algorithm scoring 20/20 in Battle Arena. Try to beat me: ${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`)}
                 className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-95 shadow-lg shadow-red-600/20"
               >
                 <Share2 size={14} />
@@ -5159,7 +5160,7 @@ Generate exactly 10 new questions.`;
                     <span className="text-xs font-black text-amber-400 group-hover:text-white transition-colors">50</span>
                   </button>
                   <button
-                    onClick={() => handleFlexShare(`I just got a ${selectedHistoryCard.outcome} on MCQKash Battle Arena! ${selectedHistoryCard.userScore} vs ${selectedHistoryCard.opponentScore}. Beat me: ${window.location.origin}`)}
+                    onClick={() => handleFlexShare(`I just got a ${selectedHistoryCard.outcome} on MCQKash Battle Arena! ${selectedHistoryCard.userScore} vs ${selectedHistoryCard.opponentScore}. Beat me: ${window.location.origin}${window.location.pathname.startsWith('/mcq') ? '/mcq' : ''}`)}
                     className="px-4 py-2.5 bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/25 text-white/70 rounded-full transition-all flex items-center gap-1.5 active:scale-95"
                   >
                     <Share2 size={13} />
