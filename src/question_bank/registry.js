@@ -12,5 +12,6 @@ export const CATEGORY_LOADERS = {
   "jk-affairs": () => import('./jk-affairs.json'),
   "modern-history": () => import('./modern-history.json'),
   "physical-geography": () => import('./physical-geography.json'),
-  "static-gk": () => import('./static-gk.json')
+  "static-gk": () => import('./static-gk.json'),
+  "weekly_catalog": () => import('./weekly_catalog.json')
 };

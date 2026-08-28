@@ -1,0 +1,86 @@
+{
+  "id": "jkssb-faa-weekly-mtcm6enf",
+  "exam_id": "jkssb-faa",
+  "title": "Mokur Gobur",
+  "total_questions": 2,
+  "total_marks": 120,
+  "duration_mins": 120,
+  "negative_marking": 0.25,
+  "window_start": "2026-08-28T08:41:00+00:00",
+  "window_end": "2026-09-01T01:41:00+00:00",
+  "result_reveal_at": "2026-09-02T01:41:00+00:00",
+  "status": "published",
+  "questions_data": [
+    {
+      "pyq": null,
+      "tags": [
+        "Physical Properties"
+      ],
+      "source": "Subi Malik",
+      "status": "published",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 and 2 only",
+          "label": "A"
+        },
+        {
+          "id": "b",
+          "text": "3 only",
+          "label": "B"
+        },
+        {
+          "id": "c",
+          "text": "1 and 3 only",
+          "label": "C"
+        },
+        {
+          "id": "d",
+          "text": "2 and 3 only",
+          "label": "D"
+        }
+      ],
+      "question": "Consider the following statements regarding the physical properties of metals:<br>1- Ductility is the ability of metals to be beaten into thin sheets.<br>2- Malleability is the ability of metals to be drawn into thin wires.<br>3- Gold is the most ductile metal known.<br>Which of the statements given above is/are correct?",
+      "correct_id": "b",
+      "difficulty": "medium",
+      "category_id": "general-science",
+      "explanation": "The definitions for ductility and malleability in the first two statements are swapped. Malleability is the property that allows metals to be beaten into thin sheets, like aluminium foil. Ductility is the property that allows metals to be drawn into thin wires. Gold is indeed the most ductile metal. A single gram of gold can be drawn into a wire about two kilometers long."
+    },
+    {
+      "pyq": null,
+      "tags": [
+        "Non Metals"
+      ],
+      "source": "Subi Malik",
+      "status": "published",
+      "options": [
+        {
+          "id": "a",
+          "text": "Strongly basic",
+          "label": "A"
+        },
+        {
+          "id": "b",
+          "text": "Acidic",
+          "label": "B"
+        },
+        {
+          "id": "c",
+          "text": "Neutral",
+          "label": "C"
+        },
+        {
+          "id": "d",
+          "text": "Amphoteric",
+          "label": "D"
+        }
+      ],
+      "question": "Non-metals combine with oxygen to form different types of oxides. The oxides of non-metals dissolved in water generally produce which type of solution?",
+      "correct_id": "b",
+      "difficulty": "easy",
+      "category_id": "general-science",
+      "explanation": "While metals generally form basic oxides, non-metals react with oxygen to form acidic oxides. When these non-metal oxides dissolve in water, they form acids. A classic example is sulphur reacting with oxygen to form sulphur dioxide. When sulphur dioxide is dissolved in water, it forms sulphurous acid, which turns blue litmus paper red."
+    }
+  ],
+  "created_at": "2026-08-28T07:12:23.296553+00:00"
+}
