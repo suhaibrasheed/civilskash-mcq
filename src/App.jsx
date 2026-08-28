@@ -13,17 +13,36 @@ import { useEconomy } from './context/EconomyContext';
 import { Sparkles } from 'lucide-react';
 import NotFoundPage from './pages/NotFoundPage';
 
-const AdminSubiStudio = React.lazy(() => import('./pages/AdminSubiStudio'));
-const BookmarksDashboard = React.lazy(() => import('./pages/BookmarksDashboard'));
-const ProfileDashboard = React.lazy(() => import('./pages/ProfileDashboard'));
-const SubjectMockDashboard = React.lazy(() => import('./pages/SubjectMockDashboard'));
-const ResurrectionMockDashboard = React.lazy(() => import('./pages/ResurrectionMockDashboard'));
-const LeaderboardPage = React.lazy(() => import('./pages/LeaderboardPage'));
-const PricingPage = React.lazy(() => import('./pages/PricingPage'));
-const BattleArena = React.lazy(() => import('./pages/BattleArena'));
-const ExamMockDashboardPage = React.lazy(() => import('./pages/ExamMockDashboardPage'));
-const GlobalTestsPage = React.lazy(() => import('./pages/GlobalTestsPage'));
-const GlobalExamRunner = React.lazy(() => import('./components/GlobalExamRunner'));
+// Auto-retry helper to handle Vite dynamic import chunk mismatches across new deployments
+const lazyWithRetry = (importFn) => {
+  return React.lazy(async () => {
+    const pageHasBeenForceRefreshed = window.sessionStorage.getItem('mcqkash_chunk_refreshed') === 'true';
+    try {
+      const component = await importFn();
+      window.sessionStorage.setItem('mcqkash_chunk_refreshed', 'false');
+      return component;
+    } catch (error) {
+      if (!pageHasBeenForceRefreshed) {
+        window.sessionStorage.setItem('mcqkash_chunk_refreshed', 'true');
+        window.location.reload();
+        return { default: () => null };
+      }
+      throw error;
+    }
+  });
+};
+
+const AdminSubiStudio = lazyWithRetry(() => import('./pages/AdminSubiStudio'));
+const BookmarksDashboard = lazyWithRetry(() => import('./pages/BookmarksDashboard'));
+const ProfileDashboard = lazyWithRetry(() => import('./pages/ProfileDashboard'));
+const SubjectMockDashboard = lazyWithRetry(() => import('./pages/SubjectMockDashboard'));
+const ResurrectionMockDashboard = lazyWithRetry(() => import('./pages/ResurrectionMockDashboard'));
+const LeaderboardPage = lazyWithRetry(() => import('./pages/LeaderboardPage'));
+const PricingPage = lazyWithRetry(() => import('./pages/PricingPage'));
+const BattleArena = lazyWithRetry(() => import('./pages/BattleArena'));
+const ExamMockDashboardPage = lazyWithRetry(() => import('./pages/ExamMockDashboardPage'));
+const GlobalTestsPage = lazyWithRetry(() => import('./pages/GlobalTestsPage'));
+const GlobalExamRunner = lazyWithRetry(() => import('./components/GlobalExamRunner'));
 
 import { useAuth } from './context/AuthContext';
 import { parseVideoUrl } from './lib/video';

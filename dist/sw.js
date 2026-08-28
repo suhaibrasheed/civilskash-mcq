@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mcqkash-v7';
+const CACHE_NAME = 'mcqkash-v8';
 const URLS_TO_CACHE = [
   './',
   './index.html',
@@ -69,7 +69,15 @@ self.addEventListener('fetch', (event) => {
         }
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(async () => {
+        const cached = await caches.match(event.request);
+        if (cached) return cached;
+        return new Response('Resource unavailable offline', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: { 'Content-Type': 'text/plain' }
+        });
+      })
   );
 });
 
