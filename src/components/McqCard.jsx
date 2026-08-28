@@ -263,11 +263,9 @@ export default function McqCard({
     };
     checkBookmark();
 
-    // Reset local selection when question changes or when external selection is cleared
-    if (externalSelection === null) {
-      setLocalSelectedOption(null);
-    }
-  }, [questionData.id, externalSelection]);
+    // Reset local selection when question changes or when external selection is updated/cleared
+    setLocalSelectedOption(externalSelection ?? null);
+  }, [questionData?.id, externalSelection]);
 
   const toggleBookmark = async () => {
     const newState = await toggleBookmarkDB(questionData);
@@ -284,7 +282,10 @@ export default function McqCard({
   };
   const [showExplanation, setShowExplanation] = useState(mode === 'result');
 
-  const selectedOption = externalSelection !== null ? externalSelection : localSelectedOption;
+  // In exam mode, selection is strictly derived from externalSelection if provided
+  const selectedOption = (externalSelection !== undefined && externalSelection !== null) 
+    ? externalSelection 
+    : (mode === 'exam' ? null : localSelectedOption);
 
   const handleSelect = async (optionId) => {
     if (mode === 'result') return;
@@ -295,9 +296,7 @@ export default function McqCard({
       return;
     }
 
-    if (!externalSelection) {
-      setLocalSelectedOption(optionId);
-    }
+    setLocalSelectedOption(optionId);
 
     if (onSelect) {
       onSelect(optionId);
@@ -564,8 +563,8 @@ export default function McqCard({
       <div className="relative space-y-2.5">
         <AnimatePresence>
           {questionData.options.map((option) => {
-            const isSelected = selectedOption === option.id;
-            const isCorrect = option.id === questionData.correctId;
+            const isSelected = selectedOption !== null && selectedOption !== undefined && String(selectedOption).toLowerCase() === String(option.id).toLowerCase();
+            const isCorrect = String(option.id).toLowerCase() === String(questionData.correctId || questionData.correct_id || '').toLowerCase();
             const showFeedback = (mode === 'practice' && selectedOption !== null) || mode === 'result';
             const isEliminated = eliminatedOptions.includes(option.id);
 

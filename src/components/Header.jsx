@@ -12,7 +12,8 @@ import { KashCoinDisplay, StreakModal, CoinsVaultModal } from './EconomyUI';
 import BYOKSettingsModal from './BYOKSettingsModal';
 import FeedbackModal from './FeedbackModal';
 import MoreAppsModal from './MoreAppsModal';
-import { getRevisionStats } from '../lib/db';
+import { getRevisionStats, getAllWeeklyTestAttemptsLocally } from '../lib/db';
+import { getCachedWeeklyTestsSync } from '../lib/globalTestsApi';
 import { supabase } from '../lib/supabase';
 import { triggerDailyAndroidPushNotification } from '../lib/androidPushNotifier';
 
@@ -514,14 +515,30 @@ const getBacklogLevel = (count) => {
 };
 
 // ── Notifications Command Center Panel ──────────────────────────────
-function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, battleNotifications, setBattleNotifications, dbNotifications, setDbNotifications, economy }) {
+function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, battleNotifications, setBattleNotifications, dbNotifications, setDbNotifications, weeklyTestNotifications, setWeeklyTestNotifications, economy }) {
   const navigate = useNavigate();
   const { user } = useAuth();
   const backlogCount = stats?.totalResurrection || 0;
   const backlogLevel = getBacklogLevel(backlogCount);
   const hasBacklog = backlogLevel.active;
   const srsDue = stats?.dueSRS || 0;
-  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || (battleNotifications && battleNotifications.length > 0) || (dbNotifications && dbNotifications.length > 0);
+  const hasWeeklyNotifs = weeklyTestNotifications && weeklyTestNotifications.length > 0;
+  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || hasWeeklyNotifs || (battleNotifications && battleNotifications.length > 0) || (dbNotifications && dbNotifications.length > 0);
+
+  const handleDismissWeeklyNotif = (notifId) => {
+    const userId = economy?.id || user?.id || 'guest';
+    try {
+      const dismissedKey = `mcqkash_dismissed_weekly_notifs_${userId}`;
+      const dismissed = JSON.parse(localStorage.getItem(dismissedKey) || '[]');
+      if (!dismissed.includes(notifId)) {
+        dismissed.push(notifId);
+        localStorage.setItem(dismissedKey, JSON.stringify(dismissed));
+      }
+    } catch (e) {}
+    if (setWeeklyTestNotifications) {
+      setWeeklyTestNotifications(prev => prev.filter(item => item.id !== notifId));
+    }
+  };
 
   return (
     <motion.div
@@ -551,6 +568,40 @@ function NotificationsPanel({ onClose, stats, isSilenced, pendingScratchCount, b
           </div>
         ) : (
           <div className="flex flex-col gap-3">
+            {/* ── Weekly Test Notifications ── */}
+            {weeklyTestNotifications && weeklyTestNotifications.map(wn => (
+              <div key={wn.id} className="flex flex-col gap-1.5 text-[11px] leading-relaxed border-b border-theme-border/10 pb-3 last:border-0 last:pb-0">
+                <div className="flex items-start gap-2">
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1.5 ${wn.isDeclared ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500 animate-pulse'}`} />
+                  <div>
+                    <span className={`font-black mr-1 ${wn.isDeclared ? 'text-emerald-400' : 'text-amber-400'}`}>
+                      {wn.title || '🔥 LIVE MOCK:'}
+                    </span>
+                    <span className="text-theme-text/90 font-medium">
+                      {wn.message}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 pl-3.5 mt-0.5">
+                  <button
+                    onClick={() => {
+                      navigate(wn.link);
+                      onClose();
+                    }}
+                    className={`text-left text-[10px] font-black uppercase tracking-wider inline-flex items-center hover:opacity-80 transition-colors ${wn.isDeclared ? 'text-emerald-400' : 'text-amber-400'}`}
+                  >
+                    {wn.linkText}
+                  </button>
+                  <button
+                    onClick={() => handleDismissWeeklyNotif(wn.id)}
+                    className="text-[10px] font-bold text-theme-muted hover:text-theme-text uppercase tracking-wider transition-colors cursor-pointer"
+                  >
+                    Dismiss
+                  </button>
+                </div>
+              </div>
+            ))}
+
             {dbNotifications && dbNotifications.map(n => {
               // Parse compact metadata for challenge notifications
               let meta = null;
@@ -943,6 +994,92 @@ export default function Header() {
     return () => clearInterval(interval);
   }, [economy?.id, showToast, playVictory, playShatter]);
 
+  // Weekly Test Notifications (Pending & Declared)
+  const [weeklyTestNotifications, setWeeklyTestNotifications] = useState([]);
+
+  const checkWeeklyNotifications = useCallback(async () => {
+    const userId = economy?.id || user?.id || 'guest';
+    try {
+      const attempts = (await getAllWeeklyTestAttemptsLocally()) || [];
+      const cachedTests = getCachedWeeklyTestsSync() || [];
+      const dismissedKey = `mcqkash_dismissed_weekly_notifs_${userId}`;
+      const dismissed = JSON.parse(localStorage.getItem(dismissedKey) || '[]');
+      const notifs = [];
+      const now = Date.now();
+      const attemptedIds = new Set(attempts.map(a => a.testId || a.id));
+
+      cachedTests.forEach(test => {
+        const windowStart = test.window_start ? new Date(test.window_start).getTime() : 0;
+        const windowEnd = test.window_end ? new Date(test.window_end).getTime() : Infinity;
+        const resultFreezeTime = test.result_reveal_at ? new Date(test.result_reveal_at).getTime() : windowEnd;
+        const isActive = now >= windowStart && now <= windowEnd;
+        const isConcluded = now > windowEnd || now >= resultFreezeTime;
+        const hasAttempted = attemptedIds.has(test.id);
+
+        // 1. Candidate has NOT attempted and Mock is LIVE
+        if (isActive && !hasAttempted) {
+          const notifId = `weekly_live_${test.id}`;
+          if (!dismissed.includes(notifId)) {
+            notifs.push({
+              id: notifId,
+              testId: test.id,
+              type: 'weekly_live',
+              title: '🔥 LIVE STATEWIDE MOCK:',
+              message: `${test.title} is active! Attempt now for instant evaluation, masterclass solutions & live statewide ranking.`,
+              isDeclared: false,
+              link: `/global-tests`,
+              linkText: 'Start Official Mock →'
+            });
+          }
+        }
+
+        // 2. Candidate HAS attempted and Mock is still LIVE (Encourage checking leaderboard movement & sharing)
+        if (isActive && hasAttempted) {
+          const notifId = `weekly_live_attempted_${test.id}`;
+          if (!dismissed.includes(notifId)) {
+            notifs.push({
+              id: notifId,
+              testId: test.id,
+              type: 'weekly_live_attempted',
+              title: '📊 LIVE LEADERBOARD UPDATE:',
+              message: `Aspirants across the state are attempting ${test.title}. Check your live statewide percentile & challenge friends!`,
+              isDeclared: true,
+              link: `/global-tests`,
+              linkText: 'View Live Merit List →'
+            });
+          }
+        }
+
+        // 3. Candidate HAS attempted and Mock has CONCLUDED (Final Ranks Certified)
+        if (isConcluded && hasAttempted) {
+          const notifId = `weekly_concluded_${test.id}`;
+          if (!dismissed.includes(notifId)) {
+            notifs.push({
+              id: notifId,
+              testId: test.id,
+              type: 'weekly_concluded',
+              title: '🏆 FINAL RANKS CERTIFIED:',
+              message: `Official statewide merit list for ${test.title} is now officially locked and certified. Check your permanent rank!`,
+              isDeclared: true,
+              link: `/global-tests`,
+              linkText: 'View Certified Merit List →'
+            });
+          }
+        }
+      });
+
+      setWeeklyTestNotifications(notifs);
+    } catch (err) {
+      console.warn('Could not check weekly test notifications:', err);
+    }
+  }, [economy?.id, user?.id]);
+
+  useEffect(() => {
+    checkWeeklyNotifications();
+    const interval = setInterval(checkWeeklyNotifications, 30000); // Check every 30s
+    return () => clearInterval(interval);
+  }, [checkWeeklyNotifications, location.pathname, location.key]);
+
   const dndFocusActive = economy?.dnd_focus_active || false;
   const smartDndActive = economy?.smart_dnd_active ?? true;
   const isSilenced = dndFocusActive || (smartDndActive && location.pathname.includes('/mock-test'));
@@ -951,7 +1088,8 @@ export default function Header() {
   const backlogLevel = getBacklogLevel(backlogCount);
   const hasBacklog = backlogLevel.active;
   const srsDue = revisionStats?.dueSRS || 0;
-  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || battleNotifications.length > 0 || dbNotifications.length > 0;
+  const hasWeeklyNotifs = weeklyTestNotifications && weeklyTestNotifications.length > 0;
+  const hasUpdates = hasBacklog || srsDue > 0 || pendingScratchCount > 0 || hasWeeklyNotifs || battleNotifications.length > 0 || dbNotifications.length > 0;
 
 
   useEffect(() => {
@@ -1148,6 +1286,8 @@ export default function Header() {
                     setBattleNotifications={setBattleNotifications}
                     dbNotifications={dbNotifications}
                     setDbNotifications={setDbNotifications}
+                    weeklyTestNotifications={weeklyTestNotifications}
+                    setWeeklyTestNotifications={setWeeklyTestNotifications}
                     economy={economy}
                   />
                 )}

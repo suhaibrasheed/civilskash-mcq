@@ -996,6 +996,26 @@ export default function AdminSubiStudio() {
       return structuredText || rootEl.innerText || rootEl.textContent || '';
   };
 
+  const updateLiveGlobalCount = useCallback(() => {
+    if (!editorRef.current) return;
+    const blocks = editorRef.current.querySelectorAll('.nk-mcq-block');
+    if (blocks.length > 0) {
+      setLiveGlobalCount(blocks.length);
+      return;
+    }
+    const raw = getEditorPlainText();
+    if (!raw.trim()) {
+      setLiveGlobalCount(0);
+      return;
+    }
+    const parsed = parseMcqText(raw);
+    setLiveGlobalCount(parsed.length);
+  }, []);
+
+  useEffect(() => {
+    updateLiveGlobalCount();
+  }, [activeMode, updateLiveGlobalCount]);
+
   const insertMcqHtmlAtRange = (range, html) => {
       if (!range || !editorRef.current?.contains(range.commonAncestorContainer)) {
           replaceEditorWithMcqHtml(html);
@@ -1519,6 +1539,7 @@ export default function AdminSubiStudio() {
     }
     setPyqPalette(p => ({ ...p, show: false }));
     saveEditorBackup();
+    updateLiveGlobalCount();
     } catch (err) {
       console.error("Error in handleEditorInput:", err);
     }
@@ -3590,8 +3611,15 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
     if (activeMode === 'global_exam') {
       const target = Number(globalExamConfig.targetQuestions) || 120;
       if (extracted.length !== target) {
-        alert(`⚠️ Question Count Guard:\nYou configured this test for exactly ${target} questions, but currently have ${extracted.length} questions in the editor.\n\nPlease ensure you have exactly ${target} questions before publishing.`);
-        return;
+        const proceed = window.confirm(
+          `📝 Mock Test Question Count Notice:\n\nTarget Configured: ${target} Questions\nCurrent MCQs in Editor: ${extracted.length} Questions (${extracted.length} Marks)\n\nDo you want to proceed and publish this mock with ${extracted.length} questions?`
+        );
+        if (!proceed) return;
+        setGlobalExamConfig(prev => ({
+          ...prev,
+          targetQuestions: extracted.length,
+          totalMarks: extracted.length
+        }));
       }
     }
     setParsedMCQs(extracted);
@@ -3665,12 +3693,14 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
       }
 
       if (activeMode === 'global_exam') {
+        const totalQuestions = payload.length;
+        const totalMarks = totalQuestions * 1.0;
         const testPayload = {
           id: `${globalExamConfig.examId}-weekly-${Date.now().toString(36)}`,
           exam_id: globalExamConfig.examId,
           title: globalExamConfig.title || 'Weekly Mega Mock',
-          total_questions: Number(globalExamConfig.targetQuestions) || payload.length,
-          total_marks: Number(globalExamConfig.totalMarks) || payload.length,
+          total_questions: totalQuestions,
+          total_marks: totalMarks,
           duration_mins: Number(globalExamConfig.durationMins) || 120,
           negative_marking: Number(globalExamConfig.negativeMarking) || 0.25,
           window_start: new Date(globalExamConfig.windowStart).toISOString(),
@@ -3686,6 +3716,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
           editorRef.current.innerHTML = '<p><br></p>';
         }
         setParsedMCQs([]);
+        setLiveGlobalCount(0);
         setShowPreviewModal(false);
         return;
       }
@@ -4698,34 +4729,50 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
         {/* Global Exam Blueprint Bar - Compact & Clean */}
         {activeMode === 'global_exam' && (
           <div className="mb-4 px-4 py-3 bg-theme-surface border border-amber-500/25 rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-sm animate-in fade-in">
-            <div className="flex-1 min-w-[240px] flex items-center gap-3">
+            <div className="flex-1 min-w-[220px] flex items-center gap-3">
               <div className="flex-1">
                 <input 
                   type="text"
                   value={globalExamConfig.title}
                   onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
-                  placeholder="Test Title..."
+                  className="w-full bg-theme-bg border border-theme-border rounded-xl px-3.5 py-2 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  placeholder="Test Title (e.g. JKSSB FAA All-J&K Weekly Mock #01)..."
                 />
               </div>
-              <div className="w-28 shrink-0 flex items-center gap-1.5 bg-theme-bg border border-theme-border rounded-xl px-3 py-2">
-                <span className="text-[10px] font-black text-amber-500 uppercase">Qs</span>
+
+              {/* Target Questions Input */}
+              <div className="w-32 shrink-0 flex items-center gap-1.5 bg-theme-bg border border-theme-border rounded-xl px-3 py-2" title="Target number of questions for this mock">
+                <span className="text-[10px] font-black text-amber-500 uppercase">Target</span>
                 <input 
                   type="number"
                   value={globalExamConfig.targetQuestions}
-                  onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, targetQuestions: Math.max(1, parseInt(e.target.value) || 1) }))}
+                  onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, targetQuestions: Math.max(1, parseInt(e.target.value) || 1), totalMarks: Math.max(1, parseInt(e.target.value) || 1) }))}
                   className="w-full bg-transparent text-xs font-black text-center text-theme-text focus:outline-none"
+                  placeholder="120"
                 />
+                <span className="text-[10px] font-bold text-theme-muted">Qs</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl">
-                {globalExamConfig.targetQuestions} Qs
+            <div className="flex items-center gap-2.5 shrink-0">
+              {/* Dynamic Live Progress Badge */}
+              <span 
+                className={`text-xs font-black px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-sm border transition-all ${
+                  liveGlobalCount >= (globalExamConfig.targetQuestions || 120)
+                    ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                    : 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                }`}
+                title="Live MCQs parsed from editor vs target"
+              >
+                <Sparkles size={13} className={liveGlobalCount >= (globalExamConfig.targetQuestions || 120) ? 'text-emerald-400' : 'text-amber-400'} />
+                <span>{liveGlobalCount} / {globalExamConfig.targetQuestions || 120} Qs</span>
+                <span className="opacity-50">•</span>
+                <span>{liveGlobalCount * 1} Marks</span>
               </span>
+
               <button 
                 onClick={() => setShowGlobalScheduleModal(true)}
-                className="px-3 py-1.5 bg-theme-bg hover:bg-amber-500/10 text-amber-500 border border-amber-500/30 hover:border-amber-500/60 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
+                className="px-3.5 py-2 bg-theme-bg hover:bg-amber-500/10 text-amber-500 border border-amber-500/30 hover:border-amber-500/60 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer"
                 title="Set test window dates"
               >
                 <Calendar size={13} />
@@ -5540,13 +5587,54 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                     <span className="font-black text-emerald-500 text-sm">{parsedMCQs.length} Qs</span>
                   </div>
                   <div className="flex justify-between items-center p-3.5 bg-theme-surface border border-theme-border rounded-xl">
-                    <span className="text-theme-muted font-medium text-xs">Result Reveal</span>
+                    <span className="text-theme-muted font-medium text-xs">Rank Lock Date</span>
                     <span className="font-bold text-purple-400 text-xs">{new Date(globalExamConfig.resultRevealAt).toLocaleDateString()}</span>
                   </div>
                 </div>
 
-                <div className="p-6 border-t border-theme-border flex gap-3 bg-theme-surface">
-                  <button onClick={() => setShowPreviewModal(false)} className="flex-1 py-3 px-4 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border text-xs uppercase" disabled={isUploading}>Cancel</button>
+                <div className="p-6 border-t border-theme-border flex flex-col sm:flex-row gap-3 bg-theme-surface">
+                  <button 
+                    onClick={() => {
+                      const payload = parsedMCQs.map(mcq => ({
+                        category_id: selectedCategory,
+                        question: String(mcq.question || '').trim(),
+                        options: (mcq.options || []).map((o, idx) => ({ id: o.id || ['a','b','c','d'][idx], label: (o.label || ['A','B','C','D'][idx] || '').toUpperCase(), text: String(o.text || '').trim() })),
+                        correct_id: mcq.correctId || 'a',
+                        explanation: String(mcq.explanation || '').trim(),
+                        tags: mcq.tags || [],
+                        difficulty: mcq.difficulty || null,
+                        source: adminFullName || 'admin',
+                        status: 'published',
+                        pyq: mcq.pyq || null
+                      }));
+                      const bundle = {
+                        id: `${globalExamConfig.examId}-weekly-${Date.now().toString(36)}`,
+                        exam_id: globalExamConfig.examId,
+                        title: globalExamConfig.title || 'Weekly Mega Mock',
+                        total_questions: payload.length,
+                        total_marks: payload.length * 1.0,
+                        duration_mins: Number(globalExamConfig.durationMins) || 120,
+                        negative_marking: Number(globalExamConfig.negativeMarking) || 0.25,
+                        window_start: new Date(globalExamConfig.windowStart).toISOString(),
+                        window_end: new Date(globalExamConfig.windowEnd).toISOString(),
+                        result_reveal_at: new Date(globalExamConfig.resultRevealAt).toISOString(),
+                        status: 'published',
+                        questions_data: payload,
+                        created_at: new Date().toISOString()
+                      };
+                      const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = `${bundle.id}.json`;
+                      a.click();
+                      URL.revokeObjectURL(url);
+                    }}
+                    className="flex-1 py-3 px-4 rounded-xl font-bold text-amber-500 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 flex items-center justify-center gap-2 text-xs uppercase tracking-wider"
+                  >
+                    <Download size={14} /> Download Bundle (.json)
+                  </button>
+                  <button onClick={() => setShowPreviewModal(false)} className="py-3 px-4 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border text-xs uppercase" disabled={isUploading}>Cancel</button>
                   <button onClick={handlePushToSupabase} disabled={isUploading} className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-md">
                     {isUploading ? 'Publishing...' : 'Confirm & Publish'}
                   </button>
@@ -5764,9 +5852,19 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Duration (Minutes)</label>
+                  <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Target Qs</label>
+                  <input 
+                    type="number" 
+                    value={globalExamConfig.targetQuestions} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, targetQuestions: Math.max(1, parseInt(e.target.value) || 1), totalMarks: Math.max(1, parseInt(e.target.value) || 1) }))}
+                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                    placeholder="120"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Duration (Mins)</label>
                   <input 
                     type="number" 
                     value={globalExamConfig.durationMins} 
@@ -5812,7 +5910,8 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                 </div>
 
                 <div className="pt-2 border-t border-theme-border">
-                  <label className="text-[11px] font-black text-amber-400 block mb-1">🎉 Result Reveal Date (Leaderboard & Solutions Unlock):</label>
+                  <label className="text-[11px] font-black text-amber-400 block mb-0.5">🏆 Official Rank Lock & Certification Date (Merit List Freezes):</label>
+                  <p className="text-[10px] text-theme-muted mb-1.5 leading-tight">Instant solutions unlock immediately for candidates upon submission; this date permanently locks and certifies the final statewide ranks.</p>
                   <input 
                     type="datetime-local" 
                     value={globalExamConfig.resultRevealAt} 

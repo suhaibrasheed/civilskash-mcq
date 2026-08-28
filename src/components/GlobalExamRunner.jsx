@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { ArrowLeft, Clock, ShieldCheck, CheckCircle2, AlertCircle, HelpCircle, Check, Bookmark, Flag, ChevronLeft, ChevronRight, Maximize2, Minimize2, Eye, Coffee, Sparkles, Trophy } from 'lucide-react';
+import { ArrowLeft, Clock, ShieldCheck, CheckCircle2, AlertCircle, Info, Maximize2, Minimize2, Coffee, Sparkles, Trophy } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useEconomy } from '../context/EconomyContext';
 import { useToast } from '../context/ToastContext';
 import { fetchWeeklyTestById, submitWeeklyScoreTelemetry, checkUserWeeklySubmission, formatExamName } from '../lib/globalTestsApi';
 import { saveWeeklyTestAttemptLocally, getWeeklyTestAttemptLocally } from '../lib/db';
-import { renderMathInHtmlString } from '../lib/ai';
+import McqCard from './McqCard';
+import UniversalModal from './UniversalModal';
 
 export default function GlobalExamRunner() {
   const { testId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const { economy } = useEconomy();
   const { showToast } = useToast();
 
   const [loading, setLoading] = useState(true);
@@ -21,19 +24,19 @@ export default function GlobalExamRunner() {
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [markedForReview, setMarkedForReview] = useState({});
-  const [visited, setVisited] = useState({ 0: true });
+  const [palette, setPalette] = useState([]);
   const [timeLeft, setTimeLeft] = useState(7200); // 120 mins
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showSubmitModal, setShowSubmitModal] = useState(false);
-  const [showPaletteMobile, setShowPaletteMobile] = useState(false);
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+  const [timeSpent, setTimeSpent] = useState({});
 
   const initialDurationRef = useRef(7200);
   const currentIdxRef = useRef(0);
 
-  // Toggle fullscreen
+  // Toggle Fullscreen
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {});
@@ -48,6 +51,15 @@ export default function GlobalExamRunner() {
     return () => document.removeEventListener('fullscreenchange', handleFs);
   }, []);
 
+  // Initialize Palette for questions
+  const initializePalette = (qs) => {
+    return qs.map((q, i) => ({
+      id: i + 1,
+      qId: q.id,
+      status: i === 0 ? 'not_answered' : 'unseen'
+    }));
+  };
+
   // Load Test & check 1-attempt guard
   useEffect(() => {
     let isMounted = true;
@@ -59,7 +71,7 @@ export default function GlobalExamRunner() {
 
       try {
         setLoading(true);
-        // 1. Check local vault
+        // 1. Check local vault (instant 0ms)
         const localAttempt = await getWeeklyTestAttemptLocally(testId);
         if (localAttempt) {
           showToast("You have already completed your 1 attempt for this test.", "info");
@@ -67,34 +79,21 @@ export default function GlobalExamRunner() {
           return;
         }
 
-        // 2. Check remote submission
-        const remoteSub = await checkUserWeeklySubmission(testId, user.id);
-        if (remoteSub) {
-          showToast("You have already submitted this global test.", "info");
-          navigate('/global-tests', { replace: true });
-          return;
-        }
-
-        // 3. Fetch test data (Always load full test with questions_data)
+        // 2. Fetch static test questions from local bundle
         const meta = location.state?.test;
-        const isUpcoming = meta?.window_start && new Date(meta.window_start).getTime() > Date.now();
-        
-        // If test is upcoming (future start date), show the Coffee Break upcoming view
-        if (isUpcoming) {
-          if (isMounted) {
-            setPrepTestMeta(meta || { id: testId, title: 'Weekly Global Mock' });
-            setIsUnderPreparation(true);
-          }
-          return;
-        }
-
         let testData = meta;
         if (!testData || !testData.questions_data || testData.questions_data.length === 0) {
           testData = await fetchWeeklyTestById(testId);
         }
 
-        // If questions are still empty / under preparation, show graceful Coffee Break view
-        if (!testData || !testData.questions_data || testData.questions_data.length === 0) {
+        let rawQuestions = testData?.questions_data || testData?.questions || [];
+        if (typeof rawQuestions === 'string') {
+          try {
+            rawQuestions = JSON.parse(rawQuestions);
+          } catch (e) {}
+        }
+
+        if (!testData || !Array.isArray(rawQuestions) || rawQuestions.length === 0) {
           if (isMounted) {
             setPrepTestMeta(testData || meta || { id: testId, title: 'Weekly Global Mock' });
             setIsUnderPreparation(true);
@@ -103,8 +102,22 @@ export default function GlobalExamRunner() {
         }
 
         if (isMounted) {
-          setTest(testData);
-          setQuestions(testData.questions_data);
+          // Normalize every question with a guaranteed unique ID and correctId
+          const normalizedQuestions = rawQuestions.map((q, idx) => ({
+            ...q,
+            id: q.id || `${testData.id}_q_${idx + 1}`,
+            correctId: q.correctId || q.correct_id || 'a'
+          }));
+
+          setTest({ ...testData, questions_data: normalizedQuestions });
+          setQuestions(normalizedQuestions);
+          const initialPal = normalizedQuestions.map((q, i) => ({
+            id: i + 1,
+            qId: q.id,
+            status: i === 0 ? 'not_answered' : 'unseen'
+          }));
+          setPalette(initialPal);
+
           const duration = (testData.duration_mins || 120) * 60;
           setTimeLeft(duration);
           initialDurationRef.current = duration;
@@ -114,8 +127,17 @@ export default function GlobalExamRunner() {
           if (savedProgress) {
             try {
               const parsed = JSON.parse(savedProgress);
-              if (parsed.answers) setAnswers(parsed.answers);
-              if (parsed.marked) setMarkedForReview(parsed.marked);
+              if (parsed.answers) {
+                setAnswers(parsed.answers);
+                // Update palette status from saved answers
+                setPalette(prev => prev.map((p, idx) => {
+                  const q = normalizedQuestions[idx];
+                  if (q && parsed.answers[q.id]) {
+                    return { ...p, status: 'answered' };
+                  }
+                  return p;
+                }));
+              }
               if (parsed.timeLeft) setTimeLeft(parsed.timeLeft);
             } catch (e) {}
           }
@@ -135,7 +157,7 @@ export default function GlobalExamRunner() {
     return () => { isMounted = false; };
   }, [testId, user]);
 
-  // Timer Tick
+  // Timer Tick & Autosave
   useEffect(() => {
     if (loading || isSubmitted || !test) return;
 
@@ -146,57 +168,95 @@ export default function GlobalExamRunner() {
           handleFinalSubmit(true);
           return 0;
         }
-        // Save progress every 10 seconds
         if (prev % 10 === 0) {
           try {
             localStorage.setItem(`mcqkash_active_global_${testId}`, JSON.stringify({
               answers,
-              marked: markedForReview,
               timeLeft: prev - 1
             }));
           } catch (e) {}
         }
         return prev - 1;
       });
+
+      // Track time spent per question
+      if (questions.length > 0) {
+        const qId = questions[currentIdxRef.current]?.id;
+        if (qId) {
+          setTimeSpent(prev => ({ ...prev, [qId]: (prev[qId] || 0) + 1 }));
+        }
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [loading, isSubmitted, test, answers, markedForReview, testId]);
+  }, [loading, isSubmitted, test, answers, testId, questions]);
 
-  // Answer selection
-  const handleSelectOption = (qId, optionId) => {
+  const updatePaletteStatus = (status, targetIdx = currentIdx) => {
+    setPalette(prev => prev.map((p, i) => 
+      i === targetIdx ? { ...p, status } : p
+    ));
+  };
+
+  const handleSelectOption = (optionId) => {
+    const qId = questions[currentIdx]?.id;
+    if (!qId) return;
+
     setAnswers(prev => {
-      const updated = { ...prev };
-      if (updated[qId] === optionId) {
-        delete updated[qId]; // toggle off
-      } else {
-        updated[qId] = optionId;
-      }
-      return updated;
+      const nextAnswers = { ...prev, [qId]: optionId };
+      return nextAnswers;
     });
+    updatePaletteStatus('answered');
   };
 
-  const toggleMarkForReview = (qId) => {
-    setMarkedForReview(prev => ({
-      ...prev,
-      [qId]: !prev[qId]
-    }));
+  const handleClear = () => {
+    const qId = questions[currentIdx]?.id;
+    if (!qId) return;
+
+    setAnswers(prev => {
+      const next = { ...prev };
+      delete next[qId];
+      return next;
+    });
+    updatePaletteStatus('not_answered');
   };
 
-  const handleNext = () => {
+  const handleNext = (statusAction = null) => {
+    const qId = questions[currentIdx]?.id;
+    const isAnswered = qId && answers[qId] !== undefined;
+
+    if (statusAction === 'marked') {
+      updatePaletteStatus('marked');
+    } else if (!isAnswered) {
+      updatePaletteStatus('not_answered');
+    } else {
+      updatePaletteStatus('answered');
+    }
+
     if (currentIdx < questions.length - 1) {
-      const next = currentIdx + 1;
-      setCurrentIdx(next);
-      currentIdxRef.current = next;
-      setVisited(prev => ({ ...prev, [next]: true }));
+      const nextIdx = currentIdx + 1;
+      setCurrentIdx(nextIdx);
+      currentIdxRef.current = nextIdx;
+
+      setPalette(prev => prev.map((p, i) => 
+        i === nextIdx && p.status === 'unseen' ? { ...p, status: 'not_answered' } : p
+      ));
     }
   };
 
   const handlePrev = () => {
     if (currentIdx > 0) {
-      const prev = currentIdx - 1;
-      setCurrentIdx(prev);
-      currentIdxRef.current = prev;
+      const prevIdx = currentIdx - 1;
+      setCurrentIdx(prevIdx);
+      currentIdxRef.current = prevIdx;
+    }
+  };
+
+  const getStatusColor = (status) => {
+    switch(status) {
+      case 'answered': return 'bg-emerald-500 text-white border-emerald-600';
+      case 'marked': return 'bg-purple-500 text-white border-purple-600';
+      case 'not_answered': return 'bg-rose-500 text-white border-rose-600';
+      default: return 'bg-theme-surface border-theme-border text-theme-text';
     }
   };
 
@@ -213,9 +273,10 @@ export default function GlobalExamRunner() {
 
       questions.forEach(q => {
         const userChoice = answers[q.id];
+        const correctChoice = q.correctId || q.correct_id;
         if (!userChoice) {
           unansweredCount++;
-        } else if (userChoice === q.correct_id) {
+        } else if (String(userChoice).toLowerCase() === String(correctChoice).toLowerCase()) {
           correctCount++;
         } else {
           wrongCount++;
@@ -223,11 +284,11 @@ export default function GlobalExamRunner() {
       });
 
       const totalAttempted = correctCount + wrongCount;
-      const rawScore = (correctCount * 1.0) - (wrongCount * negMark);
+      const rawScore = (correctCount * (test.marks_per_question || 1.0)) - (wrongCount * negMark);
       const netScore = Math.max(0, parseFloat(rawScore.toFixed(2)));
       const accuracy = totalAttempted > 0 ? parseFloat(((correctCount / totalAttempted) * 100).toFixed(1)) : 0;
-      const timeSpent = initialDurationRef.current - timeLeft;
-      const candidateName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'Aspirant';
+      const totalTimeSpent = initialDurationRef.current - timeLeft;
+      const candidateName = economy?.full_name || user.user_metadata?.full_name || user.email?.split('@')[0] || 'Aspirant';
 
       // 1. Store candidate's attempted test completely into local IndexedDB sealed vault
       const attemptVaultRecord = {
@@ -241,7 +302,7 @@ export default function GlobalExamRunner() {
         correctCount,
         wrongCount,
         unansweredCount,
-        timeSpentSeconds: timeSpent,
+        timeSpentSeconds: totalTimeSpent,
         submittedAt: new Date().toISOString(),
         resultRevealAt: test.result_reveal_at,
         questionsPayload: questions,
@@ -250,7 +311,7 @@ export default function GlobalExamRunner() {
 
       await saveWeeklyTestAttemptLocally(attemptVaultRecord);
 
-      // 2. Submit minimal score row to Supabase for global leaderboard ranking
+      // 2. Submit score row to Supabase for global leaderboard ranking
       try {
         await submitWeeklyScoreTelemetry({
           testId: test.id,
@@ -258,7 +319,7 @@ export default function GlobalExamRunner() {
           userName: candidateName,
           score: netScore,
           accuracy,
-          timeSeconds: timeSpent,
+          timeSeconds: totalTimeSpent,
           targetExam: test.exam_id
         });
       } catch (cloudErr) {
@@ -285,7 +346,7 @@ export default function GlobalExamRunner() {
       <div className="min-h-screen bg-theme-bg flex flex-col items-center justify-center p-6 text-center">
         <div className="w-12 h-12 rounded-2xl border-4 border-amber-500/20 border-t-amber-500 animate-spin mb-4" />
         <h3 className="font-black text-lg text-theme-text uppercase tracking-tight">Initializing Secure Test Environment...</h3>
-        <p className="text-xs text-theme-muted mt-1">Please wait while questions are configured.</p>
+        <p className="text-xs text-theme-muted mt-1">Please wait while questions are decrypted from local vault.</p>
       </div>
     );
   }
@@ -298,11 +359,9 @@ export default function GlobalExamRunner() {
 
     return (
       <div className="min-h-screen bg-theme-bg flex flex-col items-center justify-center p-6 text-center select-none relative overflow-hidden">
-        {/* Ambient background glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-md w-full bg-theme-surface/90 border border-theme-border/80 rounded-3xl p-8 shadow-2xl backdrop-blur-xl flex flex-col items-center">
-          {/* Glowing Coffee Icon */}
           <div className="relative mb-5">
             <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 shadow-lg shadow-amber-500/10 p-5">
               <Coffee size={36} className="animate-bounce" style={{ animationDuration: '2.5s' }} />
@@ -313,12 +372,10 @@ export default function GlobalExamRunner() {
             </span>
           </div>
 
-          {/* Pill */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/25 font-black text-[10px] uppercase tracking-wider mb-3">
             <Sparkles size={12} /> {isUpcomingTest ? 'Scheduled Mock • Coming Soon' : 'Curators at Work'}
           </div>
 
-          {/* Heading */}
           <h2 className="text-2xl font-black text-theme-text tracking-tight mb-1.5">
             Take a Coffee Break! ☕
           </h2>
@@ -342,7 +399,6 @@ export default function GlobalExamRunner() {
             )}
           </p>
 
-          {/* Quick Details Capsule */}
           {prepTestMeta && (
             <div className="w-full grid grid-cols-2 gap-2 mb-6 text-center">
               <div className="p-2.5 rounded-2xl bg-theme-bg/60 border border-theme-border text-xs">
@@ -362,7 +418,6 @@ export default function GlobalExamRunner() {
             </div>
           )}
 
-          {/* Action Buttons */}
           <div className="w-full flex flex-col sm:flex-row gap-2.5">
             <button
               onClick={() => navigate('/global-tests')}
@@ -382,263 +437,298 @@ export default function GlobalExamRunner() {
     );
   }
 
-  const currentQ = questions[currentIdx] || null;
-  const formatTime = (secs) => {
-    const m = Math.floor(secs / 60);
-    const s = secs % 60;
+  const currentQuestion = questions[currentIdx];
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   const answeredCount = Object.keys(answers).length;
-  const markedCount = Object.keys(markedForReview).filter(k => markedForReview[k]).length;
+  const markedCount = palette.filter(p => p.status === 'marked').length;
+  const unansweredCount = questions.length - answeredCount;
 
   return (
-    <div className="min-h-screen bg-theme-bg text-theme-text flex flex-col select-none">
-      {/* Top Exam Header */}
-      <header className="sticky top-0 z-40 bg-theme-surface/90 backdrop-blur-md border-b border-theme-border px-4 py-3 flex items-center justify-between shadow-md">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20 flex items-center justify-center font-black">
-            <ShieldCheck size={20} />
-          </div>
-          <div>
-            <h2 className="font-black text-xs md:text-sm text-theme-text uppercase tracking-tight line-clamp-1">
-              {test?.title || 'Weekly Global Test'}
-            </h2>
-            <span className="text-[10px] font-bold text-amber-500 uppercase tracking-widest block">
-              Official Live Paper • 1 Attempt Only
-            </span>
+    <div className="min-h-screen bg-theme-bg flex flex-col h-screen overflow-hidden select-none">
+      {/* Exam Header */}
+      <header className="h-14 bg-theme-surface border-b border-theme-border flex items-center justify-between px-3 sm:px-6 shrink-0 shadow-sm">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button 
+            onClick={() => setShowSubmitModal(true)} 
+            className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors"
+            title="Leave / Submit Test"
+          >
+            <ArrowLeft size={18} />
+          </button>
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center font-black">
+              <ShieldCheck size={16} />
+            </div>
+            <div className="hidden sm:block">
+              <h2 className="font-black text-xs md:text-sm text-theme-text uppercase tracking-tight line-clamp-1 max-w-xs md:max-w-md">
+                {test?.title || 'Weekly Global Test'}
+              </h2>
+            </div>
           </div>
         </div>
-
-        <div className="flex items-center gap-3">
-          {/* Timer Clock */}
-          <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-black text-xs border shadow-inner ${timeLeft < 300 ? 'bg-rose-500/10 text-rose-500 border-rose-500/30 animate-pulse' : 'bg-theme-bg text-theme-text border-theme-border'}`}>
-            <Clock size={14} className={timeLeft < 300 ? 'text-rose-500' : 'text-amber-500'} />
-            <span>{formatTime(timeLeft)}</span>
-          </div>
-
-          <button
-            onClick={toggleFullscreen}
-            className="w-9 h-9 hidden md:flex items-center justify-center text-theme-muted hover:text-theme-text border border-theme-border rounded-xl hover:bg-theme-surface transition-all shadow-sm"
-            title="Toggle Fullscreen"
+        
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button 
+            onClick={() => setIsInfoModalOpen(true)}
+            title="Exam Guidelines"
+            className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-muted hover:text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
+          >
+            <Info size={16} />
+          </button>
+          <button 
+            onClick={toggleFullscreen} 
+            title={isFullscreen ? "Exit Full Screen" : "Full Screen Mode"}
+            className="p-1.5 sm:p-2 hover:bg-theme-surface-hover rounded-full text-theme-text transition-colors flex items-center justify-center border border-transparent hover:border-theme-border/50"
           >
             {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
           </button>
-
-          <button
-            onClick={() => setShowSubmitModal(true)}
-            className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-95"
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-theme-surface-hover px-3 sm:px-4 py-1.5 rounded-full border border-theme-border shadow-inner">
+            <Clock size={15} className={timeLeft < 300 ? 'text-rose-500 animate-pulse' : 'text-amber-500'} />
+            <span className={`font-mono font-bold text-sm sm:text-base ${timeLeft < 300 ? 'text-rose-500' : 'text-theme-text'}`}>
+              {formatTime(timeLeft)}
+            </span>
+          </div>
+          <button 
+            onClick={() => setShowSubmitModal(true)} 
+            className="bg-emerald-500 hover:bg-emerald-600 text-white px-3.5 sm:px-5 py-1.5 rounded-lg font-black text-xs uppercase tracking-wider transition-all shadow-md active:scale-95 flex-shrink-0"
           >
             Submit Test
           </button>
         </div>
       </header>
 
-      {/* Main Runner Body */}
-      <main className="flex-1 flex flex-col md:flex-row max-w-7xl mx-auto w-full p-4 md:p-6 gap-6">
-        {/* Left Column: Question Area */}
-        <section className="flex-1 flex flex-col bg-theme-surface border border-theme-border rounded-3xl p-6 md:p-8 shadow-xl min-h-[500px]">
-          {currentQ ? (
-            <div className="flex-1 flex flex-col">
-              {/* Question Index & Action Strip */}
-              <div className="flex items-center justify-between border-b border-theme-border pb-4 mb-6">
+      {/* Main Content Split */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Left: Question Area */}
+        <div className="flex-1 overflow-y-auto px-3 py-4 sm:p-6 md:p-8 custom-scrollbar">
+          {currentQuestion && (
+            <div className="max-w-3xl mx-auto">
+              <div className="mb-4 text-theme-muted font-bold flex justify-between items-center text-xs">
+                <span>Question {currentIdx + 1} of {questions.length}</span>
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-theme-bg border border-theme-border rounded-xl text-xs font-black uppercase text-theme-text">
-                    Question {currentIdx + 1} of {questions.length}
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-lg">
-                    +1.0 / -{test?.negative_marking || 0.25}
+                  <span className="bg-amber-500/10 text-amber-500 border border-amber-500/20 px-2.5 py-0.5 rounded-full text-xs font-bold">
+                    +{test?.marks_per_question || 1.0} / -{test?.negative_marking ?? 0.25} Negative
                   </span>
                 </div>
+              </div>
 
-                <button
-                  onClick={() => toggleMarkForReview(currentQ.id)}
-                  className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border transition-all active:scale-95 ${markedForReview[currentQ.id] ? 'bg-purple-500/10 text-purple-400 border-purple-500/30' : 'text-theme-muted border-theme-border hover:bg-theme-bg'}`}
+              {/* Standardized McqCard in Exam Mode */}
+              <McqCard 
+                key={currentQuestion.id} 
+                questionData={currentQuestion} 
+                mode="exam" 
+                externalSelection={answers[currentQuestion.id] || null}
+                onSelect={handleSelectOption}
+              />
+
+              {/* Action Buttons */}
+              <div className="w-full mt-6 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+                <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
+                  <button 
+                    onClick={handlePrev}
+                    disabled={currentIdx === 0}
+                    className={`px-4 sm:px-5 py-2.5 bg-theme-surface border border-theme-border rounded-xl text-theme-text hover:bg-theme-surface-hover transition-all font-bold text-xs shadow-sm active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed`}
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={() => handleNext('marked')} 
+                    className="flex-1 sm:flex-none px-4 sm:px-5 py-2.5 bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500/20 rounded-xl transition-all font-bold text-xs shadow-sm active:scale-95"
+                  >
+                    Mark for Review
+                  </button>
+                  <button 
+                    onClick={handleClear} 
+                    className="flex-1 sm:flex-none px-4 sm:px-5 py-2.5 bg-theme-surface border border-theme-border text-theme-muted hover:text-rose-400 hover:border-rose-500/40 rounded-xl transition-all font-bold text-xs shadow-sm active:scale-95"
+                  >
+                    Clear
+                  </button>
+                </div>
+                
+                <button 
+                  onClick={() => handleNext()} 
+                  className="w-full sm:w-auto px-6 sm:px-8 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
                 >
-                  <Flag size={13} className={markedForReview[currentQ.id] ? 'text-purple-400 fill-purple-400' : ''} />
-                  <span>{markedForReview[currentQ.id] ? 'Marked for Review' : 'Mark for Review'}</span>
+                  {currentIdx === questions.length - 1 ? 'Save & Review' : 'Save & Next'}
                 </button>
               </div>
 
-              {/* Question Text */}
-              <div className="text-base md:text-lg font-bold text-theme-text leading-relaxed mb-6 font-sans">
-                <div 
-                  dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(currentQ.question) }} 
-                  className="space-y-3"
-                />
-              </div>
+              {/* Mobile Question Palette */}
+              <div className="w-full mt-8 border-t border-theme-border/60 pt-6 lg:hidden">
+                <h3 className="font-bold text-theme-text text-xs uppercase tracking-wider mb-3">Question Palette</h3>
+                
+                <div className="grid grid-cols-2 gap-2 text-[10px] text-theme-muted font-medium mb-3">
+                  <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Answered ({answeredCount})</div>
+                  <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> Marked ({markedCount})</div>
+                  <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Unanswered ({unansweredCount})</div>
+                  <div className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-theme-surface border border-theme-border inline-block"></span> Unseen</div>
+                </div>
 
-              {/* Options */}
-              <div className="space-y-3 flex-1 mb-8">
-                {(currentQ.options || []).map((opt, oIdx) => {
-                  const optId = opt.id || String.fromCharCode(97 + oIdx);
-                  const isSelected = answers[currentQ.id] === optId;
-
-                  return (
-                    <button
-                      key={optId}
-                      onClick={() => handleSelectOption(currentQ.id, optId)}
-                      className={`w-full text-left p-4 rounded-2xl border transition-all flex items-start gap-3.5 active:scale-[0.99] ${
-                        isSelected
-                          ? 'border-theme-primary bg-theme-primary/10 shadow-md ring-1 ring-theme-primary'
-                          : 'border-theme-border bg-theme-bg/50 hover:bg-theme-bg text-theme-text'
-                      }`}
+                <div className="grid grid-cols-6 sm:grid-cols-8 gap-2">
+                  {palette.map((q, idx) => (
+                    <button 
+                      key={q.id} 
+                      onClick={() => {
+                        setCurrentIdx(idx);
+                        currentIdxRef.current = idx;
+                      }}
+                      className={`aspect-square rounded-xl flex items-center justify-center text-xs font-black border shadow-sm ${getStatusColor(q.status)} hover:scale-105 transition-transform ${currentIdx === idx ? 'ring-2 ring-amber-500 ring-offset-2 ring-offset-theme-bg' : ''}`}
                     >
-                      <div className={`w-7 h-7 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-colors ${
-                        isSelected ? 'bg-theme-primary text-white' : 'bg-theme-surface border border-theme-border text-theme-muted'
-                      }`}>
-                        {opt.label || optId.toUpperCase()}
-                      </div>
-                      <div 
-                        className={`text-sm font-semibold pt-0.5 leading-relaxed ${isSelected ? 'text-theme-primary font-bold' : 'text-theme-text'}`}
-                        dangerouslySetInnerHTML={{ __html: renderMathInHtmlString(opt.text || '') }}
-                      />
+                      {q.id}
                     </button>
-                  );
-                })}
-              </div>
-
-              {/* Navigation Bottom Footer */}
-              <div className="pt-4 border-t border-theme-border flex items-center justify-between gap-4">
-                <button
-                  onClick={handlePrev}
-                  disabled={currentIdx === 0}
-                  className="px-5 py-2.5 rounded-xl border border-theme-border text-theme-text font-bold text-xs flex items-center gap-1.5 hover:bg-theme-bg disabled:opacity-30 disabled:pointer-events-none transition-all"
-                >
-                  <ChevronLeft size={16} /> Previous
-                </button>
-
-                <button
-                  onClick={() => setShowPaletteMobile(true)}
-                  className="md:hidden px-3.5 py-2 rounded-xl bg-theme-bg border border-theme-border text-theme-muted text-xs font-bold"
-                >
-                  Palette ({answeredCount}/{questions.length})
-                </button>
-
-                <button
-                  onClick={handleNext}
-                  disabled={currentIdx === questions.length - 1}
-                  className="px-6 py-2.5 rounded-xl bg-theme-primary hover:opacity-90 text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-md active:scale-95"
-                >
-                  Next <ChevronRight size={16} />
-                </button>
+                  ))}
+                </div>
               </div>
             </div>
-          ) : null}
-        </section>
+          )}
+        </div>
 
-        {/* Right Column: Palette & Telemetry */}
-        <aside className={`fixed inset-0 z-50 md:relative md:inset-auto md:z-auto bg-theme-surface md:bg-theme-surface/70 border border-theme-border rounded-3xl p-6 shadow-xl md:w-80 flex-col gap-4 ${showPaletteMobile ? 'flex' : 'hidden md:flex'}`}>
-          <div className="flex items-center justify-between border-b border-theme-border pb-3">
+        {/* Right: Desktop Question Palette */}
+        <div className="w-80 bg-theme-surface border-l border-theme-border hidden lg:flex flex-col shrink-0">
+          <div className="p-4 border-b border-theme-border shrink-0 flex items-center justify-between">
             <h3 className="font-black text-xs uppercase tracking-wider text-theme-text">Question Palette</h3>
-            <button onClick={() => setShowPaletteMobile(false)} className="md:hidden p-1 text-theme-muted">
-              ✕
+            <span className="text-[11px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
+              {questions.length} MCQs
+            </span>
+          </div>
+          
+          <div className="p-4 border-b border-theme-border shrink-0 grid grid-cols-2 gap-2.5 text-xs text-theme-text font-medium">
+            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Answered ({answeredCount})</div>
+            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-purple-500 inline-block"></span> Marked ({markedCount})</div>
+            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-rose-500 inline-block"></span> Unanswered</div>
+            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-theme-bg border border-theme-border inline-block"></span> Unseen</div>
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+            <div className="grid grid-cols-4 gap-2.5">
+              {palette.map((q, idx) => (
+                <button 
+                  key={q.id} 
+                  onClick={() => {
+                    setCurrentIdx(idx);
+                    currentIdxRef.current = idx;
+                  }}
+                  className={`aspect-square rounded-xl flex items-center justify-center text-xs font-black border shadow-sm ${getStatusColor(q.status)} hover:scale-105 transition-transform ${currentIdx === idx ? 'ring-2 ring-amber-500 ring-offset-2 ring-offset-theme-bg' : ''}`}
+                >
+                  {q.id}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-4 border-t border-theme-border bg-theme-bg/40">
+            <button 
+              onClick={() => setShowSubmitModal(true)} 
+              className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/15 active:scale-95"
+            >
+              Submit Test
             </button>
           </div>
+        </div>
+      </div>
 
-          {/* Legend */}
-          <div className="grid grid-cols-2 gap-2 text-[11px] font-bold text-theme-muted border-b border-theme-border pb-3">
-            <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-theme-primary text-white" /> Answered ({answeredCount})</div>
-            <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-purple-500" /> Marked ({markedCount})</div>
-            <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-theme-bg border border-theme-border" /> Unanswered</div>
-            <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded ring-2 ring-amber-400" /> Current</div>
-          </div>
-
-          {/* Grid of buttons */}
-          <div className="flex-1 overflow-y-auto max-h-[350px] md:max-h-[450px] custom-scrollbar pr-1">
-            <div className="grid grid-cols-5 gap-2">
-              {questions.map((q, idx) => {
-                const isAnswered = !!answers[q.id];
-                const isMarked = !!markedForReview[q.id];
-                const isCurrent = currentIdx === idx;
-
-                let bgClass = "bg-theme-bg border-theme-border text-theme-muted";
-                if (isAnswered) {
-                  bgClass = "bg-theme-primary text-white border-theme-primary shadow-sm font-black";
-                }
-                if (isMarked) {
-                  bgClass = "bg-purple-600 text-white border-purple-500 shadow-sm font-black";
-                }
-
-                return (
-                  <button
-                    key={q.id || idx}
-                    onClick={() => {
-                      setCurrentIdx(idx);
-                      currentIdxRef.current = idx;
-                      setVisited(prev => ({ ...prev, [idx]: true }));
-                      setShowPaletteMobile(false);
-                    }}
-                    className={`h-9 rounded-xl text-xs font-bold border transition-all flex items-center justify-center ${bgClass} ${isCurrent ? 'ring-2 ring-amber-400 scale-105' : 'hover:scale-105'}`}
-                  >
-                    {idx + 1}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Quick Submit CTA */}
-          <button
-            onClick={() => setShowSubmitModal(true)}
-            className="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-95"
-          >
-            Finish & Submit ({answeredCount}/{questions.length})
-          </button>
-        </aside>
-      </main>
-
-      {/* Confirmation Modal */}
+      {/* Confirmation Submit Modal */}
       {showSubmitModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
-          <div className="bg-theme-surface border border-theme-border rounded-3xl w-full max-w-md shadow-2xl p-6 space-y-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-theme-surface border border-theme-border rounded-3xl w-full max-w-md p-6 shadow-2xl space-y-5 animate-in zoom-in-95 duration-200">
             <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto mb-3 border-2 border-emerald-500/30">
-                <CheckCircle2 size={28} />
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center mx-auto mb-3">
+                <ShieldCheck size={24} />
               </div>
-              <h3 className="font-black text-lg text-theme-text uppercase tracking-tight">Submit Global Test?</h3>
+              <h3 className="font-black text-lg text-theme-text tracking-tight">Submit Global Mock?</h3>
               <p className="text-xs text-theme-muted mt-1">
-                You have only <strong>1 attempt</strong> for this official weekly mock.
+                Your score will be permanently sealed in the offline vault and posted to the statewide leaderboard.
               </p>
             </div>
 
-            <div className="p-4 bg-theme-bg border border-theme-border rounded-2xl space-y-2 text-xs font-bold">
-              <div className="flex justify-between">
-                <span className="text-theme-muted">Total Questions:</span>
-                <span className="text-theme-text">{questions.length}</span>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                <span className="text-[10px] font-bold text-emerald-400 uppercase block">Answered</span>
+                <span className="text-base font-black text-emerald-400">{answeredCount}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-theme-muted">Answered:</span>
-                <span className="text-emerald-500 font-black">{answeredCount}</span>
+              <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                <span className="text-[10px] font-bold text-purple-400 uppercase block">Marked</span>
+                <span className="text-base font-black text-purple-400">{markedCount}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-theme-muted">Unanswered:</span>
-                <span className="text-rose-400">{questions.length - answeredCount}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-theme-muted">Marked for Review:</span>
-                <span className="text-purple-400">{markedCount}</span>
+              <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20">
+                <span className="text-[10px] font-bold text-rose-400 uppercase block">Unanswered</span>
+                <span className="text-base font-black text-rose-400">{unansweredCount}</span>
               </div>
             </div>
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-2">
               <button
                 onClick={() => setShowSubmitModal(false)}
-                className="flex-1 py-3 bg-theme-bg hover:bg-theme-surface border border-theme-border text-theme-text font-bold text-xs uppercase tracking-wider rounded-xl"
+                disabled={isSubmitting}
+                className="flex-1 py-3 rounded-xl border border-theme-border hover:bg-theme-surface text-theme-muted hover:text-theme-text font-bold text-xs transition-colors"
               >
                 Back to Test
               </button>
               <button
                 onClick={() => handleFinalSubmit(false)}
                 disabled={isSubmitting}
-                className="flex-1 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-1.5"
+                className="flex-1 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Submitting...' : 'Yes, Submit'}
+                {isSubmitting ? (
+                  <div className="w-4 h-4 rounded-full border-2 border-white/20 border-t-white animate-spin" />
+                ) : (
+                  <span>Confirm Submit</span>
+                )}
               </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Guidelines Modal */}
+      <UniversalModal
+        isOpen={isInfoModalOpen}
+        onClose={() => setIsInfoModalOpen(false)}
+        title="Official Mock Test Guidelines"
+      >
+        <div className="space-y-3 text-xs text-theme-text text-left leading-relaxed">
+          <div className="p-3.5 rounded-2xl bg-theme-surface border border-theme-border flex items-start gap-3">
+            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+              🎯
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text">Marking Policy</h4>
+              <p className="text-xs text-theme-muted mt-1">
+                +{test?.marks_per_question || 1.0} mark for each correct answer. -{test?.negative_marking ?? 0.25} negative deduction for each incorrect answer.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-theme-surface border border-theme-border flex items-start gap-3">
+            <div className="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center shrink-0">
+              📌
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text">Review Flag</h4>
+              <p className="text-xs text-theme-muted mt-1">
+                You can mark questions to revisit later before final submission.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-theme-surface border border-theme-border flex items-start gap-3">
+            <div className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+              🔒
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-theme-text">Result Declaration</h4>
+              <p className="text-xs text-theme-muted mt-1">
+                Official statewide rankings and verified master solutions unlock at the synchronized Result Drop time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </UniversalModal>
     </div>
   );
 }

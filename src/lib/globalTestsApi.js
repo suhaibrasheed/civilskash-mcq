@@ -4,6 +4,31 @@ import { WEEKLY_TEST_LOADERS } from '../question_bank/weekly_registry';
 
 const WEEKLY_CACHE_KEY = 'mcqkash_weekly_tests_cache_v1';
 const WEEKLY_CACHE_TTL_MS = 8 * 60 * 60 * 1000; // 8-hour cooldown to strictly protect database egress
+export const WEEKLY_SYNC_COOLDOWN_MS = 30 * 60 * 1000; // 30-minute sync cooldown
+
+/**
+ * Returns remaining milliseconds of sync cooldown, or 0 if available.
+ */
+export const getWeeklySyncCooldownRemaining = () => {
+  try {
+    const lastSync = localStorage.getItem('mcqkash_weekly_sync_cooldown_timestamp');
+    if (!lastSync) return 0;
+    const elapsed = Date.now() - Number(lastSync);
+    const remaining = WEEKLY_SYNC_COOLDOWN_MS - elapsed;
+    return remaining > 0 ? remaining : 0;
+  } catch (e) {
+    return 0;
+  }
+};
+
+/**
+ * Records current timestamp for 30-minute sync cooldown.
+ */
+export const recordWeeklySyncTimestamp = () => {
+  try {
+    localStorage.setItem('mcqkash_weekly_sync_cooldown_timestamp', String(Date.now()));
+  } catch (e) {}
+};
 
 /**
  * Reads persisted weekly tests cache from local storage.
@@ -120,11 +145,11 @@ export const fetchWeeklyTests = async (force = false) => {
 };
 
 /**
- * Fetches a single weekly test by ID (Strict Zero-Database-Egress: Questions load ONLY via static bundles).
- * If the mock has not been compiled/synced into the codebase by admins, this returns null so candidates
- * are gracefully greeted by the 'Coffee Break / Curators at Work' state without incurring Supabase database egress.
+ * Fetches a single weekly test by ID (Strict Zero-Database-Egress: Questions load ONLY via static code-split bundles).
  */
 export const fetchWeeklyTestById = async (testId) => {
+  if (!testId) return null;
+
   // Static code-split loader (0 MB database egress!)
   if (WEEKLY_TEST_LOADERS && typeof WEEKLY_TEST_LOADERS[testId] === 'function') {
     try {
@@ -138,7 +163,6 @@ export const fetchWeeklyTestById = async (testId) => {
     }
   }
 
-  // Strict Zero-Egress Policy: Never stream massive question blobs from Supabase to thousands of candidates.
   return null;
 };
 

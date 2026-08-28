@@ -293,9 +293,10 @@ export const getFilteredResults = (query) => {
   
   // Unique Tags extraction
   const allTagsMap = new Map();
-  ALL_STATIC_BANKS_SYNC.forEach(question => {
-    if (Array.isArray(question.tags)) {
+  (ALL_STATIC_BANKS_SYNC || []).forEach(question => {
+    if (question && Array.isArray(question.tags)) {
       question.tags.forEach(tag => {
+        if (!tag || typeof tag !== 'string') return;
         const cleanTag = tag.trim();
         const lower = cleanTag.toLowerCase();
         if (!allTagsMap.has(lower)) {
@@ -307,17 +308,25 @@ export const getFilteredResults = (query) => {
   });
   const uniqueTags = Array.from(allTagsMap.values());
   const matchedTags = uniqueTags.filter(tag => 
-    tag.name.toLowerCase().includes(q)
+    tag && tag.name && String(tag.name).toLowerCase().includes(q)
   ).sort((a, b) => b.count - a.count)
    .map(t => ({ ...t, type: 'tag', id: 'tag-' + t.name }));
    
-  // Questions matching
-  const matchedQuestions = ALL_STATIC_BANKS_SYNC.filter(question => 
-    question.question.toLowerCase().includes(q) || 
-    (question.explanation && question.explanation.toLowerCase().includes(q)) || 
-    question.options.some(opt => opt.text.toLowerCase().includes(q)) || 
-    (Array.isArray(question.tags) && question.tags.some(tag => tag.toLowerCase().includes(q)))
-  ).map(q => ({ ...q, type: 'question', id: q.id }));
+  // Questions matching with defensive guards
+  const matchedQuestions = (ALL_STATIC_BANKS_SYNC || []).filter(question => {
+    if (!question) return false;
+    const qText = String(question.question || '').toLowerCase();
+    const expText = String(question.explanation || '').toLowerCase();
+    const hasOptMatch = Array.isArray(question.options) && question.options.some(opt => {
+      if (!opt) return false;
+      const text = typeof opt === 'string' ? opt : (opt.text || opt.label || '');
+      return String(text).toLowerCase().includes(q);
+    });
+    const hasTagMatch = Array.isArray(question.tags) && question.tags.some(tag => {
+      return tag && String(tag).toLowerCase().includes(q);
+    });
+    return qText.includes(q) || expText.includes(q) || hasOptMatch || hasTagMatch;
+  }).map(q => ({ ...q, type: 'question', id: q.id }));
   
   return {
     commands: matchedCommands,

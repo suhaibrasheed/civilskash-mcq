@@ -60,3 +60,6 @@ BEGIN
   LIMIT 1;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Grant execution permissions to anon and authenticated roles
+GRANT EXECUTE ON FUNCTION public.get_diverse_opponent(uuid, text[], text, text) TO anon, authenticated, service_role;

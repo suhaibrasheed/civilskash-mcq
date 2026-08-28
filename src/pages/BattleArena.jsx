@@ -1039,31 +1039,28 @@ export default function BattleArena() {
     return () => clearInterval(timer);
   }, [step, searchTrigger, matchWillSucceed]);
 
-  // Pull leaderboard and pick candidate
+  // Pull a single real diverse opponent via Supabase RPC (1 query, 1 row, minimum network egress)
   const selectLeaderboardOpponent = async () => {
     if (!user?.id) {
       setMatchFailed(true);
       return;
     }
+
     try {
       // Get recently matched opponent usernames from local storage (history of last 3)
-      const lastUsernamesKey = `mcqkash_last_usernames_${user?.id || 'guest'}`;
+      const lastUsernamesKey = `mcqkash_last_usernames_${user.id}`;
       let lastUsernames = [];
       try {
         const stored = localStorage.getItem(lastUsernamesKey);
         lastUsernames = stored ? JSON.parse(stored) : [];
       } catch (e) {}
 
-      // Clean the usernames list to prevent null/empty strings
       const cleanUsernames = lastUsernames.filter(uname => uname && typeof uname === 'string' && uname.trim() !== '');
-
-      // Resolve usernames and anti-collision checks params
       const userUsername = economy?.username || null;
       const userReferredBy = economy?.referred_by || null;
 
-      // Query exactly 1 diverse opponent using get_diverse_opponent RPC filtering by exclude_usernames
       const { data: responseData, error } = await supabase.rpc('get_diverse_opponent', {
-        viewer_id: user?.id,
+        viewer_id: user.id,
         exclude_usernames: cleanUsernames,
         viewer_username: userUsername,
         viewer_referred_by: userReferredBy
@@ -1072,11 +1069,11 @@ export default function BattleArena() {
       const chosen = responseData && responseData.length > 0 ? responseData[0] : null;
 
       if (error || !chosen) {
-        console.error('get_diverse_opponent RPC Error details:', error);
-        throw new Error('No candidate found or database error.');
+        console.error('get_diverse_opponent RPC Error:', error || 'No opponent returned');
+        setMatchFailed(true);
+        return;
       }
 
-      // Resolve usernames with fallback
       const resolvedUsername = chosen.username || (chosen.full_name || 'aspirant').toLowerCase().replace(/[^a-z0-9]/g, '');
 
       // Save to recently matched usernames cache (keep last 3)
@@ -1088,20 +1085,17 @@ export default function BattleArena() {
         localStorage.setItem(lastUsernamesKey, JSON.stringify(lastUsernames));
       } catch (e) {}
 
-      // Try to fetch opponent's accuracy. If 0 or unavailable, calculate based on user's range.
       let oppAccuracy = chosen.users_accuracy;
       if (!oppAccuracy || oppAccuracy <= 0) {
         const userAcc = economy?.users_accuracy || 70;
         let offset = 0;
         while (offset === 0) {
-          offset = Math.floor(Math.random() * 41) - 20; // Random offset between -20 and +20 (excluding 0)
+          offset = Math.floor(Math.random() * 41) - 20;
         }
         oppAccuracy = Math.max(30, Math.min(95, Math.round(userAcc + offset)));
       }
 
       const oppStreak = chosen.streak_days || chosen.daily_streak || chosen.streak || (Math.random() < 0.3 ? Math.floor(Math.random() * 6) + 3 : 0);
-      
-      // Default opponent's target exam to matching user's exam if null/missing
       const oppTargetExam = chosen.target_exam || economy?.target_exam || 'upsc-pre';
 
       setOpponent({
@@ -1119,80 +1113,9 @@ export default function BattleArena() {
       });
       setStep('pre-start');
     } catch (err) {
-      console.warn('Database error in matchmaking, setting match failed:', err);
+      console.error('Database error in matchmaking, setting match failed:', err);
       setMatchFailed(true);
     }
-  };
-
-  const generateMockOpponent = () => {
-    // Get recently matched opponent usernames from local storage (history of last 3)
-    const lastUsernamesKey = `mcqkash_last_usernames_${user?.id || 'guest'}`;
-    let lastUsernames = [];
-    try {
-      const stored = localStorage.getItem(lastUsernamesKey);
-      lastUsernames = stored ? JSON.parse(stored) : [];
-    } catch (e) {}
-
-    // Collectible fallback opponents (expanded and given stable usernames)
-    const fallbacks = [
-      { id: 'mock_opp_anjali', full_name: 'Anjali Sharma', username: 'anjali_sharma', is_pro: true, rank: 4, status_message: 'Rank 1 is mine! 🎯 Keep pushing!' },
-      { id: 'mock_opp_vikram', full_name: 'Vikram Malhotra', username: 'vikram_malhotra', is_pro: false, rank: 12 },
-      { id: 'mock_opp_karan', full_name: 'Karan Mehra', username: 'karan_mehra', is_pro: true, rank: 2, status_message: 'UPSC Prelims prep mode: ON. Let’s match!' },
-      { id: 'mock_opp_sneha', full_name: 'Sneha Patel', username: 'sneha_patel', is_pro: false, rank: 23 },
-      { id: 'mock_opp_rahul', full_name: 'Rahul Verma', username: 'rahul_verma', is_pro: false, rank: 9 },
-      { id: 'mock_opp_priya', full_name: 'Priya Nandy', username: 'priya_nandy', is_pro: true, rank: 6, status_message: 'Syllabus revised twice. Bring it on!' },
-      { id: 'mock_opp_amit', full_name: 'Amit Chaudhary', username: 'amit_chaudhary', is_pro: false, rank: 18 },
-      { id: 'mock_opp_rohit', full_name: 'Rohit Sharma', username: 'rohit_sharma', is_pro: false, rank: 15 },
-      { id: 'mock_opp_tanvi', full_name: 'Tanvi Goyal', username: 'tanvi_goyal', is_pro: true, rank: 8, status_message: 'Consistency is key. 🔑' },
-      { id: 'mock_opp_arjun', full_name: 'Arjun Kapoor', username: 'arjun_kapoor', is_pro: false, rank: 29 },
-      { id: 'mock_opp_deepika', full_name: 'Deepika Sen', username: 'deepika_sen', is_pro: true, rank: 11 },
-      { id: 'mock_opp_abhishek', full_name: 'Abhishek Roy', username: 'abhishek_roy', is_pro: false, rank: 20 },
-      { id: 'mock_opp_neha', full_name: 'Neha Gupta', username: 'neha_gupta', is_pro: true, rank: 7, status_message: 'Focused on high-yield topics.' },
-      { id: 'mock_opp_vivek', full_name: 'Vivek Joshi', username: 'vivek_joshi', is_pro: false, rank: 33 },
-      { id: 'mock_opp_divya', full_name: 'Divya Iyer', username: 'divya_iyer', is_pro: true, rank: 5, status_message: 'Answer writing + MCQs daily.' }
-    ];
-
-    // Filter out mock opponents recently battled by matching username
-    let eligible = fallbacks.filter(f => !lastUsernames.includes(f.username));
-    if (eligible.length === 0) {
-      eligible = fallbacks; // Fallback to all if pool collapses
-    }
-
-    const picked = eligible[Math.floor(Math.random() * eligible.length)];
-    const userAcc = economy?.users_accuracy || 70;
-    let offset = 0;
-    while (offset === 0) {
-      offset = Math.floor(Math.random() * 41) - 20; // Random offset between -20 and +20 (excluding 0)
-    }
-    const oppAccuracy = Math.max(30, Math.min(95, Math.round(userAcc + offset)));
-
-    // Save mock opponent username to history cache (keep last 3)
-    lastUsernames.push(picked.username);
-    if (lastUsernames.length > 3) {
-      lastUsernames.shift();
-    }
-    try {
-      localStorage.setItem(lastUsernamesKey, JSON.stringify(lastUsernames));
-    } catch (e) {}
-
-    // Mock target exam - selected completely at random from all registered exams
-    const examKeys = Object.keys(EXAM_CONFIG);
-    const simulatedExam = examKeys[Math.floor(Math.random() * examKeys.length)] || 'upsc-pre';
-
-    setOpponent({
-      id: picked.id,
-      full_name: picked.full_name,
-      avatar_id: Math.floor(Math.random() * 9) + 1,
-      username: picked.username,
-      referred_by: null,
-      is_pro: picked.is_pro,
-      accuracy: oppAccuracy,
-      rank: picked.rank,
-      streak: Math.random() < 0.3 ? Math.floor(Math.random() * 6) + 3 : 0,
-      status_message: picked.status_message || null,
-      target_exam: simulatedExam
-    });
-    setStep('pre-start');
   };
 
   // Start the matchmaking loop
@@ -2571,12 +2494,11 @@ Generate exactly 10 new questions.`;
     setSearchTrigger(prev => prev + 1);
   };
 
-  const handleStartGhostAnyway = () => {
+  const handleStartGhostAnyway = async () => {
     setGhostChoiceNeeded(false);
     setMatchFailed(false);
     setIsGhostMode(true);
-    // Fetch a real opponent from the database, but play asynchronously (Ghost Mode)
-    selectLeaderboardOpponent();
+    await selectLeaderboardOpponent();
   };
 
   // Calculate user categories correct/incorrect breakdown for X-Ray
