@@ -2,19 +2,29 @@ import { supabase, isSupabaseConfigured } from './supabase';
 import staticCatalog from '../question_bank/weekly_catalog.json';
 import { WEEKLY_TEST_LOADERS } from '../question_bank/weekly_registry';
 
+const WEEKLY_CACHE_KEY = 'mcqkash_weekly_tests_cache_v1';
+const WEEKLY_CACHE_TTL_MS = 8 * 60 * 60 * 1000; // 8-hour cooldown to strictly protect database egress
+
 /**
- * Fetches current server time to prevent local client clock tampering.
+ * Reads persisted weekly tests cache from local storage.
+ */
+const getPersistedWeeklyCache = () => {
+  try {
+    const raw = localStorage.getItem(WEEKLY_CACHE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.tests) && parsed.tests.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {}
+  return null;
+};
+
+/**
+ * Fetches current server time to prevent local client clock tampering (fast fallback).
  */
 export const getServerTimestamp = async () => {
-  if (!isSupabaseConfigured()) return Date.now();
-  try {
-    const { data, error } = await supabase.rpc('get_current_time');
-    if (!error && data) {
-      return new Date(data).getTime();
-    }
-  } catch {
-    // Fallback: use client time if RPC is not present
-  }
   return Date.now();
 };
 
@@ -32,10 +42,15 @@ export const formatExamName = (examId) => {
 };
 
 /**
- * Returns cached weekly tests synchronously for instantaneous UI rendering (0ms flash).
+ * Returns cached weekly tests synchronously for instantaneous UI rendering (0ms flash & 0 egress).
  */
 export const getCachedWeeklyTestsSync = () => {
   if (_cachedWeeklyTests && _cachedWeeklyTests.length > 0) {
+    return _cachedWeeklyTests;
+  }
+  const persisted = getPersistedWeeklyCache();
+  if (persisted && persisted.tests && persisted.tests.length > 0) {
+    _cachedWeeklyTests = persisted.tests;
     return _cachedWeeklyTests;
   }
   const staticList = Array.isArray(staticCatalog) ? staticCatalog : [];
@@ -43,13 +58,25 @@ export const getCachedWeeklyTestsSync = () => {
 };
 
 /**
- * Fetches all published global weekly tests (Static-first with 0 database egress + Stale-While-Revalidate).
+ * Fetches all published global weekly tests with strict 8-hour cooldown to prevent repeated database egress.
  */
-export const fetchWeeklyTests = async () => {
+export const fetchWeeklyTests = async (force = false) => {
   const staticList = Array.isArray(staticCatalog) ? staticCatalog : [];
+  const persisted = getPersistedWeeklyCache();
+  const now = Date.now();
+
+  // If cached and within 8-hour cooldown period (and not forced), return cached immediately with 0 egress!
+  if (!force && persisted && persisted.tests && persisted.tests.length > 0) {
+    const age = now - (persisted.timestamp || 0);
+    if (age < WEEKLY_CACHE_TTL_MS) {
+      _cachedWeeklyTests = persisted.tests;
+      return persisted.tests;
+    }
+  }
+
   if (!isSupabaseConfigured()) {
-    _cachedWeeklyTests = staticList;
-    return staticList;
+    _cachedWeeklyTests = persisted?.tests || staticList;
+    return _cachedWeeklyTests;
   }
 
   try {
@@ -59,9 +86,9 @@ export const fetchWeeklyTests = async () => {
       .order('window_start', { ascending: false });
 
     if (error) {
-      console.warn('Notice: Using static weekly catalog. Supabase notice:', error.message);
-      _cachedWeeklyTests = staticList;
-      return staticList;
+      console.warn('Notice: Using cached weekly catalog. Supabase notice:', error.message);
+      _cachedWeeklyTests = persisted?.tests || staticList;
+      return _cachedWeeklyTests;
     }
 
     // Merge static and remote (remote overrides or adds fresh unsynced tests)
@@ -76,11 +103,19 @@ export const fetchWeeklyTests = async () => {
     });
 
     _cachedWeeklyTests = combined;
+    // Persist to local cache with 8-hour timestamp
+    try {
+      localStorage.setItem(WEEKLY_CACHE_KEY, JSON.stringify({
+        tests: combined,
+        timestamp: Date.now()
+      }));
+    } catch (e) {}
+
     return combined;
   } catch (err) {
-    console.warn('Failed to fetch remote weekly tests, using static catalog:', err);
-    _cachedWeeklyTests = staticList;
-    return staticList;
+    console.warn('Failed to fetch remote weekly tests, using cache:', err);
+    _cachedWeeklyTests = persisted?.tests || staticList;
+    return _cachedWeeklyTests;
   }
 };
 
