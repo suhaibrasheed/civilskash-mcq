@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Header from '../components/Header';
 import McqCard from '../components/McqCard';
-import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, Video, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff, Lock, LogOut } from 'lucide-react';
+import { Settings, Layers, Database, X, Command, Trash2, Plus, Wand2, AlertCircle, Edit3, Layout, ChevronDown, ChevronUp, Bold, Italic, Underline, Eraser, Type, Sparkles, Copy, Clipboard, Undo, Check, FileText, Tag, BarChart, Download, Upload, Image as ImageIcon, Video, AlignLeft, AlignCenter, AlignRight, RefreshCw, ChevronsUpDown, Eye, EyeOff, Lock, LogOut, Trophy, Calendar, Clock, Globe } from 'lucide-react';
 import { EXAM_SERIES } from '../lib/exams';
 import { DYNAMIC_EXAMS } from '../lib/dataHub';
 import { Compass } from 'lucide-react';
 import { queryGenerativeAI, queryColorHighlightsForExplanations, applyHighlightsToText, highlightHtmlContent, stripCodeFences, renderMathInHtmlString, convertMarkdownTablesToHtml, convertMarkdownToHtml } from '../lib/ai';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import { publishWeeklyTestToSupabase } from '../lib/globalTestsApi';
 import { useToast } from '../context/ToastContext';
 import { useAuth } from '../context/AuthContext';
 import { parseBulkMCQText } from '../lib/mcqParser';
@@ -275,8 +276,28 @@ export default function AdminSubiStudio() {
   const [showFormatMenu, setShowFormatMenu] = useState(false);
   // Image Toolbar State
   const [imgToolbar, setImgToolbar] = useState({ show: false, top: 0, left: 0, targetImg: null, currentWidth: 100 });
-  const [activeMode, setActiveMode] = useState('write'); // 'write' | 'exams' | 'review'
+  const [activeMode, setActiveMode] = useState('write'); // 'write' | 'exams' | 'review' | 'global_exam'
   
+  // Global Weekly Exam Crafter States
+  const [globalExamConfig, setGlobalExamConfig] = useState(() => {
+    const defaultStart = new Date();
+    const defaultEnd = new Date(Date.now() + 4 * 24 * 60 * 60 * 1000);
+    const defaultReveal = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000);
+    return {
+      examId: 'jkssb-faa',
+      title: 'JKSSB FAA All-J&K Weekly Mock #01',
+      targetQuestions: 120,
+      totalMarks: 120,
+      durationMins: 120,
+      negativeMarking: 0.25,
+      windowStart: defaultStart.toISOString().slice(0, 16),
+      windowEnd: defaultEnd.toISOString().slice(0, 16),
+      resultRevealAt: defaultReveal.toISOString().slice(0, 16),
+    };
+  });
+  const [showGlobalScheduleModal, setShowGlobalScheduleModal] = useState(false);
+  const [liveGlobalCount, setLiveGlobalCount] = useState(0);
+
   // MCQ Review Dashboard States
   const [reviewQuestions, setReviewQuestions] = useState([]);
   const [loadingReview, setLoadingReview] = useState(false);
@@ -311,6 +332,16 @@ export default function AdminSubiStudio() {
     if (saved) return JSON.parse(saved);
     return [];
   });
+
+  const availableExamsList = React.useMemo(() => {
+    const combined = [...EXAM_SERIES];
+    (exams || []).forEach(e => {
+      if (e && e.id && !combined.some(c => c.id === e.id)) {
+        combined.push(e);
+      }
+    });
+    return combined;
+  }, [exams]);
 
   const [categoryTags, setCategoryTags] = useState({});
 
@@ -1606,6 +1637,7 @@ export default function AdminSubiStudio() {
             editorRef.current.innerHTML = fullHtml;
         }
     }
+    ensureTrailingParagraph();
     
     setCmdPalette({ show: false, selectedIndex: 0 });
     setTextToolbar(prev => ({ ...prev, show: false }));
@@ -3211,7 +3243,33 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
     }, 50);
   };
 
+  const ensureTrailingParagraph = () => {
+    if (!editorRef.current) return null;
+    const last = editorRef.current.lastElementChild;
+    if (!last || last.classList.contains('nk-mcq-block') || last.classList.contains('nk-card') || last.tagName === 'TABLE' || last.tagName === 'DIV') {
+      const p = document.createElement('p');
+      p.innerHTML = '<br>';
+      editorRef.current.appendChild(p);
+      return p;
+    }
+    return last;
+  };
+
   const handleEditorClick = (e) => {
+    const trailingP = ensureTrailingParagraph();
+
+    // If user clicks in blank space of editor or below the last MCQ
+    if (e.target === editorRef.current) {
+      if (trailingP) {
+        const range = document.createRange();
+        range.selectNodeContents(trailingP);
+        range.collapse(false);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }
+
     // Radio Click
     if (e.target.classList.contains('nk-mcq-option-radio')) {
         const optionDiv = e.target.closest('.nk-mcq-option');
@@ -3529,6 +3587,13 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
         alert("No MCQs found. Paste NoteKash text or use / Convert to MCQ first.");
         return;
     }
+    if (activeMode === 'global_exam') {
+      const target = Number(globalExamConfig.targetQuestions) || 120;
+      if (extracted.length !== target) {
+        alert(`⚠️ Question Count Guard:\nYou configured this test for exactly ${target} questions, but currently have ${extracted.length} questions in the editor.\n\nPlease ensure you have exactly ${target} questions before publishing.`);
+        return;
+      }
+    }
     setParsedMCQs(extracted);
     setShowPreviewModal(true);
   };
@@ -3596,6 +3661,32 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
       if (payload.length !== parsedMCQs.length) {
         alert("Some MCQs are incomplete. Please ensure every MCQ has a question and at least two options.");
+        return;
+      }
+
+      if (activeMode === 'global_exam') {
+        const testPayload = {
+          id: `${globalExamConfig.examId}-weekly-${Date.now().toString(36)}`,
+          exam_id: globalExamConfig.examId,
+          title: globalExamConfig.title || 'Weekly Mega Mock',
+          total_questions: Number(globalExamConfig.targetQuestions) || payload.length,
+          total_marks: Number(globalExamConfig.totalMarks) || payload.length,
+          duration_mins: Number(globalExamConfig.durationMins) || 120,
+          negative_marking: Number(globalExamConfig.negativeMarking) || 0.25,
+          window_start: new Date(globalExamConfig.windowStart).toISOString(),
+          window_end: new Date(globalExamConfig.windowEnd).toISOString(),
+          result_reveal_at: new Date(globalExamConfig.resultRevealAt).toISOString(),
+          status: 'published',
+          questions_data: payload
+        };
+
+        await publishWeeklyTestToSupabase(testPayload);
+        alert(`🚀 SUCCESS! Weekly Global Test "${globalExamConfig.title}" published to Supabase with ${payload.length} questions!\n\nTest is active and scheduled for Result Day on ${new Date(globalExamConfig.resultRevealAt).toLocaleString()}.`);
+        if (editorRef.current) {
+          editorRef.current.innerHTML = '<p><br></p>';
+        }
+        setParsedMCQs([]);
+        setShowPreviewModal(false);
         return;
       }
 
@@ -4483,37 +4574,63 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
         {/* Top Bar - Fully Screen Responsive */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-6 bg-theme-surface border border-theme-border rounded-[1.8rem] p-5 shadow-lg backdrop-blur-xl shrink-0 transition-all hover:shadow-xl">
           <div className="flex items-center gap-4">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform -rotate-3 shrink-0 ${activeMode === 'write' ? 'bg-gradient-to-br from-theme-primary to-theme-primary/60' : activeMode === 'review' ? 'bg-gradient-to-br from-purple-500 to-indigo-600' : 'bg-gradient-to-br from-theme-accent to-theme-accent/60'}`}>
-              {activeMode === 'write' ? <Command size={22} className="text-white" /> : activeMode === 'review' ? <FileText size={22} className="text-white" /> : <Layers size={22} className="text-white" />}
+            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform -rotate-3 shrink-0 ${activeMode === 'write' ? 'bg-gradient-to-br from-theme-primary to-theme-primary/60' : activeMode === 'global_exam' ? 'bg-gradient-to-br from-amber-500 to-orange-600' : activeMode === 'review' ? 'bg-gradient-to-br from-purple-500 to-indigo-600' : 'bg-gradient-to-br from-theme-accent to-theme-accent/60'}`}>
+              {activeMode === 'write' ? <Command size={22} className="text-white" /> : activeMode === 'global_exam' ? <Trophy size={22} className="text-white" /> : activeMode === 'review' ? <FileText size={22} className="text-white" /> : <Layers size={22} className="text-white" />}
             </div>
             <div>
               <h1 className="font-black text-xl leading-none tracking-tight text-theme-text uppercase">
-                {activeMode === 'write' ? 'Creator Studio' : activeMode === 'review' ? 'MCQ Review Dashboard' : 'Exam Mocks Hub'}
+                {activeMode === 'write' ? 'Creator Studio' : activeMode === 'global_exam' ? 'Global Mock Crafter' : activeMode === 'review' ? 'MCQ Review Dashboard' : 'Exam Mocks Hub'}
               </h1>
               <div className="flex items-center gap-1.5 mt-1">
-                <div className={`w-2 h-2 rounded-full ${activeMode === 'write' ? 'bg-emerald-500 animate-pulse' : activeMode === 'review' ? 'bg-purple-500 animate-pulse' : 'bg-theme-accent animate-pulse'}`} />
+                <div className={`w-2 h-2 rounded-full ${activeMode === 'write' ? 'bg-emerald-500 animate-pulse' : activeMode === 'global_exam' ? 'bg-amber-500 animate-pulse' : activeMode === 'review' ? 'bg-purple-500 animate-pulse' : 'bg-theme-accent animate-pulse'}`} />
                 <p className="text-[9px] font-black text-theme-muted uppercase tracking-wider">
-                  {activeMode === 'write' ? 'Write Mode' : activeMode === 'review' ? 'Review Mode' : 'Mocks Mode'}
+                  {activeMode === 'write' ? 'Write Mode' : activeMode === 'global_exam' ? 'Weekly Global Exam' : activeMode === 'review' ? 'Review Mode' : 'Mocks Mode'}
                 </p>
               </div>
             </div>
           </div>
           
           <div className="flex flex-wrap items-center gap-3">
-            <div className="relative flex-1 md:flex-initial min-w-[160px]">
-              <select 
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full bg-theme-bg border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary shadow-inner appearance-none pr-10 cursor-pointer hover:bg-theme-surface"
-              >
-                {categories.map(cat => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))}
-              </select>
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
-                <ChevronDown size={14} />
+            {activeMode === 'global_exam' ? (
+              <>
+                <div className="relative flex-1 md:flex-initial min-w-[160px]">
+                  <select 
+                    value={globalExamConfig.examId}
+                    onChange={(e) => {
+                      const examObj = availableExamsList.find(ex => ex.id === e.target.value) || { name: e.target.value };
+                      setGlobalExamConfig(prev => ({ 
+                        ...prev, 
+                        examId: e.target.value,
+                        title: `${examObj.name || 'JKSSB FAA'} All-J&K Weekly Mock #01`
+                      }));
+                    }}
+                    className="w-full bg-theme-bg border border-amber-500/30 text-amber-500 rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-inner appearance-none pr-10 cursor-pointer hover:bg-theme-surface"
+                  >
+                    {availableExamsList.map(ex => (
+                      <option key={ex.id} value={ex.id}>{ex.name || ex.id}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-amber-500">
+                    <ChevronDown size={14} />
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="relative flex-1 md:flex-initial min-w-[160px]">
+                <select 
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="w-full bg-theme-bg border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-theme-primary shadow-inner appearance-none pr-10 cursor-pointer hover:bg-theme-surface"
+                >
+                  {categories.map(cat => (
+                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                  ))}
+                </select>
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-theme-muted">
+                  <ChevronDown size={14} />
+                </div>
               </div>
-            </div>
+            )}
 
             <button 
               onClick={() => { setShowSettingsModal(true); }} 
@@ -4536,7 +4653,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
               <LogOut size={18} />
             </button>
             
-            {activeMode === 'write' && (
+            {(activeMode === 'write' || activeMode === 'global_exam') && (
               <button
                 onClick={() => {
                   if (isPreviewMode) {
@@ -4568,14 +4685,55 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
 
             {activeMode !== 'review' && (
               <button 
-                onClick={activeMode === 'write' ? preparePush : () => pushExamsToSupabase(exams)} 
-                className={`flex-1 md:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 text-white ${activeMode === 'write' ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-theme-accent hover:bg-theme-accent/90'}`}
+                onClick={(activeMode === 'write' || activeMode === 'global_exam') ? preparePush : () => pushExamsToSupabase(exams)} 
+                className={`flex-1 md:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 text-white ${activeMode === 'global_exam' ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-95' : activeMode === 'write' ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-theme-accent hover:bg-theme-accent/90'}`}
               >
-                  <Database size={15} /> {activeMode === 'write' ? 'Review & Push' : 'Save'}
+                  {activeMode === 'global_exam' ? <Trophy size={14} /> : <Database size={14} />}
+                  {activeMode === 'global_exam' ? 'Publish' : activeMode === 'write' ? 'Review & Push' : 'Save'}
               </button>
             )}
           </div>
         </div>
+
+        {/* Global Exam Blueprint Bar - Compact & Clean */}
+        {activeMode === 'global_exam' && (
+          <div className="mb-4 px-4 py-3 bg-theme-surface border border-amber-500/25 rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-sm animate-in fade-in">
+            <div className="flex-1 min-w-[240px] flex items-center gap-3">
+              <div className="flex-1">
+                <input 
+                  type="text"
+                  value={globalExamConfig.title}
+                  onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, title: e.target.value }))}
+                  className="w-full bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  placeholder="Test Title..."
+                />
+              </div>
+              <div className="w-28 shrink-0 flex items-center gap-1.5 bg-theme-bg border border-theme-border rounded-xl px-3 py-2">
+                <span className="text-[10px] font-black text-amber-500 uppercase">Qs</span>
+                <input 
+                  type="number"
+                  value={globalExamConfig.targetQuestions}
+                  onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, targetQuestions: Math.max(1, parseInt(e.target.value) || 1) }))}
+                  className="w-full bg-transparent text-xs font-black text-center text-theme-text focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl">
+                {globalExamConfig.targetQuestions} Qs
+              </span>
+              <button 
+                onClick={() => setShowGlobalScheduleModal(true)}
+                className="px-3 py-1.5 bg-theme-bg hover:bg-amber-500/10 text-amber-500 border border-amber-500/30 hover:border-amber-500/60 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
+                title="Set test window dates"
+              >
+                <Calendar size={13} />
+                <span>Schedule</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Global AI Quality Review Notification Banner */}
         {reviewBanner.show && (
@@ -4622,7 +4780,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
           </div>
         )}
 
-        {activeMode === 'write' ? (
+        {(activeMode === 'write' || activeMode === 'global_exam') ? (
         <div className="flex-1 relative flex flex-col bg-theme-surface/50 border border-theme-border rounded-2xl shadow-inner focus-within:border-theme-primary/50 focus-within:bg-theme-surface transition-colors">
             
             {/* Floating Image Control Toolbar */}
@@ -4770,8 +4928,15 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                 <div className="max-w-2xl mx-auto space-y-6">
                   {previewQuestions.map((q, idx) => (
                     <div key={q.id || idx} className="relative" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 180px' }}>
-                      <div className="absolute -left-10 top-4 w-7 h-7 rounded-full bg-theme-primary/10 border border-theme-primary/20 flex items-center justify-center text-xs font-black text-theme-primary select-none hidden md:flex shadow-sm">
-                        {idx + 1}
+                      <div className="flex items-center justify-between mb-2 px-1">
+                        <span className="text-xs font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
+                          Question #{idx + 1} {activeMode === 'global_exam' ? `of ${globalExamConfig.targetQuestions}` : `of ${previewQuestions.length}`}
+                        </span>
+                        {activeMode === 'global_exam' && (
+                          <span className="text-[11px] font-bold text-theme-muted">
+                            Marks: +1.0 / -{globalExamConfig.negativeMarking}
+                          </span>
+                        )}
                       </div>
                       <McqCard 
                         questionData={q} 
@@ -5345,40 +5510,80 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
         )}
       </main>
 
-      {/* Preview Modal */}
+      {/* Preview / Publish Modal */}
       {showPreviewModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
           <div className="bg-theme-surface border border-theme-border rounded-3xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col scale-100 animate-in zoom-in-95 duration-200">
-            <div className="p-6 border-b border-theme-border bg-theme-bg/50 text-center">
-              <div className="w-16 h-16 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-theme-surface shadow-inner">
-                <Database size={28} />
-              </div>
-              <h3 className="font-bold text-2xl mb-1 text-theme-text">Confirm Push</h3>
-              <p className="text-theme-muted text-sm">You are about to push to Supabase.</p>
-            </div>
-            
-            <div className="p-6 bg-theme-bg space-y-4">
-              <div className="flex justify-between items-center p-4 bg-theme-surface border border-theme-border rounded-xl">
-                <span className="text-theme-muted font-medium text-sm">Category</span>
-                <span className="font-bold text-theme-text text-sm">{categories.find(c => c.id === selectedCategory)?.name}</span>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-theme-surface border border-theme-border rounded-xl">
-                <span className="text-theme-muted font-medium text-sm">Total MCQs Parsed</span>
-                <span className="font-bold text-emerald-500 text-lg">{parsedMCQs.length}</span>
-              </div>
-            </div>
+            {activeMode === 'global_exam' ? (
+              <>
+                <div className="p-6 border-b border-theme-border bg-theme-bg/50 text-center">
+                  <div className="w-16 h-16 bg-amber-500/20 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-theme-surface shadow-inner">
+                    <Trophy size={28} />
+                  </div>
+                  <h3 className="font-bold text-2xl mb-1 text-theme-text">Publish Weekly Mock</h3>
+                  <p className="text-theme-muted text-xs">Publishing directly to Global Test Arena.</p>
+                </div>
+                
+                <div className="p-6 bg-theme-bg space-y-3">
+                  <div className="flex justify-between items-center p-3.5 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-xs">Target Exam</span>
+                    <span className="font-bold text-amber-500 text-xs uppercase">
+                      {availableExamsList.find(e => e.id === globalExamConfig.examId)?.name || globalExamConfig.examId}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center p-3.5 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-xs">Mock Title</span>
+                    <span className="font-bold text-theme-text text-xs truncate max-w-[200px]">{globalExamConfig.title}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3.5 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-xs">Questions Parsed</span>
+                    <span className="font-black text-emerald-500 text-sm">{parsedMCQs.length} Qs</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3.5 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-xs">Result Reveal</span>
+                    <span className="font-bold text-purple-400 text-xs">{new Date(globalExamConfig.resultRevealAt).toLocaleDateString()}</span>
+                  </div>
+                </div>
 
-            <div className="p-6 border-t border-theme-border flex gap-3 bg-theme-surface">
-              <button onClick={() => setShowPreviewModal(false)} className="flex-1 py-3 px-4 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border text-sm" disabled={isUploading}>Cancel</button>
-              <button onClick={handlePushToSupabase} disabled={isUploading} className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-emerald-500 hover:bg-emerald-600 flex items-center justify-center gap-2 text-sm">
-                {isUploading ? 'Pushing...' : 'Confirm Push'}
-              </button>
-            </div>
+                <div className="p-6 border-t border-theme-border flex gap-3 bg-theme-surface">
+                  <button onClick={() => setShowPreviewModal(false)} className="flex-1 py-3 px-4 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border text-xs uppercase" disabled={isUploading}>Cancel</button>
+                  <button onClick={handlePushToSupabase} disabled={isUploading} className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-md">
+                    {isUploading ? 'Publishing...' : 'Confirm & Publish'}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="p-6 border-b border-theme-border bg-theme-bg/50 text-center">
+                  <div className="w-16 h-16 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-theme-surface shadow-inner">
+                    <Database size={28} />
+                  </div>
+                  <h3 className="font-bold text-2xl mb-1 text-theme-text">Confirm Push</h3>
+                  <p className="text-theme-muted text-sm">You are about to push to Supabase.</p>
+                </div>
+                
+                <div className="p-6 bg-theme-bg space-y-4">
+                  <div className="flex justify-between items-center p-4 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-sm">Category</span>
+                    <span className="font-bold text-theme-text text-sm">{categories.find(c => c.id === selectedCategory)?.name}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-theme-surface border border-theme-border rounded-xl">
+                    <span className="text-theme-muted font-medium text-sm">Total MCQs Parsed</span>
+                    <span className="font-bold text-emerald-500 text-lg">{parsedMCQs.length}</span>
+                  </div>
+                </div>
+
+                <div className="p-6 border-t border-theme-border flex gap-3 bg-theme-surface">
+                  <button onClick={() => setShowPreviewModal(false)} className="flex-1 py-3 px-4 rounded-xl font-bold text-theme-text bg-theme-bg border border-theme-border text-sm" disabled={isUploading}>Cancel</button>
+                  <button onClick={handlePushToSupabase} disabled={isUploading} className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-emerald-500 hover:bg-emerald-600 flex items-center justify-center gap-2 text-sm">
+                    {isUploading ? 'Pushing...' : 'Confirm Push'}
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      )}
-
-      {/* Settings Modal - Workspace Mode Switcher */}
+      )}       {/* Settings Modal - Workspace Mode Switcher */}
       {showSettingsModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
           <div className="bg-theme-surface border border-theme-border rounded-[2rem] w-full max-w-xl shadow-2xl overflow-hidden flex flex-col scale-100 animate-in zoom-in-95 duration-200">
@@ -5394,7 +5599,7 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                     <p className="text-theme-muted text-xs font-semibold">Toggle between writing MCQs and mapping Exam Mocks.</p>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 gap-3.5">
                     <button 
                       onClick={() => { setActiveMode('write'); setShowSettingsModal(false); }}
                       className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all group ${activeMode === 'write' ? 'border-theme-primary bg-theme-primary/5 shadow-md' : 'border-theme-border hover:border-theme-primary/30 hover:bg-theme-bg/55'}`}
@@ -5405,6 +5610,19 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                       <div className="text-center">
                         <span className={`block font-black text-xs ${activeMode === 'write' ? 'text-theme-text' : 'text-theme-muted'}`}>Write</span>
                         <span className="text-[7px] uppercase tracking-widest text-theme-muted font-bold mt-0.5 opacity-60">Creator</span>
+                      </div>
+                    </button>
+
+                    <button 
+                      onClick={() => { setActiveMode('global_exam'); setShowSettingsModal(false); }}
+                      className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 transition-all group ${activeMode === 'global_exam' ? 'border-amber-500 bg-amber-500/5 shadow-md' : 'border-theme-border hover:border-amber-500/30 hover:bg-theme-bg/55'}`}
+                    >
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:rotate-6 ${activeMode === 'global_exam' ? 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-sm' : 'bg-theme-border text-theme-muted'}`}>
+                        <Trophy size={18} />
+                      </div>
+                      <div className="text-center">
+                        <span className={`block font-black text-xs ${activeMode === 'global_exam' ? 'text-theme-text' : 'text-theme-muted'}`}>Global</span>
+                        <span className="text-[7px] uppercase tracking-widest text-theme-muted font-bold mt-0.5 opacity-60">Weekly Mock</span>
                       </div>
                     </button>
                     
@@ -5517,6 +5735,101 @@ Do NOT wrap in markdown code blocks. Do NOT include any intro or outro text. Jus
                     )}
                   </div>
                </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Global Exam Schedule & Rules Modal */}
+      {showGlobalScheduleModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
+          <div className="bg-theme-surface border border-amber-500/30 rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden flex flex-col scale-100 animate-in zoom-in-95 duration-200">
+            <div className="p-6 border-b border-theme-border bg-theme-bg/50 flex items-center justify-between">
+              <h3 className="font-black text-xl text-theme-text flex items-center gap-2 uppercase tracking-tight">
+                <Trophy size={20} className="text-amber-500" /> Global Test Schedule & Rules
+              </h3>
+              <button onClick={() => setShowGlobalScheduleModal(false)} className="p-1 rounded-lg hover:bg-theme-surface text-theme-muted hover:text-theme-text">
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="p-6 bg-theme-bg space-y-4 max-h-[70vh] overflow-y-auto custom-scrollbar">
+              <div>
+                <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Test Title</label>
+                <input 
+                  type="text" 
+                  value={globalExamConfig.title} 
+                  onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, title: e.target.value }))}
+                  className="w-full bg-theme-surface border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Duration (Minutes)</label>
+                  <input 
+                    type="number" 
+                    value={globalExamConfig.durationMins} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, durationMins: parseInt(e.target.value) || 120 }))}
+                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1.5">Negative Marking</label>
+                  <input 
+                    type="number" 
+                    step="0.05"
+                    value={globalExamConfig.negativeMarking} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, negativeMarking: parseFloat(e.target.value) || 0.25 }))}
+                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-4 py-2.5 text-xs font-bold text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  />
+                </div>
+              </div>
+
+              <div className="p-4 bg-theme-surface border border-theme-border rounded-2xl space-y-3">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-amber-500 flex items-center gap-1.5">
+                  <Calendar size={14} /> Schedule Time Window
+                </h4>
+                
+                <div>
+                  <label className="text-[11px] font-semibold text-theme-muted block mb-1">Window Starts (Aspirants can begin):</label>
+                  <input 
+                    type="datetime-local" 
+                    value={globalExamConfig.windowStart} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, windowStart: e.target.value }))}
+                    className="w-full bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-medium text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-semibold text-theme-muted block mb-1">Window Closes (Last chance to submit):</label>
+                  <input 
+                    type="datetime-local" 
+                    value={globalExamConfig.windowEnd} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, windowEnd: e.target.value }))}
+                    className="w-full bg-theme-bg border border-theme-border rounded-xl px-3 py-2 text-xs font-medium text-theme-text focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  />
+                </div>
+
+                <div className="pt-2 border-t border-theme-border">
+                  <label className="text-[11px] font-black text-amber-400 block mb-1">🎉 Result Reveal Date (Leaderboard & Solutions Unlock):</label>
+                  <input 
+                    type="datetime-local" 
+                    value={globalExamConfig.resultRevealAt} 
+                    onChange={(e) => setGlobalExamConfig(prev => ({ ...prev, resultRevealAt: e.target.value }))}
+                    className="w-full bg-theme-bg border border-amber-500/50 rounded-xl px-3 py-2 text-xs font-bold text-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 border-t border-theme-border flex gap-3 bg-theme-surface">
+              <button 
+                onClick={() => setShowGlobalScheduleModal(false)} 
+                className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-all"
+              >
+                Save Schedule
+              </button>
             </div>
           </div>
         </div>

@@ -22,8 +22,8 @@ const LeaderboardPage = React.lazy(() => import('./pages/LeaderboardPage'));
 const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 const BattleArena = React.lazy(() => import('./pages/BattleArena'));
 const ExamMockDashboardPage = React.lazy(() => import('./pages/ExamMockDashboardPage'));
-
-
+const GlobalTestsPage = React.lazy(() => import('./pages/GlobalTestsPage'));
+const GlobalExamRunner = React.lazy(() => import('./components/GlobalExamRunner'));
 
 import { useAuth } from './context/AuthContext';
 import { parseVideoUrl } from './lib/video';
@@ -56,6 +56,7 @@ function NavigationWrapper() {
     : false;
   const isNotOnboarded = user && economy && economy.id === user.id && economy.onboarded === false && !isLocallyOnboarded;
   const hideNav = location.pathname === '/mock-test' ||
+                  location.pathname.startsWith('/global-test/') ||
                   location.pathname.startsWith('/admin/') ||
                   location.pathname === '/battle-arena' ||
                   location.pathname === '/signin' ||
@@ -142,6 +143,8 @@ function AnimatedRoutes({ isFullyLoaded }) {
       <Route path="/resurrection" element={<PageTransition><OnboardingGuard><ResurrectionMockDashboard /></OnboardingGuard></PageTransition>} />
       <Route path="/upgrade" element={<PageTransition><OnboardingGuard><PricingPage /></OnboardingGuard></PageTransition>} />
       <Route path="/pricing" element={<PageTransition><OnboardingGuard><PricingPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/global-tests" element={<PageTransition><OnboardingGuard><GlobalTestsPage /></OnboardingGuard></PageTransition>} />
+      <Route path="/global-test/:testId" element={<PageTransition><OnboardingGuard><GlobalExamRunner /></OnboardingGuard></PageTransition>} />
       <Route path="/battle-arena" element={<PageTransition><OnboardingGuard><BattleArena /></OnboardingGuard></PageTransition>} />
       <Route path="/arena/challenge" element={<PageTransition><OnboardingGuard><BattleArena /></OnboardingGuard></PageTransition>} />
       <Route path="/signin" element={<PageTransition><SignInPage /></PageTransition>} />

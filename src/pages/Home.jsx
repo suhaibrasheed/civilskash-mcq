@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import CategoryCard from '../components/CategoryCard';
 import ExamMockDashboard from '../components/ExamMockDashboard';
 import Header from '../components/Header';
-import { BookOpen, ChevronRight, LayoutGrid, CheckCircle2, ShieldCheck, TrendingUp, Compass, Target, Sparkles, ArrowRight, RefreshCw, BarChart3, Flame, Gem, Zap, Swords } from 'lucide-react';
+import { BookOpen, ChevronRight, LayoutGrid, CheckCircle2, ShieldCheck, TrendingUp, Compass, Target, Sparkles, ArrowRight, RefreshCw, BarChart3, Flame, Gem, Zap, Swords, Trophy, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEconomy } from '../context/EconomyContext';
 import { getAllCategoryCounts } from '../lib/dataHub';
 import { getAggregatedStats, getAllFailedQuestionsDB } from '../lib/db';
+import { fetchWeeklyTests, getCachedWeeklyTestsSync, formatExamName } from '../lib/globalTestsApi';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { StreakModal, CoinsVaultModal } from '../components/EconomyUI';
 import { useHomepageIntelligence } from '../hooks/useHomepageIntelligence';
@@ -828,6 +829,196 @@ function AnalyticsRecoveryWidget({ setStreakModalOpen, setCoinsVaultOpen }) {
   );
 }
 
+function GlobalWeeklyTestHeroBanner() {
+  const navigate = useNavigate();
+  // Instant synchronous initialization from cache prevents banner disappearance on navigation
+  const [activeTest, setActiveTest] = useState(() => {
+    const initialList = getCachedWeeklyTestsSync();
+    if (initialList && initialList.length > 0) {
+      const now = Date.now();
+      return initialList.find(t => new Date(t.window_end).getTime() > now) || initialList[0];
+    }
+    return null;
+  });
+  const [loading, setLoading] = useState(!activeTest);
+  const [timeLeft, setTimeLeft] = useState('');
+
+  useEffect(() => {
+    let isMounted = true;
+    const loadBannerTest = async () => {
+      try {
+        const tests = await fetchWeeklyTests();
+        if (isMounted && tests && tests.length > 0) {
+          const now = Date.now();
+          const target = tests.find(t => new Date(t.window_end).getTime() > now) || tests[0];
+          setActiveTest(target);
+        }
+      } catch (e) {
+        console.warn("Could not load banner weekly test:", e);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+    loadBannerTest();
+    return () => { isMounted = false; };
+  }, []);
+
+  // Countdown to window end
+  useEffect(() => {
+    if (!activeTest?.window_end) return;
+    const tick = () => {
+      const diff = new Date(activeTest.window_end).getTime() - Date.now();
+      if (diff <= 0) { setTimeLeft('Closed'); return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      if (d > 0) setTimeLeft(`${d}d ${h}h left`);
+      else if (h > 0) setTimeLeft(`${h}h ${m}m left`);
+      else setTimeLeft(`${m}m left`);
+    };
+    tick();
+    const id = setInterval(tick, 60000);
+    return () => clearInterval(id);
+  }, [activeTest]);
+
+  if (!activeTest && !loading) return null;
+
+  const isLive = activeTest && new Date(activeTest.window_start).getTime() <= Date.now() && new Date(activeTest.window_end).getTime() > Date.now();
+  const isUpcoming = activeTest && new Date(activeTest.window_start).getTime() > Date.now();
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 mb-6 relative z-10">
+      <div
+        onClick={() => navigate('/global-tests')}
+        className="group relative overflow-hidden rounded-[1.4rem] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl active:scale-[0.99]"
+        style={{
+          background: 'linear-gradient(135deg, rgba(245,158,11,0.14) 0%, var(--color-surface, #1a1a2e) 50%, rgba(251,146,60,0.08) 100%)',
+          border: '1px solid rgba(245,158,11,0.35)',
+          boxShadow: '0 0 0 1px rgba(245,158,11,0.08) inset, 0 4px 24px rgba(245,158,11,0.08)',
+        }}
+      >
+        {/* Ambient glow blob */}
+        <div className="absolute -top-8 -left-8 w-44 h-44 rounded-full opacity-25 pointer-events-none blur-2xl" style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.6) 0%, transparent 70%)' }} />
+        <div className="absolute -bottom-6 right-24 w-36 h-36 rounded-full opacity-15 pointer-events-none blur-2xl" style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.8) 0%, transparent 70%)' }} />
+
+        <div className="relative z-10 flex items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4.5">
+          {/* Left: Icon + Info */}
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            {/* Icon */}
+            <div className="relative shrink-0">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center text-amber-500 shadow-sm" style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.25) 0%, rgba(245,158,11,0.1) 100%)', border: '1px solid rgba(245,158,11,0.3)' }}>
+                <Trophy size={18} className="sm:w-5 sm:h-5" strokeWidth={2} />
+              </div>
+              {isLive && (
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500 border border-amber-400/60"></span>
+                </span>
+              )}
+            </div>
+
+            {/* Text block */}
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1 flex-wrap">
+                {/* Live/Status Indicator */}
+                <span className={`inline-flex items-center gap-1 px-2 sm:px-2.5 py-0.5 rounded-full text-[8.5px] sm:text-[9px] font-black uppercase tracking-[0.14em] ${
+                  isLive 
+                    ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30' 
+                    : isUpcoming 
+                    ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
+                    : 'bg-zinc-500/15 text-zinc-400 border border-zinc-500/30'
+                }`}>
+                  {isLive && <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping" />}
+                  {isLive ? 'LIVE NOW' : isUpcoming ? 'COMING SOON' : 'WEEKLY TEST'}
+                </span>
+
+                {/* Refined Exam Capsule (Clean space without hyphens) */}
+                {activeTest?.exam_id && (
+                  <span className="px-2 sm:px-2.5 py-0.5 rounded-full text-[8.5px] sm:text-[9px] font-black uppercase tracking-[0.12em] bg-amber-500/10 text-amber-400 border border-amber-500/25">
+                    {formatExamName(activeTest.exam_id)}
+                  </span>
+                )}
+              </div>
+
+              <h4 className="text-xs sm:text-sm md:text-[15px] font-black text-theme-text tracking-tight leading-tight group-hover:text-amber-400 transition-colors duration-200 truncate">
+                {activeTest?.title || 'Weekly Mega Mock'}
+              </h4>
+
+              {/* Mobile metadata row (shown on small screens) */}
+              <div className="flex sm:hidden items-center gap-2 mt-1 text-[10px] font-bold text-zinc-400">
+                {activeTest?.total_questions && (
+                  <span className="text-white/90 font-extrabold">{activeTest.total_questions} Qs</span>
+                )}
+                {activeTest?.duration_mins && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="flex items-center gap-1 text-zinc-300">
+                      <Clock size={10} className="text-amber-400" />
+                      {activeTest.duration_mins}m
+                    </span>
+                  </>
+                )}
+                {timeLeft && isLive && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="font-extrabold text-amber-400">{timeLeft}</span>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right: 3D Glassmorphism Metadata + Start CTA */}
+          <div className="flex items-center gap-3.5 shrink-0">
+            {/* 3D Glassmorphism Metadata Pill (Desktop) */}
+            {(activeTest?.total_questions || activeTest?.duration_mins || timeLeft) && (
+              <div 
+                className="hidden sm:flex items-center rounded-full px-4 py-2 gap-3 text-[11px] font-bold backdrop-blur-md transition-all"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  boxShadow: 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 4px 16px -2px rgba(0, 0, 0, 0.3)',
+                }}
+              >
+                {activeTest?.total_questions && (
+                  <span className="text-white/90 font-black tracking-tight">{activeTest.total_questions} Qs</span>
+                )}
+                {activeTest?.duration_mins && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="flex items-center gap-1.5 text-zinc-300 font-semibold">
+                      <Clock size={11} className="text-amber-400 shrink-0" />
+                      {activeTest.duration_mins}m
+                    </span>
+                  </>
+                )}
+                {timeLeft && isLive && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="font-black text-amber-400 tracking-tight">{timeLeft}</span>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Start CTA Button */}
+            <button
+              className="shrink-0 whitespace-nowrap flex items-center justify-center gap-1.5 sm:gap-2 font-black text-[11px] sm:text-xs uppercase tracking-wider text-white px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg group-hover:brightness-110"
+              style={{ 
+                background: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)', 
+                boxShadow: '0 4px 16px rgba(245, 158, 11, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.35)' 
+              }}
+            >
+              <span>Start</span>
+              <ArrowRight size={13} className="shrink-0 group-hover:translate-x-0.5 transition-transform duration-200" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Home ───────────────────────────────────────────────────────────
 export default function Home() {
   const navigate = useNavigate();
@@ -842,15 +1033,13 @@ export default function Home() {
 
   // Navigation & State Management
   useEffect(() => {
-    // If we navigate to home ('/') and don't explicitly pass a selectedExamId,
-    // we should reset to the main dashboard. This handles clicking "Home" or the Logo.
     if (location.pathname === '/') {
       if (location.state?.selectedExamId) {
         navigate(`/exam/${location.state.selectedExamId}`, { replace: true });
       }
       setSelectedExam(null);
     }
-  }, [location, navigate]); // Depend on the whole location object (including key) to catch all navigations
+  }, [location, navigate]);
 
   useEffect(() => {
     setCategoryCounts(getAllCategoryCounts());
@@ -904,6 +1093,8 @@ export default function Home() {
             <HeroStart />
 
             <AnalyticsRecoveryWidget setStreakModalOpen={setStreakModalOpen} setCoinsVaultOpen={setCoinsVaultOpen} />
+
+            <GlobalWeeklyTestHeroBanner />
 
             <main className="max-w-7xl mx-auto px-6 py-6 relative z-10">
               {/* Exam Hub Section */}

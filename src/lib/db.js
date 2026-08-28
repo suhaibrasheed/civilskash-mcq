@@ -15,6 +15,7 @@ const PRACTICE_PREFS_STORE = 'practice_preferences';
 const SAVED_CHATS_STORE = 'saved_chats';
 const SAVED_OUTPUTS_STORE = 'saved_outputs';
 const OFFLINE_QUESTIONS_STORE = 'offline_questions';
+const WEEKLY_VAULT_STORE = 'weekly_test_vault';
 const SRS_INTERVALS = [1, 3, 7, 15, 30, 60];
 
 const REQUIRED_STORES = [
@@ -29,6 +30,7 @@ const REQUIRED_STORES = [
   SAVED_CHATS_STORE,
   SAVED_OUTPUTS_STORE,
   OFFLINE_QUESTIONS_STORE,
+  WEEKLY_VAULT_STORE,
 ];
 
 let dbPromise = null;
@@ -111,6 +113,9 @@ export const initDB = () => {
           }
           if (!upgradeDb.objectStoreNames.contains(OFFLINE_QUESTIONS_STORE)) {
             upgradeDb.createObjectStore(OFFLINE_QUESTIONS_STORE, { keyPath: 'id' });
+          }
+          if (!upgradeDb.objectStoreNames.contains(WEEKLY_VAULT_STORE)) {
+            upgradeDb.createObjectStore(WEEKLY_VAULT_STORE, { keyPath: 'testId' });
           }
         };
 
@@ -1274,4 +1279,57 @@ export const getReferralCardsFromDB = async (username) => {
     console.warn('Failed to fetch referral cards from local DB:', e);
     return [];
   }
+};
+
+/**
+ * Saves full user attempt for a weekly test into IndexedDB sealed vault.
+ * @param {object} attempt
+ */
+export const saveWeeklyTestAttemptLocally = async (attempt) => {
+  return withDBErrorHandler(async () => {
+    const db = await initDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([WEEKLY_VAULT_STORE], 'readwrite');
+      const store = tx.objectStore(WEEKLY_VAULT_STORE);
+      const req = store.put({
+        ...attempt,
+        savedAt: new Date().toISOString()
+      });
+      req.onsuccess = () => resolve(true);
+      req.onerror = () => reject(req.error);
+    });
+  });
+};
+
+/**
+ * Retrieves a single locally saved weekly test attempt.
+ * @param {string} testId
+ */
+export const getWeeklyTestAttemptLocally = async (testId) => {
+  return withDBErrorHandler(async () => {
+    const db = await initDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction([WEEKLY_VAULT_STORE], 'readonly');
+      const store = tx.objectStore(WEEKLY_VAULT_STORE);
+      const req = store.get(testId);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => resolve(null);
+    });
+  });
+};
+
+/**
+ * Retrieves all locally stored weekly test attempts.
+ */
+export const getAllWeeklyTestAttemptsLocally = async () => {
+  return withDBErrorHandler(async () => {
+    const db = await initDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction([WEEKLY_VAULT_STORE], 'readonly');
+      const store = tx.objectStore(WEEKLY_VAULT_STORE);
+      const req = store.getAll();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = () => resolve([]);
+    });
+  });
 };
