@@ -143,8 +143,8 @@ export default function DigitalAdmitCardModal({
               <span className="text-[9.5px] font-bold text-emerald-400 uppercase tracking-wider block mb-0.5 flex items-center gap-1">
                 <Award size={10} /> Evaluation
               </span>
-              <span className="font-black text-xs text-emerald-300 block truncate">
-                Instant Scorecard & Merit
+              <span className="font-black text-xs text-emerald-300 block">
+                Instant
               </span>
             </div>
           </div>
