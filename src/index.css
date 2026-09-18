@@ -1812,7 +1812,8 @@ textarea.text-theme-text {
 .mcq-option-selected, 
 .mcq-option-correct, 
 .mcq-option-wrong, 
-.mcq-option-muted {
+.mcq-option-muted,
+.nk-mcq-option-text {
   font-size: calc(0.875rem * var(--text-scale)) !important;
 }
 
@@ -1841,6 +1842,30 @@ textarea.text-theme-text {
 .mentor-response h4 { font-size: calc(1.25rem * var(--text-scale)) !important; }
 .mentor-response h5 { font-size: calc(1.125rem * var(--text-scale)) !important; }
 .mentor-response h6 { font-size: calc(1rem * var(--text-scale)) !important; }
+
+/* ==========================================================================
+   Creator Studio MCQ Typography Normalization
+   ========================================================================== */
+.nk-editor-area .nk-mcq-block {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+.nk-editor-area .nk-mcq-question {
+  font-size: 1.05rem !important;
+  font-weight: 650 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 14px !important;
+  color: var(--color-text) !important;
+}
+.nk-editor-area .nk-mcq-option-text {
+  font-size: 0.95rem !important;
+  line-height: 1.45 !important;
+  color: var(--color-text) !important;
+}
+.nk-editor-area .nk-mcq-explanation {
+  font-size: 0.90rem !important;
+  line-height: 1.55 !important;
+  color: var(--color-text) !important;
+}
 
 /* Custom range slider styling */
 .custom-range-slider {

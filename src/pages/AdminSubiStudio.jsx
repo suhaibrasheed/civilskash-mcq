@@ -1547,22 +1547,97 @@ export default function AdminSubiStudio() {
 
   const handleEditorPaste = (e) => {
     e.preventDefault();
-
-    // 1. Check for native MCQKash HTML first (has nk-mcq-block) — pass through directly
+    // 1. Check for native NoteKash / MCQKash HTML
     const pastedHtml = e.clipboardData.getData('text/html');
     if (pastedHtml && pastedHtml.includes('nk-mcq-block')) {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = pastedHtml;
-      // Re-assign fresh UUIDs to avoid duplicate IDs
       tempDiv.querySelectorAll('.nk-mcq-block').forEach(block => {
+        // Strip duplicate / database IDs
         block.removeAttribute('id');
         block.removeAttribute('data-db-id');
+        block.removeAttribute('data-answered');
+        block.removeAttribute('data-user-incorrect');
+        // Normalize Question Stem
+        const qEl = block.querySelector('.nk-mcq-question');
+        if (qEl) {
+          qEl.setAttribute('contenteditable', 'true');
+          qEl.setAttribute('data-placeholder', 'Question text...');
+          // Strip unwanted inline style tags that might have leaked from note themes
+          qEl.removeAttribute('style');
+        }
+        // Normalize Toolbar: Replace foreign FontAwesome <i> tags with MCQKash native SVGs
+        let toolbar = block.querySelector('.nk-mcq-toolbar');
+        if (!toolbar) {
+          toolbar = document.createElement('div');
+          toolbar.className = 'nk-mcq-toolbar';
+          toolbar.setAttribute('contenteditable', 'false');
+          block.prepend(toolbar);
+        }
+        toolbar.innerHTML = `
+          <button class="nk-mcq-copy-block" title="Copy MCQ">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+          <button class="nk-mcq-delete-block" title="Delete MCQ">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+          </button>
+        `;
+        // Normalize Options
+        block.querySelectorAll('.nk-mcq-option').forEach(opt => {
+          opt.classList.remove('correct', 'incorrect');
+          
+          let radio = opt.querySelector('.nk-mcq-option-radio');
+          if (!radio) {
+            radio = document.createElement('div');
+            radio.className = 'nk-mcq-option-radio';
+            opt.prepend(radio);
+          }
+          radio.setAttribute('contenteditable', 'false');
+          const optText = opt.querySelector('.nk-mcq-option-text');
+          if (optText) {
+            optText.setAttribute('contenteditable', 'true');
+            optText.removeAttribute('style');
+          }
+          let delBtn = opt.querySelector('.nk-mcq-delete-option');
+          if (!delBtn) {
+            delBtn = document.createElement('button');
+            delBtn.className = 'nk-mcq-delete-option';
+            opt.appendChild(delBtn);
+          }
+          delBtn.setAttribute('contenteditable', 'false');
+          delBtn.setAttribute('title', 'Remove Option');
+          delBtn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          `;
+        });
+        // Normalize "+ Add Option" Button
+        let addOptBtn = block.querySelector('.nk-mcq-add-option');
+        if (addOptBtn) {
+          addOptBtn.className = 'nk-mcq-add-option';
+          addOptBtn.setAttribute('contenteditable', 'false');
+          addOptBtn.innerText = '+ Add Option';
+        }
+        // Normalize Explanation Element
+        const expEl = block.querySelector('.nk-mcq-explanation');
+        if (expEl) {
+          expEl.setAttribute('contenteditable', 'true');
+          expEl.setAttribute('data-placeholder', 'Add answer explanation (optional)...');
+          expEl.removeAttribute('style');
+        }
       });
       document.execCommand('insertHTML', false, tempDiv.innerHTML);
       saveEditorBackup();
+      updateLiveGlobalCount();
       return;
     }
-
     // 2. Fall back to plain text with markdown conversion
     const text = e.clipboardData.getData('text/plain');
     let converted = convertMarkdownTablesToHtml(text);
@@ -1573,6 +1648,7 @@ export default function AdminSubiStudio() {
       document.execCommand('insertText', false, text);
     }
     saveEditorBackup();
+    updateLiveGlobalCount();
   };
 
   const executeConvertToMCQ = (useSelection = false) => {
