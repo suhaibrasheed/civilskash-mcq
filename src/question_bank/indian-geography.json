@@ -1,5 +1,635 @@
 [
   {
+    "id": "868dc297-c8b5-4fb5-8b33-5ec91f800302",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "The North-South Corridor and East-West Corridor under the National Highways Development Project (NHDP) intersect at which of the following cities?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nagpur",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bhopal",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Jhansi",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Gwalior",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">North-South Corridor</span> <span class=\"text-green font-bold\">(Srinagar to Kanyakumari)</span> and the <span class=\"text-orange font-bold\">East-West Corridor</span> <span class=\"text-magenta font-bold\">(Silchar to Porbandar)</span> <span class=\"text-red font-bold\">intersect at Jhansi in Uttar Pradesh</span>. Both major corridors have a <span class=\"text-teal font-bold\">combined length of over 7,000 km</span> and are executed by the <span class=\"text-blue font-bold\">National Highways Authority of India (NHAI)</span>.<div><img src=\"https://www.chittorgarh.net/images/chittorgarh_on_golden_quardilateral.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2020",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "cb7e4827-0522-44fb-b17b-439ba88a0e37",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is the longest National Highway in India, running from Srinagar in the north to Kanyakumari in the south?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "National Highway 27",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "National Highway 44",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "National Highway 48",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "National Highway 53",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">NH 44</span> is India's longest National Highway, stretching over <span class=\"text-orange font-bold\">3,745 km</span> from Srinagar (J&amp;K) to Kanyakumari (Tamil Nadu). It was created by <span class=\"text-teal font-bold\">merging several older national highways</span>, primarily <span class=\"text-blue font-bold\">NH 1A, NH 1, NH 2, NH 3, NH 75, NH 26, and NH 7</span>. <div> <img src=\"https://www.vedantu.com/seo/content-images/144af0a1-6b4a-4dea-9ba7-78b3d24d1e73_National_Highways_in_India.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div><div>   </div></div></div>",
+    "pyq": "JKSSB FAA 2022",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "1083ad4e-716c-4067-a8c7-348218d664c3",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding the rationalized National Highway numbering system introduced by MoRTH:<br>1. All North-South orientation highways are assigned even numbers, increasing from East to West.<br>2. All East-West orientation highways are assigned odd numbers, increasing from North to South.<br>3. Three-digit highway numbers designate subsidiary or branch routes of the primary two-digit national highway.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "Under the <span class=\"text-teal font-bold\">rationalized MoRTH highway numbering format</span>, all <span class=\"text-green font-bold\">North-South highways carry even numbers</span> (e.g., NH 44) with <span class=\"text-orange font-bold\">digits increasing from East to West</span>, whereas <span class=\"text-red font-bold\">East-West highways carry odd numbers</span> (e.g., NH 27) <span class=\"text-magenta font-bold\">increasing from North to South</span>. <span class=\"text-blue font-bold\">Three-digit numbers</span> (like NH 144 or NH 244) represent <span class=\"text-teal font-bold\">secondary branches/spurs of the parent two-digit highway</span>.<div><img src=\"https://www.team-bhp.com/forum/attachments/route-travel-queries/2278935d1646066601-numbering-philosophy-national-highways-india-whatsapp-image-20220228-21.24.05.jpeg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>   </div></div>",
+    "pyq": "JKSSB SI 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "f6a47d5f-7a26-4cb1-9fa1-73724100fcc8",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "The Hazira-Vijaipur-Jagdishpur (HVJ) gas pipeline, constructed by GAIL, connects which of the following groups of Indian states?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gujarat, Madhya Pradesh, and Uttar Pradesh",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Maharashtra, Karnataka, and Tamil Nadu",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Odisha, Jharkhand, and West Bengal",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Assam, Bihar, and Uttar Pradesh",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Hazira-Vijaipur-Jagdishpur (HVJ) pipeline</span> runs from <span class=\"text-green font-bold\">Hazira in Gujarat</span>, passes through <span class=\"text-orange font-bold\">Vijaipur in Madhya Pradesh</span>, and reaches <span class=\"text-magenta font-bold\">Jagdishpur in Uttar Pradesh</span>. It was India's first cross-country natural gas pipeline, supplying feedstock to <span class=\"text-teal font-bold\">fertilizer and power plants</span> across northwestern India.<div><img src=\"https://www.mapsofindia.com/maps/oilandgasmaps/gas-pipeline-network.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2019",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "f2447ba1-e462-4705-beaf-2d3d1c974a10",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following was the route of the first passenger train operated in India on 16th April 1853?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Howrah to Hooghly",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Bombay to Thane",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Madras to Arkonam",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Delhi to Agra",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">first passenger train in India</span> ran on <span class=\"text-green font-bold\">16th April 1853</span> between <span class=\"text-blue font-bold\">Bori Bunder (Bombay) and Thane</span>, covering a distance of <span class=\"text-orange font-bold\">34 km</span>. It was operated by the <span class=\"text-magenta font-bold\">Great Indian Peninsula Railway</span> using <span class=\"text-teal\" style=\"font-weight: 800;\">three steam locomotives</span> named <span class=\"text-teal font-bold\">Sahib, Sindh, and Sultan</span>. <div><img src=\"https://i.pinimg.com/originals/8a/37/79/8a3779f73124f46496760c89b311bef0.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>  </div></div>",
+    "pyq": "SSC CGL Tier 1 2021",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "25a64dca-a14d-4972-b60f-49c6bb4154d3",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "With reference to the Dedicated Freight Corridors (DFCs) in India, consider the following statements:<br>1. The Western Dedicated Freight Corridor (WDFC) runs from Dadri in Uttar Pradesh to Jawaharlal Nehru Port (JNPT) in Maharashtra.<br>2. The Eastern Dedicated Freight Corridor (EDFC) originates at Sahnewal (Ludhiana) in Punjab and terminates at Dankuni in West Bengal.<br>3. Both Eastern and Western DFCs permit double-stack container train operations along their entire routes.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">Statements 1 and 2 are correct</span> as they accurately outline the<span class=\"text-green\" style=\"font-weight: 800;\"> termini of WDFC and EDFC</span><span class=\"text-blue font-bold\"></span>. <span class=\"text-red font-bold\"></span><span class=\"text-orange\" style=\"font-weight: 800;\">Statement 3 is incorrect </span>because <span class=\"text-orange font-bold\">double-stack container trains</span> operate specifically on the <span class=\"text-magenta font-bold\">Western DFC</span> due to its <span class=\"text-teal font-bold\">higher overhead catenary wire clearance (7.1 m)</span>; the Eastern DFC uses standard catenary clearance primarily meant for <span class=\"text-blue font-bold\">heavy bulk traffic like coal, cement, and steel</span>.",
+    "pyq": "UPSC Prelims 2021",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "3487a5fe-4cdb-495c-97a0-48edd2e62fc9",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following ports was developed on the western coast to decongest Mumbai Port and is currently India's largest container port?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deendayal Port (Kandla)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Jawaharlal Nehru Port (Nhava Sheva)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "New Mangalore Port",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "V.O. Chidambaranar Port",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Jawaharlal Nehru Port (JNPT)</span>, also known as <span class=\"text-green font-bold\">Nhava Sheva</span>, was <span class=\"text-orange font-bold\">commissioned in 1989</span> on the <span class=\"text-magenta font-bold\">Arabian Sea coast of Maharashtra</span> to <span class=\"text-teal font-bold\">ease severe traffic congestion at Mumbai Port</span>. It handles <span class=\"text-red font-bold\">over 50% of the total containerized cargo</span> across India's major ports.<div><img src=\"https://media02.stockfood.com/largepreviews/NDU0NzA5Mjcx/14668041-Aerial-view-of-a-sprawling-port-packed-with-colorful-shipping-containers-stretching-to-the-ocean-backed-by.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\">  <img src=\"https://d18x2uyjeekruj.cloudfront.net/wp-content/uploads/2025/01/Seaports-in-india-1.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "JKSSB SI 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "936147e1-dd72-4cb8-a0a0-c55ddf6ec800",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding the governance and classification of Major Ports in India:<br>1. Major ports are governed under the Union List of the Seventh Schedule of the Indian Constitution, while Non-Major ports fall under the Concurrent List.<br>2. The Major Port Authorities Act, 2021 transitioned Indian major ports from an operational service port model toward a landlord port model.<br>3. Jawaharlal Nehru Port (JNPT) became the first 100% landlord major port in India with all berth operations managed via PPP concessions.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">All three statements are correct</span>. <span class=\"text-blue font-bold\">Major ports are central subjects (Union List Entry 27)</span>, while <span class=\"text-orange font-bold\">non-major ports are under Entry 31 of the Concurrent List</span>. The <span class=\"text-magenta font-bold\">Major Port Authorities Act 2021</span> formally adopted the <span class=\"text-teal font-bold\">landlord port model</span>, and in <span class=\"text-red font-bold\">July 2022</span>, <span class=\"text-green\" style=\"font-weight: 800;\">JNPT became India's first 100% landlord major port </span>with all container berths operated by private partners.<div>   </div>",
+    "pyq": "State PSC Prelims",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "7f2b2cfe-fd35-4286-a11b-f978518a6b5d",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "easy",
+    "question": "National Waterway-1 (NW-1), the longest national waterway in India, is developed on which of the following river stretches?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Brahmaputra River from Sadiya to Dhubri",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Ganga-Bhagirathi-Hooghly River from Prayagraj to Haldia",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Godavari-Krishna River system along with Buckingham Canal",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "West Coast Canal from Kottapuram to Kollam",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">National Waterway-1 (NW-1)</span> spans <span class=\"text-orange font-bold\">1,620 km</span> across <span class=\"text-magenta font-bold\">Uttar Pradesh, Bihar, Jharkhand, and West Bengal</span> along the <span class=\"text-teal font-bold\">Ganga-Bhagirathi-Hooghly river system</span>. It was the <span class=\"text-red font-bold\">first waterway to be declared a National Waterway</span> in <span class=\"text-green font-bold\">October 1986</span>.<div><img src=\"https://d2av8kbir6lh9m.cloudfront.net/uploads/KVnvEoG714CbHoRL3w0I9UVswVZ1TmcXefySe9VN.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2020",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "c2232045-66c3-4755-b2a6-9b55c92bc5c9",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following pairs of National Waterways and their corresponding routes is INCORRECTLY matched?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "NW-1 - Ganga river from Prayagraj to Haldia",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "NW-2 - Brahmaputra river from Sadiya to Dhubri",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "NW-3 - West Coast Canal from Kottapuram to Kollam",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "NW-4 - Brahmani River and Matai River with East Coast Canal",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">National Waterway-4 (NW-4)</span> covers the <span class=\"text-green font-bold\">Krishna and Godavari rivers</span> along with the <span class=\"text-orange font-bold\">Kakinada-Puducherry canal system</span>. The <span class=\"text-magenta font-bold\">Brahmani river, Matai river, and East Coast Canal system</span> constitute <span class=\"text-teal font-bold\">National Waterway-5 (NW-5)</span>.<div><img src=\"https://lotusarise.com/wp-content/uploads/2024/05/inland-waterways-in-india.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>   </div></div>",
+    "pyq": "JKSSB FAA 2022",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "9e9ab805-781f-4ea1-8181-a2381066a63d",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "With reference to Inland Waterways in India and the National Waterways Act 2016, consider the following statements:<br>1. The National Waterways Act, 2016 repealed five earlier individual waterway acts and declared 111 inland waterways as National Waterways.<br>2. National Waterway-2 (NW-2) on the Brahmaputra River facilitates Indo-Bangladesh cross-border transit under the Protocol on Inland Water Transit and Trade (PIWTT).<br>3. The Inland Waterways Authority of India (IWAI) is a statutory regulatory body operating under the Ministry of Jal Shakti.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-green font-bold\">Statements 1 and 2 are correct</span>. <div><span class=\"text-red font-bold\">Statement 3 is incorrect</span> because the <span class=\"text-blue font-bold\">Inland Waterways Authority of India (IWAI)</span>, <span class=\"text-orange font-bold\">established in 1986 under the IWAI Act 1985</span>, operates under the <span class=\"text-magenta font-bold\">Ministry of Ports, Shipping and Waterways (MoPSW)</span>, <span class=\"text-teal font-bold\">NOT the Ministry of Jal Shakti</span>.</div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "bd5af606-a2c6-4234-bb48-603de127b659",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "<div>Which of the following regarding Postal Index Number (PIN) are correct?</div>1) The 6-digit Postal Index Number (PIN) system introduced in India in 1972 by Shriram Bhikaji.<div>2) The 1st digit of PIN indicates the specific delivery post office while The 3rd digit of PIN indicates the postal zone.</div><div>3) The 2nd digit of PIN indicates the Sub-zone.</div>",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2 and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Postal Index Number (PIN) system</span> was introduced in India on <span class=\"text-green font-bold\">15th August 1972</span> by <span class=\"text-orange font-bold\">Shriram Bhikaji Velankar</span>. The 6 digits signify: <span class=\"text-red font-bold\">1st digit = postal zone</span>, <span class=\"text-magenta font-bold\">2nd digit = sub-zone</span>, <span class=\"text-teal font-bold\">3rd digit = sorting district</span>, and the <span class=\"text-blue font-bold\">last 3 digits = specific delivery post office</span>.<div><img src=\"https://www.postgrid.com/wp-content/uploads/2026/04/image8-1536x838.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div> <span class=\"text-rose-500 font-bold\"> </span>  </div></div>",
+    "pyq": "SSC CGL Tier 1 2024",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "fe626261-62bc-4f97-bde2-4abeb067f676",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "Which of the following mountain railways of India is NOT included in the UNESCO World Heritage site \"Mountain Railways of India\"?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "Darjeeling Himalayan Railway",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Nilgiri Mountain Railway",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Kalka-Shimla Railway",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Matheran Hill Railway",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-red font-bold\">UNESCO World Heritage site</span> \"<span class=\"text-blue font-bold\">Mountain Railways of India</span>\" comprises three lines: <span class=\"text-green font-bold\">Darjeeling Himalayan Railway (inscribed 1999)</span>, <span class=\"text-orange font-bold\">Nilgiri Mountain Railway (inscribed 2005)</span>, and <span class=\"text-magenta font-bold\">Kalka-Shimla Railway (inscribed 2008)</span>. The <span class=\"text-teal font-bold\">Matheran Light Railway is on the tentative list</span> but is not yet formally inscribed.<div><div class=\"nk-video-wrapper\" data-video-url=\"https://youtu.be/WvWRqnsiOhc\" data-video-platform=\"youtube\" data-video-aspect=\"16/9\" data-align=\"center\" style=\"width:100%; max-width:700px; aspect-ratio:16/9;\n            position:relative; display:block; overflow:hidden; border-radius:14px;\n            background:;\n            border: 1px solid rgba(255,255,255,0.09);\n            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);\n            cursor:pointer;\">\n\n  <!-- Poster / background layer -->\n  <div class=\"nk-video-poster\" style=\"position:absolute; inset:0; width:100%; height:100%;\n              display:flex; align-items:center; justify-content:center;\n              background-image: url(https://img.youtube.com/vi/WvWRqnsiOhc/maxresdefault.jpg); background-size: cover; background-position: center;\">\n\n    <!-- Film-grain noise overlay (subtle texture) -->\n    <div style=\"position:absolute; inset:0; url(\" data:image=\"\" svg+xml,%3csvg=\"\" viewbox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" %3e%3cfilter=\"\" id=\"n\" %3e%3cfeturbulence=\"\" type=\"fractalNoise\" basefrequency=\"0.75\" numoctaves=\"4\" stitchtiles=\"stitch\" %3e%3c=\"\" filter%3e%3crect=\"\" width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\" opacity=\"0.06\" svg%3e\");=\"\" background-repeat:repeat;=\"\" pointer-events:none;=\"\" mix-blend-mode:overlay;=\"\" opacity:0.4;\"=\"\"></div>\n\n    <!-- Cinematic vignette -->\n    <div style=\"position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);\"></div>\n\n    <!-- Play button -->\n    \n    <div style=\"position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;\">\n      <!-- glow ring -->\n      <div style=\"position:absolute; width:88px; height:88px; border-radius:50%;\n                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);\n                  filter: blur(8px); transform: scale(1.1);\">\n      </div>\n      <!-- outer ring border -->\n      <div style=\"position:absolute; width:72px; height:72px; border-radius:50%;\n                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;\">\n      </div>\n      <!-- glass button -->\n      <button class=\"nk-video-play-btn\" style=\"position:relative; z-index:10; width:64px; height:64px; border-radius:50%;\n                     background: rgba(255,255,255,0.11);\n                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);\n                     border: 1.5px solid rgba(255,255,255,0.28);\n                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);\n                     display:flex; align-items:center; justify-content:center;\n                     cursor:pointer; outline:none; transition: all 0.3s ease;\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"white\" style=\"margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));\">\n          <path d=\"M8 5v14l11-7z\"></path>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2022",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "96575d0b-72e3-4813-a1a0-d11f12e86f5d",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding Indian Railway infrastructure and engineering landmarks:<br>1. The new Pamban Rail Bridge in Tamil Nadu is designed as India's first vertical-lift sea bridge connecting the mainland to Rameswaram.<br>2. The Konkan Railway Corporation Limited (KRCL) was financed without any equity contribution from the states traversed by the line.<br>3. The Chenab Rail Bridge in Reasi district of J&amp;K is the world's highest railway arch bridge, built as part of the USBRL national project.<br>Which of the statements given above are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Statement 2 is incorrect</span> because <span class=\"text-blue font-bold\">KRCL</span> was established as a joint venture with equity participation shared between the <span class=\"text-orange font-bold\">Ministry of Railways (51%)</span> and four beneficiary states: <span class=\"text-magenta font-bold\">Maharashtra (22%), Karnataka (15%), Goa (6%), and Kerala (6%)</span>.",
+    "pyq": "JKSSB SI  / RRB NTPC 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "3fc1e7cf-9b7d-4e40-8cdb-fd9c70f76767",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "easy",
+    "question": "Where is the headquarters of the Northern Railway zone of Indian Railways located?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gorakhpur",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "New Delhi",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Prayagraj",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Jaipur",
+        "label": "D"
+      }
+    ],
+    "explanation": "The <span class=\"text-blue font-bold\">Northern Railway zone</span>, <span class=\"text-green font-bold\">created in 1952</span>, is headquartered at <span class=\"text-orange font-bold\">Baroda House, New Delhi</span>. <span class=\"text-magenta font-bold\">Gorakhpur is the headquarters of North Eastern Railway</span>, <span class=\"text-teal font-bold\">Prayagraj heads North Central Railway</span>, and <span class=\"text-red font-bold\"><span class=\"text-blue\" style=\"font-weight: 800;\">Jaipur heads North Western Railway</span></span>.<div>   </div>",
+    "pyq": "SSC CGL Tier 1 2022",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "01af26b4-c957-49e4-8f86-739bc81fe536",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding satellite and digital communication infrastructure in India:<br>1. INSAT-1A, India's first multipurpose operational communication and meteorological satellite, was launched in 1982.<br>2. GSAT-7 (Rukmini) was developed by ISRO as India's first dedicated military communications satellite for the Indian Navy.<br>3. The BharatNet project (originally NOFN) is designed to connect all Gram Panchayats exclusively through wireless microwave transmission links.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Statement 3 is incorrect</span> because <span class=\"text-blue font-bold\">BharatNet</span> is primarily an <span class=\"text-orange font-bold\">optical fibre network infrastructure project</span> (using underground and aerial <span class=\"text-magenta font-bold\">Optical Fibre Cable - OFC)</span>, utilizing <span class=\"text-teal font-bold\">radio/satellite connections only in inaccessible or hilly terrain</span> where laying fibre is unfeasible.<div><div class=\"nk-video-wrapper\" data-video-url=\"https://youtu.be/MUiZJ-HjGGI\" data-video-platform=\"youtube\" data-video-aspect=\"16/9\" data-align=\"center\" style=\"width:100%; max-width:700px; aspect-ratio:16/9;\n            position:relative; display:block; overflow:hidden; border-radius:14px;\n            background:;\n            border: 1px solid rgba(255,255,255,0.09);\n            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);\n            cursor:pointer;\">\n\n  <!-- Poster / background layer -->\n  <div class=\"nk-video-poster\" style=\"position:absolute; inset:0; width:100%; height:100%;\n              display:flex; align-items:center; justify-content:center;\n              background-image: url(https://img.youtube.com/vi/MUiZJ-HjGGI/maxresdefault.jpg); background-size: cover; background-position: center;\">\n\n    <!-- Film-grain noise overlay (subtle texture) -->\n    <div style=\"position:absolute; inset:0; url(\" data:image=\"\" svg+xml,%3csvg=\"\" viewbox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" %3e%3cfilter=\"\" id=\"n\" %3e%3cfeturbulence=\"\" type=\"fractalNoise\" basefrequency=\"0.75\" numoctaves=\"4\" stitchtiles=\"stitch\" %3e%3c=\"\" filter%3e%3crect=\"\" width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\" opacity=\"0.06\" svg%3e\");=\"\" background-repeat:repeat;=\"\" pointer-events:none;=\"\" mix-blend-mode:overlay;=\"\" opacity:0.4;\"=\"\"></div>\n\n    <!-- Cinematic vignette -->\n    <div style=\"position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 100%);\"></div>\n\n    <!-- Play button -->\n    \n    <div style=\"position:relative; z-index:10; display:flex; flex-direction:column; align-items:center;\">\n      <!-- glow ring -->\n      <div style=\"position:absolute; width:88px; height:88px; border-radius:50%;\n                  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);\n                  filter: blur(8px); transform: scale(1.1);\">\n      </div>\n      <!-- outer ring border -->\n      <div style=\"position:absolute; width:72px; height:72px; border-radius:50%;\n                  border: 1.5px solid rgba(255,255,255,0.22); pointer-events:none;\">\n      </div>\n      <!-- glass button -->\n      <button class=\"nk-video-play-btn\" style=\"position:relative; z-index:10; width:64px; height:64px; border-radius:50%;\n                     background: rgba(255,255,255,0.11);\n                     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);\n                     border: 1.5px solid rgba(255,255,255,0.28);\n                     box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.2);\n                     display:flex; align-items:center; justify-content:center;\n                     cursor:pointer; outline:none; transition: all 0.3s ease;\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"white\" style=\"margin-left:3px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));\">\n          <path d=\"M8 5v14l11-7z\"></path>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "d3bbaa63-cdb6-4e88-982c-a464fac17e6d",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "medium",
+    "question": "Under the UDAN (Ude Desh ka Aam Nagrik) regional airport connectivity scheme, how is the Viability Gap Funding (VGF) provided to participating airlines primarily financed?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Through direct budgetary cuts from railway development funds",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Through a Regional Connectivity Fund (RCF) levied on scheduled flights on major trunk routes",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Exclusively through matching grants from coastal port authorities",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Through zero-interest soft loans issued by the Reserve Bank of India",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Viability Gap Funding (VGF)</span> under the <span class=\"text-green font-bold\">UDAN scheme</span> is supported by the <span class=\"text-orange font-bold\">Regional Connectivity Fund (RCF)</span>, created by imposing a small <span class=\"text-magenta font-bold\">cess/levy on passenger departures on profitable trunk routes</span>. The central government funds <span class=\"text-red font-bold\">80% (90% for North-Eastern states and UTs)</span> and the respective state government provides the <span class=\"text-teal font-bold\">remaining share</span>.",
+    "pyq": "SSC CGL Tier 1 2023",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
+    "id": "7afa44e0-7c47-4afe-a055-f0d56bc19c34",
+    "category_id": "indian-geography",
+    "tags": [
+      "Transport And Communication"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following major ports is the only riverine major port in India?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mormugao Port",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Syama Prasad Mookerjee Port (Kolkata)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Deendayal Port (Kandla)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Paradip Port",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Syama Prasad Mookerjee Port</span> <span class=\"text-green font-bold\">(formerly Kolkata Port Trust)</span> is India's only major riverine port, situated on the <span class=\"text-orange font-bold\">banks of the tidal Hooghly River</span>. It comprises two distinct dock systems: the <span class=\"text-magenta font-bold\">Kolkata Dock System (KDS)</span> and the <span class=\"text-teal font-bold\">deep-water Haldia Dock Complex (HDC)</span>.",
+    "pyq": "JKSSB Graduate Level 2021",
+    "created_at": "2026-09-23T14:47:05.029637+00:00"
+  },
+  {
     "id": "234e3b0f-bf35-442a-a135-261da00733ce",
     "category_id": "indian-geography",
     "tags": [
