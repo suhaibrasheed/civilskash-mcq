@@ -1,5 +1,530 @@
 [
   {
+    "id": "50f329cf-f24e-4639-ad90-4c11cb5c6094",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following pairs of crops and their primary cropping seasons in Northern India:<br>1. Mustard : Rabi<br>2. Groundnut : Kharif<br>3. Watermelon : Zaid<br>4. Gram (Chickpea) : Kharif<br>Which of the pairs given above are correctly matched?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1, 2, and 3 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 4 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 3, and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Mustard and Gram (chickpea)</span> are <span class=\"text-blue font-bold\">major Rabi crops</span> sown in winter <span class=\"text-green font-bold\">(October–December)</span> and harvested in spring <span class=\"text-orange font-bold\">(April–June)</span>. <span class=\"text-magenta font-bold\">Groundnut</span> is a <span class=\"text-teal font-bold\">premier Kharif oilseed crop</span>, and <span class=\"text-red font-bold\">Watermelon</span> is a <span class=\"text-blue font-bold\">quintessential summer Zaid crop</span> grown between <span class=\"text-green font-bold\">March and June</span>.<div><img src=\"https://cdn.testbook.com/1761242390144-Cropping%20Seasons%20in%20India.png/1761242392.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> <br><div>   </div></div>",
+    "pyq": "SSC CGL Tier 1 2021",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "90694fb1-22aa-499d-89b5-26fd94c4c710",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "easy",
+    "question": "A particular commercial crop of India requires high temperature, light rainfall or irrigation, at least 210 frost-free days, and bright sunshine for its growth. It grows best on well-drained black cotton soils (regur). Which crop is this?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Jute",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Cotton",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Sugarcane",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Tobacco",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Cotton</span> requires <span class=\"text-blue font-bold\">210 frost-free days</span>, warm temperatures <span class=\"text-green font-bold\">(21°C–30°C)</span>, and <span class=\"text-orange font-bold\">bright sunshine</span>, flourishing primarily in the <span class=\"text-magenta font-bold\">Deccan trap black soils</span> of <span class=\"text-teal font-bold\">Gujarat and Maharashtra</span>. <div><span class=\"text-red font-bold\">Jute</span> requires<span class=\"text-teal\" style=\"font-weight: 800;\"> heavy rainfall (&gt;150 cm)</span> and floodplains, while <span class=\"text-orange font-bold\">Sugarcane</span> requires <span class=\"text-magenta font-bold\">75–100 cm rainfall</span> and <span class=\"text-teal font-bold\">tropical warmth</span>.   </div>",
+    "pyq": "UPSC Prelims 2020",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "e72e2e1f-0395-4a09-9e81-33b604567bfd",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "hard",
+    "question": "In India, primitive subsistence farming or 'slash and burn' agriculture is known by various regional names. Which of the following pairs are correctly matched?<br>1. Dahiya / Bewar – Madhya Pradesh<br>2. Podu / Penda – Andhra Pradesh<br>3. Kumari – Western Ghats<br>4. Kuruwa – Jharkhand",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2, 3, and 4 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1, 3, and 4 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, 3, and 4",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">All four pairs are correctly matched</span> as per standard <span class=\"text-blue font-bold\">NCERT</span>. <span class=\"text-green font-bold\">Shifting cultivation</span> is called <span class=\"text-orange font-bold\">Jhum</span> in the <span class=\"text-magenta font-bold\"><span class=\"text-orange\" style=\"font-weight: 800;\">North-East</span></span>, <span class=\"text-teal font-bold\">Bewar/Dahiya</span> in <span class=\"text-red font-bold\"><span class=\"text-teal\" style=\"font-weight: 800;\">Madhya Pradesh</span></span>, <span class=\"text-blue font-bold\">Podu/Penda</span> in <span class=\"text-green font-bold\"><span class=\"text-blue\" style=\"font-weight: 800;\">Andhra Pradesh</span></span>, <span class=\"text-orange font-bold\"><span class=\"text-magenta\" style=\"font-weight: 800;\">Kumari</span></span> in the <span class=\"text-magenta font-bold\">Western Ghats</span>, <span class=\"text-teal font-bold\">Kuruwa</span> in <span class=\"text-red font-bold\"></span><span class=\"text-teal\" style=\"font-weight: 800;\">Jharkhand,</span> and <span class=\"text-blue font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">Bringa/Koman/Dabi</span></span> in <span class=\"text-green font-bold\">Odisha</span>.<div><img src=\"https://assets.tractorjunction.com/tractor-junction/blog/2023/07/Other-Names-of-Jhum-Cultivation-in-India.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "SSC CGL Tier 1 2022",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "2ebfb63d-dd8d-4e31-95ba-20f02b392fd5",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "With reference to the cultivation of Saffron (Crocus sativus) in Jammu and Kashmir, consider the following statements:<br>1. It is predominantly cultivated in the lacustrine deposits known as 'Karewas' in Pampore, Budgam, and Kishtwar.<br>2. Kashmir Saffron holds a Geographical Indication (GI) tag classified under three distinct grades: Lachha, Mongra, and Guchhi.<br>3. Saffron flowers are harvested primarily during the spring season (March to April).<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Saffron</span> is an <span class=\"text-blue font-bold\">autumn crop</span> in <span class=\"text-green font-bold\">Kashmir</span>, harvested during <span class=\"text-orange font-bold\"></span><span class=\"text-orange\" style=\"font-weight: 800;\">October and November (Harud season),</span> making <span class=\"text-teal font-bold\">Statement 3 incorrect</span>. <div><span class=\"text-red font-bold\">Statements 1 and 2 are correct</span>; <span class=\"text-green font-bold\">Kashmir</span> <span class=\"text-red font-bold\">Saffron</span> is cultivated on the flat-topped <span class=\"text-blue font-bold\">Karewa terraces</span> and holds a prestigious <span class=\"text-green font-bold\">GI tag</span> divided into <span class=\"text-orange font-bold\">Lachha, Mongra, and Guchhi</span> varieties.</div><div><img src=\"https://storage.googleapis.com/dalvoy-lessons-images/prelims-infographics/2009/UPSCPRELI2009GS01033.webp\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "JKSSB FAA 2022",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "b98c8085-0f18-4250-a546-b31d95434ce5",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding coarse cereals (Millets) in India:<br>1. Millets have high nutritional value and are officially categorized as 'Nutri-cereals'.<br>2. Jowar is a rainfed crop grown primarily in moist areas that hardly requires irrigation, with Maharashtra being its largest producer.<br>3. Ragi is a crop of dry regions that grows well on red, black, sandy, and loamy soils, with Karnataka being the leading producer.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\"><span class=\"text-green\" style=\"font-weight: 800;\">All three statements are correct</span></span>. <span class=\"text-blue font-bold\">Millets (Jowar, Bajra, Ragi)</span> are <span class=\"text-green font-bold\">hardy, drought-resistant crops</span> with <span class=\"text-orange font-bold\">high dietary fiber and minerals</span>; <span class=\"text-magenta font-bold\">Maharashtra leads Jowar production</span>, <span class=\"text-teal font-bold\">Karnataka leads Ragi</span>, and <span class=\"text-red font-bold\">Rajasthan dominates Bajra cultivation</span>.<div><img src=\"https://www.insightsonindia.com/wp-content/uploads/2023/01/millets.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "UPSC Prelims 2021",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "7a5c51b9-7d7e-48e0-b4ad-96a3af3e1039",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "hard",
+    "question": "India is the largest producer as well as consumer of pulses in the world. Which of the following pulses is an exception that does NOT restore soil fertility through biological nitrogen fixation?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gram (Chickpea)",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Arhar (Pigeon Pea / Tur)",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Urad (Black Gram)",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Moong (Green Gram)",
+        "label": "D"
+      }
+    ],
+    "explanation": "While almost all <span class=\"text-red font-bold\">leguminous pulses</span> <span class=\"text-blue font-bold\">fix atmospheric nitrogen</span> to naturally <span class=\"text-green font-bold\">replenish soil fertility</span>, <span class=\"text-orange font-bold\">Arhar (Tur / Pigeon pea)</span> is an <span class=\"text-magenta font-bold\">exception</span> because its nitrogen-fixing symbiosis is not restorative in short crop rotations and it has a <span class=\"text-teal font-bold\">long gestation period</span> (up to <span class=\"text-red font-bold\">9–10 months)</span>. <span class=\"text-blue font-bold\">Madhya Pradesh</span> is India's leading pulses producer.<div><img src=\"https://pmfias.b-cdn.net/wp-content/uploads/2025/10/Mission-for-Aatmanirbharta-in-Pulses.jpg\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "UPSC Prelims 2017",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "a5667248-1f68-4384-9ed6-9268efb72add",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "easy",
+    "question": "In Jammu and Kashmir, which of the following areas is globally renowned for producing premium quality aroma-rich Basmati rice, and which district is traditionally known as the 'Rice Bowl of Kashmir'?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "R.S. Pura and Kulgam",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Akhnoor and Baramulla",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Samba and Kupwara",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Kathua and Ganderbal",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\"><span class=\"text-blue\" style=\"font-weight: 800;\">R.S. Pura (Ranbir Singh Pura)</span></span> in <span class=\"text-blue font-bold\">Jammu district</span> is <span class=\"text-green font-bold\"><span class=\"text-blue\" style=\"font-weight: 800;\">world-renowned</span></span> for its <span class=\"text-blue\" style=\"font-weight: 800;\">distinct GI/export-grade Basmati rice</span><span class=\"text-orange font-bold\"></span>. In the <span class=\"text-magenta font-bold\">Kashmir Valley</span>, <span class=\"text-teal font-bold\"><span class=\"text-magenta\" style=\"font-weight: 800;\">Kulgam</span></span> (along with fertile adjacent belts of <span class=\"text-red font-bold\">Pulwama and Anantnag)</span> is traditionally called the<span class=\"text-magenta\" style=\"font-weight: 800;\"> 'Rice Bowl of Kashmir' </span>due to high-yielding paddy fields fed by the <span class=\"text-green font-bold\">Veshav river</span>.<div><img src=\"https://indianexpress.com/wp-content/uploads/2026/04/Rice-production-in-India-is-heavily-concentrated-with-a-few-big-states-doing-most-of-the-heavy.jpg?resize=304\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "JKSSB Sub-Inspector 2022",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "32214ba5-fc8c-4df9-8cdc-99351279e4e5",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "easy",
+    "question": "Which of the following is NOT a characteristic feature of 'Plantation Agriculture'?",
+    "correctId": "c",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is an interface between agriculture and industry, covering large estates using capital-intensive inputs.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "A single crop is grown over a large area primarily for commercial sale and processing.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "It relies predominantly on primitive wooden tools with family labor for local subsistence needs.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "It requires well-developed transport and communication networks connecting estates directly to factories and markets.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Plantation agriculture</span> is <span class=\"text-blue font-bold\">modern commercial farming</span> initiated by <span class=\"text-green font-bold\">colonial enterprises</span> that uses <span class=\"text-orange font-bold\">heavy capital, technical expertise, and hired migrant labor</span>. <span class=\"text-magenta font-bold\">Subsistence farming</span> with <span class=\"text-teal font-bold\">family labor and primitive tools</span> characterizes <span class=\"text-red font-bold\">Primitive Subsistence / Shifting Cultivation</span>, <span class=\"text-blue font-bold\">not Plantations</span>.",
+    "pyq": "SSC CGL Tier 1 2020",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "159f359d-53ba-434e-bad8-2013ff4e891c",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding beverage crops (Tea and Coffee) in India:<br>1. Tea requires a warm and moist frost-free climate throughout the year with frequent, evenly distributed showers.<br>2. The initial Arabica variety of coffee cultivated in India was brought from Yemen and planted on the Baba Budan Hills.<br>3. Tea bushes thrive best in stagnant water accumulated on flat alluvial plains.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Tea bushes</span> <span class=\"text-blue font-bold\">cannot tolerate waterlogging</span>; <span class=\"text-green font-bold\">stagnant water rots their roots</span>, which is why tea is strictly grown on <span class=\"text-orange font-bold\">well-drained, undulating hill slopes</span> (making <span class=\"text-magenta font-bold\">Statement 3 incorrect)</span>. The prized <span class=\"text-teal font-bold\">Arabica coffee</span> was brought from <span class=\"text-red font-bold\">Yemen</span> to the <span class=\"text-blue font-bold\">Baba Budan Giri hills</span> of <span class=\"text-green font-bold\">Karnataka</span>, which remains India's coffee heartland.",
+    "pyq": "UPSC Prelims 2018",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "c64c5cfb-e3f4-45dc-ac80-43a044250390",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "With respect to temperate fruit cultivation in Jammu and Kashmir, consider the following statements:<br>1. 'Ambri' is considered the only indigenous commercial variety of apple native to the Kashmir Valley.<br>2. Jammu and Kashmir accounts for over 80% of the total walnut production in India.<br>3. Apple trees in Kashmir strictly require a tropical humid climate with zero chilling hours.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Ambri</span> is the <span class=\"text-blue font-bold\">prized indigenous Kashmiri apple</span>, and J&amp;K contributes 85%–90% of India's total walnut production. <span class=\"text-magenta font-bold\">Statement 3 is incorrect</span> because apple is a <span class=\"text-teal font-bold\">temperate deciduous pome fruit</span> requiring <span class=\"text-red font-bold\">1,000–1,500 hours of chilling temperatures</span> <span class=\"text-blue font-bold\">(below 7°C)</span> to <span class=\"text-green font-bold\">break winter dormancy</span> and set fruit.<div><img src=\"https://www.insightsonindia.com/wp-content/uploads/2023/03/apple-1024x1024.png\" class=\"nk-mcq-image cursor-pointer\" data-align=\"center\" style=\"width: 100%;\"> </div><div>   </div>",
+    "pyq": "JKSSB Assistant Compiler 2021",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "b167806c-c3d3-4dbc-b530-345381562725",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "hard",
+    "question": "Consider the following statements regarding dual-season and transitional crops in Indian agriculture:<br>1. Sesamum (Til) is grown as a Kharif crop in North India but as a Rabi crop in South India.<br>2. Castor seed is grown during both the Kharif and Rabi seasons in India.<br>3. Zaid is a short summer cropping season between Rabi and Kharif that prominently includes watermelons, cucumbers, and fodder crops.<br>Which of the statements given above are correct?",
+    "correctId": "d",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\"><span class=\"text-blue\" style=\"font-weight: 800;\">All three statements are standard NCERT facts</span></span>. <span class=\"text-green font-bold\">Sesamum</span> shifts between <span class=\"text-orange font-bold\">Kharif (North) and Rabi (South)</span> due to <span class=\"text-magenta font-bold\">temperature profiles</span>, <span class=\"text-teal font-bold\">Castor seed</span> serves <span class=\"text-red font-bold\">dual seasons</span>, and the <span class=\"text-blue font-bold\">Zaid season (March–June)</span> utilizes <span class=\"text-green font-bold\">dry heat with irrigation</span> for <span class=\"text-orange font-bold\">rapid-growing gourds and vegetables</span>.",
+    "pyq": "SSC CGL Tier 1 2020",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "6f25d785-a34e-4761-86f8-7e7334448f26",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "hard",
+    "question": "Which of the following statements correctly differentiates between 'Intensive Subsistence Agriculture' and 'Extensive Commercial Agriculture'?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Intensive subsistence agriculture has high yield per hectare but low yield per worker, whereas extensive commercial farming has low yield per hectare but high yield per worker.",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Intensive subsistence farming is practiced in sparsely populated lands with large farms using heavy combine harvesters.",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Extensive commercial agriculture relies purely on organic manure and animal draft power with zero mechanical inputs.",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "Intensive subsistence farming produces massive grain surpluses for export, whereas extensive commercial farming is meant purely for family survival.",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Intensive subsistence farming</span> occurs in <span class=\"text-blue font-bold\">densely populated river plains</span> where <span class=\"text-green font-bold\">high man-to-land pressure</span> forces <span class=\"text-orange font-bold\">high output per unit area</span> using <span class=\"text-magenta font-bold\">intensive human labor</span> (yielding <span class=\"text-teal font-bold\">low labor productivity)</span>. <span class=\"text-red font-bold\">Extensive commercial farming</span> (e.g., <span class=\"text-blue font-bold\">prairies, steppes, or large wheat farms)</span> uses <span class=\"text-green font-bold\">minimal human labor on huge plots</span>, yielding <span class=\"text-orange font-bold\">lower output per hectare</span> but <span class=\"text-magenta font-bold\">extraordinarily high output per agricultural worker</span>.",
+    "pyq": "UPSC Prelims 2016",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "2264a802-24f4-4f03-b93c-ab7c0f5fc54b",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding maize cultivation and agro-climatic zones in Jammu and Kashmir:<br>1. Maize is grown primarily as a Kharif crop and serves as a dietary staple in the hilly and Kandi tracts of Rajouri, Poonch, and Doda.<br>2. The plains of Jammu Division belong to the Sub-Tropical agro-climatic zone, whereas the Kashmir Valley belongs to the Temperate zone.<br>3. Maize plants require continuously waterlogged soils and freezing temperatures during their vegetative growth stages.<br>Which of the statements given above is/are correct?",
+    "correctId": "b",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "1 and 2 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "2 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">Maize</span> is an <span class=\"text-blue font-bold\">upland Kharif crop</span> requiring warm temperatures <span class=\"text-green font-bold\">(21°C–27°C)</span> and <span class=\"text-orange font-bold\">well-drained loamy soils</span>; it is <span class=\"text-magenta font-bold\">extremely sensitive to frost and waterlogging</span> (making <span class=\"text-teal font-bold\">Statement 3 false)</span>. <span class=\"text-red font-bold\">Statements 1 and 2</span> correctly outline its regional reliance in J&amp;K's Pir Panjal belt and the UT's <span class=\"text-green font-bold\">agro-climatic divisions</span>.",
+    "pyq": "JKSSB FAA 2024",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "c21f0b85-4239-4ab5-8102-d184c6685f23",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "easy",
+    "question": "In states like West Bengal, Assam, and Odisha, three distinct crops of paddy (rice) are cultivated in an agricultural calendar year owing to warm climate and high water availability. What are these three paddy crops called?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "Aus, Aman, and Boro",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "Sont, Sonalika, and Rohini",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "Bodo, Sant and IR8",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "IR8, Bewar, and Podu",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-red font-bold\">West Bengal, Assam, and coastal Odisha</span> cultivate <span class=\"text-blue font-bold\">three annual crops of rice</span>: <span class=\"text-green font-bold\">Aus (autumn rice, sown May-June)</span>, <span class=\"text-orange font-bold\">Aman (winter rice, sown June-July and harvested Nov-Dec)</span>, and <span class=\"text-magenta font-bold\">Boro (summer rice, sown Nov-Dec and harvested March-April)</span>.",
+    "pyq": "SSC CGL Tier 1 2022",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
+    "id": "11637fb3-c503-4db5-82c7-645265079ee9",
+    "category_id": "indian-geography",
+    "tags": [
+      "Agriculture"
+    ],
+    "difficulty": "medium",
+    "question": "Consider the following statements regarding Sugarcane and Jute cultivation in India:<br>1. Sugarcane is a tropical and subtropical crop requiring a hot and humid climate with 21°C to 27°C temperature and 75 cm to 100 cm annual rainfall.<br>2. Jute, known as the 'Golden Fibre', requires high temperatures during its growth and flourishes on well-drained, renewed floodplains.<br>3. India is the largest exporter of raw jute in the world, with Punjab and Haryana being the top two producing states.<br>Which of the statements given above is/are correct?",
+    "correctId": "a",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 and 2 only",
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "text": "2 and 3 only",
+        "label": "B"
+      },
+      {
+        "id": "c",
+        "text": "1 and 3 only",
+        "label": "C"
+      },
+      {
+        "id": "d",
+        "text": "1, 2, and 3",
+        "label": "D"
+      }
+    ],
+    "explanation": "<span class=\"text-blue font-bold\">Statement 3 is incorrect</span> because <span class=\"text-green font-bold\">West Bengal</span> is the <span class=\"text-orange font-bold\">undisputed domestic leader in jute production</span> (followed by <span class=\"text-magenta font-bold\">Bihar and Assam)</span> in the <span class=\"text-teal font-bold\">Ganga-Brahmaputra delta</span>, while <span class=\"text-red font-bold\"></span><span class=\"text-blue\" style=\"font-weight: 800;\">Bangladesh  remains the world's leading exporter of raw jute</span>.",
+    "pyq": "SSC CGL Tier 1 2023",
+    "created_at": "2026-09-25T14:57:52.810329+00:00"
+  },
+  {
     "id": "868dc297-c8b5-4fb5-8b33-5ec91f800302",
     "category_id": "indian-geography",
     "tags": [
